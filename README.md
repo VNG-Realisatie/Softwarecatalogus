@@ -41,4 +41,4 @@ De stuurgroep bestaat uit:
 * Jeroen de Ruijg (Projectleider)
 * Nils Verhoeven (Projectmedewerker)
 * John van Dijk (Opdrachtgever)
-Contact kan op genomen via softwarecatalogus@vng.nl
+Contact kan worden opgenomen via softwarecatalogus@vng.nl
