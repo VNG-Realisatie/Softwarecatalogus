@@ -33,6 +33,12 @@ De stuurgroep bestaat uit:
 - de opdrachtgever en de projectleider namens de VNG
 - ..​
 
+## Pakket van eisen
+Als onderdeel van het bestek is een Pakket van Eisen (PvE) opgesteld in zowel een document als een spreadsheet. Dit PvE is verder uitgewerkt in een reeks ArchiMate-views, waarin de user-stories als requirements per te realiseren component zijn vastgelegd.
+
+Deze uitwerking is gemaakt om het PvE toegankelijker te maken en wordt tijdens de realisatie gebruikt bij het bespreken van de sprints en het refinen van de user-stories.
+
+De views zijn toegankelijk via de [Startpagina requirements Softwarecatalogus](https://vng-realisatie.github.io/Over-GEMMA-Archi-repository/?view=id-59dac597ac234451bba4c8246e8c701e).
 
 ### Contactgegevens betrokkenen:
 #### VNG
