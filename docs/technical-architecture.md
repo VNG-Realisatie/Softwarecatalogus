@@ -53,11 +53,11 @@ De oplossing ondersteunt:
 2. Versie management van GEMMA modellen
 3. Behoud van bestaande relaties bij updates
 4. Automatische rollback bij importfouten
-5. AMEFF export van pakketoverzichten
+5. AMEFF export van pakketoverzichten en koppelingen.
 
 ### GEMMA Architectuur Ontsluiting
-- REST API voor GEMMA architectuurconcepten
-- Zoek- en filterfunctionaliteit op architectuurconcepten
+- JSON REST API voor GEMMA architectuurconcepten
+- Zoek- en filterfunctionaliteit op archimate concepten 
 - Linked Data API voor definities
 - Directe koppelingen naar GEMMA Online
 - Configureerbare basis-URLs voor verschillende omgevingen
@@ -81,9 +81,11 @@ De componenten werken samen volgens Common Ground principes:
 
 De Softwarecatalogus maakt gebruik van het officiële [GEMMA ArchiMate model](https://www.gemmaonline.nl/index.php?title=Download_GEMMA_ArchiMate-repository). Dit model:
 - Is beschikbaar als AMEFF (ArchiMate Model Exchange File Format) export
-- Wordt regelmatig geactualiseerd en doorontwikkeld
+- Wordt regelmatig geactualiseerd en doorontwikkeld en gepubliceerd op github
 - Bevat de complete GEMMA referentiearchitectuur
 - Kan worden geïmporteerd in architectuurtools zoals Archi
+- Onderzoekspuntje -> releasen vanaf github
+- Het is bedoeling dat acceptatie op een andere versie van Gemma kan draaien dan Prod
 
 ### Ontwikkeltools
 Voor het werken met ArchiMate modellen raden we de volgende tools aan:
