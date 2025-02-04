@@ -94,7 +94,7 @@ Contact kan worden opgenomen via softwarecatalogus@vng.nl
 #### VNG
 * Peter Makkes (Productowner)
 * Mark Backer (Solution Architect)
-* Jeroen de Ruijg (Projectleider)
+* Jeroen de Ruig (Projectleider)
 * Nils Verhoeven (Projectmedewerker)
 * John van Dijk (Opdrachtgever)
 
