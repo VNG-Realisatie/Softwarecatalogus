@@ -1,0 +1,65 @@
+name: Epic
+description: Maak een nieuwe epic aan voor een grote functionaliteit of feature set
+title: "[Epic] "
+assignees:
+  - rubenvdlinde
+labels:
+  - epic
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bedankt voor het aanmaken van een epic. Zorg ervoor dat je de richtlijnen volgt zoals beschreven in onze [issues.md](../../issues/issues.md).
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Beschrijving
+      description: Geef een overzicht van wat deze epic inhoudt
+      placeholder: |
+        Beschrijf hier het grotere doel of de overkoepelende functionaliteit van deze epic
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-stories
+    attributes:
+      label: Gerelateerde User Stories
+      description: Lijst van user stories die onder deze epic vallen
+      placeholder: |
+        - [ ] User Story 1: Als [rol] wil ik [actie] zodat [doel] (#issue-nummer)
+        - [ ] User Story 2: Als [rol] wil ik [actie] zodat [doel] (#issue-nummer)
+    validations:
+      required: true
+
+  - type: textarea
+    id: business-value
+    attributes:
+      label: Business Value
+      description: Beschrijf de waarde die deze epic toevoegt aan het project
+      placeholder: Leg uit waarom deze epic belangrijk is en welke waarde het oplevert
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptatiecriteria
+      description: Overkoepelende criteria waaraan de epic moet voldoen
+      placeholder: |
+        - [ ] Criterium 1
+        - [ ] Criterium 2
+        - [ ] Criterium 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Afhankelijkheden
+      description: Lijst eventuele afhankelijkheden of voorwaarden
+      placeholder: |
+        - Technische vereisten
+        - Externe afhankelijkheden
+        - Andere epics die eerst afgerond moeten zijn 

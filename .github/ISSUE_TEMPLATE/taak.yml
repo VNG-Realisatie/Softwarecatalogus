@@ -1,0 +1,48 @@
+name: Taak
+description: Maak een nieuwe taak aan
+title: "[Taak] "
+assignees:
+  - rubenvdlinde
+labels:
+  - taak
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bedankt voor het aanmaken van een taak. Zorg ervoor dat je de richtlijnen volgt zoals beschreven in onze [issues.md](../../issues/issues.md)
+
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Sprint
+      description: Selecteer de sprint waarin deze taak wordt opgepakt
+      options:
+        - "Geen sprint (backlog)"
+        - "Sprint 1"
+        - "Sprint 2"
+        - "Sprint 3"
+        - "Sprint 4"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Beschrijving
+      description: Geef een duidelijke beschrijving van de taak
+      placeholder: Beschrijf hier wat er gedaan moet worden
+    validations:
+      required: true
+
+  - type: textarea
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Lijst van concrete actiepunten
+      placeholder: |
+        - [ ] Actiepunt 1
+        - [ ] Actiepunt 2
+        - [ ] Actiepunt 3
+    validations:
+      required: true 
