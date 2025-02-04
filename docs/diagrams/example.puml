@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "Web App" as App
+database "Database" as DB
+
+User -> App: Login Request
+App -> DB: Validate Credentials
+DB --> App: Authentication Result
+App --> User: Login Response
+@enduml 

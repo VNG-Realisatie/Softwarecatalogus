@@ -1,0 +1,24 @@
+name: Automatische Issue Reactie
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  issue-response:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Reageer op nieuwe issue
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Bedankt voor het aanmaken van deze issue! 👋
+            
+            Voor meer informatie over onze spelregels voor het schrijven van issues, bekijk alsjeblieft onze [issues.md](../../issues/issues.md) documentatie.
+            
+            Belangrijke punten om te controleren:
+            - ✍️ Is de beschrijving helder en compleet?
+            - 📋 Zijn er duidelijke acceptatiecriteria toegevoegd?
+            - 🎯 Is de context voldoende beschreven? 

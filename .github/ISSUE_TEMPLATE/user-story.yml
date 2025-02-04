@@ -1,0 +1,58 @@
+name: User Story
+description: Maak een nieuwe user story aan volgens het voorgeschreven format
+title: "Als [rol] wil ik [actie] zodat [doel]"
+assignees:
+  - rubenvdlinde
+labels:
+  - user story
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Bedankt voor het aanmaken van een user story. Zorg ervoor dat je het format volgt zoals beschreven in onze [issues.md](../../issues/issues.md).
+
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Sprint
+      description: Selecteer de sprint waarin deze user story wordt opgepakt
+      options:
+        - "Geen sprint (backlog)"
+        - "Sprint 1"
+        - "Sprint 2"
+        - "Sprint 3"
+        - "Sprint 4"
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-story
+    attributes:
+      label: User Story
+      description: Beschrijf de user story volgens het format
+      placeholder: |
+        Als [rol/gebruiker]
+        Wil ik [actie/functionaliteit]
+        Zodat ik [doel/waarde]
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptatiecriteria
+      description: Lijst van SMART criteria waaraan voldaan moet worden
+      placeholder: |
+        - [ ] Criterium 1
+        - [ ] Criterium 2
+        - [ ] Criterium 3
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Voeg relevante context of aanvullende informatie toe
+      placeholder: Beschrijf hier eventuele context die belangrijk is voor deze user story 

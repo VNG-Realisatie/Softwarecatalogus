@@ -19,10 +19,50 @@ Gemeenten gebruiken de softwarecatalogus voor:
 
 ## Projectafspraken
 Het project is opgedeeld in 4 blokken:
-- Component referentie-architectuur > Architectuur gedeelte
-- Component organisaties > opvoeren van organisaties en gebruikers
-- Component aanbod > 
-- Component gebruik > UI
+
+### Component referentie-architectuur (5 februari - 18 maart)
+Focus op architectuur gedeelte en voorbereiding
+- Referentiearchitectuur
+
+### Component organisaties (19 maart - 15 april)
+Focus op organisatiebeheer en gebruikersfunctionaliteit
+- Beheren organisaties
+- Ontsluiten organisaties  
+- Registreren extra organisatie informatie
+- Beheren gebruikers en rollen
+
+### Component aanbod (16 april - 13 mei)
+Focus op aanbod en gebruiksstatistieken
+- Raadplegen aanbod
+- Raadplegen gebruik
+- Filteren
+- Tonen statistieken gebruik
+- Registreren aangeboden pakketten
+
+### Component gebruik (14 mei - 10 juni)
+Focus op gebruikerservaring en functionaliteit
+- Exporteren
+- Beheren configuratie
+- Beheren Content
+- Migratie
+- Registreren koppelingen
+- Registreren gebruikte pakketten
+- Standaarden
+- Gebruikersvriendelijk
+- Toegankelijkheid
+
+## Sprint Planning
+| Sprint | Onderwerp | Begindatum | Einddatum |
+|--------|-----------|------------|------------|
+| 1 | Component referentie-architectuur | 5 februari | 18 februari |
+| 2 | Component referentie-architectuur | 19 februari | 4 maart |
+| 3 | Component referentie-architectuur | 5 maart | 18 maart |
+| 4 | Component organisaties | 19 maart | 1 april |
+| 5 | Component organisaties | 2 april | 15 april |
+| 6 | Component aanbod | 16 april | 29 april |
+| 7 | Component aanbod | 30 april | 13 mei |
+| 8 | Component gebruik | 14 mei | 27 mei |
+| 9 | Component gebruik | 28 mei | 10 juni |
 
 Iedere twee weken op de dinsdag is een gezamenlijke bijeenkomst in Utrecht. Meetings die dan plaatsvinden zijn:
 - Sprintreview​s (eerste periode besloten, later op uitnodiging)
@@ -65,3 +105,29 @@ Contact kan worden opgenomen via softwarecatalogus@vng.nl
 * [Mark Westerweel](https://github.com/MWest2020) (Implementatie, Beheer en Ondersteuning)
 * [Remco Huisman](https://github.com/remko48), [Thijn](https://github.com/SudoThijn) (Frontend Development)
 * [Robert Zondervan](https://github.com/rjzondervan), [Wilco Louwers](https://github.com/WilcoLouwerse), [Barry brands](https://github.com/bbrands02) (Backend Development)
+
+# Project Inrichting
+
+## Organisatiestructuur
+
+Het project kent twee belangrijke overlegstructuren:
+
+### Stuurgroep
+De stuurgroep komt ieder kwartaal bijeen om de algemene projectvoortgang te bespreken. De stuurgroep bestaat uit:
+- Ruben
+- John
+- Remco
+- Jeroen
+
+### Projectgroep
+De projectgroep komt elke twee weken op dinsdag bijeen voor sprint planning en issue management.
+
+![Organisatiestructuur](docs/diagrams/organization.svg)
+
+## Project Documentatie
+Voor meer informatie over het project, raadpleeg de volgende documenten:
+
+### Technische Documentatie
+- [Technische Architectuur](docs/technical-architecture.md) - Overzicht van de componenten en hun samenhang
+- [Security](docs/security.md) - Security maatregelen en procedures
+- [Contributing Guidelines](CONTRIBUTING.md) - Richtlijnen voor het bijdragen aan het project

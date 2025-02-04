@@ -1,0 +1,35 @@
+@startuml
+skinparam rectangle {
+    roundCorner 25
+}
+
+rectangle "Stuurgroep\n<i>Kwartaaloverleg</i>" as steering {
+    actor "Ruben" as ruben
+    actor "John" as john
+    actor "Remco" as remco
+    actor "Jeroen" as jeroen
+}
+
+rectangle "Projectgroep\n<i>Tweewekelijks Sprint Overleg</i>" as project {
+    actor "Development Team" as dev
+    actor "Product Owner" as po
+    actor "Scrum Master" as sm
+}
+
+steering -[hidden]d- project
+
+note right of steering
+  Verantwoordelijk voor:
+  * Strategische beslissingen
+  * Budget bewaking
+  * Project voortgang
+end note
+
+note right of project
+  Verantwoordelijk voor:
+  * Sprint planning
+  * Issue management
+  * Dagelijkse operatie
+end note
+
+@enduml 

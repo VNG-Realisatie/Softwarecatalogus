@@ -1,0 +1,24 @@
+@startuml
+!include <C4/C4_Component>
+
+LAYOUT_WITH_LEGEND()
+
+title Component Diagram Softwarecatalogus
+
+Container_Boundary(softwarecatalogus, "Softwarecatalogus") {
+    Component(pv, "Publicatie Voorziening", "Frontend", "Gebruikersinterface voor de softwarecatalogus")
+    Component(oc, "Open Catalogi", "Backend", "Inrichting en zoekfunctionaliteit")
+    Component(or, "Open Registers", "Data Storage", "Centrale dataopslag")
+    Component(connector, "Open Connector", "Integration", "Data verzameling en aggregatie")
+}
+
+System_Ext(cmdb, "CMDB Systemen", "Externe bronnen van software informatie")
+Person(user, "Gebruiker", "Eindgebruiker van de softwarecatalogus")
+
+Rel(user, pv, "Gebruikt", "HTTPS")
+Rel(pv, oc, "Vraagt data op", "REST API")
+Rel(oc, or, "Leest/schrijft data", "REST API")
+Rel(connector, cmdb, "Haalt data op", "API/Export")
+Rel(connector, or, "Schrijft data", "REST API")
+
+@enduml 
