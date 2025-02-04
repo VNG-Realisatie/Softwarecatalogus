@@ -85,6 +85,24 @@ De Softwarecatalogus maakt gebruik van het officiële [GEMMA ArchiMate model](ht
 - Bevat de complete GEMMA referentiearchitectuur
 - Kan worden geïmporteerd in architectuurtools zoals Archi
 
+### Ontwikkeltools
+Voor het werken met ArchiMate modellen raden we de volgende tools aan:
+
+#### Archi Tool
+[Archi](https://www.archimatetool.com/) is een open source ArchiMate modelling tool die:
+- Gratis te gebruiken is
+- Beschikbaar is voor Windows, Mac en Linux
+- AMEFF import/export ondersteunt
+- Uitgebreide documentatie heeft
+- Actief wordt onderhouden
+
+#### GEMMA ArchiMate Repository
+Het [GEMMA ArchiMate model](https://www.gemmaonline.nl/index.php?title=Download_GEMMA_ArchiMate-repository) kan worden gedownload om:
+- De referentiearchitectuur te bestuderen
+- De structuur van het AMEFF formaat te begrijpen
+- Te testen met imports en exports
+- Views en relaties te analyseren
+
 Het model wordt gebruikt voor:
 - Het importeren van nieuwe GEMMA releases
 - Het koppelen van software aan referentiecomponenten
