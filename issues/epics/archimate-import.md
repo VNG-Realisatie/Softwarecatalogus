@@ -20,10 +20,11 @@ Als functioneel beheerder wil ik dat een nieuwe release van het GEMMA ArchiMate-
 - [ ] Als gebruiker wil ik definities zien bij hover over elementen
 
 ## Acceptatiecriteria
-- Import verwerkt AMEFF bestanden < 2 minuten
+- Import verwerkt het [GEMMA AMEFF bestand](https://github.com/VNG-Realisatie/GEMMA-Archi-repository/blob/master/export/GEMMA%20release.xml) < 2 minuten
 - Bestaande relaties blijven behouden
 - Automatische rollback bij fouten
-- Duidelijke foutmeldingen voor beheerders
+- Import kan gestart worden door de functioneel beheerder
+- Duidelijke foutmeldingen voor de functioneel beheerder
 - Succesvolle imports tonen GEMMA versie
 - Alle elementen, relaties en views worden correct bijgewerkt
 - Verwijderde elementen worden correct verwerkt
