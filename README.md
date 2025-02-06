@@ -103,7 +103,7 @@ Contact kan worden opgenomen via softwarecatalogus@vng.nl
 #### Conduction
 * [Ruben van der Linde](https://github.com/rubenvdlinde)(Product lead/Owner)
 * [Matthias](https://github.com/matthiasoliveiro) (Scrum & Testen)
-* Remco Damhuis (Commercieel & Contractbeheer)
+* [Remco Damhuis](https://github.com/Rem-Dam) (Commercieel & Contractbeheer)
 * [Mark Westerweel](https://github.com/MWest2020) (Implementatie, Beheer en Ondersteuning)
 * [Remco Huisman](https://github.com/remko48), [Thijn](https://github.com/SudoThijn) (Frontend Development)
 * [Robert Zondervan](https://github.com/rjzondervan), [Wilco Louwers](https://github.com/WilcoLouwerse), [Barry brands](https://github.com/bbrands02) (Backend Development)
