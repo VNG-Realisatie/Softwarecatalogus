@@ -5,17 +5,17 @@ Deze nieuwe versie van de softwarecatalogus gaat aansluiten bij nieuwe vraagstuk
 
 Gemeenten gebruiken de softwarecatalogus voor:
 
-► Marktoriëntatie voor nieuwe of vervangende software;
-► Vergelijken met andere gemeenten;
-► Contact leggen met gemeenten met vergelijkbaar of interessant productportfolio;
-► Het plannen van ICT-vervangingen;
-► Het opstellen van een Programma van Eisen;
-► Het beoordelen van offertes.
+- Marktoriëntatie voor nieuwe of vervangende software;
+- Vergelijken met andere gemeenten;
+- Contact leggen met gemeenten met vergelijkbaar of interessant productportfolio;
+- Het plannen van ICT-vervangingen;
+- Het opstellen van een Programma van Eisen;
+- Het beoordelen van offertes.
 
 ## Project overzicht
 - [Project planning](https://github.com/orgs/OpenCatalogi/projects/4/views/1)
 - [Meetings](https://github.com/VNG-Realisatie/softwarecatalogus/tree/main/meetings)
-* [Issues](https://github.com/VNG-Realisatie/softwarecatalogus/issues)
+- [Issues](https://github.com/VNG-Realisatie/softwarecatalogus/issues)
 
 ## Projectafspraken
 Het project is opgedeeld in 4 blokken:
