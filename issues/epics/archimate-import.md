@@ -2,6 +2,8 @@
 
 Als functioneel beheerder wil ik dat een nieuwe release van het GEMMA ArchiMate-model gebruiksvriendelijk ingelezen kan worden in de softwarecatalogus, waarbij de relaties die al zijn gemaakt tussen pakketten en de GEMMA blijven bestaan.
 
+Zie ook uitwerking [Pakket van Eisen](https://vng-realisatie.github.io/Over-GEMMA-Archi-repository/?view=id-3f2d018b38fb4e008d7c142248459b29), domein [Referentiearchitectuur](https://vng-realisatie.github.io/Over-GEMMA-Archi-repository/?view=id-00da0c7e38764f8f82a57792dcddab00)
+
 ## User Stories
 
 ### XML Import Framework
@@ -29,6 +31,10 @@ Als functioneel beheerder wil ik dat een nieuwe release van het GEMMA ArchiMate-
 - Alle elementen, relaties en views worden correct bijgewerkt
 - Verwijderde elementen worden correct verwerkt
 - Relaties tussen pakketten/koppelingen en GEMMA blijven herstelbaar
+
+## Algemene acceptatiecriteria
+- Database-schema voldoet aan het [CIM Voorzieningencatalogus, Domein Referentiearchitectuur](https://alliantie.github.io/voorzieningencatalogus/#global_package_Referentiearchitectuur)
+- Database is toegankelijk en bruikbaar voor een [management informatietool](https://vng-realisatie.github.io/Over-GEMMA-Archi-repository/?view=id-6071c57cc54647b8b82a29df8c170bcf)
 
 ## Technische Details
 1. Open Connector:
