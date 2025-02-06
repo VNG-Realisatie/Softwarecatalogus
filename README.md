@@ -21,8 +21,10 @@ Gemeenten gebruiken de softwarecatalogus voor:
 Het project is opgedeeld in 4 blokken:
 
 ### Component referentie-architectuur (5 februari - 18 maart)
-Focus op architectuur gedeelte en voorbereiding
-- Referentiearchitectuur
+Focus op het GEMMA ArchiMate-model
+- Importeren en exporteren ArchiMate
+- Ontsluiten GEMMA met API 
+- Plotten op GEMMA views
 
 ### Component organisaties (19 maart - 15 april)
 Focus op organisatiebeheer en gebruikersfunctionaliteit
