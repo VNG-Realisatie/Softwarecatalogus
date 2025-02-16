@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd" identifier="id-d47463497ef83403bedb663bff370727">
+  <name xml:lang="nl">GEMMA</name>
+  <documentation xml:lang="nl">De GEMeentelijk Model Architectuur (GEMMA) bevat een blauwdruk van de gemeente en haar informatievoorziening. De GEMMA kan worden gebruikt als basis voor de projectmodellen</documentation>
+  <properties>
+    <property propertyDefinitionRef="propid-68">
+      <value xml:lang="nl">Softwarecatalogus en GEMMA Online en redactie</value>
+    </property>
+    <property propertyDefinitionRef="propid-19">
+      <value xml:lang="nl">In gebruik</value>
+    </property>
+    <property propertyDefinitionRef="propid-75">
+      <value xml:lang="nl">Archi</value>
+    </property>
+    <property propertyDefinitionRef="propid-76">
+      <value xml:lang="nl">Kernmodel</value>
+    </property>
+    <property propertyDefinitionRef="propid-2">
+      <value xml:lang="nl">2b2b88ba-8efe-46d3-8b40-47af290bc418</value>
+    </property>
+    <property propertyDefinitionRef="propid-77">
+      <value xml:lang="nl">Ja</value>
+    </property>
+    <property propertyDefinitionRef="propid-78">
+      <value xml:lang="nl">2025-01-09</value>
+    </property>    
+  </properties>
+  <elements>
+    <element identifier="id-df1074a4-b301-4e47-b512-bf0335d8ce5a" xsi:type="BusinessProcess">
+      <name xml:lang="nl">...</name>
+      <properties>
+        <property propertyDefinitionRef="propid-2">
+          <value>df1074a4-b301-4e47-b512-bf0335d8ce5a</value>
+        </property>      
+        
+      </properties>
+    </element>
+    <element identifier="id-a4ad49b78a144174a03edbecc8727e3f" xsi:type="Grouping">
+      <name xml:lang="nl">0 Bestuur, Politiek en Ondersteuning</name>
+      <properties>
+        <property propertyDefinitionRef="propid-2">
+          <value>75002bfa-1beb-4875-bceb-e5093e669785</value>
+        </property>
+        <property propertyDefinitionRef="propid-50">
+          <value>0</value>
+        </property>
+        
+        
+        <property propertyDefinitionRef="propid-3">
+          <value>Taakveld Iv3</value>
+        </property>
+      </properties>
+    </element>
+</model>
+<!--Dit ArchiMate-uitwisselbestand is op 13 January 2025 23:42:59 CET gegenereerd door ArchiMedes™ © 2016-2025 ArchiXL.-->
+<!--Graag uw aandacht voor de volgende meldingen :
+Let op. Eigenschapdefinitie id-595bb4c3df238bd520ff0f88cb99c33d heeft geen geldige waarde voor eigenschap Name. Node wordt overgeslagen.-->

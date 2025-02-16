@@ -22,3 +22,4 @@
 | Security policies en branch protection rules instellen | - | TODO |
 | Architectuur documentatie en richtlijnen opstellen | - | TODO |
 | Signal groepje aanmaken | Jeroen | TODO |
+| Bij IBD ophalen hoeveel bestanden zij verwachten per pakket| Peter | TODO |
