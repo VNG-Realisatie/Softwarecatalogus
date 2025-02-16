@@ -79,8 +79,8 @@ De componenten werken samen volgens Common Ground principes:
 
 ## GEMMA ArchiMate Model
 
-De Softwarecatalogus maakt gebruik van het officiële [GEMMA ArchiMate model](https://www.gemmaonline.nl/index.php?title=Download_GEMMA_ArchiMate-repository). Dit model:
-- Is beschikbaar als AMEFF (ArchiMate Model Exchange File Format) export
+De Softwarecatalogus maakt gebruik van het officiële GEMMA ArchiMate-model. Dit model is te vinden op de pagina [Download GEMMA ArchiMate-repository](https://www.gemmaonline.nl/index.php?title=Download_GEMMA_ArchiMate-repository). Hier de directe link naar het [GEMMA AMEFF bestand](https://github.com/VNG-Realisatie/GEMMA-Archi-repository/blob/master/export/GEMMA%20release.xml). Dit model:
+- Is beschikbaar als AMEFF (ArchiMate Model Exchange File Format) export 
 - Wordt regelmatig geactualiseerd en doorontwikkeld en gepubliceerd op github
 - Bevat de complete GEMMA referentiearchitectuur
 - Kan worden geïmporteerd in architectuurtools zoals Archi
@@ -98,8 +98,10 @@ Voor het werken met ArchiMate modellen raden we de volgende tools aan:
 - Uitgebreide documentatie heeft
 - Actief wordt onderhouden
 
+Ga naar de GEMMA online pagina [ArchiMate modelleren](https://redactie.gemmaonline.nl/wiki/ArchiMate_modelleren) voor meer informatie en links.
+
 #### GEMMA ArchiMate Repository
-Het [GEMMA ArchiMate model](https://www.gemmaonline.nl/index.php?title=Download_GEMMA_ArchiMate-repository) kan worden gedownload om:
+Het [GEMMA AMEFF bestand](https://github.com/VNG-Realisatie/GEMMA-Archi-repository/blob/master/export/GEMMA%20release.xml) kan worden gedownload om:
 - De referentiearchitectuur te bestuderen
 - De structuur van het AMEFF formaat te begrijpen
 - Te testen met imports en exports
