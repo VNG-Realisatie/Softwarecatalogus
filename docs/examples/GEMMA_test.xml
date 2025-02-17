@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<model xmlns="http://www.opengroup.org/xsd/archimate/3.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd" identifier="id-d47463497ef83403bedb663bff370727">
+  <name xml:lang="nl">GEMMA</name>
+  <documentation xml:lang="nl">De GEMeentelijk Model Architectuur (GEMMA) bevat een blauwdruk van de gemeente en haar informatievoorziening. De GEMMA kan worden gebruikt als basis voor de projectmodellen</documentation>
+  <properties>
+    <property propertyDefinitionRef="propid-68">
+      <value xml:lang="nl">Softwarecatalogus en GEMMA Online en redactie</value>
+    </property>
+    <property propertyDefinitionRef="propid-19">
+      <value xml:lang="nl">In gebruik</value>
+    </property>
+    <property propertyDefinitionRef="propid-75">
+      <value xml:lang="nl">Archi</value>
+    </property>
+    <property propertyDefinitionRef="propid-76">
+      <value xml:lang="nl">Kernmodel</value>
+    </property>
+    <property propertyDefinitionRef="propid-2">
+      <value xml:lang="nl">2b2b88ba-8efe-46d3-8b40-47af290bc418</value>
+    </property>
+    <property propertyDefinitionRef="propid-77">
+      <value xml:lang="nl">Ja</value>
+    </property>
+    <property propertyDefinitionRef="propid-78">
+      <value xml:lang="nl">2025-01-09</value>
+    </property>    
+  </properties>
+  <elements>
+    <element identifier="id-009fa62f25844aa3a87d252bf2b6bb0c" xsi:type="Capability">
+      <name xml:lang="nl">Publiceren en gebruiken van informatie over datadiensten</name>
+      <documentation xml:lang="nl">Dienstenafnemers moeten in online catalogi kunnen opvragen welke diensten, met welke kenmerken, door dienstenaanbieder worden aangeboden. 
+Onder andere ontwikkelaars hebben baat bij informatie over beschikbare diensten en de vereisten voor het gebruik van de dienst (bijv. specificatie van een dienst conform de OAS-standaard).</documentation>
+      <properties>
+        <property propertyDefinitionRef="propid-1">
+          <value xml:lang="nl">Thema-architectuur Common Ground</value>
+        </property>
+        <property propertyDefinitionRef="propid-2">
+          <value xml:lang="nl">a10869bf-a895-4a66-8f81-a4f96c58cc3e</value>
+        </property>
+      </properties>
+    </element>
+    <element identifier="id-096b6619f4cd4164a0572b04ef082c0f" xsi:type="Capability">
+      <name xml:lang="nl">Bieden van 'regie op gegevens' aan burgers en bedrijven</name>
+      <documentation xml:lang="nl">Burgers en bedrijven moet zeggenschap worden geboden over hun persoonlijke gegevens. Ze moeten o.a. in staat worden gesteld om te weten welke gegevens de overheid over hen vastlegt en gebruikt, persoonlijke gegevens (digitaal) te delen, eenmalig te verstrekken, de eigen gegevens in te zien, te controleren en waar nodig te (laten) corrigeren,in te zien welke gegevens worden en zijn uitgewisseld.</documentation>
+      <properties>
+        <property propertyDefinitionRef="propid-1">
+          <value xml:lang="nl">Thema-architectuur Common Ground</value>
+        </property>
+        <property propertyDefinitionRef="propid-2">
+          <value xml:lang="nl">6868ab87-f5db-40b7-aba6-17b1ba477d54</value>
+        </property>
+      </properties>
+    </element>
+  </elements>
+</model>
+<!--Dit ArchiMate-uitwisselbestand is op 13 January 2025 23:42:59 CET gegenereerd door ArchiMedes™ © 2016-2025 ArchiXL.-->
+<!--Graag uw aandacht voor de volgende meldingen :
+Let op. Eigenschapdefinitie id-595bb4c3df238bd520ff0f88cb99c33d heeft geen geldige waarde voor eigenschap Name. Node wordt overgeslagen.-->

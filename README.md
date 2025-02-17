@@ -5,24 +5,26 @@ Deze nieuwe versie van de softwarecatalogus gaat aansluiten bij nieuwe vraagstuk
 
 Gemeenten gebruiken de softwarecatalogus voor:
 
-► Marktoriëntatie voor nieuwe of vervangende software;
-► Vergelijken met andere gemeenten;
-► Contact leggen met gemeenten met vergelijkbaar of interessant productportfolio;
-► Het plannen van ICT-vervangingen;
-► Het opstellen van een Programma van Eisen;
-► Het beoordelen van offertes.
+- Marktoriëntatie voor nieuwe of vervangende software;
+- Vergelijken met andere gemeenten;
+- Contact leggen met gemeenten met vergelijkbaar of interessant productportfolio;
+- Het plannen van ICT-vervangingen;
+- Het opstellen van een Programma van Eisen;
+- Het beoordelen van offertes.
 
 ## Project overzicht
 - [Project planning](https://github.com/orgs/OpenCatalogi/projects/4/views/1)
 - [Meetings](https://github.com/VNG-Realisatie/softwarecatalogus/tree/main/meetings)
-* [Issues](https://github.com/VNG-Realisatie/softwarecatalogus/issues)
+- [Issues](https://github.com/VNG-Realisatie/softwarecatalogus/issues)
 
 ## Projectafspraken
 Het project is opgedeeld in 4 blokken:
 
 ### Component referentie-architectuur (5 februari - 18 maart)
-Focus op architectuur gedeelte en voorbereiding
-- Referentiearchitectuur
+Focus op het GEMMA ArchiMate-model
+- Importeren en exporteren ArchiMate
+- Ontsluiten GEMMA met API 
+- Plotten op GEMMA views
 
 ### Component organisaties (19 maart - 15 april)
 Focus op organisatiebeheer en gebruikersfunctionaliteit
@@ -100,11 +102,11 @@ Contact kan worden opgenomen via softwarecatalogus@vng.nl
 
 #### Conduction
 * [Ruben van der Linde](https://github.com/rubenvdlinde)(Product lead/Owner)
-* [Matthias](https://github.com/matthiasoliveiro) (Scrum & Testen)
-* Remco Damhuis (Commercieel & Contractbeheer)
+* [Matthias Oliveiro](https://github.com/matthiasoliveiro) (Scrum & Testen)
+* [Remco Damhuis](https://github.com/Rem-Dam) (Commercieel & Contractbeheer)
 * [Mark Westerweel](https://github.com/MWest2020) (Implementatie, Beheer en Ondersteuning)
-* [Remco Huisman](https://github.com/remko48), [Thijn](https://github.com/SudoThijn) (Frontend Development)
-* [Robert Zondervan](https://github.com/rjzondervan), [Wilco Louwers](https://github.com/WilcoLouwerse), [Barry brands](https://github.com/bbrands02) (Backend Development)
+* [Remko Huisman](https://github.com/remko48), [Thijn Douwma](https://github.com/SudoThijn) (Frontend Development)
+* [Robert Zondervan](https://github.com/rjzondervan), [Wilco Louwerse](https://github.com/WilcoLouwerse), [Barry Brands](https://github.com/bbrands02) (Backend Development)
 
 # Project Inrichting
 
