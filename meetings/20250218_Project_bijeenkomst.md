@@ -3,9 +3,10 @@
 # Agenda
 - Mededelingen
   - Iedereen is weer beter
+- Opzetten van docusaurus
 - Snelheid van de Archimate Import (mee nemen naar 19-02-2025)
 - Gemma API -> Testen en specs doornemen op 19-02-2025
-- Eerste bevindninen van de export (mee nemen naar 19-02-2025)
+- Eerste bevindingen van de export (mee nemen naar 19-02-2025)
 - Security en architectuur repository
 - Sprintreviews (eerste periode besloten, later op uitnodiging)
 - Toelichting op sprintplanning
