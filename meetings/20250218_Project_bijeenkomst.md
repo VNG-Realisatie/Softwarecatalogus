@@ -13,7 +13,7 @@
 - Informatie uitwisseling
 
 # Issues up for review
-- 
+- [Sprint 1](https://github.com/orgs/VNG-Realisatie/projects/17/views/2) Nemen we  19-02-2025) door
 
 # Actiepunten
 
