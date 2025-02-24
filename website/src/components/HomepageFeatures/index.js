@@ -4,51 +4,54 @@ import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 
 /**
- * List of features displayed on the homepage
- * Each feature represents a main section of Conduction's documentation
+ * Lijst van features die op de homepage worden weergegeven
+ * Elke feature vertegenwoordigt een hoofdsectie van de documentatie
  */
 const FeatureList = [
   {
-    title: 'How We Work',
+    title: 'Missie en visie',
     description: (
       <>
-        Comprehensive user manuals and organizational information to understand our processes, 
-        methodologies, and company culture. Learn how we operate and collaborate effectively.
+        De VNG werkt aan een krachtige lokale overheid en daarmee aan een betere samenleving. 
+        Binnen de vereniging richt VNG Realisatie zich op het organiseren van gezamenlijke 
+        oplossingen voor de maatschappelijke opgaven waarvoor gemeenten staan.
       </>
     ),
     link: '/docs/intro',
-    buttonText: 'Learn How We Work',
+    buttonText: 'Lees meer',
   },
   {
-    title: 'ISO Certification',
+    title: 'Organisatie',
     description: (
       <>
-        Our commitment to quality and security standards through ISO certification. 
-        Detailed information about our quality management system and security practices.
+        VNG Realisatie werkt ontwikkelgericht. We zijn geordend volgens de stappen in de 
+        ontwikkelcyclus van weten, proberen, maken en beheren. Op die manier werken we stap 
+        voor stap van goede ideeën naar staande dienstverlening voor alle gemeenten.
       </>
     ),
     link: '/docs/intro',
-    buttonText: 'View ISO Documentation',
+    buttonText: 'Bekijk organisatie',
   },
   {
-    title: 'Products & Services',
+    title: 'Realisatie',
     description: (
       <>
-        Explore our suite of components and services. Detailed documentation about our 
-        solutions, technical specifications, and implementation guides.
+        Door decentralisatie van taken, ketensamenwerking en digitalisering is de gemeentelijke 
+        uitvoering en dienstverlening een flinke opgave. VNG Realisatie werkt aan een krachtige, 
+        lokale uitvoeringspraktijk voor alle gemeenten.
       </>
     ),
     link: '/docs/intro',
-    buttonText: 'Explore Products',
+    buttonText: 'Ontdek meer',
   },
 ];
 
 /**
- * Component to render a single feature
- * @param {string} title - The title of the feature
- * @param {JSX.Element} description - The description of the feature
- * @param {string} link - The URL to navigate to when clicking the button
- * @param {string} buttonText - The text to display on the button
+ * Component om een enkele feature weer te geven
+ * @param {string} title - De titel van de feature
+ * @param {JSX.Element} description - De beschrijving van de feature
+ * @param {string} link - De URL waarnaar genavigeerd wordt bij het klikken op de knop
+ * @param {string} buttonText - De tekst die op de knop wordt weergegeven
  * @returns {JSX.Element} Feature component
  */
 function Feature({title, description, link, buttonText}) {
@@ -68,7 +71,7 @@ function Feature({title, description, link, buttonText}) {
 }
 
 /**
- * Main component that displays all features on the homepage
+ * Hoofdcomponent die alle features op de homepage weergeeft
  * @returns {JSX.Element} HomepageFeatures component
  */
 export default function HomepageFeatures() {
