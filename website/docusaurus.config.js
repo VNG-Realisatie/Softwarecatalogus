@@ -6,7 +6,7 @@ const config = {
   title: 'VNG Softwarecatalogus',
   tagline: 'Het centrale platform voor gemeentelijke software en architectuur informatie',
   url: 'https://vng-realisatie.github.io',
-  baseUrl: '/softwarecatalogus/',
+  baseUrl: '/Softwarecatalogus/',
   
   // GitHub pages deployment config
   organizationName: 'VNG-Realisatie', 
