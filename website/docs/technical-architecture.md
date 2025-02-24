@@ -46,7 +46,7 @@ De Open Connector component:
 ## Referentiearchitectuur Functionaliteit
 
 ### ArchiMate Integratie
-![ArchiMate Integration](diagrams/archimate_integration.svg)
+![ArchiMate Integration](Diagrams/archimate_integration.svg)
 
 De oplossing ondersteunt:
 1. AMEFF bestandsimport (< 2 minuten voor 14MB)

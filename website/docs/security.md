@@ -87,4 +87,4 @@ We moedigen responsible disclosure aan:
 - AVG/GDPR compliance
 - NEN/ISO 27001/27002 richtlijnen
 
-![Security Overview](diagrams/security.svg) 
+![Security Overview](Diagrams/security.svg) 
