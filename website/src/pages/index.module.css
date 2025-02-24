@@ -1,0 +1,39 @@
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vision {
+  padding: 3rem 0;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.visionText {
+  font-size: 2rem;
+  line-height: 1.4;
+  font-weight: 500;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: var(--ifm-color-emphasis-900);
+  font-style: italic;
+}
+
+@media screen and (max-width: 966px) {
+  .visionText {
+    font-size: 1.5rem;
+  }
+} 
