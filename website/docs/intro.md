@@ -72,15 +72,6 @@ De Softwarecatalogus is een gezamenlijk platform dat leeft bij de gratie van act
 - **VNG Realisatie** bewaakt de kwaliteit en standaarden
 - **Architecten** zorgen voor GEMMA aansluiting
 
-## 🚀 Aan de slag
-
-Wilt u aan de slag met de Softwarecatalogus? Hier vindt u de eerste stappen:
-
-- [Handleiding voor gemeenten](docs/gemeenten)
-- [Informatie voor leveranciers](docs/leveranciers)
-- [Architectuur documentatie](docs/architectuur)
-- [Technische specificaties](docs/technisch)
-
 ## 📞 Contact
 
 Heeft u vragen of suggesties? Neem contact op met het team van de Softwarecatalogus:
