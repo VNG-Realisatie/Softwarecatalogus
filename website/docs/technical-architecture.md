@@ -2,7 +2,7 @@
 
 De Softwarecatalogus is opgebouwd uit verschillende Common Ground componenten die samen een complete oplossing vormen. Hieronder volgt een overzicht van de belangrijkste componenten en hun functies.
 
-![Component Diagram](diagrams/components.svg)
+![Component Diagram](Diagrams/components.svg)
 
 ## Componenten
 
