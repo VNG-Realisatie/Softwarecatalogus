@@ -127,8 +127,6 @@ De stuurgroep komt ieder kwartaal bijeen om de algemene projectvoortgang te besp
 ### Projectgroep
 De projectgroep komt elke twee weken op dinsdag bijeen voor sprint planning en issue management.
 
-![Organisatiestructuur](docs/diagrams/organization.svg)
-
 ## Project Documentatie
 Voor meer informatie over het project, raadpleeg de volgende documenten:
 
