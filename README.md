@@ -13,7 +13,7 @@ Gemeenten gebruiken de softwarecatalogus voor:
 - Het beoordelen van offertes.
 
 ## Project overzicht
-- [Project planning](https://github.com/orgs/OpenCatalogi/projects/4/views/1)
+- [Project planning](https://github.com/orgs/VNG-Realisatie/projects/17)
 - [Meetings](https://github.com/VNG-Realisatie/softwarecatalogus/tree/main/meetings)
 - [Issues](https://github.com/VNG-Realisatie/softwarecatalogus/issues)
 
