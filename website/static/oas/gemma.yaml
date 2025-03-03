@@ -1,0 +1,1043 @@
+openapi: 3.1.0
+x-stoplight:
+  id: jjmuduzfg979x
+info:
+  title: Gemma Architectuur
+  version: '1.0'
+  summary: 'An api for questinging the gemma software '
+  contact:
+    name: VNG realisatie
+    url: 'https://vng.nl/artikelen/vng-realisatie'
+    email: info@vng.nl
+  description: Gemma is the dutch manuciaply ecosystem
+  license:
+    name: EUPL 1.2
+    url: 'https://interoperable-europe.ec.europa.eu/collection/eupl'
+  termsOfService: 'https://www.softwarecatalogus.nl/Privacyverklaring%20softwarecatalogus'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /model:
+    get:
+      summary: Get the complete architecture model
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Model'
+      operationId: get-model
+      description: 'Get the complete architecture model including all elements, relations, views, and property definitions'
+  /views:
+    get:
+      summary: Your GET endpoint
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    x-stoplight:
+                      id: xc0k7v356hwcr
+                    items:
+                      $ref: '#/components/schemas/View'
+                      x-stoplight:
+                        id: e8pvuynhiei0n
+      operationId: get-views
+      x-stoplight:
+        id: or0zfjsiy36yp
+      description: Get all available views
+  '/views/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: THe id of the view requested
+    get:
+      summary: Get a single view
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/View'
+      operationId: get-views-id
+      x-stoplight:
+        id: 5qsz7ku8fmo4k
+      description: Get a specific view by its identivier
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: id
+          description: The identivier of the specif view requested
+  /elements:
+    get:
+      summary: Get all elements
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Element'
+      operationId: get-elements
+      description: Get all available ArchiMate elements
+  '/elements/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: The id of the element requested
+    get:
+      summary: Get a single element
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Element'
+      operationId: get-elements-id
+      description: Get a specific ArchiMate element by its identifier
+  /relations:
+    get:
+      summary: Get all relations
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Relation'
+      operationId: get-relations
+      description: Get all available ArchiMate relations
+  '/relations/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: The id of the relation requested
+    get:
+      summary: Get a single relation
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Relation'
+      operationId: get-relations-id
+      description: Get a specific ArchiMate relation by its identifier
+  /propertydefinitions:
+    get:
+      summary: Get all property definitions
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PropertyDefinition'
+      operationId: get-propertydefinitions
+      description: Get all available property definitions
+  '/propertydefinitions/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: The id of the property definition requested
+    get:
+      summary: Get a single property definition
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyDefinition'
+      operationId: get-propertydefinitions-id
+      description: Get a specific property definition by its identifier
+components:
+  schemas:
+    Model:
+      title: Model
+      type: object
+      description: 'The complete architecture model containing all elements, relations, views, and property definitions'
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the architecture model
+        name:
+          type: string
+          description: Name of the architecture model
+        version:
+          type: string
+          description: Version of the architecture model
+        description:
+          type: string
+          description: Description of the architecture model
+        organization:
+          $ref: '#/components/schemas/Organization'
+          description: Organization that owns or manages the model
+        elements:
+          type: array
+          description: Collection of all ArchiMate elements in the model
+          items:
+            $ref: '#/components/schemas/Element'
+        relations:
+          type: array
+          description: Collection of all ArchiMate relations in the model
+          items:
+            $ref: '#/components/schemas/Relation'
+        views:
+          type: array
+          description: Collection of all views in the model
+          items:
+            $ref: '#/components/schemas/View'
+        propertyDefinitions:
+          type: array
+          description: Collection of all property definitions in the model
+          items:
+            $ref: '#/components/schemas/PropertyDefinition'
+      examples:
+        - id: gemma-3.0
+          name: GEMMA 3.0
+          version: '3.0'
+          description: Gemeentelijke Model Architectuur versie 3.0
+          organization:
+            id: vng-realisatie
+            name: VNG Realisatie
+          elements:
+            - id: e1
+              name: Zaakafhandelcomponent
+              type: ApplicationComponent
+              documentation: Een component voor het afhandelen van zaken binnen de gemeentelijke dienstverlening.
+              properties:
+                status: Actief
+                releaseDate: '2022-01-15'
+            - id: e2
+              name: Zaakregistratiecomponent
+              type: ApplicationComponent
+              documentation: Een component voor het registreren van zaken binnen de gemeentelijke dienstverlening.
+              properties:
+                status: Actief
+                releaseDate: '2022-01-15'
+            - id: e3
+              name: Zaaktype
+              type: BusinessObject
+              documentation: Een categorie van zaken met gelijke karakteristieken.
+              properties:
+                status: Actief
+                domein: Dienstverlening
+            - id: e4
+              name: Burger
+              type: BusinessActor
+              documentation: Een natuurlijk persoon in de rol van inwoner van een gemeente.
+              properties:
+                domein: Dienstverlening
+          relations:
+            - id: r1
+              name: gebruikt
+              type: UsedBy
+              source: e1
+              target: e2
+              properties:
+                status: Actief
+            - id: r2
+              name: realiseert
+              type: Realization
+              source: e1
+              target: e3
+              properties:
+                status: Actief
+            - id: r3
+              name: gebruikt
+              type: UsedBy
+              source: e4
+              target: e1
+              properties:
+                status: Actief
+          views:
+            - id: v1
+              name: Zaakgericht werken
+              viewpoint: Application
+              documentation: Overzicht van de componenten voor zaakgericht werken
+              properties:
+                status: Actief
+                domein: Dienstverlening
+              nodes:
+                - id: 1
+                  identifier: node_e1
+                  elementRef: e1
+                  postion:
+                    x: 100
+                    'y': 100
+                    w: 120
+                    h: 60
+                  style:
+                    fillColor:
+                      r: 181
+                      g: 255
+                      b: 255
+                      a: 255
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    font:
+                      name: Arial
+                      size: 12
+                    color:
+                      r: 0
+                      g: 0
+                      b: 0
+                - id: 2
+                  identifier: node_e2
+                  elementRef: e2
+                  postion:
+                    x: 300
+                    'y': 100
+                    w: 120
+                    h: 60
+                  style:
+                    fillColor:
+                      r: 181
+                      g: 255
+                      b: 255
+                      a: 255
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    font:
+                      name: Arial
+                      size: 12
+                    color:
+                      r: 0
+                      g: 0
+                      b: 0
+                - id: 3
+                  identifier: node_e3
+                  elementRef: e3
+                  postion:
+                    x: 100
+                    'y': 250
+                    w: 120
+                    h: 60
+                  style:
+                    fillColor:
+                      r: 255
+                      g: 255
+                      b: 181
+                      a: 255
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    font:
+                      name: Arial
+                      size: 12
+                    color:
+                      r: 0
+                      g: 0
+                      b: 0
+                - id: 4
+                  identifier: node_e4
+                  elementRef: e4
+                  postion:
+                    x: 100
+                    'y': 0
+                    w: 120
+                    h: 60
+                  style:
+                    fillColor:
+                      r: 255
+                      g: 213
+                      b: 181
+                      a: 255
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    font:
+                      name: Arial
+                      size: 12
+                    color:
+                      r: 0
+                      g: 0
+                      b: 0
+              connections:
+                - id: c1
+                  relationRef: r1
+                  source: '1'
+                  target: '2'
+                  style:
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    lineWidth: 1
+                    lineStyle: solid
+                - id: c2
+                  relationRef: r2
+                  source: '1'
+                  target: '3'
+                  style:
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    lineWidth: 1
+                    lineStyle: dashed
+                - id: c3
+                  relationRef: r3
+                  source: '4'
+                  target: '1'
+                  style:
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    lineWidth: 1
+                    lineStyle: solid
+          propertyDefinitions:
+            - id: pd1
+              identifier: status
+              name: Status
+              type: string
+              description: De status van het element in de architectuur
+              defaultValue: Concept
+              applicableElements:
+                - ApplicationComponent
+                - BusinessObject
+                - BusinessActor
+            - id: pd2
+              identifier: releaseDate
+              name: Release datum
+              type: date
+              description: De datum waarop het element is vrijgegeven
+              applicableElements:
+                - ApplicationComponent
+            - id: pd3
+              identifier: domein
+              name: Domein
+              type: string
+              description: Het domein waartoe het element behoort
+              applicableElements:
+                - BusinessObject
+                - BusinessActor
+    Node:
+      title: Node
+      type: object
+      examples:
+        - id: 1
+          identifier: node_e1
+          elementRef: e1
+          postion:
+            x: 100
+            'y': 100
+            w: 120
+            h: 60
+          style:
+            fillColor:
+              r: 181
+              g: 255
+              b: 255
+              a: 255
+            lineColor:
+              r: 0
+              g: 0
+              b: 0
+              a: 255
+            font:
+              name: Arial
+              size: 12
+            color:
+              r: 0
+              g: 0
+              b: 0
+          nodes:
+            - id: 5
+              identifier: node_e1_child1
+              elementRef: e5
+              postion:
+                x: 110
+                'y': 120
+                w: 40
+                h: 20
+              style:
+                fillColor:
+                  r: 200
+                  g: 255
+                  b: 255
+                  a: 255
+                lineColor:
+                  r: 0
+                  g: 0
+                  b: 0
+                  a: 255
+                font:
+                  name: Arial
+                  size: 10
+                color:
+                  r: 0
+                  g: 0
+                  b: 0
+      x-stoplight:
+        id: rz6i8o15fdurx
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given node.
+          x-stoplight:
+            id: nty179dtpjjgl
+        identifier:
+          type: string
+          x-stoplight:
+            id: 9abwea5otcb2i
+        elementRef:
+          type: string
+          x-stoplight:
+            id: y8hsbzrfiot3t
+        postion:
+          type: object
+          x-stoplight:
+            id: fezevnzqv33uo
+          properties:
+            x:
+              type: integer
+              x-stoplight:
+                id: smgowduinqyuk
+            'y':
+              type: integer
+              x-stoplight:
+                id: 11tev09hpnd2t
+            w:
+              type: integer
+              x-stoplight:
+                id: qtx5zhqiiw8ui
+            h:
+              type: integer
+              x-stoplight:
+                id: 7p1o07kjc7yq4
+        style:
+          type: object
+          x-stoplight:
+            id: u72ekwb3hay7p
+          properties:
+            fillColor:
+              type: object
+              x-stoplight:
+                id: zjwq9obagnmvn
+              properties:
+                r:
+                  type: integer
+                  x-stoplight:
+                    id: kshhdl5fmvbiq
+                g:
+                  type: integer
+                  x-stoplight:
+                    id: 4brvtqus18e9e
+                b:
+                  type: integer
+                  x-stoplight:
+                    id: jhu58oa3lwfo2
+                a:
+                  type: integer
+                  x-stoplight:
+                    id: xxfdoa2paosp6
+            lineColor:
+              type: object
+              x-stoplight:
+                id: eptvptnslkgg7
+              properties:
+                r:
+                  type: integer
+                  x-stoplight:
+                    id: tisnzmgm2ospk
+                g:
+                  type: integer
+                  x-stoplight:
+                    id: 2j4qr5heeyt2q
+                b:
+                  type: integer
+                  x-stoplight:
+                    id: at5rmhge919qj
+                a:
+                  type: integer
+                  x-stoplight:
+                    id: w5yg093m67fan
+            font:
+              type: object
+              x-stoplight:
+                id: n1wt1rhsakh3h
+              properties:
+                name:
+                  type: string
+                  x-stoplight:
+                    id: h2w3o2v6d0okm
+                size:
+                  type: integer
+                  x-stoplight:
+                    id: su8o1vsvmzkvh
+            color:
+              type: object
+              x-stoplight:
+                id: 1c0tqsk57ttm7
+              properties:
+                r:
+                  type: integer
+                  x-stoplight:
+                    id: isvolaicm7mmw
+                g:
+                  type: integer
+                  x-stoplight:
+                    id: fchht6gmferfo
+                b:
+                  type: integer
+                  x-stoplight:
+                    id: gse5aok18l31j
+        nodes:
+          type: array
+          x-stoplight:
+            id: x5r3m4tj02ey6
+          items: {}
+      description: A node represents an ArchiMate element that can be displayed on an architectural model diagram
+    View:
+      title: View
+      x-stoplight:
+        id: qeimpz6ir1iey
+      type: object
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: rvxybsjhxfia0
+        viewpoint:
+          type: string
+          x-stoplight:
+            id: 4zj3wfxv1c57j
+        name:
+          type: string
+          x-stoplight:
+            id: 816re34offkv3
+        documentation:
+          type: string
+          x-stoplight:
+            id: 33z6qvklcgo0r
+        properties:
+          type: object
+          x-stoplight:
+            id: 99jdf5nq4rrnr
+        nodes:
+          type: array
+          x-stoplight:
+            id: 9opp3d4ycseuw
+          items:
+            $ref: '#/components/schemas/Node'
+            x-stoplight:
+              id: z17eqk9riywko
+        connections:
+          type: array
+          x-stoplight:
+            id: 4vfg4q7sgevb6
+          items:
+            $ref: '#/components/schemas/Connection'
+            x-stoplight:
+              id: xuo6w5cbc7yai
+      examples:
+        - id: v1
+          name: Zaakgericht werken
+          viewpoint: Application
+          documentation: Overzicht van de componenten voor zaakgericht werken
+          properties:
+            status: Actief
+            domein: Dienstverlening
+          nodes:
+            - id: 1
+              identifier: node_e1
+              elementRef: e1
+              postion:
+                x: 100
+                'y': 100
+                w: 120
+                h: 60
+              style:
+                fillColor:
+                  r: 181
+                  g: 255
+                  b: 255
+                  a: 255
+                lineColor:
+                  r: 0
+                  g: 0
+                  b: 0
+                  a: 255
+                font:
+                  name: Arial
+                  size: 12
+                color:
+                  r: 0
+                  g: 0
+                  b: 0
+            - id: 2
+              identifier: node_e2
+              elementRef: e2
+              postion:
+                x: 300
+                'y': 100
+                w: 120
+                h: 60
+              style:
+                fillColor:
+                  r: 181
+                  g: 255
+                  b: 255
+                  a: 255
+                lineColor:
+                  r: 0
+                  g: 0
+                  b: 0
+                  a: 255
+                font:
+                  name: Arial
+                  size: 12
+                color:
+                  r: 0
+                  g: 0
+                  b: 0
+          connections:
+            - id: c1
+              relationRef: r1
+              source: '1'
+              target: '2'
+              style:
+                lineColor:
+                  r: 0
+                  g: 0
+                  b: 0
+                  a: 255
+                lineWidth: 1
+                lineStyle: solid
+    Connection:
+      title: Connection
+      x-stoplight:
+        id: 7lctplmttp0t8
+      type: object
+      description: 'Represents a visual connection between nodes in an ArchiMate view, based on an underlying relation'
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: lzcl3nwnripu6
+          description: Unique identifier for the connection
+        relationRef:
+          type: string
+          description: Reference to the underlying relation this connection visualizes
+        source:
+          type: string
+          description: ID of the source node in the view
+        target:
+          type: string
+          description: ID of the target node in the view
+        bendpoints:
+          type: array
+          description: List of points defining the path of the connection
+          items:
+            type: object
+            properties:
+              x:
+                type: integer
+                description: X coordinate of the bendpoint
+              'y':
+                type: integer
+                description: Y coordinate of the bendpoint
+        style:
+          type: object
+          description: Visual styling of the connection
+          properties:
+            lineColor:
+              type: object
+              properties:
+                r:
+                  type: integer
+                  description: Red component (0-255)
+                g:
+                  type: integer
+                  description: Green component (0-255)
+                b:
+                  type: integer
+                  description: Blue component (0-255)
+                a:
+                  type: integer
+                  description: Alpha/transparency component (0-255)
+            lineWidth:
+              type: integer
+              description: Width of the connection line
+            lineStyle:
+              type: string
+              description: 'Style of the line (e.g., solid, dashed, dotted)'
+              enum:
+                - solid
+                - dashed
+                - dotted
+        labelStyle:
+          type: object
+          description: Styling for the connection label
+          properties:
+            position:
+              type: object
+              properties:
+                x:
+                  type: integer
+                  description: X coordinate of the label
+                'y':
+                  type: integer
+                  description: Y coordinate of the label
+            font:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Font family name
+                size:
+                  type: integer
+                  description: Font size in points
+                style:
+                  type: string
+                  description: 'Font style (e.g., normal, italic, bold)'
+                  enum:
+                    - normal
+                    - italic
+                    - bold
+                    - bold-italic
+            color:
+              type: object
+              properties:
+                r:
+                  type: integer
+                  description: Red component (0-255)
+                g:
+                  type: integer
+                  description: Green component (0-255)
+                b:
+                  type: integer
+                  description: Blue component (0-255)
+                a:
+                  type: integer
+                  description: Alpha/transparency component (0-255)
+    Element:
+      title: Element
+      x-stoplight:
+        id: fdum0aq67rh27
+      type: object
+      description: Represents an ArchiMate element in the architecture model
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: tj55ii1z9ugaf
+          description: Unique identifier for the element
+        name:
+          type: string
+          x-stoplight:
+            id: ccszeodom8a8k
+          description: Name of the element
+        documentation:
+          type: object
+          x-stoplight:
+            id: zzt4qd4eh0yqx
+          description: Documentation associated with the element
+        type:
+          type: string
+          description: 'The ArchiMate element type (e.g., BusinessActor, ApplicationComponent)'
+        properties:
+          type: object
+          description: Custom properties associated with the element
+      examples:
+        - id: e1
+          name: Zaakafhandelcomponent
+          type: ApplicationComponent
+          documentation: Een component voor het afhandelen van zaken binnen de gemeentelijke dienstverlening.
+          properties:
+            status: Actief
+            releaseDate: '2022-01-15'
+    Relation:
+      title: Relation
+      x-stoplight:
+        id: 5mht4dfkmkdiz
+      type: object
+      description: Represents a relationship between ArchiMate elements
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: k5k7mvpb27gpo
+          description: Unique identifier for the relation
+        identifier:
+          type: string
+          x-stoplight:
+            id: vo3yli4at388o
+          description: Human-readable identifier for the relation
+        source:
+          type: string
+          x-stoplight:
+            id: j84zdb8o52tjb
+          description: ID of the source element
+        target:
+          type: string
+          x-stoplight:
+            id: d93mmv55z21y1
+          description: ID of the target element
+        accessType:
+          type: string
+          x-stoplight:
+            id: 6xax2x1cws9b3
+          description: Type of access or relationship
+        name:
+          type: string
+          x-stoplight:
+            id: h0yqxiijowc26
+          description: Name of the relation
+        properties:
+          type: object
+          x-stoplight:
+            id: br8uft9jvblxo
+          description: Custom properties associated with the relation
+        type:
+          type: string
+          description: 'The ArchiMate relation type (e.g., Composition, Aggregation, Assignment)'
+      examples:
+        - id: r1
+          name: gebruikt
+          type: UsedBy
+          source: e1
+          target: e2
+          identifier: rel_gebruikt_e1_e2
+          accessType: Read
+          properties:
+            status: Actief
+    Organization:
+      title: Organization
+      x-stoplight:
+        id: 6snifqrf65pfm
+      type: object
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: z0vj5z706u5su
+        name:
+          type: string
+          x-stoplight:
+            id: 44sgrb38hzb35
+    PropertyDefinition:
+      title: PropertyDefinition
+      x-stoplight:
+        id: icfhtr0687bf0
+      type: object
+      description: Defines a property that can be associated with elements or relations
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: 9p853vot5dnyi
+          description: Unique identifier for the property definition
+        identifier:
+          type: string
+          x-stoplight:
+            id: gu7yvp3u9rp2v
+          description: Human-readable identifier for the property definition
+        type:
+          type: string
+          x-stoplight:
+            id: xoiwejie9sttn
+          description: 'Data type of the property (e.g., string, integer, boolean)'
+        name:
+          type: string
+          x-stoplight:
+            id: r0y7bmrwjz8js
+          description: Display name of the property
+        description:
+          type: string
+          description: Description of the property and its purpose
+        defaultValue:
+          type: string
+          description: Default value for the property if not specified
+        applicableElements:
+          type: array
+          items:
+            type: string
+          description: Types of elements this property can be applied to
+      examples:
+        - id: pd1
+          identifier: status
+          name: Status
+          type: string
+          description: De status van het element in de architectuur
+          defaultValue: Concept
+          applicableElements:
+            - ApplicationComponent
+            - BusinessObject
+            - BusinessActor
+  securitySchemes: {}
+security:
+  - {}
+tags:
+  - name: Gemma
+    description: All of the Gemma architecture

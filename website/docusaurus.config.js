@@ -3,7 +3,7 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'VNG Softwarecatalogus',
+  title: 'Softwarecatalogus',
   tagline: 'Het centrale platform voor gemeentelijke software en architectuur informatie',
   url: 'https://vng-realisatie.github.io',
   baseUrl: '/Softwarecatalogus/',
