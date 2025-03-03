@@ -17,40 +17,40 @@ De GEMMA API biedt toegang tot een uitgebreid architectuurmodel dat de ArchiMate
 
 Het GEMMA architectuurmodel bestaat uit verschillende kerncomponenten:
 
-- [Model](model) - De hoofdcontainer die alle architectuurelementen, relaties, views en eigenschapsdefinities bevat
-- [Elementen](elementen) - De bouwstenen van de architectuur (bedrijfsprocessen, applicaties, etc.)
-- [Relaties](relaties) - De verbindingen tussen elementen
-- [Views](views) - Verschillende perspectieven op het architectuurmodel
-- [Eigenschapsdefinities](eigenschapsdefinities) - Definities van eigenschappen die aan elementen en relaties kunnen worden toegekend
+- [Model](GEMMA/model) - De hoofdcontainer die alle architectuurelementen, relaties, views en eigenschapsdefinities bevat
+- [Elementen](GEMMA/elementen) - De bouwstenen van de architectuur (bedrijfsprocessen, applicaties, etc.)
+- [Relaties](GEMMA/relaties) - De verbindingen tussen elementen
+- [Views](GEMMA/views) - Verschillende perspectieven op het architectuurmodel
+- [Eigenschapsdefinities](GEMMA/eigenschapsdefinities) - Definities van eigenschappen die aan elementen en relaties kunnen worden toegekend
 
 ### Visualisatie Componenten
 
 Het model bevat componenten voor het visualiseren van de architectuur:
 
-- [Nodes](nodes) - Visuele representaties van elementen in een diagram
-- [Verbindingen](verbindingen) - Visuele representaties van relaties in een diagram
+- [Nodes](GEMMA/nodes) - Visuele representaties van elementen in een diagram
+- [Verbindingen](GEMMA/verbindingen) - Visuele representaties van relaties in een diagram
 
 ### Object Diagram
 
 Het volgende diagram toont de structuur van het GEMMA architectuurmodel en de relaties tussen de componenten:
 
-![GEMMA Architectuur Model Structuur](../Diagrams/gemma-model.svg)
+![GEMMA Architectuur Model Structuur](Diagrams/gemma-model.svg)
 
 ## Software Catalogus Componenten
 
 Naast het architectuurmodel bevat de API ook toegang tot de Software Catalogus, die informatie biedt over gemeentelijke software:
 
-- [Leveranciersorganisatie](leveranciersorganisatie) - Organisaties die software en diensten leveren
-- [Voorziening](voorziening) - Softwareproducten en diensten voor gemeenten
-- [Voorzieningaanbod](voorzieningaanbod) - Specifieke aanbiedingen van voorzieningen door leveranciers
-- [Voorzieningversie](voorzieningversie) - Specifieke versies van voorzieningaanbiedingen
-- [Kwetsbaarheid](kwetsbaarheid) - Beveiligingsproblemen in voorzieningversies
+- [Leveranciersorganisatie](Softwarecatalogus/leveranciersorganisatie) - Organisaties die software en diensten leveren
+- [Voorziening](Softwarecatalogus/voorziening) - Softwareproducten en diensten voor gemeenten
+- [Voorzieningaanbod](Softwarecatalogus/voorzieningaanbod) - Specifieke aanbiedingen van voorzieningen door leveranciers
+- [Voorzieningversie](Softwarecatalogus/voorzieningversie) - Specifieke versies van voorzieningaanbiedingen
+- [Kwetsbaarheid](Softwarecatalogus/kwetsbaarheid) - Beveiligingsproblemen in voorzieningversies
 
 ### Object Diagram
 
 Het volgende diagram toont de structuur van de Software Catalogus en de relaties tussen de objecttypen:
 
-![Software Catalogus Model Structuur](../Diagrams/softwarecatalogus-model.svg)
+![Software Catalogus Model Structuur](Diagrams/softwarecatalogus-model.svg)
 
 Voor meer informatie over de Software Catalogus, zie de [Software Catalogus](softwarecatalogus) pagina.
 
