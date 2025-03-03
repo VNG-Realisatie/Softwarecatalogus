@@ -217,6 +217,272 @@ paths:
                 $ref: '#/components/schemas/PropertyDefinition'
       operationId: get-propertydefinitions-id
       description: Get a specific property definition by its identifier
+  # Software Catalogus endpoints
+  /leveranciersorganisaties:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle leveranciersorganisaties op
+      description: Geeft een lijst van alle leveranciersorganisaties terug
+      operationId: getLeveranciersorganisaties
+      parameters:
+        - name: kvk-nummer
+          in: query
+          description: Filter op KvK-nummer
+          schema:
+            type: string
+        - name: organisatienaam
+          in: query
+          description: Filter op organisatienaam
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Leveranciersorganisatie'
+  
+  /leveranciersorganisaties/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke leveranciersorganisatie op
+      description: Geeft details van een specifieke leveranciersorganisatie terug
+      operationId: getLeveranciersorganisatieById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de leveranciersorganisatie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leveranciersorganisatie'
+        '404':
+          description: Leveranciersorganisatie niet gevonden
+  
+  /voorzieningen:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle voorzieningen op
+      description: Geeft een lijst van alle voorzieningen terug
+      operationId: getVoorzieningen
+      parameters:
+        - name: naam
+          in: query
+          description: Filter op naam van de voorziening
+          schema:
+            type: string
+        - name: leverancier
+          in: query
+          description: Filter op leverancier ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Voorziening'
+  
+  /voorzieningen/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke voorziening op
+      description: Geeft details van een specifieke voorziening terug
+      operationId: getVoorzieningById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorziening
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorziening'
+        '404':
+          description: Voorziening niet gevonden
+  
+  /voorzieningaanbiedingen:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle voorzieningaanbiedingen op
+      description: Geeft een lijst van alle voorzieningaanbiedingen terug
+      operationId: getVoorzieningaanbiedingen
+      parameters:
+        - name: voorziening
+          in: query
+          description: Filter op voorziening ID
+          schema:
+            type: string
+        - name: leverancier
+          in: query
+          description: Filter op leverancier ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Voorzieningaanbod'
+  
+  /voorzieningaanbiedingen/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke voorzieningaanbieding op
+      description: Geeft details van een specifieke voorzieningaanbieding terug
+      operationId: getVoorzieningaanbodById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningaanbieding
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorzieningaanbod'
+        '404':
+          description: Voorzieningaanbieding niet gevonden
+  
+  /voorzieningversies:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle voorzieningversies op
+      description: Geeft een lijst van alle voorzieningversies terug
+      operationId: getVoorzieningversies
+      parameters:
+        - name: voorzieningaanbieding
+          in: query
+          description: Filter op voorzieningaanbieding ID
+          schema:
+            type: string
+        - name: versienummer
+          in: query
+          description: Filter op versienummer
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Voorzieningversie'
+  
+  /voorzieningversies/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke voorzieningversie op
+      description: Geeft details van een specifieke voorzieningversie terug
+      operationId: getVoorzieningversieById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningversie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorzieningversie'
+        '404':
+          description: Voorzieningversie niet gevonden
+  
+  /kwetsbaarheden:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle kwetsbaarheden op
+      description: Geeft een lijst van alle kwetsbaarheden terug
+      operationId: getKwetsbaarheden
+      parameters:
+        - name: voorzieningversie
+          in: query
+          description: Filter op voorzieningversie ID
+          schema:
+            type: string
+        - name: cve
+          in: query
+          description: Filter op CVE-nummer
+          schema:
+            type: string
+        - name: ernst
+          in: query
+          description: Filter op ernst
+          schema:
+            type: string
+            enum: [laag, gemiddeld, hoog, kritiek]
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Kwetsbaarheid'
+  
+  /kwetsbaarheden/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke kwetsbaarheid op
+      description: Geeft details van een specifieke kwetsbaarheid terug
+      operationId: getKwetsbaarhedenById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de kwetsbaarheid
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kwetsbaarheid'
+        '404':
+          description: Kwetsbaarheid niet gevonden
 components:
   schemas:
     Model:
@@ -558,33 +824,6 @@ components:
               r: 0
               g: 0
               b: 0
-          nodes:
-            - id: 5
-              identifier: node_e1_child1
-              elementRef: e5
-              postion:
-                x: 110
-                'y': 120
-                w: 40
-                h: 20
-              style:
-                fillColor:
-                  r: 200
-                  g: 255
-                  b: 255
-                  a: 255
-                lineColor:
-                  r: 0
-                  g: 0
-                  b: 0
-                  a: 255
-                font:
-                  name: Arial
-                  size: 10
-                color:
-                  r: 0
-                  g: 0
-                  b: 0
       x-stoplight:
         id: rz6i8o15fdurx
       properties:
@@ -1325,9 +1564,231 @@ components:
             - ApplicationComponent
             - BusinessObject
             - BusinessActor
-  securitySchemes: {}
-security:
-  - {}
+    Leveranciersorganisatie:
+      type: object
+      description: Een organisatie die voorzieningen aanbiedt
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de leveranciersorganisatie
+        naam:
+          type: string
+          description: Naam van de leveranciersorganisatie
+        kvkNummer:
+          type: string
+          description: KvK-nummer van de leveranciersorganisatie
+        website:
+          type: string
+          format: uri
+          description: Website van de leveranciersorganisatie
+        contactgegevens:
+          type: object
+          properties:
+            adres:
+              type: string
+              description: Adres van de leveranciersorganisatie
+            telefoon:
+              type: string
+              description: Telefoonnummer van de leveranciersorganisatie
+            email:
+              type: string
+              format: email
+              description: E-mailadres van de leveranciersorganisatie
+        voorzieningaanbiedingen:
+          type: array
+          items:
+            $ref: '#/components/schemas/Voorzieningaanbod'
+          description: Voorzieningaanbiedingen van deze leveranciersorganisatie
+    
+    Voorziening:
+      type: object
+      description: Een generieke voorziening (software product)
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de voorziening
+        naam:
+          type: string
+          description: Naam van de voorziening
+        beschrijving:
+          type: string
+          description: Beschrijving van de voorziening
+        categorie:
+          type: string
+          description: Categorie van de voorziening
+        functionaliteiten:
+          type: array
+          items:
+            type: string
+          description: Lijst van functionaliteiten die de voorziening biedt
+        standaarden:
+          type: array
+          items:
+            type: object
+            properties:
+              naam:
+                type: string
+                description: Naam van de standaard
+              versie:
+                type: string
+                description: Versie van de standaard
+          description: Standaarden die de voorziening ondersteunt
+        aanbiedingen:
+          type: array
+          items:
+            $ref: '#/components/schemas/Voorzieningaanbod'
+          description: Aanbiedingen van deze voorziening door verschillende leveranciers
+    
+    Voorzieningaanbod:
+      type: object
+      description: Een specifiek aanbod van een voorziening door een leverancier
+      required:
+        - id
+        - voorzieningId
+        - leveranciersorganisatieId
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor het voorzieningaanbod
+        voorzieningId:
+          type: string
+          description: ID van de voorziening die wordt aangeboden
+        leveranciersorganisatieId:
+          type: string
+          description: ID van de leveranciersorganisatie die de voorziening aanbiedt
+        productpagina:
+          type: string
+          format: uri
+          description: URL naar de productpagina van de leverancier
+        ondersteuningsmodel:
+          type: string
+          description: Beschrijving van het ondersteuningsmodel
+        licentiemodel:
+          type: string
+          description: Beschrijving van het licentiemodel
+        hostingopties:
+          type: array
+          items:
+            type: string
+            enum: [on-premises, SaaS, PaaS, hybride]
+          description: Beschikbare hostingopties
+        versies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Voorzieningversie'
+          description: Beschikbare versies van dit voorzieningaanbod
+    
+    Voorzieningversie:
+      type: object
+      description: Een specifieke versie van een voorzieningaanbod
+      required:
+        - id
+        - voorzieningaanbodId
+        - versienummer
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de voorzieningversie
+        voorzieningaanbodId:
+          type: string
+          description: ID van het voorzieningaanbod
+        versienummer:
+          type: string
+          description: Versienummer van de voorziening
+        releaseNotes:
+          type: string
+          description: Release notes voor deze versie
+        releaseDatum:
+          type: string
+          format: date
+          description: Datum waarop deze versie is uitgebracht
+        eindeDatum:
+          type: string
+          format: date
+          description: Datum waarop de ondersteuning voor deze versie eindigt
+        status:
+          type: string
+          enum: [ontwikkeling, actief, onderhoud, einde-ondersteuning]
+          description: Status van deze versie
+        systeemvereisten:
+          type: object
+          properties:
+            besturingssysteem:
+              type: array
+              items:
+                type: string
+              description: Ondersteunde besturingssystemen
+            hardware:
+              type: string
+              description: Hardware vereisten
+            software:
+              type: array
+              items:
+                type: string
+              description: Vereiste software
+          description: Systeemvereisten voor deze versie
+        kwetsbaarheden:
+          type: array
+          items:
+            $ref: '#/components/schemas/Kwetsbaarheid'
+          description: Bekende kwetsbaarheden in deze versie
+    
+    Kwetsbaarheid:
+      type: object
+      description: Een beveiligingskwetsbaarheid in een voorzieningversie
+      required:
+        - id
+        - voorzieningversieId
+        - titel
+        - ernst
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de kwetsbaarheid
+        voorzieningversieId:
+          type: string
+          description: ID van de voorzieningversie waarin de kwetsbaarheid is gevonden
+        cveNummer:
+          type: string
+          description: CVE-nummer van de kwetsbaarheid
+        titel:
+          type: string
+          description: Titel van de kwetsbaarheid
+        beschrijving:
+          type: string
+          description: Beschrijving van de kwetsbaarheid
+        ernst:
+          type: string
+          enum: [laag, gemiddeld, hoog, kritiek]
+          description: Ernst van de kwetsbaarheid
+        ontdektOp:
+          type: string
+          format: date
+          description: Datum waarop de kwetsbaarheid is ontdekt
+        gepubliceerdOp:
+          type: string
+          format: date
+          description: Datum waarop de kwetsbaarheid is gepubliceerd
+        opgelostIn:
+          type: string
+          description: Versie waarin de kwetsbaarheid is opgelost
+        mitigatie:
+          type: string
+          description: Beschrijving van mogelijke mitigatiemaatregelen
+        referenties:
+          type: array
+          items:
+            type: string
+            format: uri
+          description: Referenties naar meer informatie over de kwetsbaarheid
 tags:
   - name: Gemma
     description: All of the Gemma architecture
+  - name: Software Catalogus
+    description: Endpoints voor de Softwarecatalogus objecten

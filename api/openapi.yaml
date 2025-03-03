@@ -1,0 +1,892 @@
+openapi: 3.0.0
+info:
+  title: Softwarecatalogus API
+  description: API voor de VNG Softwarecatalogus
+  version: 1.0.0
+  contact:
+    name: VNG Realisatie
+    url: https://www.vngrealisatie.nl
+    email: info@vngrealisatie.nl
+servers:
+  - url: https://api.softwarecatalogus.nl/v1
+    description: Productieomgeving
+  - url: https://api.test.softwarecatalogus.nl/v1
+    description: Testomgeving
+tags:
+  - name: Software Catalogus
+    description: Endpoints voor de Softwarecatalogus objecten
+  - name: GEMMA Model
+    description: Endpoints voor het GEMMA architectuurmodel
+paths:
+  /leveranciersorganisaties:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle leveranciersorganisaties op
+      description: Geeft een lijst van alle leveranciersorganisaties terug
+      operationId: getLeveranciersorganisaties
+      parameters:
+        - name: kvk-nummer
+          in: query
+          description: Filter op KvK-nummer
+          schema:
+            type: string
+        - name: organisatienaam
+          in: query
+          description: Filter op organisatienaam
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Leveranciersorganisatie'
+  /leveranciersorganisaties/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke leveranciersorganisatie op
+      description: Geeft details van een specifieke leveranciersorganisatie terug
+      operationId: getLeveranciersorganisatieById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de leveranciersorganisatie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leveranciersorganisatie'
+        '404':
+          description: Leveranciersorganisatie niet gevonden
+  
+  /voorzieningen:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle voorzieningen op
+      description: Geeft een lijst van alle voorzieningen terug
+      operationId: getVoorzieningen
+      parameters:
+        - name: naam
+          in: query
+          description: Filter op naam van de voorziening
+          schema:
+            type: string
+        - name: leverancier
+          in: query
+          description: Filter op leverancier ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Voorziening'
+  /voorzieningen/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke voorziening op
+      description: Geeft details van een specifieke voorziening terug
+      operationId: getVoorzieningById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorziening
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorziening'
+        '404':
+          description: Voorziening niet gevonden
+  
+  /voorzieningaanbiedingen:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle voorzieningaanbiedingen op
+      description: Geeft een lijst van alle voorzieningaanbiedingen terug
+      operationId: getVoorzieningaanbiedingen
+      parameters:
+        - name: voorziening
+          in: query
+          description: Filter op voorziening ID
+          schema:
+            type: string
+        - name: leverancier
+          in: query
+          description: Filter op leverancier ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Voorzieningaanbod'
+  /voorzieningaanbiedingen/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke voorzieningaanbieding op
+      description: Geeft details van een specifieke voorzieningaanbieding terug
+      operationId: getVoorzieningaanbodById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningaanbieding
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorzieningaanbod'
+        '404':
+          description: Voorzieningaanbieding niet gevonden
+  
+  /voorzieningversies:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle voorzieningversies op
+      description: Geeft een lijst van alle voorzieningversies terug
+      operationId: getVoorzieningversies
+      parameters:
+        - name: voorzieningaanbod
+          in: query
+          description: Filter op voorzieningaanbod ID
+          schema:
+            type: string
+        - name: versienummer
+          in: query
+          description: Filter op versienummer
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Voorzieningversie'
+  /voorzieningversies/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke voorzieningversie op
+      description: Geeft details van een specifieke voorzieningversie terug
+      operationId: getVoorzieningversieById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningversie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorzieningversie'
+        '404':
+          description: Voorzieningversie niet gevonden
+  
+  /kwetsbaarheden:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle kwetsbaarheden op
+      description: Geeft een lijst van alle kwetsbaarheden terug
+      operationId: getKwetsbaarheden
+      parameters:
+        - name: voorzieningversie
+          in: query
+          description: Filter op voorzieningversie ID
+          schema:
+            type: string
+        - name: cve
+          in: query
+          description: Filter op CVE-nummer
+          schema:
+            type: string
+        - name: ernst
+          in: query
+          description: Filter op ernst
+          schema:
+            type: string
+            enum: [Laag, Middel, Hoog, Kritiek]
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Kwetsbaarheid'
+  /kwetsbaarheden/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke kwetsbaarheid op
+      description: Geeft details van een specifieke kwetsbaarheid terug
+      operationId: getKwetsbaarhedenById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de kwetsbaarheid
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kwetsbaarheid'
+        '404':
+          description: Kwetsbaarheid niet gevonden
+
+  /model:
+    get:
+      tags:
+        - GEMMA Model
+      summary: Haal het complete architectuurmodel op
+      description: Geeft het complete GEMMA architectuurmodel terug
+      operationId: getModel
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Model'
+  
+  /elements:
+    get:
+      tags:
+        - GEMMA Model
+      summary: Haal alle architectuurelementen op
+      description: Geeft een lijst van alle architectuurelementen terug
+      operationId: getElements
+      parameters:
+        - name: type
+          in: query
+          description: Filter op elementtype
+          schema:
+            type: string
+        - name: name
+          in: query
+          description: Filter op naam
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Element'
+  /elements/{id}:
+    get:
+      tags:
+        - GEMMA Model
+      summary: Haal een specifiek architectuurelement op
+      description: Geeft details van een specifiek architectuurelement terug
+      operationId: getElementById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van het element
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Element'
+        '404':
+          description: Element niet gevonden
+
+components:
+  schemas:
+    Leveranciersorganisatie:
+      type: object
+      description: Een organisatie die voorzieningen aanbiedt
+      required:
+        - id
+        - kvk-nummer
+        - organisatienaam
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de leveranciersorganisatie
+        kvk-nummer:
+          type: string
+          description: KvK-nummer van de organisatie
+        organisatienaam:
+          type: string
+          description: Naam van de organisatie
+        contactgegevens:
+          $ref: '#/components/schemas/Contactgegevens'
+        website:
+          type: string
+          format: uri
+          description: Website van de leverancier
+        beschrijving:
+          type: string
+          description: Beschrijving van de leverancier
+    
+    Voorziening:
+      type: object
+      description: Een generieke voorziening (software product)
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de voorziening
+        naam:
+          type: string
+          description: Naam van de voorziening
+        beschrijving:
+          type: string
+          description: Beschrijving van de voorziening
+        type:
+          type: string
+          description: Type voorziening (bijv. SaaS, PaaS, on-premise)
+          enum: [SaaS, PaaS, IaaS, On-premise, Hybride]
+        categorie:
+          type: string
+          description: Categorie van de voorziening
+        functionaliteiten:
+          type: array
+          description: Lijst van functionaliteiten die de voorziening biedt
+          items:
+            type: string
+        doelgroep:
+          type: string
+          description: Doelgroep voor de voorziening
+    
+    Voorzieningaanbod:
+      type: object
+      description: Een specifiek aanbod van een voorziening door een leverancier
+      required:
+        - id
+        - voorziening
+        - leverancier
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor het voorzieningaanbod
+        voorziening:
+          $ref: '#/components/schemas/Voorziening'
+        leverancier:
+          $ref: '#/components/schemas/Leveranciersorganisatie'
+        productpagina:
+          type: string
+          format: uri
+          description: URL naar de productpagina
+        ondersteuningsopties:
+          type: array
+          description: Beschikbare ondersteuningsopties
+          items:
+            type: string
+        prijsmodel:
+          type: string
+          description: Beschrijving van het prijsmodel
+        certificeringen:
+          type: array
+          description: Lijst van certificeringen
+          items:
+            type: string
+        ondersteundeStandaarden:
+          type: array
+          description: Lijst van ondersteunde standaarden
+          items:
+            $ref: '#/components/schemas/Standaard'
+    
+    Voorzieningversie:
+      type: object
+      description: Een specifieke versie van een voorzieningaanbod
+      required:
+        - id
+        - voorzieningaanbod
+        - versienummer
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de voorzieningversie
+        voorzieningaanbod:
+          $ref: '#/components/schemas/Voorzieningaanbod'
+        versienummer:
+          type: string
+          description: Versienummer van de voorziening
+        releaseNotes:
+          type: string
+          description: Release notes voor deze versie
+        releaseDatum:
+          type: string
+          format: date
+          description: Datum waarop deze versie is uitgebracht
+        eindDatumOndersteuning:
+          type: string
+          format: date
+          description: Datum waarop ondersteuning voor deze versie eindigt
+        systeemvereisten:
+          type: string
+          description: Systeemvereisten voor deze versie
+        kwetsbaarheden:
+          type: array
+          description: Bekende kwetsbaarheden in deze versie
+          items:
+            $ref: '#/components/schemas/Kwetsbaarheid'
+    
+    Kwetsbaarheid:
+      type: object
+      description: Een beveiligingskwetsbaarheid in een voorzieningversie
+      required:
+        - id
+        - voorzieningversie
+        - titel
+        - ernst
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de kwetsbaarheid
+        voorzieningversie:
+          $ref: '#/components/schemas/Voorzieningversie'
+        cveNummer:
+          type: string
+          description: CVE-nummer van de kwetsbaarheid
+        titel:
+          type: string
+          description: Titel van de kwetsbaarheid
+        beschrijving:
+          type: string
+          description: Beschrijving van de kwetsbaarheid
+        ernst:
+          type: string
+          enum: [Laag, Middel, Hoog, Kritiek]
+          description: Ernst van de kwetsbaarheid
+        ontdektOp:
+          type: string
+          format: date
+          description: Datum waarop de kwetsbaarheid is ontdekt
+        opgelostIn:
+          type: string
+          description: Versie waarin de kwetsbaarheid is opgelost
+        mitigatie:
+          type: string
+          description: Beschrijving van mogelijke mitigatiemaatregelen
+        referenties:
+          type: array
+          description: Externe referenties naar informatie over de kwetsbaarheid
+          items:
+            type: string
+            format: uri
+    
+    Contactgegevens:
+      type: object
+      description: Contactgegevens van een persoon
+      properties:
+        voornaam:
+          type: string
+          description: Voornaam van de contactpersoon
+        tussenvoegsel:
+          type: string
+          description: Tussenvoegsel van de contactpersoon
+        achternaam:
+          type: string
+          description: Achternaam van de contactpersoon
+        email:
+          type: string
+          format: email
+          description: E-mailadres van de contactpersoon
+        telefoon:
+          type: string
+          description: Telefoonnummer van de contactpersoon
+    
+    Standaard:
+      type: object
+      description: Een standaard die door een voorziening wordt ondersteund
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de standaard
+        naam:
+          type: string
+          description: Naam van de standaard
+        versie:
+          type: string
+          description: Versie van de standaard
+        status:
+          type: string
+          enum: [Verplicht, Aanbevolen, In behandeling, Archief]
+          description: Status van de standaard
+        beschrijving:
+          type: string
+          description: Beschrijving van de standaard
+        beheerorganisatie:
+          type: string
+          description: Organisatie die de standaard beheert
+    
+    Model:
+      type: object
+      description: Het complete GEMMA architectuurmodel
+      required:
+        - id
+        - name
+        - version
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor het architectuurmodel
+        name:
+          type: string
+          description: Naam van het architectuurmodel
+        version:
+          type: string
+          description: Versie van het architectuurmodel
+        description:
+          type: string
+          description: Beschrijving van het architectuurmodel
+        organization:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        elements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Element'
+        relations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Relation'
+        views:
+          type: array
+          items:
+            $ref: '#/components/schemas/View'
+        propertyDefinitions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyDefinition'
+    
+    Element:
+      type: object
+      description: Een architectuurelement in het GEMMA model
+      required:
+        - id
+        - name
+        - type
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor het element
+        name:
+          type: string
+          description: Naam van het element
+        type:
+          type: string
+          description: ArchiMate type van het element
+        documentation:
+          type: string
+          description: Documentatie behorende bij het element
+        properties:
+          type: object
+          additionalProperties: true
+          description: Aangepaste eigenschappen van het element
+    
+    Relation:
+      type: object
+      description: Een relatie tussen elementen in het GEMMA model
+      required:
+        - id
+        - type
+        - source
+        - target
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de relatie
+        identifier:
+          type: string
+          description: Menselijk leesbare identificatie voor de relatie
+        name:
+          type: string
+          description: Naam van de relatie
+        type:
+          type: string
+          description: ArchiMate type van de relatie
+        source:
+          type: string
+          description: ID van het bronelement
+        target:
+          type: string
+          description: ID van het doelelement
+        accessType:
+          type: string
+          description: Type toegang of relatie
+        properties:
+          type: object
+          additionalProperties: true
+          description: Aangepaste eigenschappen van de relatie
+    
+    View:
+      type: object
+      description: Een view op het GEMMA architectuurmodel
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de view
+        name:
+          type: string
+          description: Naam van de view
+        viewpoint:
+          type: string
+          description: Type viewpoint
+        documentation:
+          type: string
+          description: Documentatie behorende bij de view
+        properties:
+          type: object
+          additionalProperties: true
+          description: Aangepaste eigenschappen van de view
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Node'
+        connections:
+          type: array
+          items:
+            $ref: '#/components/schemas/Connection'
+    
+    Node:
+      type: object
+      description: Een node in een view die een element representeert
+      required:
+        - id
+        - elementRef
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de node
+        identifier:
+          type: string
+          description: Menselijk leesbare identificatie voor de node
+        elementRef:
+          type: string
+          description: Referentie naar het element dat deze node representeert
+        position:
+          $ref: '#/components/schemas/Position'
+        style:
+          $ref: '#/components/schemas/NodeStyle'
+        nodes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Node'
+    
+    Connection:
+      type: object
+      description: Een verbinding in een view die een relatie representeert
+      required:
+        - id
+        - relationRef
+        - source
+        - target
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de verbinding
+        relationRef:
+          type: string
+          description: Referentie naar de onderliggende relatie
+        source:
+          type: string
+          description: ID van de bronnode
+        target:
+          type: string
+          description: ID van de doelnode
+        bendpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/Position'
+        style:
+          $ref: '#/components/schemas/ConnectionStyle'
+        labelStyle:
+          $ref: '#/components/schemas/LabelStyle'
+    
+    Position:
+      type: object
+      description: Positie en afmetingen van een element in een diagram
+      properties:
+        x:
+          type: integer
+          description: X-coördinaat
+        y:
+          type: integer
+          description: Y-coördinaat
+        w:
+          type: integer
+          description: Breedte
+        h:
+          type: integer
+          description: Hoogte
+    
+    NodeStyle:
+      type: object
+      description: Visuele stijl van een node
+      properties:
+        fillColor:
+          $ref: '#/components/schemas/Color'
+        lineColor:
+          $ref: '#/components/schemas/Color'
+        font:
+          $ref: '#/components/schemas/Font'
+        color:
+          $ref: '#/components/schemas/Color'
+    
+    ConnectionStyle:
+      type: object
+      description: Visuele stijl van een verbinding
+      properties:
+        lineColor:
+          $ref: '#/components/schemas/Color'
+        lineWidth:
+          type: integer
+          description: Breedte van de lijn
+        lineStyle:
+          type: string
+          description: Stijl van de lijn
+          enum: [solid, dashed, dotted]
+    
+    LabelStyle:
+      type: object
+      description: Stijl voor het label van een verbinding
+      properties:
+        position:
+          $ref: '#/components/schemas/Position'
+        font:
+          $ref: '#/components/schemas/Font'
+        color:
+          $ref: '#/components/schemas/Color'
+    
+    Color:
+      type: object
+      description: RGBA kleurwaarde
+      properties:
+        r:
+          type: integer
+          minimum: 0
+          maximum: 255
+          description: Rood component
+        g:
+          type: integer
+          minimum: 0
+          maximum: 255
+          description: Groen component
+        b:
+          type: integer
+          minimum: 0
+          maximum: 255
+          description: Blauw component
+        a:
+          type: integer
+          minimum: 0
+          maximum: 255
+          description: Alpha (transparantie) component
+    
+    Font:
+      type: object
+      description: Lettertype-eigenschappen
+      properties:
+        name:
+          type: string
+          description: Naam van het lettertype
+        size:
+          type: integer
+          description: Grootte van het lettertype
+        style:
+          type: string
+          enum: [normal, italic, bold, bold-italic]
+          description: Stijl van het lettertype
+    
+    PropertyDefinition:
+      type: object
+      description: Definitie van een eigenschap die aan elementen of relaties kan worden toegekend
+      required:
+        - id
+        - name
+        - type
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de eigenschapsdefinitie
+        identifier:
+          type: string
+          description: Menselijk leesbare identificatie voor de eigenschapsdefinitie
+        name:
+          type: string
+          description: Weergavenaam van de eigenschap
+        type:
+          type: string
+          description: Datatype van de eigenschap
+          enum: [string, integer, boolean, date, enum]
+        description:
+          type: string
+          description: Beschrijving van de eigenschap
+        defaultValue:
+          type: string
+          description: Standaardwaarde voor de eigenschap
+        applicableElements:
+          type: array
+          items:
+            type: string
+          description: Typen elementen waarop deze eigenschap kan worden toegepast 
