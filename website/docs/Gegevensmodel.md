@@ -36,6 +36,8 @@ Het volgende diagram toont de structuur van het GEMMA architectuurmodel en de re
 
 ![GEMMA Architectuur Model Structuur](Diagrams/gemma-model.svg)
 
+Voor meer informatie over het GEMMA architectuurmodel, zie de [GEMMA](GEMMA/introduction.md) pagina.
+
 ## Software Catalogus Componenten
 
 Naast het architectuurmodel bevat de API ook toegang tot de Software Catalogus, die informatie biedt over gemeentelijke software:
@@ -52,7 +54,7 @@ Het volgende diagram toont de structuur van de Software Catalogus en de relaties
 
 ![Software Catalogus Model Structuur](Diagrams/softwarecatalogus-model.svg)
 
-Voor meer informatie over de Software Catalogus, zie de [Software Catalogus](softwarecatalogus) pagina.
+Voor meer informatie over de Software Catalogus, zie de [Software Catalogus](Softwarecatalogus/introduction.md) pagina.
 
 ## API Toegang
 
