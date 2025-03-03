@@ -1,0 +1,27 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "mapping",
+    "@id": "http:\/\/nextcloud.local\/index.php\/apps\/openconnector\/api\/mappings\/1",
+    "id": 1,
+    "uuid": "bfede918-caf4-4620-a3c0-57b8ba81bed2",
+    "name": "Archio XML Elements to Gemma OAS",
+    "description": "",
+    "version": "",
+    "reference": "http:\/\/nextcloud.local\/index.php\/apps\/openconnector\/api\/mappings\/1",
+    "mapping": {
+        "identifier": "@attributes.identifier",
+        "name": "name",
+        "documentation": "documentation",
+        "properties": "{ {% for property in properties.property  %}\"{{property['@attributes']['propertyDefinitionRef']}}\":\"{{property['value']}}\"{% if not loop.last %},{% endif %}{% endfor %} }"
+    },
+    "unset": [],
+    "cast": {
+        "properties:": "jsonToArray"
+    },
+    "passThrough": false,
+    "dateCreated": "2025-02-18T16:09:45+00:00",
+    "dateModified": "2025-02-18T16:09:45+00:00"
+}

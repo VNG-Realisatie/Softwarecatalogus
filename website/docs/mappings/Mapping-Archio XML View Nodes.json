@@ -1,0 +1,30 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "mapping",
+    "@id": "http:\/\/nextcloud.local\/index.php\/apps\/openconnector\/api\/mappings\/5",
+    "id": 3,
+    "uuid": "da4e48dd-55dc-4357-9524-340a477891e1",
+    "name": "Archio XML View Nodes",
+    "description": "",
+    "version": "",
+    "reference": "http:\/\/nextcloud.local\/index.php\/apps\/openconnector\/api\/mappings\/5",
+    "mapping": {
+        "identifier": "{{ attribute(_context, '@attributes').identifier }}",
+        "elementRef": "{{ attribute(_context, '@attributes').elementRef }}",
+        "position": "{\"x\":\"{{ attribute(_context, '@attributes').x }}\",\"y\":\"{{ attribute(_context, '@attributes').y }}\",\"w\":\"{{ attribute(_context, '@attributes').w }}\",\"h\":\"{{ attribute(_context, '@attributes').h }}\"}",
+        "style": "{\"fillColor\":{ \"r\":\"{{ attribute(style.fillColor,'@attributes').r }}\", \"g\":\"{{ attribute(style.fillColor,'@attributes').g }}\", \"b\":\"{{ attribute(style.fillColor,'@attributes').b }}\", \"a\":\"{{ attribute(style.fillColor,'@attributes').a }}\" }, \"lineColor\":{ \"r\":\"{{ attribute(style.lineColor,'@attributes').r }}\", \"g\":\"{{ attribute(style.lineColor,'@attributes').g }}\", \"b\":\"{{ attribute(style.lineColor,'@attributes').b }}\", \"a\":\"{{ attribute(style.lineColor,'@attributes').a }}\" }, \"font\":{ \"name\":\"{{ attribute(style.font, '@attributes').name }}\", \"size\":\"{{ attribute(style.font, '@attributes').size }}\", \"color\":{ \"r\":\"{{ attribute(style.font.color, '@attributes').r }}\", \"g\":\"{{ attribute(style.font.color, '@attributes').g }}\", \"b\":\"{{ attribute(style.font.color, '@attributes').b }}\"}}}",
+        "nodes": "{% if node|default %}{{ executeMapping(3, node, true)|json_encode }}{%else%}[]{% endif %}"
+    },
+    "unset": [],
+    "cast": {
+        "position": "jsonToArray",
+        "style": "jsonToArray",
+        "nodes": "jsonToArray"
+    },
+    "passThrough": false,
+    "dateCreated": "2025-03-03T14:34:14+00:00",
+    "dateModified": "2025-03-03T14:34:14+00:00"
+}
