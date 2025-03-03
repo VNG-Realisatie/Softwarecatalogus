@@ -15,7 +15,7 @@ info:
     url: 'https://interoperable-europe.ec.europa.eu/collection/eupl'
   termsOfService: 'https://www.softwarecatalogus.nl/Privacyverklaring%20softwarecatalogus'
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'https://vng.accept.commonground.nu/apps/openconnector/api/endpoint'
 paths:
   /model:
     get:
@@ -33,7 +33,7 @@ paths:
       description: 'Get the complete architecture model including all elements, relations, views, and property definitions'
   /views:
     get:
-      summary: Your GET endpoint
+      summary: Get all views
       tags:
         - Gemma
       responses:
