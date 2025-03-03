@@ -6,29 +6,19 @@ sidebar_label: Views
 
 # GEMMA Views
 
-Views bieden verschillende perspectieven op het GEMMA architectuurmodel. Elke view richt zich op specifieke aspecten van de architectuur en bevat visuele representaties van elementen en hun relaties.
-
-## Soorten Views
-
-Het GEMMA model bevat verschillende soorten views:
-
-- **Bedrijfsviews**: Tonen bedrijfsprocessen, actoren en objecten
-- **Applicatieviews**: Tonen applicatiecomponenten en hun interacties
-- **Technologieviews**: Tonen infrastructuur en technische componenten
-- **Implementatieviews**: Tonen hoe componenten worden geïmplementeerd
-- **Motivatieviews**: Tonen doelen, principes en eisen
+Views bieden verschillende perspectieven op het GEMMA architectuurmodel. Ze tonen specifieke aspecten van de architectuur en maken het model toegankelijker voor verschillende stakeholders.
 
 ## Eigenschappen
 
 | Eigenschap | Type | Beschrijving |
 |------------|------|-------------|
-| id | string | Unieke identificatie voor de view |
+| identifier | string | Unieke identificatie voor de view |
+| viewpoint | string | Type viewpoint dat wordt gebruikt |
 | name | string | Naam van de view |
-| viewpoint | string | Type viewpoint (bijv. Application, Business, Technology) |
-| documentation | string | Documentatie behorende bij de view |
+| documentation | string | Documentatie of beschrijving van de view |
 | properties | object | Aangepaste eigenschappen van de view |
-| nodes | Node[] | Verzameling van nodes die elementen in de view representeren |
-| connections | Connection[] | Verzameling van verbindingen die relaties in de view representeren |
+| node | array | Nodes (elementen) in de view |
+| connection | array | Verbindingen (relaties) in de view |
 
 ## API Endpoint
 
@@ -39,25 +29,160 @@ GET /views
 Voor een specifieke view:
 
 '''
-GET /views/{id}
+GET /views/{identifier}
 '''
 
-## Voorbeeld Response
+## Voorbeelden
+
+<Tabs>
+  <TabItem value="json" label="JSON Voorbeeld" default>
 
 '''json
 {
-  "id": "v1",
-  "name": "Zaakgericht werken",
-  "viewpoint": "Application",
-  "documentation": "Overzicht van de componenten voor zaakgericht werken",
+  "identifier": "v9012",
+  "viewpoint": "application",
+  "name": "Applicatielandschap Burgerzaken",
+  "documentation": "Overzicht van applicaties voor burgerzaken",
   "properties": {
-    "status": "Actief",
-    "domein": "Dienstverlening"
+    "versie": "1.2",
+    "auteur": "Jan Jansen",
+    "datum": "2023-07-20"
   },
-  "nodes": [...],
-  "connections": [...]
+  "node": [
+    {
+      "identifier": "n1",
+      "elementRef": "e2345",
+      "position": {
+        "x": "100",
+        "y": "150",
+        "w": "120",
+        "h": "60"
+      },
+      "style": {
+        "fillColor": {
+          "r": "255",
+          "g": "255",
+          "b": "255",
+          "a": "100"
+        },
+        "lineColor": {
+          "r": "0",
+          "g": "0",
+          "b": "0",
+          "a": "100"
+        },
+        "font": {
+          "name": "Arial",
+          "size": "12",
+          "color": {
+            "r": "0",
+            "g": "0",
+            "b": "0"
+          }
+        }
+      }
+    }
+  ],
+  "connection": [
+    {
+      "identifier": "c1",
+      "relationshipRef": "r5678",
+      "source": "n1",
+      "target": "n2",
+      "style": {
+        "lineColor": {
+          "r": "0",
+          "g": "0",
+          "b": "0"
+        },
+        "font": {
+          "name": "Arial",
+          "size": "10",
+          "color": {
+            "r": "0",
+            "g": "0",
+            "b": "0"
+          }
+        }
+      }
+    }
+  ]
 }
 '''
+
+  </TabItem>
+  <TabItem value="mapping" label="Mapping Configuratie">
+
+'''json
+{
+  "name": "Archio XML Views to Gemma OAS",
+  "mapping": {
+    "identifier": "@attributes.identifier",
+    "viewpoint": "@attributes.viewpoint",
+    "name": "name",
+    "documentation": "documentation",
+    "properties": "{ {% for property in properties.property %}\"{{property['@attributes']['propertyDefinitionRef']}}\":\"{{property['value']}}\"{% if not loop.last %},{% endif %}{% endfor %} }",
+    "node": "{% if node|default %}{{ executeMapping(3, node, true)|json_encode }}{%else%}[]{%endif%}",
+    "connection": "[ {% for tConnection in connection %}{ \"identifier\":\"{{ tConnection['@attributes']['identifier'] }}\", \"relationshipRef\":\"{{ tConnection['@attributes']['relationshipRef'] }}\", \"source\":\"{{ tConnection['@attributes']['source'] }}\", \"target\":\"{{ tConnection['@attributes']['target'] }}\", \"style\":{ \"lineColor\":{ \"r\":\"{{ tConnection['style']['lineColor']['@attributes']['r'] }}\", \"g\":\"{{ tConnection['style']['lineColor']['@attributes']['g'] }}\", \"b\":\"{{ tConnection['style']['lineColor']['@attributes']['b'] }}\" }, \"font\":{ \"name\":\"{{ tConnection['style']['font']['@attributes']['name'] }}\", \"size\":\"{{ tConnection['style']['font']['@attributes']['size'] }}\", \"color\":{ \"r\":\"{{ tConnection['style']['font']['color']['@attributes']['r'] }}\", \"g\":\"{{ tConnection['style']['font']['color']['@attributes']['g'] }}\", \"b\":\"{{ tConnection['style']['font']['color']['@attributes']['b'] }}\" } } } }{% if not loop.last %},{% endif %}{% endfor %} ]"
+  },
+  "cast": {
+    "properties": "jsonToArray",
+    "node": "jsonToArray",
+    "connection": "jsonToArray"
+  }
+}
+'''
+
+  </TabItem>
+  <TabItem value="xml" label="XML Input Voorbeeld">
+
+'''xml
+<view identifier="v9012" viewpoint="application">
+  <name>Applicatielandschap Burgerzaken</name>
+  <documentation>Overzicht van applicaties voor burgerzaken</documentation>
+  <properties>
+    <property propertyDefinitionRef="versie">
+      <value>1.2</value>
+    </property>
+    <property propertyDefinitionRef="auteur">
+      <value>Jan Jansen</value>
+    </property>
+    <property propertyDefinitionRef="datum">
+      <value>2023-07-20</value>
+    </property>
+  </properties>
+  <node identifier="n1" elementRef="e2345" x="100" y="150" w="120" h="60">
+    <style>
+      <fillColor r="255" g="255" b="255" a="100"/>
+      <lineColor r="0" g="0" b="0" a="100"/>
+      <font name="Arial" size="12">
+        <color r="0" g="0" b="0"/>
+      </font>
+    </style>
+  </node>
+  <connection identifier="c1" relationshipRef="r5678" source="n1" target="n2">
+    <style>
+      <lineColor r="0" g="0" b="0"/>
+      <font name="Arial" size="10">
+        <color r="0" g="0" b="0"/>
+      </font>
+    </style>
+  </connection>
+</view>
+'''
+
+  </TabItem>
+</Tabs>
+
+## Soorten Views
+
+Het GEMMA model bevat verschillende soorten views:
+
+- **Bedrijfsviews**: Tonen bedrijfsprocessen, actoren en objecten
+- **Applicatieviews**: Tonen applicatiecomponenten en hun interacties
+- **Technologieviews**: Tonen infrastructuur en technische componenten
+- **Implementatieviews**: Tonen hoe componenten worden geïmplementeerd
+- **Motivatieviews**: Tonen doelen, principes en eisen
 
 ## Relaties met andere Componenten
 

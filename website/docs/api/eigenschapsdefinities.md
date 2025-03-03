@@ -34,7 +34,7 @@ GET /propertydefinitions/{id}
 
 ## Voorbeeld Response
 
-'''json
+```json
 {
   "id": "pd1",
   "identifier": "status",
@@ -48,7 +48,7 @@ GET /propertydefinitions/{id}
     "BusinessActor"
   ]
 }
-'''
+```
 
 ## Relaties met andere Componenten
 
