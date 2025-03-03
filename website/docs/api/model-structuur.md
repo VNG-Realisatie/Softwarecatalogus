@@ -31,7 +31,7 @@ Het model bevat componenten voor het visualiseren van de architectuur:
 
 Het volgende diagram toont de structuur van het GEMMA architectuurmodel en de relaties tussen de componenten:
 
-![GEMMA Architectuur Model Structuur](/Softwarecatalogus/img/gemma-model.png)
+![GEMMA Architectuur Model Structuur](Diagrams/gemma-model.svg)
 
 ## Software Catalogus Componenten
 
