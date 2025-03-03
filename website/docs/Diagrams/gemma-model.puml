@@ -1,0 +1,169 @@
+@startuml "GEMMA Architecture Model"
+
+' Style definitions
+skinparam backgroundColor white
+skinparam classBackgroundColor #f5f5f5
+skinparam classBorderColor #999999
+skinparam arrowColor #666666
+skinparam packageBackgroundColor #f0f0f0
+skinparam packageBorderColor #999999
+skinparam titleFontSize 20
+skinparam titleFontColor #333333
+
+title "GEMMA Architecture Model - Objects and Relations"
+
+package "Core Model" {
+  class Model {
+    +id: string
+    +name: string
+    +version: string
+    +description: string
+    +elements: Element[]
+    +relations: Relation[]
+    +views: View[]
+    +propertyDefinitions: PropertyDefinition[]
+  }
+
+  class Organization {
+    +id: string
+    +name: string
+  }
+
+  class Element {
+    +id: string
+    +name: string
+    +type: string
+    +documentation: object
+    +properties: object
+  }
+
+  class Relation {
+    +id: string
+    +identifier: string
+    +name: string
+    +type: string
+    +source: string
+    +target: string
+    +accessType: string
+    +properties: object
+  }
+
+  class PropertyDefinition {
+    +id: string
+    +identifier: string
+    +name: string
+    +type: string
+    +description: string
+    +defaultValue: string
+    +applicableElements: string[]
+  }
+}
+
+package "Visualization" {
+  class View {
+    +id: string
+    +name: string
+    +viewpoint: string
+    +documentation: string
+    +properties: object
+    +nodes: Node[]
+    +connections: Connection[]
+  }
+
+  class Node {
+    +id: integer
+    +identifier: string
+    +elementRef: string
+    +position: Position
+    +style: NodeStyle
+    +nodes: Node[]
+  }
+
+  class Connection {
+    +id: string
+    +relationRef: string
+    +source: string
+    +target: string
+    +bendpoints: Bendpoint[]
+    +style: ConnectionStyle
+    +labelStyle: LabelStyle
+  }
+
+  class Position {
+    +x: integer
+    +y: integer
+    +w: integer
+    +h: integer
+  }
+
+  class NodeStyle {
+    +fillColor: Color
+    +lineColor: Color
+    +font: Font
+    +color: Color
+  }
+
+  class ConnectionStyle {
+    +lineColor: Color
+    +lineWidth: integer
+    +lineStyle: string
+  }
+
+  class LabelStyle {
+    +position: Position
+    +font: Font
+    +color: Color
+  }
+
+  class Color {
+    +r: integer
+    +g: integer
+    +b: integer
+    +a: integer
+  }
+
+  class Font {
+    +name: string
+    +size: integer
+    +style: string
+  }
+
+  class Bendpoint {
+    +x: integer
+    +y: integer
+  }
+}
+
+' Relationships
+Model "1" *-- "1" Organization : has >
+Model "1" *-- "many" Element : contains >
+Model "1" *-- "many" Relation : contains >
+Model "1" *-- "many" View : contains >
+Model "1" *-- "many" PropertyDefinition : defines >
+
+View "1" *-- "many" Node : displays >
+View "1" *-- "many" Connection : displays >
+
+Node "1" *-- "0..many" Node : contains >
+Node "1" *-- "1" Position : has >
+Node "1" *-- "1" NodeStyle : has >
+Node "1" -- "1" Element : references >
+
+Connection "1" *-- "0..many" Bendpoint : has >
+Connection "1" *-- "1" ConnectionStyle : has >
+Connection "1" *-- "0..1" LabelStyle : has >
+Connection "1" -- "1" Relation : references >
+Connection "1" -- "1" Node : source >
+Connection "1" -- "1" Node : target >
+
+NodeStyle *-- "1" Color : fillColor >
+NodeStyle *-- "1" Color : lineColor >
+NodeStyle *-- "1" Font : font >
+NodeStyle *-- "1" Color : textColor >
+
+ConnectionStyle *-- "1" Color : lineColor >
+LabelStyle *-- "1" Position : position >
+LabelStyle *-- "1" Font : font >
+LabelStyle *-- "1" Color : color >
+
+@enduml 
