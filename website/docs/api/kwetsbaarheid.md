@@ -4,6 +4,9 @@ title: Kwetsbaarheid
 sidebar_label: Kwetsbaarheid
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Kwetsbaarheid
 
 Een kwetsbaarheid is een beveiligingsprobleem in een voorzieningversie. Het beschrijft een zwakke plek in de software die mogelijk kan worden misbruikt.
@@ -26,15 +29,15 @@ Een kwetsbaarheid is een beveiligingsprobleem in een voorzieningversie. Het besc
 
 ## API Endpoint
 
-'''
+```
 GET /kwetsbaarheden
-'''
+```
 
 Voor een specifieke kwetsbaarheid:
 
-'''
+```
 GET /kwetsbaarheden/{id}
-'''
+```
 
 ## Voorbeeld Response
 

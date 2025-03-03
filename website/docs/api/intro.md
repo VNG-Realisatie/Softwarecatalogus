@@ -30,10 +30,10 @@ Momenteel is de API publiek toegankelijk zonder authenticatie-vereisten.
 
 Hier is een eenvoudig voorbeeld van hoe u alle views van de API kunt ophalen:
 
-'''javascript
+```javascript
 fetch('https://vng.accept.commonground.nu/apps/openconnector/api/endpoint/views')
   .then(response => response.json())
   .then(data => console.log(data));
-'''
+```
 
 Voor meer gedetailleerde voorbeelden en gebruikssituaties, raadpleeg de [API Specificatie](/api). 

@@ -4,6 +4,9 @@ title: Leveranciersorganisatie
 sidebar_label: Leveranciersorganisatie
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Leveranciersorganisatie
 
 Een leveranciersorganisatie is een bedrijf of instelling die software of diensten aanbiedt binnen de gemeentelijke IT-omgeving. Deze organisaties leveren voorzieningen aan gemeenten en andere overheidsinstanties.
@@ -24,15 +27,15 @@ Een leveranciersorganisatie is een bedrijf of instelling die software of dienste
 
 ## API Endpoint
 
-'''
+```
 GET /leveranciersorganisaties
-'''
+```
 
 Voor een specifieke leveranciersorganisatie:
 
-'''
+```
 GET /leveranciersorganisaties/{id}
-'''
+```
 
 ## Voorbeeld Response
 

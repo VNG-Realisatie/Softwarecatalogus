@@ -4,6 +4,9 @@ title: Voorzieningaanbod
 sidebar_label: Voorzieningaanbod
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Voorzieningaanbod
 
 Een voorzieningaanbod is een specifiek aanbod van een voorziening door een leverancier. Het beschrijft hoe een leverancier een bepaalde voorziening aanbiedt, inclusief licentiemodel, ondersteuning en hostingopties.
@@ -23,15 +26,15 @@ Een voorzieningaanbod is een specifiek aanbod van een voorziening door een lever
 
 ## API Endpoint
 
-'''
+```
 GET /voorzieningaanbiedingen
-'''
+```
 
 Voor een specifiek voorzieningaanbod:
 
-'''
+```
 GET /voorzieningaanbiedingen/{id}
-'''
+```
 
 ## Voorbeeld Response
 

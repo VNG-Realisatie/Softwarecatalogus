@@ -4,6 +4,9 @@ title: Voorziening
 sidebar_label: Voorziening
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Voorziening
 
 Een voorziening is een softwareproduct of dienst die functionaliteit biedt voor gemeentelijke processen. Voorzieningen vormen de basis van de gemeentelijke informatievoorziening en kunnen door verschillende leveranciers worden aangeboden.

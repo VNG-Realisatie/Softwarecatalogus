@@ -4,6 +4,9 @@ title: GEMMA Model
 sidebar_label: Model
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # GEMMA Model
 
 Het model is de hoofdcontainer voor het GEMMA architectuurmodel. Het bevat alle elementen, relaties, views en eigenschapsdefinities die samen de gemeentelijke architectuur beschrijven.
@@ -22,9 +25,9 @@ Het model is de hoofdcontainer voor het GEMMA architectuurmodel. Het bevat alle 
 
 ## API Endpoint
 
-'''
+```
 GET /model
-'''
+```
 
 ## Voorbeelden
 

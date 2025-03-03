@@ -4,6 +4,9 @@ title: GEMMA Eigenschapsdefinities
 sidebar_label: Eigenschapsdefinities
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # GEMMA Eigenschapsdefinities
 
 Eigenschapsdefinities specificeren de aangepaste eigenschappen die aan elementen en relaties kunnen worden toegekend. Elke eigenschap heeft een type, beschrijving en toepasselijke elementen.
@@ -22,15 +25,15 @@ Eigenschapsdefinities specificeren de aangepaste eigenschappen die aan elementen
 
 ## API Endpoint
 
-'''
+```
 GET /propertydefinitions
-'''
+```
 
 Voor een specifieke eigenschapsdefinitie:
 
-'''
+```
 GET /propertydefinitions/{id}
-'''
+```
 
 ## Voorbeeld Response
 

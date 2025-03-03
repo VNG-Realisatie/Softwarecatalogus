@@ -4,6 +4,9 @@ title: GEMMA Model Structuur
 sidebar_label: Model Structuur
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # GEMMA Architectuur Model Structuur
 
 De GEMMA API biedt toegang tot een uitgebreid architectuurmodel dat de ArchiMate-standaard volgt, evenals een Software Catalogus met informatie over gemeentelijke software. Deze pagina legt de structuur van het model en de relaties tussen de componenten uit.

@@ -4,6 +4,9 @@ title: Software Catalogus
 sidebar_label: Software Catalogus
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Software Catalogus
 
 De Software Catalogus biedt een overzicht van software en diensten die beschikbaar zijn voor gemeenten. Het bevat informatie over leveranciers, voorzieningen, versies en kwetsbaarheden.

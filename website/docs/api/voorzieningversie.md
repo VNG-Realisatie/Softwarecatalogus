@@ -4,6 +4,9 @@ title: Voorzieningversie
 sidebar_label: Voorzieningversie
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Voorzieningversie
 
 Een voorzieningversie is een specifieke versie van een voorzieningaanbod. Het bevat informatie over de release, ondersteuningsperiode, systeemvereisten en eventuele kwetsbaarheden.
@@ -24,15 +27,15 @@ Een voorzieningversie is een specifieke versie van een voorzieningaanbod. Het be
 
 ## API Endpoint
 
-'''
+```
 GET /voorzieningversies
-'''
+```
 
 Voor een specifieke voorzieningversie:
 
-'''
+```
 GET /voorzieningversies/{id}
-'''
+```
 
 ## Voorbeeld Response
 

@@ -4,6 +4,9 @@ title: GEMMA Relaties
 sidebar_label: Relaties
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # GEMMA Relaties
 
 Relaties verbinden elementen in het GEMMA architectuurmodel. Ze definiëren hoe verschillende architectuurcomponenten met elkaar samenhangen en interacteren.
@@ -20,15 +23,15 @@ Relaties verbinden elementen in het GEMMA architectuurmodel. Ze definiëren hoe 
 
 ## API Endpoint
 
-'''
+```
 GET /relations
-'''
+```
 
 Voor een specifieke relatie:
 
-'''
+```
 GET /relations/{identifier}
-'''
+```
 
 ## Voorbeelden
 

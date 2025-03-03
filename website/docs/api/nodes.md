@@ -4,6 +4,9 @@ title: GEMMA Nodes
 sidebar_label: Nodes
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # GEMMA Nodes
 
 Nodes zijn visuele representaties van elementen in een view. Ze definiëren hoe elementen worden weergegeven in diagrammen, inclusief positie en stijl.
@@ -22,9 +25,9 @@ Nodes zijn visuele representaties van elementen in een view. Ze definiëren hoe 
 
 Nodes worden meestal opgevraagd als onderdeel van een view:
 
-'''
+```
 GET /views/{viewIdentifier}
-'''
+```
 
 ## Voorbeelden
 

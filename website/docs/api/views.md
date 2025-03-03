@@ -4,6 +4,9 @@ title: GEMMA Views
 sidebar_label: Views
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # GEMMA Views
 
 Views bieden verschillende perspectieven op het GEMMA architectuurmodel. Ze tonen specifieke aspecten van de architectuur en maken het model toegankelijker voor verschillende stakeholders.

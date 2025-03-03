@@ -4,6 +4,9 @@ title: GEMMA Verbindingen
 sidebar_label: Verbindingen
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # GEMMA Verbindingen
 
 Verbindingen representeren relaties in een visueel diagram. Elke verbinding koppelt twee nodes en heeft stijleigenschappen.
