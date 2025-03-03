@@ -2,6 +2,7 @@
 id: api-introductie
 title: GEMMA API Documentatie
 sidebar_label: Introductie
+sidebar_position: 1
 ---
 
 # GEMMA API Documentatie

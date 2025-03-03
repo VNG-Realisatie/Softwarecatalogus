@@ -2,6 +2,7 @@
 id: softwarecatalogus
 title: Software Catalogus
 sidebar_label: Software Catalogus
+sidebar_position: 1
 ---
 
 import Tabs from '@theme/Tabs';

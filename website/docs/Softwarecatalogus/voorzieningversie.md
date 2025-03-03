@@ -2,6 +2,7 @@
 id: voorzieningversie
 title: Voorzieningversie
 sidebar_label: Voorzieningversie
+sidebar_position: 6
 ---
 
 import Tabs from '@theme/Tabs';
