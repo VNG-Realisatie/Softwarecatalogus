@@ -23,6 +23,27 @@ const config = {
     locales: ['nl'],
   },
 
+  // Add Redocusaurus plugin
+  plugins: [
+    [
+      'redocusaurus',
+      {
+        // Plugin options
+        specs: [
+          {
+            spec: 'static/oas/gemma.yaml',
+            route: '/api/reference',
+          },
+        ],
+        // Theme options for Redocusaurus
+        theme: {
+          // Change with your site colors
+          primaryColor: '#25c2a0',
+        },
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -55,6 +76,12 @@ const config = {
             position: 'left',
             label: 'Documentatie',
           },
+          // Add API Specificatie menu item
+          {
+            label: 'API Specificatie',
+            position: 'left',
+            to: '/api',
+          },
           {
             href: 'https://github.com/VNG-Realisatie/softwarecatalogus',
             label: 'GitHub',
@@ -76,6 +103,10 @@ const config = {
               {
                 label: 'Handleiding',
                 to: '/docs/intro',
+              },
+              {
+                label: 'API Specificatie',
+                to: '/api',
               },
             ],
           },
