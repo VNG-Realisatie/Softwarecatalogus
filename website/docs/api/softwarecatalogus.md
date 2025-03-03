@@ -22,7 +22,7 @@ De Software Catalogus bestaat uit de volgende objecttypen:
 
 Het volgende diagram toont de structuur van de Software Catalogus en de relaties tussen de objecttypen:
 
-![Software Catalogus Model Structuur](/Softwarecatalogus/img/softwarecatalogus-model.png)
+![Software Catalogus Model Structuur](../Diagrams/softwarecatalogus-model.svg)
 
 ## API Toegang
 

@@ -38,7 +38,7 @@ GET /kwetsbaarheden/{id}
 
 ## Voorbeeld Response
 
-'''json
+```json
 {
   "id": "k1",
   "voorzieningversieId": "vv1",
@@ -55,7 +55,7 @@ GET /kwetsbaarheden/{id}
     "https://www.voorbeeldsoftware.nl/security/advisories/CVE-2023-12345"
   ]
 }
-'''
+```
 
 ## Relaties met andere Componenten
 

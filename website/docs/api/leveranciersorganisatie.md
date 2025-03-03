@@ -36,7 +36,7 @@ GET /leveranciersorganisaties/{id}
 
 ## Voorbeeld Response
 
-'''json
+```json
 {
   "id": "l1",
   "naam": "Voorbeeld Software B.V.",
@@ -62,7 +62,7 @@ GET /leveranciersorganisaties/{id}
     }
   ]
 }
-'''
+```
 
 ## Relaties met andere Componenten
 

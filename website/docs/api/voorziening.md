@@ -36,7 +36,7 @@ GET /voorzieningen/{id}
 
 ## Voorbeeld Response
 
-'''json
+```json
 {
   "id": "v1",
   "naam": "Zaaksysteem Pro",
@@ -80,7 +80,7 @@ GET /voorzieningen/{id}
     }
   ]
 }
-'''
+```
 
 ## Relaties met andere Componenten
 
