@@ -47,7 +47,7 @@ Naast het architectuurmodel bevat de API ook toegang tot de Software Catalogus, 
 
 Het volgende diagram toont de structuur van de Software Catalogus en de relaties tussen de objecttypen:
 
-![Software Catalogus Model Structuur](/Softwarecatalogus/img/softwarecatalogus-model.png)
+![Software Catalogus Model Structuur](Diagrams/softwarecatalogus-model.svg)
 
 Voor meer informatie over de Software Catalogus, zie de [Software Catalogus](softwarecatalogus) pagina.
 
