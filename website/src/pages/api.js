@@ -27,7 +27,7 @@ function ApiPage() {
     >
       <div style={{ height: 'calc(100vh - 60px)' }}>
         <RedocStandalone
-          specUrl="/oas/gemma.yaml"
+          specUrl="/Softwarecatalogus/oas/gemma.yaml"
           options={{
             nativeScrollbars: true,
             theme: {
