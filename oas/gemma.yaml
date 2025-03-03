@@ -44,6 +44,9 @@ paths:
               schema:
                 type: object
                 properties:
+                  count:
+                    type: integer
+                    description: Total number of views found
                   results:
                     type: array
                     x-stoplight:
@@ -98,6 +101,9 @@ paths:
               schema:
                 type: object
                 properties:
+                  count:
+                    type: integer
+                    description: Total number of elements found
                   results:
                     type: array
                     items:
@@ -138,6 +144,9 @@ paths:
               schema:
                 type: object
                 properties:
+                  count:
+                    type: integer
+                    description: Total number of relations found
                   results:
                     type: array
                     items:
@@ -178,6 +187,9 @@ paths:
               schema:
                 type: object
                 properties:
+                  count:
+                    type: integer
+                    description: Total number of property definitions found
                   results:
                     type: array
                     items:
@@ -212,6 +224,41 @@ components:
       type: object
       description: 'The complete architecture model containing all elements, relations, views, and property definitions'
       properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
         id:
           type: string
           description: Unique identifier for the architecture model
@@ -541,11 +588,44 @@ components:
       x-stoplight:
         id: rz6i8o15fdurx
       properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
         id:
           type: integer
           description: Unique identifier for the given node.
-          x-stoplight:
-            id: nty179dtpjjgl
         identifier:
           type: string
           x-stoplight:
@@ -664,6 +744,41 @@ components:
         id: qeimpz6ir1iey
       type: object
       properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
         id:
           type: string
           x-stoplight:
@@ -781,6 +896,41 @@ components:
       type: object
       description: 'Represents a visual connection between nodes in an ArchiMate view, based on an underlying relation'
       properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
         id:
           type: string
           x-stoplight:
@@ -888,6 +1038,41 @@ components:
       type: object
       description: Represents an ArchiMate element in the architecture model
       properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
         id:
           type: string
           x-stoplight:
@@ -924,6 +1109,41 @@ components:
       type: object
       description: Represents a relationship between ArchiMate elements
       properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
         id:
           type: string
           x-stoplight:
@@ -978,6 +1198,41 @@ components:
         id: 6snifqrf65pfm
       type: object
       properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
         id:
           type: string
           x-stoplight:
@@ -993,6 +1248,41 @@ components:
       type: object
       description: Defines a property that can be associated with elements or relations
       properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
         id:
           type: string
           x-stoplight:
