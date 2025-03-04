@@ -1,0 +1,24 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "endpoint",
+    "@id": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/8",
+    "name": "Gemma",
+    "description": "This endpoint returns the entire gemma catalog",
+    "reference": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/8",
+    "version": "0.0.1",
+    "endpoint": "gemma",
+    "endpointArray": [
+        "gemma"
+    ],
+    "endpointRegex": "#gemma$#",
+    "method": "GET",
+    "targetType": "register\/schema",
+    "targetId": "2\/14",
+    "conditions": [],
+    "inputMapping": null,
+    "outputMapping": null,
+    "rules": []
+}

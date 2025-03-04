@@ -1,0 +1,25 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "endpoint",
+    "@id": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/3",
+    "name": "Organizations",
+    "description": "",
+    "reference": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/3",
+    "version": "0.0.1",
+    "endpoint": "organizations\/{{id}}",
+    "endpointArray": [
+        "organizations",
+        "{{id}}"
+    ],
+    "endpointRegex": "#organizations(\/([^\/]+))?#",
+    "method": "GET",
+    "targetType": "regsiter\/schema",
+    "targetId": "2\/12",
+    "conditions": [],
+    "inputMapping": null,
+    "outputMapping": null,
+    "rules": []
+}

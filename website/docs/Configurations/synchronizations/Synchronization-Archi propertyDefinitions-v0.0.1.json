@@ -1,0 +1,43 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "synchronization",
+    "@id": "http:\/\/nextcloud.local\/index.php\/apps\/openconnector\/api\/synchronizations\/6",
+    "id": 2,
+    "uuid": "b521d79f-315b-46cf-a787-8c96689d14e6",
+    "name": "Archi propertyDefinitions",
+    "description": "",
+    "reference": "http:\/\/nextcloud.local\/index.php\/apps\/openconnector\/api\/synchronizations\/6",
+    "version": "0.0.1",
+    "sourceId": "4",
+    "sourceType": "api",
+    "sourceHash": "",
+    "sourceHashMapping": "",
+    "sourceTargetMapping": "",
+    "sourceConfig": {
+        "idPosition": "@attributes.identifier",
+        "resultsPosition": "propertyDefinitions.propertyDefinition",
+        "endpoint": "",
+        "headers": [],
+        "query": []
+    },
+    "sourceLastChanged": "2025-02-16T23:39:45+00:00",
+    "sourceLastChecked": "2025-02-16T23:39:45+00:00",
+    "sourceLastSynced": "2025-02-16T23:39:45+00:00",
+    "currentPage": 1,
+    "targetId": "4\/13",
+    "targetType": "register\/schema",
+    "targetHash": "",
+    "targetSourceMapping": "",
+    "targetConfig": [],
+    "targetLastChanged": "2025-02-16T23:39:45+00:00",
+    "targetLastChecked": "2025-02-16T23:39:45+00:00",
+    "targetLastSynced": "2025-02-16T23:39:45+00:00",
+    "created": "2025-02-18T16:09:13+00:00",
+    "updated": "2025-02-18T16:09:13+00:00",
+    "conditions": [],
+    "followUps": [],
+    "actions": []
+}

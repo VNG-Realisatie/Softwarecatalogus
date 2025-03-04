@@ -1,0 +1,25 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "endpoint",
+    "@id": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/2",
+    "name": "Views",
+    "description": "",
+    "reference": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/2",
+    "version": "0.0.1",
+    "endpoint": "views\/{{id}}",
+    "endpointArray": [
+        "views",
+        "{{id}}"
+    ],
+    "endpointRegex": "#views(\/([^\/]+))?#",
+    "method": "GET",
+    "targetType": "register\/schema",
+    "targetId": "2\/11",
+    "conditions": [],
+    "inputMapping": null,
+    "outputMapping": null,
+    "rules": []
+}
