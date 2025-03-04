@@ -3,16 +3,21 @@
 # Agenda
 - Mededelingen
   - Iedereen is weer beter
+- Opzetten van docusaurus, akoord Ruben mag opzetten
 - Snelheid van de Archimate Import (mee nemen naar 19-02-2025)
 - Gemma API -> Testen en specs doornemen op 19-02-2025
-- Eerste bevindninen van de export (mee nemen naar 19-02-2025)
+- Eerste bevindingen van de export (mee nemen naar 19-02-2025)
 - Security en architectuur repository
 - Sprintreviews (eerste periode besloten, later op uitnodiging)
+- - Non functional naar einde porject verschuiven
+- -  19-02-2025 non funcitonals naar laatste sprint verplaaten (onder epic eindelevering)
+- - Voor review toewijzen aan Pter
 - Toelichting op sprintplanning
 - Informatie uitwisseling
+- - Jeroen vertelt over partijen die mee gaan doen aan de software catalogus
 
 # Issues up for review
-- 
+- [Sprint 1](https://github.com/orgs/VNG-Realisatie/projects/17/views/2) Nemen we  19-02-2025) door
 
 # Actiepunten
 

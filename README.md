@@ -13,7 +13,7 @@ Gemeenten gebruiken de softwarecatalogus voor:
 - Het beoordelen van offertes.
 
 ## Project overzicht
-- [Project planning](https://github.com/orgs/OpenCatalogi/projects/4/views/1)
+- [Project planning](https://github.com/orgs/VNG-Realisatie/projects/17)
 - [Meetings](https://github.com/VNG-Realisatie/softwarecatalogus/tree/main/meetings)
 - [Issues](https://github.com/VNG-Realisatie/softwarecatalogus/issues)
 
@@ -76,12 +76,15 @@ De stuurgroep bestaat uit:
 - de opdrachtgever en de projectleider namens de VNG
 - ..​
 
-## Pakket van eisen
-Als onderdeel van het bestek is een Pakket van Eisen (PvE) opgesteld in zowel een document als een spreadsheet. Dit PvE is verder uitgewerkt in een reeks ArchiMate-views, waarin de user-stories als requirements per te realiseren component zijn vastgelegd.
+## Architectuur en ontwerp
 
-Deze uitwerking is gemaakt om het PvE toegankelijker te maken en wordt tijdens de realisatie gebruikt bij het bespreken van de sprints en het refinen van de user-stories.
+Als onderdeel van het bestek is een **Pakket van Eisen (PvE)** opgesteld, beschikbaar als document en spreadsheet. Dit PvE is verder uitgewerkt in een reeks **ArchiMate-views**.  
 
-De views zijn toegankelijk via de [Startpagina requirements Softwarecatalogus](https://vng-realisatie.github.io/Over-GEMMA-Archi-repository/?view=id-59dac597ac234451bba4c8246e8c701e).
+Doelen van de ArchiMate-views:
+- Toegankelijk maken van het PvE voor gebruik bij sprintbesprekingen en refinement van user stories.  
+- Weergeven van de technische architectuur en de realisatie van de **Softwarecatalogus**.  
+
+De views zijn toegankelijk via het [Softwarecatalogus rapport](https://vng-realisatie.github.io/Softwarecatalogus-Archi-repository/?view=id-59dac597ac234451bba4c8246e8c701e), gemaakt met Archi.
 
 ## Omgevingen
 Voor deze fase van het poject gebruiken we alleen nog een test en acceptatie omgeving, na fase
@@ -124,8 +127,6 @@ De stuurgroep komt ieder kwartaal bijeen om de algemene projectvoortgang te besp
 ### Projectgroep
 De projectgroep komt elke twee weken op dinsdag bijeen voor sprint planning en issue management.
 
-![Organisatiestructuur](docs/diagrams/organization.svg)
-
 ## Project Documentatie
 Voor meer informatie over het project, raadpleeg de volgende documenten:
 
@@ -133,3 +134,5 @@ Voor meer informatie over het project, raadpleeg de volgende documenten:
 - [Technische Architectuur](docs/technical-architecture.md) - Overzicht van de componenten en hun samenhang
 - [Security](docs/security.md) - Security maatregelen en procedures
 - [Contributing Guidelines](CONTRIBUTING.md) - Richtlijnen voor het bijdragen aan het project
+
+De [Technische documentatie](https://vng-realisatie.github.io/Softwarecatalogus/) is dankzij DocuSaurus overzichtelijker en eenvoudiger toegankelijk.
