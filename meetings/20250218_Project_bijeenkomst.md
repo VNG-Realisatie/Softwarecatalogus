@@ -11,7 +11,7 @@
 - Sprintreviews (eerste periode besloten, later op uitnodiging)
 - - Non functional naar einde porject verschuiven
 - -  19-02-2025 non funcitonals naar laatste sprint verplaaten (onder epic eindelevering)
-- - Voor review toewijzen aan Pter
+- - Voor review toewijzen aan Peter
 - Toelichting op sprintplanning
 - Informatie uitwisseling
 - - Jeroen vertelt over partijen die mee gaan doen aan de software catalogus
