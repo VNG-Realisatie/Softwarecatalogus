@@ -38,7 +38,7 @@ const config = {
         // Theme options for Redocusaurus
         theme: {
           // Change with your site colors
-          primaryColor: '#25c2a0',
+          primaryColor: '#0283d0',
         },
       },
     ],
@@ -107,6 +107,11 @@ const config = {
               {
                 label: 'API Specificatie',
                 to: '/api',
+              },
+              {
+                href: 'https://github.com/vng-realisatie/softwarecatalogus',
+                label: 'GitHub',
+                position: 'right',
               },
             ],
           },
