@@ -1,0 +1,31 @@
+{
+	"@context": {
+		"schema": "http:\/\/schema.org",
+		"register": "Not Implemented"
+	},
+	"@type": "mapping",
+	"@id": "https://vng.accept.commonground.nu/Mapping-Archio JSON Relationship to XML.json",
+	"id": 8,
+	"name": "Archio JSON Relationship to XML",
+	"description": "",
+	"version": "0.0.1",
+	"reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON Relationship to XML.json",
+	"mapping": {
+		"@root": "relationship",
+		"@attributes.identifier": "identifier",
+		"@attributes.source": "source",
+		"@attributes.target": "target",
+		"@attributes.xsi:type": "Access",
+		"@attributes.accessType": "accessType",
+		"name.@attributes.xml:lang": "nl",
+		"name.#text": "name",
+		"properties": "{ \"property\": [{% for key, value in properties %}{ \"@attributes\": { \"propertyDefinitionRef\": \"{{key}}\" }, \"value\": { \"@attributes\": { \"xml:lang\": \"nl\" }, \"#text\": \"{{value}}\" } }{% if not loop.last %},{% endif %}{% endfor %}] }"
+	},
+	"unset": [],
+	"cast": {
+		"@attributes.accessType": "unsetIfValue==accessType",
+		"name.#text": "unsetIfValue==name",
+		"properties": "jsonToArray"
+	},
+    "passThrough": false
+}

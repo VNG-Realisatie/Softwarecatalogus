@@ -1,0 +1,31 @@
+{
+	"@context": {
+		"schema": "http:\/\/schema.org",
+		"register": "Not Implemented"
+	},
+	"@type": "mapping",
+	"@id": "https://vng.accept.commonground.nu/Mapping-Archio JSON Connection to XML.json",
+	"id": 4,
+	"name": "Archio JSON Connection to XML",
+	"description": "",
+	"version": "0.0.1",
+	"reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON Connection to XML.json",
+	"mapping": {
+		"@attributes.identifier": "identifier",
+		"@attributes.relationshipRef": "relationshipRef",
+		"@attributes.source": "source",
+		"@attributes.target": "target",
+		"@attributes.xsi:type": "Relationship",
+		"style.lineColor.@attributes.r": "style.lineColor.r",
+		"style.lineColor.@attributes.g": "style.lineColor.g",
+		"style.lineColor.@attributes.b": "style.lineColor.b",
+		"style.font.@attributes.name": "style.font.name",
+		"style.font.@attributes.size": "style.font.size",
+		"style.font.color.@attributes.r": "style.font.color.r",
+		"style.font.color.@attributes.g": "style.font.color.g",
+		"style.font.color.@attributes.b": "style.font.color.b"
+	},
+	"unset": [],
+	"cast": [],
+    "passThrough": false
+}

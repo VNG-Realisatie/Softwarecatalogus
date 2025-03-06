@@ -1,0 +1,38 @@
+{
+	"@context": {
+		"schema": "http:\/\/schema.org",
+		"register": "Not Implemented"
+	},
+	"@type": "mapping",
+	"@id": "https://vng.accept.commonground.nu/Mapping-Archio JSON Node to XML.json",
+	"id": 5,
+	"name": "Archio JSON Node to XML",
+	"description": "",
+	"version": "0.0.1",
+	"reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON Node to XML.json",
+	"mapping": {
+		"@attributes.identifier": "identifier",
+		"@attributes.elementRef": "elementRef",
+		"@attributes.xsi:type": "Element",
+		"@attributes.x": "position.x",
+		"@attributes.y": "position.y",
+		"@attributes.w": "position.w",
+		"@attributes.h": "position.h",
+		"style.fillColor.@attributes.r": "style.fillColor.r",
+		"style.fillColor.@attributes.g": "style.fillColor.g",
+		"style.fillColor.@attributes.b": "style.fillColor.b",
+		"style.fillColor.@attributes.a": "style.fillColor.a",
+		"style.lineColor.@attributes.r": "style.lineColor.r",
+		"style.lineColor.@attributes.g": "style.lineColor.g",
+		"style.lineColor.@attributes.b": "style.lineColor.b",
+		"style.lineColor.@attributes.a": "style.lineColor.a",
+		"style.font.@attributes.name": "style.font.name",
+		"style.font.@attributes.size": "style.font.size",
+		"style.font.color.@attributes.r": "style.font.color.r",
+		"style.font.color.@attributes.g": "style.font.color.g",
+		"style.font.color.@attributes.b": "style.font.color.b"
+	},
+	"unset": [],
+	"cast": [],
+    "passThrough": false
+}

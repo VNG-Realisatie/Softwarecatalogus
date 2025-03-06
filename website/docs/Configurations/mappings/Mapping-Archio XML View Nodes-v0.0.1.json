@@ -4,13 +4,13 @@
         "register": "Not Implemented"
     },
     "@type": "mapping",
-    "@id": "http:\/\/nextcloud.local\/index.php\/apps\/openconnector\/api\/mappings\/5",
+    "@id": "https://vng.accept.commonground.nu/Mapping-Archio XML View Nodes.json",
     "id": 3,
     "uuid": "da4e48dd-55dc-4357-9524-340a477891e1",
     "name": "Archio XML View Nodes",
     "description": "",
-    "version": "",
-    "reference": "http:\/\/nextcloud.local\/index.php\/apps\/openconnector\/api\/mappings\/5",
+    "version": "0.0.1",
+    "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML View Nodes.json",
     "mapping": {
         "identifier": "{{ attribute(_context, '@attributes').identifier }}",
         "elementRef": "{{ attribute(_context, '@attributes').elementRef }}",

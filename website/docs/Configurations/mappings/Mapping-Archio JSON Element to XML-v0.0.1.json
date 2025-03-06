@@ -1,0 +1,28 @@
+{
+	"@context": {
+		"schema": "http:\/\/schema.org",
+		"register": "Not Implemented"
+	},
+	"@type": "mapping",
+	"@id": "https://vng.accept.commonground.nu/Mapping-Archio JSON Element to XML.json",
+	"id": 7,
+	"name": "Archio JSON Element to XML",
+	"description": "",
+	"version": "0.0.1",
+	"reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON Element to XML.json",
+	"mapping": {
+		"@root": "element",
+		"@attributes.identifier": "identifier",
+		"@attributes.xsi:type": "Capability",
+		"name.@attributes.xml:lang": "nl",
+		"name.#text": "name",
+		"documentation.@attributes.xml:lang": "nl",
+		"documentation.#text": "documentation",
+		"properties": "{ \"property\": [{% for key, value in properties %}{ \"@attributes\": { \"propertyDefinitionRef\": \"{{key}}\" }, \"value\": { \"@attributes\": { \"xml:lang\": \"nl\" }, \"#text\": \"{{value}}\" } }{% if not loop.last %},{% endif %}{% endfor %}] }"
+	},
+	"unset": [],
+	"cast": {
+		"properties": "jsonToArray"
+	},
+    "passThrough": false
+}

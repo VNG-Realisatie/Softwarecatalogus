@@ -4,10 +4,10 @@
         "register": "Not Implemented"
     },
     "@type": "endpoint",
-    "@id": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/5",
+    "@id": "https://vng.accept.commonground.nu/Endpoint-View.json",
     "name": "View",
     "description": "",
-    "reference": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/5",
+    "reference": "https://vng.accept.commonground.nu/Endpoint-View.json",
     "version": "0.0.1",
     "endpoint": "views\/[id]",
     "endpointArray": [
@@ -21,5 +21,7 @@
     "conditions": [],
     "inputMapping": null,
     "outputMapping": null,
-    "rules": []
+    "rules": [
+        "1"
+    ]
 }

@@ -4,10 +4,10 @@
         "register": "Not Implemented"
     },
     "@type": "endpoint",
-    "@id": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/8",
+    "@id": "https://vng.accept.commonground.nu/Endpoint-Gemma.json",
     "name": "Gemma",
     "description": "This endpoint returns the entire gemma catalog",
-    "reference": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/8",
+    "reference": "https://vng.accept.commonground.nu/Endpoint-Gemma.json",
     "version": "0.0.1",
     "endpoint": "gemma",
     "endpointArray": [

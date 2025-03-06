@@ -4,10 +4,10 @@
         "register": "Not Implemented"
     },
     "@type": "endpoint",
-    "@id": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/3",
+    "@id": "https://vng.accept.commonground.nu/Endpoint-Organizations.json",
     "name": "Organizations",
     "description": "",
-    "reference": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/3",
+    "reference": "https://vng.accept.commonground.nu/Endpoint-Organizations.json",
     "version": "0.0.1",
     "endpoint": "organizations\/{{id}}",
     "endpointArray": [

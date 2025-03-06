@@ -1,0 +1,28 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "mapping",
+    "@id": "https://vng.accept.commonground.nu/Mapping-Archio XML Relations to Gemma OAS.json",
+    "id": 8,
+    "name": "Archio XML Relations to Gemma OAS",
+    "description": "",
+    "version": "0.0.1",
+    "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Relations to Gemma OAS.json",
+    "mapping": {
+        "identifier": "@attributes.identifier",
+        "source": "@attributes.source",
+        "target": "@attributes.target",
+        "accessType": "@attributes.accessType",
+        "name": "name",
+        "properties": "{ {% for property in properties.property  %}\"{{property['@attributes']['propertyDefinitionRef']}}\":\"{{property['value']}}\"{% if not loop.last %},{% endif %}{% endfor %} }"
+    },
+    "unset": [],
+    "cast": {
+        "accessType": "unsetIfValue==@attributes.accessType",
+        "name": "unsetIfValue==name",
+        "properties": "jsonToArray"
+    },
+    "passThrough": false
+}

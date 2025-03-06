@@ -4,21 +4,24 @@
         "register": "Not Implemented"
     },
     "@type": "endpoint",
-    "@id": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/4",
+    "@id": "https://vng.accept.commonground.nu/Endpoint-Element.json",
     "name": "Element",
     "description": "",
-    "reference": "https:\/\/vng.accept.commonground.nu\/apps\/openconnector\/api\/endpoints\/4",
+    "reference": "https://vng.accept.commonground.nu/Endpoint-Element.json",
     "version": "0.0.1",
-    "endpoint": "elements",
+    "endpoint": "elements\/[id]",
     "endpointArray": [
-        "elements"
+        "elements",
+        "[id]"
     ],
-    "endpointRegex": "#elements$#",
+    "endpointRegex": "#elements\/[id]$#",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/10",
     "conditions": [],
     "inputMapping": null,
     "outputMapping": null,
-    "rules": []
+    "rules": [
+        "2"	
+    ]
 }
