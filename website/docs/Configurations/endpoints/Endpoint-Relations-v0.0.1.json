@@ -9,19 +9,16 @@
     "description": "",
     "reference": "https://vng.accept.commonground.nu/Endpoint-Relations.json",
     "version": "0.0.1",
-    "endpoint": "relations\/{{id}}",
+    "endpoint": "relations",
     "endpointArray": [
-        "relations",
-        "{{id}}"
+        "relations"
     ],
-    "endpointRegex": "#relations(\/([^\/]+))?#",
+    "endpointRegex": "#relations",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/13",
     "conditions": [],
     "inputMapping": null,
     "outputMapping": null,
-    "rules": [
-        "3"	
-    ]
+    "rules": []
 }

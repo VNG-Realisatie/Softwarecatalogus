@@ -9,12 +9,12 @@
     "description": "",
     "reference": "https://vng.accept.commonground.nu/Endpoint-View.json",
     "version": "0.0.1",
-    "endpoint": "views\/[id]",
+    "endpoint": "views\/{{id}}",
     "endpointArray": [
         "views",
-        "[id]"
+        "{{id}}"
     ],
-    "endpointRegex": "#views\/[id]$#",
+    "endpointRegex": "#views(\/([^\/]+))?#",
     "method": "GET",
     "targetType": "Target Type: register\/schema",
     "targetId": "2\/11",

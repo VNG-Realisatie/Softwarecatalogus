@@ -9,12 +9,12 @@
     "description": "",
     "reference": "https://vng.accept.commonground.nu/Endpoint-Relation.json",
     "version": "0.0.1",
-    "endpoint": "relations\/[id]",
+    "endpoint": "relations\/{{id}}",
     "endpointArray": [
         "relations",
-        "[id]"
+        "{{id}}"
     ],
-    "endpointRegex": "#relations\/[id]$#",
+    "endpointRegex": "#relations(\/([^\/]+))?#",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/13",

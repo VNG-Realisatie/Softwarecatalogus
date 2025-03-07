@@ -9,19 +9,16 @@
     "description": "",
     "reference": "https://vng.accept.commonground.nu/Endpoint-Views.json",
     "version": "0.0.1",
-    "endpoint": "views\/{{id}}",
+    "endpoint": "views",
     "endpointArray": [
-        "views",
-        "{{id}}"
+        "views"
     ],
-    "endpointRegex": "#views(\/([^\/]+))?#",
+    "endpointRegex": "#views",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/11",
     "conditions": [],
     "inputMapping": null,
     "outputMapping": null,
-    "rules": [
-        "1"
-    ]
+    "rules": []
 }

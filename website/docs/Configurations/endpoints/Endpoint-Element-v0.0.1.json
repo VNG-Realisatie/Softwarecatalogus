@@ -9,12 +9,12 @@
     "description": "",
     "reference": "https://vng.accept.commonground.nu/Endpoint-Element.json",
     "version": "0.0.1",
-    "endpoint": "elements\/[id]",
+    "endpoint": "elements\/{{id}}",
     "endpointArray": [
         "elements",
-        "[id]"
+        "{{id}}"
     ],
-    "endpointRegex": "#elements\/[id]$#",
+    "endpointRegex": "#elements(\/([^\/]+))?#",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/10",
