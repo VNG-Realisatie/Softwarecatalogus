@@ -1,0 +1,20 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "mapping",
+    "@id": "https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json",
+    "id": 10,
+    "name": "Archio XML Organization to Gemma OAS",
+    "description": "",
+    "version": "0.0.1",
+    "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json",
+    "mapping": {
+        "label": "label",
+        "item": "[{% macro collect_refs(items) %}{% for singleItem in items %}{% if singleItem['@attributes'] is defined and singleItem['@attributes']['identifierRef'] is defined %}\"{{ singleItem['@attributes']['identifierRef'] }}\"{% if not loop.last or singleItem.item is defined %},{% endif %}{% endif %}{% if singleItem.item is defined %}{{ _self.collect_refs(singleItem.item) }}{% endif %}{% endfor %}{% endmacro %}{{ _self.collect_refs(item) }}]"
+    },
+    "unset": [],
+    "cast": [],
+    "passThrough": false
+}
