@@ -2232,6 +2232,76 @@ components:
             type: string
             format: uri
           description: Referenties naar meer informatie over de kwetsbaarheid
+    
+    User:
+      type: object
+      description: Een gebruiker van het systeem
+      required:
+        - id
+        - username
+        - email
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de gebruiker
+        username:
+          type: string
+          description: Gebruikersnaam voor inloggen
+        email:
+          type: string
+          format: email
+          description: E-mailadres van de gebruiker
+        voornaam:
+          type: string
+          description: Voornaam van de gebruiker
+        achternaam:
+          type: string
+          description: Achternaam van de gebruiker
+        functie:
+          type: string
+          description: Functie van de gebruiker binnen de organisatie
+        organisatie:
+          type: string
+          description: Organisatie waartoe de gebruiker behoort
+        telefoonnummer:
+          type: string
+          description: Telefoonnummer van de gebruiker
+        rollen:
+          type: array
+          items:
+            type: string
+            enum: [admin, editor, viewer]
+          description: Rollen die de gebruiker heeft in het systeem
+        actief:
+          type: boolean
+          default: true
+          description: Geeft aan of het gebruikersaccount actief is
+        laatsteInlogdatum:
+          type: string
+          format: date-time
+          description: Datum en tijd van de laatste inlog
+        aanmaakdatum:
+          type: string
+          format: date-time
+          description: Datum en tijd waarop het account is aangemaakt
+        wijzigingsdatum:
+          type: string
+          format: date-time
+          description: Datum en tijd van de laatste wijziging aan het account
+        voorkeuren:
+          type: object
+          description: Gebruikersvoorkeuren
+          properties:
+            taal:
+              type: string
+              enum: [nl, en]
+              default: nl
+              description: Voorkeurstaal van de gebruiker
+            thema:
+              type: string
+              enum: [licht, donker, systeem]
+              default: systeem
+              description: Voorkeur voor weergavethema
 tags:
   - name: Gemma
     description: All of the Gemma architecture
