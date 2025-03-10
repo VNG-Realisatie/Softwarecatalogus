@@ -21,6 +21,7 @@ De Software Catalogus bestaat uit de volgende objecttypen:
 - [Voorzieningaanbod](voorzieningaanbod) - Specifieke aanbiedingen van voorzieningen door leveranciers
 - [Voorzieningversie](voorzieningversie) - Specifieke versies van voorzieningaanbiedingen
 - [Kwetsbaarheid](kwetsbaarheid) - Beveiligingsproblemen in voorzieningversies
+- [Gebruiker](user) - Gebruikers van het systeem met verschillende rollen en rechten
 
 ## Object Diagram
 
@@ -37,6 +38,7 @@ Je kunt deze objecten benaderen via de Software Catalogus API:
 - `/voorzieningaanbiedingen` - Verkrijg alle voorzieningaanbiedingen
 - `/voorzieningversies` - Verkrijg alle voorzieningversies
 - `/kwetsbaarheden` - Verkrijg alle kwetsbaarheden
+- `/users` - Verkrijg alle gebruikers
 
 Voor gedetailleerde API documentatie, zie de [API Specificatie](/api).
 
