@@ -29,3 +29,9 @@
 | Security policies en branch protection rules instellen | - | TODO |
 | Bij IBD ophalen hoeveel bestanden zij verwachten per pakket| Peter | TODO |
 | Rutger VN-R betrekken op api testen | Peter | TODO |
+
+
+# Afspraken
+- Documentatie: termen die in het Engels gebruikelijk zijn hoeven niet vertaald te worden naar het Nederland's.
+- We hebben geen "Gemma api" maar een "architectuur api" --> dit beschrijft het datamodel en interacties
+- Peter verdeelt de review issue binnen VNG
