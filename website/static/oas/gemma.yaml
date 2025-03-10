@@ -245,6 +245,27 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Leveranciersorganisatie'
+    post:
+      tags:
+        - Software Catalogus
+      summary: Maak een nieuwe leveranciersorganisatie aan
+      description: Maakt een nieuwe leveranciersorganisatie aan
+      operationId: createLeveranciersorganisatie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Leveranciersorganisatie'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leveranciersorganisatie'
+        '400':
+          description: Ongeldige invoer
   
   /leveranciersorganisaties/{id}:
     get:
@@ -267,6 +288,52 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Leveranciersorganisatie'
+        '404':
+          description: Leveranciersorganisatie niet gevonden
+    put:
+      tags:
+        - Software Catalogus
+      summary: Werk een leveranciersorganisatie bij
+      description: Werkt een bestaande leveranciersorganisatie bij
+      operationId: updateLeveranciersorganisatie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de leveranciersorganisatie
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Leveranciersorganisatie'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leveranciersorganisatie'
+        '404':
+          description: Leveranciersorganisatie niet gevonden
+    delete:
+      tags:
+        - Software Catalogus
+      summary: Verwijder een leveranciersorganisatie
+      description: Verwijdert een bestaande leveranciersorganisatie
+      operationId: deleteLeveranciersorganisatie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de leveranciersorganisatie
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
         '404':
           description: Leveranciersorganisatie niet gevonden
   
@@ -297,6 +364,27 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Voorziening'
+    post:
+      tags:
+        - Software Catalogus
+      summary: Maak een nieuwe voorziening aan
+      description: Maakt een nieuwe voorziening aan
+      operationId: createVoorziening
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Voorziening'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorziening'
+        '400':
+          description: Ongeldige invoer
   
   /voorzieningen/{id}:
     get:
@@ -319,6 +407,52 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Voorziening'
+        '404':
+          description: Voorziening niet gevonden
+    put:
+      tags:
+        - Software Catalogus
+      summary: Werk een voorziening bij
+      description: Werkt een bestaande voorziening bij
+      operationId: updateVoorziening
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorziening
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Voorziening'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorziening'
+        '404':
+          description: Voorziening niet gevonden
+    delete:
+      tags:
+        - Software Catalogus
+      summary: Verwijder een voorziening
+      description: Verwijdert een bestaande voorziening
+      operationId: deleteVoorziening
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorziening
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
         '404':
           description: Voorziening niet gevonden
   
@@ -349,6 +483,27 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Voorzieningaanbod'
+    post:
+      tags:
+        - Software Catalogus
+      summary: Maak een nieuwe voorzieningaanbieding aan
+      description: Maakt een nieuwe voorzieningaanbieding aan
+      operationId: createVoorzieningaanbieding
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Voorzieningaanbod'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorzieningaanbod'
+        '400':
+          description: Ongeldige invoer
   
   /voorzieningaanbiedingen/{id}:
     get:
@@ -371,6 +526,52 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Voorzieningaanbod'
+        '404':
+          description: Voorzieningaanbieding niet gevonden
+    put:
+      tags:
+        - Software Catalogus
+      summary: Werk een voorzieningaanbieding bij
+      description: Werkt een bestaande voorzieningaanbieding bij
+      operationId: updateVoorzieningaanbieding
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningaanbieding
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Voorzieningaanbod'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorzieningaanbod'
+        '404':
+          description: Voorzieningaanbieding niet gevonden
+    delete:
+      tags:
+        - Software Catalogus
+      summary: Verwijder een voorzieningaanbieding
+      description: Verwijdert een bestaande voorzieningaanbieding
+      operationId: deleteVoorzieningaanbieding
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningaanbieding
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
         '404':
           description: Voorzieningaanbieding niet gevonden
   
@@ -401,6 +602,27 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Voorzieningversie'
+    post:
+      tags:
+        - Software Catalogus
+      summary: Maak een nieuwe voorzieningversie aan
+      description: Maakt een nieuwe voorzieningversie aan
+      operationId: createVoorzieningversie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Voorzieningversie'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorzieningversie'
+        '400':
+          description: Ongeldige invoer
   
   /voorzieningversies/{id}:
     get:
@@ -423,6 +645,52 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Voorzieningversie'
+        '404':
+          description: Voorzieningversie niet gevonden
+    put:
+      tags:
+        - Software Catalogus
+      summary: Werk een voorzieningversie bij
+      description: Werkt een bestaande voorzieningversie bij
+      operationId: updateVoorzieningversie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningversie
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Voorzieningversie'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorzieningversie'
+        '404':
+          description: Voorzieningversie niet gevonden
+    delete:
+      tags:
+        - Software Catalogus
+      summary: Verwijder een voorzieningversie
+      description: Verwijdert een bestaande voorzieningversie
+      operationId: deleteVoorzieningversie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningversie
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
         '404':
           description: Voorzieningversie niet gevonden
   
@@ -459,6 +727,27 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Kwetsbaarheid'
+    post:
+      tags:
+        - Software Catalogus
+      summary: Maak een nieuwe kwetsbaarheid aan
+      description: Maakt een nieuwe kwetsbaarheid aan
+      operationId: createKwetsbaarheid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Kwetsbaarheid'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kwetsbaarheid'
+        '400':
+          description: Ongeldige invoer
   
   /kwetsbaarheden/{id}:
     get:
@@ -483,6 +772,162 @@ paths:
                 $ref: '#/components/schemas/Kwetsbaarheid'
         '404':
           description: Kwetsbaarheid niet gevonden
+    put:
+      tags:
+        - Software Catalogus
+      summary: Werk een kwetsbaarheid bij
+      description: Werkt een bestaande kwetsbaarheid bij
+      operationId: updateKwetsbaarheid
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de kwetsbaarheid
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Kwetsbaarheid'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kwetsbaarheid'
+        '404':
+          description: Kwetsbaarheid niet gevonden
+    delete:
+      tags:
+        - Software Catalogus
+      summary: Verwijder een kwetsbaarheid
+      description: Verwijdert een bestaande kwetsbaarheid
+      operationId: deleteKwetsbaarheid
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de kwetsbaarheid
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
+        '404':
+          description: Kwetsbaarheid niet gevonden
+
+  # Beheer endpoints
+  /users:
+    get:
+      tags:
+        - Beheer
+      summary: Haal alle gebruikers op
+      description: Geeft een lijst van alle gebruikers terug
+      operationId: getUsers
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      tags:
+        - Beheer
+      summary: Maak een nieuwe gebruiker aan
+      description: Maakt een nieuwe gebruiker aan
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Ongeldige invoer
+
+  /users/{id}:
+    get:
+      tags:
+        - Beheer
+      summary: Haal een specifieke gebruiker op
+      description: Geeft details van een specifieke gebruiker terug
+      operationId: getUserById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de gebruiker
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: Gebruiker niet gevonden
+    put:
+      tags:
+        - Beheer
+      summary: Werk een gebruiker bij
+      description: Werkt een bestaande gebruiker bij
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de gebruiker
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: Gebruiker niet gevonden
+    delete:
+      tags:
+        - Beheer
+      summary: Verwijder een gebruiker
+      description: Verwijdert een bestaande gebruiker
+      operationId: deleteUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de gebruiker
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
+        '404':
+          description: Gebruiker niet gevonden
+
 components:
   schemas:
     Model:

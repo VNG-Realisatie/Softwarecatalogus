@@ -76,10 +76,9 @@ const config = {
             position: 'left',
             label: 'Documentatie',
           },
-          // Add API Specificatie menu item
           {
             label: 'API Specificatie',
-            position: 'left',
+            position: 'right',
             to: '/api',
           },
           {
