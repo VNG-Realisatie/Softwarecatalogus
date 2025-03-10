@@ -14,14 +14,17 @@
         "identifier": "@attributes.identifier",
         "source": "@attributes.source",
         "target": "@attributes.target",
+        "xsi:type": "@attributes.xsi:type",
         "accessType": "@attributes.accessType",
         "name": "name",
-        "properties": "{ {% for property in properties.property  %}\"{{property['@attributes']['propertyDefinitionRef']}}\":\"{{property['value']}}\"{% if not loop.last %},{% endif %}{% endfor %} }"
+        "name-xml:lang": "name.@attributes.xml:lang",
+        "properties": "{% if properties.property|default %}{{ executeMapping(12, properties.property, true)|json_encode }}{%else%}[]{%endif%}"
     },
     "unset": [],
     "cast": {
         "accessType": "unsetIfValue==@attributes.accessType",
         "name": "unsetIfValue==name",
+        "name-xml:lang": "unsetIfValue==name.@attributes.xml:lang",
         "properties": "jsonToArray"
     },
     "passThrough": false

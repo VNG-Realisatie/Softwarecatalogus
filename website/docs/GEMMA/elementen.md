@@ -70,7 +70,7 @@ GET /elements/{identifier}
     "properties": "{ {% for property in properties.property %}\"{{property['@attributes']['propertyDefinitionRef']}}\":\"{{property['value']}}\"{% if not loop.last %},{% endif %}{% endfor %} }"
   },
   "cast": {
-    "properties:": "jsonToArray"
+    "properties": "jsonToArray"
   }
 }
 ```

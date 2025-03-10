@@ -11,10 +11,15 @@
     "version": "0.0.1",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json",
     "mapping": {
+        "identifierRef": "@attributes.identifier",
         "label": "label",
-        "item": "[{% macro collect_refs(items) %}{% for singleItem in items %}{% if singleItem['@attributes'] is defined and singleItem['@attributes']['identifierRef'] is defined %}\"{{ singleItem['@attributes']['identifierRef'] }}\"{% if not loop.last or singleItem.item is defined %},{% endif %}{% endif %}{% if singleItem.item is defined %}{{ _self.collect_refs(singleItem.item) }}{% endif %}{% endfor %}{% endmacro %}{{ _self.collect_refs(item) }}]"
+        "label-xml:lang": "label.@attributes.xml:lang",
+        "item": "{% if item|default %}{{ executeMapping(3, node, true)|json_encode }}{%else%}[]{% endif %}"
     },
     "unset": [],
-    "cast": [],
+    "cast": {
+        "identifierRef": "unsetIfValue==identifierRef",
+        "item": "jsonToArray"
+    },
     "passThrough": false
 }

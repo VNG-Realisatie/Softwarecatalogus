@@ -4,21 +4,23 @@
         "register": "Not Implemented"
     },
     "@type": "endpoint",
-    "@id": "https://vng.accept.commonground.nu/Endpoint-Gemma.json",
-    "name": "Gemma",
-    "description": "This endpoint returns the entire gemma catalog",
-    "reference": "https://vng.accept.commonground.nu/Endpoint-Gemma.json",
+    "@id": "https://vng.accept.commonground.nu/Endpoint-Gemma model.json",
+    "name": "Gemma model",
+    "description": "Get the complete architecture model including all elements, relations, views, and property definitions.",
+    "reference": "https://vng.accept.commonground.nu/Endpoint-Gemma model.json",
     "version": "0.0.1",
-    "endpoint": "gemma",
+    "endpoint": "model",
     "endpointArray": [
-        "gemma"
+        "model"
     ],
-    "endpointRegex": "#gemma$#",
+    "endpointRegex": "#model$#",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/14",
     "conditions": [],
     "inputMapping": null,
     "outputMapping": null,
-    "rules": []
+    "rules": [
+        "5"
+    ]
 }

@@ -13,13 +13,16 @@
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Elements to Gemma OAS.json",
     "mapping": {
         "identifier": "@attributes.identifier",
+        "xsi:type": "@attributes.xsi:type",
         "name": "name",
+        "name-xml:lang": "name.@attributes.xml:lang",
         "documentation": "documentation",
-        "properties": "{ {% for property in properties.property  %}\"{{property['@attributes']['propertyDefinitionRef']}}\":\"{{property['value']}}\"{% if not loop.last %},{% endif %}{% endfor %} }"
+        "documentation-xml:lang": "documentation.@attributes.xml:lang",
+        "properties": "{% if properties.property|default %}{{ executeMapping(12, properties.property, true)|json_encode }}{%else%}[]{%endif%}"
     },
     "unset": [],
     "cast": {
-        "properties:": "jsonToArray"
+        "properties": "jsonToArray"
     },
     "passThrough": false,
     "dateCreated": "2025-02-18T16:09:45+00:00",

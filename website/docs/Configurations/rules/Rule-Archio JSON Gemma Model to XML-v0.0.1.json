@@ -1,0 +1,26 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "rule",
+    "@id": "https://vng.accept.commonground.nu/Rule-Archio JSON Gemma Model to XML.json",
+    "id": 5,
+    "name": "Archio JSON Gemma Model to XML",
+    "description": "",
+    "reference": "https://vng.accept.commonground.nu/Rule-Archio JSON Gemma Model to XML.json",
+    "version": "0.0.1",
+    "action": "get",
+    "timing": "after",
+    "conditions": {
+        "==": [
+            1,
+            1
+        ]
+    },
+    "type": "mapping",
+    "configuration": {
+        "mapping": 13
+    },
+    "order": 0
+}

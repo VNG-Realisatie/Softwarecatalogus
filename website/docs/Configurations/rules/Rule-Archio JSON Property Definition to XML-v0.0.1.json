@@ -1,0 +1,26 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "rule",
+    "@id": "https://vng.accept.commonground.nu/Rule-Archio JSON Property Definition to XML.json",
+    "id": 4,
+    "name": "Archio JSON Property Definition to XML",
+    "description": "",
+    "reference": "https://vng.accept.commonground.nu/Rule-Archio JSON Property Definition to XML.json",
+    "version": "0.0.1",
+    "action": "get",
+    "timing": "after",
+    "conditions": {
+        "==": [
+            1,
+            1
+        ]
+    },
+    "type": "mapping",
+    "configuration": {
+        "mapping": 12
+    },
+    "order": 0
+}
