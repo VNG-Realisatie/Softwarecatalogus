@@ -1,6 +1,6 @@
 {
     "@context": {
-        "schema": "http://schema.org",
+        "schema": "http:\/\/schema.org",
         "register": "Not Implemented"
     },
     "@type": "mapping",

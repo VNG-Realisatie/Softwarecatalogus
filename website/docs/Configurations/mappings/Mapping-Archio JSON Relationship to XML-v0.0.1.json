@@ -19,7 +19,7 @@
 		"@attributes.accessType": "accessType",
 		"name.@attributes.xml:lang": "name-xml:lang",
 		"name.#text": "name",
-		"properties": "{ \"property\": [{% for key, value in properties %}{ \"@attributes\": { \"propertyDefinitionRef\": \"{{key}}\" }, \"value\": { \"@attributes\": { \"xml:lang\": \"nl\" }, \"#text\": \"{{value}}\" } }{% if not loop.last %},{% endif %}{% endfor %}] }"
+		"properties": "{% if properties.property|default %}{{ executeMapping(16, properties.property, true)|json_encode }}{%else%}[]{%endif%}"
 	},
 	"unset": [],
 	"cast": {

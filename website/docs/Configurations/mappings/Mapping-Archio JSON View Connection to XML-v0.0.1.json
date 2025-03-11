@@ -1,6 +1,6 @@
 {
 	"@context": {
-		"schema": "http://schema.org",
+		"schema": "http:\/\/schema.org",
 		"register": "Not Implemented"
 	},
 	"@type": "mapping",
@@ -16,7 +16,7 @@
 		"@attributes.source": "source",
 		"@attributes.target": "target",
 		"@attributes.xsi:type": "xsi:type",
-		"style": "{% if style|default %}{{ executeMapping(17, style, true)|json_encode }}{%else%}[]{%endif%}"
+		"style": "{% if style|default %}{{ executeMapping(17, style)|json_encode }}{%else%}[]{%endif%}"
 	},
 	"unset": [],
 	"cast": {

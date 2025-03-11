@@ -1,6 +1,6 @@
 {
 	"@context": {
-		"schema": "http://schema.org",
+		"schema": "http:\/\/schema.org",
 		"register": "Not Implemented"
 	},
 	"@type": "mapping",
@@ -18,11 +18,13 @@
 		"@attributes.y": "position.y",
 		"@attributes.w": "position.w",
 		"@attributes.h": "position.h",
-		"style": "{% if style|default %}{{ executeMapping(17, style, true)|json_encode }}{%else%}[]{%endif%}"
+		"style": "{% if style|default %}{{ executeMapping(17, style) }}{%else%}[]{%endif%}",
+		"node": "{% if nodes|default %}{{ executeMapping(5, nodes, true) }}{%else%}[]{%endif%}"
 	},
 	"unset": [],
 	"cast": {
-		"style": "jsonToArray"
+		"style": "jsonToArray",
+		"node": ["jsonToArray", "unsetIfValue==[]"]
 	},
     "passThrough": false
 }

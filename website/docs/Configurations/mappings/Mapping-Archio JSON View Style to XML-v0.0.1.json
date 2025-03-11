@@ -1,6 +1,6 @@
 {
     "@context": {
-        "schema": "http://schema.org",
+        "schema": "http:\/\/schema.org",
         "register": "Not Implemented"
     },
     "@type": "mapping",
@@ -11,7 +11,6 @@
     "version": "0.0.1",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON View Style to XML.json",
     "mapping": {
-        "@root": "style",
         "fillColor.@attributes.r": "fillColor.r",
         "fillColor.@attributes.g": "fillColor.g",
         "fillColor.@attributes.b": "fillColor.b",
