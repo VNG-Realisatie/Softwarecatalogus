@@ -13,20 +13,20 @@
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Views to Gemma OAS.json",
     "mapping": {
         "identifier": "@attributes.identifier",
-        "xsi:type": "@attributes.xsi:type",
-        "viewpoint": "@attributes.viewpoint",
-        "name": "name",
-        "name-xml:lang": "name.@attributes.xml:lang",
+        "xsi:type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
+        "viewpoint": "{{ attribute(_context['@attributes'], 'viewpoint')|default('') }}",
+        "name": "name.#text",
+        "name-xml:lang": "{{ attribute(name['@attributes'], 'xml:lang') }}",
         "properties": "{% if properties.property|default %}{{ executeMapping(12, properties.property, true)|json_encode }}{%else%}[]{%endif%}",
-        "node": "{% if node|default %}{{ executeMapping(3, node, true)|json_encode }}{%else%}[]{%endif%}",
-        "connection": "{% if connection|default %}{{ executeMapping(13, connection, true)|json_encode }}{%else%}[]{%endif%}",
-        "type": "dataobject"
+        "nodes": "{% if node|default %}{{ executeMapping(3, node, true)|json_encode }}{%else%}[]{%endif%}",
+        "connections": "{% if connection|default %}{{ executeMapping(13, connection, true)|json_encode }}{%else%}[]{%endif%}"
     },
     "unset": [],
     "cast": {
+        "viewpoint": "unsetIfValue==",
         "properties": "jsonToArray",
-        "node": "jsonToArray",
-        "connection": "jsonToArray"
+        "nodes": "jsonToArray",
+        "connections": "jsonToArray"
     },
     "passThrough": false,
     "dateCreated": "2025-02-18T16:09:50+00:00",

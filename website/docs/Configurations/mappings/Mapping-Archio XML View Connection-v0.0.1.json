@@ -15,7 +15,7 @@
         "relationshipRef": "@attributes.relationshipRef",
         "source": "@attributes.source",
         "target": "@attributes.target",
-        "style": "{% if style|default %}{{ executeMapping(14, style, true)|json_encode }}{%else%}[]{%endif%}"
+        "style": "{% if style|default %}{{ executeMapping(14, style)|json_encode }}{%else%}[]{%endif%}"
     },
     "unset": [],
     "cast": {

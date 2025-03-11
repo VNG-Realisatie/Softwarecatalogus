@@ -13,8 +13,8 @@
     "mapping": {
         "identifier": "identifier",
         "type": "type",
-        "name": "name",
-        "name-xml:lang": "name.@attributes.xml:lang"
+        "name": "name.#text",
+        "name-xml:lang": "{{ attribute(name['@attributes'], 'xml:lang') }}"
     },
     "unset": [],
     "cast": [],

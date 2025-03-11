@@ -12,8 +12,8 @@
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json",
     "mapping": {
         "identifierRef": "@attributes.identifier",
-        "label": "label",
-        "label-xml:lang": "label.@attributes.xml:lang",
+        "label": "label.#text",
+        "label-xml:lang": "{{ attribute(label['@attributes'], 'xml:lang') }}",
         "item": "{% if item|default %}{{ executeMapping(3, node, true)|json_encode }}{%else%}[]{% endif %}"
     },
     "unset": [],

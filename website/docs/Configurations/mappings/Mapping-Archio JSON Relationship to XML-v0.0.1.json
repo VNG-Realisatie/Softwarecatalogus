@@ -15,9 +15,9 @@
 		"@attributes.identifier": "identifier",
 		"@attributes.source": "source",
 		"@attributes.target": "target",
-		"@attributes.xsi:type": "Access",
+		"@attributes.xsi:type": "xsi:type",
 		"@attributes.accessType": "accessType",
-		"name.@attributes.xml:lang": "nl",
+		"name.@attributes.xml:lang": "name-xml:lang",
 		"name.#text": "name",
 		"properties": "{ \"property\": [{% for key, value in properties %}{ \"@attributes\": { \"propertyDefinitionRef\": \"{{key}}\" }, \"value\": { \"@attributes\": { \"xml:lang\": \"nl\" }, \"#text\": \"{{value}}\" } }{% if not loop.last %},{% endif %}{% endfor %}] }"
 	},
@@ -25,6 +25,7 @@
 	"cast": {
 		"@attributes.accessType": "unsetIfValue==accessType",
 		"name.#text": "unsetIfValue==name",
+		"name.@attributes.xml:lang": "unsetIfValue==",
 		"properties": "jsonToArray"
 	},
     "passThrough": false

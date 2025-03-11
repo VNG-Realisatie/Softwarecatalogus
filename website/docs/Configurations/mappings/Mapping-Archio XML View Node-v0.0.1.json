@@ -14,9 +14,9 @@
     "mapping": {
         "identifier": "@attributes.identifier",
         "elementRef": "@attributes.elementRef",
-        "xsi:type": "@attributes.xsi:type",
-        "position": "{\"x\":\"{{ attribute(_context, '@attributes').x }}\",\"y\":\"{{ attribute(_context, '@attributes').y }}\",\"w\":\"{{ attribute(_context, '@attributes').w }}\",\"h\":\"{{ attribute(_context, '@attributes').h }}\"}",
-        "style": "{% if style|default %}{{ executeMapping(14, style, true)|json_encode }}{%else%}[]{%endif%}",
+        "xsi:type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
+        "position": "{\"x\":\"{{ _context['@attributes'].x }}\",\"y\":\"{{ _context['@attributes'].y }}\",\"w\":\"{{ _context['@attributes'].w }}\",\"h\":\"{{ _context['@attributes'].h }}\"}",
+        "style": "{% if style|default %}{{ executeMapping(14, style)|json_encode }}{%else%}[]{%endif%}",
         "nodes": "{% if node|default %}{{ executeMapping(3, node, true)|json_encode }}{%else%}[]{% endif %}"
     },
     "unset": [],

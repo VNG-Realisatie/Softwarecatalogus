@@ -16,7 +16,7 @@
     ],
     "endpointRegex": "#views(\/([^\/]+))?#",
     "method": "GET",
-    "targetType": "Target Type: register\/schema",
+    "targetType": "register\/schema",
     "targetId": "2\/11",
     "conditions": [],
     "inputMapping": null,

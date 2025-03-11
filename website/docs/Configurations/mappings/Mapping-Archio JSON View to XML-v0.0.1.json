@@ -13,10 +13,10 @@
 	"mapping": {
 		"@root": "view",
 		"@attributes.identifier": "identifier",
-		"@attributes.xsi:type": "Diagram",
-		"name.@attributes.xml:lang": "nl",
+		"@attributes.xsi:type": "xsi:type",
+		"name.@attributes.xml:lang": "name-xml:lang",
 		"name.#text": "name",
-		"properties": "{ \"property\": [{% for key, value in properties %}{ \"@attributes\": { \"propertyDefinitionRef\": \"{{key}}\" }, \"value\": { \"@attributes\": { \"xml:lang\": \"nl\" }, \"#text\": \"{{value}}\" } }{% if not loop.last %},{% endif %}{% endfor %}] }",
+		"properties": "{% if properties|default %}{{ executeMapping(16, properties, true)|json_encode }}{%else%}[]{%endif%}",
 		"node": "{% if node|default %}{{ executeMapping(5, node, true)|json_encode }}{%else%}[]{%endif%}",
 		"connection": "{% if connection|default %}{{ executeMapping(4, connection, true)|json_encode }}{%else%}[]{%endif%}"
 	},

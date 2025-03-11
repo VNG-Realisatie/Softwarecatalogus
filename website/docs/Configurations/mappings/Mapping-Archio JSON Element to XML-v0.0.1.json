@@ -13,10 +13,10 @@
 	"mapping": {
 		"@root": "element",
 		"@attributes.identifier": "identifier",
-		"@attributes.xsi:type": "Capability",
-		"name.@attributes.xml:lang": "nl",
+		"@attributes.xsi:type": "xsi:type",
+		"name.@attributes.xml:lang": "name-xml:lang",
 		"name.#text": "name",
-		"documentation.@attributes.xml:lang": "nl",
+		"documentation.@attributes.xml:lang": "documentation-xml:lang",
 		"documentation.#text": "documentation",
 		"properties": "{ \"property\": [{% for key, value in properties %}{ \"@attributes\": { \"propertyDefinitionRef\": \"{{key}}\" }, \"value\": { \"@attributes\": { \"xml:lang\": \"nl\" }, \"#text\": \"{{value}}\" } }{% if not loop.last %},{% endif %}{% endfor %}] }"
 	},

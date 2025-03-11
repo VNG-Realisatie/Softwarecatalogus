@@ -11,9 +11,9 @@
     "version": "0.0.1",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Model Property to Gemma OAS.json",
     "mapping": {
-        "propertyDefinitionRef": "@attributes.propertyDefinitionRef",
-        "value": "value",
-        "value-xml:lang": "value.@attributes.xml:lang"
+        "propertyDefinitionRef": "{{ attribute(_context, '@attributes').propertyDefinitionRef }}",
+        "value": "value.#text",
+        "value-xml:lang": "{{ attribute(value, '@attributes').xml:lang }}"
     },
     "unset": [],
     "cast": [],

@@ -13,11 +13,11 @@
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Elements to Gemma OAS.json",
     "mapping": {
         "identifier": "@attributes.identifier",
-        "xsi:type": "@attributes.xsi:type",
-        "name": "name",
-        "name-xml:lang": "name.@attributes.xml:lang",
-        "documentation": "documentation",
-        "documentation-xml:lang": "documentation.@attributes.xml:lang",
+        "xsi:type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
+        "name": "name.#text",
+        "name-xml:lang": "{{ attribute(name['@attributes'], 'xml:lang') }}",
+        "documentation": "documentation.#text",
+        "documentation-xml:lang": "{{ attribute(documentation['@attributes'], 'xml:lang') }}",
         "properties": "{% if properties.property|default %}{{ executeMapping(12, properties.property, true)|json_encode }}{%else%}[]{%endif%}"
     },
     "unset": [],
