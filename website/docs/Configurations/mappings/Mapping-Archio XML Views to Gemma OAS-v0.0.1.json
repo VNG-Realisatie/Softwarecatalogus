@@ -19,7 +19,7 @@
         "name-xml:lang": "name.@attributes.xml:lang",
         "properties": "{% if properties.property|default %}{{ executeMapping(12, properties.property, true)|json_encode }}{%else%}[]{%endif%}",
         "node": "{% if node|default %}{{ executeMapping(3, node, true)|json_encode }}{%else%}[]{%endif%}",
-        "connection": "[ {% for tConnection in connection %}{ \"identifier\":\"{{ tConnection['@attributes']['identifier'] }}\", \"relationshipRef\":\"{{ tConnection['@attributes']['relationshipRef'] }}\", \"source\":\"{{ tConnection['@attributes']['source'] }}\", \"target\":\"{{ tConnection['@attributes']['target'] }}\", \"style\":{ \"lineColor\":{ \"r\":\"{{ tConnection['style']['lineColor']['@attributes']['r'] }}\", \"g\":\"{{ tConnection['style']['lineColor']['@attributes']['g'] }}\", \"b\":\"{{ tConnection['style']['lineColor']['@attributes']['b'] }}\" }, \"font\":{ \"name\":\"{{ tConnection['style']['font']['@attributes']['name'] }}\", \"size\":\"{{ tConnection['style']['font']['@attributes']['size'] }}\", \"color\":{ \"r\":\"{{ tConnection['style']['font']['color']['@attributes']['r'] }}\", \"g\":\"{{ tConnection['style']['font']['color']['@attributes']['g'] }}\", \"b\":\"{{ tConnection['style']['font']['color']['@attributes']['b'] }}\" } } } }{% if not loop.last %},{% endif %}{% endfor %} ]",
+        "connection": "{% if connection|default %}{{ executeMapping(13, connection, true)|json_encode }}{%else%}[]{%endif%}",
         "type": "dataobject"
     },
     "unset": [],

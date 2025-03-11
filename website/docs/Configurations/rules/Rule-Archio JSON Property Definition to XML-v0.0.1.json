@@ -14,8 +14,8 @@
     "timing": "after",
     "conditions": {
         "==": [
-            1,
-            1
+            { "var": ["requestHeaders.accept"] },
+            "application/xml"
         ]
     },
     "type": "mapping",

@@ -14,13 +14,13 @@
     "timing": "after",
     "conditions": {
         "==": [
-            1,
-            1
+            { "var": ["requestHeaders.accept"] },
+            "application/xml"
         ]
     },
     "type": "mapping",
     "configuration": {
-        "mapping": 8
+        "mapping": 15
     },
     "order": 0
 }
