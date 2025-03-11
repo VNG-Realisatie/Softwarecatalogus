@@ -1,7 +1,8 @@
-// @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-/** @type {import('@docusaurus/types').Config} */
+const redocusaurus = require('redocusaurus');
+const presetClassic = require('@docusaurus/preset-classic');
+
 const config = {
   title: 'Softwarecatalogus',
   tagline: 'Het centrale platform voor gemeentelijke software en architectuur informatie',
@@ -48,8 +49,7 @@ const config = {
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
         },
@@ -57,13 +57,12 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
+      },
     ],
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
+    {
       navbar: {
         title: 'VNG Softwarecatalogus',
         logo: {
@@ -135,7 +134,7 @@ const config = {
         theme: require('prism-react-renderer/themes/github'),
         darkTheme: require('prism-react-renderer/themes/dracula'),
       },
-    })
+    }
 };
 
 module.exports = config;
