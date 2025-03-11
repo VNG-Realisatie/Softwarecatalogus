@@ -6,6 +6,7 @@ sidebar_label: Views
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ApiSchema from '@theme/ApiSchema';
 
 # GEMMA Views
 
@@ -13,34 +14,14 @@ Views bieden verschillende perspectieven op het GEMMA architectuurmodel. Ze tone
 
 ## Eigenschappen
 
-| Eigenschap | Type | Beschrijving |
-|------------|------|-------------|
-| identifier | string | Unieke identificatie voor de view |
-| viewpoint | string | Type viewpoint dat wordt gebruikt |
-| name | string | Naam van de view |
-| documentation | string | Documentatie of beschrijving van de view |
-| properties | object | Aangepaste eigenschappen van de view |
-| node | array | Nodes (elementen) in de view |
-| connection | array | Verbindingen (relaties) in de view |
+<ApiSchema example id="gemma" pointer="#/components/schemas/View" />;
 
-## API Endpoint
-
-'''
-GET /views
-'''
-
-Voor een specifieke view:
-
-'''
-GET /views/{identifier}
-'''
-
-## Voorbeelden
+## Mappping
 
 <Tabs>
   <TabItem value="json" label="JSON Voorbeeld" default>
 
-'''json
+```json
 {
   "identifier": "v9012",
   "viewpoint": "application",
@@ -111,12 +92,12 @@ GET /views/{identifier}
     }
   ]
 }
-'''
+```
 
   </TabItem>
   <TabItem value="mapping" label="Mapping Configuratie">
 
-'''json
+```json
 {
   "name": "Archio XML Views to Gemma OAS",
   "mapping": {
@@ -134,12 +115,12 @@ GET /views/{identifier}
     "connection": "jsonToArray"
   }
 }
-'''
+```
 
   </TabItem>
   <TabItem value="xml" label="XML Input Voorbeeld">
 
-'''xml
+```xml
 <view identifier="v9012" viewpoint="application">
   <name>Applicatielandschap Burgerzaken</name>
   <documentation>Overzicht van applicaties voor burgerzaken</documentation>
@@ -172,7 +153,7 @@ GET /views/{identifier}
     </style>
   </connection>
 </view>
-'''
+```
 
   </TabItem>
 </Tabs>

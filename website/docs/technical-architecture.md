@@ -26,7 +26,7 @@ Dit component is verantwoordelijk voor:
 - API voor GEMMA architectuurconcepten
 
 ### Open Registers
-De datalaag wordt verzorgd door Open Registers, die:
+De datalaag wordt verzorgd door [Open Registers](https://openregisters.app), die:
 - Fungeert als centrale dataopslag
 - Beheert de basisregistraties van software en organisaties
 - Zorgt voor data-integriteit en versioning
@@ -35,7 +35,7 @@ De datalaag wordt verzorgd door Open Registers, die:
 - Beheert versies van het GEMMA ArchiMate model
 
 ### Open Connector
-De Open Connector component:
+De [Open Connector](https://openconnector.app) component:
 - Verzamelt data uit externe bronnen (zoals CMDB's)
 - Aggregeert en transformeert data naar het juiste formaat
 - Synchroniseert data tussen verschillende systemen

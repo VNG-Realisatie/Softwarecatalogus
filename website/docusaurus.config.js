@@ -31,6 +31,7 @@ const config = {
         // Plugin options
         specs: [
           {
+            id: 'gemma',
             spec: 'static/oas/gemma.yaml',
             route: '/api/reference',
           },
@@ -38,7 +39,7 @@ const config = {
         // Theme options for Redocusaurus
         theme: {
           // Change with your site colors
-          primaryColor: '#0283d0',
+          primaryColor: '#0277BD',
         },
       },
     ],
