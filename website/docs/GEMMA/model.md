@@ -4,8 +4,10 @@ title: GEMMA Model
 sidebar_label: Model
 ---
 
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ApiSchema from '@theme/ApiSchema';
 
 # GEMMA Model
 

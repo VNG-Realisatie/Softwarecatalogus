@@ -5,6 +5,10 @@ sidebar_label: Introductie
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ApiSchema from '@theme/ApiSchema';
+
 # GEMMA API Documentatie
 
 De GEMMA API biedt toegang tot het Nederlandse gemeentelijke architectuurmodel (Gemeentelijke Model Architectuur). Via deze API kunt u het complete architectuurmodel opvragen en verkennen, inclusief alle elementen, relaties, views en eigenschapsdefinities.

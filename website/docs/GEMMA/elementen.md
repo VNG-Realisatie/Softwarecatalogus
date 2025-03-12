@@ -6,6 +6,10 @@ sidebar_label: Elementen
 
 # GEMMA Elementen
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ApiSchema from '@theme/ApiSchema';
+
 Elementen zijn de bouwstenen van het GEMMA architectuurmodel. Ze vertegenwoordigen verschillende architectuurcomponenten zoals bedrijfsprocessen, applicaties, gegevens en technologie.
 
 ## Soorten Elementen

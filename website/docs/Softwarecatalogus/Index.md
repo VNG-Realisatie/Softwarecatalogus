@@ -8,10 +8,6 @@ De software catalogus is een verzameling van informatie over software die binnen
 
 De Software Catalogus biedt een overzicht van software en diensten die beschikbaar zijn voor gemeenten en andere overheidsorganisaties. Het bevat informatie over leveranciers, voorzieningen, versies en kwetsbaarheden. Het datamodel is gebaseerd op het [Gemeenschappelijk Informatiemodel voor Voorzieningen (GIMV)](https://www.noraonline.nl/wiki/Gemeenschappelijke_Informatiemodel_voor_Voorzieningen) van NORA.
 
-## API Specificatie
-
-De volledige API specificatie is beschikbaar op de [VNG API Specificatie pagina](https://vng-realisatie.github.io/Softwarecatalogus/api).
-
 ## Bedrijfsobjectenmodel Voorzieningen
 
 Het onderstaande diagram toont het Bedrijfsobjectenmodel Voorzieningen, dat de basis vormt voor onze software catalogus. Dit model is afkomstig van de NORA (Nederlandse Overheid Referentie Architectuur) en toont de relaties tussen verschillende objecten in het domein van voorzieningen.

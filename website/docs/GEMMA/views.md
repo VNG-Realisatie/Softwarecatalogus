@@ -14,7 +14,6 @@ Views bieden verschillende perspectieven op het GEMMA architectuurmodel. Ze tone
 
 ## Eigenschappen
 
-<ApiSchema example id="gemma" pointer="#/components/schemas/View" />;
 
 ## Mappping
 
