@@ -41,7 +41,7 @@ Voor meer informatie over het GEMMA architectuurmodel, zie de [GEMMA](GEMMA/intr
 
 Naast het architectuurmodel bevat de API ook toegang tot de Software Catalogus, die informatie biedt over gemeentelijke software:
 
-- [Leveranciersorganisatie](Softwarecatalogus/leveranciersorganisatie) - Organisaties die software en diensten leveren
+- [Organisaties](./Softwarecatalogus/organisatie.md) - Organisaties die software en diensten leveren of afnemen
 - [Voorziening](Softwarecatalogus/voorziening) - Softwareproducten en diensten voor gemeenten
 - [Voorzieningaanbod](Softwarecatalogus/voorzieningaanbod) - Specifieke aanbiedingen van voorzieningen door leveranciers
 - [Voorzieningversie](Softwarecatalogus/voorzieningversie) - Specifieke versies van voorzieningaanbiedingen

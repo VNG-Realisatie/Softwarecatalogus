@@ -26,8 +26,8 @@ De volledige API specificatie voor Contract is beschikbaar op de [VNG API Specif
 | contractType | enum | Ja | Het type contract (bijv. 'SLA', 'Licentie', 'Onderhoud') |
 | kosten | number | Nee | De kosten verbonden aan het contract |
 | kostenPeriode | enum | Nee | De periode waarop de kosten betrekking hebben (bijv. 'Maandelijks', 'Jaarlijks', 'Eenmalig') |
-| contactpersoonAanbieder | [Persoon](./persoon) | Nee | De contactpersoon bij de aanbieder |
-| contactpersoonGebruiker | [Persoon](./persoon) | Nee | De contactpersoon bij de gebruiker |
+| contactpersoonAanbieder | object | Nee | De contactpersoon bij de aanbieder |
+| contactpersoonGebruiker | object | Nee | De contactpersoon bij de gebruiker |
 | documentReferentie | string | Nee | Referentie naar het contractdocument |
 | status | enum | Ja | De status van het contract (bijv. 'Actief', 'Verlopen', 'In onderhandeling') |
 | opmerkingen | string | Nee | Aanvullende informatie over het contract |
