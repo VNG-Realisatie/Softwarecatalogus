@@ -54,7 +54,7 @@ Het volgende diagram toont de structuur van de Software Catalogus en de relaties
 
 ![Software Catalogus Model Structuur](Diagrams/softwarecatalogus-model.svg)
 
-Voor meer informatie over de Software Catalogus, zie de [Software Catalogus](Softwarecatalogus/introduction.md) pagina.
+Voor meer informatie over de Software Catalogus, zie de [Software Catalogus](Softwarecatalogus/index.md) pagina.
 
 ## API Toegang
 

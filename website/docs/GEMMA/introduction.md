@@ -7,7 +7,6 @@ sidebar_position: 1
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ApiSchema from '@theme/ApiSchema';
 
 # GEMMA API Documentatie
 
