@@ -18,25 +18,25 @@ De volledige API specificatie voor Contract is beschikbaar op de [VNG API Specif
 | Naam | Type | Verplicht | Beschrijving |
 |------|------|-----------|--------------|
 | id | string | Ja | Unieke identifier van het Contract |
-| voorzieningAanbod | [VoorzieningAanbod](./VoorzieningAanbod) | Ja | Het aanbod van de voorziening waarop dit contract betrekking heeft |
-| voorzieningGebruik | [VoorzieningGebruik](./VoorzieningGebruik) | Ja | Het gebruik van de voorziening waarop dit contract betrekking heeft |
+| voorzieningAanbod | [VoorzieningAanbod](./voorzieningaanbod) | Ja | Het aanbod van de voorziening waarop dit contract betrekking heeft |
+| voorzieningGebruik | [VoorzieningGebruik](./voorzieninggebruik) | Ja | Het gebruik van de voorziening waarop dit contract betrekking heeft |
 | startDatum | date | Ja | De startdatum van het contract |
 | eindDatum | date | Nee | De einddatum van het contract (indien van toepassing) |
 | contractNummer | string | Ja | Het referentienummer van het contract |
 | contractType | enum | Ja | Het type contract (bijv. 'SLA', 'Licentie', 'Onderhoud') |
 | kosten | number | Nee | De kosten verbonden aan het contract |
 | kostenPeriode | enum | Nee | De periode waarop de kosten betrekking hebben (bijv. 'Maandelijks', 'Jaarlijks', 'Eenmalig') |
-| contactpersoonAanbieder | [Persoon](./Persoon) | Nee | De contactpersoon bij de aanbieder |
-| contactpersoonGebruiker | [Persoon](./Persoon) | Nee | De contactpersoon bij de gebruiker |
+| contactpersoonAanbieder | [Persoon](./persoon) | Nee | De contactpersoon bij de aanbieder |
+| contactpersoonGebruiker | [Persoon](./persoon) | Nee | De contactpersoon bij de gebruiker |
 | documentReferentie | string | Nee | Referentie naar het contractdocument |
 | status | enum | Ja | De status van het contract (bijv. 'Actief', 'Verlopen', 'In onderhandeling') |
 | opmerkingen | string | Nee | Aanvullende informatie over het contract |
 
 ## Relaties
 
-- Een Contract is gekoppeld aan precies één [VoorzieningAanbod](./VoorzieningAanbod)
-- Een Contract is gekoppeld aan precies één [VoorzieningGebruik](./VoorzieningGebruik)
-- Een Contract kan gekoppeld zijn aan één of twee [Persoon](./Persoon) objecten als contactpersonen
+- Een Contract is gekoppeld aan precies één [VoorzieningAanbod](./voorzieningaanbod)
+- Een Contract is gekoppeld aan precies één [VoorzieningGebruik](./voorzieninggebruik)
+- Een Contract kan gekoppeld zijn aan één of twee [Persoon](./persoon) objecten als contactpersonen
 
 ## Voorbeeld
 

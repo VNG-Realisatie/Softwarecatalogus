@@ -19,4 +19,6 @@ Een Standaardtype is een categorisering van standaarden op basis van hun functie
 
 ## Relaties
 
+- Een Standaardtype kan aan meerdere [Standaard](./standaard) objecten worden gekoppeld
+
 - Een Standaardtype kan aan meerdere [Standaar 

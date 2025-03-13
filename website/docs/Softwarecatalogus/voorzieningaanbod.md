@@ -31,11 +31,11 @@ De volledige API specificatie voor VoorzieningAanbod is beschikbaar op de [VNG A
 
 ## Relaties
 
-- Een VoorzieningAanbod is gekoppeld aan precies één [Voorziening](./Voorziening)
-- Een VoorzieningAanbod wordt aangeboden door precies één [Organisatie](./Organisatie)
-- Een VoorzieningAanbod kan meerdere [VoorzieningVersie](./VoorzieningVersie) objecten hebben
-- Een VoorzieningAanbod kan gekoppeld zijn aan meerdere [Contract](./Contract) objecten
-- Een VoorzieningAanbod kan gerelateerd zijn aan [ReferentieConcept](./ReferentieConcept) objecten
+- Een VoorzieningAanbod is gekoppeld aan precies één [Voorziening](./voorziening)
+- Een VoorzieningAanbod wordt aangeboden door precies één [Organisatie](./organisatie)
+- Een VoorzieningAanbod kan meerdere [VoorzieningVersie](./voorzieningversie) objecten hebben
+- Een VoorzieningAanbod kan gekoppeld zijn aan meerdere [Contract](./contract) objecten
+- Een VoorzieningAanbod kan gerelateerd zijn aan [ReferentieConcept](./referentieconcept) objecten
 
 ## Voorbeeld
 

@@ -21,7 +21,7 @@ Een Voorzieningstype is een categorisering van voorzieningen op basis van hun fu
 ## Relaties
 
 - Een Voorzieningstype kan een bovenliggend Voorzieningstype hebben (hiërarchische relatie)
-- Een Voorzieningstype kan door meerdere [Voorziening](./Voorziening) objecten worden gebruikt
+- Een Voorzieningstype kan door meerdere [Voorziening](./voorziening) objecten worden gebruikt
 
 ## Voorbeeld
 ```json

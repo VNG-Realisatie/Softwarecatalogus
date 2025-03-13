@@ -20,7 +20,7 @@ De volledige API specificatie voor Voorziening is beschikbaar op de [VNG API Spe
 | id | UUID | Ja | Unieke identificatie voor de voorziening |
 | naam | string | Ja | Naam van de voorziening |
 | beschrijving | string | Ja | Beschrijving van de voorziening |
-| voorzieningstypeId | UUID  | Nee | id van [Voorzieningstype](./Voorzieningstype) Type van de voorziening |
+| voorzieningstypeId | UUID  | Nee | id van [Voorzieningstype](./voorzieningstype) Type van de voorziening |
 | categorie | string | Nee | Categorie waartoe de voorziening behoort |
 | functionaliteiten | array[UUID] | Nee | Array van UUID's die verwijzen naar de functionaliteiten die de voorziening biedt |
 | doelgroep | array[enum] | Nee | Doelgroepen waarvoor de voorziening is bedoeld. Mogelijke waarden: 'Gemeente', 'Waterschap', 'Provincie', 'Ministerie', 'Uitvoeringsorganisatie', 'Samenwerkingsverband', 'Leverancier'. De definitie on [Organisatie](./Organisatie.md) is hiervoor leidend |
@@ -29,11 +29,11 @@ De volledige API specificatie voor Voorziening is beschikbaar op de [VNG API Spe
 
 ## Relaties
 
-- Een Voorziening kan van een bepaald [Voorzieningstype](./Voorzieningstype) zijn
-- Een Voorziening kan worden aangeboden via meerdere [VoorzieningAanbod](./VoorzieningAanbod) objecten
-- Een Voorziening kan worden gebruikt via meerdere [VoorzieningGebruik](./VoorzieningGebruik) objecten
-- Een Voorziening kan voldoen aan meerdere [Standaard](./Standaard) objecten
-- Een Voorziening kan gerelateerd zijn aan [ReferentieConcept](./ReferentieConcept) objecten
+- Een Voorziening kan van een bepaald [Voorzieningstype](./voorzieningstype) zijn
+- Een Voorziening kan worden aangeboden via meerdere [VoorzieningAanbod](./voorzieningaanbod) objecten
+- Een Voorziening kan worden gebruikt via meerdere [VoorzieningGebruik](./voorzieninggebruik) objecten
+- Een Voorziening kan voldoen aan meerdere [Standaard](./standaard) objecten
+- Een Voorziening kan gerelateerd zijn aan [ReferentieConcept](./referentieconcept) objecten
 
 ## Voorbeeld
 

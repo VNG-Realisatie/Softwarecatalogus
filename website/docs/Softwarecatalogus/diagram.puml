@@ -1,0 +1,180 @@
+@startuml Softwarecatalogus
+
+' Klassen definities
+class Contract {
+  +id: string
+  +startDatum: date
+  +eindDatum: date
+  +contractNummer: string
+  +contractType: enum
+  +kosten: number
+  +kostenPeriode: enum
+  +documentReferentie: string
+  +status: enum
+  +opmerkingen: string
+}
+
+class VoorzieningAanbod {
+  +id: UUID
+  +naam: string
+  +omschrijving: string
+  +type: array[enum]
+  +voorzieningId: UUID
+  +organisatieId: UUID
+  +productpagina: string
+  +ondersteuningsmodel: string
+  +licentiemodel: string
+  +hostingopties: array
+  +versies: array[UUID]
+}
+
+class VoorzieningGebruik {
+  +id: UUID
+  +organisatieId: UUID
+  +voorzieningId: UUID
+  +versieId: UUID
+  +contactpersoon: Persoon
+  +startDatum: date
+  +eindDatum: date
+  +status: enum
+  +opmerkingen: string
+}
+
+class Organisatie {
+  +id: string
+  +naam: string
+  +type: string
+  +kvkNummer: string
+  +oidn: string
+  +moederOrganisatie: string
+  +website: string
+  +adres: object
+  +contactgegevens: object
+  +beschrijving: string
+  +logo: string
+}
+
+class Voorziening {
+  +id: UUID
+  +naam: string
+  +beschrijving: string
+  +voorzieningstypeId: UUID
+  +categorie: string
+  +functionaliteiten: array[UUID]
+  +doelgroep: array[enum]
+  +referentieComponenten: array[UUID]
+  +standaarden: array[UUID]
+}
+
+class Persoon {
+  +id: string
+  +naam: string
+  +email: string
+  +telefoonnummer: string
+  +functie: string
+}
+
+class Voorzieningstype {
+  +id: UUID
+  +naam: string
+  +beschrijving: string
+  +bovenliggendType: UUID
+}
+
+class VoorzieningVersie {
+  +id: UUID
+  +voorzieningaanbodId: UUID
+  +omschrijving: string
+  +naam: string
+  +nummer: string
+  +releaseNotes: string
+  +productieDatum: string
+  +eindeDatum: string
+  +status: string
+}
+
+class Kwetsbaarheid {
+  +id: string
+  +voorzieningversieId: string
+  +cveNummer: string
+  +titel: string
+  +beschrijving: string
+  +ernst: string
+  +ontdektOp: string
+  +gepubliceerdOp: string
+  +opgelostIn: string
+  +mitigatie: string
+  +referenties: array
+}
+
+class Gebruiker {
+  +id: string
+  +username: string
+  +email: string
+  +voornaam: string
+  +achternaam: string
+  +functie: string
+  +organisatie: string
+  +telefoonnummer: string
+  +rollen: array
+  +actief: boolean
+  +laatsteInlogdatum: string
+  +aanmaakdatum: string
+  +wijzigingsdatum: string
+  +voorkeuren: object
+}
+
+class Standaardtype {
+  +id: string
+  +naam: string
+  +beschrijving: string
+}
+
+class Standaard {
+  +id: string
+  +naam: string
+  +beschrijving: string
+  +standaardtypeId: string
+}
+
+class Sector {
+  +id: string
+  +naam: string
+  +beschrijving: string
+}
+
+class Organisatietype {
+  +id: string
+  +naam: string
+  +beschrijving: string
+}
+
+class ReferentieConcept {
+  +id: string
+  +naam: string
+  +beschrijving: string
+}
+
+' Relaties
+Contract "1" -- "1" VoorzieningAanbod
+Contract "1" -- "1" VoorzieningGebruik
+Contract "0..1" -- "0..1" Persoon : contactpersoonAanbieder
+Contract "0..1" -- "0..1" Persoon : contactpersoonGebruiker
+VoorzieningGebruik "1" -- "1" Organisatie
+VoorzieningGebruik "1" -- "1" Voorziening
+VoorzieningGebruik "0..1" -- "0..1" VoorzieningVersie
+VoorzieningGebruik "0..1" -- "0..1" Persoon : contactpersoon
+VoorzieningAanbod "1" -- "1" Voorziening
+VoorzieningAanbod "1" -- "1" Organisatie
+VoorzieningAanbod "1" -- "*" VoorzieningVersie
+Voorziening "*" -- "1" Voorzieningstype
+Voorziening "*" -- "*" Standaard
+Voorziening "*" -- "*" ReferentieConcept
+Voorzieningstype "0..*" -- "0..1" Voorzieningstype : bovenliggendType
+VoorzieningVersie "1" -- "*" Kwetsbaarheid
+Organisatie "0..*" -- "0..1" Organisatie : moederOrganisatie
+Organisatie "*" -- "1" Sector
+Organisatie "*" -- "1" Organisatietype
+Standaard "*" -- "1" Standaardtype
+
+@enduml 
