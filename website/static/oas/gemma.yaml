@@ -601,7 +601,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Voorzieningversie'
+                  $ref: '#/components/schemas/VoorzieningVersie'
     post:
       tags:
         - Software Catalogus
@@ -613,14 +613,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Voorzieningversie'
+              $ref: '#/components/schemas/VoorzieningVersie'
       responses:
         '201':
           description: Succesvol aangemaakt
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Voorzieningversie'
+                $ref: '#/components/schemas/VoorzieningVersie'
         '400':
           description: Ongeldige invoer
   
@@ -644,7 +644,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Voorzieningversie'
+                $ref: '#/components/schemas/VoorzieningVersie'
         '404':
           description: Voorzieningversie niet gevonden
     put:
@@ -665,14 +665,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Voorzieningversie'
+              $ref: '#/components/schemas/VoorzieningVersie'
       responses:
         '200':
           description: Succesvol bijgewerkt
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Voorzieningversie'
+                $ref: '#/components/schemas/VoorzieningVersie'
         '404':
           description: Voorzieningversie niet gevonden
     delete:
