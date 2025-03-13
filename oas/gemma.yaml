@@ -1075,7 +1075,7 @@ components:
                 - id: 1
                   identifier: node_e1
                   elementRef: e1
-                  postion:
+                  position:
                     x: 100
                     'y': 100
                     w: 120
@@ -1101,7 +1101,7 @@ components:
                 - id: 2
                   identifier: node_e2
                   elementRef: e2
-                  postion:
+                  position:
                     x: 300
                     'y': 100
                     w: 120
@@ -1127,7 +1127,7 @@ components:
                 - id: 3
                   identifier: node_e3
                   elementRef: e3
-                  postion:
+                  position:
                     x: 100
                     'y': 250
                     w: 120
@@ -1153,7 +1153,7 @@ components:
                 - id: 4
                   identifier: node_e4
                   elementRef: e4
-                  postion:
+                  position:
                     x: 100
                     'y': 0
                     w: 120
@@ -1246,7 +1246,7 @@ components:
         - id: 1
           identifier: node_e1
           elementRef: e1
-          postion:
+          position:
             x: 100
             'y': 100
             w: 120
@@ -1318,7 +1318,7 @@ components:
           type: string
           x-stoplight:
             id: y8hsbzrfiot3t
-        postion:
+        position:
           type: object
           x-stoplight:
             id: fezevnzqv33uo
@@ -1511,7 +1511,7 @@ components:
             - id: 1
               identifier: node_e1
               elementRef: e1
-              postion:
+              position:
                 x: 100
                 'y': 100
                 w: 120
@@ -1537,7 +1537,7 @@ components:
             - id: 2
               identifier: node_e2
               elementRef: e2
-              postion:
+              position:
                 x: 300
                 'y': 100
                 w: 120
@@ -2050,10 +2050,11 @@ components:
     
     Voorziening:
       type: object
-      description: Een generieke voorziening (software product)
+      description: Een softwareproduct of dienst die functionaliteit biedt
       required:
         - id
         - naam
+        - beschrijving
       properties:
         id:
           type: string
@@ -2064,14 +2065,34 @@ components:
         beschrijving:
           type: string
           description: Beschrijving van de voorziening
+        voorzieningstype:
+          $ref: '#/components/schemas/Voorzieningstype'
+          description: Type van de voorziening
         categorie:
           type: string
-          description: Categorie van de voorziening
+          description: Categorie waartoe de voorziening behoort
         functionaliteiten:
           type: array
           items:
             type: string
           description: Lijst van functionaliteiten die de voorziening biedt
+        doelgroep:
+          type: array
+          items:
+            type: string
+          description: Doelgroepen waarvoor de voorziening is bedoeld
+        gemmaReferentieComponenten:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                description: Code van het referentiecomponent
+              naam:
+                type: string
+                description: Naam van het referentiecomponent
+          description: GEMMA referentiecomponenten die de voorziening implementeert
         standaarden:
           type: array
           items:
@@ -2090,13 +2111,13 @@ components:
             $ref: '#/components/schemas/Voorzieningaanbod'
           description: Aanbiedingen van deze voorziening door verschillende leveranciers
     
-    Voorzieningaanbod:
+    VoorzieningAanbod:
       type: object
       description: Een specifiek aanbod van een voorziening door een leverancier
       required:
         - id
         - voorzieningId
-        - leveranciersorganisatieId
+        - organisatieId
       properties:
         id:
           type: string
@@ -2104,9 +2125,9 @@ components:
         voorzieningId:
           type: string
           description: ID van de voorziening die wordt aangeboden
-        leveranciersorganisatieId:
+        organisatieId:
           type: string
-          description: ID van de leveranciersorganisatie die de voorziening aanbiedt
+          description: ID van de organisatie die de voorziening aanbiedt
         productpagina:
           type: string
           format: uri
@@ -2126,10 +2147,15 @@ components:
         versies:
           type: array
           items:
-            $ref: '#/components/schemas/Voorzieningversie'
+            $ref: '#/components/schemas/VoorzieningVersie'
           description: Beschikbare versies van dit voorzieningaanbod
+        isGerelateerdAan:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReferentieConcept'
+          description: Gerelateerde referentieconcepten
     
-    Voorzieningversie:
+    VoorzieningVersie:
       type: object
       description: Een specifieke versie van een voorzieningaanbod
       required:
@@ -2233,7 +2259,7 @@ components:
             format: uri
           description: Referenties naar meer informatie over de kwetsbaarheid
     
-    User:
+    Gebruiker:
       type: object
       description: Een gebruiker van het systeem
       required:
@@ -2302,6 +2328,235 @@ components:
               enum: [licht, donker, systeem]
               default: systeem
               description: Voorkeur voor weergavethema
+    
+    Persoon:
+      type: object
+      description: Een persoon die betrokken is bij het aanbieden of gebruiken van voorzieningen
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de persoon
+        naam:
+          type: string
+          description: Naam van de persoon
+        email:
+          type: string
+          format: email
+          description: E-mailadres van de persoon
+        telefoon:
+          type: string
+          description: Telefoonnummer van de persoon
+        functie:
+          type: string
+          description: Functie van de persoon
+        organisatie:
+          $ref: '#/components/schemas/Organisatie'
+          description: Organisatie waartoe de persoon behoort
+    
+    Voorzieningstype:
+      type: object
+      description: Een categorisering van voorzieningen op basis van hun functie of doel
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van het Voorzieningstype
+        naam:
+          type: string
+          description: Naam van het voorzieningstype
+        beschrijving:
+          type: string
+          description: Beschrijving van het voorzieningstype
+        bovenliggendType:
+          $ref: '#/components/schemas/Voorzieningstype'
+          description: Bovenliggend voorzieningstype (voor hiërarchische indeling)
+    
+    Standaardtype:
+      type: object
+      description: Een categorisering van standaarden op basis van hun functie of toepassingsgebied
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van het Standaardtype
+        naam:
+          type: string
+          description: Naam van het standaardtype
+        beschrijving:
+          type: string
+          description: Beschrijving van het standaardtype
+    
+    Standaard:
+      type: object
+      description: Een specifieke standaard waaraan een voorziening kan voldoen
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van de Standaard
+        naam:
+          type: string
+          description: Naam van de standaard
+        beschrijving:
+          type: string
+          description: Beschrijving van de standaard
+        standaardtype:
+          $ref: '#/components/schemas/Standaardtype'
+          description: Type van de standaard
+        versie:
+          type: string
+          description: Versie van de standaard
+        beheerorganisatie:
+          type: string
+          description: Organisatie die de standaard beheert
+        website:
+          type: string
+          format: uri
+          description: Website van de standaard
+        status:
+          type: string
+          enum: [Concept, In ontwikkeling, Vastgesteld, Verouderd]
+          description: Status van de standaard
+    
+    ReferentieConcept:
+      type: object
+      description: Een concept uit de referentiearchitectuur
+      required:
+        - id
+        - naam
+        - type
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van het ReferentieConcept
+        naam:
+          type: string
+          description: Naam van het referentieconcept
+        type:
+          type: string
+          enum: [Bedrijfsproces, Bedrijfsfunctie, Referentiecomponent, Applicatieservice, Applicatiefunctie, Applicatiecomponent, Applicatieinterface, Bedrijfsobject, Data-object]
+          description: Type van het referentieconcept
+        beschrijving:
+          type: string
+          description: Beschrijving van het referentieconcept
+        architectuur:
+          type: string
+          description: Architectuur waartoe het referentieconcept behoort
+    
+    Sector:
+      type: object
+      description: Sector waartoe een organisatie behoort
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van de Sector
+        naam:
+          type: string
+          description: Naam van de sector
+        beschrijving:
+          type: string
+          description: Beschrijving van de sector
+        bovenliggendeSector:
+          $ref: '#/components/schemas/Sector'
+          description: Bovenliggende sector (voor hiërarchische indeling)
+    
+    Organisatietype:
+      type: object
+      description: Type organisatie
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van het Organisatietype
+        naam:
+          type: string
+          description: Naam van het organisatietype
+        beschrijving:
+          type: string
+          description: Beschrijving van het organisatietype
+    
+    GebruikersRol:
+      type: object
+      description: Rol die een gebruiker kan hebben bij een voorziening
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van de GebruikersRol
+        naam:
+          type: string
+          description: Naam van de gebruikersrol
+        beschrijving:
+          type: string
+          description: Beschrijving van de gebruikersrol
+        rechten:
+          type: array
+          items:
+            type: string
+          description: Rechten die bij deze rol horen
+    
+    Review:
+      type: object
+      description: Beoordeling van een voorziening
+      required:
+        - id
+        - voorziening
+        - organisatie
+        - score
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van de Review
+        voorziening:
+          $ref: '#/components/schemas/Voorziening'
+          description: De beoordeelde voorziening
+        organisatie:
+          $ref: '#/components/schemas/Organisatie'
+          description: De organisatie die de beoordeling heeft gegeven
+        persoon:
+          $ref: '#/components/schemas/Persoon'
+          description: De persoon die de beoordeling heeft gegeven
+        score:
+          type: number
+          minimum: 1
+          maximum: 5
+          description: Score van de beoordeling (1-5)
+        titel:
+          type: string
+          description: Titel van de beoordeling
+        tekst:
+          type: string
+          description: Tekst van de beoordeling
+        datum:
+          type: string
+          format: date
+          description: Datum van de beoordeling
+        voordelen:
+          type: array
+          items:
+            type: string
+          description: Voordelen van de voorziening
+        nadelen:
+          type: array
+          items:
+            type: string
+          description: Nadelen van de voorziening
 tags:
   - name: Gemma
     description: All of the Gemma architecture
