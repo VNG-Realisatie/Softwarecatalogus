@@ -36,7 +36,7 @@ De volledige API specificatie voor Contract is beschikbaar op de [VNG API Specif
 
 - Een Contract is gekoppeld aan precies één [VoorzieningAanbod](./voorzieningaanbod)
 - Een Contract is gekoppeld aan precies één [VoorzieningGebruik](./voorzieninggebruik)
-- Een Contract kan gekoppeld zijn aan één of twee [Persoon](./persoon) objecten als contactpersonen
+- Een Contract kan gekoppeld zijn aan één of twee personen objecten als contactpersonen
 
 ## Voorbeeld
 

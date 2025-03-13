@@ -1,6 +1,6 @@
 ---
 id: voorzieningstype
-title: Voorzieningstype
+title: Voorzienings type
 sidebar_label: Voorzieningstype
 sidebar_position: 7
 ---

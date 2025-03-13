@@ -1,4 +1,7 @@
 ---
+id: index
+title: Software Catalogus
+sidebar_label: Software Catalogus
 sidebar_position: 1
 ---
 
@@ -20,15 +23,12 @@ Het onderstaande diagram toont het Bedrijfsobjectenmodel Voorzieningen, dat de b
 
 De Software Catalogus bestaat uit de volgende objecttypen:
 
-- [Voorziening](./Voorziening): Een ICT-voorziening die functionaliteit biedt aan gebruikers
-- [VoorzieningAanbod](./VoorzieningAanbod): Een specifiek aanbod van een voorziening door een aanbieder
-- [Organisatie](./Organisatie): Een organisatie die voorzieningen aanbiedt of gebruikt
-- [Persoon](./Persoon): Een persoon die betrokken is bij het aanbieden of gebruiken van voorzieningen
-- [VoorzieningGebruik](./VoorzieningGebruik): Een organisatie die een voorziening gebruikt
-- [Contract](./Contract): Een formele overeenkomst voor het inzetten van een VoorzieningAanbod op een VoorzieningGebruik
-- [VoorzieningVersie](./VoorzieningVersie): Specifieke versies van voorzieningaanbiedingen
-- [Kwetsbaarheid](./Kwetsbaarheid): Beveiligingsproblemen in voorzieningversies
-- [Gebruiker](./Gebruiker): Gebruikers van het systeem met verschillende rollen en rechten
+- [Voorziening](./voorziening): Een ICT-voorziening die functionaliteit biedt aan gebruikers
+- [VoorzieningAanbod](./voorzieningaanbod): Een specifiek aanbod van een voorziening door een aanbieder
+- [VoorzieningGebruik](./voorzieninggebruik): Een organisatie die een voorziening gebruikt
+- [Contract](./contract): Een formele overeenkomst voor het inzetten van een VoorzieningAanbod op een VoorzieningGebruik
+- [VoorzieningVersie](./voorzieningversie): Specifieke versies van voorzieningaanbiedingen
+- [Kwetsbaarheid](./kwetsbaarheid): Beveiligingsproblemen in voorzieningversies
 
 ## Ontbrekende objecten
 

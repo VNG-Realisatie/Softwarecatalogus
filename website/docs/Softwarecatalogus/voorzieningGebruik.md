@@ -36,9 +36,7 @@ De volledige API specificatie voor VoorzieningGebruik is beschikbaar op de [VNG 
 
 - Een VoorzieningGebruik is gekoppeld aan precies één [Organisatie](./organisatie)
 - Een VoorzieningGebruik is gekoppeld aan precies één [Voorziening](./voorziening)
-- Een VoorzieningGebruik kan gekoppeld zijn aan één [Persoon](./persoon) als contactpersoon
 - Een VoorzieningGebruik kan gebruikt worden door meerdere [Contract](./contract) objecten
-- Een VoorzieningGebruik kan gerelateerd zijn aan [ReferentieConcept](./referentieconcept) objecten
 
 ## Voorbeeld
 

@@ -1,4 +1,6 @@
 ---
+id: gebruiker
+title: Gebruiker
 sidebar_position: 7
 ---
 

@@ -1,6 +1,6 @@
 ---
 id: voorzieningaanbod
-title: VoorzieningAanbod
+title: Voorziening Aanbod
 sidebar_label: VoorzieningAanbod
 sidebar_position: 4
 ---

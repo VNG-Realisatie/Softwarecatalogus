@@ -1,6 +1,6 @@
 ---
 id: voorzieningversie
-title: VoorzieningVersie
+title: Voorziening Versie
 sidebar_label: VoorzieningVersie
 sidebar_position: 7
 ---

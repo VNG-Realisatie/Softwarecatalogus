@@ -23,8 +23,8 @@ De volledige API specificatie voor Organisatie is beschikbaar op de [VNG API Spe
 | kvkNummer | string | Nee | KvK-nummer van de organisatie (voor bedrijven) |
 | oidn | string | Nee | Organisatie Identificatienummer (voor overheden) |
 | moederOrganisatie | string | Nee | ID van de bovenliggende organisatie |
-| sector | [Sector](./sector) | Nee | Sector waartoe de organisatie behoort |
-| organisatietype | [Organisatietype](./organisatietype) | Nee | Type van de organisatie |
+| sector | string | Nee | Sector waartoe de organisatie behoort |
+| organisatietype | string | Nee | Type van de organisatie |
 | website | string (URI) | Nee | Website van de organisatie |
 | adres | object | Nee | Adresgegevens van de organisatie |
 | contactgegevens | object | Nee | Contactgegevens van de organisatie |
@@ -56,8 +56,6 @@ De volledige API specificatie voor Organisatie is beschikbaar op de [VNG API Spe
 
 - Een Organisatie kan meerdere [VoorzieningAanbod](./voorzieningaanbod) objecten aanbieden
 - Een Organisatie kan meerdere [VoorzieningGebruik](./voorzieninggebruik) objecten hebben
-- Een Organisatie kan behoren tot een [Sector](./sector)
-- Een Organisatie kan van een bepaald [Organisatietype](./organisatietype) zijn
 - Een Organisatie kan een moederorganisatie hebben (hiërarchische relatie)
 
 ## Voorbeeld

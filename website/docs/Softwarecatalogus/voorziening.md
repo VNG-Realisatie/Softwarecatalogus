@@ -32,8 +32,6 @@ De volledige API specificatie voor Voorziening is beschikbaar op de [VNG API Spe
 - Een Voorziening kan van een bepaald [Voorzieningstype](./voorzieningstype) zijn
 - Een Voorziening kan worden aangeboden via meerdere [VoorzieningAanbod](./voorzieningaanbod) objecten
 - Een Voorziening kan worden gebruikt via meerdere [VoorzieningGebruik](./voorzieninggebruik) objecten
-- Een Voorziening kan voldoen aan meerdere [Standaard](./standaard) objecten
-- Een Voorziening kan gerelateerd zijn aan [ReferentieConcept](./referentieconcept) objecten
 
 ## Voorbeeld
 
