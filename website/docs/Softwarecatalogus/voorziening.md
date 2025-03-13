@@ -2,48 +2,51 @@
 id: voorziening
 title: Voorziening
 sidebar_label: Voorziening
+sidebar_position: 3
 ---
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # Voorziening
 
-Een voorziening is een softwareproduct of dienst die functionaliteit biedt voor gemeentelijke processen. Voorzieningen vormen de basis van de gemeentelijke informatievoorziening en kunnen door verschillende leveranciers worden aangeboden.
+Een voorziening is een softwareproduct of dienst die functionaliteit biedt voor gemeentelijke of andere overheidsprocessen. Voorzieningen vormen de basis van de informatievoorziening en kunnen door verschillende leveranciers worden aangeboden.
+
+## API Specificatie
+
+De volledige API specificatie voor Voorziening is beschikbaar op de [VNG API Specificatie pagina](https://vng-realisatie.github.io/Softwarecatalogus/api#tag/Software-Catalogus/operation/getVoorzieningen).
 
 ## Eigenschappen
 
-| Eigenschap | Type | Beschrijving |
-|------------|------|-------------|
-| id | string | Unieke identificatie voor de voorziening |
-| naam | string | Naam van de voorziening |
-| beschrijving | string | Beschrijving van de voorziening |
-| categorie | string | Categorie waartoe de voorziening behoort |
-| functionaliteiten | array | Lijst van functionaliteiten die de voorziening biedt |
-| doelgroep | array | Doelgroepen waarvoor de voorziening is bedoeld |
-| gemmaReferentieComponenten | array | GEMMA referentiecomponenten die de voorziening implementeert |
-| standaarden | array | Standaarden die de voorziening ondersteunt |
-| aanbiedingen | array | Aanbiedingen van deze voorziening door verschillende leveranciers |
+| Eigenschap | Type | Verplicht | Beschrijving |
+|------------|------|-----------|--------------|
+| id | string | Ja | Unieke identificatie voor de voorziening |
+| naam | string | Ja | Naam van de voorziening |
+| beschrijving | string | Ja | Beschrijving van de voorziening |
+| voorzieningstype | [Voorzieningstype](./Voorzieningstype) | Nee | Type van de voorziening |
+| categorie | string | Nee | Categorie waartoe de voorziening behoort |
+| functionaliteiten | array | Nee | Lijst van functionaliteiten die de voorziening biedt |
+| doelgroep | array | Nee | Doelgroepen waarvoor de voorziening is bedoeld |
+| gemmaReferentieComponenten | array | Nee | GEMMA referentiecomponenten die de voorziening implementeert |
+| standaarden | array | Nee | Standaarden die de voorziening ondersteunt |
+| aanbiedingen | array | Nee | Aanbiedingen van deze voorziening door verschillende leveranciers |
 
-## API Endpoint
+## Relaties
 
-'''
-GET /voorzieningen
-'''
+- Een Voorziening kan van een bepaald [Voorzieningstype](./Voorzieningstype) zijn
+- Een Voorziening kan worden aangeboden via meerdere [VoorzieningAanbod](./VoorzieningAanbod) objecten
+- Een Voorziening kan worden gebruikt via meerdere [VoorzieningGebruik](./VoorzieningGebruik) objecten
+- Een Voorziening kan voldoen aan meerdere [Standaard](./Standaard) objecten
+- Een Voorziening kan gerelateerd zijn aan [ReferentieConcept](./ReferentieConcept) objecten
 
-Voor een specifieke voorziening:
-
-'''
-GET /voorzieningen/{id}
-'''
-
-## Voorbeeld Response
+## Voorbeeld
 
 ```json
 {
-  "id": "v1",
+  "id": "VZ-001",
   "naam": "Zaaksysteem Pro",
   "beschrijving": "Een uitgebreid zaaksysteem voor gemeenten",
+  "voorzieningstype": {
+    "id": "VZT-001",
+    "naam": "Zaaksysteem"
+  },
   "categorie": "Zaakgericht werken",
   "functionaliteiten": [
     "Zaakregistratie",
@@ -77,13 +80,25 @@ GET /voorzieningen/{id}
   ],
   "aanbiedingen": [
     {
-      "id": "va1",
-      "leveranciersorganisatieId": "l1",
+      "id": "VA-001",
+      "leveranciersorganisatieId": "ORG-002",
       "leveranciersnaam": "Voorbeeld Software B.V."
     }
   ]
 }
 ```
+
+## API Endpoint
+
+'''
+GET /voorzieningen
+'''
+
+Voor een specifieke voorziening:
+
+'''
+GET /voorzieningen/{id}
+'''
 
 ## Relaties met andere Componenten
 

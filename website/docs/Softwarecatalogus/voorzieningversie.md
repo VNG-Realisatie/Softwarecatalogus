@@ -1,16 +1,20 @@
 ---
 id: voorzieningversie
-title: Voorzieningversie
-sidebar_label: Voorzieningversie
-sidebar_position: 6
+title: VoorzieningVersie
+sidebar_label: VoorzieningVersie
+sidebar_position: 7
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Voorzieningversie
+# VoorzieningVersie
 
 Een voorzieningversie is een specifieke versie van een voorzieningaanbod. Het bevat informatie over de release, ondersteuningsperiode, systeemvereisten en eventuele kwetsbaarheden.
+
+## API Specificatie
+
+De volledige API specificatie voor VoorzieningVersie is beschikbaar op de [VNG API Specificatie pagina](https://vng-realisatie.github.io/Softwarecatalogus/api#tag/Software-Catalogus/operation/getVoorzieningversies).
 
 ## Eigenschappen
 

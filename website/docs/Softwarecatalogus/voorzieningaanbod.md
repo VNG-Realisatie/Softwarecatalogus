@@ -1,28 +1,75 @@
 ---
 id: voorzieningaanbod
-title: Voorzieningaanbod
-sidebar_label: Voorzieningaanbod
+title: VoorzieningAanbod
+sidebar_label: VoorzieningAanbod
+sidebar_position: 4
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-# Voorzieningaanbod
+# VoorzieningAanbod
 
 Een voorzieningaanbod is een specifiek aanbod van een voorziening door een leverancier. Het beschrijft hoe een leverancier een bepaalde voorziening aanbiedt, inclusief licentiemodel, ondersteuning en hostingopties.
 
+## API Specificatie
+
+De volledige API specificatie voor VoorzieningAanbod is beschikbaar op de [VNG API Specificatie pagina](https://vng-realisatie.github.io/Softwarecatalogus/api#tag/Software-Catalogus/operation/getVoorzieningaanbiedingen).
+
 ## Eigenschappen
 
-| Eigenschap | Type | Beschrijving |
-|------------|------|-------------|
-| id | string | Unieke identificatie voor het voorzieningaanbod |
-| voorzieningId | string | ID van de voorziening die wordt aangeboden |
-| leveranciersorganisatieId | string | ID van de leveranciersorganisatie die de voorziening aanbiedt |
-| productpagina | string (URI) | URL naar de productpagina van de leverancier |
-| ondersteuningsmodel | string | Beschrijving van het ondersteuningsmodel |
-| licentiemodel | string | Beschrijving van het licentiemodel |
-| hostingopties | array | Beschikbare hostingopties (on-premises, SaaS, PaaS, hybride) |
-| versies | array | Beschikbare versies van dit voorzieningaanbod |
+| Eigenschap | Type | Verplicht | Beschrijving |
+|------------|------|-----------|--------------|
+| id | string | Ja | Unieke identificatie voor het voorzieningaanbod |
+| voorzieningId | string | Ja | ID van de voorziening die wordt aangeboden |
+| organisatieId | string | Ja | ID van de organisatie die de voorziening aanbiedt |
+| productpagina | string (URI) | Nee | URL naar de productpagina van de leverancier |
+| ondersteuningsmodel | string | Nee | Beschrijving van het ondersteuningsmodel |
+| licentiemodel | string | Nee | Beschrijving van het licentiemodel |
+| hostingopties | array | Nee | Beschikbare hostingopties (on-premises, SaaS, PaaS, hybride) |
+| versies | array | Nee | Beschikbare versies van dit voorzieningaanbod |
+| isGerelateerdAan | array | Nee | Gerelateerde referentieconcepten |
+
+## Relaties
+
+- Een VoorzieningAanbod is gekoppeld aan precies één [Voorziening](./Voorziening)
+- Een VoorzieningAanbod wordt aangeboden door precies één [Organisatie](./Organisatie)
+- Een VoorzieningAanbod kan meerdere [VoorzieningVersie](./VoorzieningVersie) objecten hebben
+- Een VoorzieningAanbod kan gekoppeld zijn aan meerdere [Contract](./Contract) objecten
+- Een VoorzieningAanbod kan gerelateerd zijn aan [ReferentieConcept](./ReferentieConcept) objecten
+
+## Voorbeeld
+
+```json
+{
+  "id": "VA-001",
+  "voorzieningId": "VZ-001",
+  "organisatieId": "ORG-002",
+  "productpagina": "https://www.voorbeeldsoftware.nl/zaaksysteem-pro",
+  "ondersteuningsmodel": "24/7 telefonische ondersteuning en online helpdesk",
+  "licentiemodel": "Jaarlijkse licentie gebaseerd op aantal gebruikers",
+  "hostingopties": [
+    "on-premises",
+    "SaaS"
+  ],
+  "versies": [
+    {
+      "id": "VV-001",
+      "versienummer": "2.5.0",
+      "status": "actief"
+    },
+    {
+      "id": "VV-002",
+      "versienummer": "2.4.2",
+      "status": "onderhoud"
+    }
+  ],
+  "isGerelateerdAan": [
+    {
+      "id": "RC-001",
+      "naam": "Zaakregistratiecomponent",
+      "type": "Referentiecomponent"
+    }
+  ]
+}
+```
 
 ## API Endpoint
 
