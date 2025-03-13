@@ -482,7 +482,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Voorzieningaanbod'
+                  $ref: '#/components/schemas/VoorzieningAanbod'
     post:
       tags:
         - Software Catalogus
@@ -494,14 +494,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Voorzieningaanbod'
+              $ref: '#/components/schemas/VoorzieningAanbod'
       responses:
         '201':
           description: Succesvol aangemaakt
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Voorzieningaanbod'
+                $ref: '#/components/schemas/VoorzieningAanbod'
         '400':
           description: Ongeldige invoer
   
@@ -525,7 +525,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Voorzieningaanbod'
+                $ref: '#/components/schemas/VoorzieningAanbod'
         '404':
           description: Voorzieningaanbieding niet gevonden
     put:
@@ -546,14 +546,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Voorzieningaanbod'
+              $ref: '#/components/schemas/VoorzieningAanbod'
       responses:
         '200':
           description: Succesvol bijgewerkt
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Voorzieningaanbod'
+                $ref: '#/components/schemas/VoorzieningAanbod'
         '404':
           description: Voorzieningaanbieding niet gevonden
     delete:
