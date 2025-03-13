@@ -1075,7 +1075,7 @@ components:
                 - id: 1
                   identifier: node_e1
                   elementRef: e1
-                  postion:
+                  position:
                     x: 100
                     'y': 100
                     w: 120
@@ -1101,7 +1101,7 @@ components:
                 - id: 2
                   identifier: node_e2
                   elementRef: e2
-                  postion:
+                  position:
                     x: 300
                     'y': 100
                     w: 120
@@ -1127,7 +1127,7 @@ components:
                 - id: 3
                   identifier: node_e3
                   elementRef: e3
-                  postion:
+                  position:
                     x: 100
                     'y': 250
                     w: 120
@@ -1153,7 +1153,7 @@ components:
                 - id: 4
                   identifier: node_e4
                   elementRef: e4
-                  postion:
+                  position:
                     x: 100
                     'y': 0
                     w: 120
@@ -1246,7 +1246,7 @@ components:
         - id: 1
           identifier: node_e1
           elementRef: e1
-          postion:
+          position:
             x: 100
             'y': 100
             w: 120
@@ -1318,7 +1318,7 @@ components:
           type: string
           x-stoplight:
             id: y8hsbzrfiot3t
-        postion:
+        position:
           type: object
           x-stoplight:
             id: fezevnzqv33uo
@@ -1511,7 +1511,7 @@ components:
             - id: 1
               identifier: node_e1
               elementRef: e1
-              postion:
+              position:
                 x: 100
                 'y': 100
                 w: 120
@@ -1537,7 +1537,7 @@ components:
             - id: 2
               identifier: node_e2
               elementRef: e2
-              postion:
+              position:
                 x: 300
                 'y': 100
                 w: 120
