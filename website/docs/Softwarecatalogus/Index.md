@@ -34,13 +34,10 @@ De Software Catalogus bestaat uit de volgende objecttypen:
 
 Op basis van het Bedrijfsobjectenmodel Voorzieningen zijn de volgende objecten nog niet opgenomen in onze documentatie:
 
-- Voorzieningstype: Categorisering van voorzieningen
 - Standaardtype: Type standaard waaraan een voorziening kan voldoen
 - Standaard: Een specifieke standaard waaraan een voorziening kan voldoen
 - ReferentieConcept: Concepten uit de referentiearchitectuur
 - Sector: Sector waartoe een organisatie behoort
-- Organisatietype: Type organisatie
-- GebruikersRol: Rol die een gebruiker kan hebben bij een voorziening
 - Review: Beoordeling van een voorziening
 
 ## Object Relaties
@@ -54,6 +51,9 @@ De objecten in de Software Catalogus hebben de volgende relaties met elkaar:
 - **Organisatie** gebruikt één of meerdere **Voorzieningen** via **VoorzieningGebruik**
 - **VoorzieningGebruik** kan gekoppeld zijn aan één of meerdere **Contract** objecten
 - **Contract** verbindt een **VoorzieningAanbod** met een **VoorzieningGebruik**
+
+
+![Software Catalogus Class Structuur](diagram.svg)
 
 ## API Toegang
 
