@@ -3,12 +3,16 @@
 ' Klassen definities
 class Contract {
   +id: string
+  +voorzieningAanbod: object
+  +voorzieningGebruik: object
   +startDatum: date
   +eindDatum: date
   +contractNummer: string
   +contractType: enum
   +kosten: number
   +kostenPeriode: enum
+  +contactpersoonAanbieder: object
+  +contactpersoonGebruiker: object
   +documentReferentie: string
   +status: enum
   +opmerkingen: string
@@ -33,11 +37,16 @@ class VoorzieningGebruik {
   +organisatieId: UUID
   +voorzieningId: UUID
   +versieId: UUID
-  +contactpersoon: Persoon
+  +beheerder: object
   +startDatum: date
   +eindDatum: date
   +status: enum
   +opmerkingen: string
+  +bbnScore: integer
+  +ibpScore: integer
+  +bivClassificatie: object
+  +bedrijfsKritisch: boolean
+  +privacyGevoelig: boolean
 }
 
 class Organisatie {
@@ -47,11 +56,16 @@ class Organisatie {
   +kvkNummer: string
   +oidn: string
   +moederOrganisatie: string
+  +sector: string
+  +organisatietype: string
   +website: string
   +adres: object
   +contactgegevens: object
   +beschrijving: string
   +logo: string
+  +voorzieningen: array
+  +gebruik: array
+  +deelnemerIn: array
 }
 
 class Voorziening {
@@ -158,12 +172,9 @@ class ReferentieConcept {
 ' Relaties
 Contract "1" -- "1" VoorzieningAanbod
 Contract "1" -- "1" VoorzieningGebruik
-Contract "0..1" -- "0..1" Persoon : contactpersoonAanbieder
-Contract "0..1" -- "0..1" Persoon : contactpersoonGebruiker
 VoorzieningGebruik "1" -- "1" Organisatie
 VoorzieningGebruik "1" -- "1" Voorziening
 VoorzieningGebruik "0..1" -- "0..1" VoorzieningVersie
-VoorzieningGebruik "0..1" -- "0..1" Persoon : contactpersoon
 VoorzieningAanbod "1" -- "1" Voorziening
 VoorzieningAanbod "1" -- "1" Organisatie
 VoorzieningAanbod "1" -- "*" VoorzieningVersie
