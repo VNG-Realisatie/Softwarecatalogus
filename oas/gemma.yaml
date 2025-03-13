@@ -818,15 +818,14 @@ paths:
           description: Succesvol verwijderd
         '404':
           description: Kwetsbaarheid niet gevonden
-
   # Beheer endpoints
-  /users:
+  /gebruikers:
     get:
       tags:
         - Beheer
       summary: Haal alle gebruikers op
       description: Geeft een lijst van alle gebruikers terug
-      operationId: getUsers
+      operationId: geGebruikers
       responses:
         '200':
           description: Succesvol opgehaald
@@ -835,36 +834,36 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/User'
+                  $ref: '#/components/schemas/Gebruiker'
     post:
       tags:
         - Beheer
       summary: Maak een nieuwe gebruiker aan
       description: Maakt een nieuwe gebruiker aan
-      operationId: createUser
+      operationId: createGebruiker
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/Gebruiker'
       responses:
         '201':
           description: Succesvol aangemaakt
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Gebruiker'
         '400':
           description: Ongeldige invoer
-
-  /users/{id}:
+          
+  /gebruikers/{id}:
     get:
       tags:
         - Beheer
       summary: Haal een specifieke gebruiker op
       description: Geeft details van een specifieke gebruiker terug
-      operationId: getUserById
+      operationId: getGebruikerById
       parameters:
         - name: id
           in: path
@@ -878,7 +877,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Gebruiker'
         '404':
           description: Gebruiker niet gevonden
     put:
@@ -886,7 +885,7 @@ paths:
         - Beheer
       summary: Werk een gebruiker bij
       description: Werkt een bestaande gebruiker bij
-      operationId: updateUser
+      operationId: updateGebruiker
       parameters:
         - name: id
           in: path
@@ -899,14 +898,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: '#/components/schemas/Gebruiker'
       responses:
         '200':
           description: Succesvol bijgewerkt
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/Gebruiker'
         '404':
           description: Gebruiker niet gevonden
     delete:
@@ -914,7 +913,7 @@ paths:
         - Beheer
       summary: Verwijder een gebruiker
       description: Verwijdert een bestaande gebruiker
-      operationId: deleteUser
+      operationId: deleteGebruiker
       parameters:
         - name: id
           in: path
