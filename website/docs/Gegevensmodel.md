@@ -34,7 +34,6 @@ Het model bevat componenten voor het visualiseren van de architectuur:
 
 Het volgende diagram toont de structuur van het GEMMA architectuurmodel en de relaties tussen de componenten:
 
-![GEMMA Architectuur Model Structuur](Diagrams/gemma-model.svg)
 
 Voor meer informatie over het GEMMA architectuurmodel, zie de [GEMMA](GEMMA/introduction.md) pagina.
 
@@ -52,7 +51,6 @@ Naast het architectuurmodel bevat de API ook toegang tot de Software Catalogus, 
 
 Het volgende diagram toont de structuur van de Software Catalogus en de relaties tussen de objecttypen:
 
-![Software Catalogus Model Structuur](./Gegevensmodel.md)
 
 
 ## API Toegang
