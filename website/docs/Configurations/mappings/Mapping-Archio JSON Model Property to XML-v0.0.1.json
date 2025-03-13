@@ -13,7 +13,7 @@
     "mapping": {
         "@attributes.propertyDefinitionRef": "propertyDefinitionRef",
         "value.#text": "value",
-        "value.@attributes.xml:lang": "value-xml:lang"
+        "value.@attributes.xml:lang": "value-lang"
     },
     "unset": [],
     "cast": [],

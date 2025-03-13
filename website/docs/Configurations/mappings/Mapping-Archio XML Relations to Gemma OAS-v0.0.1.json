@@ -14,17 +14,17 @@
         "identifier": "@attributes.identifier",
         "source": "@attributes.source",
         "target": "@attributes.target",
-        "xsi:type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
+        "type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
         "accessType": "@attributes.accessType",
         "name": "name.#text",
-        "name-xml:lang": "{{ attribute(name['@attributes'], 'xml:lang')|default('') }}",
-        "properties": "{% if properties.property|default %}{{ executeMapping(12, properties.property, true)|json_encode }}{%else%}[]{%endif%}"
+        "name-lang": "{{ attribute(name['@attributes'], 'xml:lang')|default('') }}",
+        "properties": "{% if properties.property|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Model Property to Gemma OAS.json\", properties.property, true)|json_encode }}{%else%}[]{%endif%}"
     },
     "unset": [],
     "cast": {
         "accessType": "unsetIfValue==@attributes.accessType",
         "name": "unsetIfValue==name.#text",
-        "name-xml:lang": "unsetIfValue==",
+        "name-lang": "unsetIfValue==",
         "properties": "jsonToArray"
     },
     "passThrough": false

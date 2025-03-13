@@ -13,12 +13,12 @@
 	"mapping": {
 		"@root": "view",
 		"@attributes.identifier": "identifier",
-		"@attributes.xsi:type": "xsi:type",
-		"name.@attributes.xml:lang": "name-xml:lang",
+		"@attributes.xsi:type": "type",
+		"name.@attributes.xml:lang": "name-lang",
 		"name.#text": "name",
-		"properties": "{% if properties|default %}{{ executeMapping(16, properties) }}{%else%}[]{%endif%}",
-		"node": "{% if node|default %}{{ executeMapping(5, node, true)|json_encode }}{%else%}[]{%endif%}",
-		"connection": "{% if connection|default %}{{ executeMapping(4, connection, true)|json_encode }}{%else%}[]{%endif%}"
+		"properties": "{% if properties|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Model Property to XML.json\", properties) }}{%else%}[]{%endif%}",
+		"node": "{% if nodes|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Node to XML.json\", nodes, true)|json_encode }}{%else%}[]{%endif%}",
+		"connection": "{% if connections|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON View Connection to XML.json\", connections, true)|json_encode }}{%else%}[]{%endif%}"
 	},
 	"unset": [],
 	"cast": {

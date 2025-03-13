@@ -13,13 +13,13 @@
 	"mapping": {
 		"@attributes.identifier": "identifier",
 		"@attributes.elementRef": "elementRef",
-		"@attributes.xsi:type": "xsi:type",
+		"@attributes.xsi:type": "type",
 		"@attributes.x": "position.x",
 		"@attributes.y": "position.y",
 		"@attributes.w": "position.w",
 		"@attributes.h": "position.h",
-		"style": "{% if style|default %}{{ executeMapping(17, style) }}{%else%}[]{%endif%}",
-		"node": "{% if nodes|default %}{{ executeMapping(5, nodes, true) }}{%else%}[]{%endif%}"
+		"style": "{% if style|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON View Style to XML.json\", style) }}{%else%}[]{%endif%}",
+		"node": "{% if nodes|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Node to XML.json\", nodes, true) }}{%else%}[]{%endif%}"
 	},
 	"unset": [],
 	"cast": {

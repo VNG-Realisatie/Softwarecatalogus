@@ -13,12 +13,12 @@
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Elements to Gemma OAS.json",
     "mapping": {
         "identifier": "@attributes.identifier",
-        "xsi:type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
+        "type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
         "name": "name.#text",
-        "name-xml:lang": "{{ attribute(name['@attributes'], 'xml:lang') }}",
+        "name-lang": "{{ attribute(name['@attributes'], 'xml:lang') }}",
         "documentation": "documentation.#text",
-        "documentation-xml:lang": "{{ attribute(documentation['@attributes'], 'xml:lang') }}",
-        "properties": "{% if properties.property|default %}{{ executeMapping(12, properties.property, true)|json_encode }}{%else%}[]{%endif%}"
+        "documentation-lang": "{{ attribute(documentation['@attributes'], 'xml:lang') }}",
+        "properties": "{% if properties.property|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Model Property to Gemma OAS.json\", properties.property, true)|json_encode }}{%else%}[]{%endif%}"
     },
     "unset": [],
     "cast": {

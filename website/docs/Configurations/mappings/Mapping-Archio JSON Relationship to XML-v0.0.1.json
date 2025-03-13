@@ -15,11 +15,11 @@
 		"@attributes.identifier": "identifier",
 		"@attributes.source": "source",
 		"@attributes.target": "target",
-		"@attributes.xsi:type": "xsi:type",
+		"@attributes.xsi:type": "type",
 		"@attributes.accessType": "accessType",
-		"name.@attributes.xml:lang": "name-xml:lang",
+		"name.@attributes.xml:lang": "name-lang",
 		"name.#text": "name",
-		"properties": "{% if properties.property|default %}{{ executeMapping(16, properties.property, true)|json_encode }}{%else%}[]{%endif%}"
+		"properties": "{% if properties|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Model Property to XML.json\", properties, true)|json_encode }}{%else%}[]{%endif%}"
 	},
 	"unset": [],
 	"cast": {

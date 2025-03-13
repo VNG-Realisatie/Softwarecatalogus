@@ -13,12 +13,12 @@
 	"mapping": {
 		"@root": "element",
 		"@attributes.identifier": "identifier",
-		"@attributes.xsi:type": "xsi:type",
-		"name.@attributes.xml:lang": "name-xml:lang",
+		"@attributes.xsi:type": "type",
+		"name.@attributes.xml:lang": "name-lang",
 		"name.#text": "name",
-		"documentation.@attributes.xml:lang": "documentation-xml:lang",
+		"documentation.@attributes.xml:lang": "documentation-lang",
 		"documentation.#text": "documentation",
-		"properties": "{% if properties.property|default %}{{ executeMapping(16, properties.property, true)|json_encode }}{%else%}[]{%endif%}"
+		"properties": "{% if properties|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Model Property to XML.json\", properties, true)|json_encode }}{%else%}[]{%endif%}"
 	},
 	"unset": [],
 	"cast": {

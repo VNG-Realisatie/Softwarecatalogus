@@ -13,14 +13,18 @@
 	"mapping": {
 		"@attributes.identifier": "identifier",
 		"@attributes.relationshipRef": "relationshipRef",
+		"@attributes.xsi:type": "type",
 		"@attributes.source": "source",
 		"@attributes.target": "target",
-		"@attributes.xsi:type": "xsi:type",
-		"style": "{% if style|default %}{{ executeMapping(17, style)|json_encode }}{%else%}[]{%endif%}"
+		"style": "{% if style|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON View Style to XML.json\", style)|json_encode }}{%else%}[]{%endif%}",
+		"bendpoint.@attributes.x": "bendpoint.x",
+		"bendpoint.@attributes.y": "bendpoint.y"
 	},
 	"unset": [],
 	"cast": {
-		"style": "jsonToArray"
+		"style": "jsonToArray",
+		"bendpoint.@attributes.x": "unsetIfValue==",
+		"bendpoint.@attributes.y": "unsetIfValue=="
 	},
     "passThrough": false
 } 

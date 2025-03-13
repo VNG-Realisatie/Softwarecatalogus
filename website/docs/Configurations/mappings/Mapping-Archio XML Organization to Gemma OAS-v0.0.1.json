@@ -13,8 +13,8 @@
     "mapping": {
         "identifierRef": "@attributes.identifier",
         "label": "label.#text",
-        "label-xml:lang": "{{ attribute(label['@attributes'], 'xml:lang') }}",
-        "item": "{% if item|default %}{{ executeMapping(3, node, true)|json_encode }}{%else%}[]{% endif %}"
+        "label-lang": "{{ attribute(label['@attributes'], 'xml:lang') }}",
+        "item": "{% if item|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", node, true)|json_encode }}{%else%}[]{% endif %}"
     },
     "unset": [],
     "cast": {

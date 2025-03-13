@@ -14,7 +14,7 @@
         "identifier": "identifier",
         "type": "type",
         "name": "name.#text",
-        "name-xml:lang": "{{ attribute(name['@attributes'], 'xml:lang') }}"
+        "name-lang": "{{ attribute(name['@attributes'], 'xml:lang') }}"
     },
     "unset": [],
     "cast": [],
