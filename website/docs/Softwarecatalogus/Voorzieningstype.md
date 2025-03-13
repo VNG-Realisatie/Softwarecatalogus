@@ -13,26 +13,24 @@ Een Voorzieningstype is een categorisering van voorzieningen op basis van hun fu
 
 | Naam | Type | Verplicht | Beschrijving |
 |------|------|-----------|--------------|
-| id | string | Ja | Unieke identifier van het Voorzieningstype |
+| id | UUID | Ja | Unieke identifier van het Voorzieningstype |
 | naam | string | Ja | Naam van het voorzieningstype |
 | beschrijving | string | Nee | Beschrijving van het voorzieningstype |
-| bovenliggendType | [Voorzieningstype](./Voorzieningstype) | Nee | Bovenliggend voorzieningstype (voor hiërarchische indeling) |
+| bovenliggendType | UUID | Nee | Bovenliggend voorzieningstype (voor hiërarchische indeling) |
 
 ## Relaties
 
 - Een Voorzieningstype kan een bovenliggend Voorzieningstype hebben (hiërarchische relatie)
-- Een Voorzieningstype kan aan meerdere [Voorziening](./Voorziening) objecten gekoppeld zijn
+- Een Voorzieningstype kan door meerdere [Voorziening](./Voorziening) objecten worden gebruikt
 
 ## Voorbeeld
-
 ```json
 {
-  "id": "VZT-001",
+  "id": "123e4567-e89b-12d3-a456-426614174000",
   "naam": "Zaaksysteem",
   "beschrijving": "Systemen voor zaakgericht werken binnen de overheid",
-  "bovenliggendType": {
-    "id": "VZT-000",
-    "naam": "Primaire processen"
-  }
+  "bovenliggendType": "123e4567-e89b-12d3-a456-426614174001"
 }
 ``` 
+
+

@@ -18,17 +18,17 @@ De volledige API specificatie voor VoorzieningVersie is beschikbaar op de [VNG A
 
 ## Eigenschappen
 
-| Eigenschap | Type | Beschrijving |
-|------------|------|-------------|
-| id | string | Unieke identificatie voor de voorzieningversie |
-| voorzieningaanbodId | string | ID van het voorzieningaanbod |
-| versienummer | string | Versienummer van de voorziening |
-| releaseNotes | string | Release notes voor deze versie |
-| releaseDatum | string (date) | Datum waarop deze versie is uitgebracht |
-| eindeDatum | string (date) | Datum waarop de ondersteuning voor deze versie eindigt |
-| status | string | Status van deze versie (ontwikkeling, actief, onderhoud, einde-ondersteuning) |
-| systeemvereisten | object | Systeemvereisten voor deze versie |
-| kwetsbaarheden | array | Bekende kwetsbaarheden in deze versie |
+| Eigenschap | Type | Verplicht | Beschrijving |
+|------------|------|-----------|--------------|
+| id | UUID | Ja | Unieke identificatie voor de voorzieningversie |
+| voorzieningaanbodId | UUID | Ja | ID van het voorzieningaanbod |
+| omschrijving | string | Ja | Beschrijving van deze specifieke versie en de belangrijkste kenmerken |
+| naam | string | Ja | Naam van de versie zoals deze door de leverancier wordt gebruikt. Dit kan een marketingnaam zijn (bijv. 'Enterprise 2023') of een interne versieaanduiding. Voor technische versienummering zie 'nummer' |
+| nummer | string | Ja | Versienummer van de voorziening volgens [Semantic Versioning](https://semver.org/) standaard (MAJOR.MINOR.PATCH) |
+| releaseNotes | string | Nee | Release notes voor deze versie |
+| productieDatum | string (date) | Ja | Datum waarop deze versie is uitgebracht |
+| eindeDatum | string (date) | Nee | Datum waarop de ondersteuning voor deze versie eindigt |
+| status | string | Ja | Status van deze versie (ontwikkeling, actief, onderhoud, einde-ondersteuning) |
 
 ## API Endpoint
 
@@ -46,31 +46,15 @@ GET /voorzieningversies/{id}
 
 ```json
 {
-  "id": "vv1",
-  "voorzieningaanbodId": "va1",
-  "versienummer": "2.5.0",
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "voorzieningaanbodId": "123e4567-e89b-12d3-a456-426614174000", 
+  "omschrijving": "Enterprise versie met uitgebreide rapportagemogelijkheden",
+  "naam": "Enterprise 2023",
+  "nummer": "2.5.0",
   "releaseNotes": "Deze versie bevat verbeteringen in de zoekfunctionaliteit en lost diverse bugs op.",
-  "releaseDatum": "2023-06-15",
+  "productieDatum": "2023-06-15",
   "eindeDatum": "2025-06-15",
-  "status": "actief",
-  "systeemvereisten": {
-    "besturingssysteem": [
-      "Windows Server 2019+",
-      "Linux (Ubuntu 20.04+)"
-    ],
-    "hardware": "4GB RAM, 20GB schijfruimte",
-    "software": [
-      "PostgreSQL 12+",
-      ".NET Core 6.0+"
-    ]
-  },
-  "kwetsbaarheden": [
-    {
-      "id": "k1",
-      "titel": "XSS kwetsbaarheid in zoekfunctie",
-      "ernst": "gemiddeld"
-    }
-  ]
+  "status": "actief"
 }
 ```
 

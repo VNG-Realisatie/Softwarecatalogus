@@ -17,16 +17,15 @@ De volledige API specificatie voor Voorziening is beschikbaar op de [VNG API Spe
 
 | Eigenschap | Type | Verplicht | Beschrijving |
 |------------|------|-----------|--------------|
-| id | string | Ja | Unieke identificatie voor de voorziening |
+| id | UUID | Ja | Unieke identificatie voor de voorziening |
 | naam | string | Ja | Naam van de voorziening |
 | beschrijving | string | Ja | Beschrijving van de voorziening |
-| voorzieningstype | [Voorzieningstype](./Voorzieningstype) | Nee | Type van de voorziening |
+| voorzieningstypeId | UUID  | Nee | id van [Voorzieningstype](./Voorzieningstype) Type van de voorziening |
 | categorie | string | Nee | Categorie waartoe de voorziening behoort |
-| functionaliteiten | array | Nee | Lijst van functionaliteiten die de voorziening biedt |
-| doelgroep | array | Nee | Doelgroepen waarvoor de voorziening is bedoeld |
-| gemmaReferentieComponenten | array | Nee | GEMMA referentiecomponenten die de voorziening implementeert |
-| standaarden | array | Nee | Standaarden die de voorziening ondersteunt |
-| aanbiedingen | array | Nee | Aanbiedingen van deze voorziening door verschillende leveranciers |
+| functionaliteiten | array[UUID] | Nee | Array van UUID's die verwijzen naar de functionaliteiten die de voorziening biedt |
+| doelgroep | array[enum] | Nee | Doelgroepen waarvoor de voorziening is bedoeld. Mogelijke waarden: 'Gemeente', 'Waterschap', 'Provincie', 'Ministerie', 'Uitvoeringsorganisatie', 'Samenwerkingsverband', 'Leverancier'. De definitie on [Organisatie](./Organisatie.md) is hiervoor leidend |
+| referentieComponenten | array[UUID] | Nee | GEMMA referentiecomponenten die de voorziening implementeert |
+| standaarden | array[UUID] | Nee | Array van UUID's die verwijzen naar de standaarden die de voorziening ondersteunt |
 
 ## Relaties
 
@@ -40,65 +39,34 @@ De volledige API specificatie voor Voorziening is beschikbaar op de [VNG API Spe
 
 ```json
 {
-  "id": "VZ-001",
+  "id": "123e4567-e89b-12d3-a456-426614174000",
   "naam": "Zaaksysteem Pro",
   "beschrijving": "Een uitgebreid zaaksysteem voor gemeenten",
-  "voorzieningstype": {
-    "id": "VZT-001",
-    "naam": "Zaaksysteem"
-  },
+  "voorzieningstype": "123e4567-e89b-12d3-a456-426614174000",
   "categorie": "Zaakgericht werken",
   "functionaliteiten": [
-    "Zaakregistratie",
-    "Documentbeheer",
-    "Werkstromen",
-    "Rapportages"
+    "123e4567-e89b-12d3-a456-426614174030",
+    "123e4567-e89b-12d3-a456-426614174031",
+    "123e4567-e89b-12d3-a456-426614174032",
+    "123e4567-e89b-12d3-a456-426614174033"
   ],
   "doelgroep": [
-    "Gemeenten",
-    "Samenwerkingsverbanden"
+    "Gemeente",
+    "Samenwerkingsverband"
   ],
-  "gemmaReferentieComponenten": [
-    {
-      "code": "ZRC",
-      "naam": "Zaakregistratiecomponent"
-    },
-    {
-      "code": "DRC",
-      "naam": "Documentregistratiecomponent"
-    }
+  "referentieComponenten": [
+    "123e4567-e89b-12d3-a456-426614174020",
+    "123e4567-e89b-12d3-a456-426614174021"
   ],
   "standaarden": [
-    {
-      "naam": "StUF-ZKN",
-      "versie": "3.10"
-    },
-    {
-      "naam": "ZGW API",
-      "versie": "1.0"
-    }
-  ],
-  "aanbiedingen": [
-    {
-      "id": "VA-001",
-      "leveranciersorganisatieId": "ORG-002",
-      "leveranciersnaam": "Voorbeeld Software B.V."
-    }
+    "123e4567-e89b-12d3-a456-426614174010",
+    "123e4567-e89b-12d3-a456-426614174011"
   ]
 }
 ```
+## API Documentatie
 
-## API Endpoint
-
-'''
-GET /voorzieningen
-'''
-
-Voor een specifieke voorziening:
-
-'''
-GET /voorzieningen/{id}
-'''
+De volledige API specificatie voor Voorziening is beschikbaar op de [VNG API Specificatie pagina](https://vng-realisatie.github.io/Softwarecatalogus/api#tag/Software-Catalogus/operation/getVoorzieningen).
 
 ## Relaties met andere Componenten
 
@@ -107,6 +75,18 @@ Voorzieningen hebben de volgende relaties met andere componenten:
 - Worden aangeboden door Leveranciersorganisaties via Voorzieningaanbiedingen
 - Kunnen meerdere Voorzieningaanbiedingen hebben
 - Kunnen gerelateerd zijn aan GEMMA referentiecomponenten
+
+### Ophalen van alle aanbiedingen voor een voorziening
+
+```CLI
+GET /voorzieningaanbiedingen?voorziening=[id]
+```
+
+### Ophalen van alle versies van een voorziening
+
+```CLI
+GET /voorzieningversies?voorziening=[id]
+```
 
 ## Object Relaties
 
