@@ -5,7 +5,7 @@
     },
     "@type": "synchronization",
     "@id": "https://vng.accept.commonground.nu/Synchronization-Archi propertyDefinitions.json",
-    "id": 2,
+    "id": 5,
     "uuid": "b521d79f-315b-46cf-a787-8c96689d14e6",
     "name": "Archi propertyDefinitions",
     "description": "",

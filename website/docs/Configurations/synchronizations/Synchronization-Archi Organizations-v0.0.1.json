@@ -5,7 +5,7 @@
     },
     "@type": "synchronization",
     "@id": "https://vng.accept.commonground.nu/Synchronization-Archi Organizations.json",
-    "id": 5,
+    "id": 6,
     "uuid": "b6a863c8-401f-46d3-a620-06c92f12fdd5",
     "name": "Archi Organizations",
     "description": "",
@@ -17,8 +17,8 @@
     "sourceHashMapping": "",
     "sourceTargetMapping": "10",
     "sourceConfig": {
-        "idPosition": "",
-        "resultsPosition": "organizations.organizations",
+        "idPosition": "Label.#text",
+        "resultsPosition": "organizations.item",
         "endpoint": "",
         "headers": [],
         "query": []

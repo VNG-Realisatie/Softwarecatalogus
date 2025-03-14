@@ -14,11 +14,11 @@
         "identifierRef": "@attributes.identifier",
         "label": "label.#text",
         "label-lang": "{{ attribute(label['@attributes'], 'xml:lang') }}",
-        "item": "{% if item|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", node, true)|json_encode }}{%else%}[]{% endif %}"
+        "item": "{% if item|default %}{% if item.label|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", item)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", item, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
     },
     "unset": [],
     "cast": {
-        "identifierRef": "unsetIfValue==identifierRef",
+        "identifierRef": "unsetIfValue==@attributes.identifier",
         "item": "jsonToArray"
     },
     "passThrough": false
