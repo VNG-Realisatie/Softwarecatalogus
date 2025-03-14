@@ -24,28 +24,6 @@ const config = {
     locales: ['nl'],
   },
 
-  // Add Redocusaurus plugin
-  plugins: [
-    [
-      'redocusaurus',
-      {
-        // Plugin options
-        specs: [
-          {
-            id: 'gemma',
-            spec: 'static/oas/gemma.yaml',
-            route: '/api/reference',
-          },
-        ],
-        // Theme options for Redocusaurus
-        theme: {
-          // Change with your site colors
-          primaryColor: '#0277BD',
-        },
-      },
-    ],
-  ],
-
   presets: [
     [
       'classic',
@@ -59,6 +37,26 @@ const config = {
         },
       },
     ],
+    [
+      'redocusaurus',
+      {
+        // Plugin Options for loading OpenAPI files
+        specs: [
+          // Pass it a path to a local OpenAPI YAML file
+          {
+            // Redocusaurus will automatically bundle your spec into a single file during the build
+            id: 'gemma',
+            spec: 'static/oas/gemma.yaml',
+            route: '/api',
+          },
+        ],
+        // Theme Options for modifying how redoc renders them
+        theme: {
+          // Change with your site colors
+          primaryColor: '#1890ff',
+        },
+      },
+    ]
   ],
 
   themeConfig:
@@ -77,9 +75,9 @@ const config = {
             label: 'Documentatie',
           },
           {
+            href: '/api',
             label: 'API Specificatie',
             position: 'right',
-            to: '/api',
           },
           {
             href: 'https://github.com/VNG-Realisatie/softwarecatalogus',
