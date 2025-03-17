@@ -5,7 +5,12 @@ sidebar_label: Voorzieningstype
 sidebar_position: 7
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Voorzieningstype
+
 
 Een Voorzieningstype is een categorisering van voorzieningen op basis van hun functie of doel. Het helpt bij het organiseren en zoeken van voorzieningen binnen de catalogus.
 

@@ -5,6 +5,10 @@ sidebar_label: Contract
 sidebar_position: 6
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Contract
 
 Een Contract beschrijft de formele overeenkomst voor het inzetten van een VoorzieningAanbod op een VoorzieningGebruik.

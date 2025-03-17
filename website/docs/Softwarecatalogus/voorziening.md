@@ -15,7 +15,7 @@ Een voorziening is een softwareproduct of dienst die functionaliteit biedt voor 
 
 ## API Specificatie
 
-De volledige API specificatie voor Voorziening is beschikbaar op de [VNG API Specificatie pagina](https://vng-realisatie.github.io/Softwarecatalogus/api#tag/Software-Catalogus/operation/getVoorzieningen).
+<ApiSchema id="gemma" pointer="#/components/schemas/Voorziening" />;
 
 ## Eigenschappen
 

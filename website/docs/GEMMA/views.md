@@ -4,6 +4,7 @@ title: GEMMA Views
 sidebar_label: Views
 ---
 
+import ApiSchema from '@theme/ApiSchema';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

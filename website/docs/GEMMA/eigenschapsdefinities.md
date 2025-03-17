@@ -4,6 +4,7 @@ title: GEMMA Eigenschapsdefinities
 sidebar_label: Eigenschapsdefinities
 ---
 
+import ApiSchema from '@theme/ApiSchema';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

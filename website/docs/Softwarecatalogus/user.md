@@ -4,6 +4,10 @@ title: Gebruiker
 sidebar_position: 7
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Gebruiker
 
 ## Inleiding

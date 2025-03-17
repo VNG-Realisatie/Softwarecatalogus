@@ -4,7 +4,7 @@ title: GEMMA Verbindingen
 sidebar_label: Verbindingen
 ---
 
-
+import ApiSchema from '@theme/ApiSchema';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

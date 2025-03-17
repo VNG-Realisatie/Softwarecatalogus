@@ -5,6 +5,10 @@ sidebar_label: Organisatie
 sidebar_position: 2
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Organisatie
 
 Een organisatie is een bedrijf, overheidsinstelling of andere entiteit die betrokken is bij het ontwikkelen, aanbieden of gebruiken van software en diensten binnen de overheids-IT-omgeving. Dit kunnen zowel commerciële leveranciers als overheidsorganisaties zijn.

@@ -4,6 +4,7 @@ title: Kwetsbaarheid
 sidebar_label: Kwetsbaarheid
 ---
 
+import ApiSchema from '@theme/ApiSchema';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

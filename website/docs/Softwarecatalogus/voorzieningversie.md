@@ -5,6 +5,7 @@ sidebar_label: VoorzieningVersie
 sidebar_position: 7
 ---
 
+import ApiSchema from '@theme/ApiSchema';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -14,7 +15,7 @@ Een voorzieningversie is een specifieke versie van een voorzieningaanbod. Het be
 
 ## API Specificatie
 
-De volledige API specificatie voor VoorzieningVersie is beschikbaar op de [VNG API Specificatie pagina](https://vng-realisatie.github.io/Softwarecatalogus/api#tag/Software-Catalogus/operation/getVoorzieningversies).
+<ApiSchema id="gemma" pointer="#/components/schemas/VoorzieningVersie" />;
 
 ## Eigenschappen
 

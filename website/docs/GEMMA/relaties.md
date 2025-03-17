@@ -4,6 +4,7 @@ title: GEMMA Relaties
 sidebar_label: Relaties
 ---
 
+import ApiSchema from '@theme/ApiSchema';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

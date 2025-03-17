@@ -4,7 +4,7 @@ title: GEMMA Model
 sidebar_label: Model
 ---
 
-
+import ApiSchema from '@theme/ApiSchema';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

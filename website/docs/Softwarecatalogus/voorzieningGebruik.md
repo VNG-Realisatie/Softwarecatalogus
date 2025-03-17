@@ -5,13 +5,17 @@ sidebar_label: Voorziening Gebruik
 sidebar_position: 5
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Voorziening Gebruik
 
 Een Voorziening Gebruik beschrijft een organisatie die een voorziening gebruikt, met optioneel de versie die gebruikt wordt en een contactpersoon.
 
 ## API Specificatie
 
-De volledige API specificatie voor VoorzieningGebruik is beschikbaar op de [VNG API Specificatie pagina](https://vng-realisatie.github.io/Softwarecatalogus/api#tag/Software-Catalogus).
+<ApiSchema id="gemma" pointer="#/components/schemas/VoorzieningGebruik" />;
 
 ## Eigenschappen
 
