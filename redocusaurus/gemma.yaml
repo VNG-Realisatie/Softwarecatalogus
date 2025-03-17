@@ -1,0 +1,2838 @@
+openapi: 3.1.0
+x-stoplight:
+  id: jjmuduzfg979x
+info:
+  title: Gemma Architectuur
+  version: '1.0'
+  summary: 'An api for questinging the gemma software '
+  contact:
+    name: VNG realisatie
+    url: https://vng.nl/artikelen/vng-realisatie
+    email: info@vng.nl
+  description: Gemma is the dutch manuciaply ecosystem
+  license:
+    name: EUPL 1.2
+    url: https://interoperable-europe.ec.europa.eu/collection/eupl
+  termsOfService: https://www.softwarecatalogus.nl/Privacyverklaring%20softwarecatalogus
+servers:
+  - url: https://vng.accept.commonground.nu/apps/openconnector/api/endpoint
+paths:
+  /model:
+    get:
+      summary: Get the complete architecture model
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Model'
+      operationId: get-model
+      description: >-
+        Get the complete architecture model including all elements, relations,
+        views, and property definitions
+  /views:
+    get:
+      summary: Get all views
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    description: Total number of views found
+                  results:
+                    type: array
+                    x-stoplight:
+                      id: xc0k7v356hwcr
+                    items:
+                      $ref: '#/components/schemas/View'
+                      x-stoplight:
+                        id: e8pvuynhiei0n
+      operationId: get-views
+      x-stoplight:
+        id: or0zfjsiy36yp
+      description: Get all available views
+  /views/{id}:
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: THe id of the view requested
+    get:
+      summary: Get a single view
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/View'
+      operationId: get-views-id
+      x-stoplight:
+        id: 5qsz7ku8fmo4k
+      description: Get a specific view by its identivier
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: id
+          description: The identivier of the specif view requested
+  /elements:
+    get:
+      summary: Get all elements
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    description: Total number of elements found
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Element'
+      operationId: get-elements
+      description: Get all available ArchiMate elements
+  /elements/{id}:
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: The id of the element requested
+    get:
+      summary: Get a single element
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Element'
+      operationId: get-elements-id
+      description: Get a specific ArchiMate element by its identifier
+  /relations:
+    get:
+      summary: Get all relations
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    description: Total number of relations found
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Relation'
+      operationId: get-relations
+      description: Get all available ArchiMate relations
+  /relations/{id}:
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: The id of the relation requested
+    get:
+      summary: Get a single relation
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Relation'
+      operationId: get-relations-id
+      description: Get a specific ArchiMate relation by its identifier
+  /propertydefinitions:
+    get:
+      summary: Get all property definitions
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  count:
+                    type: integer
+                    description: Total number of property definitions found
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PropertyDefinition'
+      operationId: get-propertydefinitions
+      description: Get all available property definitions
+  /propertydefinitions/{id}:
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+        description: The id of the property definition requested
+    get:
+      summary: Get a single property definition
+      tags:
+        - Gemma
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyDefinition'
+      operationId: get-propertydefinitions-id
+      description: Get a specific property definition by its identifier
+  /leveranciersorganisaties:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle leveranciersorganisaties op
+      description: Geeft een lijst van alle leveranciersorganisaties terug
+      operationId: getLeveranciersorganisaties
+      parameters:
+        - name: kvk-nummer
+          in: query
+          description: Filter op KvK-nummer
+          schema:
+            type: string
+        - name: organisatienaam
+          in: query
+          description: Filter op organisatienaam
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Leveranciersorganisatie'
+    post:
+      tags:
+        - Software Catalogus
+      summary: Maak een nieuwe leveranciersorganisatie aan
+      description: Maakt een nieuwe leveranciersorganisatie aan
+      operationId: createLeveranciersorganisatie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Leveranciersorganisatie'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leveranciersorganisatie'
+        '400':
+          description: Ongeldige invoer
+  /leveranciersorganisaties/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke leveranciersorganisatie op
+      description: Geeft details van een specifieke leveranciersorganisatie terug
+      operationId: getLeveranciersorganisatieById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de leveranciersorganisatie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leveranciersorganisatie'
+        '404':
+          description: Leveranciersorganisatie niet gevonden
+    put:
+      tags:
+        - Software Catalogus
+      summary: Werk een leveranciersorganisatie bij
+      description: Werkt een bestaande leveranciersorganisatie bij
+      operationId: updateLeveranciersorganisatie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de leveranciersorganisatie
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Leveranciersorganisatie'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Leveranciersorganisatie'
+        '404':
+          description: Leveranciersorganisatie niet gevonden
+    delete:
+      tags:
+        - Software Catalogus
+      summary: Verwijder een leveranciersorganisatie
+      description: Verwijdert een bestaande leveranciersorganisatie
+      operationId: deleteLeveranciersorganisatie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de leveranciersorganisatie
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
+        '404':
+          description: Leveranciersorganisatie niet gevonden
+  /voorzieningen:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle voorzieningen op
+      description: Geeft een lijst van alle voorzieningen terug
+      operationId: getVoorzieningen
+      parameters:
+        - name: naam
+          in: query
+          description: Filter op naam van de voorziening
+          schema:
+            type: string
+        - name: leverancier
+          in: query
+          description: Filter op leverancier ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Voorziening'
+    post:
+      tags:
+        - Software Catalogus
+      summary: Maak een nieuwe voorziening aan
+      description: Maakt een nieuwe voorziening aan
+      operationId: createVoorziening
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Voorziening'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorziening'
+        '400':
+          description: Ongeldige invoer
+  /voorzieningen/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke voorziening op
+      description: Geeft details van een specifieke voorziening terug
+      operationId: getVoorzieningById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorziening
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorziening'
+        '404':
+          description: Voorziening niet gevonden
+    put:
+      tags:
+        - Software Catalogus
+      summary: Werk een voorziening bij
+      description: Werkt een bestaande voorziening bij
+      operationId: updateVoorziening
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorziening
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Voorziening'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Voorziening'
+        '404':
+          description: Voorziening niet gevonden
+    delete:
+      tags:
+        - Software Catalogus
+      summary: Verwijder een voorziening
+      description: Verwijdert een bestaande voorziening
+      operationId: deleteVoorziening
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorziening
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
+        '404':
+          description: Voorziening niet gevonden
+  /voorzieningaanbiedingen:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle voorzieningaanbiedingen op
+      description: Geeft een lijst van alle voorzieningaanbiedingen terug
+      operationId: getVoorzieningaanbiedingen
+      parameters:
+        - name: voorziening
+          in: query
+          description: Filter op voorziening ID
+          schema:
+            type: string
+        - name: leverancier
+          in: query
+          description: Filter op leverancier ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VoorzieningAanbod'
+    post:
+      tags:
+        - Software Catalogus
+      summary: Maak een nieuwe voorzieningaanbieding aan
+      description: Maakt een nieuwe voorzieningaanbieding aan
+      operationId: createVoorzieningaanbieding
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoorzieningAanbod'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoorzieningAanbod'
+        '400':
+          description: Ongeldige invoer
+  /voorzieningaanbiedingen/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke voorzieningaanbieding op
+      description: Geeft details van een specifieke voorzieningaanbieding terug
+      operationId: getVoorzieningaanbodById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningaanbieding
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoorzieningAanbod'
+        '404':
+          description: Voorzieningaanbieding niet gevonden
+    put:
+      tags:
+        - Software Catalogus
+      summary: Werk een voorzieningaanbieding bij
+      description: Werkt een bestaande voorzieningaanbieding bij
+      operationId: updateVoorzieningaanbieding
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningaanbieding
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoorzieningAanbod'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoorzieningAanbod'
+        '404':
+          description: Voorzieningaanbieding niet gevonden
+    delete:
+      tags:
+        - Software Catalogus
+      summary: Verwijder een voorzieningaanbieding
+      description: Verwijdert een bestaande voorzieningaanbieding
+      operationId: deleteVoorzieningaanbieding
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningaanbieding
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
+        '404':
+          description: Voorzieningaanbieding niet gevonden
+  /voorzieningversies:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle voorzieningversies op
+      description: Geeft een lijst van alle voorzieningversies terug
+      operationId: getVoorzieningversies
+      parameters:
+        - name: voorzieningaanbieding
+          in: query
+          description: Filter op voorzieningaanbieding ID
+          schema:
+            type: string
+        - name: versienummer
+          in: query
+          description: Filter op versienummer
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VoorzieningVersie'
+    post:
+      tags:
+        - Software Catalogus
+      summary: Maak een nieuwe voorzieningversie aan
+      description: Maakt een nieuwe voorzieningversie aan
+      operationId: createVoorzieningversie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoorzieningVersie'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoorzieningVersie'
+        '400':
+          description: Ongeldige invoer
+  /voorzieningversies/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke voorzieningversie op
+      description: Geeft details van een specifieke voorzieningversie terug
+      operationId: getVoorzieningversieById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningversie
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoorzieningVersie'
+        '404':
+          description: Voorzieningversie niet gevonden
+    put:
+      tags:
+        - Software Catalogus
+      summary: Werk een voorzieningversie bij
+      description: Werkt een bestaande voorzieningversie bij
+      operationId: updateVoorzieningversie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningversie
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoorzieningVersie'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoorzieningVersie'
+        '404':
+          description: Voorzieningversie niet gevonden
+    delete:
+      tags:
+        - Software Catalogus
+      summary: Verwijder een voorzieningversie
+      description: Verwijdert een bestaande voorzieningversie
+      operationId: deleteVoorzieningversie
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de voorzieningversie
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
+        '404':
+          description: Voorzieningversie niet gevonden
+  /kwetsbaarheden:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal alle kwetsbaarheden op
+      description: Geeft een lijst van alle kwetsbaarheden terug
+      operationId: getKwetsbaarheden
+      parameters:
+        - name: voorzieningversie
+          in: query
+          description: Filter op voorzieningversie ID
+          schema:
+            type: string
+        - name: cve
+          in: query
+          description: Filter op CVE-nummer
+          schema:
+            type: string
+        - name: ernst
+          in: query
+          description: Filter op ernst
+          schema:
+            type: string
+            enum:
+              - laag
+              - gemiddeld
+              - hoog
+              - kritiek
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Kwetsbaarheid'
+    post:
+      tags:
+        - Software Catalogus
+      summary: Maak een nieuwe kwetsbaarheid aan
+      description: Maakt een nieuwe kwetsbaarheid aan
+      operationId: createKwetsbaarheid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Kwetsbaarheid'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kwetsbaarheid'
+        '400':
+          description: Ongeldige invoer
+  /kwetsbaarheden/{id}:
+    get:
+      tags:
+        - Software Catalogus
+      summary: Haal een specifieke kwetsbaarheid op
+      description: Geeft details van een specifieke kwetsbaarheid terug
+      operationId: getKwetsbaarhedenById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de kwetsbaarheid
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kwetsbaarheid'
+        '404':
+          description: Kwetsbaarheid niet gevonden
+    put:
+      tags:
+        - Software Catalogus
+      summary: Werk een kwetsbaarheid bij
+      description: Werkt een bestaande kwetsbaarheid bij
+      operationId: updateKwetsbaarheid
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de kwetsbaarheid
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Kwetsbaarheid'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Kwetsbaarheid'
+        '404':
+          description: Kwetsbaarheid niet gevonden
+    delete:
+      tags:
+        - Software Catalogus
+      summary: Verwijder een kwetsbaarheid
+      description: Verwijdert een bestaande kwetsbaarheid
+      operationId: deleteKwetsbaarheid
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de kwetsbaarheid
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
+        '404':
+          description: Kwetsbaarheid niet gevonden
+  /gebruikers:
+    get:
+      tags:
+        - Beheer
+      summary: Haal alle gebruikers op
+      description: Geeft een lijst van alle gebruikers terug
+      operationId: geGebruikers
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Gebruiker'
+    post:
+      tags:
+        - Beheer
+      summary: Maak een nieuwe gebruiker aan
+      description: Maakt een nieuwe gebruiker aan
+      operationId: createGebruiker
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gebruiker'
+      responses:
+        '201':
+          description: Succesvol aangemaakt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gebruiker'
+        '400':
+          description: Ongeldige invoer
+  /gebruikers/{id}:
+    get:
+      tags:
+        - Beheer
+      summary: Haal een specifieke gebruiker op
+      description: Geeft details van een specifieke gebruiker terug
+      operationId: getGebruikerById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de gebruiker
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Succesvol opgehaald
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gebruiker'
+        '404':
+          description: Gebruiker niet gevonden
+    put:
+      tags:
+        - Beheer
+      summary: Werk een gebruiker bij
+      description: Werkt een bestaande gebruiker bij
+      operationId: updateGebruiker
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de gebruiker
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Gebruiker'
+      responses:
+        '200':
+          description: Succesvol bijgewerkt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gebruiker'
+        '404':
+          description: Gebruiker niet gevonden
+    delete:
+      tags:
+        - Beheer
+      summary: Verwijder een gebruiker
+      description: Verwijdert een bestaande gebruiker
+      operationId: deleteGebruiker
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID van de gebruiker
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Succesvol verwijderd
+        '404':
+          description: Gebruiker niet gevonden
+components:
+  schemas:
+    Model:
+      title: Model
+      type: object
+      description: >-
+        The complete architecture model containing all elements, relations,
+        views, and property definitions
+      properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
+        id:
+          type: string
+          description: Unique identifier for the architecture model
+        name:
+          type: string
+          description: Name of the architecture model
+        version:
+          type: string
+          description: Version of the architecture model
+        description:
+          type: string
+          description: Description of the architecture model
+        organization:
+          $ref: '#/components/schemas/Organization'
+          description: Organization that owns or manages the model
+        elements:
+          type: array
+          description: Collection of all ArchiMate elements in the model
+          items:
+            $ref: '#/components/schemas/Element'
+        relations:
+          type: array
+          description: Collection of all ArchiMate relations in the model
+          items:
+            $ref: '#/components/schemas/Relation'
+        views:
+          type: array
+          description: Collection of all views in the model
+          items:
+            $ref: '#/components/schemas/View'
+        propertyDefinitions:
+          type: array
+          description: Collection of all property definitions in the model
+          items:
+            $ref: '#/components/schemas/PropertyDefinition'
+      examples:
+        - id: gemma-3.0
+          name: GEMMA 3.0
+          version: '3.0'
+          description: Gemeentelijke Model Architectuur versie 3.0
+          organization:
+            id: vng-realisatie
+            name: VNG Realisatie
+          elements:
+            - id: e1
+              name: Zaakafhandelcomponent
+              type: ApplicationComponent
+              documentation: >-
+                Een component voor het afhandelen van zaken binnen de
+                gemeentelijke dienstverlening.
+              properties:
+                status: Actief
+                releaseDate: '2022-01-15'
+            - id: e2
+              name: Zaakregistratiecomponent
+              type: ApplicationComponent
+              documentation: >-
+                Een component voor het registreren van zaken binnen de
+                gemeentelijke dienstverlening.
+              properties:
+                status: Actief
+                releaseDate: '2022-01-15'
+            - id: e3
+              name: Zaaktype
+              type: BusinessObject
+              documentation: Een categorie van zaken met gelijke karakteristieken.
+              properties:
+                status: Actief
+                domein: Dienstverlening
+            - id: e4
+              name: Burger
+              type: BusinessActor
+              documentation: Een natuurlijk persoon in de rol van inwoner van een gemeente.
+              properties:
+                domein: Dienstverlening
+          relations:
+            - id: r1
+              name: gebruikt
+              type: UsedBy
+              source: e1
+              target: e2
+              properties:
+                status: Actief
+            - id: r2
+              name: realiseert
+              type: Realization
+              source: e1
+              target: e3
+              properties:
+                status: Actief
+            - id: r3
+              name: gebruikt
+              type: UsedBy
+              source: e4
+              target: e1
+              properties:
+                status: Actief
+          views:
+            - id: v1
+              name: Zaakgericht werken
+              viewpoint: Application
+              documentation: Overzicht van de componenten voor zaakgericht werken
+              properties:
+                status: Actief
+                domein: Dienstverlening
+              nodes:
+                - id: 1
+                  identifier: node_e1
+                  elementRef: e1
+                  position:
+                    x: 100
+                    'y': 100
+                    w: 120
+                    h: 60
+                  style:
+                    fillColor:
+                      r: 181
+                      g: 255
+                      b: 255
+                      a: 255
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    font:
+                      name: Arial
+                      size: 12
+                    color:
+                      r: 0
+                      g: 0
+                      b: 0
+                - id: 2
+                  identifier: node_e2
+                  elementRef: e2
+                  position:
+                    x: 300
+                    'y': 100
+                    w: 120
+                    h: 60
+                  style:
+                    fillColor:
+                      r: 181
+                      g: 255
+                      b: 255
+                      a: 255
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    font:
+                      name: Arial
+                      size: 12
+                    color:
+                      r: 0
+                      g: 0
+                      b: 0
+                - id: 3
+                  identifier: node_e3
+                  elementRef: e3
+                  position:
+                    x: 100
+                    'y': 250
+                    w: 120
+                    h: 60
+                  style:
+                    fillColor:
+                      r: 255
+                      g: 255
+                      b: 181
+                      a: 255
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    font:
+                      name: Arial
+                      size: 12
+                    color:
+                      r: 0
+                      g: 0
+                      b: 0
+                - id: 4
+                  identifier: node_e4
+                  elementRef: e4
+                  position:
+                    x: 100
+                    'y': 0
+                    w: 120
+                    h: 60
+                  style:
+                    fillColor:
+                      r: 255
+                      g: 213
+                      b: 181
+                      a: 255
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    font:
+                      name: Arial
+                      size: 12
+                    color:
+                      r: 0
+                      g: 0
+                      b: 0
+              connections:
+                - id: c1
+                  relationRef: r1
+                  source: '1'
+                  target: '2'
+                  style:
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    lineWidth: 1
+                    lineStyle: solid
+                - id: c2
+                  relationRef: r2
+                  source: '1'
+                  target: '3'
+                  style:
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    lineWidth: 1
+                    lineStyle: dashed
+                - id: c3
+                  relationRef: r3
+                  source: '4'
+                  target: '1'
+                  style:
+                    lineColor:
+                      r: 0
+                      g: 0
+                      b: 0
+                      a: 255
+                    lineWidth: 1
+                    lineStyle: solid
+          propertyDefinitions:
+            - id: pd1
+              identifier: status
+              name: Status
+              type: string
+              description: De status van het element in de architectuur
+              defaultValue: Concept
+              applicableElements:
+                - ApplicationComponent
+                - BusinessObject
+                - BusinessActor
+            - id: pd2
+              identifier: releaseDate
+              name: Release datum
+              type: date
+              description: De datum waarop het element is vrijgegeven
+              applicableElements:
+                - ApplicationComponent
+            - id: pd3
+              identifier: domein
+              name: Domein
+              type: string
+              description: Het domein waartoe het element behoort
+              applicableElements:
+                - BusinessObject
+                - BusinessActor
+    Node:
+      title: Node
+      type: object
+      examples:
+        - id: 1
+          identifier: node_e1
+          elementRef: e1
+          position:
+            x: 100
+            'y': 100
+            w: 120
+            h: 60
+          style:
+            fillColor:
+              r: 181
+              g: 255
+              b: 255
+              a: 255
+            lineColor:
+              r: 0
+              g: 0
+              b: 0
+              a: 255
+            font:
+              name: Arial
+              size: 12
+            color:
+              r: 0
+              g: 0
+              b: 0
+      x-stoplight:
+        id: rz6i8o15fdurx
+      properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
+        id:
+          type: integer
+          description: Unique identifier for the given node.
+        identifier:
+          type: string
+          x-stoplight:
+            id: 9abwea5otcb2i
+        elementRef:
+          type: string
+          x-stoplight:
+            id: y8hsbzrfiot3t
+        position:
+          type: object
+          x-stoplight:
+            id: fezevnzqv33uo
+          properties:
+            x:
+              type: integer
+              x-stoplight:
+                id: smgowduinqyuk
+            'y':
+              type: integer
+              x-stoplight:
+                id: 11tev09hpnd2t
+            w:
+              type: integer
+              x-stoplight:
+                id: qtx5zhqiiw8ui
+            h:
+              type: integer
+              x-stoplight:
+                id: 7p1o07kjc7yq4
+        style:
+          type: object
+          x-stoplight:
+            id: u72ekwb3hay7p
+          properties:
+            fillColor:
+              type: object
+              x-stoplight:
+                id: zjwq9obagnmvn
+              properties:
+                r:
+                  type: integer
+                  x-stoplight:
+                    id: kshhdl5fmvbiq
+                g:
+                  type: integer
+                  x-stoplight:
+                    id: 4brvtqus18e9e
+                b:
+                  type: integer
+                  x-stoplight:
+                    id: jhu58oa3lwfo2
+                a:
+                  type: integer
+                  x-stoplight:
+                    id: xxfdoa2paosp6
+            lineColor:
+              type: object
+              x-stoplight:
+                id: eptvptnslkgg7
+              properties:
+                r:
+                  type: integer
+                  x-stoplight:
+                    id: tisnzmgm2ospk
+                g:
+                  type: integer
+                  x-stoplight:
+                    id: 2j4qr5heeyt2q
+                b:
+                  type: integer
+                  x-stoplight:
+                    id: at5rmhge919qj
+                a:
+                  type: integer
+                  x-stoplight:
+                    id: w5yg093m67fan
+            font:
+              type: object
+              x-stoplight:
+                id: n1wt1rhsakh3h
+              properties:
+                name:
+                  type: string
+                  x-stoplight:
+                    id: h2w3o2v6d0okm
+                size:
+                  type: integer
+                  x-stoplight:
+                    id: su8o1vsvmzkvh
+            color:
+              type: object
+              x-stoplight:
+                id: 1c0tqsk57ttm7
+              properties:
+                r:
+                  type: integer
+                  x-stoplight:
+                    id: isvolaicm7mmw
+                g:
+                  type: integer
+                  x-stoplight:
+                    id: fchht6gmferfo
+                b:
+                  type: integer
+                  x-stoplight:
+                    id: gse5aok18l31j
+        nodes:
+          type: array
+          x-stoplight:
+            id: x5r3m4tj02ey6
+          items: {}
+      description: >-
+        A node represents an ArchiMate element that can be displayed on an
+        architectural model diagram
+    View:
+      title: View
+      x-stoplight:
+        id: qeimpz6ir1iey
+      type: object
+      properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
+        id:
+          type: string
+          x-stoplight:
+            id: rvxybsjhxfia0
+        viewpoint:
+          type: string
+          x-stoplight:
+            id: 4zj3wfxv1c57j
+        name:
+          type: string
+          x-stoplight:
+            id: 816re34offkv3
+        documentation:
+          type: string
+          x-stoplight:
+            id: 33z6qvklcgo0r
+        properties:
+          type: object
+          x-stoplight:
+            id: 99jdf5nq4rrnr
+        nodes:
+          type: array
+          x-stoplight:
+            id: 9opp3d4ycseuw
+          items:
+            $ref: '#/components/schemas/Node'
+            x-stoplight:
+              id: z17eqk9riywko
+        connections:
+          type: array
+          x-stoplight:
+            id: 4vfg4q7sgevb6
+          items:
+            $ref: '#/components/schemas/Connection'
+            x-stoplight:
+              id: xuo6w5cbc7yai
+      examples:
+        - id: v1
+          name: Zaakgericht werken
+          viewpoint: Application
+          documentation: Overzicht van de componenten voor zaakgericht werken
+          properties:
+            status: Actief
+            domein: Dienstverlening
+          nodes:
+            - id: 1
+              identifier: node_e1
+              elementRef: e1
+              position:
+                x: 100
+                'y': 100
+                w: 120
+                h: 60
+              style:
+                fillColor:
+                  r: 181
+                  g: 255
+                  b: 255
+                  a: 255
+                lineColor:
+                  r: 0
+                  g: 0
+                  b: 0
+                  a: 255
+                font:
+                  name: Arial
+                  size: 12
+                color:
+                  r: 0
+                  g: 0
+                  b: 0
+            - id: 2
+              identifier: node_e2
+              elementRef: e2
+              position:
+                x: 300
+                'y': 100
+                w: 120
+                h: 60
+              style:
+                fillColor:
+                  r: 181
+                  g: 255
+                  b: 255
+                  a: 255
+                lineColor:
+                  r: 0
+                  g: 0
+                  b: 0
+                  a: 255
+                font:
+                  name: Arial
+                  size: 12
+                color:
+                  r: 0
+                  g: 0
+                  b: 0
+          connections:
+            - id: c1
+              relationRef: r1
+              source: '1'
+              target: '2'
+              style:
+                lineColor:
+                  r: 0
+                  g: 0
+                  b: 0
+                  a: 255
+                lineWidth: 1
+                lineStyle: solid
+    Connection:
+      title: Connection
+      x-stoplight:
+        id: 7lctplmttp0t8
+      type: object
+      description: >-
+        Represents a visual connection between nodes in an ArchiMate view, based
+        on an underlying relation
+      properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
+        id:
+          type: string
+          x-stoplight:
+            id: lzcl3nwnripu6
+          description: Unique identifier for the connection
+        relationRef:
+          type: string
+          description: Reference to the underlying relation this connection visualizes
+        source:
+          type: string
+          description: ID of the source node in the view
+        target:
+          type: string
+          description: ID of the target node in the view
+        bendpoints:
+          type: array
+          description: List of points defining the path of the connection
+          items:
+            type: object
+            properties:
+              x:
+                type: integer
+                description: X coordinate of the bendpoint
+              'y':
+                type: integer
+                description: Y coordinate of the bendpoint
+        style:
+          type: object
+          description: Visual styling of the connection
+          properties:
+            lineColor:
+              type: object
+              properties:
+                r:
+                  type: integer
+                  description: Red component (0-255)
+                g:
+                  type: integer
+                  description: Green component (0-255)
+                b:
+                  type: integer
+                  description: Blue component (0-255)
+                a:
+                  type: integer
+                  description: Alpha/transparency component (0-255)
+            lineWidth:
+              type: integer
+              description: Width of the connection line
+            lineStyle:
+              type: string
+              description: Style of the line (e.g., solid, dashed, dotted)
+              enum:
+                - solid
+                - dashed
+                - dotted
+        labelStyle:
+          type: object
+          description: Styling for the connection label
+          properties:
+            position:
+              type: object
+              properties:
+                x:
+                  type: integer
+                  description: X coordinate of the label
+                'y':
+                  type: integer
+                  description: Y coordinate of the label
+            font:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Font family name
+                size:
+                  type: integer
+                  description: Font size in points
+                style:
+                  type: string
+                  description: Font style (e.g., normal, italic, bold)
+                  enum:
+                    - normal
+                    - italic
+                    - bold
+                    - bold-italic
+            color:
+              type: object
+              properties:
+                r:
+                  type: integer
+                  description: Red component (0-255)
+                g:
+                  type: integer
+                  description: Green component (0-255)
+                b:
+                  type: integer
+                  description: Blue component (0-255)
+                a:
+                  type: integer
+                  description: Alpha/transparency component (0-255)
+    Element:
+      title: Element
+      x-stoplight:
+        id: fdum0aq67rh27
+      type: object
+      description: Represents an ArchiMate element in the architecture model
+      properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
+        id:
+          type: string
+          x-stoplight:
+            id: tj55ii1z9ugaf
+          description: Unique identifier for the element
+        name:
+          type: string
+          x-stoplight:
+            id: ccszeodom8a8k
+          description: Name of the element
+        documentation:
+          type: object
+          x-stoplight:
+            id: zzt4qd4eh0yqx
+          description: Documentation associated with the element
+        type:
+          type: string
+          description: >-
+            The ArchiMate element type (e.g., BusinessActor,
+            ApplicationComponent)
+        properties:
+          type: object
+          description: Custom properties associated with the element
+      examples:
+        - id: e1
+          name: Zaakafhandelcomponent
+          type: ApplicationComponent
+          documentation: >-
+            Een component voor het afhandelen van zaken binnen de gemeentelijke
+            dienstverlening.
+          properties:
+            status: Actief
+            releaseDate: '2022-01-15'
+    Relation:
+      title: Relation
+      x-stoplight:
+        id: 5mht4dfkmkdiz
+      type: object
+      description: Represents a relationship between ArchiMate elements
+      properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
+        id:
+          type: string
+          x-stoplight:
+            id: k5k7mvpb27gpo
+          description: Unique identifier for the relation
+        identifier:
+          type: string
+          x-stoplight:
+            id: vo3yli4at388o
+          description: Human-readable identifier for the relation
+        source:
+          type: string
+          x-stoplight:
+            id: j84zdb8o52tjb
+          description: ID of the source element
+        target:
+          type: string
+          x-stoplight:
+            id: d93mmv55z21y1
+          description: ID of the target element
+        accessType:
+          type: string
+          x-stoplight:
+            id: 6xax2x1cws9b3
+          description: Type of access or relationship
+        name:
+          type: string
+          x-stoplight:
+            id: h0yqxiijowc26
+          description: Name of the relation
+        properties:
+          type: object
+          x-stoplight:
+            id: br8uft9jvblxo
+          description: Custom properties associated with the relation
+        type:
+          type: string
+          description: >-
+            The ArchiMate relation type (e.g., Composition, Aggregation,
+            Assignment)
+      examples:
+        - id: r1
+          name: gebruikt
+          type: UsedBy
+          source: e1
+          target: e2
+          identifier: rel_gebruikt_e1_e2
+          accessType: Read
+          properties:
+            status: Actief
+    Organization:
+      title: Organization
+      x-stoplight:
+        id: 6snifqrf65pfm
+      type: object
+      properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
+        id:
+          type: string
+          x-stoplight:
+            id: z0vj5z706u5su
+        name:
+          type: string
+          x-stoplight:
+            id: 44sgrb38hzb35
+    PropertyDefinition:
+      title: PropertyDefinition
+      x-stoplight:
+        id: icfhtr0687bf0
+      type: object
+      description: Defines a property that can be associated with elements or relations
+      properties:
+        '@self':
+          type: object
+          description: Metadata about this object
+          properties:
+            id:
+              type: integer
+              description: Numeric identifier
+            uuid:
+              type: string
+              format: uuid
+              description: Universally unique identifier
+            uri:
+              type: string
+              format: uri
+              description: URI to access this object
+            version:
+              type: string
+              description: Version of this object
+            register:
+              type: string
+              description: Register identifier
+            schema:
+              type: string
+              description: Schema identifier
+            files:
+              type: array
+              description: Associated files
+              items:
+                type: string
+            relations:
+              type: object
+              description: Related resources
+              additionalProperties:
+                type: string
+                format: uri
+        id:
+          type: string
+          x-stoplight:
+            id: 9p853vot5dnyi
+          description: Unique identifier for the property definition
+        identifier:
+          type: string
+          x-stoplight:
+            id: gu7yvp3u9rp2v
+          description: Human-readable identifier for the property definition
+        type:
+          type: string
+          x-stoplight:
+            id: xoiwejie9sttn
+          description: Data type of the property (e.g., string, integer, boolean)
+        name:
+          type: string
+          x-stoplight:
+            id: r0y7bmrwjz8js
+          description: Display name of the property
+        description:
+          type: string
+          description: Description of the property and its purpose
+        defaultValue:
+          type: string
+          description: Default value for the property if not specified
+        applicableElements:
+          type: array
+          items:
+            type: string
+          description: Types of elements this property can be applied to
+      examples:
+        - id: pd1
+          identifier: status
+          name: Status
+          type: string
+          description: De status van het element in de architectuur
+          defaultValue: Concept
+          applicableElements:
+            - ApplicationComponent
+            - BusinessObject
+            - BusinessActor
+    Leveranciersorganisatie:
+      type: object
+      description: Een organisatie die voorzieningen aanbiedt
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de leveranciersorganisatie
+        naam:
+          type: string
+          description: Naam van de leveranciersorganisatie
+        type:
+          type: string
+          description: Type organisatie (overheid, leverancier, etc.)
+        kvkNummer:
+          type: string
+          description: KvK-nummer van de leveranciersorganisatie
+        oidn:
+          type: string
+          description: Organisatie Identificatienummer (voor overheden)
+        moederOrganisatie:
+          type: string
+          description: ID van de bovenliggende organisatie
+        sector:
+          type: string
+          description: Sector waartoe de organisatie behoort
+        organisatietype:
+          type: string
+          description: Type van de organisatie
+        website:
+          type: string
+          format: uri
+          description: Website van de organisatie
+        adres:
+          type: object
+          properties:
+            straat:
+              type: string
+              description: Straatnaam
+            huisnummer:
+              type: string
+              description: Huisnummer
+            postcode:
+              type: string
+              description: Postcode
+            plaats:
+              type: string
+              description: Plaatsnaam
+            land:
+              type: string
+              description: Land
+          description: Adresgegevens van de organisatie
+        contactgegevens:
+          type: object
+          properties:
+            telefoon:
+              type: string
+              description: Telefoonnummer
+            email:
+              type: string
+              format: email
+              description: E-mailadres
+            contactpersoon:
+              type: string
+              description: Naam van de contactpersoon
+          description: Contactgegevens van de organisatie
+        beschrijving:
+          type: string
+          description: Beschrijving van de organisatie
+        logo:
+          type: string
+          format: uri
+          description: URL naar het logo van de organisatie
+        voorzieningen:
+          type: array
+          items:
+            type: object
+          description: Lijst van voorzieningen van deze organisatie
+        gebruik:
+          type: array
+          items:
+            type: object
+          description: Lijst van voorzieningGebruik door deze organisatie
+        deelnemerIn:
+          type: array
+          items:
+            type: object
+          description: Lijst van organisaties waarin deze organisatie deelneemt
+    Voorziening:
+      type: object
+      description: Een softwareproduct of dienst die functionaliteit biedt
+      required:
+        - id
+        - naam
+        - beschrijving
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unieke identificatie voor de voorziening
+        naam:
+          type: string
+          description: Naam van de voorziening
+        beschrijving:
+          type: string
+          description: Beschrijving van de voorziening
+        voorzieningstypeId:
+          type: string
+          format: uuid
+          description: ID van het type van de voorziening
+        categorie:
+          type: string
+          description: Categorie waartoe de voorziening behoort
+        functionaliteiten:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: >-
+            Array van UUID's die verwijzen naar de functionaliteiten die de
+            voorziening biedt
+        doelgroep:
+          type: array
+          items:
+            type: string
+            enum:
+              - Gemeente
+              - Waterschap
+              - Provincie
+              - Ministerie
+              - Uitvoeringsorganisatie
+              - Samenwerkingsverband
+              - Leverancier
+          description: Doelgroepen waarvoor de voorziening is bedoeld
+        referentieComponenten:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: GEMMA referentiecomponenten die de voorziening implementeert
+        standaarden:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: >-
+            Array van UUID's die verwijzen naar de standaarden die de
+            voorziening ondersteunt
+    VoorzieningAanbod:
+      type: object
+      description: Een specifiek aanbod van een voorziening door een leverancier
+      required:
+        - id
+        - naam
+        - omschrijving
+        - type
+        - voorzieningId
+        - organisatieId
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unieke identificatie voor het voorzieningaanbod
+        naam:
+          type: string
+          description: Naam van het voorzieningaanbod
+        omschrijving:
+          type: string
+          description: Beschrijving van het voorzieningaanbod
+        type:
+          type: array
+          items:
+            type: string
+            enum:
+              - Hosting
+              - Beheer
+              - (door)ontwikkeling
+              - Implementatie
+              - Migratie
+              - Consultancy
+          description: Type van het voorzieningaanbod
+        voorzieningId:
+          type: string
+          format: uuid
+          description: ID van de voorziening die wordt aangeboden
+        organisatieId:
+          type: string
+          format: uuid
+          description: ID van de organisatie die de voorziening aanbiedt
+        productpagina:
+          type: string
+          format: uri
+          description: URL naar de productpagina van de leverancier
+        ondersteuningsmodel:
+          type: string
+          description: Beschrijving van het ondersteuningsmodel
+        licentiemodel:
+          type: string
+          description: Beschrijving van het licentiemodel
+        hostingopties:
+          type: array
+          items:
+            type: string
+            enum:
+              - on-premises
+              - SaaS
+              - PaaS
+              - hybride
+          description: Beschikbare hostingopties
+        versies:
+          type: array
+          items:
+            type: string
+            format: uuid
+          description: >-
+            Array van UUID's die verwijzen naar specifieke versies van dit
+            voorzieningaanbod
+    VoorzieningVersie:
+      type: object
+      description: Een specifieke versie van een voorzieningaanbod
+      required:
+        - id
+        - voorzieningaanbodId
+        - omschrijving
+        - naam
+        - nummer
+        - productieDatum
+        - status
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unieke identificatie voor de voorzieningversie
+        voorzieningaanbodId:
+          type: string
+          format: uuid
+          description: ID van het voorzieningaanbod
+        omschrijving:
+          type: string
+          description: >-
+            Beschrijving van deze specifieke versie en de belangrijkste
+            kenmerken
+        naam:
+          type: string
+          description: Naam van de versie zoals deze door de leverancier wordt gebruikt
+        nummer:
+          type: string
+          description: >-
+            Versienummer van de voorziening volgens Semantic Versioning
+            standaard
+        releaseNotes:
+          type: string
+          description: Release notes voor deze versie
+        productieDatum:
+          type: string
+          format: date
+          description: Datum waarop deze versie is uitgebracht
+        eindeDatum:
+          type: string
+          format: date
+          description: Datum waarop de ondersteuning voor deze versie eindigt
+        status:
+          type: string
+          enum:
+            - ontwikkeling
+            - actief
+            - onderhoud
+            - einde-ondersteuning
+          description: Status van deze versie
+    VoorzieningGebruik:
+      type: object
+      description: Een organisatie die een voorziening gebruikt
+      required:
+        - id
+        - organisatieId
+        - voorzieningId
+        - status
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unieke identifier van het VoorzieningGebruik
+        organisatieId:
+          type: string
+          format: uuid
+          description: ID van de organisatie die de voorziening gebruikt
+        voorzieningId:
+          type: string
+          format: uuid
+          description: ID van de voorziening die gebruikt wordt
+        versieId:
+          type: string
+          format: uuid
+          description: ID van de specifieke versie van de voorziening die gebruikt wordt
+        beheerder:
+          type: object
+          properties:
+            naam:
+              type: string
+              description: De volledige naam van de persoon
+            email:
+              type: string
+              format: email
+              description: Het e-mailadres van de persoon
+            telefoonnummer:
+              type: string
+              description: Het telefoonnummer van de persoon
+            functie:
+              type: string
+              description: De functie van de persoon
+          description: De contactpersoon voor dit gebruik van de voorziening
+        startDatum:
+          type: string
+          format: date
+          description: De datum waarop het gebruik van de voorziening is gestart
+        eindDatum:
+          type: string
+          format: date
+          description: De datum waarop het gebruik van de voorziening is beëindigd
+        status:
+          type: string
+          enum:
+            - Actief
+            - Gepland
+            - Beëindigd
+          description: De status van het gebruik
+        opmerkingen:
+          type: string
+          description: Aanvullende informatie over het gebruik van de voorziening
+        bbnScore:
+          type: integer
+          minimum: 1
+          maximum: 3
+          description: De BBN (Basis Beveiligings Niveau) score van het voorzieninggebruik
+        ibpScore:
+          type: integer
+          minimum: 1
+          maximum: 5
+          description: >-
+            De IBP (Informatiebeveiliging en Privacy) score van het
+            voorzieninggebruik
+        bivClassificatie:
+          type: object
+          properties:
+            beschikbaarheid:
+              type: string
+              enum:
+                - Laag
+                - Midden
+                - Hoog
+            integriteit:
+              type: string
+              enum:
+                - Laag
+                - Midden
+                - Hoog
+            vertrouwelijkheid:
+              type: string
+              enum:
+                - Laag
+                - Midden
+                - Hoog
+          description: >-
+            De BIV (Beschikbaarheid, Integriteit, Vertrouwelijkheid)
+            classificatie
+        bedrijfsKritisch:
+          type: boolean
+          default: false
+          description: Geeft aan of het voorzieninggebruik bedrijfskritisch is
+        privacyGevoelig:
+          type: boolean
+          default: false
+          description: Geeft aan of het voorzieninggebruik privacy gevoelige gegevens bevat
+    Contract:
+      type: object
+      description: >-
+        Een formele overeenkomst voor het inzetten van een VoorzieningAanbod op
+        een VoorzieningGebruik
+      required:
+        - id
+        - voorzieningAanbod
+        - voorzieningGebruik
+        - startDatum
+        - contractNummer
+        - contractType
+        - status
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van het Contract
+        voorzieningAanbod:
+          type: object
+          properties:
+            id:
+              type: string
+            naam:
+              type: string
+          description: Het aanbod van de voorziening waarop dit contract betrekking heeft
+        voorzieningGebruik:
+          type: object
+          properties:
+            id:
+              type: string
+            organisatie:
+              type: object
+              properties:
+                id:
+                  type: string
+                naam:
+                  type: string
+            voorziening:
+              type: object
+              properties:
+                id:
+                  type: string
+                naam:
+                  type: string
+          description: Het gebruik van de voorziening waarop dit contract betrekking heeft
+        startDatum:
+          type: string
+          format: date
+          description: De startdatum van het contract
+        eindDatum:
+          type: string
+          format: date
+          description: De einddatum van het contract (indien van toepassing)
+        contractNummer:
+          type: string
+          description: Het referentienummer van het contract
+        contractType:
+          type: string
+          enum:
+            - SLA
+            - Licentie
+            - Onderhoud
+          description: Het type contract
+        kosten:
+          type: number
+          description: De kosten verbonden aan het contract
+        kostenPeriode:
+          type: string
+          enum:
+            - Maandelijks
+            - Jaarlijks
+            - Eenmalig
+          description: De periode waarop de kosten betrekking hebben
+        contactpersoonAanbieder:
+          type: object
+          properties:
+            id:
+              type: string
+            naam:
+              type: string
+            email:
+              type: string
+          description: De contactpersoon bij de aanbieder
+        contactpersoonGebruiker:
+          type: object
+          properties:
+            id:
+              type: string
+            naam:
+              type: string
+            email:
+              type: string
+          description: De contactpersoon bij de gebruiker
+        documentReferentie:
+          type: string
+          description: Referentie naar het contractdocument
+        status:
+          type: string
+          enum:
+            - Actief
+            - Verlopen
+            - In onderhandeling
+          description: De status van het contract
+        opmerkingen:
+          type: string
+          description: Aanvullende informatie over het contract
+    Kwetsbaarheid:
+      type: object
+      description: Een beveiligingskwetsbaarheid in een voorzieningversie
+      required:
+        - id
+        - voorzieningversieId
+        - titel
+        - ernst
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de kwetsbaarheid
+        voorzieningversieId:
+          type: string
+          description: ID van de voorzieningversie waarin de kwetsbaarheid is gevonden
+        cveNummer:
+          type: string
+          description: CVE-nummer van de kwetsbaarheid
+        titel:
+          type: string
+          description: Titel van de kwetsbaarheid
+        beschrijving:
+          type: string
+          description: Beschrijving van de kwetsbaarheid
+        ernst:
+          type: string
+          enum:
+            - laag
+            - gemiddeld
+            - hoog
+            - kritiek
+          description: Ernst van de kwetsbaarheid
+        ontdektOp:
+          type: string
+          format: date
+          description: Datum waarop de kwetsbaarheid is ontdekt
+        gepubliceerdOp:
+          type: string
+          format: date
+          description: Datum waarop de kwetsbaarheid is gepubliceerd
+        opgelostIn:
+          type: string
+          description: Versie waarin de kwetsbaarheid is opgelost
+        mitigatie:
+          type: string
+          description: Beschrijving van mogelijke mitigatiemaatregelen
+        referenties:
+          type: array
+          items:
+            type: string
+            format: uri
+          description: Referenties naar meer informatie over de kwetsbaarheid
+    Gebruiker:
+      type: object
+      description: Een gebruiker van het systeem
+      required:
+        - id
+        - username
+        - email
+      properties:
+        id:
+          type: string
+          description: Unieke identificatie voor de gebruiker
+        username:
+          type: string
+          description: Gebruikersnaam voor inloggen
+        email:
+          type: string
+          format: email
+          description: E-mailadres van de gebruiker
+        voornaam:
+          type: string
+          description: Voornaam van de gebruiker
+        achternaam:
+          type: string
+          description: Achternaam van de gebruiker
+        functie:
+          type: string
+          description: Functie van de gebruiker binnen de organisatie
+        organisatie:
+          type: string
+          description: Organisatie waartoe de gebruiker behoort
+        telefoonnummer:
+          type: string
+          description: Telefoonnummer van de gebruiker
+        rollen:
+          type: array
+          items:
+            type: string
+            enum:
+              - admin
+              - editor
+              - viewer
+          description: Rollen die de gebruiker heeft in het systeem
+        actief:
+          type: boolean
+          default: true
+          description: Geeft aan of het gebruikersaccount actief is
+        laatsteInlogdatum:
+          type: string
+          format: date-time
+          description: Datum en tijd van de laatste inlog
+        aanmaakdatum:
+          type: string
+          format: date-time
+          description: Datum en tijd waarop het account is aangemaakt
+        wijzigingsdatum:
+          type: string
+          format: date-time
+          description: Datum en tijd van de laatste wijziging aan het account
+        voorkeuren:
+          type: object
+          properties:
+            taal:
+              type: string
+              enum:
+                - nl
+                - en
+              default: nl
+              description: Voorkeurstaal van de gebruiker
+            thema:
+              type: string
+              enum:
+                - licht
+                - donker
+                - systeem
+              default: systeem
+              description: Voorkeur voor weergavethema
+    Voorzieningstype:
+      type: object
+      description: Een categorisering van voorzieningen op basis van hun functie of doel
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unieke identifier van het Voorzieningstype
+        naam:
+          type: string
+          description: Naam van het voorzieningstype
+        beschrijving:
+          type: string
+          description: Beschrijving van het voorzieningstype
+        bovenliggendType:
+          type: string
+          format: uuid
+          description: Bovenliggend voorzieningstype (voor hiërarchische indeling)
+    Standaardtype:
+      type: object
+      description: >-
+        Een categorisering van standaarden op basis van hun functie of
+        toepassingsgebied
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van het Standaardtype
+        naam:
+          type: string
+          description: Naam van het standaardtype
+        beschrijving:
+          type: string
+          description: Beschrijving van het standaardtype
+    Standaard:
+      type: object
+      description: Een specifieke standaard waaraan een voorziening kan voldoen
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van de Standaard
+        naam:
+          type: string
+          description: Naam van de standaard
+        beschrijving:
+          type: string
+          description: Beschrijving van de standaard
+        standaardtype:
+          $ref: '#/components/schemas/Standaardtype'
+          description: Type van de standaard
+        versie:
+          type: string
+          description: Versie van de standaard
+        beheerorganisatie:
+          type: string
+          description: Organisatie die de standaard beheert
+        website:
+          type: string
+          format: uri
+          description: Website van de standaard
+        status:
+          type: string
+          enum:
+            - Concept
+            - In ontwikkeling
+            - Vastgesteld
+            - Verouderd
+          description: Status van de standaard
+    ReferentieConcept:
+      type: object
+      description: Een concept uit de referentiearchitectuur
+      required:
+        - id
+        - naam
+        - type
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van het ReferentieConcept
+        naam:
+          type: string
+          description: Naam van het referentieconcept
+        type:
+          type: string
+          enum:
+            - Bedrijfsproces
+            - Bedrijfsfunctie
+            - Referentiecomponent
+            - Applicatieservice
+            - Applicatiefunctie
+            - Applicatiecomponent
+            - Applicatieinterface
+            - Bedrijfsobject
+            - Data-object
+          description: Type van het referentieconcept
+        beschrijving:
+          type: string
+          description: Beschrijving van het referentieconcept
+        architectuur:
+          type: string
+          description: Architectuur waartoe het referentieconcept behoort
+    Sector:
+      type: object
+      description: Sector waartoe een organisatie behoort
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van de Sector
+        naam:
+          type: string
+          description: Naam van de sector
+        beschrijving:
+          type: string
+          description: Beschrijving van de sector
+        bovenliggendeSector:
+          $ref: '#/components/schemas/Sector'
+          description: Bovenliggende sector (voor hiërarchische indeling)
+    Organisatietype:
+      type: object
+      description: Type organisatie
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van het Organisatietype
+        naam:
+          type: string
+          description: Naam van het organisatietype
+        beschrijving:
+          type: string
+          description: Beschrijving van het organisatietype
+    GebruikersRol:
+      type: object
+      description: Rol die een gebruiker kan hebben bij een voorziening
+      required:
+        - id
+        - naam
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van de GebruikersRol
+        naam:
+          type: string
+          description: Naam van de gebruikersrol
+        beschrijving:
+          type: string
+          description: Beschrijving van de gebruikersrol
+        rechten:
+          type: array
+          items:
+            type: string
+          description: Rechten die bij deze rol horen
+    Review:
+      type: object
+      description: Beoordeling van een voorziening
+      required:
+        - id
+        - voorziening
+        - organisatie
+        - score
+      properties:
+        id:
+          type: string
+          description: Unieke identifier van de Review
+        voorziening:
+          $ref: '#/components/schemas/Voorziening'
+          description: De beoordeelde voorziening
+        score:
+          type: number
+          minimum: 1
+          maximum: 5
+          description: Score van de beoordeling (1-5)
+        titel:
+          type: string
+          description: Titel van de beoordeling
+        tekst:
+          type: string
+          description: Tekst van de beoordeling
+        datum:
+          type: string
+          format: date
+          description: Datum van de beoordeling
+        voordelen:
+          type: array
+          items:
+            type: string
+          description: Voordelen van de voorziening
+        nadelen:
+          type: array
+          items:
+            type: string
+          description: Nadelen van de voorziening
+tags:
+  - name: Gemma
+    description: All of the Gemma architecture
+  - name: Software Catalogus
+    description: Endpoints voor de Softwarecatalogus objecten
