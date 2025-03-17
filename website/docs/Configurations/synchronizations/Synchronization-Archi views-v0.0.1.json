@@ -21,7 +21,8 @@
         "resultsPosition": "views.diagrams.view",
         "endpoint": "",
         "headers": [],
-        "query": []
+        "query": [],
+        "usesPagination": false
     },
     "sourceLastChanged": "2025-02-16T23:42:38+00:00",
     "sourceLastChecked": "2025-02-16T23:42:38+00:00",

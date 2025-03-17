@@ -21,7 +21,8 @@
         "resultsPosition": "elements.element",
         "endpoint": "",
         "headers": [],
-        "query": []
+        "query": [],
+        "usesPagination": false
     },
     "sourceLastChanged": "2025-02-16T22:05:13+00:00",
     "sourceLastChecked": "2025-02-16T22:05:13+00:00",

@@ -4,11 +4,11 @@
         "register": "Not Implemented"
     },
     "@type": "rule",
-    "@id": "https://vng.accept.commonground.nu/Rule-Archio JSON Gemma Model to XML.json",
-    "id": 6,
-    "name": "Archio JSON Gemma Model to XML",
+    "@id": "https://vng.accept.commonground.nu/Rule-Archio JSON Organization to XML.json",
+    "id": 5,
+    "name": "Archio JSON Organization to XML",
     "description": "",
-    "reference": "https://vng.accept.commonground.nu/Rule-Archio JSON Gemma Model to XML.json",
+    "reference": "https://vng.accept.commonground.nu/Rule-Archio JSON Organization to XML.json",
     "version": "0.0.1",
     "action": "get",
     "timing": "after",
@@ -20,7 +20,7 @@
     },
     "type": "mapping",
     "configuration": {
-        "mapping": 13
+        "mapping": 18
     },
     "order": 0
 }

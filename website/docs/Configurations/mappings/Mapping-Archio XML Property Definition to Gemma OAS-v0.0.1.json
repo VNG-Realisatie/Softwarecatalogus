@@ -11,12 +11,15 @@
     "version": "0.0.1",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Property Definition to Gemma OAS.json",
     "mapping": {
-        "identifier": "identifier",
-        "type": "type",
+        "identifier": "@attributes.identifier",
+        "type": "@attributes.type",
         "name": "name.#text",
         "name-lang": "{{ attribute(name['@attributes'], 'xml:lang') }}"
     },
     "unset": [],
-    "cast": [],
+    "cast": {
+        "name": "unsetIfValue==name.#text",
+        "name-lang": "unsetIfValue=="
+    },
     "passThrough": false
 }
