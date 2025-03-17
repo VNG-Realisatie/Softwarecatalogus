@@ -16,8 +16,6 @@ Een Voorzieningstype is een categorisering van voorzieningen op basis van hun fu
 
 ## Specificaties
 
-<ApiSchema id="gemma" example   pointer="#/components/schemas/VoorzieningType" />;
-
 ## Eigenschappen
 
 | Naam | Type | Verplicht | Beschrijving |
