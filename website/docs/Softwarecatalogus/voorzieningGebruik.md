@@ -31,6 +31,13 @@ De volledige API specificatie voor VoorzieningGebruik is beschikbaar op de [VNG 
 | bivClassificatie | object | Nee | De BIV (Beschikbaarheid, Integriteit, Vertrouwelijkheid) classificatie van het voorzieninggebruik |
 | bedrijfsKritisch | boolean | Nee | Geeft aan of het voorzieninggebruik bedrijfskritisch is (default: false) |
 | privacyGevoelig | boolean | Nee | Geeft aan of het voorzieninggebruik privacy gevoelige gegevens bevat (default: false) |
+| referentieComponenten | array[UUID] | Nee | **tijdenlijk** GEMMA referentiecomponenten die de voorziening implementeert |
+
+:::note
+
+Het veld 'referentieComponenten' is een tijdelijke oplossing. Deze referentiecomponenten horen eigenlijk bij het [Voorziening](./voorziening) object te leven, maar omdat we momenteel nog geen gerelateerd zoeken ondersteunen, zijn ze tijdelijk hier geplaatst.
+
+:::
 
 ## Relaties
 
