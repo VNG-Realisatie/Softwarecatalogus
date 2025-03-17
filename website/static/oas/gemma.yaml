@@ -2727,9 +2727,6 @@ components:
         voorziening:
           $ref: '#/components/schemas/Voorziening'
           description: De beoordeelde voorziening
-        organisatie:
-          $ref: '#/components/schemas/Organisatie'
-          description: De organisatie die de beoordeling heeft gegeven
         persoon:
           $ref: '#/components/schemas/Persoon'
           description: De persoon die de beoordeling heeft gegeven
