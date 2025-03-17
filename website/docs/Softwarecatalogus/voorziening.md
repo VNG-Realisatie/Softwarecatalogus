@@ -45,4 +45,5 @@ Een voorziening is een softwareproduct of dienst die functionaliteit biedt voor 
   | gemmaReferentieComponenten | localisation.availableLanguages | Ondersteunde talen en lokalisaties |
 
   De publiccode.yaml standaard is primair gericht op het beschrijven van de software zelf, wat overeenkomt met het Voorziening object in de Softwarecatalogus. Het biedt gedetailleerde informatie over de functionaliteit, doelgroep en technische aspecten van de software. 
+  </TabItem>
 </Tabs>
