@@ -12,7 +12,10 @@ import TabItem from '@theme/TabItem';
 
 Views bieden verschillende perspectieven op het GEMMA architectuurmodel. Ze tonen specifieke aspecten van de architectuur en maken het model toegankelijker voor verschillende stakeholders.
 
-## Eigenschappen
+
+## Specificaties
+
+<ApiSchema id="gemma" example   pointer="#/components/schemas/View" />;
 
 
 ## Mappping

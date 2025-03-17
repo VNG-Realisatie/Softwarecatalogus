@@ -13,25 +13,9 @@ import TabItem from '@theme/TabItem';
 
 Een voorzieningaanbod is een specifiek aanbod van een voorziening door een leverancier. Het beschrijft hoe een leverancier een bepaalde voorziening aanbiedt, inclusief licentiemodel, ondersteuning en hostingopties.
 
-## API Specificatie
+## Specificaties
 
-De volledige API specificatie voor VoorzieningAanbod is beschikbaar op de [VNG API Specificatie pagina](https://vng-realisatie.github.io/Softwarecatalogus/api#tag/Software-Catalogus/operation/getVoorzieningaanbiedingen).
-
-## Eigenschappen
-
-| Eigenschap | Type | Verplicht | Beschrijving |
-|------------|------|-----------|--------------|
-| id | UUID | Ja | Unieke identificatie voor het voorzieningaanbod |
-| naam | string | Ja | Naam van het voorzieningaanbod |
-| omschrijving | string | Ja | Beschrijving van het voorzieningaanbod |
-| type | array[enum] | Ja | Type van het voorzieningaanbod. Mogelijke waarden: 'Hosting', 'Beheer', '(door)ontwikkeling', 'Implementatie', 'Migratie', 'Consultancy' |
-| voorzieningId | UUID | Ja | ID van de voorziening die wordt aangeboden |
-| organisatieId | UUID | Ja | ID van de organisatie die de voorziening aanbiedt |
-| productpagina | string (URI) | Nee | URL naar de productpagina van de leverancier |
-| ondersteuningsmodel | string | Nee | Beschrijving van het ondersteuningsmodel |
-| licentiemodel | string | Nee | Beschrijving van het licentiemodel |
-| hostingopties | array | Nee | Beschikbare hostingopties (on-premises, SaaS, PaaS, hybride) |
-| versies | array[UUID] | Nee | Array van UUID's die verwijzen naar specifieke versies van dit voorzieningaanbod. Als er geen versies zijn opgegeven, wordt aangenomen dat het aanbod alle versies betreft |
+<ApiSchema id="gemma" example   pointer="#/components/schemas/VoorzieningAanbod" />;
 
 ## Relaties
 
@@ -41,36 +25,6 @@ De volledige API specificatie voor VoorzieningAanbod is beschikbaar op de [VNG A
 - Een VoorzieningAanbod kan gekoppeld zijn aan meerdere [Contract](./contract) objecten
 - Een VoorzieningAanbod kan gerelateerd zijn aan ReferentieConcept objecten
 
-## Voorbeeld
-
-```json
-{
-  "id": "123e4567-e89b-12d3-a456-426614174000",
-  "naam": "Zaaksysteem Pro Enterprise",
-  "omschrijving": "Complete zaaksysteem oplossing voor grote organisaties",
-  "type": [
-    "Hosting",
-    "Beheer",
-    "(door)ontwikkeling",
-    "Implementatie"
-  ],
-  "voorzieningId": "123e4567-e89b-12d3-a456-426614174001",
-  "organisatieId": "123e4567-e89b-12d3-a456-426614174002", 
-  "productpagina": "https://www.voorbeeldsoftware.nl/zaaksysteem-pro",
-  "ondersteuningsmodel": "24/7 telefonische ondersteuning en online helpdesk",
-  "licentiemodel": "Jaarlijkse licentie gebaseerd op aantal gebruikers",
-  "hostingopties": [
-    "on-premises",
-    "SaaS"
-  ],
-  "versies": [
-    "123e4567-e89b-12d3-a456-426614174010",
-    "123e4567-e89b-12d3-a456-426614174011"
-  ]
-}
-```
-
-## API Documentatie
 
 
 ## Relaties met andere Componenten

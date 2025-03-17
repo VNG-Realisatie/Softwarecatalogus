@@ -14,6 +14,10 @@ import TabItem from '@theme/TabItem';
 
 Een Voorzieningstype is een categorisering van voorzieningen op basis van hun functie of doel. Het helpt bij het organiseren en zoeken van voorzieningen binnen de catalogus.
 
+## Specificaties
+
+<ApiSchema id="gemma" example   pointer="#/components/schemas/VoorzieningType" />;
+
 ## Eigenschappen
 
 | Naam | Type | Verplicht | Beschrijving |

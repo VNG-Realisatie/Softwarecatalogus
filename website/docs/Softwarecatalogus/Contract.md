@@ -13,28 +13,14 @@ import TabItem from '@theme/TabItem';
 
 Een Contract beschrijft de formele overeenkomst voor het inzetten van een VoorzieningAanbod op een VoorzieningGebruik.
 
-## API Specificatie
-
-De volledige API specificatie voor Contract is beschikbaar op de [VNG API Specificatie pagina](https://vng-realisatie.github.io/Softwarecatalogus/api#tag/Software-Catalogus).
-
-## Eigenschappen
-
-| Naam | Type | Verplicht | Beschrijving |
-|------|------|-----------|--------------|
-| id | string | Ja | Unieke identifier van het Contract |
-| voorzieningAanbod | [VoorzieningAanbod](./voorzieningaanbod) | Ja | Het aanbod van de voorziening waarop dit contract betrekking heeft |
-| voorzieningGebruik | [VoorzieningGebruik](./voorzieninggebruik) | Ja | Het gebruik van de voorziening waarop dit contract betrekking heeft |
-| startDatum | date | Ja | De startdatum van het contract |
-| eindDatum | date | Nee | De einddatum van het contract (indien van toepassing) |
-| contractNummer | string | Ja | Het referentienummer van het contract |
-| contractType | enum | Ja | Het type contract (bijv. 'SLA', 'Licentie', 'Onderhoud') |
-| kosten | number | Nee | De kosten verbonden aan het contract |
-| kostenPeriode | enum | Nee | De periode waarop de kosten betrekking hebben (bijv. 'Maandelijks', 'Jaarlijks', 'Eenmalig') |
-| contactpersoonAanbieder | object | Nee | De contactpersoon bij de aanbieder |
-| contactpersoonGebruiker | object | Nee | De contactpersoon bij de gebruiker |
-| documentReferentie | string | Nee | Referentie naar het contractdocument |
-| status | enum | Ja | De status van het contract (bijv. 'Actief', 'Verlopen', 'In onderhandeling') |
-| opmerkingen | string | Nee | Aanvullende informatie over het contract |
+<Tabs>
+  <TabItem value="specificaties" label="Specificaties" default>
+    <ApiSchema id="gemma" example   pointer="#/components/schemas/Contract" />
+  </TabItem>
+  <TabItem value="relaties" label="Relaties">
+  </TabItem>
+</Tabs>
+    
 
 ## Relaties
 

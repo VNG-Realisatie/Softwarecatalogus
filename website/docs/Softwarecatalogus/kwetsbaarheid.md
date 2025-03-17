@@ -12,54 +12,9 @@ import TabItem from '@theme/TabItem';
 
 Een kwetsbaarheid is een beveiligingsprobleem in een voorzieningversie. Het beschrijft een zwakke plek in de software die mogelijk kan worden misbruikt.
 
-## Eigenschappen
+## Specificaties
 
-| Eigenschap | Type | Beschrijving |
-|------------|------|-------------|
-| id | string | Unieke identificatie voor de kwetsbaarheid |
-| voorzieningversieId | string | ID van de voorzieningversie waarin de kwetsbaarheid is gevonden |
-| cveNummer | string | CVE-nummer van de kwetsbaarheid |
-| titel | string | Titel van de kwetsbaarheid |
-| beschrijving | string | Beschrijving van de kwetsbaarheid |
-| ernst | string | Ernst van de kwetsbaarheid (laag, gemiddeld, hoog, kritiek) |
-| ontdektOp | string (date) | Datum waarop de kwetsbaarheid is ontdekt |
-| gepubliceerdOp | string (date) | Datum waarop de kwetsbaarheid is gepubliceerd |
-| opgelostIn | string | Versie waarin de kwetsbaarheid is opgelost |
-| mitigatie | string | Beschrijving van mogelijke mitigatiemaatregelen |
-| referenties | array | Referenties naar meer informatie over de kwetsbaarheid |
-
-## API Endpoint
-
-```
-GET /kwetsbaarheden
-```
-
-Voor een specifieke kwetsbaarheid:
-
-```
-GET /kwetsbaarheden/{id}
-```
-
-## Voorbeeld Response
-
-```json
-{
-  "id": "k1",
-  "voorzieningversieId": "vv1",
-  "cveNummer": "CVE-2023-12345",
-  "titel": "XSS kwetsbaarheid in zoekfunctie",
-  "beschrijving": "Een cross-site scripting (XSS) kwetsbaarheid in de zoekfunctie maakt het mogelijk voor aanvallers om kwaadaardige scripts in te voegen.",
-  "ernst": "gemiddeld",
-  "ontdektOp": "2023-05-10",
-  "gepubliceerdOp": "2023-05-20",
-  "opgelostIn": "2.5.1",
-  "mitigatie": "Schakel de geavanceerde zoekfunctie uit tot de update is geïnstalleerd.",
-  "referenties": [
-    "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-12345",
-    "https://www.voorbeeldsoftware.nl/security/advisories/CVE-2023-12345"
-  ]
-}
-```
+<ApiSchema id="gemma" example   pointer="#/components/schemas/Kwetsbaarheid" />;
 
 ## Relaties met andere Componenten
 
