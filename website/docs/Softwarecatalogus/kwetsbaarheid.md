@@ -42,4 +42,5 @@ Een kwetsbaarheid is een beveiligingsprobleem in een voorzieningversie. Het besc
   | mitigatie | maintenance.contacts | Contactgegevens voor het melden van kwetsbaarheden |
 
   De Softwarecatalogus biedt met het Kwetsbaarheid object een gestructureerde manier om beveiligingsproblemen bij te houden en te communiceren, wat niet expliciet wordt ondersteund in de publiccode.yaml standaard. Dit is een belangrijke aanvulling voor gemeenten die de beveiliging van hun software willen beoordelen en monitoren.
+  </TabItem>
 </Tabs>
