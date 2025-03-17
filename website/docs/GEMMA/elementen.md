@@ -31,15 +31,15 @@ Het GEMMA model bevat verschillende soorten elementen:
 
 ## API Endpoint
 
-'''
+```
 GET /elements
-'''
+```
 
 Voor een specifiek element:
 
-'''
+```
 GET /elements/{identifier}
-'''
+```
 
 ## Voorbeelden
 
