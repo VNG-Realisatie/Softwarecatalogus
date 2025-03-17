@@ -18,7 +18,7 @@
     },
     "unset": [],
     "cast": {
-        "fillColor": ["jsonToArray", "unsetIfValue==[]"],
+        "fillColor": ["jsonToArray", "unsetIfValue=="],
         "lineColor": "jsonToArray",
         "lineColor.a": "unsetIfValue==",
         "font": "jsonToArray",

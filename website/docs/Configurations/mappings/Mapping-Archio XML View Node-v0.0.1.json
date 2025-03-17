@@ -23,7 +23,7 @@
     "cast": {
         "position": "jsonToArray",
         "style": "jsonToArray",
-        "nodes": ["jsonToArray", "unsetIfValue==[]"]
+        "nodes": ["jsonToArray", "unsetIfValue=="]
     },
     "passThrough": false,
     "dateCreated": "2025-03-03T14:34:14+00:00",

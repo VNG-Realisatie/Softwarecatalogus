@@ -24,7 +24,7 @@
 	"unset": [],
 	"cast": {
 		"style": "jsonToArray",
-		"node": ["jsonToArray", "unsetIfValue==[]"]
+		"node": ["jsonToArray", "unsetIfValue=="]
 	},
     "passThrough": false
 }

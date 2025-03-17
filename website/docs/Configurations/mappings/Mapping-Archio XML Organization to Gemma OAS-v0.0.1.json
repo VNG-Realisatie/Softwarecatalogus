@@ -11,15 +11,17 @@
     "version": "0.0.1",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json",
     "mapping": {
-        "identifierRef": "@attributes.identifier",
+        "identifierRef": "@attributes.identifierRef",
         "label": "label.#text",
         "label-lang": "{{ attribute(label['@attributes'], 'xml:lang') }}",
         "item": "{% if item|default %}{% if item.label|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", item)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", item, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
     },
     "unset": [],
     "cast": {
-        "identifierRef": "unsetIfValue==@attributes.identifier",
-        "item": "jsonToArray"
+        "identifierRef": "unsetIfValue==@attributes.identifierRef",
+        "label": "unsetIfValue==label.#text",
+        "label-lang": "unsetIfValue==",
+        "item": ["jsonToArray", "unsetIfValue=="]
     },
     "passThrough": false
 }

@@ -17,12 +17,12 @@
         "source": "@attributes.source",
         "target": "@attributes.target",
         "style": "{% if style|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Style.json\", style)|json_encode }}{%else%}[]{%endif%}",
-        "bendpoint": "{% if bendpoint|default %}{{ {\"x\": bendpoint['@attributes'].x, \"y\": bendpoint['@attributes'].y} }}{%else%}[]{%endif%}"
+        "bendpoint": "{% if bendpoint|default %}{\"x\": \"{{ bendpoint['@attributes'].x }}\", \"y\": \"{{ bendpoint['@attributes'].y }}\"}{%else%}[]{%endif%}"
     },
     "unset": [],
     "cast": {
         "style": "jsonToArray",
-        "bendpoint": ["jsonToArray", "unsetIfValue==[]"]
+        "bendpoint": ["jsonToArray", "unsetIfValue=="]
     },
     "passThrough": false
 } 

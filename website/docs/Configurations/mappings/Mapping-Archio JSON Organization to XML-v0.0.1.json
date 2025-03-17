@@ -12,15 +12,15 @@
 	"reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON Organization to XML.json",
 	"mapping": {
 		"@root": "item",
-		"@attributes.identifier": "identifierRef",
+		"@attributes.identifierRef": "identifierRef",
 		"label.#text": "label",
 		"label.@attributes.xml:lang": "label-lang",
 		"item": "{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Organization to XML.json\", item, true) }}"
 	},
 	"unset": [],
 	"cast": {
-		"@attributes.identifier": "unsetIfValue==identifierRef",
-		"item": ["jsonToArray", "unsetIfValue==[]"]
+		"@attributes.identifierRef": "unsetIfValue==identifierRef",
+		"item": ["jsonToArray", "unsetIfValue=="]
 	},
 	"passThrough": false
 }
