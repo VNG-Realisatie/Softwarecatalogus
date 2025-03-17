@@ -2727,9 +2727,6 @@ components:
         voorziening:
           $ref: '#/components/schemas/Voorziening'
           description: De beoordeelde voorziening
-        persoon:
-          $ref: '#/components/schemas/Persoon'
-          description: De persoon die de beoordeling heeft gegeven
         score:
           type: number
           minimum: 1
