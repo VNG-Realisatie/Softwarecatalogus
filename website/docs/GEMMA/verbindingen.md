@@ -49,7 +49,7 @@ Verbindingen representeren relaties in een visueel diagram. Elke verbinding kopp
 
 ## Voorbeeld
 
-'''json
+```json
 {
   "id": "c1",
   "relationRef": "r1",
@@ -89,7 +89,7 @@ Verbindingen representeren relaties in een visueel diagram. Elke verbinding kopp
     }
   }
 }
-'''
+```
 
 ## Relaties met andere Componenten
 
