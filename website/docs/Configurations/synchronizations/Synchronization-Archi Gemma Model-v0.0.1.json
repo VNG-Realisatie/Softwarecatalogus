@@ -18,7 +18,7 @@
     "sourceTargetMapping": "9",
     "sourceConfig": {
         "idPosition": "@attributes.identifier",
-        "resultsPosition": "_root",
+        "resultsPosition": "_object",
         "endpoint": "",
         "headers": [],
         "query": [],
