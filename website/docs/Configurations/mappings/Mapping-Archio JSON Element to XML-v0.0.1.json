@@ -18,12 +18,12 @@
 		"name.#text": "name",
 		"documentation.@attributes.xml:lang": "documentation-lang",
 		"documentation.#text": "documentation",
-		"properties": "{% if properties|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Model Property to XML.json\", properties, true)|json_encode }}{%else%}[]{%endif%}"
+		"properties.property": "{% if properties|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Model Property to XML.json\", properties, true)|json_encode }}{%else%}[]{%endif%}"
 	},
 	"unset": [],
 	"cast": {
 		"@root": "unsetIfValue==",
-		"properties": "jsonToArray"
+		"properties.property": "jsonToArray"
 	},
     "passThrough": false
 }
