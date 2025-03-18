@@ -1,0 +1,31 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "mapping",
+    "@id": "https://vng.accept.commonground.nu/Mapping-Archio XML Relations to Gemma OAS.json",
+    "id": 8,
+    "name": "Archio XML Relations to Gemma OAS",
+    "description": "",
+    "version": "0.0.1",
+    "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Relations to Gemma OAS.json",
+    "mapping": {
+        "identifier": "@attributes.identifier",
+        "source": "@attributes.source",
+        "target": "@attributes.target",
+        "type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
+        "accessType": "@attributes.accessType",
+        "name": "name.#text",
+        "name-lang": "{{ attribute(name['@attributes'], 'xml:lang')|default('') }}",
+        "properties": "{% if properties.property|default %}{% if properties.property['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Model Property to Gemma OAS.json\", properties.property)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Model Property to Gemma OAS.json\", properties.property, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
+    },
+    "unset": [],
+    "cast": {
+        "accessType": "unsetIfValue==@attributes.accessType",
+        "name": "unsetIfValue==name.#text",
+        "name-lang": "unsetIfValue==",
+        "properties": "jsonToArray"
+    },
+    "passThrough": false
+}

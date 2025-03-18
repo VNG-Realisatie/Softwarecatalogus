@@ -1,0 +1,24 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "endpoint",
+    "@id": "https://vng.accept.commonground.nu/Endpoint-Gemma models.json",
+    "name": "Gemma models",
+    "description": "",
+    "reference": "https://vng.accept.commonground.nu/Endpoint-Gemma models.json",
+    "version": "0.0.1",
+    "endpoint": "models",
+    "endpointArray": [
+        "models"
+    ],
+    "endpointRegex": "#models",
+    "method": "GET",
+    "targetType": "register\/schema",
+    "targetId": "2\/14",
+    "conditions": [],
+    "inputMapping": null,
+    "outputMapping": null,
+    "rules": []
+}
