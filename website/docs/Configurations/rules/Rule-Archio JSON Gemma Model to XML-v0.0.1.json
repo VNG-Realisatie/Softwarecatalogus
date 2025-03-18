@@ -20,7 +20,8 @@
     },
     "type": "mapping",
     "configuration": {
-        "mapping": 13
+        "mapping": 9,
+        "mapResults": false
     },
     "order": 0
 }
