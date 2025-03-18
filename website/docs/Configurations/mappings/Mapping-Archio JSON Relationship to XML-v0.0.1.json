@@ -19,6 +19,8 @@
 		"@attributes.accessType": "accessType",
 		"name.@attributes.xml:lang": "name-lang",
 		"name.#text": "name",
+		"documentation.#text": "documentation",
+		"documentation.@attributes.xml:lang": "documentation-lang",
 		"properties.property": "{% if properties|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Model Property to XML.json\", properties, true)|json_encode }}{%else%}[]{%endif%}"
 	},
 	"unset": [],
@@ -28,6 +30,9 @@
 		"name.#text": "unsetIfValue==name",
 		"name.@attributes.xml:lang": "unsetIfValue==name-lang",
 		"name": "unsetIfValue==",
+		"documentation.#text": "unsetIfValue==documentation",
+		"documentation.@attributes.xml:lang": "unsetIfValue==documentation-lang",
+		"documentation": "unsetIfValue==",
 		"properties.property": "jsonToArray"
 	},
     "passThrough": false

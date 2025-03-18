@@ -14,6 +14,8 @@
         "identifierRef": "@attributes.identifierRef",
         "label": "label.#text",
         "label-lang": "{{ attribute(label['@attributes'], 'xml:lang') }}",
+        "documentation": "documentation.#text",
+        "documentation-lang": "{{ attribute(documentation['@attributes'], 'xml:lang') }}",
         "item": "{% if item|default %}{% if item.label|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", item)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", item, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
     },
     "unset": [],
@@ -21,6 +23,8 @@
         "identifierRef": "unsetIfValue==@attributes.identifierRef",
         "label": "unsetIfValue==label.#text",
         "label-lang": "unsetIfValue==",
+        "documentation": "unsetIfValue==documentation.#text",
+        "documentation-lang": "unsetIfValue==",
         "item": ["jsonToArray", "unsetIfValue=="]
     },
     "passThrough": false

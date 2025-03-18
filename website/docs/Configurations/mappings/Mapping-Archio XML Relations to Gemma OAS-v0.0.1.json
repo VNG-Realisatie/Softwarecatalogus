@@ -18,6 +18,8 @@
         "accessType": "@attributes.accessType",
         "name": "name.#text",
         "name-lang": "{{ attribute(name['@attributes'], 'xml:lang')|default('') }}",
+        "documentation": "documentation.#text",
+        "documentation-lang": "{{ attribute(documentation['@attributes'], 'xml:lang')|default('') }}",
         "properties": "{% if properties.property|default %}{% if properties.property['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Model Property to Gemma OAS.json\", properties.property)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Model Property to Gemma OAS.json\", properties.property, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
     },
     "unset": [],
@@ -25,6 +27,8 @@
         "accessType": "unsetIfValue==@attributes.accessType",
         "name": "unsetIfValue==name.#text",
         "name-lang": "unsetIfValue==",
+        "documentation": "unsetIfValue==documentation.#text",
+        "documentation-lang": "unsetIfValue==",
         "properties": "jsonToArray"
     },
     "passThrough": false

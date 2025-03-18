@@ -19,11 +19,13 @@
 		"@attributes.w": "position.w",
 		"@attributes.h": "position.h",
 		"style": "{% if style|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON View Style to XML.json\", style)|json_encode }}{%else%}[]{%endif%}",
+		"@attributes.viewRef": "viewRef",
 		"node": "{% if nodes|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON View Node to XML.json\", nodes, true)|json_encode }}{%else%}[]{%endif%}"
 	},
 	"unset": [],
 	"cast": {
 		"style": "jsonToArray",
+		"viewRef": "unsetIfValue==@attributes.viewRef",
 		"node": ["jsonToArray", "unsetIfValue=="]
 	},
     "passThrough": false
