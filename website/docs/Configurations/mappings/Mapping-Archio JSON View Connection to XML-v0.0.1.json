@@ -24,7 +24,8 @@
 	"cast": {
 		"style": "jsonToArray",
 		"bendpoint.@attributes.x": "unsetIfValue==bendpoint.x",
-		"bendpoint.@attributes.y": "unsetIfValue==bendpoint.y"
+		"bendpoint.@attributes.y": "unsetIfValue==bendpoint.y",
+		"bendpoint": "unsetIfValue=="
 	},
     "passThrough": false
 } 

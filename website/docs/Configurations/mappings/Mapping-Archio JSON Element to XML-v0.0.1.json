@@ -11,7 +11,7 @@
 	"version": "0.0.1",
 	"reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON Element to XML.json",
 	"mapping": {
-		"@root": "element",
+		"@root": "{% if disableRoot|default(false) %}{{ '' }}{% else %}element{% endif %}",
 		"@attributes.identifier": "identifier",
 		"@attributes.xsi:type": "type",
 		"name.@attributes.xml:lang": "name-lang",
@@ -22,6 +22,7 @@
 	},
 	"unset": [],
 	"cast": {
+		"@root": "unsetIfValue==",
 		"properties": "jsonToArray"
 	},
     "passThrough": false

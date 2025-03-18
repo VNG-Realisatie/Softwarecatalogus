@@ -11,15 +11,15 @@
 	"version": "0.0.1",
 	"reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON Property Definition to XML.json",
 	"mapping": {
-		"@root": "propertyDefinition",
+		"@root": "{% if disableRoot|default(false) %}{{ '' }}{% else %}propertyDefinition{% endif %}",
 		"@attributes.identifier": "identifier",
 		"@attributes.type": "type",
-		"name.#text": "name",
+		"name.#text": "{% if name|default %}{{ name }}{% else %}{{ '' }}{% endif %}",
 		"name.@attributes.xml:lang": "name-lang"
 	},
 	"unset": [],
 	"cast": {
-		"name.#text": "unsetIfValue==name",
+		"@root": "unsetIfValue==",
 		"name.@attributes.xml:lang": "unsetIfValue==name-lang"
 	},
 	"passThrough": false

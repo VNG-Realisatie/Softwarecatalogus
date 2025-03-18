@@ -11,7 +11,7 @@
 	"version": "0.0.1",
 	"reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON Relationship to XML.json",
 	"mapping": {
-		"@root": "relationship",
+		"@root": "{% if disableRoot|default(false) %}{{ '' }}{% else %}relationship{% endif %}",
 		"@attributes.identifier": "identifier",
 		"@attributes.source": "source",
 		"@attributes.target": "target",
@@ -23,9 +23,11 @@
 	},
 	"unset": [],
 	"cast": {
+		"@root": "unsetIfValue==",
 		"@attributes.accessType": "unsetIfValue==accessType",
 		"name.#text": "unsetIfValue==name",
-		"name.@attributes.xml:lang": "unsetIfValue==",
+		"name.@attributes.xml:lang": "unsetIfValue==name-lang",
+		"name": "unsetIfValue==",
 		"properties": "jsonToArray"
 	},
     "passThrough": false

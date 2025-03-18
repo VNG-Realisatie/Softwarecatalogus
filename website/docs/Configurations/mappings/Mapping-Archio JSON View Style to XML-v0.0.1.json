@@ -27,8 +27,12 @@
     },
     "unset": [],
     "cast": {
-        "fillColor.@attributes.a": "unsetIfValue==",
-        "lineColor.@attributes.a": "unsetIfValue=="
+        "fillColor.@attributes.r": "unsetIfValue==fillColor.r",
+        "fillColor.@attributes.g": "unsetIfValue==fillColor.g",
+        "fillColor.@attributes.b": "unsetIfValue==fillColor.b",
+        "fillColor.@attributes.a": "unsetIfValue==fillColor.a",
+        "fillColor": "unsetIfValue==",
+        "lineColor.@attributes.a": "unsetIfValue==lineColor.a"
     },
     "passThrough": false
 } 

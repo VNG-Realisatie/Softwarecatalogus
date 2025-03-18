@@ -11,15 +11,19 @@
 	"version": "0.0.1",
 	"reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON Organization to XML.json",
 	"mapping": {
-		"@root": "item",
+		"@root": "{% if disableRoot|default(false) %}{{ '' }}{% else %}item{% endif %}",
 		"@attributes.identifierRef": "identifierRef",
 		"label.#text": "label",
 		"label.@attributes.xml:lang": "label-lang",
-		"item": "{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Organization to XML.json\", item, true) }}"
+		"item": "{% if item|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Organization to XML.json\", {'listInput': item, 'disableRoot': true}, true)|json_encode }}{% else %}[]{% endif %}"
 	},
 	"unset": [],
 	"cast": {
+		"@root": "unsetIfValue==",
 		"@attributes.identifierRef": "unsetIfValue==identifierRef",
+		"label.#text": "unsetIfValue==label",
+		"label.@attributes.xml:lang": "unsetIfValue==label-lang",
+		"label": "unsetIfValue==",
 		"item": ["jsonToArray", "unsetIfValue=="]
 	},
 	"passThrough": false
