@@ -16,6 +16,8 @@
         "elementRef": "@attributes.elementRef",
         "type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
         "position": "{\"x\":\"{{ _context['@attributes'].x }}\",\"y\":\"{{ _context['@attributes'].y }}\",\"w\":\"{{ _context['@attributes'].w }}\",\"h\":\"{{ _context['@attributes'].h }}\"}",
+        "label": "label.#text",
+        "label-lang": "{{ attribute(label['@attributes'], 'xml:lang') }}",
         "style": "{% if style|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Style.json\", style)|json_encode }}{%else%}[]{%endif%}",
         "viewRef": "@attributes.viewRef",
         "nodes": "{% if node|default %}{% if node['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Node.json\", node)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Node.json\", node, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
@@ -24,6 +26,8 @@
     "cast": {
         "elementRef": "unsetIfValue==@attributes.elementRef",
         "position": "jsonToArray",
+        "label": "unsetIfValue==label.#text",
+        "label-lang": "unsetIfValue==",
         "style": "jsonToArray",
         "viewRef": "unsetIfValue==@attributes.viewRef",
         "nodes": ["jsonToArray", "unsetIfValue=="]
