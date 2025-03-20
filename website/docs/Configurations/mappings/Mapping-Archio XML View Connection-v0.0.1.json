@@ -21,6 +21,7 @@
     },
     "unset": [],
     "cast": {
+        "relationshipRef": "unsetIfValue==@attributes.relationshipRef",
         "style": "jsonToArray",
         "bendpoint": ["jsonToArray", "unsetIfValue=="]
     },
