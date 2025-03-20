@@ -24,7 +24,7 @@
 	},
 	"unset": [],
 	"cast": {
-		"@attributes.elementRef": "unsetIfValue==",
+		"@attributes.elementRef": "unsetIfValue==elementRef",
 		"style": "jsonToArray",
 		"viewRef": "unsetIfValue==@attributes.viewRef",
 		"node": ["jsonToArray", "unsetIfValue=="]
