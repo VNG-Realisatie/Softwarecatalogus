@@ -25,7 +25,7 @@
 		"@root": "unsetIfValue==",
 		"properties.property": "jsonToArray",
 		"node": "jsonToArray",
-		"connection": "jsonToArray"
+		"connection": ["jsonToArray", "unsetIfValue=="]
 	},
     "passThrough": false
 }
