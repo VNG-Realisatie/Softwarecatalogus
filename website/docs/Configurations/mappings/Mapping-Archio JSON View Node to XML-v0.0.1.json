@@ -31,6 +31,8 @@
 		"label.@attributes.xml:lang": "unsetIfValue==label-lang",
 		"style": "jsonToArray",
 		"viewRef.@attributes.ref": "unsetIfValue==viewRef",
+		"viewRef.#text": "unsetIfValue==",
+		"viewRef": "unsetIfValue==",
 		"node": ["jsonToArray", "unsetIfValue=="]
 	},
     "passThrough": false
