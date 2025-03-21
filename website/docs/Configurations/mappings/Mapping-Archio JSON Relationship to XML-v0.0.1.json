@@ -17,6 +17,7 @@
 		"@attributes.target": "target",
 		"@attributes.xsi:type": "type",
 		"@attributes.accessType": "accessType",
+		"@attributes.isDirected": "isDirected",
 		"name.@attributes.xml:lang": "name-lang",
 		"name.#text": "name",
 		"documentation.#text": "documentation",
@@ -27,6 +28,7 @@
 	"cast": {
 		"@root": "unsetIfValue==",
 		"@attributes.accessType": "unsetIfValue==accessType",
+		"@attributes.isDirected": "unsetIfValue==isDirected",
 		"name.#text": "unsetIfValue==name",
 		"name.@attributes.xml:lang": "unsetIfValue==name-lang",
 		"name": "unsetIfValue==",

@@ -17,13 +17,13 @@
         "source": "@attributes.source",
         "target": "@attributes.target",
         "style": "{% if style|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Style.json\", style)|json_encode }}{%else%}[]{%endif%}",
-        "bendpoint": "{% if bendpoint|default %}{\"x\": \"{{ bendpoint['@attributes'].x }}\", \"y\": \"{{ bendpoint['@attributes'].y }}\"}{%else%}[]{%endif%}"
+        "bendpoints": "{% if bendpoint|default %}{% if bendpoint['@attributes']|default %}[{\"x\": \"{{ bendpoint['@attributes'].x }}\", \"y\": \"{{ bendpoint['@attributes'].y }}\"}]{% elseif bendpoint is iterable %}[{% for point in bendpoint %}{% if not loop.first %},{% endif %}{\"x\": \"{{ point['@attributes'].x }}\", \"y\": \"{{ point['@attributes'].y }}\"}{% endfor %}]{% else %}[]{% endif %}{% else %}[]{% endif %}"
     },
     "unset": [],
     "cast": {
         "relationshipRef": "unsetIfValue==@attributes.relationshipRef",
         "style": "jsonToArray",
-        "bendpoint": ["jsonToArray", "unsetIfValue=="]
+        "bendpoints": ["jsonToArray", "unsetIfValue=="]
     },
     "passThrough": false
 } 

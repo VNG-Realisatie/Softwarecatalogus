@@ -16,6 +16,7 @@
         "target": "@attributes.target",
         "type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
         "accessType": "@attributes.accessType",
+        "isDirected": "@attributes.isDirected",
         "name": "name.#text",
         "name-lang": "{{ attribute(name['@attributes'], 'xml:lang')|default('') }}",
         "documentation": "documentation.#text",
@@ -25,6 +26,7 @@
     "unset": [],
     "cast": {
         "accessType": "unsetIfValue==@attributes.accessType",
+        "isDirected": "unsetIfValue==@attributes.isDirected",
         "name": "unsetIfValue==name.#text",
         "name-lang": "unsetIfValue==",
         "documentation": "unsetIfValue==documentation.#text",

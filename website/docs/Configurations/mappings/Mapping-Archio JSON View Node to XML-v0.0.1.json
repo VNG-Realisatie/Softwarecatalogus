@@ -29,6 +29,7 @@
 		"@attributes.elementRef": "unsetIfValue==elementRef",
 		"label.#text": "unsetIfValue==label",
 		"label.@attributes.xml:lang": "unsetIfValue==label-lang",
+		"label": "unsetIfValue==",
 		"style": "jsonToArray",
 		"viewRef.@attributes.ref": "unsetIfValue==viewRef",
 		"viewRef.#text": "unsetIfValue==",

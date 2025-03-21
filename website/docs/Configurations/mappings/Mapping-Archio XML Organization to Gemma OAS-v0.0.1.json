@@ -16,7 +16,7 @@
         "label-lang": "{{ attribute(label['@attributes'], 'xml:lang') }}",
         "documentation": "documentation.#text",
         "documentation-lang": "{{ attribute(documentation['@attributes'], 'xml:lang') }}",
-        "item": "{% if item|default %}{% if item.label|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", item)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", item, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
+        "item": "{% if item|default %}{% if item.label|default or item['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", item)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Organization to Gemma OAS.json\", item, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
     },
     "unset": [],
     "cast": {

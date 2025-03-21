@@ -12,11 +12,12 @@
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON Model Property to XML.json",
     "mapping": {
         "@attributes.propertyDefinitionRef": "propertyDefinitionRef",
-        "value.#text": "{% if value|default %}{{ value }}{% else %}{{ '' }}{% endif %}",
+        "value.#text": "value",
         "value.@attributes.xml:lang": "value-lang"
     },
     "unset": [],
     "cast": {
+        "value.#text": "unsetIfValue==value",
         "value.@attributes.xml:lang": "unsetIfValue==value-lang"
     },
     "passThrough": false

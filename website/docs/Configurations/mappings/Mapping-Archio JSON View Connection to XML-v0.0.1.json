@@ -17,16 +17,13 @@
 		"@attributes.source": "source",
 		"@attributes.target": "target",
 		"style": "{% if style|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON View Style to XML.json\", style)|json_encode }}{%else%}[]{%endif%}",
-		"bendpoint.@attributes.x": "bendpoint.x",
-		"bendpoint.@attributes.y": "bendpoint.y"
+		"bendpoint": "{% if bendpoints|default %}[{% for bendpoint in bendpoints %}{{ {\"@attributes\": {\"x\": bendpoint.x, \"y\": bendpoint.y}}|json_encode }}{% if not loop.last %},{% endif %}{% endfor %}]{% else %}[]{% endif %}"
 	},
 	"unset": [],
 	"cast": {
 		"@attributes.relationshipRef": "unsetIfValue==relationshipRef",
 		"style": "jsonToArray",
-		"bendpoint.@attributes.x": "unsetIfValue==bendpoint.x",
-		"bendpoint.@attributes.y": "unsetIfValue==bendpoint.y",
-		"bendpoint": "unsetIfValue=="
+		"bendpoint": ["jsonToArray", "unsetIfValue=="]
 	},
     "passThrough": false
 } 

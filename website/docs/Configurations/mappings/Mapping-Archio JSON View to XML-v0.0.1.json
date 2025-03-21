@@ -14,8 +14,10 @@
 		"@root": "{% if disableRoot|default(false) %}{{ '' }}{% else %}view{% endif %}",
 		"@attributes.identifier": "identifier",
 		"@attributes.xsi:type": "type",
-		"name.@attributes.xml:lang": "name-lang",
 		"name.#text": "name",
+		"name.@attributes.xml:lang": "name-lang",
+		"documentation.#text": "documentation",
+		"documentation.@attributes.xml:lang": "documentation-lang",
 		"properties.property": "{% if properties|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Model Property to XML.json\", properties, true)|json_encode }}{%else%}[]{%endif%}",
 		"node": "{% if nodes|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON View Node to XML.json\", nodes, true)|json_encode }}{%else%}[]{%endif%}",
 		"connection": "{% if connections|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON View Connection to XML.json\", connections, true)|json_encode }}{%else%}[]{%endif%}"
@@ -23,6 +25,9 @@
 	"unset": [],
 	"cast": {
 		"@root": "unsetIfValue==",
+		"documentation.#text": "unsetIfValue==documentation",
+		"documentation.@attributes.xml:lang": "unsetIfValue==documentation-lang",
+		"documentation": "unsetIfValue==",
 		"properties.property": "jsonToArray",
 		"node": "jsonToArray",
 		"connection": ["jsonToArray", "unsetIfValue=="]
