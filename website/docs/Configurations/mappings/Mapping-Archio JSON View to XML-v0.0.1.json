@@ -14,6 +14,7 @@
 		"@root": "{% if disableRoot|default(false) %}{{ '' }}{% else %}view{% endif %}",
 		"@attributes.identifier": "identifier",
 		"@attributes.xsi:type": "type",
+		"@attributes.viewpoint": "viewpoint",
 		"name.#text": "name",
 		"name.@attributes.xml:lang": "name-lang",
 		"documentation.#text": "documentation",
@@ -25,6 +26,7 @@
 	"unset": [],
 	"cast": {
 		"@root": "unsetIfValue==",
+		"@attributes.viewpoint": "unsetIfValue==viewpoint",
 		"documentation.#text": "unsetIfValue==documentation",
 		"documentation.@attributes.xml:lang": "unsetIfValue==documentation-lang",
 		"documentation": "unsetIfValue==",
