@@ -16,6 +16,9 @@
         "value.@attributes.xml:lang": "value-lang"
     },
     "unset": [],
-    "cast": [],
+    "cast": {
+        "value.#text": "unsetIfValue==value",
+        "value.@attributes.xml:lang": "unsetIfValue==value-lang"
+    },
     "passThrough": false
 } 

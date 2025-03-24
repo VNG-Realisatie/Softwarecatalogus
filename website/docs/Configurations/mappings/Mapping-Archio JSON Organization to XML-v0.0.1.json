@@ -15,6 +15,8 @@
 		"@attributes.identifierRef": "identifierRef",
 		"label.#text": "label",
 		"label.@attributes.xml:lang": "label-lang",
+		"documentation.#text": "documentation",
+		"documentation.@attributes.xml:lang": "documentation-lang",
 		"item": "{% if item|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio JSON Organization to XML.json\", {'listInput': item, 'disableRoot': true}, true)|json_encode }}{% else %}[]{% endif %}"
 	},
 	"unset": [],
@@ -24,6 +26,9 @@
 		"label.#text": "unsetIfValue==label",
 		"label.@attributes.xml:lang": "unsetIfValue==label-lang",
 		"label": "unsetIfValue==",
+		"documentation.#text": "unsetIfValue==documentation",
+		"documentation.@attributes.xml:lang": "unsetIfValue==documentation-lang",
+		"documentation": "unsetIfValue==",
 		"item": ["jsonToArray", "unsetIfValue=="]
 	},
 	"passThrough": false

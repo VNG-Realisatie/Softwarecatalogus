@@ -22,7 +22,11 @@
     },
     "unset": [],
     "cast": {
-        "properties": "jsonToArray"
+        "properties": "jsonToArray",
+        "name": "unsetIfValue==name.#text",
+        "name-lang": "unsetIfValue==",
+        "documentation": "unsetIfValue==documentation.#text",
+        "documentation-lang": "unsetIfValue=="
     },
     "passThrough": false,
     "dateCreated": "2025-02-18T16:09:45+00:00",

@@ -17,6 +17,8 @@
         "viewpoint": "{{ attribute(_context['@attributes'], 'viewpoint')|default('') }}",
         "name": "name.#text",
         "name-lang": "{{ attribute(name['@attributes'], 'xml:lang') }}",
+        "documentation": "documentation.#text",
+        "documentation-lang": "{{ attribute(documentation['@attributes'], 'xml:lang') }}",
         "properties": "{% if properties.property|default %}{% if properties.property['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Model Property to Gemma OAS.json\", properties.property)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Model Property to Gemma OAS.json\", properties.property, true)|json_encode }}{% endif %}{% else %}[]{% endif %}",
         "nodes": "{% if node|default %}{% if node['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Node.json\", node)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Node.json\", node, true)|json_encode }}{% endif %}{% else %}[]{% endif %}",
         "connections": "{% if connection|default %}{% if connection['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Connection.json\", connection)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Connection.json\", connection, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
@@ -24,6 +26,8 @@
     "unset": [],
     "cast": {
         "viewpoint": "unsetIfValue==",
+        "documentation": "unsetIfValue==documentation.#text",
+        "documentation-lang": "unsetIfValue==",
         "properties": "jsonToArray",
         "nodes": "jsonToArray",
         "connections": "jsonToArray"
