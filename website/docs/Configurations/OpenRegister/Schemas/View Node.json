@@ -6,12 +6,325 @@
   "type": "schema",
   "description": "Gemma View > Node",
   "summary": "",
-  "required": [],
-  "properties": [],
+  "required": [
+    "identifier",
+    "type",
+    "position",
+    "style"
+  ],
+  "properties": {
+    "identifier": {
+      "description": "De identifier van deze View Node",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "id-36639",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "elementRef": {
+      "description": "De elementRef van deze View Node",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "id-b9604af6-1e0c-46c9-b870-fabca229545a",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "type": {
+      "description": "De type van deze View Node",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "Element",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "position": {
+      "description": "De position van deze View Node",
+      "type": "array",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "{                         \"x\": \"7\",                         \"y\": \"245\",                         \"w\": \"171\",                         \"h\": \"36\"                     }",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": 4,
+      "maxItems": 4,
+      "cascadeDelete": false,
+      "$ref": "",
+      "items": {
+        "cascadeDelete": false,
+        "$ref": "",
+        "type": "string"
+      },
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "label": {
+      "description": "De label van deze View Node",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "Bedrijfsfuncties klant en keteninteractie",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "label-lang": {
+      "description": "De label-language van deze View Node",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": 2,
+      "maxLength": 2,
+      "example": "nl",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "style": {
+      "description": "De style van deze View Node",
+      "type": "object",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "{                         \"fillColor\": {                             \"r\": \"183\",                             \"g\": \"222\",                             \"b\": \"232\",                             \"a\": \"100\"                         },                         \"lineColor\": {                             \"r\": \"0\",                             \"g\": \"0\",                             \"b\": \"0\",                             \"a\": \"100\"                         },                         \"font\": {                             \"name\": \"Segoe UI\",                             \"size\": \"9\"                         },                         \"color\": {                             \"r\": \"0\",                             \"g\": \"0\",                             \"b\": \"0\"                         }                     }",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": true,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "viewRef": {
+      "description": "De viewRef van deze View Node",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "id-8faa89f95bf64b4ca6407782b09b9340",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "nodes": {
+      "description": "De nodes van deze View Node",
+      "type": "array",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "items": {
+        "cascadeDelete": true,
+        "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View Node.json",
+        "type": "object"
+      },
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    }
+  },
   "archive": [],
   "source": "",
   "hardValidation": false,
-  "updated": "2025-03-25T10:58:50+00:00",
+  "updated": "2025-03-25T15:38:41+00:00",
   "created": "2025-03-25T10:58:05+00:00",
   "maxDepth": 0
 }
