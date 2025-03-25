@@ -1,0 +1,17 @@
+{
+  "title": "View",
+  "$id": "https://vng.accept.commonground.nu/openregister/schemas/View.json",
+  "$schema": "https://docs.commongateway.nl/schemas/Schema.schema.json",
+  "version": "0.0.1",
+  "type": "schema",
+  "description": "Gemma View",
+  "summary": "",
+  "required": [],
+  "properties": [],
+  "archive": [],
+  "source": "",
+  "hardValidation": false,
+  "updated": "2025-03-10T13:30:43+00:00",
+  "created": "2025-03-03T13:56:48+00:00",
+  "maxDepth": 0
+}

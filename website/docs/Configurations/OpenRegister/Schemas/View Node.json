@@ -1,0 +1,17 @@
+{
+  "title": "View Node",
+  "$id": "https://vng.accept.commonground.nu/openregister/schemas/View Node.json",
+  "$schema": "https://docs.commongateway.nl/schemas/Schema.schema.json",
+  "version": "0.0.1",
+  "type": "schema",
+  "description": "Gemma View > Node",
+  "summary": "",
+  "required": [],
+  "properties": [],
+  "archive": [],
+  "source": "",
+  "hardValidation": false,
+  "updated": "2025-03-25T10:58:50+00:00",
+  "created": "2025-03-25T10:58:05+00:00",
+  "maxDepth": 0
+}
