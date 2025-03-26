@@ -11,6 +11,7 @@
     "version": "0.0.1",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio JSON View Style to XML.json",
     "mapping": {
+        "@attributes.lineWidth": "lineWidth",
         "fillColor.@attributes.r": "fillColor.r",
         "fillColor.@attributes.g": "fillColor.g",
         "fillColor.@attributes.b": "fillColor.b",
@@ -21,18 +22,21 @@
         "lineColor.@attributes.a": "lineColor.a",
         "font.@attributes.name": "font.name",
         "font.@attributes.size": "font.size",
+        "font.@attributes.style": "font.style",
         "font.color.@attributes.r": "color.r",
         "font.color.@attributes.g": "color.g",
         "font.color.@attributes.b": "color.b"
     },
     "unset": [],
     "cast": {
+        "@attributes.lineWidth": "unsetIfValue==lineWidth",
         "fillColor.@attributes.r": "unsetIfValue==fillColor.r",
         "fillColor.@attributes.g": "unsetIfValue==fillColor.g",
         "fillColor.@attributes.b": "unsetIfValue==fillColor.b",
         "fillColor.@attributes.a": "unsetIfValue==fillColor.a",
         "fillColor": "unsetIfValue==",
-        "lineColor.@attributes.a": "unsetIfValue==lineColor.a"
+        "lineColor.@attributes.a": "unsetIfValue==lineColor.a",
+        "font.@attributes.style": "unsetIfValue==font.style"
     },
     "passThrough": false
 } 
