@@ -1,0 +1,26 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "rule",
+    "@id": "https://vng.accept.commonground.nu/Rule-Sync Elements.json",
+    "id": 9,
+    "name": "Sync Elements",
+    "description": "",
+    "reference": "https://vng.accept.commonground.nu/Rule-Sync Elements.json",
+    "version": "0.0.1",
+    "action": "get",
+    "timing": "before",
+    "conditions": {
+        "==": [
+            1,
+            1
+        ]
+    },
+    "type": "synchronization",
+    "configuration": {
+        "synchronization": 2
+    },
+    "order": 3
+}
