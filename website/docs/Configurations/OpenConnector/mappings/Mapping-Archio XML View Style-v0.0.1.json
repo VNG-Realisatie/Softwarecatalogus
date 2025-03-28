@@ -11,6 +11,7 @@
     "version": "0.0.1",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML View Style.json",
     "mapping": {
+        "originId": "{{ uniqueIdKey ~ '-style' }}",
         "lineWidth": "@attributes.lineWidth",
         "fillColor": "{% if fillColor|default %}{\"r\":\"{{ fillColor['@attributes'].r }}\",\"g\":\"{{ fillColor['@attributes'].g }}\",\"b\":\"{{ fillColor['@attributes'].b }}\",\"a\":\"{{ fillColor['@attributes'].a }}\"}{% else %}[]{% endif %}",
         "lineColor": "{\"r\":\"{{ lineColor['@attributes'].r }}\",\"g\":\"{{ lineColor['@attributes'].g }}\",\"b\":\"{{ lineColor['@attributes'].b }}\",\"a\":\"{{ lineColor['@attributes'].a|default('empty') }}\"}",

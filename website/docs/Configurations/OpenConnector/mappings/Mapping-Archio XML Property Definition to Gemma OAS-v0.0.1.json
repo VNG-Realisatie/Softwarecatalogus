@@ -11,6 +11,7 @@
     "version": "0.0.1",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Property Definition to Gemma OAS.json",
     "mapping": {
+        "originId": "@attributes.identifier",
         "identifier": "@attributes.identifier",
         "type": "@attributes.type",
         "name": "name.#text",

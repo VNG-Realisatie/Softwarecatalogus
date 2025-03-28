@@ -13,7 +13,7 @@
     "endpointArray": [
         "views"
     ],
-    "endpointRegex": "#views",
+    "endpointRegex": "^views$",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/11",

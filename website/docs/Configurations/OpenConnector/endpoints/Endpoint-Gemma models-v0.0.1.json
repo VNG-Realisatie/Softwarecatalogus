@@ -6,7 +6,7 @@
     "@type": "endpoint",
     "@id": "https://vng.accept.commonground.nu/Endpoint-Gemma models.json",
     "name": "Gemma models",
-    "description": "",
+    "description": "Get all Gemma models.",
     "reference": "https://vng.accept.commonground.nu/Endpoint-Gemma models.json",
     "version": "0.0.1",
     "endpoint": "models",

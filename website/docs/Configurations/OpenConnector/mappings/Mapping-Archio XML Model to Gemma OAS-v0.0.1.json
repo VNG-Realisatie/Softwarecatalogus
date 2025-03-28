@@ -12,6 +12,7 @@
     "version": "0.0.1",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Model to Gemma OAS.json",
     "mapping": {
+        "originId": "@attributes.identifier",
         "xmlns": "{{ attribute(_context['@attributes'], 'xsi:schemaLocation')|split(' ')|first }}",
         "xsi": "http://www.w3.org/2001/XMLSchema-instance",
         "schemaLocation": "{{ attribute(_context['@attributes'], 'xsi:schemaLocation') }}",
