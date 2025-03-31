@@ -26,7 +26,7 @@ Daarnaast moeten de issues worden geacepteerd.
 | Actie | Verantwoordelijke | Status |
 |-------|------------------|---------|
 | GitHub-Jira koppeling herstellen | Matthias | TODO |
-| Forken van de benodigde componenten | Ruben | TODO |
+| Forken van de benodigde componenten | Ruben | Done |
 | Security policies en branch protection rules instellen | - | TODO |
 | Bij IBD ophalen hoeveel bestanden zij verwachten per pakket| Peter | TODO |
 | Rutger VN-R betrekken op api testen | Peter | TODO |
