@@ -6,6 +6,19 @@ De Softwarecatalogus is opgebouwd uit verschillende Common Ground componenten di
 
 ## Componenten
 
+### Modules
+
+De componenten van de Softwarecatalogus zijn beschikbaar in de map `modules` en zijn opgezet volgens het principe van [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Dit betekent dat elke component als een aparte submodule wordt beheerd, wat zorgt voor een betere modulariteit en onafhankelijkheid van de verschillende onderdelen. Hierdoor kunnen updates en wijzigingen in een specifieke component eenvoudig worden doorgevoerd zonder de rest van de applicatie te beïnvloeden.
+
+De voordelen van het gebruik van Git Submodules zijn onder andere:
+- **Modulariteit**: Elke component kan onafhankelijk worden ontwikkeld en beheerd.
+- **Versiebeheer**: Specifieke versies van componenten kunnen worden vastgelegd en bijgehouden.
+- **Herbruikbaarheid**: Componenten kunnen eenvoudig worden hergebruikt in andere projecten.
+- **Onafhankelijkheid**: Wijzigingen in een component hebben geen directe impact op andere componenten.
+
+Voor meer informatie over het gebruik en beheer van Git Submodules, zie de [officiële documentatie](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+
+
 ### Publicatie Voorziening (Frontend)
 De frontend van de Softwarecatalogus wordt verzorgd door de Publicatie Voorziening. Deze component:
 - Biedt een gebruiksvriendelijke interface voor eindgebruikers
