@@ -1,0 +1,17 @@
+{
+  "title": "Gemma Model",
+  "$id": "https://vng.accept.commonground.nu/openregister/schemas/Gemma_Model.json",
+  "$schema": "https://docs.commongateway.nl/schemas/Schema.schema.json",
+  "version": "0.0.1",
+  "type": "schema",
+  "description": "This object represents an entire gemma collection",
+  "summary": "",
+  "required": [],
+  "properties": [],
+  "archive": [],
+  "source": "",
+  "hardValidation": false,
+  "updated": "2025-03-10T13:29:08+00:00",
+  "created": "2025-03-03T13:57:16+00:00",
+  "maxDepth": 0
+}

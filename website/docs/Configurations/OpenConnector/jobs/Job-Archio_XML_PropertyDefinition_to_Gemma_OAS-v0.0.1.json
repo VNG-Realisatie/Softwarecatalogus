@@ -1,0 +1,29 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "job",
+    "@id": "https://vng.accept.commonground.nu/Job-Archio_XML_PropertyDefinition_to_Gemma_OAS.json",
+    "name": "Archio XML PropertyDefinition to Gemma OAS",
+    "description": "",
+    "reference": "https://vng.accept.commonground.nu/Job-Archio_XML_PropertyDefinition_to_Gemma_OAS.json",
+    "version": "0.0.1",
+    "jobClass": "OCA\\OpenConnector\\Action\\SynchronizationAction",
+    "arguments": {
+        "synchronizationId": "5"
+    },
+    "interval": 300,
+    "executionTime": 3600,
+    "timeSensitive": false,
+    "allowParallelRuns": false,
+    "isEnabled": true,
+    "singleRun": false,
+    "scheduleAfter": "2025-03-14T14:47:21+00:00",
+    "userId": "",
+    "jobListId": "173",
+    "logRetention": 3600,
+    "errorRetention": 86400,
+    "lastRun": "2025-03-14T14:44:16+00:00",
+    "nextRun": "2025-03-14T14:44:16+00:00"
+}

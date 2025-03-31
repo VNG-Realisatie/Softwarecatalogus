@@ -1,0 +1,119 @@
+{
+  "title": "Model Property",
+  "$id": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json",
+  "$schema": "https://docs.commongateway.nl/schemas/Schema.schema.json",
+  "version": "0.0.1",
+  "type": "schema",
+  "description": "Property for Gemma View, Relation, Element & Model",
+  "summary": "",
+  "required": [
+    "propertyDefinitionRef"
+  ],
+  "properties": {
+    "propertyDefinitionRef": {
+      "description": "De propertyDefinitionRef van deze Model Property",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "propid-65",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "value": {
+      "description": "De value van deze Model Property",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "Totaal (meerlaags)",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "value-lang": {
+      "description": "De value-language van deze Model Property",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": 2,
+      "maxLength": 2,
+      "example": "nl",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    }
+  },
+  "archive": [],
+  "source": "",
+  "hardValidation": false,
+  "updated": "2025-03-25T16:22:49+00:00",
+  "created": "2025-03-25T16:20:21+00:00",
+  "maxDepth": 0
+}
