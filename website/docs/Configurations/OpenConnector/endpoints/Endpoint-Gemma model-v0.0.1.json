@@ -13,7 +13,7 @@
     "endpointArray": [
         "model"
     ],
-    "endpointRegex": "#model$#",
+    "endpointRegex": "^model$",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/14",

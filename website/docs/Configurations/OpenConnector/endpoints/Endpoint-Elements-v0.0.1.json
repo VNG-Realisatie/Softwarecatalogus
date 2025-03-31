@@ -13,7 +13,7 @@
     "endpointArray": [
         "elements"
     ],
-    "endpointRegex": "#elements",
+    "endpointRegex": "^elements$",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/10",

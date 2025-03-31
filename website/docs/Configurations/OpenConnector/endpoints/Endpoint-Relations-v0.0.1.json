@@ -13,7 +13,7 @@
     "endpointArray": [
         "relations"
     ],
-    "endpointRegex": "#relations",
+    "endpointRegex": "^relations$",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/13",
