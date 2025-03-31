@@ -2,9 +2,17 @@
 
 Deze handleiding beschrijft het proces voor het importeren van AMEF-bestanden in het systeem.
 
+:::caution Alleen voor catalogusbeheerders
+Deze functionaliteit is uitsluitend bedoeld voor beheerders van catalogi en is niet toegankelijk voor functioneel beheerders van organisaties binnen een catalogus.
+:::
+
 ## Inleiding
 
-AMEF-bestanden (Archimate Model Exchange Format) bevatten modelelementen, relaties en diagrammen die geïmporteerd kunnen worden in de applicatie. Het importeren gebeurt via een speciaal scherm waar de benodigde URL's opgegeven kunnen worden.
+AMEF-bestanden (Archimate Model Exchange Format) zijn architecturele bestanden die de basis vormen voor een catalogus. Deze bestanden bevatten modelelementen, relaties en diagrammen die geïmporteerd kunnen worden in de applicatie. 
+
+Het doel van AMEF-imports is het inladen van de architecturele basis van een catalogus. Dit is een beheertaak die alleen uitgevoerd kan worden door catalogusbeheerders met de juiste rechten.
+
+Het importeren gebeurt via een speciaal scherm waar de benodigde URL's opgegeven kunnen worden.
 
 ## Stappen voor het importeren van een AMEF-bestand
 
