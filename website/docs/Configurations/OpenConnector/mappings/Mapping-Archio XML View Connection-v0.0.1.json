@@ -17,7 +17,7 @@
         "type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
         "source": "@attributes.source",
         "target": "@attributes.target",
-        "style": "{% if style|default %}{% set style = style|merge({'uniqueIdKey': @attributes.identifier) %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Style.json\", style)|json_encode }}{%else%}[]{%endif%}",
+        "style": "{% if style|default %}{% set style = style|merge({'uniqueIdKey': attribute(_context['@attributes'], 'identifier')}) %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Style.json\", style)|json_encode }}{%else%}[]{%endif%}",
         "bendpoints": "{% if bendpoint|default %}{% if bendpoint['@attributes']|default %}[{\"x\": \"{{ bendpoint['@attributes'].x }}\", \"y\": \"{{ bendpoint['@attributes'].y }}\"}]{% elseif bendpoint is iterable %}[{% for point in bendpoint %}{% if not loop.first %},{% endif %}{\"x\": \"{{ point['@attributes'].x }}\", \"y\": \"{{ point['@attributes'].y }}\"}{% endfor %}]{% else %}[]{% endif %}{% else %}[]{% endif %}"
     },
     "unset": [],
