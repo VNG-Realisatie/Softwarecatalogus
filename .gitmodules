@@ -1,0 +1,9 @@
+[submodule "modules/openregister"]
+	path = modules/openregister
+	url = https://github.com/ConductionNL/openregister
+[submodule "modules/openconnector"]
+	path = modules/openconnector
+	url = https://github.com/ConductionNL/openconnector
+[submodule "modules/opencatalogi"]
+	path = modules/opencatalogi
+	url = https://github.com/ConductionNL/opencatalogi

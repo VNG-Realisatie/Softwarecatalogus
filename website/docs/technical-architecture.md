@@ -131,6 +131,9 @@ Voor het werken met ArchiMate modellen en andere ontwikkelactiviteiten raden we 
 #### Free Accessibility Checker
 [Free Accessibility Checker](https://freeaccessibilitychecker.skynettechnologies.com/?website=vng.opencatalogi.nl) is een online tool voor het controleren van de toegankelijkheid van websites.
 
+#### Internet.nl
+[Internet.nl](https://internet.nl/site/vng.opencatalogi.nl/) is een online tool voor het testen van de internetstandaarden van websites.
+
 ## Gebruikte technologieën en princiepes
 
 In dit project maken we gebruik van verschillende technologieën om een robuuste en schaalbare applicatie te bouwen. Hieronder vindt u een overzicht van de belangrijkste technologieën die we gebruiken, inclusief links naar de externe pagina's voor meer informatie.
