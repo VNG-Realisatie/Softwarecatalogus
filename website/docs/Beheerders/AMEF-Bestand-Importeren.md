@@ -22,7 +22,7 @@ AMEF-bestanden (Archimate Model Exchange Format) bevatten modelelementen, relati
 
 ### 3. Invoeren van de benodigde URL's
 
-![AMEF Import Scherm](/img/amef-import-screen.png)
+![AMEF Import Scherm](../Diagrams/amef-import-screen.png)
 
 In het importvenster moet u twee URL's opgeven:
 
@@ -47,7 +47,7 @@ Nadat u beide URL's heeft ingevoerd:
 
 ### 5. Voortgang van de import
 
-![Voortgang Import](/img/amef-import-progress.png)
+![Voortgang Import](../Diagrams/amef-import-progress.png)
 
 Na het starten van de import verschijnt een nieuw scherm dat de voortgang toont:
 
