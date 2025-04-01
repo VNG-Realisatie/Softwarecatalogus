@@ -1,6 +1,6 @@
-# AMEF-Bestand Importeren
+# AMEFF-Bestand Importeren
 
-Deze handleiding beschrijft het proces voor het importeren van AMEF-bestanden in het systeem.
+Deze handleiding beschrijft het proces voor het importeren van AMEFF-bestanden in het systeem.
 
 :::caution Alleen voor catalogusbeheerders
 Deze functionaliteit is uitsluitend bedoeld voor beheerders van catalogi en is niet toegankelijk voor functioneel beheerders van organisaties binnen een catalogus.
@@ -8,13 +8,13 @@ Deze functionaliteit is uitsluitend bedoeld voor beheerders van catalogi en is n
 
 ## Inleiding
 
-AMEF-bestanden (Archimate Model Exchange Format) zijn architecturele bestanden die de basis vormen voor een catalogus. Deze bestanden bevatten modelelementen, relaties en diagrammen die geïmporteerd kunnen worden in de applicatie. 
+AMEFF-bestanden (Archimate Model Exchange File Format) zijn architecturele bestanden die de basis vormen voor een catalogus. Deze bestanden bevatten modelelementen, relaties en diagrammen die geïmporteerd kunnen worden in de applicatie. 
 
-Het doel van AMEF-imports is het inladen van de architecturele basis van een catalogus. Dit is een beheertaak die alleen uitgevoerd kan worden door catalogusbeheerders met de juiste rechten.
+Het doel van AMEFF-imports is het inladen van de architecturele basis van een catalogus. Dit is een beheertaak die alleen uitgevoerd kan worden door catalogusbeheerders met de juiste rechten.
 
 Het importeren gebeurt via een speciaal scherm waar de benodigde URL's opgegeven kunnen worden.
 
-## Stappen voor het importeren van een AMEF-bestand
+## Stappen voor het importeren van een AMEFF-bestand
 
 ### 1. Inloggen op het platform
 
@@ -23,13 +23,14 @@ Het importeren gebeurt via een speciaal scherm waar de benodigde URL's opgegeven
 3. Voer uw inloggegevens in
 4. U wordt doorgestuurd naar uw dashboard
 
-### 2. Navigeren naar AMEF importeren
+### 2. Navigeren naar AMEFF importeren
 
-1. Zoek in het dashboard naar de knop 'AMEF importeren'
+1. Zoek in het dashboard naar de knop 'AMEFF importeren'
 2. Klik op deze knop om het importeervenster te openen
 
 ### 3. Invoeren van de benodigde URL's
 
+![AMEFF Import Scherm](/img/amef-import-screen.png)
 ![AMEF Import Scherm](../../static/img/amef-import-screen.png)
 
 In het importvenster moet u twee URL's opgeven:
@@ -39,11 +40,11 @@ In het importvenster moet u twee URL's opgeven:
    - Deze URL wordt gebruikt in de views om door te verwijzen naar externe bronnen met gedetailleerde informatie
 
 2. **URL naar Archimate(XML)**:
-   - Dit moet een URL zijn naar een AMEF-bestand dat beschikbaar is op een weblocatie
+   - Dit moet een URL zijn naar een AMEFF-bestand dat beschikbaar is op een weblocatie
    - Bijvoorbeeld: 'https://raw.githubusercontent.com/VNG-Realisatie/...'
 
 :::note
-Op dit moment kunnen alleen AMEF-bestanden uit de VNG-catalogus worden geïmporteerd. De applicatie ondersteunt nog geen uploads van lokale bestanden.
+Op dit moment kunnen alleen AMEFF-bestanden uit de VNG-catalogus worden geïmporteerd. De applicatie ondersteunt nog geen uploads van lokale bestanden.
 :::
 
 ### 4. Starten van de import
@@ -51,7 +52,7 @@ Op dit moment kunnen alleen AMEF-bestanden uit de VNG-catalogus worden geïmport
 Nadat u beide URL's heeft ingevoerd:
 
 1. Klik op de blauwe knop 'Gemma inlezen'
-2. Het systeem start het importeren van het AMEF-bestand
+2. Het systeem start het importeren van het AMEFF-bestand
 
 ### 5. Voortgang van de import
 
@@ -97,7 +98,7 @@ Deze rollback-functionaliteit is alleen beschikbaar voor beheerders met toegang 
 
 1. Log in op het platform
 2. Navigeer naar uw dashboard
-3. Klik op 'AMEF importeren'
+3. Klik op 'AMEFF importeren'
 4. Vul de Gemma URL in: 'https://www.gemmaonline.nl/index.php?title=...'
 5. Vul de Archimate(XML) URL in: 'https://raw.githubusercontent.com/VNG-Realisatie/...'
 6. Klik op 'Gemma inlezen'
