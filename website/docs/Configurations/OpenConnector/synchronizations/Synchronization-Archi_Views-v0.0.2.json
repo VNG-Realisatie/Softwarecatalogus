@@ -25,11 +25,11 @@
         "usesPagination": false,
         "subObjects.properties": "true",
         "subObjects.nodes": "true",
-        "subObjects.connections": "true",
         "subObjects.nodes.subObjects.style": "true",
         "subObjects.nodes.subObjects.nodes": "true",
         "subObjects.nodes.subObjects.nodes.subObjects.nodes": "true",
         "subObjects.nodes.subObjects.nodes.subObjects.nodes.subObjects.nodes": "true",
+        "subObjects.connections": "true",
         "subObjects.connections.subObjects.style": "true"
     },
     "sourceLastChanged": "2025-02-16T23:42:38+00:00",

@@ -1,0 +1,23 @@
+{
+  "title": "Organization",
+  "$id": "http://nextcloud.local/index.php/apps/openregister/api/schemas/12",
+  "$schema": "https://docs.commongateway.nl/schemas/Schema.schema.json",
+  "version": "0.0.3",
+  "type": "schema",
+  "slug": null,
+  "description": "Gemma Organization",
+  "summary": "",
+  "required": [],
+  "properties": [],
+  "archive": [],
+  "source": "",
+  "hardValidation": false,
+  "updated": "2025-03-10T13:29:51+00:00",
+  "created": "2025-03-03T13:56:55+00:00",
+  "maxDepth": 4,
+  "owner": null,
+  "application": null,
+  "organisation": null,
+  "authorization": [],
+  "deleted": null
+}
