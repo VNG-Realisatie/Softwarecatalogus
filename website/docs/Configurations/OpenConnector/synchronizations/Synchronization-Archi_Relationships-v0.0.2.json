@@ -10,7 +10,7 @@
     "name": "Archi Relationships",
     "description": "",
     "reference": "https://vng.accept.commonground.nu/Synchronization-Archi_relationships.json",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "sourceId": "2",
     "sourceType": "api",
     "sourceHash": "",
@@ -22,7 +22,8 @@
         "endpoint": "",
         "headers": [],
         "query": [],
-        "usesPagination": false
+        "usesPagination": false,
+        "subObjects.properties": "true"
     },
     "sourceLastChanged": "2025-02-16T23:40:51+00:00",
     "sourceLastChecked": "2025-02-16T23:40:51+00:00",

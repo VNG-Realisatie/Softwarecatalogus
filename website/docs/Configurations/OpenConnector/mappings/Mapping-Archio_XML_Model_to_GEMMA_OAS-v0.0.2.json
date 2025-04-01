@@ -1,0 +1,44 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "mapping",
+    "@id": "https://vng.accept.commonground.nu/Mapping-Archio_XML_Model_to_GEMMA_OAS.json",
+    "id": 9,
+    "uuid": "76ebeaa7-81d1-44e6-9b36-50fd0788ca10",
+    "name": "Archio XML Model to GEMMA OAS",
+    "description": "",
+    "version": "0.0.2",
+    "reference": "https://vng.accept.commonground.nu/Mapping-Archio_XML_Model_to_GEMMA_OAS.json",
+    "mapping": {
+        "originId": "@attributes.identifier",
+        "xmlns": "{{ attribute(_context['@attributes'], 'xsi:schemaLocation')|split(' ')|first }}",
+        "xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "schemaLocation": "{{ attribute(_context['@attributes'], 'xsi:schemaLocation') }}",
+        "identifier": "@attributes.identifier",
+        "name": "name.#text",
+        "name-lang": "{{ attribute(name['@attributes'], 'xml:lang') }}",
+        "version": "{{ attribute(_context['@attributes'], 'xsi:schemaLocation')|split(' ')|first|split('archimate/')|last|split('/')|first }}",
+        "documentation": "documentation.#text",
+        "documentation-lang": "{{ attribute(documentation['@attributes'], 'xml:lang') }}",
+        "properties": "{% if properties.property|default %}{% set uniqueIdKey = attribute(_context['@attributes'], 'identifier') %}{% if properties.property['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Model_Property_to_GEMMA_OAS.json\", properties.property|merge({'uniqueIdKey': uniqueIdKey}))|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Model_Property_to_GEMMA_OAS.json\", {'listInput': properties.property, 'uniqueIdKey': uniqueIdKey}, true)|json_encode }}{% endif %}{% else %}[]{% endif %}",
+        "elements": "{% if elements.element|default %}{% if elements.element['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Elements_to_GEMMA_OAS.json\", elements.element)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Elements_to_GEMMA_OAS.json\", elements.element, true)|json_encode }}{% endif %}{% else %}[]{% endif %}",
+        "relationships": "{% if relationships.relationship|default %}{% if relationships.relationship['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Relations_to_GEMMA_OAS.json\", relationships.relationship)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Relations_to_GEMMA_OAS.json\", relationships.relationship, true)|json_encode }}{% endif %}{% else %}[]{% endif %}",
+        "organizations": "{% if organizations.item|default %}{% if organizations.item.label|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Organization_to_GEMMA_OAS.json\", organizations.item)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Organization_to_GEMMA_OAS.json\", organizations.item, true)|json_encode }}{% endif %}{% else %}[]{% endif %}",
+        "propertyDefinitions": "{% if propertyDefinitions.propertyDefinition|default %}{% if propertyDefinitions.propertyDefinition['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Property_Definition_to_GEMMA_OAS.json\", propertyDefinitions.propertyDefinition)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Property_Definition_to_GEMMA_OAS.json\", propertyDefinitions.propertyDefinition, true)|json_encode }}{% endif %}{% else %}[]{% endif %}",
+        "views": "{% if views.diagrams.view|default %}{% if views.diagrams.view['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Views_to_GEMMA_OAS.json\", views.diagrams.view)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Views_to_GEMMA_OAS.json\", views.diagrams.view, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
+    },
+    "unset": [],
+    "cast": {
+        "properties": "jsonToArray",
+        "elements": "jsonToArray",
+        "relationships": "jsonToArray",
+        "organizations": "jsonToArray",
+        "propertyDefinitions": "jsonToArray",
+        "views": "jsonToArray"
+    },
+    "passThrough": false,
+    "dateCreated": "2025-02-18T16:09:50+00:00",
+    "dateModified": "2025-02-18T16:09:50+00:00"
+}

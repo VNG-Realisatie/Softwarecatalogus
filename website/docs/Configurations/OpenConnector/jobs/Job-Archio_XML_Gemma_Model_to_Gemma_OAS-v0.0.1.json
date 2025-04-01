@@ -4,10 +4,10 @@
         "register": "Not Implemented"
     },
     "@type": "job",
-    "@id": "https://vng.accept.commonground.nu/Job-Archio_XML_Gemma_Model_to_Gemma_OAS.json",
-    "name": "Archio XML Gemma Model to Gemma OAS",
+    "@id": "https://vng.accept.commonground.nu/Job-Archio_XML_GEMMA_Model_to_GEMMA_OAS.json",
+    "name": "Archio XML GEMMA Model to GEMMA OAS",
     "description": "",
-    "reference": "https://vng.accept.commonground.nu/Job-Archio_XML_Gemma_Model_to_Gemma_OAS.json",
+    "reference": "https://vng.accept.commonground.nu/Job-Archio_XML_GEMMA_Model_to_GEMMA_OAS.json",
     "version": "0.0.1",
     "jobClass": "OCA\\OpenConnector\\Action\\SynchronizationAction",
     "arguments": {

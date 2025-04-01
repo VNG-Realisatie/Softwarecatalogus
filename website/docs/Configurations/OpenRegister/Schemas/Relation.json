@@ -1,22 +1,23 @@
 {
-  "title": "View",
-  "$id": "https://vng.accept.commonground.nu/openregister/schemas/View.json",
+  "title": "Relation",
+  "$id": "https://vng.accept.commonground.nu/openregister/schemas/Relation.json",
   "$schema": "https://docs.commongateway.nl/schemas/Schema.schema.json",
   "version": "0.0.1",
   "type": "schema",
-  "description": "GEMMA View",
+  "nestable": true,
+  "slug": "relation",
+  "description": "GEMMA Relation",
   "summary": "",
   "required": [
     "identifier",
+    "source",
+    "target",
     "type",
-    "name",
-    "properties",
-    "nodes",
-    "connections"
+    "properties"
   ],
   "properties": {
     "identifier": {
-      "description": "De identifier van deze View",
+      "description": "De identifier van deze Relation",
       "type": "string",
       "format": "",
       "pattern": "",
@@ -25,7 +26,73 @@
       "deprecated": false,
       "minLength": null,
       "maxLength": null,
-      "example": "id-a6ee6077d3094afa91fc6ea92a9a2a40",
+      "example": "id-1b46181d68e5477a9c0b5a95a0677924",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "source": {
+      "description": "De source van deze Relation",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "id-d143a1fc-02dc-11e6-11ba-005056a85f9c",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "target": {
+      "description": "De target van deze Relation",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "id-a85f22d89af14222a914fcb9ecfe6815",
       "immutable": false,
       "minimum": null,
       "maximum": null,
@@ -49,7 +116,7 @@
       "oneOf": []
     },
     "type": {
-      "description": "De type van deze View",
+      "description": "De type van deze Relation",
       "type": "string",
       "format": "",
       "pattern": "",
@@ -58,7 +125,7 @@
       "deprecated": false,
       "minLength": null,
       "maxLength": null,
-      "example": "Diagram",
+      "example": "Access",
       "immutable": false,
       "minimum": null,
       "maximum": null,
@@ -81,8 +148,8 @@
       },
       "oneOf": []
     },
-    "viewpoint": {
-      "description": "De viewpoint van deze View",
+    "accessType": {
+      "description": "De accessType van deze Relation",
       "type": "string",
       "format": "",
       "pattern": "",
@@ -91,7 +158,40 @@
       "deprecated": false,
       "minLength": null,
       "maxLength": null,
-      "example": "Application Structure",
+      "example": "Read",
+      "immutable": false,
+      "minimum": null,
+      "maximum": null,
+      "multipleOf": null,
+      "exclusiveMin": false,
+      "exclusiveMax": false,
+      "minItems": null,
+      "maxItems": null,
+      "cascadeDelete": false,
+      "$ref": "",
+      "objectConfiguration": {
+        "handling": "nested-object",
+        "schema": ""
+      },
+      "fileConfiguration": {
+        "handling": "ignore",
+        "allowedMimeTypes": [],
+        "location": "",
+        "maxSize": 0
+      },
+      "oneOf": []
+    },
+    "isDirected": {
+      "description": "De isDirected van deze Relation",
+      "type": "string",
+      "format": "",
+      "pattern": "",
+      "default": "",
+      "behavior": "",
+      "deprecated": false,
+      "minLength": null,
+      "maxLength": null,
+      "example": "true",
       "immutable": false,
       "minimum": null,
       "maximum": null,
@@ -115,7 +215,7 @@
       "oneOf": []
     },
     "name": {
-      "description": "De name van deze View",
+      "description": "De name van deze Relation",
       "type": "string",
       "format": "",
       "pattern": "",
@@ -124,7 +224,7 @@
       "deprecated": false,
       "minLength": null,
       "maxLength": null,
-      "example": "LV01 BGT basisregistratie en SVB view",
+      "example": "Verplicht",
       "immutable": false,
       "minimum": null,
       "maximum": null,
@@ -148,15 +248,15 @@
       "oneOf": []
     },
     "name-lang": {
-      "description": "De name-language van deze View",
+      "description": "De name-language van deze Relation",
       "type": "string",
       "format": "",
       "pattern": "",
       "default": "",
       "behavior": "",
       "deprecated": false,
-      "minLength": null,
-      "maxLength": null,
+      "minLength": 2,
+      "maxLength": 2,
       "example": "nl",
       "immutable": false,
       "minimum": null,
@@ -181,7 +281,7 @@
       "oneOf": []
     },
     "documentation": {
-      "description": "De documentation van deze View",
+      "description": "De documentation van deze Relation",
       "type": "string",
       "format": "",
       "pattern": "",
@@ -190,7 +290,7 @@
       "deprecated": false,
       "minLength": null,
       "maxLength": null,
-      "example": "Toont de referentiecomponenten ter ondersteuning van applicatieservices voor publieksdiensten",
+      "example": "Op basis van het zaaktype routeert de servicebuscomponent de aanvraag naar een Zaakafhandelcomponent (generiek of specifiek).",
       "immutable": false,
       "minimum": null,
       "maximum": null,
@@ -214,7 +314,7 @@
       "oneOf": []
     },
     "documentation-lang": {
-      "description": "De documentation-language van deze View",
+      "description": "De documentation-lang van deze Relation",
       "type": "string",
       "format": "",
       "pattern": "",
@@ -247,7 +347,7 @@
       "oneOf": []
     },
     "properties": {
-      "description": "De properties van deze View",
+      "description": "De properties van deze Relation",
       "type": "array",
       "format": "",
       "pattern": "",
@@ -269,83 +369,7 @@
       "$ref": "",
       "items": {
         "cascadeDelete": true,
-        "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json",
-        "type": "object"
-      },
-      "objectConfiguration": {
-        "handling": "nested-object",
-        "schema": ""
-      },
-      "fileConfiguration": {
-        "handling": "ignore",
-        "allowedMimeTypes": [],
-        "location": "",
-        "maxSize": 0
-      },
-      "oneOf": []
-    },
-    "nodes": {
-      "description": "De nodes van deze View",
-      "type": "array",
-      "format": "",
-      "pattern": "",
-      "default": "",
-      "behavior": "",
-      "deprecated": false,
-      "minLength": null,
-      "maxLength": null,
-      "example": "",
-      "immutable": false,
-      "minimum": null,
-      "maximum": null,
-      "multipleOf": null,
-      "exclusiveMin": false,
-      "exclusiveMax": false,
-      "minItems": null,
-      "maxItems": null,
-      "cascadeDelete": false,
-      "$ref": "",
-      "items": {
-        "cascadeDelete": true,
-        "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Node.json",
-        "type": "object"
-      },
-      "objectConfiguration": {
-        "handling": "nested-object",
-        "schema": ""
-      },
-      "fileConfiguration": {
-        "handling": "ignore",
-        "allowedMimeTypes": [],
-        "location": "",
-        "maxSize": 0
-      },
-      "oneOf": []
-    },
-    "connections": {
-      "description": "De connections van deze View",
-      "type": "array",
-      "format": "",
-      "pattern": "",
-      "default": "",
-      "behavior": "",
-      "deprecated": false,
-      "minLength": null,
-      "maxLength": null,
-      "example": "",
-      "immutable": false,
-      "minimum": null,
-      "maximum": null,
-      "multipleOf": null,
-      "exclusiveMin": false,
-      "exclusiveMax": false,
-      "minItems": null,
-      "maxItems": null,
-      "cascadeDelete": false,
-      "$ref": "",
-      "items": {
-        "cascadeDelete": true,
-        "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Connection.json",
+        "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
         "type": "object"
       },
       "objectConfiguration": {
@@ -364,7 +388,12 @@
   "archive": [],
   "source": "",
   "hardValidation": false,
-  "updated": "2025-03-25T16:30:49+00:00",
-  "created": "2025-03-03T13:56:48+00:00",
-  "maxDepth": 0
+  "updated": "2025-04-01T08:47:45+00:00",
+  "created": "2025-03-03T13:57:01+00:00",
+  "maxDepth": 4,
+  "owner": null,
+  "application": null,
+  "organisation": null,
+  "authorization": [],
+  "deleted": null
 }

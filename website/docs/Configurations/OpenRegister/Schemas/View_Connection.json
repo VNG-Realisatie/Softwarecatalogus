@@ -4,7 +4,7 @@
   "$schema": "https://docs.commongateway.nl/schemas/Schema.schema.json",
   "version": "0.0.1",
   "type": "schema",
-  "description": "Gemma View > Connection",
+  "description": "GEMMA View > Connection",
   "summary": "",
   "required": [
     "identifier",

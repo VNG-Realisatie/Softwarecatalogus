@@ -8,7 +8,7 @@
     "id": 14,
     "name": "Archio XML View Style",
     "description": "Maps the style attributes of a Connection or Node element",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio_XML_View_Style.json",
     "mapping": {
         "originId": "{{ uniqueIdKey ~ '-style' }}",

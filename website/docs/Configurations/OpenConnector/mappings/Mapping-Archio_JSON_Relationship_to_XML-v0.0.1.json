@@ -28,7 +28,7 @@
 	"cast": {
 		"@root": "unsetIfValue==",
 		"@attributes.accessType": "unsetIfValue==accessType",
-		"@attributes.isDirected": "unsetIfValue==isDirected",
+		"@attributes.isDirected": ["unsetIfValue==isDirected", "unsetIfValue=="],
 		"name.#text": "unsetIfValue==name",
 		"name.@attributes.xml:lang": "unsetIfValue==name-lang",
 		"name": "unsetIfValue==",

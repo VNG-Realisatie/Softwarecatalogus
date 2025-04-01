@@ -1,22 +1,20 @@
 {
-  "title": "View",
-  "$id": "https://vng.accept.commonground.nu/openregister/schemas/View.json",
+  "title": "Element",
+  "$id": "https://vng.accept.commonground.nu/openregister/schemas/Element.json",
   "$schema": "https://docs.commongateway.nl/schemas/Schema.schema.json",
   "version": "0.0.1",
   "type": "schema",
-  "description": "GEMMA View",
+  "slug": "element",
+  "description": "GEMMA Element",
   "summary": "",
   "required": [
     "identifier",
     "type",
-    "name",
-    "properties",
-    "nodes",
-    "connections"
+    "properties"
   ],
   "properties": {
     "identifier": {
-      "description": "De identifier van deze View",
+      "description": "De identifier van dit Element",
       "type": "string",
       "format": "",
       "pattern": "",
@@ -25,7 +23,7 @@
       "deprecated": false,
       "minLength": null,
       "maxLength": null,
-      "example": "id-a6ee6077d3094afa91fc6ea92a9a2a40",
+      "example": "id-009fa62f25844aa3a87d252bf2b6bb0c",
       "immutable": false,
       "minimum": null,
       "maximum": null,
@@ -49,7 +47,7 @@
       "oneOf": []
     },
     "type": {
-      "description": "De type van deze View",
+      "description": "Het type van dit Element",
       "type": "string",
       "format": "",
       "pattern": "",
@@ -58,40 +56,7 @@
       "deprecated": false,
       "minLength": null,
       "maxLength": null,
-      "example": "Diagram",
-      "immutable": false,
-      "minimum": null,
-      "maximum": null,
-      "multipleOf": null,
-      "exclusiveMin": false,
-      "exclusiveMax": false,
-      "minItems": null,
-      "maxItems": null,
-      "cascadeDelete": false,
-      "$ref": "",
-      "objectConfiguration": {
-        "handling": "nested-object",
-        "schema": ""
-      },
-      "fileConfiguration": {
-        "handling": "ignore",
-        "allowedMimeTypes": [],
-        "location": "",
-        "maxSize": 0
-      },
-      "oneOf": []
-    },
-    "viewpoint": {
-      "description": "De viewpoint van deze View",
-      "type": "string",
-      "format": "",
-      "pattern": "",
-      "default": "",
-      "behavior": "",
-      "deprecated": false,
-      "minLength": null,
-      "maxLength": null,
-      "example": "Application Structure",
+      "example": "Capability",
       "immutable": false,
       "minimum": null,
       "maximum": null,
@@ -115,7 +80,7 @@
       "oneOf": []
     },
     "name": {
-      "description": "De name van deze View",
+      "description": "De naam van dit Element",
       "type": "string",
       "format": "",
       "pattern": "",
@@ -124,7 +89,7 @@
       "deprecated": false,
       "minLength": null,
       "maxLength": null,
-      "example": "LV01 BGT basisregistratie en SVB view",
+      "example": "Publiceren en gebruiken van informatie over datadiensten",
       "immutable": false,
       "minimum": null,
       "maximum": null,
@@ -148,15 +113,15 @@
       "oneOf": []
     },
     "name-lang": {
-      "description": "De name-language van deze View",
+      "description": "De name-language van dit Element",
       "type": "string",
       "format": "",
       "pattern": "",
       "default": "",
       "behavior": "",
       "deprecated": false,
-      "minLength": null,
-      "maxLength": null,
+      "minLength": 2,
+      "maxLength": 2,
       "example": "nl",
       "immutable": false,
       "minimum": null,
@@ -181,7 +146,7 @@
       "oneOf": []
     },
     "documentation": {
-      "description": "De documentation van deze View",
+      "description": "De documentation van dit Element",
       "type": "string",
       "format": "",
       "pattern": "",
@@ -190,7 +155,7 @@
       "deprecated": false,
       "minLength": null,
       "maxLength": null,
-      "example": "Toont de referentiecomponenten ter ondersteuning van applicatieservices voor publieksdiensten",
+      "example": "Dienstenafnemers moeten in online catalogi kunnen opvragen welke diensten, met welke kenmerken, door dienstenaanbieder worden aangeboden. \\nOnder andere ontwikkelaars hebben baat bij informatie over beschikbare diensten en de vereisten voor het gebruik van de dienst (bijv. specificatie van een dienst conform de OAS-standaard).",
       "immutable": false,
       "minimum": null,
       "maximum": null,
@@ -214,7 +179,7 @@
       "oneOf": []
     },
     "documentation-lang": {
-      "description": "De documentation-language van deze View",
+      "description": "De documentation-language van dit Element",
       "type": "string",
       "format": "",
       "pattern": "",
@@ -247,7 +212,7 @@
       "oneOf": []
     },
     "properties": {
-      "description": "De properties van deze View",
+      "description": "De properties van dit Element",
       "type": "array",
       "format": "",
       "pattern": "",
@@ -269,83 +234,7 @@
       "$ref": "",
       "items": {
         "cascadeDelete": true,
-        "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json",
-        "type": "object"
-      },
-      "objectConfiguration": {
-        "handling": "nested-object",
-        "schema": ""
-      },
-      "fileConfiguration": {
-        "handling": "ignore",
-        "allowedMimeTypes": [],
-        "location": "",
-        "maxSize": 0
-      },
-      "oneOf": []
-    },
-    "nodes": {
-      "description": "De nodes van deze View",
-      "type": "array",
-      "format": "",
-      "pattern": "",
-      "default": "",
-      "behavior": "",
-      "deprecated": false,
-      "minLength": null,
-      "maxLength": null,
-      "example": "",
-      "immutable": false,
-      "minimum": null,
-      "maximum": null,
-      "multipleOf": null,
-      "exclusiveMin": false,
-      "exclusiveMax": false,
-      "minItems": null,
-      "maxItems": null,
-      "cascadeDelete": false,
-      "$ref": "",
-      "items": {
-        "cascadeDelete": true,
-        "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Node.json",
-        "type": "object"
-      },
-      "objectConfiguration": {
-        "handling": "nested-object",
-        "schema": ""
-      },
-      "fileConfiguration": {
-        "handling": "ignore",
-        "allowedMimeTypes": [],
-        "location": "",
-        "maxSize": 0
-      },
-      "oneOf": []
-    },
-    "connections": {
-      "description": "De connections van deze View",
-      "type": "array",
-      "format": "",
-      "pattern": "",
-      "default": "",
-      "behavior": "",
-      "deprecated": false,
-      "minLength": null,
-      "maxLength": null,
-      "example": "",
-      "immutable": false,
-      "minimum": null,
-      "maximum": null,
-      "multipleOf": null,
-      "exclusiveMin": false,
-      "exclusiveMax": false,
-      "minItems": null,
-      "maxItems": null,
-      "cascadeDelete": false,
-      "$ref": "",
-      "items": {
-        "cascadeDelete": true,
-        "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Connection.json",
+        "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
         "type": "object"
       },
       "objectConfiguration": {
@@ -364,7 +253,12 @@
   "archive": [],
   "source": "",
   "hardValidation": false,
-  "updated": "2025-03-25T16:30:49+00:00",
-  "created": "2025-03-03T13:56:48+00:00",
-  "maxDepth": 0
+  "updated": "2025-04-01T12:16:33+00:00",
+  "created": "2025-03-03T13:56:42+00:00",
+  "maxDepth": 4,
+  "owner": null,
+  "application": null,
+  "organisation": null,
+  "authorization": [],
+  "deleted": null
 }

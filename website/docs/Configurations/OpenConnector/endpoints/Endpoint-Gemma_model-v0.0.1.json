@@ -4,10 +4,10 @@
         "register": "Not Implemented"
     },
     "@type": "endpoint",
-    "@id": "https://vng.accept.commonground.nu/Endpoint-Gemma_model.json",
-    "name": "Gemma model",
+    "@id": "https://vng.accept.commonground.nu/Endpoint-GEMMA_model.json",
+    "name": "GEMMA model",
     "description": "Get the complete architecture model including all elements, relations, views, and property definitions. As XML response.",
-    "reference": "https://vng.accept.commonground.nu/Endpoint-Gemma_model.json",
+    "reference": "https://vng.accept.commonground.nu/Endpoint-GEMMA_model.json",
     "version": "0.0.1",
     "endpoint": "model",
     "endpointArray": [

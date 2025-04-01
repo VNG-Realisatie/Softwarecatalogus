@@ -26,7 +26,7 @@
 	"unset": [],
 	"cast": {
 		"@root": "unsetIfValue==",
-		"@attributes.viewpoint": "unsetIfValue==viewpoint",
+		"@attributes.viewpoint": ["unsetIfValue==viewpoint", "unsetIfValue=="],
 		"documentation.#text": "unsetIfValue==documentation",
 		"documentation.@attributes.xml:lang": "unsetIfValue==documentation-lang",
 		"documentation": "unsetIfValue==",

@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "type": "schema",
   "slug": "property-definition",
-  "description": "Gemma Property Definition",
+  "description": "GEMMA Property Definition",
   "summary": "",
   "required": [
     "identifier",

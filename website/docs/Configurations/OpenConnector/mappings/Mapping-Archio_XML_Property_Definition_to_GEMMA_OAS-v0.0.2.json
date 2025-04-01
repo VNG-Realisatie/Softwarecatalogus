@@ -4,12 +4,12 @@
         "register": "Not Implemented"
     },
     "@type": "mapping",
-    "@id": "https://vng.accept.commonground.nu/Mapping-Archio_XML_Property_Definition_to_Gemma_OAS.json",
+    "@id": "https://vng.accept.commonground.nu/Mapping-Archio_XML_Property_Definition_to_GEMMA_OAS.json",
     "id": 11,
-    "name": "Archio XML Property Definition to Gemma OAS",
+    "name": "Archio XML Property Definition to GEMMA OAS",
     "description": "",
-    "version": "0.0.1",
-    "reference": "https://vng.accept.commonground.nu/Mapping-Archio_XML_Property_Definition_to_Gemma_OAS.json",
+    "version": "0.0.2",
+    "reference": "https://vng.accept.commonground.nu/Mapping-Archio_XML_Property_Definition_to_GEMMA_OAS.json",
     "mapping": {
         "originId": "@attributes.identifier",
         "identifier": "@attributes.identifier",

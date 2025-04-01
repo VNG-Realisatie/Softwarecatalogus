@@ -9,7 +9,7 @@
     "uuid": "da4e48dd-55dc-4357-9524-340a477891e1",
     "name": "Archio XML View Node",
     "description": "",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio_XML_View_Node.json",
     "mapping": {
         "originId": "@attributes.identifier",
