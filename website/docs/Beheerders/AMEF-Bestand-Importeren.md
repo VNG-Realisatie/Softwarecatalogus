@@ -30,7 +30,7 @@ Het importeren gebeurt via een speciaal scherm waar de benodigde URL's opgegeven
 
 ### 3. Invoeren van de benodigde URL's
 
-![AMEF Import Scherm](/img/amef-import-screen.png)
+![AMEF Import Scherm](../../static/img/amef-import-screen.png)
 
 In het importvenster moet u twee URL's opgeven:
 
@@ -55,7 +55,7 @@ Nadat u beide URL's heeft ingevoerd:
 
 ### 5. Voortgang van de import
 
-![Voortgang Import](/img/amef-import-progress.png)
+![Voortgang Import](../../static/img/amef-import-progress.png)
 
 Na het starten van de import verschijnt een nieuw scherm dat de voortgang toont:
 
