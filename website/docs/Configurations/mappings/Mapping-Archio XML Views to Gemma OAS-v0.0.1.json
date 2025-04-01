@@ -1,0 +1,38 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "mapping",
+    "@id": "https://vng.accept.commonground.nu/Mapping-Archio XML Views to Gemma OAS.json",
+    "id": 2,
+    "uuid": "76ebeaa7-81d1-44e6-9b36-50fd0788ca10",
+    "name": "Archio XML Views to Gemma OAS",
+    "description": "",
+    "version": "0.0.1",
+    "reference": "https://vng.accept.commonground.nu/Mapping-Archio XML Views to Gemma OAS.json",
+    "mapping": {
+        "identifier": "@attributes.identifier",
+        "type": "{{ attribute(_context['@attributes'], 'xsi:type') }}",
+        "viewpoint": "{{ attribute(_context['@attributes'], 'viewpoint')|default('') }}",
+        "name": "name.#text",
+        "name-lang": "{{ attribute(name['@attributes'], 'xml:lang') }}",
+        "documentation": "documentation.#text",
+        "documentation-lang": "{{ attribute(documentation['@attributes'], 'xml:lang') }}",
+        "properties": "{% if properties.property|default %}{% if properties.property['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Model Property to Gemma OAS.json\", properties.property)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML Model Property to Gemma OAS.json\", properties.property, true)|json_encode }}{% endif %}{% else %}[]{% endif %}",
+        "nodes": "{% if node|default %}{% if node['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Node.json\", node)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Node.json\", node, true)|json_encode }}{% endif %}{% else %}[]{% endif %}",
+        "connections": "{% if connection|default %}{% if connection['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Connection.json\", connection)|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio XML View Connection.json\", connection, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
+    },
+    "unset": [],
+    "cast": {
+        "viewpoint": "unsetIfValue==",
+        "documentation": "unsetIfValue==documentation.#text",
+        "documentation-lang": "unsetIfValue==",
+        "properties": "jsonToArray",
+        "nodes": "jsonToArray",
+        "connections": "jsonToArray"
+    },
+    "passThrough": false,
+    "dateCreated": "2025-02-18T16:09:50+00:00",
+    "dateModified": "2025-02-18T16:09:50+00:00"
+}

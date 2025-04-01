@@ -1,0 +1,70 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-first websites.
+ */
+
+/* Global CSS configuration for Conduction theme
+ * Using Conduction brand colors and typography */
+
+/* Base theme variables */
+:root {
+  /* Primary color palette based on VNG blue (#0277BD) */
+  --ifm-color-primary: #0277BD;
+  --ifm-color-primary-dark: #026baa;
+  --ifm-color-primary-darker: #0264a0;
+  --ifm-color-primary-darkest: #015284;
+  --ifm-color-primary-light: #0283d0;
+  --ifm-color-primary-lighter: #028ada;
+  --ifm-color-primary-lightest: #029bf6;
+  
+  /* Typography settings */
+  --ifm-font-family-base: 'Avenir', sans-serif;
+  --ifm-heading-font-family: 'Avenir', sans-serif;
+  --ifm-code-font-size: 95%;
+  --ifm-heading-font-weight: 400;
+  
+  /* Code highlighting */
+  --docusaurus-highlighted-code-line-bg: rgba(2, 119, 189, 0.1);
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] {
+  /* Lighter shades for dark mode for better contrast */
+  --ifm-color-primary: #0283d0;
+  --ifm-color-primary-dark: #0277BD;
+  --ifm-color-primary-darker: #026baa;
+  --ifm-color-primary-darkest: #0264a0;
+  --ifm-color-primary-light: #029bf6;
+  --ifm-color-primary-lighter: #1aa4f8;
+  --ifm-color-primary-lightest: #42b4f9;
+  --docusaurus-highlighted-code-line-bg: rgba(2, 119, 189, 0.3);
+}
+
+/* Typography adjustments */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Avenir', sans-serif;
+  letter-spacing: 0;
+}
+
+/* Ensure body text uses Avenir */
+body {
+  font-family: 'Avenir', sans-serif;
+}
+
+/* Footer color adjustment */
+.footer {
+  background-color: #495057;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+} 

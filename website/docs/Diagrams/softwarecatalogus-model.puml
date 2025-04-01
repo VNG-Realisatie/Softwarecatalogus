@@ -1,0 +1,80 @@
+@startuml "Software Catalogus Model"
+
+' Style definitions
+skinparam backgroundColor white
+skinparam classBackgroundColor #f5f5f5
+skinparam classBorderColor #999999
+skinparam arrowColor #666666
+skinparam packageBackgroundColor #f0f0f0
+skinparam packageBorderColor #999999
+skinparam titleFontSize 20
+skinparam titleFontColor #333333
+
+title "Software Catalogus - Objecten en Relaties"
+
+package "Software Catalogus" {
+  class Leveranciersorganisatie {
+    +id: string
+    +naam: string
+    +kvkNummer: string
+    +website: string
+    +adres: object
+    +contactgegevens: object
+    +beschrijving: string
+    +logo: string
+  }
+
+  class Voorziening {
+    +id: string
+    +naam: string
+    +beschrijving: string
+    +categorie: string
+    +functionaliteiten: string[]
+    +doelgroep: string[]
+    +gemmaReferentieComponenten: object[]
+    +standaarden: object[]
+  }
+
+  class Voorzieningaanbod {
+    +id: string
+    +voorzieningId: string
+    +leveranciersorganisatieId: string
+    +productpagina: string
+    +ondersteuningsmodel: string
+    +licentiemodel: string
+    +hostingopties: string[]
+  }
+
+  class Voorzieningversie {
+    +id: string
+    +voorzieningaanbodId: string
+    +versienummer: string
+    +releaseNotes: string
+    +releaseDatum: date
+    +eindeDatum: date
+    +status: string
+    +systeemvereisten: object
+  }
+
+  class Kwetsbaarheid {
+    +id: string
+    +voorzieningversieId: string
+    +cveNummer: string
+    +titel: string
+    +beschrijving: string
+    +ernst: string
+    +ontdektOp: date
+    +gepubliceerdOp: date
+    +opgelostIn: string
+    +mitigatie: string
+    +referenties: string[]
+  }
+}
+
+' Relationships
+Leveranciersorganisatie "1" -- "many" Voorzieningaanbod : biedt aan >
+Voorziening "1" -- "many" Voorzieningaanbod : wordt aangeboden als >
+Voorzieningaanbod "1" -- "many" Voorzieningversie : heeft versies >
+Voorzieningversie "1" -- "many" Kwetsbaarheid : kan bevatten >
+
+@enduml 

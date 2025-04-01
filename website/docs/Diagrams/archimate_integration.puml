@@ -1,0 +1,24 @@
+@startuml
+!include <C4/C4_Component>
+
+LAYOUT_WITH_LEGEND()
+
+title ArchiMate Integration Flow
+
+Container_Boundary(import, "ArchiMate Integration") {
+    Component(importer, "AMEFF Importer", "Service", "Importeert en valideert AMEFF bestanden")
+    Component(version, "Version Manager", "Service", "Beheert GEMMA model versies")
+    Component(relation, "Relation Manager", "Service", "Beheert relaties tussen pakketten en GEMMA")
+    Component(export, "AMEFF Exporter", "Service", "Exporteert pakketoverzichten naar AMEFF")
+}
+
+System_Ext(gemma, "GEMMA Online", "Externe architectuur informatie")
+System_Ext(archi, "Archi Tool", "Architectuur tooling")
+
+Rel(importer, version, "Verwerkt nieuwe versie")
+Rel(version, relation, "Update relaties")
+Rel(relation, export, "Levert relaties")
+Rel(gemma, importer, "Levert AMEFF model")
+Rel(export, archi, "Levert AMEFF export")
+
+@enduml 

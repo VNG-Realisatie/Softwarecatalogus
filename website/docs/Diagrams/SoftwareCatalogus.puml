@@ -1,0 +1,59 @@
+@startuml Softwarecatalogus
+
+' Klassen definities
+class Contract {
+  +id: string
+  +startDatum: date
+  +eindDatum: date
+  +contractNummer: string
+  +contractType: enum
+  +kosten: number
+  +kostenPeriode: enum
+  +documentReferentie: string
+  +status: enum
+  +opmerkingen: string
+}
+
+class VoorzieningAanbod {
+  +id: string
+  +naam: string
+}
+
+class VoorzieningGebruik {
+  +id: string
+}
+
+class Organisatie {
+  +id: string
+  +naam: string
+}
+
+class Voorziening {
+  +id: string
+  +naam: string
+}
+
+class Persoon {
+  +id: string
+  +naam: string
+  +email: string
+}
+
+class Voorzieningstype {
+  +id: UUID
+  +naam: string
+  +beschrijving: string
+  +bovenliggendType: UUID
+}
+
+' Relaties
+Contract "1" -- "1" VoorzieningAanbod
+Contract "1" -- "1" VoorzieningGebruik
+Contract "0..1" -- "0..1" Persoon : contactpersoonAanbieder
+Contract "0..1" -- "0..1" Persoon : contactpersoonGebruiker
+VoorzieningGebruik "1" -- "1" Organisatie
+VoorzieningGebruik "1" -- "1" Voorziening
+Voorziening "*" -- "1" Voorzieningstype
+Voorzieningstype "0..*" -- "0..1" Voorzieningstype : bovenliggendType
+
+@enduml 
