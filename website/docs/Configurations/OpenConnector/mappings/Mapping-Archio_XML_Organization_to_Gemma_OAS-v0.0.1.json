@@ -11,13 +11,13 @@
     "version": "0.0.1",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio_XML_Organization_to_GEMMA_OAS.json",
     "mapping": {
-        "originId": "{{ uniqueIdKey ~ '-' ~ attribute(_context['@attributes'], 'identifierRef') ~ label.#text }}",
+        "originId": "{{ uniqueIdKey ~ '-' ~ attribute(_context['@attributes'], 'identifierRef') ~ label['#text'] }}",
         "identifierRef": "@attributes.identifierRef",
         "label": "label.#text",
         "label-lang": "{{ attribute(label['@attributes'], 'xml:lang') }}",
         "documentation": "documentation.#text",
         "documentation-lang": "{{ attribute(documentation['@attributes'], 'xml:lang') }}",
-        "item": "{% if item|default %}{% set uniqueItemIdKey = uniqueIdKey ~ '-' ~ attribute(_context['@attributes'], 'identifierRef') ~ label.#text %}{% if item.label|default or item['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Organization_to_GEMMA_OAS.json\", item|merge({'uniqueIdKey': uniqueItemIdKey}))|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Organization_to_GEMMA_OAS.json\", {'listInput': item, 'uniqueIdKey': uniqueItemIdKey}, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
+        "item": "{% if item|default %}{% set uniqueItemIdKey = uniqueIdKey ~ '-' ~ attribute(_context['@attributes'], 'identifierRef') ~ label['#text'] %}{% if item.label|default or item['@attributes']|default %}[{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Organization_to_GEMMA_OAS.json\", item|merge({'uniqueIdKey': uniqueItemIdKey}))|json_encode }}]{% else %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_XML_Organization_to_GEMMA_OAS.json\", {'listInput': item, 'uniqueIdKey': uniqueItemIdKey}, true)|json_encode }}{% endif %}{% else %}[]{% endif %}"
     },
     "unset": [],
     "cast": {
