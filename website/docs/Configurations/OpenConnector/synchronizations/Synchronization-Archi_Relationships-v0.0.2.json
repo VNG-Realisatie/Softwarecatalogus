@@ -8,7 +8,7 @@
     "id": 9,
     "uuid": "2883d0fe-6679-43de-abd9-c8722d44b8a3",
     "name": "Archi Relationships",
-    "description": "Synchronization for Archi Relationships including all sub-objects",
+    "description": "Synchronization for Archi Relationships including all sub-objects. Currently not in use 04-04-2025",
     "reference": "https://vng.accept.commonground.nu/Synchronization-Archi_relationships.json",
     "version": "0.0.2",
     "sourceId": "2",

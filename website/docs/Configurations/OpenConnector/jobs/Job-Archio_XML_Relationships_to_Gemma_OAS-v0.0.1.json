@@ -6,7 +6,7 @@
     "@type": "job",
     "@id": "https://vng.accept.commonground.nu/Job-Archio_XML_Relationships_to_GEMMA_OAS.json",
     "name": "Archio XML Relationships to GEMMA OAS",
-    "description": "",
+    "description": "Currently not in use 04-04-2025",
     "reference": "https://vng.accept.commonground.nu/Job-Archio_XML_Relationships_to_GEMMA_OAS.json",
     "version": "0.0.1",
     "jobClass": "OCA\\OpenConnector\\Action\\SynchronizationAction",
