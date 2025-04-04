@@ -8,7 +8,7 @@
     "id": 10,
     "name": "Archio XML Organization to GEMMA OAS",
     "description": "Maps Organization objects from XML to JSON format",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "reference": "https://vng.accept.commonground.nu/Mapping-Archio_XML_Organization_to_GEMMA_OAS.json",
     "mapping": {
         "originId": "{{ uniqueIdKey ~ '-' ~ attribute(_context['@attributes'], 'identifierRef') ~ label['#text'] }}",
