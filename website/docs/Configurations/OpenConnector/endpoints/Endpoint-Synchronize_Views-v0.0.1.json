@@ -1,0 +1,26 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "endpoint",
+    "@id": "https://vng.accept.commonground.nu/Endpoint-Synchronize_Views.json",
+    "name": "Synchronize Views",
+    "description": "",
+    "reference": "https://vng.accept.commonground.nu/Endpoint-Synchronize_Views.json",
+    "version": "0.0.1",
+    "endpoint": "synchronize-views",
+    "endpointArray": [
+        "synchronize-views"
+    ],
+    "endpointRegex": "#synchronize-views$#",
+    "method": "GET",
+    "targetType": "register\/schema",
+    "targetId": "2\/11",
+    "conditions": [],
+    "inputMapping": null,
+    "outputMapping": null,
+    "rules": [
+        "8"
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "endpoint",
+    "@id": "https://vng.accept.commonground.nu/Endpoint-Synchronize_Elements.json",
+    "name": "Synchronize Elements",
+    "description": "",
+    "reference": "https://vng.accept.commonground.nu/Endpoint-Synchronize_Elements.json",
+    "version": "0.0.1",
+    "endpoint": "synchronize-elements",
+    "endpointArray": [
+        "synchronize-elements"
+    ],
+    "endpointRegex": "#synchronize-elements$#",
+    "method": "GET",
+    "targetType": "register\/schema",
+    "targetId": "2\/10",
+    "conditions": [],
+    "inputMapping": null,
+    "outputMapping": null,
+    "rules": [
+        "9"
+    ]
+}
