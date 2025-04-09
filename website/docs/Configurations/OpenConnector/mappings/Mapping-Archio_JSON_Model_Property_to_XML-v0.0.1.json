@@ -1,0 +1,24 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "mapping",
+    "@id": "https://vng.accept.commonground.nu/Mapping-Archio_JSON_Model_Property_to_XML.json",
+    "id": 16,
+    "name": "Archio JSON Model Property to XML",
+    "description": "For View, Relation, Element & Model",
+    "version": "0.0.1",
+    "reference": "https://vng.accept.commonground.nu/Mapping-Archio_JSON_Model_Property_to_XML.json",
+    "mapping": {
+        "@attributes.propertyDefinitionRef": "propertyDefinitionRef",
+        "value.#text": "value",
+        "value.@attributes.xml:lang": "value-lang"
+    },
+    "unset": [],
+    "cast": {
+        "value.#text": "unsetIfValue==value",
+        "value.@attributes.xml:lang": "unsetIfValue==value-lang"
+    },
+    "passThrough": false
+} 

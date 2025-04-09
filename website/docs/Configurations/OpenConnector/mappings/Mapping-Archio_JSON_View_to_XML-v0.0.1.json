@@ -1,0 +1,38 @@
+{
+	"@context": {
+		"schema": "http:\/\/schema.org",
+		"register": "Not Implemented"
+	},
+	"@type": "mapping",
+	"@id": "https://vng.accept.commonground.nu/Mapping-Archio_JSON_View_to_XML.json",
+	"id": 6,
+	"name": "Archio JSON View to XML",
+	"description": "",
+	"version": "0.0.1",
+	"reference": "https://vng.accept.commonground.nu/Mapping-Archio_JSON_View_to_XML.json",
+	"mapping": {
+		"@root": "{% if disableRoot|default(false) %}{{ '' }}{% else %}view{% endif %}",
+		"@attributes.identifier": "identifier",
+		"@attributes.xsi:type": "type",
+		"@attributes.viewpoint": "viewpoint",
+		"name.#text": "name",
+		"name.@attributes.xml:lang": "name-lang",
+		"documentation.#text": "documentation",
+		"documentation.@attributes.xml:lang": "documentation-lang",
+		"properties.property": "{% if properties|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_JSON_Model_Property_to_XML.json\", properties, true)|json_encode }}{%else%}[]{%endif%}",
+		"node": "{% if nodes|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_JSON_View_Node_to_XML.json\", nodes, true)|json_encode }}{%else%}[]{%endif%}",
+		"connection": "{% if connections|default %}{{ executeMapping(\"https://vng.accept.commonground.nu/Mapping-Archio_JSON_View_Connection_to_XML.json\", connections, true)|json_encode }}{%else%}[]{%endif%}"
+	},
+	"unset": [],
+	"cast": {
+		"@root": "unsetIfValue==",
+		"@attributes.viewpoint": ["unsetIfValue==viewpoint", "unsetIfValue=="],
+		"documentation.#text": "unsetIfValue==documentation",
+		"documentation.@attributes.xml:lang": "unsetIfValue==documentation-lang",
+		"documentation": "unsetIfValue==",
+		"properties.property": "jsonToArray",
+		"node": "jsonToArray",
+		"connection": ["jsonToArray", "unsetIfValue=="]
+	},
+    "passThrough": false
+}
