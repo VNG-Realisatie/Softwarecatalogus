@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="nl" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-contributing" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">Developers | Softwarecatalogus</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://vng-realisatie.github.io/Softwarecatalogus/docs/contributing"><meta data-rh="true" property="og:locale" content="nl"><meta data-rh="true" name="docusaurus_locale" content="nl"><meta data-rh="true" name="docsearch:language" content="nl"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Developers | Softwarecatalogus"><meta data-rh="true" name="description" content="Deze gids is bedoeld voor ontwikkelaars die willen bijdragen aan de Software Catalogus. Voor een diepgaand begrip van de technische architectuur, bekijk eerst de technische architectuur documentatie."><meta data-rh="true" property="og:description" content="Deze gids is bedoeld voor ontwikkelaars die willen bijdragen aan de Software Catalogus. Voor een diepgaand begrip van de technische architectuur, bekijk eerst de technische architectuur documentatie."><link data-rh="true" rel="canonical" href="https://vng-realisatie.github.io/Softwarecatalogus/docs/contributing"><link data-rh="true" rel="alternate" href="https://vng-realisatie.github.io/Softwarecatalogus/docs/contributing" hreflang="nl"><link data-rh="true" rel="alternate" href="https://vng-realisatie.github.io/Softwarecatalogus/docs/contributing" hreflang="x-default"><link rel="stylesheet" href="/Softwarecatalogus/assets/css/styles.0b7e4d25.css">
+<script src="/Softwarecatalogus/assets/js/runtime~main.d036d810.js" defer="defer"></script>
+<script src="/Softwarecatalogus/assets/js/main.091e20ed.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Ga naar hoofdinhoud"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Ga naar hoofdinhoud</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigatiebalk schakelen" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/Softwarecatalogus/"><div class="navbar__logo"><img src="/Softwarecatalogus/img/logo.svg" alt="VNG Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/Softwarecatalogus/img/logo.svg" alt="VNG Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">VNG Softwarecatalogus</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Softwarecatalogus/docs/Softwarecatalogus">Documentatie</a></div><div class="navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/Softwarecatalogus/api">API Specificatie</a><a href="https://github.com/VNG-Realisatie/softwarecatalogus" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://www.vng.nl" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">VNG Website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Schakel tussen donkere en lichte modus (momenteel lichte modus)" aria-label="Schakel tussen donkere en lichte modus (momenteel lichte modus)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll naar boven" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs zijbalk" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/Softwarecatalogus/docs/Softwarecatalogus">Software Catalogus</a><button aria-label="Categorie zijbalk uitklappen &#x27;Software Catalogus&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/intro">Over de Softwarecatalogus</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/AutorisatieMatrix">Autorisatie Matrix</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Softwarecatalogus/docs/Beheerders/AMEF-Bestand-Importeren">Beheerders</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Softwarecatalogus/docs/GEMMA/api-introductie">GEMMA</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/Gegevensmodel">Model Structuur</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/Softwarecatalogus/docs/contributing">Developers</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/personalia">Projectteam Personalia</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/referentiearchitectuur acceptatiecriteria">Acceptatiecriteria SWC component referentiearchitectuur</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/security">Security</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/technical-architecture">Technische Architectuur</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Broodkruimels"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Homepagina" class="breadcrumbs__link" href="/Softwarecatalogus/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Developers</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">Op deze pagina</button></div><div class="theme-doc-markdown markdown"><header><h1>Developers</h1></header>
+<p>Deze gids is bedoeld voor ontwikkelaars die willen bijdragen aan de Software Catalogus. Voor een diepgaand begrip van de technische architectuur, bekijk eerst de <a href="/Softwarecatalogus/docs/technical-architecture">technische architectuur documentatie</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="code-standaarden">Code Standaarden<a href="#code-standaarden" class="hash-link" aria-label="Direct link naar Code Standaarden" title="Direct link naar Code Standaarden">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="php-code-standaarden">PHP Code Standaarden<a href="#php-code-standaarden" class="hash-link" aria-label="Direct link naar PHP Code Standaarden" title="Direct link naar PHP Code Standaarden">​</a></h3>
+<ul>
+<li>Alle PHP code moet voldoen aan PSR-12</li>
+<li>Gebruik van strict types is verplicht (<code>declare(strict_types=1);</code>)</li>
+<li>Alle code moet PHP 8.2+ compatible zijn</li>
+<li>PHPStan level 9 moet zonder errors passeren</li>
+<li>Psalm moet zonder errors passeren</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="documentatie-standaarden">Documentatie Standaarden<a href="#documentatie-standaarden" class="hash-link" aria-label="Direct link naar Documentatie Standaarden" title="Direct link naar Documentatie Standaarden">​</a></h3>
+<ul>
+<li>Alle classes moeten voorzien zijn van PHPDoc blocks met:<!-- -->
+<ul>
+<li>Class naam</li>
+<li>Category</li>
+<li>Package</li>
+<li>Author</li>
+<li>Copyright</li>
+<li>License</li>
+<li>Version</li>
+<li>Link naar de applicatie</li>
+</ul>
+</li>
+<li>Alle methods moeten voorzien zijn van PHPDoc blocks met:<!-- -->
+<ul>
+<li>Parameter types</li>
+<li>Return types</li>
+<li>Beschrijving</li>
+<li>PHPStan en Psalm annotaties waar nodig</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="type-hints-en-return-types">Type Hints en Return Types<a href="#type-hints-en-return-types" class="hash-link" aria-label="Direct link naar Type Hints en Return Types" title="Direct link naar Type Hints en Return Types">​</a></h3>
+<ul>
+<li>Gebruik altijd expliciete type hints voor parameters</li>
+<li>Gebruik altijd expliciete return types</li>
+<li>Gebruik waar mogelijk readonly properties</li>
+<li>Geef default waardes aan parameters waar logisch</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="testing">Testing<a href="#testing" class="hash-link" aria-label="Direct link naar Testing" title="Direct link naar Testing">​</a></h3>
+<ul>
+<li>Alle nieuwe code moet voorzien zijn van PHPUnit tests</li>
+<li>Code coverage moet minimaal 80% zijn</li>
+<li>Tests moeten georganiseerd zijn volgens de applicatie structuur</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="documentatie">Documentatie<a href="#documentatie" class="hash-link" aria-label="Direct link naar Documentatie" title="Direct link naar Documentatie">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="technische-documentatie">Technische Documentatie<a href="#technische-documentatie" class="hash-link" aria-label="Direct link naar Technische Documentatie" title="Direct link naar Technische Documentatie">​</a></h3>
+<ul>
+<li>Technische documentatie wordt bijgehouden in Docusaurus</li>
+<li>Documentatie bestanden staan in de <code>website/docs</code> directory</li>
+<li>Gebruik Markdown voor alle documentatie</li>
+<li>Gebruik enkele quotes (&#x27;) in plaats van backticks (`) voor code voorbeelden</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="code-documentatie">Code Documentatie<a href="#code-documentatie" class="hash-link" aria-label="Direct link naar Code Documentatie" title="Direct link naar Code Documentatie">​</a></h3>
+<ul>
+<li>Voeg inline comments toe aan complexe logica</li>
+<li>Comments moeten uitleggen WAAROM iets gedaan wordt, niet WAT er gedaan wordt</li>
+<li>Houd comments up-to-date met code wijzigingen</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="versiebeheer">Versiebeheer<a href="#versiebeheer" class="hash-link" aria-label="Direct link naar Versiebeheer" title="Direct link naar Versiebeheer">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="git-workflow">Git Workflow<a href="#git-workflow" class="hash-link" aria-label="Direct link naar Git Workflow" title="Direct link naar Git Workflow">​</a></h3>
+<ul>
+<li>Gebruik feature branches voor nieuwe functionaliteit</li>
+<li>Branch namen moeten descriptief zijn en beginnen met het type:<!-- -->
+<ul>
+<li>feature/</li>
+<li>bugfix/</li>
+<li>hotfix/</li>
+<li>release/</li>
+</ul>
+</li>
+<li>Commit messages moeten duidelijk en descriptief zijn</li>
+<li>Squash commits voor een merge request waar logisch</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="pull-requests">Pull Requests<a href="#pull-requests" class="hash-link" aria-label="Direct link naar Pull Requests" title="Direct link naar Pull Requests">​</a></h3>
+<ul>
+<li>Zorg voor een duidelijke beschrijving van de wijzigingen</li>
+<li>Link gerelateerde issues</li>
+<li>Voeg unit tests toe voor nieuwe functionaliteit</li>
+<li>Zorg dat alle CI checks passeren</li>
+<li>Update documentatie waar nodig</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="development-setup">Development Setup<a href="#development-setup" class="hash-link" aria-label="Direct link naar Development Setup" title="Direct link naar Development Setup">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="vereisten">Vereisten<a href="#vereisten" class="hash-link" aria-label="Direct link naar Vereisten" title="Direct link naar Vereisten">​</a></h3>
+<ul>
+<li>PHP 8.2 of hoger</li>
+<li>Composer</li>
+<li>Node.js (voor frontend development)</li>
+<li>Docker (voor lokale development)</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="lokale-ontwikkeling">Lokale Ontwikkeling<a href="#lokale-ontwikkeling" class="hash-link" aria-label="Direct link naar Lokale Ontwikkeling" title="Direct link naar Lokale Ontwikkeling">​</a></h3>
+<ol>
+<li>Clone de repository</li>
+<li>Installeer dependencies via Composer</li>
+<li>Kopieer <code>.env.example</code> naar <code>.env</code></li>
+<li>Configureer lokale environment variables</li>
+<li>Start de development servers</li>
+<li>Run database migraties</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="continuous-integration">Continuous Integration<a href="#continuous-integration" class="hash-link" aria-label="Direct link naar Continuous Integration" title="Direct link naar Continuous Integration">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="automatische-checks">Automatische Checks<a href="#automatische-checks" class="hash-link" aria-label="Direct link naar Automatische Checks" title="Direct link naar Automatische Checks">​</a></h3>
+<ul>
+<li>PHPUnit tests</li>
+<li>PHPStan analyse</li>
+<li>Psalm analyse</li>
+<li>Code style checks (PHP_CodeSniffer)</li>
+<li>Frontend builds</li>
+<li>Documentatie builds</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="release-process">Release Process<a href="#release-process" class="hash-link" aria-label="Direct link naar Release Process" title="Direct link naar Release Process">​</a></h3>
+<ol>
+<li>Update versie nummer</li>
+<li>Update changelog</li>
+<li>Create release branch</li>
+<li>Run full test suite</li>
+<li>Build productie assets</li>
+<li>Tag release</li>
+<li>Deploy naar acceptatie</li>
+<li>Na goedkeuring, deploy naar productie</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="support">Support<a href="#support" class="hash-link" aria-label="Direct link naar Support" title="Direct link naar Support">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="hulp-krijgen">Hulp Krijgen<a href="#hulp-krijgen" class="hash-link" aria-label="Direct link naar Hulp Krijgen" title="Direct link naar Hulp Krijgen">​</a></h3>
+<ul>
+<li>Check bestaande issues voor bekende problemen</li>
+<li>Raadpleeg de technische documentatie</li>
+<li>Open een nieuwe issue met:<!-- -->
+<ul>
+<li>Duidelijke beschrijving</li>
+<li>Stappen om te reproduceren</li>
+<li>Verwacht vs. actueel gedrag</li>
+<li>Relevante logs/screenshots</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="community">Community<a href="#community" class="hash-link" aria-label="Direct link naar Community" title="Direct link naar Community">​</a></h3>
+<ul>
+<li>Respecteer de code of conduct</li>
+<li>Help andere developers waar mogelijk</li>
+<li>Deel kennis en best practices</li>
+<li>Participeer in code reviews</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="licentie">Licentie<a href="#licentie" class="hash-link" aria-label="Direct link naar Licentie" title="Direct link naar Licentie">​</a></h2>
+<p>Dit project is gelicenseerd onder de <a href="https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12" target="_blank" rel="noopener noreferrer">EUPL 1.2</a> licentie. Zorg dat je bekend bent met de voorwaarden voordat je bijdraagt aan het project.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Documentatie pagina"><a class="pagination-nav__link pagination-nav__link--prev" href="/Softwarecatalogus/docs/Gegevensmodel"><div class="pagination-nav__sublabel">Vorige</div><div class="pagination-nav__label">Model Structuur</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Softwarecatalogus/docs/personalia"><div class="pagination-nav__sublabel">Volgende</div><div class="pagination-nav__label">Projectteam Personalia</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#code-standaarden" class="table-of-contents__link toc-highlight">Code Standaarden</a><ul><li><a href="#php-code-standaarden" class="table-of-contents__link toc-highlight">PHP Code Standaarden</a></li><li><a href="#documentatie-standaarden" class="table-of-contents__link toc-highlight">Documentatie Standaarden</a></li><li><a href="#type-hints-en-return-types" class="table-of-contents__link toc-highlight">Type Hints en Return Types</a></li><li><a href="#testing" class="table-of-contents__link toc-highlight">Testing</a></li></ul></li><li><a href="#documentatie" class="table-of-contents__link toc-highlight">Documentatie</a><ul><li><a href="#technische-documentatie" class="table-of-contents__link toc-highlight">Technische Documentatie</a></li><li><a href="#code-documentatie" class="table-of-contents__link toc-highlight">Code Documentatie</a></li></ul></li><li><a href="#versiebeheer" class="table-of-contents__link toc-highlight">Versiebeheer</a><ul><li><a href="#git-workflow" class="table-of-contents__link toc-highlight">Git Workflow</a></li><li><a href="#pull-requests" class="table-of-contents__link toc-highlight">Pull Requests</a></li></ul></li><li><a href="#development-setup" class="table-of-contents__link toc-highlight">Development Setup</a><ul><li><a href="#vereisten" class="table-of-contents__link toc-highlight">Vereisten</a></li><li><a href="#lokale-ontwikkeling" class="table-of-contents__link toc-highlight">Lokale Ontwikkeling</a></li></ul></li><li><a href="#continuous-integration" class="table-of-contents__link toc-highlight">Continuous Integration</a><ul><li><a href="#automatische-checks" class="table-of-contents__link toc-highlight">Automatische Checks</a></li><li><a href="#release-process" class="table-of-contents__link toc-highlight">Release Process</a></li></ul></li><li><a href="#support" class="table-of-contents__link toc-highlight">Support</a><ul><li><a href="#hulp-krijgen" class="table-of-contents__link toc-highlight">Hulp Krijgen</a></li><li><a href="#community" class="table-of-contents__link toc-highlight">Community</a></li></ul></li><li><a href="#licentie" class="table-of-contents__link toc-highlight">Licentie</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentatie</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Softwarecatalogus/docs/intro">Handleiding</a></li><li class="footer__item"><a class="footer__link-item" href="/Softwarecatalogus/api">API Specificatie</a></li><li class="footer__item"><a href="https://github.com/vng-realisatie/softwarecatalogus" target="_blank" rel="noopener noreferrer" class="footer__link-item" position="right">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://forum.vng.nl" target="_blank" rel="noopener noreferrer" class="footer__link-item">VNG Forum<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/VNG-Realisatie/softwarecatalogus" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 VNG Realisatie. Gebouwd met Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
