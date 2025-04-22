@@ -635,7 +635,7 @@
           }
         },
         "title": "Contract",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "slug": "contract"
       },
       "standaard": {
@@ -659,9 +659,13 @@
             "description": "Beschrijving van de standaard"
           },
           "standaardtype": {
-            "$ref": "#/components/schemas/Standaardtype",
-            "description": "Type van de standaard",
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "Type1",
+              "Type2",
+              "Type3"
+            ],
+            "description": "Type van de standaard"
           },
           "versie": {
             "type": "string",
