@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "type": "schema",
   "slug": "property-definition",
-  "description": "GEMMA Property Definition",
+  "description": "AMEF Property Definition",
   "summary": "",
   "required": [
     "identifier",

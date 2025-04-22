@@ -4,8 +4,8 @@
   "$schema": "https://docs.commongateway.nl/schemas/Schema.schema.json",
   "version": "0.0.37",
   "type": "schema",
-  "slug": "gemma-model",
-  "description": "This object represents an entire GEMMA collection",
+  "slug": "model",
+  "description": "This object represents an entire AMEF collection",
   "summary": "",
   "required": [
     "xmlns",

@@ -1,0 +1,783 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Voorzieningen Register",
+    "version": "1.0.0"
+  },
+  "components": {
+    "registers": {
+      "voorzieningen": {
+        "slug": "voorzieningen",
+        "title": "Voorzieningen",
+        "version": "1.0.0",
+        "description": "Register voor voorzieningen uit de softwarecatalogus",
+        "schemas": [
+          "voorziening",
+          "voorzieningaanbod",
+          "voorzieningversie",
+          "kwetsbaarheid",
+          "contactgegevens",
+          "organisatie",
+          "voorzieninggebruik",
+          "contract",
+          "standaard",
+          "sector",
+          "review"
+        ]
+      }
+    },
+    "schemas": {
+      "voorziening": {
+        "type": "object",
+        "description": "Een generieke voorziening (software product)",
+        "required": [
+          "id",
+          "naam"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unieke identificatie voor de voorziening"
+          },
+          "naam": {
+            "type": "string",
+            "description": "Naam van de voorziening"
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Beschrijving van de voorziening"
+          },
+          "categorie": {
+            "type": "string",
+            "description": "Categorie waartoe de voorziening behoort"
+          },
+          "functionaliteiten": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Array van UUID's die verwijzen naar de functionaliteiten die de voorziening biedt"
+          },
+          "doelgroep": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "Gemeente",
+                "Waterschap",
+                "Provincie",
+                "Ministerie",
+                "Uitvoeringsorganisatie",
+                "Samenwerkingsverband",
+                "Leverancier"
+              ]
+            },
+            "description": "Doelgroepen waarvoor de voorziening is bedoeld"
+          },
+          "referentieComponenten": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "GEMMA referentiecomponenten die de voorziening implementeert"
+          },
+          "standaarden": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Array van UUID's die verwijzen naar de standaarden die de voorziening ondersteunt"
+          },
+          "voorzieningstype": {
+            "type": "string",
+            "enum": [
+              "Toepassing",
+              "Platform",
+              "GeneriekComponent",
+              "Service",
+              "Anders"
+            ],
+            "description": "Het type voorziening zoals geregistreerd in de catalogus"
+          }
+        },
+        "title": "Voorziening",
+        "slug": "voorziening",
+        "version": "0.0.1"
+      },
+      "voorzieningaanbod": {
+        "type": "object",
+        "description": "Een specifiek aanbod van een voorziening door een leverancier",
+        "required": [
+          "id",
+          "voorziening",
+          "leverancier"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unieke identificatie voor het voorzieningaanbod"
+          },
+          "voorziening": {
+            "$ref": "#/components/schemas/Voorziening",
+            "type": "object"
+          },
+          "leverancier": {
+            "$ref": "#/components/schemas/Leveranciersorganisatie",
+            "type": "object"
+          },
+          "productpagina": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL naar de productpagina"
+          },
+          "ondersteuningsopties": {
+            "type": "array",
+            "description": "Beschikbare ondersteuningsopties",
+            "items": {
+              "type": "string"
+            }
+          },
+          "prijsmodel": {
+            "type": "string",
+            "description": "Beschrijving van het prijsmodel"
+          },
+          "certificeringen": {
+            "type": "array",
+            "description": "Lijst van certificeringen",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ondersteundeStandaarden": {
+            "type": "array",
+            "description": "Lijst van ondersteunde standaarden",
+            "items": {
+              "$ref": "#/components/schemas/Standaard",
+              "type": "object"
+            }
+          }
+        },
+        "title": "Voorzieningaanbod",
+        "slug": "voorzieningaanbod",
+        "version": "0.0.1"
+      },
+      "voorzieningversie": {
+        "type": "object",
+        "description": "Een specifieke versie van een voorzieningaanbod",
+        "required": [
+          "id",
+          "voorzieningaanbod",
+          "versienummer"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unieke identificatie voor de voorzieningversie"
+          },
+          "voorzieningaanbod": {
+            "$ref": "#/components/schemas/Voorzieningaanbod",
+            "type": "object"
+          },
+          "versienummer": {
+            "type": "string",
+            "description": "Versienummer van de voorziening"
+          },
+          "releaseNotes": {
+            "type": "string",
+            "description": "Release notes voor deze versie"
+          },
+          "releaseDatum": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop deze versie is uitgebracht"
+          },
+          "eindDatumOndersteuning": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop ondersteuning voor deze versie eindigt"
+          },
+          "systeemvereisten": {
+            "type": "string",
+            "description": "Systeemvereisten voor deze versie"
+          },
+          "kwetsbaarheden": {
+            "type": "array",
+            "description": "Bekende kwetsbaarheden in deze versie",
+            "items": {
+              "$ref": "#/components/schemas/Kwetsbaarheid",
+              "type": "object"
+            }
+          }
+        },
+        "title": "Voorzieningversie",
+        "slug": "voorzieningversie",
+        "version": "0.0.1"
+      },
+      "kwetsbaarheid": {
+        "type": "object",
+        "description": "Een beveiligingskwetsbaarheid in een voorzieningversie",
+        "required": [
+          "id",
+          "voorzieningversie",
+          "titel",
+          "ernst"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unieke identificatie voor de kwetsbaarheid"
+          },
+          "voorzieningversieId": {
+            "type": "string",
+            "description": "ID van de voorzieningversie waarin de kwetsbaarheid is gevonden"
+          },
+          "cveNummer": {
+            "type": "string",
+            "description": "CVE-nummer van de kwetsbaarheid"
+          },
+          "titel": {
+            "type": "string",
+            "description": "Titel van de kwetsbaarheid"
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Beschrijving van de kwetsbaarheid"
+          },
+          "ernst": {
+            "type": "string",
+            "enum": [
+              "laag",
+              "gemiddeld",
+              "hoog",
+              "kritiek"
+            ],
+            "description": "Ernst van de kwetsbaarheid"
+          },
+          "ontdektOp": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de kwetsbaarheid is ontdekt"
+          },
+          "gepubliceerdOp": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de kwetsbaarheid is gepubliceerd"
+          },
+          "opgelostIn": {
+            "type": "string",
+            "description": "Versie waarin de kwetsbaarheid is opgelost"
+          },
+          "mitigatie": {
+            "type": "string",
+            "description": "Beschrijving van mogelijke mitigatiemaatregelen"
+          },
+          "referenties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "Referenties naar meer informatie over de kwetsbaarheid"
+          }
+        },
+        "title": "Kwetsbaarheid",
+        "slug": "kwetsbaarheid",
+        "version": "0.0.1"
+      },
+      "contactgegevens": {
+        "type": "object",
+        "description": "Contactgegevens van een persoon",
+        "properties": {
+          "voornaam": {
+            "type": "string",
+            "description": "Voornaam van de contactpersoon"
+          },
+          "tussenvoegsel": {
+            "type": "string",
+            "description": "Tussenvoegsel van de contactpersoon"
+          },
+          "achternaam": {
+            "type": "string",
+            "description": "Achternaam van de contactpersoon"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "E-mailadres van de contactpersoon"
+          },
+          "telefoon": {
+            "type": "string",
+            "description": "Telefoonnummer van de contactpersoon"
+          }
+        },
+        "title": "Contactgegevens",
+        "slug": "contactgegevens",
+        "version": "0.0.1"
+      },
+      "organisatie": {
+        "type": "object",
+        "description": "Een organisatie die voorzieningen aanbiedt",
+        "required": [
+          "id",
+          "kvk-nummer",
+          "organisatienaam"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unieke identificatie voor de leveranciersorganisatie"
+          },
+          "kvk-nummer": {
+            "type": "string",
+            "description": "KvK-nummer van de organisatie"
+          },
+          "organisatienaam": {
+            "type": "string",
+            "description": "Naam van de organisatie"
+          },
+          "contactgegevens": {
+            "$ref": "#/components/schemas/Contactgegevens",
+            "type": "object"
+          },
+          "website": {
+            "type": "string",
+            "format": "uri",
+            "description": "Website van de leverancier"
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Beschrijving van de leverancier"
+          }
+        },
+        "title": "Organisatie",
+        "slug": "organisatie",
+        "version": "0.0.1"
+      },
+      "voorzieninggebruik": {
+        "type": "object",
+        "description": "Een organisatie die een voorziening gebruikt",
+        "required": [
+          "id",
+          "organisatieId",
+          "voorzieningId",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unieke identifier van het VoorzieningGebruik"
+          },
+          "organisatieId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID van de organisatie die de voorziening gebruikt"
+          },
+          "voorzieningId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID van de voorziening die gebruikt wordt"
+          },
+          "versieId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID van de specifieke versie van de voorziening die gebruikt wordt"
+          },
+          "beheerder": {
+            "type": "object",
+            "properties": {
+              "naam": {
+                "type": "string",
+                "description": "De volledige naam van de persoon"
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "description": "Het e-mailadres van de persoon"
+              },
+              "telefoonnummer": {
+                "type": "string",
+                "description": "Het telefoonnummer van de persoon"
+              },
+              "functie": {
+                "type": "string",
+                "description": "De functie van de persoon"
+              }
+            },
+            "description": "De contactpersoon voor dit gebruik van de voorziening"
+          },
+          "startDatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop het gebruik van de voorziening is gestart"
+          },
+          "eindDatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop het gebruik van de voorziening is beëindigd"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Actief",
+              "Gepland",
+              "Beëindigd"
+            ],
+            "description": "De status van het gebruik"
+          },
+          "opmerkingen": {
+            "type": "string",
+            "description": "Aanvullende informatie over het gebruik van de voorziening"
+          },
+          "bbnScore": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3,
+            "description": "De BBN (Basis Beveiligings Niveau) score van het voorzieninggebruik"
+          },
+          "ibpScore": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "De IBP (Informatiebeveiliging en Privacy) score van het voorzieninggebruik"
+          },
+          "bivClassificatie": {
+            "type": "object",
+            "properties": {
+              "beschikbaarheid": {
+                "type": "string",
+                "enum": [
+                  "Laag",
+                  "Midden",
+                  "Hoog"
+                ]
+              },
+              "integriteit": {
+                "type": "string",
+                "enum": [
+                  "Laag",
+                  "Midden",
+                  "Hoog"
+                ]
+              },
+              "vertrouwelijkheid": {
+                "type": "string",
+                "enum": [
+                  "Laag",
+                  "Midden",
+                  "Hoog"
+                ]
+              }
+            },
+            "description": "De BIV (Beschikbaarheid, Integriteit, Vertrouwelijkheid) classificatie"
+          },
+          "bedrijfsKritisch": {
+            "type": "boolean",
+            "default": false,
+            "description": "Geeft aan of het voorzieninggebruik bedrijfskritisch is"
+          },
+          "privacyGevoelig": {
+            "type": "boolean",
+            "default": false,
+            "description": "Geeft aan of het voorzieninggebruik privacy gevoelige gegevens bevat"
+          }
+        },
+        "title": "VoorzieningGebruik",
+        "version": "0.0.1",
+        "slug": "voorzieninggebruik"
+      },
+      "contract": {
+        "type": "object",
+        "description": "Een formele overeenkomst voor het inzetten van een VoorzieningAanbod op een VoorzieningGebruik",
+        "required": [
+          "id",
+          "voorzieningAanbod",
+          "voorzieningGebruik",
+          "startDatum",
+          "contractNummer",
+          "contractType",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unieke identifier van het Contract"
+          },
+          "voorzieningAanbod": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "naam": {
+                "type": "string"
+              }
+            },
+            "description": "Het aanbod van de voorziening waarop dit contract betrekking heeft"
+          },
+          "voorzieningGebruik": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "organisatie": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "naam": {
+                    "type": "string"
+                  }
+                }
+              },
+              "voorziening": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "naam": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "description": "Het gebruik van de voorziening waarop dit contract betrekking heeft"
+          },
+          "startDatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De startdatum van het contract"
+          },
+          "eindDatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De einddatum van het contract (indien van toepassing)"
+          },
+          "contractNummer": {
+            "type": "string",
+            "description": "Het referentienummer van het contract"
+          },
+          "contractType": {
+            "type": "string",
+            "enum": [
+              "SLA",
+              "Licentie",
+              "Onderhoud"
+            ],
+            "description": "Het type contract"
+          },
+          "kosten": {
+            "type": "number",
+            "description": "De kosten verbonden aan het contract"
+          },
+          "kostenPeriode": {
+            "type": "string",
+            "enum": [
+              "Maandelijks",
+              "Jaarlijks",
+              "Eenmalig"
+            ],
+            "description": "De periode waarop de kosten betrekking hebben"
+          },
+          "contactpersoonAanbieder": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "naam": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            },
+            "description": "De contactpersoon bij de aanbieder"
+          },
+          "contactpersoonGebruiker": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "naam": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            },
+            "description": "De contactpersoon bij de gebruiker"
+          },
+          "documentReferentie": {
+            "type": "string",
+            "description": "Referentie naar het contractdocument"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Actief",
+              "Verlopen",
+              "In onderhandeling"
+            ],
+            "description": "De status van het contract"
+          },
+          "opmerkingen": {
+            "type": "string",
+            "description": "Aanvullende informatie over het contract"
+          }
+        },
+        "title": "Contract",
+        "version": "0.0.1",
+        "slug": "contract"
+      },
+      "standaard": {
+        "type": "object",
+        "description": "Een specifieke standaard waaraan een voorziening kan voldoen",
+        "required": [
+          "id",
+          "naam"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unieke identifier van de Standaard"
+          },
+          "naam": {
+            "type": "string",
+            "description": "Naam van de standaard"
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Beschrijving van de standaard"
+          },
+          "standaardtype": {
+            "$ref": "#/components/schemas/Standaardtype",
+            "description": "Type van de standaard",
+            "type": "string"
+          },
+          "versie": {
+            "type": "string",
+            "description": "Versie van de standaard"
+          },
+          "beheerorganisatie": {
+            "type": "string",
+            "description": "Organisatie die de standaard beheert"
+          },
+          "website": {
+            "type": "string",
+            "format": "uri",
+            "description": "Website van de standaard"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Concept",
+              "In ontwikkeling",
+              "Vastgesteld",
+              "Verouderd"
+            ],
+            "description": "Status van de standaard"
+          }
+        },
+        "title": "Standaard",
+        "version": "0.0.1",
+        "slug": "standaard"
+      },
+      "sector": {
+        "type": "object",
+        "description": "Sector waartoe een organisatie behoort",
+        "required": [
+          "id",
+          "naam"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unieke identifier van de Sector"
+          },
+          "naam": {
+            "type": "string",
+            "description": "Naam van de sector"
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Beschrijving van de sector"
+          },
+          "bovenliggendeSector": {
+            "$ref": "#/components/schemas/Sector",
+            "description": "Bovenliggende sector (voor hiërarchische indeling)",
+            "type": "string"
+          }
+        },
+        "title": "Sector",
+        "version": "0.0.1",
+        "slug": "sector"
+      },
+      "review": {
+        "type": "object",
+        "description": "Beoordeling van een voorziening",
+        "required": [
+          "id",
+          "voorziening",
+          "organisatie",
+          "score"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unieke identifier van de Review"
+          },
+          "voorziening": {
+            "$ref": "#/components/schemas/Voorziening",
+            "description": "De beoordeelde voorziening",
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Score van de beoordeling (1-5)"
+          },
+          "titel": {
+            "type": "string",
+            "description": "Titel van de beoordeling"
+          },
+          "tekst": {
+            "type": "string",
+            "description": "Tekst van de beoordeling"
+          },
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum van de beoordeling"
+          },
+          "voordelen": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Voordelen van de voorziening"
+          },
+          "nadelen": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Nadelen van de voorziening"
+          }
+        },
+        "title": "Review",
+        "version": "0.0.1",
+        "slug": "review"
+      }
+    }
+  }
+}

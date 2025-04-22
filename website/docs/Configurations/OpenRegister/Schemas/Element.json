@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "type": "schema",
   "slug": "element",
-  "description": "GEMMA Element",
+  "description": "AMEF Element",
   "summary": "",
   "required": [
     "identifier",

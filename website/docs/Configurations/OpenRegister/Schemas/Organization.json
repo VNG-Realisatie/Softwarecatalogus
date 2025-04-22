@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "type": "schema",
   "slug": "organization",
-  "description": "GEMMA Organization",
+  "description": "AMEF Organization",
   "summary": "",
   "required": [],
   "properties": {

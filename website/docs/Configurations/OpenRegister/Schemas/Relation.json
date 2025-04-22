@@ -6,7 +6,7 @@
   "type": "schema",
   "nestable": true,
   "slug": "relation",
-  "description": "GEMMA Relation",
+  "description": "AMEF Relation",
   "summary": "",
   "required": [
     "identifier",
