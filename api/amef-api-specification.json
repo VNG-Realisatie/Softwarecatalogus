@@ -1,0 +1,3495 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Nextcloud OpenRegister API",
+    "version": "1.0",
+    "description": "API for managing registers, schemas, sources, objects, and audit trails in a Nextcloud environment."
+  },
+  "servers": [
+    {
+      "url": "http://nextcloud.local/apps/openregister/api",
+      "description": "OpenRegister API Server"
+    }
+  ],
+  "security": [
+    {
+      "basicAuth": []
+    },
+    {
+      "oauth2": [
+        "read",
+        "write"
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "Catalog",
+      "description": "A catalog represents a curated collection of publications that can be organized by themes and schemas. It serves as the main organizational unit for content, allowing administrators to group related publications together and make them accessible through a unified interface. Catalogs can be public or private and can be associated with specific organizations."
+    },
+    {
+      "name": "Listing",
+      "description": "A listing provides a customizable view of publications within a catalog. It allows for the creation of specific publication collections based on filters, sorting, and presentation preferences. Listings can be used to create featured sections, topic-based collections, or any other organized view of publications."
+    },
+    {
+      "name": "Organization",
+      "description": "Organizations represent entities that publish or manage catalogs. They can be government agencies, companies, or other institutions. Each organization can have multiple catalogs and is identified by various standardized identifiers like OIN, RSIN, and PKI certificates."
+    },
+    {
+      "name": "Theme",
+      "description": "Themes are used to categorize publications within catalogs. They provide a way to group related publications together, making it easier for users to find content they're interested in. Themes can be hierarchical and can be used for navigation and filtering purposes."
+    },
+    {
+      "name": "Page",
+      "description": "Pages are used to create static content within the catalog website. They can contain information about how to use the catalog, contact information, about pages, or any other static content that needs to be accessible through the website. Pages are accessible through their unique slugs and can be organized in the navigation menu."
+    },
+    {
+      "name": "Menu",
+      "description": "Menus define the navigation structure of the catalog website. They allow administrators to organize pages, listings, and other content into a hierarchical navigation system. Multiple menus can be created for different purposes, such as main navigation, footer links, or specialized content groupings."
+    },
+    {
+      "name": "Glossary",
+      "description": "The glossary provides definitions and explanations for terms used throughout the catalog. It helps users understand specialized terminology, acronyms, and concepts. Each glossary entry can include detailed explanations, external references, and related keywords to help users find and understand relevant information."
+    },
+    {
+      "name": "Voorziening",
+      "description": "Een generieke voorziening (software product)"
+    },
+    {
+      "name": "Voorzieningaanbod",
+      "description": "Een specifiek aanbod van een voorziening door een leverancier"
+    },
+    {
+      "name": "Voorzieningversie",
+      "description": "Een specifieke versie van een voorzieningaanbod"
+    },
+    {
+      "name": "Kwetsbaarheid",
+      "description": "Een beveiligingskwetsbaarheid in een voorzieningversie"
+    },
+    {
+      "name": "Contactgegevens",
+      "description": "Contactgegevens van een persoon"
+    },
+    {
+      "name": "Organisatie",
+      "description": "Een organisatie die voorzieningen aanbiedt"
+    },
+    {
+      "name": "VoorzieningGebruik",
+      "description": "Een organisatie die een voorziening gebruikt"
+    },
+    {
+      "name": "Contract",
+      "description": "Een formele overeenkomst voor het inzetten van een VoorzieningAanbod op een VoorzieningGebruik"
+    },
+    {
+      "name": "Standaard",
+      "description": "Een specifieke standaard waaraan een voorziening kan voldoen"
+    },
+    {
+      "name": "Sector",
+      "description": "Sector waartoe een organisatie behoort"
+    },
+    {
+      "name": "Review",
+      "description": "Beoordeling van een voorziening"
+    },
+    {
+      "name": "Relation",
+      "description": "AMEF Relation"
+    },
+    {
+      "name": "View",
+      "description": "AMEF View"
+    },
+    {
+      "name": "Element",
+      "description": "AMEF Element"
+    },
+    {
+      "name": "GEMMA Model",
+      "description": "This object represents an entire AMEF collection"
+    },
+    {
+      "name": "Property Definition",
+      "description": "AMEF Property Definition"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "Basic authentication using username and password. Not recommended for production use."
+      },
+      "oauth2": {
+        "type": "oauth2",
+        "description": "OAuth2 authentication using Nextcloud's authentication server.",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "/apps/oauth2/authorize",
+            "tokenUrl": "/apps/oauth2/api/v1/token",
+            "refreshUrl": "/apps/oauth2/api/v1/token",
+            "scopes": {
+              "read": "Read access to all resources",
+              "write": "Write access to all resources"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Lock": {
+        "type": "object",
+        "x-tag": "generic",
+        "description": "Lock information object for concurrent access control. Objects can be locked to prevent concurrent editing, ensuring data integrity in multi-user environments.",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "User ID that created the lock",
+            "example": "user_id"
+          },
+          "process": {
+            "type": "string",
+            "description": "Optional process name associated with the lock",
+            "example": "optional_process_name"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the lock was created",
+            "example": "timestamp"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "Duration of the lockin seconds",
+            "example": "seconds"
+          },
+          "expiration": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the object expires (is autmaticly removed)",
+            "example": "timestamp"
+          }
+        }
+      },
+      "Deletion": {
+        "type": "object",
+        "x-tag": "generic",
+        "properties": {
+          "deleted": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the object was marked as deleted",
+            "example": "2023-01-01T00:00:00Z"
+          },
+          "deletedBy": {
+            "type": "string",
+            "description": "User ID who performed the deletion",
+            "example": "user-12345"
+          },
+          "deletedReason": {
+            "type": "string",
+            "description": "Optional reason for deletion",
+            "example": "No longer needed"
+          },
+          "retentionPeriod": {
+            "type": "integer",
+            "description": "How long to keep the deleted object (in days)",
+            "example": 30,
+            "default": 30
+          },
+          "purgeDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "When the object will be permanently deleted",
+            "example": "2023-01-31T00:00:00Z"
+          }
+        }
+      },
+      "@self": {
+        "type": "object",
+        "x-tag": "generic",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the object",
+            "example": 123
+          },
+          "uuid": {
+            "type": "string",
+            "description": "Unique universal identifier for globally unique object identification",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "uri": {
+            "type": "string",
+            "description": "Uniform Resource Identifier for unique addressable location",
+            "example": "/api/objects/123e4567-e89b-12d3-a456-426614174000"
+          },
+          "version": {
+            "type": "string",
+            "description": "Semantic version number to track object versions",
+            "example": "1.0"
+          },
+          "register": {
+            "type": "integer",
+            "description": "Register identifier for object categorization/grouping",
+            "example": 123
+          },
+          "schema": {
+            "type": "integer",
+            "description": "Schema identifier for data validation reference",
+            "example": 123
+          },
+          "textRepresentation": {
+            "type": "string",
+            "description": "Text representation of object for search and display optimization",
+            "example": "John Doe, born 1980-01-15, email: john.doe@example.com"
+          },
+          "locked": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Lock"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Contains either a lock object or the value null"
+          },
+          "deleted": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Deletion"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Contains either a deletion object or the value null"
+          },
+          "owner": {
+            "type": "string",
+            "description": "Nextcloud user identifier for object ownership",
+            "example": "user-12345"
+          },
+          "authorization": {
+            "type": "object",
+            "description": "Authorization rules for access control configuration",
+            "example": {
+              "read": true,
+              "write": false
+            }
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last modification timestamp for change tracking",
+            "example": "2023-05-20T10:15:00Z"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Creation timestamp for lifecycle management",
+            "example": "2023-02-15T14:30:00Z"
+          },
+          "folder": {
+            "type": "string",
+            "description": "Storage folder path for file organization",
+            "example": "/persons/john-doe"
+          },
+          "files": {
+            "type": "array",
+            "description": "Array of related files to track associated files",
+            "items": {
+              "$ref": "#/components/schemas/File"
+            },
+            "example": [
+              {
+                "id": 123,
+                "uuid": "123e4567-e89b-12d3-a456-426614174000",
+                "filename": "profile.jpg",
+                "downloadUrl": "https://example.com/download/123",
+                "shareUrl": "https://example.com/share/123",
+                "accessUrl": "https://example.com/access/123",
+                "extension": "jpg",
+                "checksum": "abc123",
+                "source": 1,
+                "userId": "user-12345",
+                "base64": "base64encodedstring",
+                "filePath": "/files/profile.jpg",
+                "created": "2023-02-15T14:30:00Z",
+                "updated": "2023-05-20T10:15:00Z"
+              },
+              {
+                "id": 124,
+                "uuid": "123e4567-e89b-12d3-a456-426614174001",
+                "filename": "resume.pdf",
+                "downloadUrl": "https://example.com/download/124",
+                "shareUrl": "https://example.com/share/124",
+                "accessUrl": "https://example.com/access/124",
+                "extension": "pdf",
+                "checksum": "def456",
+                "source": 1,
+                "userId": "user-12345",
+                "base64": "base64encodedstring",
+                "filePath": "/files/resume.pdf",
+                "created": "2023-02-16T14:30:00Z",
+                "updated": "2023-05-21T10:15:00Z"
+              }
+            ]
+          },
+          "relations": {
+            "type": "array",
+            "description": "Array of related object IDs to track object relationships",
+            "items": {
+              "type": "string"
+            },
+            "example": {
+              "spouse": "123e4567-e89b-12d3-a456-426614174000"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "description": "Array of error messages encounterd during the rendering process of this object",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "Property 'spouse' could not be extended because it does not exist."
+            ]
+          }
+        }
+      },
+      "File": {
+        "type": "object",
+        "x-tag": "generic",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier of the file in Nextcloud",
+            "example": 123
+          },
+          "uuid": {
+            "type": "string",
+            "description": "Unique identifier for the file",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "filename": {
+            "type": "string",
+            "description": "Name of the file",
+            "example": "profile.jpg"
+          },
+          "downloadUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Direct download URL for the file",
+            "example": "https://example.com/download/123"
+          },
+          "shareUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to access the file via share link",
+            "example": "https://example.com/share/123"
+          },
+          "accessUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to access the file",
+            "example": "https://example.com/access/123"
+          },
+          "extension": {
+            "type": "string",
+            "description": "File extension",
+            "example": "jpg"
+          },
+          "checksum": {
+            "type": "string",
+            "description": "ETag hash for file versioning",
+            "example": "abc123"
+          },
+          "source": {
+            "type": "integer",
+            "description": "Source identifier",
+            "example": 1
+          },
+          "userId": {
+            "type": "string",
+            "description": "ID of the user who owns the file",
+            "example": "user-12345"
+          },
+          "base64": {
+            "type": "string",
+            "description": "Base64 encoded content of the file",
+            "example": "base64encodedstring"
+          },
+          "filePath": {
+            "type": "string",
+            "description": "Full path to the file in Nextcloud",
+            "example": "/files/profile.jpg"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 timestamp when file was first shared",
+            "example": "2023-02-15T14:30:00Z"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 timestamp of last modification",
+            "example": "2023-05-20T10:15:00Z"
+          }
+        }
+      },
+      "AuditTrail": {
+        "type": "object",
+        "x-tag": "generic",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "description": "Unique identifier for the audit entry",
+            "example": "550e8400-e29b-41d4-a716-446655440000"
+          },
+          "schema": {
+            "type": "integer",
+            "description": "Schema ID of the modified object",
+            "example": 42
+          },
+          "register": {
+            "type": "integer",
+            "description": "Register ID of the modified object",
+            "example": 123
+          },
+          "object": {
+            "type": "integer",
+            "description": "Object ID that was modified",
+            "example": 456
+          },
+          "action": {
+            "type": "string",
+            "description": "Type of change that occurred",
+            "example": "create"
+          },
+          "changed": {
+            "type": "object",
+            "description": "Array of modified fields with old/new values",
+            "example": {
+              "name": {
+                "old": "John",
+                "new": "Jane"
+              }
+            }
+          },
+          "user": {
+            "type": "string",
+            "description": "ID of the user who made the change",
+            "example": "admin"
+          },
+          "userName": {
+            "type": "string",
+            "description": "Display name of the user",
+            "example": "Administrator"
+          },
+          "session": {
+            "type": "string",
+            "description": "Session ID when change occurred",
+            "example": "sess_89d7h2"
+          },
+          "request": {
+            "type": "string",
+            "description": "Request ID for tracing",
+            "example": "req_7d8h3j"
+          },
+          "ipAddress": {
+            "type": "string",
+            "description": "IP address of the request",
+            "example": "192.168.1.1"
+          },
+          "version": {
+            "type": "string",
+            "description": "Object version after change",
+            "example": "1.0.0"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the change",
+            "example": "2024-03-15T14:30:00Z"
+          },
+          "processingActivity": {
+            "type": "string",
+            "description": "The processing activity from the registry"
+          },
+          "processing": {
+            "type": "string",
+            "description": "The specific task being performed"
+          },
+          "operation": {
+            "type": "string",
+            "description": "The step in the processing task"
+          },
+          "legalBasis": {
+            "type": "string",
+            "description": "Legal basis for the processing"
+          },
+          "retentionPeriod": {
+            "type": "string",
+            "description": "Retention period for the data"
+          },
+          "executor": {
+            "type": "string",
+            "description": "The system or person executing the action"
+          },
+          "system": {
+            "type": "string",
+            "description": "The system where the action occurred"
+          },
+          "dataSource": {
+            "type": "string",
+            "description": "The source of the data"
+          }
+        }
+      },
+      "Catalog": {
+        "type": "object",
+        "x-tags": [
+          "Catalog"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the catalog",
+            "maxLength": 255,
+            "minLength": 1
+          },
+          "summary": {
+            "type": "string",
+            "description": "Brief description of the catalog",
+            "maxLength": 255
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the catalog",
+            "maxLength": 2555
+          },
+          "image": {
+            "type": "string",
+            "description": "URL to the catalog's image",
+            "maxLength": 255
+          },
+          "listed": {
+            "type": "boolean",
+            "description": "Whether the catalog is publicly listed"
+          },
+          "organization": {
+            "type": "string",
+            "description": "Reference to the organization that owns this catalog"
+          },
+          "registers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of register IDs associated with this catalog"
+          },
+          "schemas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of schema IDs associated with this catalog"
+          },
+          "filters": {
+            "type": "object",
+            "description": "Custom filters for the catalog",
+            "additionalProperties": true
+          }
+        }
+      },
+      "Listing": {
+        "type": "object",
+        "x-tags": [
+          "Listing"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "catalogusId": {
+            "type": "string",
+            "description": "ID of the catalog this listing belongs to"
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the listing",
+            "minLength": 1
+          },
+          "summary": {
+            "type": "string",
+            "description": "Brief description of the listing",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the listing"
+          },
+          "search": {
+            "type": "string",
+            "description": "Search URL for the listing",
+            "format": "url"
+          },
+          "directory": {
+            "type": "string",
+            "description": "Directory URL for the listing",
+            "format": "url"
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Metadata fields for the listing"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the listing"
+          },
+          "statusCode": {
+            "type": "number",
+            "description": "HTTP status code of the listing",
+            "minimum": 200
+          },
+          "lastSync": {
+            "type": "string",
+            "description": "Timestamp of the last synchronization",
+            "format": "date-time"
+          },
+          "available": {
+            "type": "boolean",
+            "description": "Whether the listing is available"
+          },
+          "default": {
+            "type": "boolean",
+            "description": "Whether this is the default listing"
+          },
+          "organization": {
+            "type": "object",
+            "description": "An organization object"
+          },
+          "schemas": {
+            "type": "array",
+            "description": "Types of publications in this listing"
+          }
+        }
+      },
+      "Organization": {
+        "type": "object",
+        "x-tags": [
+          "Organization"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the organization",
+            "minLength": 1
+          },
+          "summary": {
+            "type": "string",
+            "description": "Brief description of the organization",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the organization"
+          },
+          "oin": {
+            "type": "string",
+            "description": "Organization Identification Number (OIN)",
+            "pattern": "^0000000\\d{10}000$"
+          },
+          "tooi": {
+            "type": "string",
+            "description": "TOOI identifier for the organization",
+            "pattern": "^\\w{2,}\\d{4}$"
+          },
+          "rsin": {
+            "type": "string",
+            "description": "RSIN number for tax identification",
+            "pattern": "^\\d{9}$"
+          },
+          "pki": {
+            "type": "string",
+            "description": "PKI certificate information",
+            "pattern": "^\\d{1,}$"
+          },
+          "image": {
+            "type": "string",
+            "description": "URL to the organization's logo or image"
+          }
+        }
+      },
+      "Theme": {
+        "type": "object",
+        "x-tags": [
+          "Theme"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "title": {
+            "type": "string",
+            "description": "The name of the theme",
+            "minLength": 1
+          },
+          "summary": {
+            "type": "string",
+            "description": "Brief description of the theme",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the theme"
+          },
+          "image": {
+            "type": "string",
+            "description": "URL to the theme's image"
+          }
+        }
+      },
+      "Page": {
+        "type": "object",
+        "x-tags": [
+          "Page"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the page",
+            "minLength": 1
+          },
+          "slug": {
+            "type": "string",
+            "description": "URL-friendly version of the page name",
+            "pattern": "^[a-z0-9-]+$",
+            "minLength": 1
+          },
+          "contents": {
+            "type": "array",
+            "description": "Content blocks of the page",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "Type of content block",
+                  "minLength": 1
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Identifier for the content block"
+                },
+                "data": {
+                  "type": "object",
+                  "description": "Content block data",
+                  "additionalProperties": true
+                }
+              },
+              "required": [
+                "type"
+              ]
+            }
+          }
+        }
+      },
+      "Menu": {
+        "type": "object",
+        "x-tags": [
+          "Menu"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "title": {
+            "type": "string",
+            "description": "The name of the menu",
+            "minLength": 1
+          },
+          "position": {
+            "type": "number",
+            "description": "Order position of the menu",
+            "minimum": 0
+          },
+          "items": {
+            "type": "array",
+            "description": "Menu items and their structure",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the menu item",
+                  "minLength": 1
+                },
+                "slug": {
+                  "type": "string",
+                  "description": "URL-friendly version of the item name",
+                  "minLength": 1
+                },
+                "link": {
+                  "type": "string",
+                  "description": "URL or path for the menu item"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Description of the menu item"
+                },
+                "icon": {
+                  "type": "string",
+                  "description": "Icon for the menu item"
+                },
+                "items": {
+                  "type": "array",
+                  "description": "Submenu items",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "Name of the submenu item",
+                        "minLength": 1
+                      },
+                      "slug": {
+                        "type": "string",
+                        "description": "URL-friendly version of the submenu item name",
+                        "minLength": 1
+                      },
+                      "link": {
+                        "type": "string",
+                        "description": "URL or path for the submenu item"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "Description of the submenu item"
+                      },
+                      "icon": {
+                        "type": "string",
+                        "description": "Icon for the submenu item"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "slug"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "name",
+                "slug"
+              ]
+            }
+          }
+        }
+      },
+      "Glossary": {
+        "type": "object",
+        "x-tags": [
+          "Glossary"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "title": {
+            "type": "string",
+            "description": "The term being defined",
+            "minLength": 1,
+            "maxLength": 255
+          },
+          "summary": {
+            "type": "string",
+            "description": "Brief definition of the term",
+            "maxLength": 255
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed explanation of the term",
+            "maxLength": 2555
+          },
+          "externalLink": {
+            "type": "string",
+            "description": "URL to external reference or documentation",
+            "format": "url",
+            "maxLength": 255
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Related search terms and synonyms"
+          }
+        }
+      },
+      "Voorziening": {
+        "type": "object",
+        "x-tags": [
+          "Voorziening"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "naam": {
+            "type": "string",
+            "description": "Naam van de voorziening"
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Beschrijving van de voorziening"
+          },
+          "categorie": {
+            "type": "string",
+            "description": "Categorie waartoe de voorziening behoort"
+          },
+          "functionaliteiten": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Array van UUID's die verwijzen naar de functionaliteiten die de voorziening biedt"
+          },
+          "doelgroep": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "Gemeente",
+                "Waterschap",
+                "Provincie",
+                "Ministerie",
+                "Uitvoeringsorganisatie",
+                "Samenwerkingsverband",
+                "Leverancier"
+              ]
+            },
+            "description": "Doelgroepen waarvoor de voorziening is bedoeld"
+          },
+          "referentieComponenten": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "GEMMA referentiecomponenten die de voorziening implementeert"
+          },
+          "standaarden": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Array van UUID's die verwijzen naar de standaarden die de voorziening ondersteunt"
+          },
+          "voorzieningstype": {
+            "type": "string",
+            "enum": [
+              "Toepassing",
+              "Platform",
+              "GeneriekComponent",
+              "Service",
+              "Anders"
+            ],
+            "description": "Het type voorziening zoals geregistreerd in de catalogus"
+          }
+        }
+      },
+      "Voorzieningaanbod": {
+        "type": "object",
+        "x-tags": [
+          "Voorzieningaanbod"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "voorziening": {
+            "$ref": "#/components/schemas/Voorziening",
+            "type": "object"
+          },
+          "leverancier": {
+            "$ref": "#/components/schemas/Leveranciersorganisatie",
+            "type": "object"
+          },
+          "productpagina": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL naar de productpagina"
+          },
+          "ondersteuningsopties": {
+            "type": "array",
+            "description": "Beschikbare ondersteuningsopties",
+            "items": {
+              "type": "string"
+            }
+          },
+          "prijsmodel": {
+            "type": "string",
+            "description": "Beschrijving van het prijsmodel"
+          },
+          "certificeringen": {
+            "type": "array",
+            "description": "Lijst van certificeringen",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ondersteundeStandaarden": {
+            "type": "array",
+            "description": "Lijst van ondersteunde standaarden",
+            "items": {
+              "$ref": "#/components/schemas/Standaard",
+              "type": "object"
+            }
+          }
+        }
+      },
+      "Voorzieningversie": {
+        "type": "object",
+        "x-tags": [
+          "Voorzieningversie"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "voorzieningaanbod": {
+            "$ref": "#/components/schemas/Voorzieningaanbod",
+            "type": "object"
+          },
+          "versienummer": {
+            "type": "string",
+            "description": "Versienummer van de voorziening"
+          },
+          "releaseNotes": {
+            "type": "string",
+            "description": "Release notes voor deze versie"
+          },
+          "releaseDatum": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop deze versie is uitgebracht"
+          },
+          "eindDatumOndersteuning": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop ondersteuning voor deze versie eindigt"
+          },
+          "systeemvereisten": {
+            "type": "string",
+            "description": "Systeemvereisten voor deze versie"
+          },
+          "kwetsbaarheden": {
+            "type": "array",
+            "description": "Bekende kwetsbaarheden in deze versie",
+            "items": {
+              "$ref": "#/components/schemas/Kwetsbaarheid",
+              "type": "object"
+            }
+          }
+        }
+      },
+      "Kwetsbaarheid": {
+        "type": "object",
+        "x-tags": [
+          "Kwetsbaarheid"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "voorzieningversieId": {
+            "type": "string",
+            "description": "ID van de voorzieningversie waarin de kwetsbaarheid is gevonden"
+          },
+          "cveNummer": {
+            "type": "string",
+            "description": "CVE-nummer van de kwetsbaarheid"
+          },
+          "titel": {
+            "type": "string",
+            "description": "Titel van de kwetsbaarheid"
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Beschrijving van de kwetsbaarheid"
+          },
+          "ernst": {
+            "type": "string",
+            "enum": [
+              "laag",
+              "gemiddeld",
+              "hoog",
+              "kritiek"
+            ],
+            "description": "Ernst van de kwetsbaarheid"
+          },
+          "ontdektOp": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de kwetsbaarheid is ontdekt"
+          },
+          "gepubliceerdOp": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum waarop de kwetsbaarheid is gepubliceerd"
+          },
+          "opgelostIn": {
+            "type": "string",
+            "description": "Versie waarin de kwetsbaarheid is opgelost"
+          },
+          "mitigatie": {
+            "type": "string",
+            "description": "Beschrijving van mogelijke mitigatiemaatregelen"
+          },
+          "referenties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "Referenties naar meer informatie over de kwetsbaarheid"
+          }
+        }
+      },
+      "Contactgegevens": {
+        "type": "object",
+        "x-tags": [
+          "Contactgegevens"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "voornaam": {
+            "type": "string",
+            "description": "Voornaam van de contactpersoon"
+          },
+          "tussenvoegsel": {
+            "type": "string",
+            "description": "Tussenvoegsel van de contactpersoon"
+          },
+          "achternaam": {
+            "type": "string",
+            "description": "Achternaam van de contactpersoon"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "E-mailadres van de contactpersoon"
+          },
+          "telefoon": {
+            "type": "string",
+            "description": "Telefoonnummer van de contactpersoon"
+          }
+        }
+      },
+      "Organisatie": {
+        "type": "object",
+        "x-tags": [
+          "Organisatie"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "kvk-nummer": {
+            "type": "string",
+            "description": "KvK-nummer van de organisatie"
+          },
+          "organisatienaam": {
+            "type": "string",
+            "description": "Naam van de organisatie"
+          },
+          "contactgegevens": {
+            "$ref": "#/components/schemas/Contactgegevens",
+            "type": "object"
+          },
+          "website": {
+            "type": "string",
+            "format": "uri",
+            "description": "Website van de leverancier"
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Beschrijving van de leverancier"
+          }
+        }
+      },
+      "VoorzieningGebruik": {
+        "type": "object",
+        "x-tags": [
+          "VoorzieningGebruik"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "organisatieId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID van de organisatie die de voorziening gebruikt"
+          },
+          "voorzieningId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID van de voorziening die gebruikt wordt"
+          },
+          "versieId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID van de specifieke versie van de voorziening die gebruikt wordt"
+          },
+          "beheerder": {
+            "type": "object",
+            "properties": {
+              "naam": {
+                "type": "string",
+                "description": "De volledige naam van de persoon"
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "description": "Het e-mailadres van de persoon"
+              },
+              "telefoonnummer": {
+                "type": "string",
+                "description": "Het telefoonnummer van de persoon"
+              },
+              "functie": {
+                "type": "string",
+                "description": "De functie van de persoon"
+              }
+            },
+            "description": "De contactpersoon voor dit gebruik van de voorziening"
+          },
+          "startDatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop het gebruik van de voorziening is gestart"
+          },
+          "eindDatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De datum waarop het gebruik van de voorziening is beëindigd"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Actief",
+              "Gepland",
+              "Beëindigd"
+            ],
+            "description": "De status van het gebruik"
+          },
+          "opmerkingen": {
+            "type": "string",
+            "description": "Aanvullende informatie over het gebruik van de voorziening"
+          },
+          "bbnScore": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3,
+            "description": "De BBN (Basis Beveiligings Niveau) score van het voorzieninggebruik"
+          },
+          "ibpScore": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "De IBP (Informatiebeveiliging en Privacy) score van het voorzieninggebruik"
+          },
+          "bivClassificatie": {
+            "type": "object",
+            "properties": {
+              "beschikbaarheid": {
+                "type": "string",
+                "enum": [
+                  "Laag",
+                  "Midden",
+                  "Hoog"
+                ]
+              },
+              "integriteit": {
+                "type": "string",
+                "enum": [
+                  "Laag",
+                  "Midden",
+                  "Hoog"
+                ]
+              },
+              "vertrouwelijkheid": {
+                "type": "string",
+                "enum": [
+                  "Laag",
+                  "Midden",
+                  "Hoog"
+                ]
+              }
+            },
+            "description": "De BIV (Beschikbaarheid, Integriteit, Vertrouwelijkheid) classificatie"
+          },
+          "bedrijfsKritisch": {
+            "type": "boolean",
+            "default": false,
+            "description": "Geeft aan of het voorzieninggebruik bedrijfskritisch is"
+          },
+          "privacyGevoelig": {
+            "type": "boolean",
+            "default": false,
+            "description": "Geeft aan of het voorzieninggebruik privacy gevoelige gegevens bevat"
+          }
+        }
+      },
+      "Contract": {
+        "type": "object",
+        "x-tags": [
+          "Contract"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "voorzieningAanbod": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "naam": {
+                "type": "string"
+              }
+            },
+            "description": "Het aanbod van de voorziening waarop dit contract betrekking heeft"
+          },
+          "voorzieningGebruik": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "organisatie": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "naam": {
+                    "type": "string"
+                  }
+                }
+              },
+              "voorziening": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "naam": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "description": "Het gebruik van de voorziening waarop dit contract betrekking heeft"
+          },
+          "startDatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De startdatum van het contract"
+          },
+          "eindDatum": {
+            "type": "string",
+            "format": "date",
+            "description": "De einddatum van het contract (indien van toepassing)"
+          },
+          "contractNummer": {
+            "type": "string",
+            "description": "Het referentienummer van het contract"
+          },
+          "contractType": {
+            "type": "string",
+            "enum": [
+              "SLA",
+              "Licentie",
+              "Onderhoud"
+            ],
+            "description": "Het type contract"
+          },
+          "kosten": {
+            "type": "number",
+            "description": "De kosten verbonden aan het contract"
+          },
+          "kostenPeriode": {
+            "type": "string",
+            "enum": [
+              "Maandelijks",
+              "Jaarlijks",
+              "Eenmalig"
+            ],
+            "description": "De periode waarop de kosten betrekking hebben"
+          },
+          "contactpersoonAanbieder": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "naam": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            },
+            "description": "De contactpersoon bij de aanbieder"
+          },
+          "contactpersoonGebruiker": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "naam": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              }
+            },
+            "description": "De contactpersoon bij de gebruiker"
+          },
+          "documentReferentie": {
+            "type": "string",
+            "description": "Referentie naar het contractdocument"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Actief",
+              "Verlopen",
+              "In onderhandeling"
+            ],
+            "description": "De status van het contract"
+          },
+          "opmerkingen": {
+            "type": "string",
+            "description": "Aanvullende informatie over het contract"
+          }
+        }
+      },
+      "Standaard": {
+        "type": "object",
+        "x-tags": [
+          "Standaard"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "naam": {
+            "type": "string",
+            "description": "Naam van de standaard"
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Beschrijving van de standaard"
+          },
+          "standaardtype": {
+            "$ref": "#/components/schemas/Standaardtype",
+            "description": "Type van de standaard",
+            "type": "string"
+          },
+          "versie": {
+            "type": "string",
+            "description": "Versie van de standaard"
+          },
+          "beheerorganisatie": {
+            "type": "string",
+            "description": "Organisatie die de standaard beheert"
+          },
+          "website": {
+            "type": "string",
+            "format": "uri",
+            "description": "Website van de standaard"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "Concept",
+              "In ontwikkeling",
+              "Vastgesteld",
+              "Verouderd"
+            ],
+            "description": "Status van de standaard"
+          }
+        }
+      },
+      "Sector": {
+        "type": "object",
+        "x-tags": [
+          "Sector"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "naam": {
+            "type": "string",
+            "description": "Naam van de sector"
+          },
+          "beschrijving": {
+            "type": "string",
+            "description": "Beschrijving van de sector"
+          },
+          "bovenliggendeSector": {
+            "$ref": "#/components/schemas/Sector",
+            "description": "Bovenliggende sector (voor hiërarchische indeling)",
+            "type": "string"
+          }
+        }
+      },
+      "Review": {
+        "type": "object",
+        "x-tags": [
+          "Review"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "voorziening": {
+            "$ref": "#/components/schemas/Voorziening",
+            "description": "De beoordeelde voorziening",
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Score van de beoordeling (1-5)"
+          },
+          "titel": {
+            "type": "string",
+            "description": "Titel van de beoordeling"
+          },
+          "tekst": {
+            "type": "string",
+            "description": "Tekst van de beoordeling"
+          },
+          "datum": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum van de beoordeling"
+          },
+          "voordelen": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Voordelen van de voorziening"
+          },
+          "nadelen": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Nadelen van de voorziening"
+          }
+        }
+      },
+      "Relation": {
+        "type": "object",
+        "x-tags": [
+          "Relation"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "identifier": {
+            "description": "De identifier van deze Relation",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "id-1b46181d68e5477a9c0b5a95a0677924",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "source": {
+            "description": "De source van deze Relation",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "id-d143a1fc-02dc-11e6-11ba-005056a85f9c",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "target": {
+            "description": "De target van deze Relation",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "id-a85f22d89af14222a914fcb9ecfe6815",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "type": {
+            "description": "De type van deze Relation",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "Access",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "accessType": {
+            "description": "De accessType van deze Relation",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "Read",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "isDirected": {
+            "description": "De isDirected van deze Relation",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "true",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "name": {
+            "description": "De name van deze Relation",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "Verplicht",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "name-lang": {
+            "description": "De name-language van deze Relation",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": 2,
+            "maxLength": 2,
+            "example": "nl",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "documentation": {
+            "description": "De documentation van deze Relation",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "Op basis van het zaaktype routeert de servicebuscomponent de aanvraag naar een Zaakafhandelcomponent (generiek of specifiek).",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "documentation-lang": {
+            "description": "De documentation-lang van deze Relation",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": 2,
+            "maxLength": 2,
+            "example": "nl",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "properties": {
+            "description": "De properties van deze Relation",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "items": {
+              "cascadeDelete": true,
+              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+              "type": "object"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          }
+        }
+      },
+      "View": {
+        "type": "object",
+        "x-tags": [
+          "View"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "identifier": {
+            "description": "De identifier van deze View",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "id-a6ee6077d3094afa91fc6ea92a9a2a40",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "type": {
+            "description": "De type van deze View",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "Diagram",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "viewpoint": {
+            "description": "De viewpoint van deze View",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "Application Structure",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "name": {
+            "description": "De name van deze View",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "LV01 BGT basisregistratie en SVB view",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "name-lang": {
+            "description": "De name-language van deze View",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "nl",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "documentation": {
+            "description": "De documentation van deze View",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "Toont de referentiecomponenten ter ondersteuning van applicatieservices voor publieksdiensten",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "documentation-lang": {
+            "description": "De documentation-language van deze View",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": 2,
+            "maxLength": 2,
+            "example": "nl",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "properties": {
+            "description": "De properties van deze View",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "items": {
+              "cascadeDelete": true,
+              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json",
+              "type": "object"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "nodes": {
+            "description": "De nodes van deze View",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "items": {
+              "cascadeDelete": true,
+              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Node.json",
+              "type": "object"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "connections": {
+            "description": "De connections van deze View",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "items": {
+              "cascadeDelete": true,
+              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Connection.json",
+              "type": "object"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          }
+        }
+      },
+      "Element": {
+        "type": "object",
+        "x-tags": [
+          "Element"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "identifier": {
+            "description": "De identifier van dit Element",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "id-009fa62f25844aa3a87d252bf2b6bb0c",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "type": {
+            "description": "Het type van dit Element",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "Capability",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "name": {
+            "description": "De naam van dit Element",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "Publiceren en gebruiken van informatie over datadiensten",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "name-lang": {
+            "description": "De name-language van dit Element",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": 2,
+            "maxLength": 2,
+            "example": "nl",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "documentation": {
+            "description": "De documentation van dit Element",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "Dienstenafnemers moeten in online catalogi kunnen opvragen welke diensten, met welke kenmerken, door dienstenaanbieder worden aangeboden. \\nOnder andere ontwikkelaars hebben baat bij informatie over beschikbare diensten en de vereisten voor het gebruik van de dienst (bijv. specificatie van een dienst conform de OAS-standaard).",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "documentation-lang": {
+            "description": "De documentation-language van dit Element",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": 2,
+            "maxLength": 2,
+            "example": "nl",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "properties": {
+            "description": "De properties van dit Element",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "items": {
+              "cascadeDelete": true,
+              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+              "type": "object"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          }
+        }
+      },
+      "GEMMA Model": {
+        "type": "object",
+        "x-tags": [
+          "GEMMA Model"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "xmlns": {
+            "description": "De xmlns van dit GEMMA Model",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "http://www.opengroup.org/xsd/archimate/3.0/",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "xsi": {
+            "description": "De xsi van dit GEMMA Model",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "http://www.w3.org/2001/XMLSchema-instance",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "schemaLocation": {
+            "description": "De schemaLocation van dit GEMMA Model",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "identifier": {
+            "description": "De identifier van dit GEMMA Model",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "id-b58b6b03-a59d-472b-bd87-88ba77ded4e6",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "name": {
+            "description": "De name van dit GEMMA Model",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "GEMMA release (test)",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "name-lang": {
+            "description": "De name-language van dit GEMMA Model",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": 2,
+            "maxLength": 2,
+            "example": "nl",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "version": {
+            "description": "De version van dit GEMMA Model",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": 3,
+            "maxLength": null,
+            "example": "3.0",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "documentation": {
+            "description": "De documentation van dit GEMMA Model",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "De GEMeentelijk Model Architectuur (GEMMA) bevat een blauwdruk van de gemeente en haar informatievoorziening. De GEMMA kan worden gebruikt als basis voor de projectmodellen",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "documentation-lang": {
+            "description": "De documentation-language van dit GEMMA Model",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": 2,
+            "maxLength": 2,
+            "example": "nl",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "properties": {
+            "description": "De properties van dit GEMMA Model",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": 1,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "items": {
+              "cascadeDelete": true,
+              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+              "type": "object"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "elements": {
+            "description": "De elements van dit GEMMA Model",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": 1,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "items": {
+              "cascadeDelete": true,
+              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Element.json/10",
+              "type": "object"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "relationships": {
+            "description": "De relationships van dit GEMMA Model",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": 1,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "items": {
+              "cascadeDelete": true,
+              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Relation.json/13",
+              "type": "object"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "organizations": {
+            "description": "De organizations van dit GEMMA Model",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": 1,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "items": {
+              "cascadeDelete": true,
+              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Organization.json/12",
+              "type": "object"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "propertyDefinitions": {
+            "description": "De propertyDefinitions van dit GEMMA Model",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": 1,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "items": {
+              "cascadeDelete": true,
+              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Property_Definition.json/15",
+              "type": "object"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "views": {
+            "description": "De views van dit GEMMA Model",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": 1,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "items": {
+              "cascadeDelete": true,
+              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View.json/11",
+              "type": "object"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          }
+        }
+      },
+      "Property Definition": {
+        "type": "object",
+        "x-tags": [
+          "Property Definition"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "identifier": {
+            "description": "De identifier van deze Property Definition",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "propid-43",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "type": {
+            "description": "De type van deze Property Definition",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "string",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "name": {
+            "description": "De name van deze Property Definition",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "API-portaal",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "name-lang": {
+            "description": "De name-language van deze Property Definition",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "deprecated": false,
+            "minLength": 2,
+            "maxLength": 2,
+            "example": "nl",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          }
+        }
+      }
+    }
+  },
+  "paths": []
+}
