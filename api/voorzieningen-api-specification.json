@@ -1282,5 +1282,6513 @@
       }
     }
   },
-  "paths": []
+  "paths": {
+    "/voorzieningen/voorziening": {
+      "tags": [
+        "Voorziening"
+      ],
+      "get": {
+        "summary": "Get all Voorziening objects",
+        "operationId": "getAllVoorziening",
+        "tags": [
+          "Voorziening"
+        ],
+        "description": "Retrieve a list of all Voorziening objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "naam",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by naam",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "beschrijving",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by beschrijving",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "categorie",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by categorie",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "functionaliteiten",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by functionaliteiten",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "doelgroep",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by doelgroep",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "referentieComponenten",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by referentieComponenten",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "standaarden",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by standaarden",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "voorzieningstype",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by voorzieningstype",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Voorziening objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Voorziening"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Voorziening object",
+        "operationId": "createVoorziening",
+        "tags": [
+          "Voorziening"
+        ],
+        "description": "Create a new Voorziening object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Voorziening"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Voorziening created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voorziening"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorziening/{id}": {
+      "tags": [
+        "Voorziening"
+      ],
+      "get": {
+        "summary": "Get a Voorziening object by ID",
+        "operationId": "getVoorziening",
+        "tags": [
+          "Voorziening"
+        ],
+        "description": "Retrieve a specific Voorziening object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorziening object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Voorziening found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voorziening"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorziening not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Voorziening object",
+        "operationId": "updateVoorziening",
+        "tags": [
+          "Voorziening"
+        ],
+        "description": "Update an existing Voorziening object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorziening object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Voorziening"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Voorziening updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voorziening"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorziening not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Voorziening object",
+        "operationId": "deleteVoorziening",
+        "tags": [
+          "Voorziening"
+        ],
+        "description": "Delete a specific Voorziening object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorziening object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Voorziening deleted successfully"
+          },
+          "404": {
+            "description": "Voorziening not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorziening/{id}/audit-trails": {
+      "tags": [
+        "Voorziening"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Voorziening object",
+        "operationId": "getLogsVoorziening",
+        "tags": [
+          "Voorziening"
+        ],
+        "description": "Retrieve the audit trail for a specific Voorziening object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorziening object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorziening not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorziening/{id}/files": {
+      "tags": [
+        "Voorziening"
+      ],
+      "get": {
+        "summary": "Get files for a Voorziening object",
+        "operationId": "getFilesVoorziening",
+        "tags": [
+          "Voorziening"
+        ],
+        "description": "Retrieve all files associated with a specific Voorziening object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorziening object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorziening not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Voorziening object",
+        "operationId": "uploadFileVoorziening",
+        "tags": [
+          "Voorziening"
+        ],
+        "description": "Upload a new file and associate it with a specific Voorziening object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorziening object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorziening not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorziening/{id}/lock": {
+      "tags": [
+        "Voorziening"
+      ],
+      "post": {
+        "summary": "Lock a Voorziening object",
+        "operationId": "lockVoorziening",
+        "tags": [
+          "Voorziening"
+        ],
+        "description": "Lock a specific Voorziening object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorziening object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorziening not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorziening/{id}/unlock": {
+      "tags": [
+        "Voorziening"
+      ],
+      "post": {
+        "summary": "Unlock a Voorziening object",
+        "operationId": "unlockVoorziening",
+        "tags": [
+          "Voorziening"
+        ],
+        "description": "Remove the lock from a specific Voorziening object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorziening object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Voorziening not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningaanbod": {
+      "tags": [
+        "Voorzieningaanbod"
+      ],
+      "get": {
+        "summary": "Get all Voorzieningaanbod objects",
+        "operationId": "getAllVoorzieningaanbod",
+        "tags": [
+          "Voorzieningaanbod"
+        ],
+        "description": "Retrieve a list of all Voorzieningaanbod objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "voorziening",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by voorziening",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "leverancier",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by leverancier",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "productpagina",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by productpagina",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ondersteuningsopties",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by ondersteuningsopties",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "prijsmodel",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by prijsmodel",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "certificeringen",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by certificeringen",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "ondersteundeStandaarden",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by ondersteundeStandaarden",
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Voorzieningaanbod objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Voorzieningaanbod"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Voorzieningaanbod object",
+        "operationId": "createVoorzieningaanbod",
+        "tags": [
+          "Voorzieningaanbod"
+        ],
+        "description": "Create a new Voorzieningaanbod object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Voorzieningaanbod"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Voorzieningaanbod created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voorzieningaanbod"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningaanbod/{id}": {
+      "tags": [
+        "Voorzieningaanbod"
+      ],
+      "get": {
+        "summary": "Get a Voorzieningaanbod object by ID",
+        "operationId": "getVoorzieningaanbod",
+        "tags": [
+          "Voorzieningaanbod"
+        ],
+        "description": "Retrieve a specific Voorzieningaanbod object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningaanbod object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Voorzieningaanbod found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voorzieningaanbod"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningaanbod not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Voorzieningaanbod object",
+        "operationId": "updateVoorzieningaanbod",
+        "tags": [
+          "Voorzieningaanbod"
+        ],
+        "description": "Update an existing Voorzieningaanbod object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningaanbod object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Voorzieningaanbod"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Voorzieningaanbod updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voorzieningaanbod"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningaanbod not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Voorzieningaanbod object",
+        "operationId": "deleteVoorzieningaanbod",
+        "tags": [
+          "Voorzieningaanbod"
+        ],
+        "description": "Delete a specific Voorzieningaanbod object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningaanbod object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Voorzieningaanbod deleted successfully"
+          },
+          "404": {
+            "description": "Voorzieningaanbod not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningaanbod/{id}/audit-trails": {
+      "tags": [
+        "Voorzieningaanbod"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Voorzieningaanbod object",
+        "operationId": "getLogsVoorzieningaanbod",
+        "tags": [
+          "Voorzieningaanbod"
+        ],
+        "description": "Retrieve the audit trail for a specific Voorzieningaanbod object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningaanbod object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningaanbod not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningaanbod/{id}/files": {
+      "tags": [
+        "Voorzieningaanbod"
+      ],
+      "get": {
+        "summary": "Get files for a Voorzieningaanbod object",
+        "operationId": "getFilesVoorzieningaanbod",
+        "tags": [
+          "Voorzieningaanbod"
+        ],
+        "description": "Retrieve all files associated with a specific Voorzieningaanbod object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningaanbod object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningaanbod not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Voorzieningaanbod object",
+        "operationId": "uploadFileVoorzieningaanbod",
+        "tags": [
+          "Voorzieningaanbod"
+        ],
+        "description": "Upload a new file and associate it with a specific Voorzieningaanbod object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningaanbod object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningaanbod not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningaanbod/{id}/lock": {
+      "tags": [
+        "Voorzieningaanbod"
+      ],
+      "post": {
+        "summary": "Lock a Voorzieningaanbod object",
+        "operationId": "lockVoorzieningaanbod",
+        "tags": [
+          "Voorzieningaanbod"
+        ],
+        "description": "Lock a specific Voorzieningaanbod object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningaanbod object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningaanbod not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningaanbod/{id}/unlock": {
+      "tags": [
+        "Voorzieningaanbod"
+      ],
+      "post": {
+        "summary": "Unlock a Voorzieningaanbod object",
+        "operationId": "unlockVoorzieningaanbod",
+        "tags": [
+          "Voorzieningaanbod"
+        ],
+        "description": "Remove the lock from a specific Voorzieningaanbod object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningaanbod object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Voorzieningaanbod not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningversie": {
+      "tags": [
+        "Voorzieningversie"
+      ],
+      "get": {
+        "summary": "Get all Voorzieningversie objects",
+        "operationId": "getAllVoorzieningversie",
+        "tags": [
+          "Voorzieningversie"
+        ],
+        "description": "Retrieve a list of all Voorzieningversie objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "voorzieningaanbod",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by voorzieningaanbod",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "versienummer",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by versienummer",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "releaseNotes",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by releaseNotes",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "releaseDatum",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by releaseDatum",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eindDatumOndersteuning",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by eindDatumOndersteuning",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "systeemvereisten",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by systeemvereisten",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "kwetsbaarheden",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by kwetsbaarheden",
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Voorzieningversie objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Voorzieningversie"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Voorzieningversie object",
+        "operationId": "createVoorzieningversie",
+        "tags": [
+          "Voorzieningversie"
+        ],
+        "description": "Create a new Voorzieningversie object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Voorzieningversie"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Voorzieningversie created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voorzieningversie"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningversie/{id}": {
+      "tags": [
+        "Voorzieningversie"
+      ],
+      "get": {
+        "summary": "Get a Voorzieningversie object by ID",
+        "operationId": "getVoorzieningversie",
+        "tags": [
+          "Voorzieningversie"
+        ],
+        "description": "Retrieve a specific Voorzieningversie object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningversie object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Voorzieningversie found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voorzieningversie"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningversie not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Voorzieningversie object",
+        "operationId": "updateVoorzieningversie",
+        "tags": [
+          "Voorzieningversie"
+        ],
+        "description": "Update an existing Voorzieningversie object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningversie object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Voorzieningversie"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Voorzieningversie updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voorzieningversie"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningversie not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Voorzieningversie object",
+        "operationId": "deleteVoorzieningversie",
+        "tags": [
+          "Voorzieningversie"
+        ],
+        "description": "Delete a specific Voorzieningversie object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningversie object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Voorzieningversie deleted successfully"
+          },
+          "404": {
+            "description": "Voorzieningversie not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningversie/{id}/audit-trails": {
+      "tags": [
+        "Voorzieningversie"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Voorzieningversie object",
+        "operationId": "getLogsVoorzieningversie",
+        "tags": [
+          "Voorzieningversie"
+        ],
+        "description": "Retrieve the audit trail for a specific Voorzieningversie object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningversie object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningversie not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningversie/{id}/files": {
+      "tags": [
+        "Voorzieningversie"
+      ],
+      "get": {
+        "summary": "Get files for a Voorzieningversie object",
+        "operationId": "getFilesVoorzieningversie",
+        "tags": [
+          "Voorzieningversie"
+        ],
+        "description": "Retrieve all files associated with a specific Voorzieningversie object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningversie object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningversie not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Voorzieningversie object",
+        "operationId": "uploadFileVoorzieningversie",
+        "tags": [
+          "Voorzieningversie"
+        ],
+        "description": "Upload a new file and associate it with a specific Voorzieningversie object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningversie object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningversie not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningversie/{id}/lock": {
+      "tags": [
+        "Voorzieningversie"
+      ],
+      "post": {
+        "summary": "Lock a Voorzieningversie object",
+        "operationId": "lockVoorzieningversie",
+        "tags": [
+          "Voorzieningversie"
+        ],
+        "description": "Lock a specific Voorzieningversie object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningversie object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Voorzieningversie not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieningversie/{id}/unlock": {
+      "tags": [
+        "Voorzieningversie"
+      ],
+      "post": {
+        "summary": "Unlock a Voorzieningversie object",
+        "operationId": "unlockVoorzieningversie",
+        "tags": [
+          "Voorzieningversie"
+        ],
+        "description": "Remove the lock from a specific Voorzieningversie object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Voorzieningversie object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Voorzieningversie not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/kwetsbaarheid": {
+      "tags": [
+        "Kwetsbaarheid"
+      ],
+      "get": {
+        "summary": "Get all Kwetsbaarheid objects",
+        "operationId": "getAllKwetsbaarheid",
+        "tags": [
+          "Kwetsbaarheid"
+        ],
+        "description": "Retrieve a list of all Kwetsbaarheid objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "voorzieningversieId",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by voorzieningversieId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cveNummer",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by cveNummer",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "titel",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by titel",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "beschrijving",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by beschrijving",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ernst",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by ernst",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ontdektOp",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by ontdektOp",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gepubliceerdOp",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by gepubliceerdOp",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "opgelostIn",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by opgelostIn",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mitigatie",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by mitigatie",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "referenties",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by referenties",
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Kwetsbaarheid objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Kwetsbaarheid"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Kwetsbaarheid object",
+        "operationId": "createKwetsbaarheid",
+        "tags": [
+          "Kwetsbaarheid"
+        ],
+        "description": "Create a new Kwetsbaarheid object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kwetsbaarheid"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Kwetsbaarheid created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kwetsbaarheid"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/kwetsbaarheid/{id}": {
+      "tags": [
+        "Kwetsbaarheid"
+      ],
+      "get": {
+        "summary": "Get a Kwetsbaarheid object by ID",
+        "operationId": "getKwetsbaarheid",
+        "tags": [
+          "Kwetsbaarheid"
+        ],
+        "description": "Retrieve a specific Kwetsbaarheid object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Kwetsbaarheid object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Kwetsbaarheid found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kwetsbaarheid"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Kwetsbaarheid not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Kwetsbaarheid object",
+        "operationId": "updateKwetsbaarheid",
+        "tags": [
+          "Kwetsbaarheid"
+        ],
+        "description": "Update an existing Kwetsbaarheid object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Kwetsbaarheid object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kwetsbaarheid"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Kwetsbaarheid updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kwetsbaarheid"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Kwetsbaarheid not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Kwetsbaarheid object",
+        "operationId": "deleteKwetsbaarheid",
+        "tags": [
+          "Kwetsbaarheid"
+        ],
+        "description": "Delete a specific Kwetsbaarheid object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Kwetsbaarheid object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Kwetsbaarheid deleted successfully"
+          },
+          "404": {
+            "description": "Kwetsbaarheid not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/kwetsbaarheid/{id}/audit-trails": {
+      "tags": [
+        "Kwetsbaarheid"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Kwetsbaarheid object",
+        "operationId": "getLogsKwetsbaarheid",
+        "tags": [
+          "Kwetsbaarheid"
+        ],
+        "description": "Retrieve the audit trail for a specific Kwetsbaarheid object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Kwetsbaarheid object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Kwetsbaarheid not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/kwetsbaarheid/{id}/files": {
+      "tags": [
+        "Kwetsbaarheid"
+      ],
+      "get": {
+        "summary": "Get files for a Kwetsbaarheid object",
+        "operationId": "getFilesKwetsbaarheid",
+        "tags": [
+          "Kwetsbaarheid"
+        ],
+        "description": "Retrieve all files associated with a specific Kwetsbaarheid object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Kwetsbaarheid object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Kwetsbaarheid not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Kwetsbaarheid object",
+        "operationId": "uploadFileKwetsbaarheid",
+        "tags": [
+          "Kwetsbaarheid"
+        ],
+        "description": "Upload a new file and associate it with a specific Kwetsbaarheid object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Kwetsbaarheid object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Kwetsbaarheid not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/kwetsbaarheid/{id}/lock": {
+      "tags": [
+        "Kwetsbaarheid"
+      ],
+      "post": {
+        "summary": "Lock a Kwetsbaarheid object",
+        "operationId": "lockKwetsbaarheid",
+        "tags": [
+          "Kwetsbaarheid"
+        ],
+        "description": "Lock a specific Kwetsbaarheid object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Kwetsbaarheid object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Kwetsbaarheid not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/kwetsbaarheid/{id}/unlock": {
+      "tags": [
+        "Kwetsbaarheid"
+      ],
+      "post": {
+        "summary": "Unlock a Kwetsbaarheid object",
+        "operationId": "unlockKwetsbaarheid",
+        "tags": [
+          "Kwetsbaarheid"
+        ],
+        "description": "Remove the lock from a specific Kwetsbaarheid object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Kwetsbaarheid object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Kwetsbaarheid not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/contactgegevens": {
+      "tags": [
+        "Contactgegevens"
+      ],
+      "get": {
+        "summary": "Get all Contactgegevens objects",
+        "operationId": "getAllContactgegevens",
+        "tags": [
+          "Contactgegevens"
+        ],
+        "description": "Retrieve a list of all Contactgegevens objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "voornaam",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by voornaam",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tussenvoegsel",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by tussenvoegsel",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "achternaam",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by achternaam",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by email",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "telefoon",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by telefoon",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Contactgegevens objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Contactgegevens"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Contactgegevens object",
+        "operationId": "createContactgegevens",
+        "tags": [
+          "Contactgegevens"
+        ],
+        "description": "Create a new Contactgegevens object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contactgegevens"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Contactgegevens created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contactgegevens"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/contactgegevens/{id}": {
+      "tags": [
+        "Contactgegevens"
+      ],
+      "get": {
+        "summary": "Get a Contactgegevens object by ID",
+        "operationId": "getContactgegevens",
+        "tags": [
+          "Contactgegevens"
+        ],
+        "description": "Retrieve a specific Contactgegevens object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contactgegevens object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contactgegevens found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contactgegevens"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contactgegevens not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Contactgegevens object",
+        "operationId": "updateContactgegevens",
+        "tags": [
+          "Contactgegevens"
+        ],
+        "description": "Update an existing Contactgegevens object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contactgegevens object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contactgegevens"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Contactgegevens updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contactgegevens"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contactgegevens not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Contactgegevens object",
+        "operationId": "deleteContactgegevens",
+        "tags": [
+          "Contactgegevens"
+        ],
+        "description": "Delete a specific Contactgegevens object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contactgegevens object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Contactgegevens deleted successfully"
+          },
+          "404": {
+            "description": "Contactgegevens not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/contactgegevens/{id}/audit-trails": {
+      "tags": [
+        "Contactgegevens"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Contactgegevens object",
+        "operationId": "getLogsContactgegevens",
+        "tags": [
+          "Contactgegevens"
+        ],
+        "description": "Retrieve the audit trail for a specific Contactgegevens object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contactgegevens object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contactgegevens not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/contactgegevens/{id}/files": {
+      "tags": [
+        "Contactgegevens"
+      ],
+      "get": {
+        "summary": "Get files for a Contactgegevens object",
+        "operationId": "getFilesContactgegevens",
+        "tags": [
+          "Contactgegevens"
+        ],
+        "description": "Retrieve all files associated with a specific Contactgegevens object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contactgegevens object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contactgegevens not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Contactgegevens object",
+        "operationId": "uploadFileContactgegevens",
+        "tags": [
+          "Contactgegevens"
+        ],
+        "description": "Upload a new file and associate it with a specific Contactgegevens object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contactgegevens object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contactgegevens not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/contactgegevens/{id}/lock": {
+      "tags": [
+        "Contactgegevens"
+      ],
+      "post": {
+        "summary": "Lock a Contactgegevens object",
+        "operationId": "lockContactgegevens",
+        "tags": [
+          "Contactgegevens"
+        ],
+        "description": "Lock a specific Contactgegevens object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contactgegevens object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contactgegevens not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/contactgegevens/{id}/unlock": {
+      "tags": [
+        "Contactgegevens"
+      ],
+      "post": {
+        "summary": "Unlock a Contactgegevens object",
+        "operationId": "unlockContactgegevens",
+        "tags": [
+          "Contactgegevens"
+        ],
+        "description": "Remove the lock from a specific Contactgegevens object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contactgegevens object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Contactgegevens not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/organisatie": {
+      "tags": [
+        "Organisatie"
+      ],
+      "get": {
+        "summary": "Get all Organisatie objects",
+        "operationId": "getAllOrganisatie",
+        "tags": [
+          "Organisatie"
+        ],
+        "description": "Retrieve a list of all Organisatie objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "kvk-nummer",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by kvk-nummer",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "organisatienaam",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by organisatienaam",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contactgegevens",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by contactgegevens",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "website",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by website",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "beschrijving",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by beschrijving",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Organisatie objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Organisatie"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Organisatie object",
+        "operationId": "createOrganisatie",
+        "tags": [
+          "Organisatie"
+        ],
+        "description": "Create a new Organisatie object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Organisatie"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Organisatie created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organisatie"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/organisatie/{id}": {
+      "tags": [
+        "Organisatie"
+      ],
+      "get": {
+        "summary": "Get a Organisatie object by ID",
+        "operationId": "getOrganisatie",
+        "tags": [
+          "Organisatie"
+        ],
+        "description": "Retrieve a specific Organisatie object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organisatie object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organisatie found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organisatie"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organisatie not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Organisatie object",
+        "operationId": "updateOrganisatie",
+        "tags": [
+          "Organisatie"
+        ],
+        "description": "Update an existing Organisatie object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organisatie object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Organisatie"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Organisatie updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organisatie"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organisatie not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Organisatie object",
+        "operationId": "deleteOrganisatie",
+        "tags": [
+          "Organisatie"
+        ],
+        "description": "Delete a specific Organisatie object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organisatie object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Organisatie deleted successfully"
+          },
+          "404": {
+            "description": "Organisatie not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/organisatie/{id}/audit-trails": {
+      "tags": [
+        "Organisatie"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Organisatie object",
+        "operationId": "getLogsOrganisatie",
+        "tags": [
+          "Organisatie"
+        ],
+        "description": "Retrieve the audit trail for a specific Organisatie object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organisatie object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organisatie not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/organisatie/{id}/files": {
+      "tags": [
+        "Organisatie"
+      ],
+      "get": {
+        "summary": "Get files for a Organisatie object",
+        "operationId": "getFilesOrganisatie",
+        "tags": [
+          "Organisatie"
+        ],
+        "description": "Retrieve all files associated with a specific Organisatie object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organisatie object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organisatie not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Organisatie object",
+        "operationId": "uploadFileOrganisatie",
+        "tags": [
+          "Organisatie"
+        ],
+        "description": "Upload a new file and associate it with a specific Organisatie object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organisatie object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organisatie not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/organisatie/{id}/lock": {
+      "tags": [
+        "Organisatie"
+      ],
+      "post": {
+        "summary": "Lock a Organisatie object",
+        "operationId": "lockOrganisatie",
+        "tags": [
+          "Organisatie"
+        ],
+        "description": "Lock a specific Organisatie object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organisatie object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organisatie not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/organisatie/{id}/unlock": {
+      "tags": [
+        "Organisatie"
+      ],
+      "post": {
+        "summary": "Unlock a Organisatie object",
+        "operationId": "unlockOrganisatie",
+        "tags": [
+          "Organisatie"
+        ],
+        "description": "Remove the lock from a specific Organisatie object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organisatie object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Organisatie not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieninggebruik": {
+      "tags": [
+        "VoorzieningGebruik"
+      ],
+      "get": {
+        "summary": "Get all VoorzieningGebruik objects",
+        "operationId": "getAllVoorzieninggebruik",
+        "tags": [
+          "VoorzieningGebruik"
+        ],
+        "description": "Retrieve a list of all VoorzieningGebruik objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "organisatieId",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by organisatieId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "voorzieningId",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by voorzieningId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "versieId",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by versieId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "beheerder",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by beheerder",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "startDatum",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by startDatum",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eindDatum",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by eindDatum",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "opmerkingen",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by opmerkingen",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bbnScore",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by bbnScore",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "ibpScore",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by ibpScore",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "bivClassificatie",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by bivClassificatie",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "bedrijfsKritisch",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by bedrijfsKritisch",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "privacyGevoelig",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by privacyGevoelig",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of VoorzieningGebruik objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VoorzieningGebruik"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new VoorzieningGebruik object",
+        "operationId": "createVoorzieninggebruik",
+        "tags": [
+          "VoorzieningGebruik"
+        ],
+        "description": "Create a new VoorzieningGebruik object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VoorzieningGebruik"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "VoorzieningGebruik created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoorzieningGebruik"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieninggebruik/{id}": {
+      "tags": [
+        "VoorzieningGebruik"
+      ],
+      "get": {
+        "summary": "Get a VoorzieningGebruik object by ID",
+        "operationId": "getVoorzieninggebruik",
+        "tags": [
+          "VoorzieningGebruik"
+        ],
+        "description": "Retrieve a specific VoorzieningGebruik object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the VoorzieningGebruik object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "VoorzieningGebruik found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoorzieningGebruik"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "VoorzieningGebruik not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a VoorzieningGebruik object",
+        "operationId": "updateVoorzieninggebruik",
+        "tags": [
+          "VoorzieningGebruik"
+        ],
+        "description": "Update an existing VoorzieningGebruik object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the VoorzieningGebruik object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VoorzieningGebruik"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "VoorzieningGebruik updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoorzieningGebruik"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "VoorzieningGebruik not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a VoorzieningGebruik object",
+        "operationId": "deleteVoorzieninggebruik",
+        "tags": [
+          "VoorzieningGebruik"
+        ],
+        "description": "Delete a specific VoorzieningGebruik object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the VoorzieningGebruik object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "VoorzieningGebruik deleted successfully"
+          },
+          "404": {
+            "description": "VoorzieningGebruik not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieninggebruik/{id}/audit-trails": {
+      "tags": [
+        "VoorzieningGebruik"
+      ],
+      "get": {
+        "summary": "Get audit logs for a VoorzieningGebruik object",
+        "operationId": "getLogsVoorzieninggebruik",
+        "tags": [
+          "VoorzieningGebruik"
+        ],
+        "description": "Retrieve the audit trail for a specific VoorzieningGebruik object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the VoorzieningGebruik object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "VoorzieningGebruik not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieninggebruik/{id}/files": {
+      "tags": [
+        "VoorzieningGebruik"
+      ],
+      "get": {
+        "summary": "Get files for a VoorzieningGebruik object",
+        "operationId": "getFilesVoorzieninggebruik",
+        "tags": [
+          "VoorzieningGebruik"
+        ],
+        "description": "Retrieve all files associated with a specific VoorzieningGebruik object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the VoorzieningGebruik object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "VoorzieningGebruik not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a VoorzieningGebruik object",
+        "operationId": "uploadFileVoorzieninggebruik",
+        "tags": [
+          "VoorzieningGebruik"
+        ],
+        "description": "Upload a new file and associate it with a specific VoorzieningGebruik object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the VoorzieningGebruik object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "VoorzieningGebruik not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieninggebruik/{id}/lock": {
+      "tags": [
+        "VoorzieningGebruik"
+      ],
+      "post": {
+        "summary": "Lock a VoorzieningGebruik object",
+        "operationId": "lockVoorzieninggebruik",
+        "tags": [
+          "VoorzieningGebruik"
+        ],
+        "description": "Lock a specific VoorzieningGebruik object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the VoorzieningGebruik object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "VoorzieningGebruik not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorzieninggebruik/{id}/unlock": {
+      "tags": [
+        "VoorzieningGebruik"
+      ],
+      "post": {
+        "summary": "Unlock a VoorzieningGebruik object",
+        "operationId": "unlockVoorzieninggebruik",
+        "tags": [
+          "VoorzieningGebruik"
+        ],
+        "description": "Remove the lock from a specific VoorzieningGebruik object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the VoorzieningGebruik object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "VoorzieningGebruik not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/contract": {
+      "tags": [
+        "Contract"
+      ],
+      "get": {
+        "summary": "Get all Contract objects",
+        "operationId": "getAllContract",
+        "tags": [
+          "Contract"
+        ],
+        "description": "Retrieve a list of all Contract objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "voorzieningAanbod",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by voorzieningAanbod",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "voorzieningGebruik",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by voorzieningGebruik",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "startDatum",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by startDatum",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "eindDatum",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by eindDatum",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contractNummer",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by contractNummer",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contractType",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by contractType",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "kosten",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by kosten",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "kostenPeriode",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by kostenPeriode",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contactpersoonAanbieder",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by contactpersoonAanbieder",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "contactpersoonGebruiker",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by contactpersoonGebruiker",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "name": "documentReferentie",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by documentReferentie",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "opmerkingen",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by opmerkingen",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Contract objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Contract"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Contract object",
+        "operationId": "createContract",
+        "tags": [
+          "Contract"
+        ],
+        "description": "Create a new Contract object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contract"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Contract created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contract"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/contract/{id}": {
+      "tags": [
+        "Contract"
+      ],
+      "get": {
+        "summary": "Get a Contract object by ID",
+        "operationId": "getContract",
+        "tags": [
+          "Contract"
+        ],
+        "description": "Retrieve a specific Contract object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contract object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contract found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contract"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contract not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Contract object",
+        "operationId": "updateContract",
+        "tags": [
+          "Contract"
+        ],
+        "description": "Update an existing Contract object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contract object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contract"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Contract updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contract"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contract not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Contract object",
+        "operationId": "deleteContract",
+        "tags": [
+          "Contract"
+        ],
+        "description": "Delete a specific Contract object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contract object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Contract deleted successfully"
+          },
+          "404": {
+            "description": "Contract not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/contract/{id}/audit-trails": {
+      "tags": [
+        "Contract"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Contract object",
+        "operationId": "getLogsContract",
+        "tags": [
+          "Contract"
+        ],
+        "description": "Retrieve the audit trail for a specific Contract object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contract object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contract not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/contract/{id}/files": {
+      "tags": [
+        "Contract"
+      ],
+      "get": {
+        "summary": "Get files for a Contract object",
+        "operationId": "getFilesContract",
+        "tags": [
+          "Contract"
+        ],
+        "description": "Retrieve all files associated with a specific Contract object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contract object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contract not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Contract object",
+        "operationId": "uploadFileContract",
+        "tags": [
+          "Contract"
+        ],
+        "description": "Upload a new file and associate it with a specific Contract object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contract object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contract not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/contract/{id}/lock": {
+      "tags": [
+        "Contract"
+      ],
+      "post": {
+        "summary": "Lock a Contract object",
+        "operationId": "lockContract",
+        "tags": [
+          "Contract"
+        ],
+        "description": "Lock a specific Contract object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contract object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Contract not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/contract/{id}/unlock": {
+      "tags": [
+        "Contract"
+      ],
+      "post": {
+        "summary": "Unlock a Contract object",
+        "operationId": "unlockContract",
+        "tags": [
+          "Contract"
+        ],
+        "description": "Remove the lock from a specific Contract object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Contract object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Contract not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/standaard": {
+      "tags": [
+        "Standaard"
+      ],
+      "get": {
+        "summary": "Get all Standaard objects",
+        "operationId": "getAllStandaard",
+        "tags": [
+          "Standaard"
+        ],
+        "description": "Retrieve a list of all Standaard objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "naam",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by naam",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "beschrijving",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by beschrijving",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "standaardtype",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by standaardtype",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "versie",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by versie",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "beheerorganisatie",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by beheerorganisatie",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "website",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by website",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by status",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Standaard objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Standaard"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Standaard object",
+        "operationId": "createStandaard",
+        "tags": [
+          "Standaard"
+        ],
+        "description": "Create a new Standaard object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Standaard"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Standaard created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Standaard"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/standaard/{id}": {
+      "tags": [
+        "Standaard"
+      ],
+      "get": {
+        "summary": "Get a Standaard object by ID",
+        "operationId": "getStandaard",
+        "tags": [
+          "Standaard"
+        ],
+        "description": "Retrieve a specific Standaard object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Standaard object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Standaard found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Standaard"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Standaard not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Standaard object",
+        "operationId": "updateStandaard",
+        "tags": [
+          "Standaard"
+        ],
+        "description": "Update an existing Standaard object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Standaard object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Standaard"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Standaard updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Standaard"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Standaard not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Standaard object",
+        "operationId": "deleteStandaard",
+        "tags": [
+          "Standaard"
+        ],
+        "description": "Delete a specific Standaard object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Standaard object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Standaard deleted successfully"
+          },
+          "404": {
+            "description": "Standaard not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/standaard/{id}/audit-trails": {
+      "tags": [
+        "Standaard"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Standaard object",
+        "operationId": "getLogsStandaard",
+        "tags": [
+          "Standaard"
+        ],
+        "description": "Retrieve the audit trail for a specific Standaard object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Standaard object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Standaard not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/standaard/{id}/files": {
+      "tags": [
+        "Standaard"
+      ],
+      "get": {
+        "summary": "Get files for a Standaard object",
+        "operationId": "getFilesStandaard",
+        "tags": [
+          "Standaard"
+        ],
+        "description": "Retrieve all files associated with a specific Standaard object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Standaard object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Standaard not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Standaard object",
+        "operationId": "uploadFileStandaard",
+        "tags": [
+          "Standaard"
+        ],
+        "description": "Upload a new file and associate it with a specific Standaard object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Standaard object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Standaard not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/standaard/{id}/lock": {
+      "tags": [
+        "Standaard"
+      ],
+      "post": {
+        "summary": "Lock a Standaard object",
+        "operationId": "lockStandaard",
+        "tags": [
+          "Standaard"
+        ],
+        "description": "Lock a specific Standaard object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Standaard object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Standaard not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/standaard/{id}/unlock": {
+      "tags": [
+        "Standaard"
+      ],
+      "post": {
+        "summary": "Unlock a Standaard object",
+        "operationId": "unlockStandaard",
+        "tags": [
+          "Standaard"
+        ],
+        "description": "Remove the lock from a specific Standaard object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Standaard object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Standaard not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/sector": {
+      "tags": [
+        "Sector"
+      ],
+      "get": {
+        "summary": "Get all Sector objects",
+        "operationId": "getAllSector",
+        "tags": [
+          "Sector"
+        ],
+        "description": "Retrieve a list of all Sector objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "naam",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by naam",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "beschrijving",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by beschrijving",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bovenliggendeSector",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by bovenliggendeSector",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Sector objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Sector"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Sector object",
+        "operationId": "createSector",
+        "tags": [
+          "Sector"
+        ],
+        "description": "Create a new Sector object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sector"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sector created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sector"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/sector/{id}": {
+      "tags": [
+        "Sector"
+      ],
+      "get": {
+        "summary": "Get a Sector object by ID",
+        "operationId": "getSector",
+        "tags": [
+          "Sector"
+        ],
+        "description": "Retrieve a specific Sector object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Sector object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sector found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sector"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sector not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Sector object",
+        "operationId": "updateSector",
+        "tags": [
+          "Sector"
+        ],
+        "description": "Update an existing Sector object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Sector object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sector"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sector updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sector"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sector not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Sector object",
+        "operationId": "deleteSector",
+        "tags": [
+          "Sector"
+        ],
+        "description": "Delete a specific Sector object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Sector object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Sector deleted successfully"
+          },
+          "404": {
+            "description": "Sector not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/sector/{id}/audit-trails": {
+      "tags": [
+        "Sector"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Sector object",
+        "operationId": "getLogsSector",
+        "tags": [
+          "Sector"
+        ],
+        "description": "Retrieve the audit trail for a specific Sector object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Sector object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sector not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/sector/{id}/files": {
+      "tags": [
+        "Sector"
+      ],
+      "get": {
+        "summary": "Get files for a Sector object",
+        "operationId": "getFilesSector",
+        "tags": [
+          "Sector"
+        ],
+        "description": "Retrieve all files associated with a specific Sector object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Sector object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sector not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Sector object",
+        "operationId": "uploadFileSector",
+        "tags": [
+          "Sector"
+        ],
+        "description": "Upload a new file and associate it with a specific Sector object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Sector object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sector not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/sector/{id}/lock": {
+      "tags": [
+        "Sector"
+      ],
+      "post": {
+        "summary": "Lock a Sector object",
+        "operationId": "lockSector",
+        "tags": [
+          "Sector"
+        ],
+        "description": "Lock a specific Sector object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Sector object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sector not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/sector/{id}/unlock": {
+      "tags": [
+        "Sector"
+      ],
+      "post": {
+        "summary": "Unlock a Sector object",
+        "operationId": "unlockSector",
+        "tags": [
+          "Sector"
+        ],
+        "description": "Remove the lock from a specific Sector object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Sector object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Sector not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/review": {
+      "tags": [
+        "Review"
+      ],
+      "get": {
+        "summary": "Get all Review objects",
+        "operationId": "getAllReview",
+        "tags": [
+          "Review"
+        ],
+        "description": "Retrieve a list of all Review objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "voorziening",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by voorziening",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "score",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by score",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "titel",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by titel",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tekst",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by tekst",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "datum",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by datum",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "voordelen",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by voordelen",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "nadelen",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by nadelen",
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Review objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Review"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Review object",
+        "operationId": "createReview",
+        "tags": [
+          "Review"
+        ],
+        "description": "Create a new Review object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Review"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Review created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/review/{id}": {
+      "tags": [
+        "Review"
+      ],
+      "get": {
+        "summary": "Get a Review object by ID",
+        "operationId": "getReview",
+        "tags": [
+          "Review"
+        ],
+        "description": "Retrieve a specific Review object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Review object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Review found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Review not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Review object",
+        "operationId": "updateReview",
+        "tags": [
+          "Review"
+        ],
+        "description": "Update an existing Review object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Review object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Review"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Review updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Review"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Review not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Review object",
+        "operationId": "deleteReview",
+        "tags": [
+          "Review"
+        ],
+        "description": "Delete a specific Review object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Review object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Review deleted successfully"
+          },
+          "404": {
+            "description": "Review not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/review/{id}/audit-trails": {
+      "tags": [
+        "Review"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Review object",
+        "operationId": "getLogsReview",
+        "tags": [
+          "Review"
+        ],
+        "description": "Retrieve the audit trail for a specific Review object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Review object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Review not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/review/{id}/files": {
+      "tags": [
+        "Review"
+      ],
+      "get": {
+        "summary": "Get files for a Review object",
+        "operationId": "getFilesReview",
+        "tags": [
+          "Review"
+        ],
+        "description": "Retrieve all files associated with a specific Review object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Review object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Review not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Review object",
+        "operationId": "uploadFileReview",
+        "tags": [
+          "Review"
+        ],
+        "description": "Upload a new file and associate it with a specific Review object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Review object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Review not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/review/{id}/lock": {
+      "tags": [
+        "Review"
+      ],
+      "post": {
+        "summary": "Lock a Review object",
+        "operationId": "lockReview",
+        "tags": [
+          "Review"
+        ],
+        "description": "Lock a specific Review object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Review object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Review not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/review/{id}/unlock": {
+      "tags": [
+        "Review"
+      ],
+      "post": {
+        "summary": "Unlock a Review object",
+        "operationId": "unlockReview",
+        "tags": [
+          "Review"
+        ],
+        "description": "Remove the lock from a specific Review object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Review object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Review not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    }
+  }
 }

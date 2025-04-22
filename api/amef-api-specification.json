@@ -2250,5 +2250,3633 @@
       }
     }
   },
-  "paths": []
+  "paths": {
+    "/amef/relation": {
+      "tags": [
+        "Relation"
+      ],
+      "get": {
+        "summary": "Get all Relation objects",
+        "operationId": "getAllRelation",
+        "tags": [
+          "Relation"
+        ],
+        "description": "Retrieve a list of all Relation objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by identifier",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "source",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by source",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "target",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by target",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by type",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "accessType",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by accessType",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isDirected",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by isDirected",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name-lang",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by name-lang",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentation",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by documentation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentation-lang",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by documentation-lang",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "properties",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by properties",
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Relation objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Relation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Relation object",
+        "operationId": "createRelation",
+        "tags": [
+          "Relation"
+        ],
+        "description": "Create a new Relation object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Relation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Relation created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Relation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/amef/relation/{id}": {
+      "tags": [
+        "Relation"
+      ],
+      "get": {
+        "summary": "Get a Relation object by ID",
+        "operationId": "getRelation",
+        "tags": [
+          "Relation"
+        ],
+        "description": "Retrieve a specific Relation object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Relation object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Relation found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Relation"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Relation not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Relation object",
+        "operationId": "updateRelation",
+        "tags": [
+          "Relation"
+        ],
+        "description": "Update an existing Relation object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Relation object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Relation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Relation updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Relation"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Relation not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Relation object",
+        "operationId": "deleteRelation",
+        "tags": [
+          "Relation"
+        ],
+        "description": "Delete a specific Relation object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Relation object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Relation deleted successfully"
+          },
+          "404": {
+            "description": "Relation not found"
+          }
+        }
+      }
+    },
+    "/amef/relation/{id}/audit-trails": {
+      "tags": [
+        "Relation"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Relation object",
+        "operationId": "getLogsRelation",
+        "tags": [
+          "Relation"
+        ],
+        "description": "Retrieve the audit trail for a specific Relation object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Relation object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Relation not found"
+          }
+        }
+      }
+    },
+    "/amef/relation/{id}/files": {
+      "tags": [
+        "Relation"
+      ],
+      "get": {
+        "summary": "Get files for a Relation object",
+        "operationId": "getFilesRelation",
+        "tags": [
+          "Relation"
+        ],
+        "description": "Retrieve all files associated with a specific Relation object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Relation object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Relation not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Relation object",
+        "operationId": "uploadFileRelation",
+        "tags": [
+          "Relation"
+        ],
+        "description": "Upload a new file and associate it with a specific Relation object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Relation object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Relation not found"
+          }
+        }
+      }
+    },
+    "/amef/relation/{id}/lock": {
+      "tags": [
+        "Relation"
+      ],
+      "post": {
+        "summary": "Lock a Relation object",
+        "operationId": "lockRelation",
+        "tags": [
+          "Relation"
+        ],
+        "description": "Lock a specific Relation object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Relation object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Relation not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/amef/relation/{id}/unlock": {
+      "tags": [
+        "Relation"
+      ],
+      "post": {
+        "summary": "Unlock a Relation object",
+        "operationId": "unlockRelation",
+        "tags": [
+          "Relation"
+        ],
+        "description": "Remove the lock from a specific Relation object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Relation object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Relation not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/amef/view": {
+      "tags": [
+        "View"
+      ],
+      "get": {
+        "summary": "Get all View objects",
+        "operationId": "getAllView",
+        "tags": [
+          "View"
+        ],
+        "description": "Retrieve a list of all View objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by identifier",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by type",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "viewpoint",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by viewpoint",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name-lang",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by name-lang",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentation",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by documentation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentation-lang",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by documentation-lang",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "properties",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by properties",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "nodes",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by nodes",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "connections",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by connections",
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of View objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/View"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new View object",
+        "operationId": "createView",
+        "tags": [
+          "View"
+        ],
+        "description": "Create a new View object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/View"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "View created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/View"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/amef/view/{id}": {
+      "tags": [
+        "View"
+      ],
+      "get": {
+        "summary": "Get a View object by ID",
+        "operationId": "getView",
+        "tags": [
+          "View"
+        ],
+        "description": "Retrieve a specific View object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the View object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "View found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/View"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "View not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a View object",
+        "operationId": "updateView",
+        "tags": [
+          "View"
+        ],
+        "description": "Update an existing View object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the View object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/View"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "View updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/View"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "View not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a View object",
+        "operationId": "deleteView",
+        "tags": [
+          "View"
+        ],
+        "description": "Delete a specific View object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the View object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "View deleted successfully"
+          },
+          "404": {
+            "description": "View not found"
+          }
+        }
+      }
+    },
+    "/amef/view/{id}/audit-trails": {
+      "tags": [
+        "View"
+      ],
+      "get": {
+        "summary": "Get audit logs for a View object",
+        "operationId": "getLogsView",
+        "tags": [
+          "View"
+        ],
+        "description": "Retrieve the audit trail for a specific View object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the View object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "View not found"
+          }
+        }
+      }
+    },
+    "/amef/view/{id}/files": {
+      "tags": [
+        "View"
+      ],
+      "get": {
+        "summary": "Get files for a View object",
+        "operationId": "getFilesView",
+        "tags": [
+          "View"
+        ],
+        "description": "Retrieve all files associated with a specific View object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the View object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "View not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a View object",
+        "operationId": "uploadFileView",
+        "tags": [
+          "View"
+        ],
+        "description": "Upload a new file and associate it with a specific View object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the View object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "View not found"
+          }
+        }
+      }
+    },
+    "/amef/view/{id}/lock": {
+      "tags": [
+        "View"
+      ],
+      "post": {
+        "summary": "Lock a View object",
+        "operationId": "lockView",
+        "tags": [
+          "View"
+        ],
+        "description": "Lock a specific View object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the View object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "View not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/amef/view/{id}/unlock": {
+      "tags": [
+        "View"
+      ],
+      "post": {
+        "summary": "Unlock a View object",
+        "operationId": "unlockView",
+        "tags": [
+          "View"
+        ],
+        "description": "Remove the lock from a specific View object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the View object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "View not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/amef/element": {
+      "tags": [
+        "Element"
+      ],
+      "get": {
+        "summary": "Get all Element objects",
+        "operationId": "getAllElement",
+        "tags": [
+          "Element"
+        ],
+        "description": "Retrieve a list of all Element objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by identifier",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by type",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name-lang",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by name-lang",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentation",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by documentation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentation-lang",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by documentation-lang",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "properties",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by properties",
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Element objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Element"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Element object",
+        "operationId": "createElement",
+        "tags": [
+          "Element"
+        ],
+        "description": "Create a new Element object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Element"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Element created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Element"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/amef/element/{id}": {
+      "tags": [
+        "Element"
+      ],
+      "get": {
+        "summary": "Get a Element object by ID",
+        "operationId": "getElement",
+        "tags": [
+          "Element"
+        ],
+        "description": "Retrieve a specific Element object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Element object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Element found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Element"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Element object",
+        "operationId": "updateElement",
+        "tags": [
+          "Element"
+        ],
+        "description": "Update an existing Element object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Element object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Element"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Element updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Element"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Element object",
+        "operationId": "deleteElement",
+        "tags": [
+          "Element"
+        ],
+        "description": "Delete a specific Element object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Element object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Element deleted successfully"
+          },
+          "404": {
+            "description": "Element not found"
+          }
+        }
+      }
+    },
+    "/amef/element/{id}/audit-trails": {
+      "tags": [
+        "Element"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Element object",
+        "operationId": "getLogsElement",
+        "tags": [
+          "Element"
+        ],
+        "description": "Retrieve the audit trail for a specific Element object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Element object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found"
+          }
+        }
+      }
+    },
+    "/amef/element/{id}/files": {
+      "tags": [
+        "Element"
+      ],
+      "get": {
+        "summary": "Get files for a Element object",
+        "operationId": "getFilesElement",
+        "tags": [
+          "Element"
+        ],
+        "description": "Retrieve all files associated with a specific Element object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Element object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Element object",
+        "operationId": "uploadFileElement",
+        "tags": [
+          "Element"
+        ],
+        "description": "Upload a new file and associate it with a specific Element object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Element object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found"
+          }
+        }
+      }
+    },
+    "/amef/element/{id}/lock": {
+      "tags": [
+        "Element"
+      ],
+      "post": {
+        "summary": "Lock a Element object",
+        "operationId": "lockElement",
+        "tags": [
+          "Element"
+        ],
+        "description": "Lock a specific Element object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Element object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Element not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/amef/element/{id}/unlock": {
+      "tags": [
+        "Element"
+      ],
+      "post": {
+        "summary": "Unlock a Element object",
+        "operationId": "unlockElement",
+        "tags": [
+          "Element"
+        ],
+        "description": "Remove the lock from a specific Element object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Element object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Element not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/amef/gemma-model": {
+      "tags": [
+        "GEMMA Model"
+      ],
+      "get": {
+        "summary": "Get all GEMMA Model objects",
+        "operationId": "getAllGemmaModel",
+        "tags": [
+          "GEMMA Model"
+        ],
+        "description": "Retrieve a list of all GEMMA Model objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "xmlns",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by xmlns",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "xsi",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by xsi",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "schemaLocation",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by schemaLocation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by identifier",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name-lang",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by name-lang",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by version",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentation",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by documentation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "documentation-lang",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by documentation-lang",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "properties",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by properties",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "elements",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by elements",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "relationships",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by relationships",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "organizations",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by organizations",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "propertyDefinitions",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by propertyDefinitions",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "views",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by views",
+            "schema": {
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of GEMMA Model objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GEMMA Model"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new GEMMA Model object",
+        "operationId": "createGemmaModel",
+        "tags": [
+          "GEMMA Model"
+        ],
+        "description": "Create a new GEMMA Model object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GEMMA Model"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "GEMMA Model created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GEMMA Model"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/amef/gemma-model/{id}": {
+      "tags": [
+        "GEMMA Model"
+      ],
+      "get": {
+        "summary": "Get a GEMMA Model object by ID",
+        "operationId": "getGemmaModel",
+        "tags": [
+          "GEMMA Model"
+        ],
+        "description": "Retrieve a specific GEMMA Model object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the GEMMA Model object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "GEMMA Model found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GEMMA Model"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "GEMMA Model not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a GEMMA Model object",
+        "operationId": "updateGemmaModel",
+        "tags": [
+          "GEMMA Model"
+        ],
+        "description": "Update an existing GEMMA Model object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the GEMMA Model object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GEMMA Model"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "GEMMA Model updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GEMMA Model"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "GEMMA Model not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a GEMMA Model object",
+        "operationId": "deleteGemmaModel",
+        "tags": [
+          "GEMMA Model"
+        ],
+        "description": "Delete a specific GEMMA Model object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the GEMMA Model object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "GEMMA Model deleted successfully"
+          },
+          "404": {
+            "description": "GEMMA Model not found"
+          }
+        }
+      }
+    },
+    "/amef/gemma-model/{id}/audit-trails": {
+      "tags": [
+        "GEMMA Model"
+      ],
+      "get": {
+        "summary": "Get audit logs for a GEMMA Model object",
+        "operationId": "getLogsGemmaModel",
+        "tags": [
+          "GEMMA Model"
+        ],
+        "description": "Retrieve the audit trail for a specific GEMMA Model object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the GEMMA Model object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "GEMMA Model not found"
+          }
+        }
+      }
+    },
+    "/amef/gemma-model/{id}/files": {
+      "tags": [
+        "GEMMA Model"
+      ],
+      "get": {
+        "summary": "Get files for a GEMMA Model object",
+        "operationId": "getFilesGemmaModel",
+        "tags": [
+          "GEMMA Model"
+        ],
+        "description": "Retrieve all files associated with a specific GEMMA Model object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the GEMMA Model object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "GEMMA Model not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a GEMMA Model object",
+        "operationId": "uploadFileGemmaModel",
+        "tags": [
+          "GEMMA Model"
+        ],
+        "description": "Upload a new file and associate it with a specific GEMMA Model object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the GEMMA Model object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "GEMMA Model not found"
+          }
+        }
+      }
+    },
+    "/amef/gemma-model/{id}/lock": {
+      "tags": [
+        "GEMMA Model"
+      ],
+      "post": {
+        "summary": "Lock a GEMMA Model object",
+        "operationId": "lockGemmaModel",
+        "tags": [
+          "GEMMA Model"
+        ],
+        "description": "Lock a specific GEMMA Model object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the GEMMA Model object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "GEMMA Model not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/amef/gemma-model/{id}/unlock": {
+      "tags": [
+        "GEMMA Model"
+      ],
+      "post": {
+        "summary": "Unlock a GEMMA Model object",
+        "operationId": "unlockGemmaModel",
+        "tags": [
+          "GEMMA Model"
+        ],
+        "description": "Remove the lock from a specific GEMMA Model object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the GEMMA Model object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "GEMMA Model not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/amef/organization": {
+      "tags": [
+        "Organization"
+      ],
+      "get": {
+        "summary": "Get all Organization objects",
+        "operationId": "getAllOrganization",
+        "tags": [
+          "Organization"
+        ],
+        "description": "Retrieve a list of all Organization objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "summary",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by summary",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by description",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "oin",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by oin",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tooi",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by tooi",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rsin",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by rsin",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "pki",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by pki",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "image",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by image",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Organization objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Organization"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Organization object",
+        "operationId": "createOrganization",
+        "tags": [
+          "Organization"
+        ],
+        "description": "Create a new Organization object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Organization"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Organization created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organization"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/amef/organization/{id}": {
+      "tags": [
+        "Organization"
+      ],
+      "get": {
+        "summary": "Get a Organization object by ID",
+        "operationId": "getOrganization",
+        "tags": [
+          "Organization"
+        ],
+        "description": "Retrieve a specific Organization object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organization object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Organization found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organization"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Organization object",
+        "operationId": "updateOrganization",
+        "tags": [
+          "Organization"
+        ],
+        "description": "Update an existing Organization object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organization object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Organization"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Organization updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organization"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Organization object",
+        "operationId": "deleteOrganization",
+        "tags": [
+          "Organization"
+        ],
+        "description": "Delete a specific Organization object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organization object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Organization deleted successfully"
+          },
+          "404": {
+            "description": "Organization not found"
+          }
+        }
+      }
+    },
+    "/amef/organization/{id}/audit-trails": {
+      "tags": [
+        "Organization"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Organization object",
+        "operationId": "getLogsOrganization",
+        "tags": [
+          "Organization"
+        ],
+        "description": "Retrieve the audit trail for a specific Organization object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organization object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization not found"
+          }
+        }
+      }
+    },
+    "/amef/organization/{id}/files": {
+      "tags": [
+        "Organization"
+      ],
+      "get": {
+        "summary": "Get files for a Organization object",
+        "operationId": "getFilesOrganization",
+        "tags": [
+          "Organization"
+        ],
+        "description": "Retrieve all files associated with a specific Organization object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organization object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Organization object",
+        "operationId": "uploadFileOrganization",
+        "tags": [
+          "Organization"
+        ],
+        "description": "Upload a new file and associate it with a specific Organization object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organization object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization not found"
+          }
+        }
+      }
+    },
+    "/amef/organization/{id}/lock": {
+      "tags": [
+        "Organization"
+      ],
+      "post": {
+        "summary": "Lock a Organization object",
+        "operationId": "lockOrganization",
+        "tags": [
+          "Organization"
+        ],
+        "description": "Lock a specific Organization object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organization object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/amef/organization/{id}/unlock": {
+      "tags": [
+        "Organization"
+      ],
+      "post": {
+        "summary": "Unlock a Organization object",
+        "operationId": "unlockOrganization",
+        "tags": [
+          "Organization"
+        ],
+        "description": "Remove the lock from a specific Organization object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Organization object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Organization not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/amef/property-definition": {
+      "tags": [
+        "Property Definition"
+      ],
+      "get": {
+        "summary": "Get all Property Definition objects",
+        "operationId": "getAllPropertyDefinition",
+        "tags": [
+          "Property Definition"
+        ],
+        "description": "Retrieve a list of all Property Definition objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by identifier",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by type",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name-lang",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by name-lang",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Property Definition objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Property Definition"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Property Definition object",
+        "operationId": "createPropertyDefinition",
+        "tags": [
+          "Property Definition"
+        ],
+        "description": "Create a new Property Definition object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Property Definition"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Property Definition created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Property Definition"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/amef/property-definition/{id}": {
+      "tags": [
+        "Property Definition"
+      ],
+      "get": {
+        "summary": "Get a Property Definition object by ID",
+        "operationId": "getPropertyDefinition",
+        "tags": [
+          "Property Definition"
+        ],
+        "description": "Retrieve a specific Property Definition object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Property Definition object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Property Definition found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Property Definition"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Property Definition not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Property Definition object",
+        "operationId": "updatePropertyDefinition",
+        "tags": [
+          "Property Definition"
+        ],
+        "description": "Update an existing Property Definition object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Property Definition object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Property Definition"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Property Definition updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Property Definition"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Property Definition not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Property Definition object",
+        "operationId": "deletePropertyDefinition",
+        "tags": [
+          "Property Definition"
+        ],
+        "description": "Delete a specific Property Definition object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Property Definition object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Property Definition deleted successfully"
+          },
+          "404": {
+            "description": "Property Definition not found"
+          }
+        }
+      }
+    },
+    "/amef/property-definition/{id}/audit-trails": {
+      "tags": [
+        "Property Definition"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Property Definition object",
+        "operationId": "getLogsPropertyDefinition",
+        "tags": [
+          "Property Definition"
+        ],
+        "description": "Retrieve the audit trail for a specific Property Definition object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Property Definition object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Property Definition not found"
+          }
+        }
+      }
+    },
+    "/amef/property-definition/{id}/files": {
+      "tags": [
+        "Property Definition"
+      ],
+      "get": {
+        "summary": "Get files for a Property Definition object",
+        "operationId": "getFilesPropertyDefinition",
+        "tags": [
+          "Property Definition"
+        ],
+        "description": "Retrieve all files associated with a specific Property Definition object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Property Definition object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Property Definition not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Property Definition object",
+        "operationId": "uploadFilePropertyDefinition",
+        "tags": [
+          "Property Definition"
+        ],
+        "description": "Upload a new file and associate it with a specific Property Definition object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Property Definition object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Property Definition not found"
+          }
+        }
+      }
+    },
+    "/amef/property-definition/{id}/lock": {
+      "tags": [
+        "Property Definition"
+      ],
+      "post": {
+        "summary": "Lock a Property Definition object",
+        "operationId": "lockPropertyDefinition",
+        "tags": [
+          "Property Definition"
+        ],
+        "description": "Lock a specific Property Definition object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Property Definition object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Property Definition not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/amef/property-definition/{id}/unlock": {
+      "tags": [
+        "Property Definition"
+      ],
+      "post": {
+        "summary": "Unlock a Property Definition object",
+        "operationId": "unlockPropertyDefinition",
+        "tags": [
+          "Property Definition"
+        ],
+        "description": "Remove the lock from a specific Property Definition object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Property Definition object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Property Definition not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    }
+  }
 }
