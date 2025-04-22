@@ -3,9 +3,9 @@
 # Agenda
 - Mededelingen
 - - Matt is iets later
+- - Wilco is ziek
 - Stand van zaken (sprint demo 3 & 4)
 - Update van Open Registers
-- Bekijken audit trails
 - Update Open Connector
 - Bekijken Synchronysatie logs
 - Toelichting op sprintplanning print 5
@@ -22,4 +22,10 @@
 | GitHub-Jira koppeling herstellen | Matthias | TODO |
 | Security policies en branch protection rules instellen | - | TODO |
 | Rutger VN-R betrekken op api testen | Peter | TODO |
+
+- Eens sprint tegelijkertijd!
+- Extra test sessie Mark en Wilco voor de views -> Donderdag
+- Na archimate fase 1. Parkeren we archimate even voor ten gunste van de schermen
+- 
+
 
