@@ -126,7 +126,7 @@
             "type": "object"
           },
           "leverancier": {
-            "$ref": "#/components/schemas/Leveranciersorganisatie",
+            "$ref": "#/components/schemas/Organisatie",
             "type": "object"
           },
           "productpagina": {
