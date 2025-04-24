@@ -16,7 +16,7 @@
         "fillColor": "{% if fillColor|default %}{\"r\":\"{{ fillColor['@attributes'].r }}\",\"g\":\"{{ fillColor['@attributes'].g }}\",\"b\":\"{{ fillColor['@attributes'].b }}\",\"a\":\"{{ fillColor['@attributes'].a }}\"}{% else %}[]{% endif %}",
         "lineColor": "{\"r\":\"{{ lineColor['@attributes'].r }}\",\"g\":\"{{ lineColor['@attributes'].g }}\",\"b\":\"{{ lineColor['@attributes'].b }}\",\"a\":\"{{ lineColor['@attributes'].a|default('empty') }}\"}",
         "font": "{\"name\":\"{{ font['@attributes'].name }}\",\"size\":\"{{ font['@attributes'].size }}\",\"style\":\"{{ font['@attributes'].style|default('') }}\"}",
-        "color": "{\"r\":\"{{ font.color['@attributes'].r }}\",\"g\":\"{{ font.color['@attributes'].g }}\",\"b\":\"{{ font.color['@attributes'].b }}\"}"
+        "color": "{\"r\":\"{{ font.color['@attributes'].r|default('empty') }}\",\"g\":\"{{ font.color['@attributes'].g|default('empty') }}\",\"b\":\"{{ font.color['@attributes'].b|default('empty') }}\"}"
     },
     "unset": [],
     "cast": {
@@ -26,7 +26,10 @@
         "lineColor.a": "unsetIfValue==empty",
         "font": "jsonToArray",
         "font.style": "unsetIfValue==",
-        "color": "jsonToArray"
+        "color": "jsonToArray",
+        "color.r": "unsetIfValue==empty",
+        "color.g": "unsetIfValue==empty",
+        "color.b": "unsetIfValue==empty"
     },
     "passThrough": false
 } 

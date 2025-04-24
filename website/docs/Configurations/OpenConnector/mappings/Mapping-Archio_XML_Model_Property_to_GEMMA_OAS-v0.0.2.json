@@ -13,12 +13,12 @@
     "mapping": {
         "originId": "{{ uniqueIdKey ~ '-' ~ attribute(_context['@attributes'], 'propertyDefinitionRef') }}",
         "propertyDefinitionRef": "@attributes.propertyDefinitionRef",
-        "value": "value.#text",
-        "value-lang": "{{ attribute(value['@attributes'], 'xml:lang') }}"
+        "value": "value.value.#text",
+        "value-lang": "{{ attribute(value['value']['@attributes'], 'xml:lang') }}"
     },
     "unset": [],
     "cast": {
-        "value": "unsetIfValue==value.#text",
+        "value": "unsetIfValue==value.value.#text",
         "value-lang": "unsetIfValue=="
     },
     "passThrough": false
