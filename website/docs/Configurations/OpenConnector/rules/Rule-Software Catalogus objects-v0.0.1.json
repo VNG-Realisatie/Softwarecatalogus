@@ -1,0 +1,41 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "rule",
+    "@id": "https://vng.accept.commonground.nu/Rule-Software_Catalogus_objects.json",
+    "id": 11,
+    "uuid": "d43e9800-0e36-44f5-8cc6-573dfcba3812",
+    "name": "Software Catalogus objects",
+    "description": "Adds Software Catalogus objects to the xml export data",
+    "reference": "https:\/\/tilburg.accept.commonground.nu\/Rule-Software_Catalogus_objects.json",
+    "version": "0.0.1",
+    "action": "get",
+    "timing": "after",
+    "conditions": {
+        "==": [
+            1,
+            1
+        ]
+    },
+    "type": "custom",
+    "configuration": {
+        "type": "softwareCatalogus",
+        "configuration": {
+            "register": "6",
+            "VoorzieningSchema": "35",
+            "VoorzieningAanbodSchema": "36",
+            "VoorzieningGebruikSchema": "37",
+            "VoorzieningstypeSchema": "38",
+            "VoorzieningVersieSchema": "39",
+            "OrganisatieSchema": "40",
+            "ContractSchema": "41",
+            "GebruikerSchema": "42",
+            "KwetsbaarheidSchema": "43"
+        }
+    },
+    "order": 0,
+    "created": "2025-04-14T13:38:32+00:00",
+    "updated": "2025-04-14T13:38:32+00:00"
+}

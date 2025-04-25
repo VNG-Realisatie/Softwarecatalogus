@@ -21,6 +21,7 @@
     "inputMapping": null,
     "outputMapping": null,
     "rules": [
-        "6"
+        "6",
+        "11"
     ]
 }
