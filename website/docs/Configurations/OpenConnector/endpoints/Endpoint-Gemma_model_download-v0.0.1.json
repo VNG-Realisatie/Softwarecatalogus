@@ -11,9 +11,11 @@
     "version": "0.0.1",
     "endpoint": "model.xml",
     "endpointArray": [
+        "models",
+        "{{id}}",
         "model.xml"
     ],
-    "endpointRegex": "#model\\.xml$#",
+    "endpointRegex": "#^models(\/([-a-zA-Z0-9]{36}))?\/model\\.xml$#",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/14",

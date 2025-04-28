@@ -11,9 +11,10 @@
     "version": "0.0.1",
     "endpoint": "model",
     "endpointArray": [
-        "model"
+        "models",
+        "{{id}}"
     ],
-    "endpointRegex": "^model$",
+    "endpointRegex": "#models(/([^/]+))?#",
     "method": "GET",
     "targetType": "register\/schema",
     "targetId": "2\/14",
