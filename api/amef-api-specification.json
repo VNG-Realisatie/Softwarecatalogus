@@ -36,7 +36,7 @@
       "description": "AMEF Element"
     },
     {
-      "name": "GEMMA Model",
+      "name": "Model",
       "description": "This object represents an entire AMEF collection"
     },
     {
@@ -505,370 +505,142 @@
           "identifier": {
             "description": "De identifier van deze Relation",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "id-1b46181d68e5477a9c0b5a95a0677924",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "source": {
             "description": "De source van deze Relation",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "id-d143a1fc-02dc-11e6-11ba-005056a85f9c",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "target": {
             "description": "De target van deze Relation",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "id-a85f22d89af14222a914fcb9ecfe6815",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "type": {
             "description": "De type van deze Relation",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "Access",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "accessType": {
             "description": "De accessType van deze Relation",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "Read",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "isDirected": {
             "description": "De isDirected van deze Relation",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "true",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "name": {
             "description": "De name van deze Relation",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "Verplicht",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "name-lang": {
             "description": "De name-language van deze Relation",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
             "minLength": 2,
             "maxLength": 2,
             "example": "nl",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "documentation": {
             "description": "De documentation van deze Relation",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "Op basis van het zaaktype routeert de servicebuscomponent de aanvraag naar een Zaakafhandelcomponent (generiek of specifiek).",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "documentation-lang": {
             "description": "De documentation-lang van deze Relation",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
             "minLength": 2,
             "maxLength": 2,
             "example": "nl",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "properties": {
             "description": "De properties van deze Relation",
             "type": "array",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
             "items": {
-              "cascadeDelete": true,
-              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+              "x-openregisters-cascadeDelete": true,
+              "x-openregisters-ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
               "type": "object"
             },
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           }
         }
       },
@@ -893,347 +665,136 @@
           "identifier": {
             "description": "De identifier van deze View",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "id-a6ee6077d3094afa91fc6ea92a9a2a40",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "type": {
             "description": "De type van deze View",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "Diagram",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "viewpoint": {
             "description": "De viewpoint van deze View",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "Application Structure",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "name": {
             "description": "De name van deze View",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "LV01 BGT basisregistratie en SVB view",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "name-lang": {
             "description": "De name-language van deze View",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "nl",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "documentation": {
             "description": "De documentation van deze View",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "Toont de referentiecomponenten ter ondersteuning van applicatieservices voor publieksdiensten",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "documentation-lang": {
             "description": "De documentation-language van deze View",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
             "minLength": 2,
             "maxLength": 2,
             "example": "nl",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "properties": {
             "description": "De properties van deze View",
             "type": "array",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
             "items": {
-              "cascadeDelete": true,
-              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json",
+              "x-openregisters-cascadeDelete": true,
+              "x-openregisters-ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json",
               "type": "object"
             },
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "nodes": {
             "description": "De nodes van deze View",
             "type": "array",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
             "items": {
-              "cascadeDelete": true,
-              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Node.json",
+              "x-openregisters-cascadeDelete": true,
+              "x-openregisters-ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Node.json",
               "type": "object"
             },
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "connections": {
             "description": "De connections van deze View",
             "type": "array",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
             "items": {
-              "cascadeDelete": true,
-              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Connection.json",
+              "x-openregisters-cascadeDelete": true,
+              "x-openregisters-ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Connection.json",
               "type": "object"
             },
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           }
         }
       },
@@ -1258,245 +819,101 @@
           "identifier": {
             "description": "De identifier van dit Element",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "id-009fa62f25844aa3a87d252bf2b6bb0c",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "type": {
             "description": "Het type van dit Element",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "Capability",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "name": {
             "description": "De naam van dit Element",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "Publiceren en gebruiken van informatie over datadiensten",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "name-lang": {
             "description": "De name-language van dit Element",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
             "minLength": 2,
             "maxLength": 2,
             "example": "nl",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "documentation": {
             "description": "De documentation van dit Element",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "Dienstenafnemers moeten in online catalogi kunnen opvragen welke diensten, met welke kenmerken, door dienstenaanbieder worden aangeboden. \\nOnder andere ontwikkelaars hebben baat bij informatie over beschikbare diensten en de vereisten voor het gebruik van de dienst (bijv. specificatie van een dienst conform de OAS-standaard).",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "documentation-lang": {
             "description": "De documentation-language van dit Element",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
             "minLength": 2,
             "maxLength": 2,
             "example": "nl",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "properties": {
             "description": "De properties van dit Element",
             "type": "array",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
             "items": {
-              "cascadeDelete": true,
-              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+              "x-openregisters-cascadeDelete": true,
+              "x-openregisters-ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
               "type": "object"
             },
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           }
         }
       },
-      "GEMMA Model": {
+      "Model": {
         "type": "object",
         "x-tags": [
-          "GEMMA Model"
+          "Model"
         ],
         "properties": {
           "@self": {
@@ -1514,527 +931,217 @@
           "xmlns": {
             "description": "De xmlns van dit GEMMA Model",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "http://www.opengroup.org/xsd/archimate/3.0/",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "xsi": {
             "description": "De xsi van dit GEMMA Model",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "http://www.w3.org/2001/XMLSchema-instance",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "schemaLocation": {
             "description": "De schemaLocation van dit GEMMA Model",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "http://www.opengroup.org/xsd/archimate/3.0/ http://www.opengroup.org/xsd/archimate/3.1/archimate3_Diagram.xsd",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "identifier": {
             "description": "De identifier van dit GEMMA Model",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "id-b58b6b03-a59d-472b-bd87-88ba77ded4e6",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "name": {
             "description": "De name van dit GEMMA Model",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "GEMMA release (test)",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "name-lang": {
             "description": "De name-language van dit GEMMA Model",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
             "minLength": 2,
             "maxLength": 2,
             "example": "nl",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "version": {
             "description": "De version van dit GEMMA Model",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
             "minLength": 3,
-            "maxLength": null,
             "example": "3.0",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "documentation": {
             "description": "De documentation van dit GEMMA Model",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "De GEMeentelijk Model Architectuur (GEMMA) bevat een blauwdruk van de gemeente en haar informatievoorziening. De GEMMA kan worden gebruikt als basis voor de projectmodellen",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "documentation-lang": {
             "description": "De documentation-language van dit GEMMA Model",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
             "minLength": 2,
             "maxLength": 2,
             "example": "nl",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "properties": {
             "description": "De properties van dit GEMMA Model",
             "type": "array",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
             "minItems": 1,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
             "items": {
-              "cascadeDelete": true,
-              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+              "x-openregisters-cascadeDelete": true,
+              "x-openregisters-ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
               "type": "object"
             },
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "elements": {
             "description": "De elements van dit GEMMA Model",
             "type": "array",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
             "minItems": 1,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
             "items": {
-              "cascadeDelete": true,
-              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Element.json/10",
+              "x-openregisters-cascadeDelete": true,
+              "x-openregisters-ref": "https://vng.accept.commonground.nu/openregister/schemas/Element.json/10",
               "type": "object"
             },
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "relationships": {
             "description": "De relationships van dit GEMMA Model",
             "type": "array",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
             "minItems": 1,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
             "items": {
-              "cascadeDelete": true,
-              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Relation.json/13",
+              "x-openregisters-cascadeDelete": true,
+              "x-openregisters-ref": "https://vng.accept.commonground.nu/openregister/schemas/Relation.json/13",
               "type": "object"
             },
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "organizations": {
             "description": "De organizations van dit GEMMA Model",
             "type": "array",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
             "minItems": 1,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
             "items": {
-              "cascadeDelete": true,
-              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Organization.json/12",
+              "x-openregisters-cascadeDelete": true,
+              "x-openregisters-ref": "https://vng.accept.commonground.nu/openregister/schemas/Organization.json/12",
               "type": "object"
             },
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "propertyDefinitions": {
             "description": "De propertyDefinitions van dit GEMMA Model",
             "type": "array",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
             "minItems": 1,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
             "items": {
-              "cascadeDelete": true,
-              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Property_Definition.json/15",
+              "x-openregisters-cascadeDelete": true,
+              "x-openregisters-ref": "https://vng.accept.commonground.nu/openregister/schemas/Property_Definition.json/15",
               "type": "object"
             },
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "views": {
             "description": "De views van dit GEMMA Model",
             "type": "array",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
             "minItems": 1,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
             "items": {
-              "cascadeDelete": true,
-              "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View.json/11",
+              "x-openregisters-cascadeDelete": true,
+              "x-openregisters-ref": "https://vng.accept.commonground.nu/openregister/schemas/View.json/11",
               "type": "object"
             },
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           }
         }
       },
@@ -2117,134 +1224,52 @@
           "identifier": {
             "description": "De identifier van deze Property Definition",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "propid-43",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "type": {
             "description": "De type van deze Property Definition",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "string",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "name": {
             "description": "De name van deze Property Definition",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
             "example": "API-portaal",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           },
           "name-lang": {
             "description": "De name-language van deze Property Definition",
             "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "deprecated": false,
             "minLength": 2,
             "maxLength": 2,
             "example": "nl",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": "nested-object",
-              "schema": ""
+            "x-openregisters-objectConfiguration": {
+              "handling": "nested-object"
             },
-            "fileConfiguration": {
+            "x-openregisters-fileConfiguration": {
               "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
               "maxSize": 0
-            },
-            "oneOf": []
+            }
           }
         }
       }
@@ -2267,7 +1292,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2277,7 +1302,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2307,7 +1332,7 @@
             "name": "identifier",
             "in": "query",
             "required": false,
-            "description": "Filter results by identifier",
+            "description": "Exact match filter for identifier (string)",
             "schema": {
               "type": "string"
             }
@@ -2316,7 +1341,7 @@
             "name": "source",
             "in": "query",
             "required": false,
-            "description": "Filter results by source",
+            "description": "Exact match filter for source (string)",
             "schema": {
               "type": "string"
             }
@@ -2325,7 +1350,7 @@
             "name": "target",
             "in": "query",
             "required": false,
-            "description": "Filter results by target",
+            "description": "Exact match filter for target (string)",
             "schema": {
               "type": "string"
             }
@@ -2334,7 +1359,7 @@
             "name": "type",
             "in": "query",
             "required": false,
-            "description": "Filter results by type",
+            "description": "Exact match filter for type (string)",
             "schema": {
               "type": "string"
             }
@@ -2343,7 +1368,7 @@
             "name": "accessType",
             "in": "query",
             "required": false,
-            "description": "Filter results by accessType",
+            "description": "Exact match filter for accessType (string)",
             "schema": {
               "type": "string"
             }
@@ -2352,7 +1377,7 @@
             "name": "isDirected",
             "in": "query",
             "required": false,
-            "description": "Filter results by isDirected",
+            "description": "Exact match filter for isDirected (string)",
             "schema": {
               "type": "string"
             }
@@ -2361,7 +1386,7 @@
             "name": "name",
             "in": "query",
             "required": false,
-            "description": "Filter results by name",
+            "description": "Exact match filter for name (string)",
             "schema": {
               "type": "string"
             }
@@ -2370,7 +1395,7 @@
             "name": "name-lang",
             "in": "query",
             "required": false,
-            "description": "Filter results by name-lang",
+            "description": "Exact match filter for name-lang (string)",
             "schema": {
               "type": "string"
             }
@@ -2379,7 +1404,7 @@
             "name": "documentation",
             "in": "query",
             "required": false,
-            "description": "Filter results by documentation",
+            "description": "Exact match filter for documentation (string)",
             "schema": {
               "type": "string"
             }
@@ -2388,18 +1413,9 @@
             "name": "documentation-lang",
             "in": "query",
             "required": false,
-            "description": "Filter results by documentation-lang",
+            "description": "Exact match filter for documentation-lang (string)",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "properties",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by properties",
-            "schema": {
-              "type": "array"
             }
           }
         ],
@@ -2431,7 +1447,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2441,7 +1457,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2508,7 +1524,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2518,7 +1534,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2573,7 +1589,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2583,7 +1599,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2888,7 +1904,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2898,7 +1914,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2928,7 +1944,7 @@
             "name": "identifier",
             "in": "query",
             "required": false,
-            "description": "Filter results by identifier",
+            "description": "Exact match filter for identifier (string)",
             "schema": {
               "type": "string"
             }
@@ -2937,7 +1953,7 @@
             "name": "type",
             "in": "query",
             "required": false,
-            "description": "Filter results by type",
+            "description": "Exact match filter for type (string)",
             "schema": {
               "type": "string"
             }
@@ -2946,7 +1962,7 @@
             "name": "viewpoint",
             "in": "query",
             "required": false,
-            "description": "Filter results by viewpoint",
+            "description": "Exact match filter for viewpoint (string)",
             "schema": {
               "type": "string"
             }
@@ -2955,7 +1971,7 @@
             "name": "name",
             "in": "query",
             "required": false,
-            "description": "Filter results by name",
+            "description": "Exact match filter for name (string)",
             "schema": {
               "type": "string"
             }
@@ -2964,7 +1980,7 @@
             "name": "name-lang",
             "in": "query",
             "required": false,
-            "description": "Filter results by name-lang",
+            "description": "Exact match filter for name-lang (string)",
             "schema": {
               "type": "string"
             }
@@ -2973,7 +1989,7 @@
             "name": "documentation",
             "in": "query",
             "required": false,
-            "description": "Filter results by documentation",
+            "description": "Exact match filter for documentation (string)",
             "schema": {
               "type": "string"
             }
@@ -2982,36 +1998,9 @@
             "name": "documentation-lang",
             "in": "query",
             "required": false,
-            "description": "Filter results by documentation-lang",
+            "description": "Exact match filter for documentation-lang (string)",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "properties",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by properties",
-            "schema": {
-              "type": "array"
-            }
-          },
-          {
-            "name": "nodes",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by nodes",
-            "schema": {
-              "type": "array"
-            }
-          },
-          {
-            "name": "connections",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by connections",
-            "schema": {
-              "type": "array"
             }
           }
         ],
@@ -3043,7 +2032,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3053,7 +2042,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3120,7 +2109,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3130,7 +2119,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3185,7 +2174,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3195,7 +2184,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3500,7 +2489,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3510,7 +2499,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3540,7 +2529,7 @@
             "name": "identifier",
             "in": "query",
             "required": false,
-            "description": "Filter results by identifier",
+            "description": "Exact match filter for identifier (string)",
             "schema": {
               "type": "string"
             }
@@ -3549,7 +2538,7 @@
             "name": "type",
             "in": "query",
             "required": false,
-            "description": "Filter results by type",
+            "description": "Exact match filter for type (string)",
             "schema": {
               "type": "string"
             }
@@ -3558,7 +2547,7 @@
             "name": "name",
             "in": "query",
             "required": false,
-            "description": "Filter results by name",
+            "description": "Exact match filter for name (string)",
             "schema": {
               "type": "string"
             }
@@ -3567,7 +2556,7 @@
             "name": "name-lang",
             "in": "query",
             "required": false,
-            "description": "Filter results by name-lang",
+            "description": "Exact match filter for name-lang (string)",
             "schema": {
               "type": "string"
             }
@@ -3576,7 +2565,7 @@
             "name": "documentation",
             "in": "query",
             "required": false,
-            "description": "Filter results by documentation",
+            "description": "Exact match filter for documentation (string)",
             "schema": {
               "type": "string"
             }
@@ -3585,18 +2574,9 @@
             "name": "documentation-lang",
             "in": "query",
             "required": false,
-            "description": "Filter results by documentation-lang",
+            "description": "Exact match filter for documentation-lang (string)",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "properties",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by properties",
-            "schema": {
-              "type": "array"
             }
           }
         ],
@@ -3628,7 +2608,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3638,7 +2618,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3705,7 +2685,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3715,7 +2695,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3770,7 +2750,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3780,7 +2760,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4069,23 +3049,23 @@
         }
       }
     },
-    "/amef/gemma-model": {
+    "/amef/model": {
       "tags": [
-        "GEMMA Model"
+        "Model"
       ],
       "get": {
-        "summary": "Get all GEMMA Model objects",
-        "operationId": "getAllGemmaModel",
+        "summary": "Get all Model objects",
+        "operationId": "getAllModel",
         "tags": [
-          "GEMMA Model"
+          "Model"
         ],
-        "description": "Retrieve a list of all GEMMA Model objects",
+        "description": "Retrieve a list of all Model objects",
         "parameters": [
           {
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4095,7 +3075,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4125,7 +3105,7 @@
             "name": "xmlns",
             "in": "query",
             "required": false,
-            "description": "Filter results by xmlns",
+            "description": "Exact match filter for xmlns (string)",
             "schema": {
               "type": "string"
             }
@@ -4134,7 +3114,7 @@
             "name": "xsi",
             "in": "query",
             "required": false,
-            "description": "Filter results by xsi",
+            "description": "Exact match filter for xsi (string)",
             "schema": {
               "type": "string"
             }
@@ -4143,7 +3123,7 @@
             "name": "schemaLocation",
             "in": "query",
             "required": false,
-            "description": "Filter results by schemaLocation",
+            "description": "Exact match filter for schemaLocation (string)",
             "schema": {
               "type": "string"
             }
@@ -4152,7 +3132,7 @@
             "name": "identifier",
             "in": "query",
             "required": false,
-            "description": "Filter results by identifier",
+            "description": "Exact match filter for identifier (string)",
             "schema": {
               "type": "string"
             }
@@ -4161,7 +3141,7 @@
             "name": "name",
             "in": "query",
             "required": false,
-            "description": "Filter results by name",
+            "description": "Exact match filter for name (string)",
             "schema": {
               "type": "string"
             }
@@ -4170,7 +3150,7 @@
             "name": "name-lang",
             "in": "query",
             "required": false,
-            "description": "Filter results by name-lang",
+            "description": "Exact match filter for name-lang (string)",
             "schema": {
               "type": "string"
             }
@@ -4179,7 +3159,7 @@
             "name": "version",
             "in": "query",
             "required": false,
-            "description": "Filter results by version",
+            "description": "Exact match filter for version (string)",
             "schema": {
               "type": "string"
             }
@@ -4188,7 +3168,7 @@
             "name": "documentation",
             "in": "query",
             "required": false,
-            "description": "Filter results by documentation",
+            "description": "Exact match filter for documentation (string)",
             "schema": {
               "type": "string"
             }
@@ -4197,75 +3177,21 @@
             "name": "documentation-lang",
             "in": "query",
             "required": false,
-            "description": "Filter results by documentation-lang",
+            "description": "Exact match filter for documentation-lang (string)",
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "properties",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by properties",
-            "schema": {
-              "type": "array"
-            }
-          },
-          {
-            "name": "elements",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by elements",
-            "schema": {
-              "type": "array"
-            }
-          },
-          {
-            "name": "relationships",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by relationships",
-            "schema": {
-              "type": "array"
-            }
-          },
-          {
-            "name": "organizations",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by organizations",
-            "schema": {
-              "type": "array"
-            }
-          },
-          {
-            "name": "propertyDefinitions",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by propertyDefinitions",
-            "schema": {
-              "type": "array"
-            }
-          },
-          {
-            "name": "views",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by views",
-            "schema": {
-              "type": "array"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "List of GEMMA Model objects",
+            "description": "List of Model objects",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/GEMMA Model"
+                    "$ref": "#/components/schemas/Model"
                   }
                 }
               }
@@ -4274,18 +3200,18 @@
         }
       },
       "post": {
-        "summary": "Create a new GEMMA Model object",
-        "operationId": "createGemmaModel",
+        "summary": "Create a new Model object",
+        "operationId": "createModel",
         "tags": [
-          "GEMMA Model"
+          "Model"
         ],
-        "description": "Create a new GEMMA Model object with the provided data",
+        "description": "Create a new Model object with the provided data",
         "parameters": [
           {
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4295,7 +3221,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4317,18 +3243,18 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/GEMMA Model"
+                "$ref": "#/components/schemas/Model"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "GEMMA Model created successfully.",
+            "description": "Model created successfully.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GEMMA Model"
+                  "$ref": "#/components/schemas/Model"
                 }
               }
             }
@@ -4336,23 +3262,23 @@
         }
       }
     },
-    "/amef/gemma-model/{id}": {
+    "/amef/model/{id}": {
       "tags": [
-        "GEMMA Model"
+        "Model"
       ],
       "get": {
-        "summary": "Get a GEMMA Model object by ID",
-        "operationId": "getGemmaModel",
+        "summary": "Get a Model object by ID",
+        "operationId": "getModel",
         "tags": [
-          "GEMMA Model"
+          "Model"
         ],
-        "description": "Retrieve a specific GEMMA Model object by its unique identifier",
+        "description": "Retrieve a specific Model object by its unique identifier",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Unique identifier of the GEMMA Model object",
+            "description": "Unique identifier of the Model object",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -4362,7 +3288,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4372,7 +3298,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4391,33 +3317,33 @@
         ],
         "responses": {
           "200": {
-            "description": "GEMMA Model found.",
+            "description": "Model found.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GEMMA Model"
+                  "$ref": "#/components/schemas/Model"
                 }
               }
             }
           },
           "404": {
-            "description": "GEMMA Model not found."
+            "description": "Model not found."
           }
         }
       },
       "put": {
-        "summary": "Update a GEMMA Model object",
-        "operationId": "updateGemmaModel",
+        "summary": "Update a Model object",
+        "operationId": "updateModel",
         "tags": [
-          "GEMMA Model"
+          "Model"
         ],
-        "description": "Update an existing GEMMA Model object with the provided data",
+        "description": "Update an existing Model object with the provided data",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Unique identifier of the GEMMA Model object to update",
+            "description": "Unique identifier of the Model object to update",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -4427,7 +3353,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4437,7 +3363,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4459,40 +3385,40 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/GEMMA Model"
+                "$ref": "#/components/schemas/Model"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "GEMMA Model updated successfully",
+            "description": "Model updated successfully",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GEMMA Model"
+                  "$ref": "#/components/schemas/Model"
                 }
               }
             }
           },
           "404": {
-            "description": "GEMMA Model not found"
+            "description": "Model not found"
           }
         }
       },
       "delete": {
-        "summary": "Delete a GEMMA Model object",
-        "operationId": "deleteGemmaModel",
+        "summary": "Delete a Model object",
+        "operationId": "deleteModel",
         "tags": [
-          "GEMMA Model"
+          "Model"
         ],
-        "description": "Delete a specific GEMMA Model object by its unique identifier",
+        "description": "Delete a specific Model object by its unique identifier",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Unique identifier of the GEMMA Model object to delete",
+            "description": "Unique identifier of the Model object to delete",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -4501,31 +3427,31 @@
         ],
         "responses": {
           "204": {
-            "description": "GEMMA Model deleted successfully"
+            "description": "Model deleted successfully"
           },
           "404": {
-            "description": "GEMMA Model not found"
+            "description": "Model not found"
           }
         }
       }
     },
-    "/amef/gemma-model/{id}/audit-trails": {
+    "/amef/model/{id}/audit-trails": {
       "tags": [
-        "GEMMA Model"
+        "Model"
       ],
       "get": {
-        "summary": "Get audit logs for a GEMMA Model object",
-        "operationId": "getLogsGemmaModel",
+        "summary": "Get audit logs for a Model object",
+        "operationId": "getLogsModel",
         "tags": [
-          "GEMMA Model"
+          "Model"
         ],
-        "description": "Retrieve the audit trail for a specific GEMMA Model object",
+        "description": "Retrieve the audit trail for a specific Model object",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Unique identifier of the GEMMA Model object",
+            "description": "Unique identifier of the Model object",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -4547,28 +3473,28 @@
             }
           },
           "404": {
-            "description": "GEMMA Model not found"
+            "description": "Model not found"
           }
         }
       }
     },
-    "/amef/gemma-model/{id}/files": {
+    "/amef/model/{id}/files": {
       "tags": [
-        "GEMMA Model"
+        "Model"
       ],
       "get": {
-        "summary": "Get files for a GEMMA Model object",
-        "operationId": "getFilesGemmaModel",
+        "summary": "Get files for a Model object",
+        "operationId": "getFilesModel",
         "tags": [
-          "GEMMA Model"
+          "Model"
         ],
-        "description": "Retrieve all files associated with a specific GEMMA Model object",
+        "description": "Retrieve all files associated with a specific Model object",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Unique identifier of the GEMMA Model object",
+            "description": "Unique identifier of the Model object",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -4590,23 +3516,23 @@
             }
           },
           "404": {
-            "description": "GEMMA Model not found"
+            "description": "Model not found"
           }
         }
       },
       "post": {
-        "summary": "Upload a file for a GEMMA Model object",
-        "operationId": "uploadFileGemmaModel",
+        "summary": "Upload a file for a Model object",
+        "operationId": "uploadFileModel",
         "tags": [
-          "GEMMA Model"
+          "Model"
         ],
-        "description": "Upload a new file and associate it with a specific GEMMA Model object",
+        "description": "Upload a new file and associate it with a specific Model object",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Unique identifier of the GEMMA Model object",
+            "description": "Unique identifier of the Model object",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -4642,28 +3568,28 @@
             }
           },
           "404": {
-            "description": "GEMMA Model not found"
+            "description": "Model not found"
           }
         }
       }
     },
-    "/amef/gemma-model/{id}/lock": {
+    "/amef/model/{id}/lock": {
       "tags": [
-        "GEMMA Model"
+        "Model"
       ],
       "post": {
-        "summary": "Lock a GEMMA Model object",
-        "operationId": "lockGemmaModel",
+        "summary": "Lock a Model object",
+        "operationId": "lockModel",
         "tags": [
-          "GEMMA Model"
+          "Model"
         ],
-        "description": "Lock a specific GEMMA Model object to prevent concurrent modifications",
+        "description": "Lock a specific Model object to prevent concurrent modifications",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Unique identifier of the GEMMA Model object to lock",
+            "description": "Unique identifier of the Model object to lock",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -4682,7 +3608,7 @@
             }
           },
           "404": {
-            "description": "GEMMA Model not found"
+            "description": "Model not found"
           },
           "409": {
             "description": "Object is already locked"
@@ -4690,23 +3616,23 @@
         }
       }
     },
-    "/amef/gemma-model/{id}/unlock": {
+    "/amef/model/{id}/unlock": {
       "tags": [
-        "GEMMA Model"
+        "Model"
       ],
       "post": {
-        "summary": "Unlock a GEMMA Model object",
-        "operationId": "unlockGemmaModel",
+        "summary": "Unlock a Model object",
+        "operationId": "unlockModel",
         "tags": [
-          "GEMMA Model"
+          "Model"
         ],
-        "description": "Remove the lock from a specific GEMMA Model object",
+        "description": "Remove the lock from a specific Model object",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Unique identifier of the GEMMA Model object to unlock",
+            "description": "Unique identifier of the Model object to unlock",
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -4718,7 +3644,7 @@
             "description": "Object unlocked successfully"
           },
           "404": {
-            "description": "GEMMA Model not found"
+            "description": "Model not found"
           },
           "409": {
             "description": "Object is not locked or locked by another user"
@@ -4742,7 +3668,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4752,7 +3678,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4782,7 +3708,7 @@
             "name": "name",
             "in": "query",
             "required": false,
-            "description": "Filter results by name",
+            "description": "Exact match filter for name (string)",
             "schema": {
               "type": "string"
             }
@@ -4791,7 +3717,7 @@
             "name": "summary",
             "in": "query",
             "required": false,
-            "description": "Filter results by summary",
+            "description": "Exact match filter for summary (string)",
             "schema": {
               "type": "string"
             }
@@ -4800,7 +3726,7 @@
             "name": "description",
             "in": "query",
             "required": false,
-            "description": "Filter results by description",
+            "description": "Exact match filter for description (string)",
             "schema": {
               "type": "string"
             }
@@ -4809,7 +3735,7 @@
             "name": "oin",
             "in": "query",
             "required": false,
-            "description": "Filter results by oin",
+            "description": "Exact match filter for oin (string)",
             "schema": {
               "type": "string"
             }
@@ -4818,7 +3744,7 @@
             "name": "tooi",
             "in": "query",
             "required": false,
-            "description": "Filter results by tooi",
+            "description": "Exact match filter for tooi (string)",
             "schema": {
               "type": "string"
             }
@@ -4827,7 +3753,7 @@
             "name": "rsin",
             "in": "query",
             "required": false,
-            "description": "Filter results by rsin",
+            "description": "Exact match filter for rsin (string)",
             "schema": {
               "type": "string"
             }
@@ -4836,7 +3762,7 @@
             "name": "pki",
             "in": "query",
             "required": false,
-            "description": "Filter results by pki",
+            "description": "Exact match filter for pki (string)",
             "schema": {
               "type": "string"
             }
@@ -4845,7 +3771,7 @@
             "name": "image",
             "in": "query",
             "required": false,
-            "description": "Filter results by image",
+            "description": "Exact match filter for image (string)",
             "schema": {
               "type": "string"
             }
@@ -4879,7 +3805,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4889,7 +3815,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4956,7 +3882,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4966,7 +3892,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -5021,7 +3947,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5031,7 +3957,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -5336,7 +4262,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5346,7 +4272,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -5376,7 +4302,7 @@
             "name": "identifier",
             "in": "query",
             "required": false,
-            "description": "Filter results by identifier",
+            "description": "Exact match filter for identifier (string)",
             "schema": {
               "type": "string"
             }
@@ -5385,7 +4311,7 @@
             "name": "type",
             "in": "query",
             "required": false,
-            "description": "Filter results by type",
+            "description": "Exact match filter for type (string)",
             "schema": {
               "type": "string"
             }
@@ -5394,7 +4320,7 @@
             "name": "name",
             "in": "query",
             "required": false,
-            "description": "Filter results by name",
+            "description": "Exact match filter for name (string)",
             "schema": {
               "type": "string"
             }
@@ -5403,7 +4329,7 @@
             "name": "name-lang",
             "in": "query",
             "required": false,
-            "description": "Filter results by name-lang",
+            "description": "Exact match filter for name-lang (string)",
             "schema": {
               "type": "string"
             }
@@ -5437,7 +4363,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5447,7 +4373,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -5514,7 +4440,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5524,7 +4450,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -5579,7 +4505,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5589,7 +4515,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
