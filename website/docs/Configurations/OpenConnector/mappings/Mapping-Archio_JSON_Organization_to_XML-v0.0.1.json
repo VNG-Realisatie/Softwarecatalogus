@@ -8,10 +8,11 @@
 	"id": 18,
 	"name": "Archio JSON Organization to XML",
 	"description": "Maps Organization objects from JSON to XML format",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"reference": "https://vng.accept.commonground.nu/Mapping-Archio_JSON_Organization_to_XML.json",
 	"mapping": {
 		"@root": "{% if disableRoot|default(false) %}{{ '' }}{% else %}item{% endif %}",
+		"@attributes.identifier": "identifier",
 		"@attributes.identifierRef": "identifierRef",
 		"label.#text": "label",
 		"label.@attributes.xml:lang": "label-lang",
@@ -22,6 +23,7 @@
 	"unset": [],
 	"cast": {
 		"@root": "unsetIfValue==",
+		"@attributes.identifier": "unsetIfValue==identifier",
 		"@attributes.identifierRef": "unsetIfValue==identifierRef",
 		"label.#text": "unsetIfValue==label",
 		"label.@attributes.xml:lang": "unsetIfValue==label-lang",
