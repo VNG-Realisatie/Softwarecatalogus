@@ -19,7 +19,8 @@ Een organisatie is een bedrijf, overheidsinstelling of andere entiteit die betro
   :::info 
     Toegevoegde waardes
 
-    - Links: een lisjt van extra verwijzignen voor organisaties
+    - Links: Een lijst van extra verwijzignen voor organisaties
+    - Deelnemingen: Een lijst van organisaties waaraan deze organisatie deelneemt
   :::
   </TabItem>
 </Tabs>

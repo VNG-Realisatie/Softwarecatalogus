@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Voorzieningen API",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Register voor voorzieningen uit de softwarecatalogus"
   },
   "servers": [
@@ -69,6 +69,10 @@
     },
     {
       "name": "Koppeling",
+      "description": ""
+    },
+    {
+      "name": "Beoordeeling",
       "description": ""
     }
   ],
@@ -770,6 +774,76 @@
               "maxSize": 0
             },
             "oneOf": []
+          },
+          "licentie": {
+            "description": "De licentie waaronder het anbod word gedaan, bijvoorbeeld EUPL 1.2 aan de hand van https://opensource.org/licenses",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "EUPL 1.2",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "hosting": {
+            "description": "",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "none",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "on-premise",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
           }
         }
       },
@@ -978,6 +1052,81 @@
           "beschrijving": {
             "type": "string",
             "description": "Beschrijving van de leverancier"
+          },
+          "links": {
+            "description": "Extra verwijzigingen voor deze organisatie (zoals het support-portaal en handleidingen)",
+            "type": "array",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "items": {
+              "cascadeDelete": false,
+              "$ref": "",
+              "type": "string"
+            },
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "oin": {
+            "description": "Overheids identificatie nummer, identificeerd deze organisatie als een overheid.",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
           }
         }
       },
@@ -1142,6 +1291,76 @@
               "Gepland",
               "Beëindigd"
             ]
+          },
+          "hosting": {
+            "description": "",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "none",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "none",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "deelneming": {
+            "description": "De deelneming die dit gebruik heeft aangemaakt, indien ingevuld dan is dit gebruik aangemaakt door een andere organisatie dan de eigenaar",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
           }
         }
       },
@@ -1471,6 +1690,322 @@
             "behavior": "",
             "required": false,
             "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "standaard": {
+            "description": "De toepgepaste standaard binnen deze koppelen",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "visible": true,
+            "hideOnCollection": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "versie": {
+            "description": "Een optionele versie van de toegepaste standaard",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "visible": true,
+            "hideOnCollection": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          }
+        }
+      },
+      "Beoordeeling": {
+        "type": "object",
+        "x-tags": [
+          "Beoordeeling"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "titel": {
+            "description": "",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "visible": true,
+            "hideOnCollection": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "beschrijving": {
+            "description": "",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "visible": true,
+            "hideOnCollection": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "waardering": {
+            "description": "",
+            "type": "integer",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "visible": true,
+            "hideOnCollection": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": 5,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "voorziening": {
+            "description": "",
+            "type": "string",
+            "format": "uuid",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "visible": true,
+            "hideOnCollection": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "aanbod": {
+            "description": "",
+            "type": "string",
+            "format": "uuid",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "visible": true,
+            "hideOnCollection": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "gebruik": {
+            "description": "",
+            "type": "string",
+            "format": "uuid",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "visible": true,
+            "hideOnCollection": false,
             "minLength": null,
             "maxLength": null,
             "example": "",
@@ -2747,6 +3282,24 @@
             "in": "query",
             "required": false,
             "description": "Filter results by status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "licentie",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by licentie",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "hosting",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by hosting",
             "schema": {
               "type": "string"
             }
@@ -5081,6 +5634,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "links",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by links",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "oin",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by oin",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5717,6 +6288,24 @@
             "in": "query",
             "required": false,
             "description": "Filter results by status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "hosting",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by hosting",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "deelneming",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by deelneming",
             "schema": {
               "type": "string"
             }
@@ -8069,6 +8658,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "standaard",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by standaard",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "versie",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by versie",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -8533,6 +9140,582 @@
           },
           "404": {
             "description": "Koppeling not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/beoordeeling": {
+      "tags": [
+        "Beoordeeling"
+      ],
+      "get": {
+        "summary": "Get all Beoordeeling objects",
+        "operationId": "getAllBeoordeeling",
+        "tags": [
+          "Beoordeeling"
+        ],
+        "description": "Retrieve a list of all Beoordeeling objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "titel",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by titel",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "beschrijving",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by beschrijving",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "waardering",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by waardering",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "voorziening",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by voorziening",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "aanbod",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by aanbod",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gebruik",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by gebruik",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Beoordeeling objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Beoordeeling"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Beoordeeling object",
+        "operationId": "createBeoordeeling",
+        "tags": [
+          "Beoordeeling"
+        ],
+        "description": "Create a new Beoordeeling object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beoordeeling"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Beoordeeling created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beoordeeling"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/beoordeeling/{id}": {
+      "tags": [
+        "Beoordeeling"
+      ],
+      "get": {
+        "summary": "Get a Beoordeeling object by ID",
+        "operationId": "getBeoordeeling",
+        "tags": [
+          "Beoordeeling"
+        ],
+        "description": "Retrieve a specific Beoordeeling object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Beoordeeling object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Beoordeeling found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beoordeeling"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Beoordeeling not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Beoordeeling object",
+        "operationId": "updateBeoordeeling",
+        "tags": [
+          "Beoordeeling"
+        ],
+        "description": "Update an existing Beoordeeling object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Beoordeeling object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Beoordeeling"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Beoordeeling updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Beoordeeling"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Beoordeeling not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Beoordeeling object",
+        "operationId": "deleteBeoordeeling",
+        "tags": [
+          "Beoordeeling"
+        ],
+        "description": "Delete a specific Beoordeeling object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Beoordeeling object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Beoordeeling deleted successfully"
+          },
+          "404": {
+            "description": "Beoordeeling not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/beoordeeling/{id}/audit-trails": {
+      "tags": [
+        "Beoordeeling"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Beoordeeling object",
+        "operationId": "getLogsBeoordeeling",
+        "tags": [
+          "Beoordeeling"
+        ],
+        "description": "Retrieve the audit trail for a specific Beoordeeling object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Beoordeeling object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Beoordeeling not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/beoordeeling/{id}/files": {
+      "tags": [
+        "Beoordeeling"
+      ],
+      "get": {
+        "summary": "Get files for a Beoordeeling object",
+        "operationId": "getFilesBeoordeeling",
+        "tags": [
+          "Beoordeeling"
+        ],
+        "description": "Retrieve all files associated with a specific Beoordeeling object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Beoordeeling object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Beoordeeling not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Beoordeeling object",
+        "operationId": "uploadFileBeoordeeling",
+        "tags": [
+          "Beoordeeling"
+        ],
+        "description": "Upload a new file and associate it with a specific Beoordeeling object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Beoordeeling object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Beoordeeling not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/beoordeeling/{id}/lock": {
+      "tags": [
+        "Beoordeeling"
+      ],
+      "post": {
+        "summary": "Lock a Beoordeeling object",
+        "operationId": "lockBeoordeeling",
+        "tags": [
+          "Beoordeeling"
+        ],
+        "description": "Lock a specific Beoordeeling object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Beoordeeling object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Beoordeeling not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/beoordeeling/{id}/unlock": {
+      "tags": [
+        "Beoordeeling"
+      ],
+      "post": {
+        "summary": "Unlock a Beoordeeling object",
+        "operationId": "unlockBeoordeeling",
+        "tags": [
+          "Beoordeeling"
+        ],
+        "description": "Remove the lock from a specific Beoordeeling object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Beoordeeling object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Beoordeeling not found"
           },
           "409": {
             "description": "Object is not locked or locked by another user"

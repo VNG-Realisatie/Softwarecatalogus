@@ -31,6 +31,8 @@ Een Voorziening Gebruik beschrijft een organisatie die een voorziening gebruikt,
     aws
     google
     other
+
+    als derde waarde is toegevoegd deelneming, in het geval dat het gebruik is aangemaakt door een samenwerkings verband (ofwel voor een gemeente) dient hier het id van de aanmakende organisatie te worden ingevuld
   :::
 
   :::note
