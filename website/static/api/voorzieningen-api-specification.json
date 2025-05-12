@@ -2,12 +2,12 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Voorzieningen API",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Register voor voorzieningen uit de softwarecatalogus"
   },
   "servers": [
     {
-      "url": "http://nextcloud.local/apps/openregister/api",
+      "url": "https://vng.test.commonground.nu/apps/openregister/api",
       "description": "OpenRegister API Server"
     }
   ],
@@ -23,6 +23,10 @@
     }
   ],
   "tags": [
+    {
+      "name": "sector",
+      "description": ""
+    },
     {
       "name": "Voorziening",
       "description": "Een generieke voorziening (software product)"
@@ -60,12 +64,12 @@
       "description": "Een specifieke standaard waaraan een voorziening kan voldoen"
     },
     {
-      "name": "Sector",
-      "description": "Sector waartoe een organisatie behoort"
-    },
-    {
       "name": "Review",
       "description": "Beoordeling van een voorziening"
+    },
+    {
+      "name": "Koppeling",
+      "description": ""
     }
   ],
   "components": {
@@ -504,6 +508,26 @@
           }
         }
       },
+      "sector": {
+        "type": "object",
+        "x-tags": [
+          "sector"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          }
+        }
+      },
       "Voorziening": {
         "type": "object",
         "x-tags": [
@@ -521,10 +545,6 @@
             "readOnly": true,
             "example": "123e4567-e89b-12d3-a456-426614174000",
             "description": "The unique identifier for the object."
-          },
-          "naam": {
-            "type": "string",
-            "description": "Naam van de voorziening"
           },
           "beschrijving": {
             "type": "string",
@@ -584,6 +604,78 @@
               "Anders"
             ],
             "description": "Het type voorziening zoals geregistreerd in de catalogus"
+          },
+          "status": {
+            "description": "",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "concept",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "naam": {
+            "description": "Naam van de voorziening",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "visible": true,
+            "hideOnCollection": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
           }
         }
       },
@@ -643,6 +735,41 @@
               "$ref": "#/components/schemas/Standaard",
               "type": "object"
             }
+          },
+          "status": {
+            "description": "De status van dit aanbod",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "concept",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
           }
         }
       },
@@ -920,15 +1047,6 @@
             "format": "date",
             "description": "De datum waarop het gebruik van de voorziening is beëindigd"
           },
-          "status": {
-            "type": "string",
-            "enum": [
-              "Actief",
-              "Gepland",
-              "Beëindigd"
-            ],
-            "description": "De status van het gebruik"
-          },
           "opmerkingen": {
             "type": "string",
             "description": "Aanvullende informatie over het gebruik van de voorziening"
@@ -984,6 +1102,46 @@
             "type": "boolean",
             "default": false,
             "description": "Geeft aan of het voorzieninggebruik privacy gevoelige gegevens bevat"
+          },
+          "status": {
+            "description": "De status van het gebruik",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "concept",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": [],
+            "enum": [
+              "Actief",
+              "Gepland",
+              "Beëindigd"
+            ]
           }
         }
       },
@@ -1159,6 +1317,15 @@
             "type": "string",
             "description": "Beschrijving van de standaard"
           },
+          "standaardtype": {
+            "type": "string",
+            "enum": [
+              "Type1",
+              "Type2",
+              "Type3"
+            ],
+            "description": "Type van de standaard"
+          },
           "versie": {
             "type": "string",
             "description": "Versie van de standaard"
@@ -1181,73 +1348,6 @@
               "Verouderd"
             ],
             "description": "Status van de standaard"
-          },
-          "standaardtype": {
-            "description": "Type van de standaard",
-            "type": "string",
-            "format": "",
-            "pattern": "",
-            "default": "",
-            "behavior": "",
-            "required": false,
-            "deprecated": false,
-            "minLength": null,
-            "maxLength": null,
-            "example": "",
-            "immutable": false,
-            "minimum": null,
-            "maximum": null,
-            "multipleOf": null,
-            "exclusiveMin": false,
-            "exclusiveMax": false,
-            "minItems": null,
-            "maxItems": null,
-            "cascadeDelete": false,
-            "$ref": "",
-            "objectConfiguration": {
-              "handling": null,
-              "schema": ""
-            },
-            "fileConfiguration": {
-              "handling": "ignore",
-              "allowedMimeTypes": [],
-              "location": "",
-              "maxSize": 0
-            },
-            "oneOf": []
-          }
-        }
-      },
-      "Sector": {
-        "type": "object",
-        "x-tags": [
-          "Sector"
-        ],
-        "properties": {
-          "@self": {
-            "$ref": "#/components/schemas/@self",
-            "readOnly": true,
-            "description": "The metadata of the object e.g. owner, created, modified, etc."
-          },
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true,
-            "example": "123e4567-e89b-12d3-a456-426614174000",
-            "description": "The unique identifier for the object."
-          },
-          "naam": {
-            "type": "string",
-            "description": "Naam van de sector"
-          },
-          "beschrijving": {
-            "type": "string",
-            "description": "Beschrijving van de sector"
-          },
-          "bovenliggendeSector": {
-            "$ref": "#/components/schemas/Sector",
-            "description": "Bovenliggende sector (voor hiërarchische indeling)",
-            "type": "string"
           }
         }
       },
@@ -1308,27 +1408,117 @@
             "description": "Nadelen van de voorziening"
           }
         }
+      },
+      "Koppeling": {
+        "type": "object",
+        "x-tags": [
+          "Koppeling"
+        ],
+        "properties": {
+          "@self": {
+            "$ref": "#/components/schemas/@self",
+            "readOnly": true,
+            "description": "The metadata of the object e.g. owner, created, modified, etc."
+          },
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true,
+            "example": "123e4567-e89b-12d3-a456-426614174000",
+            "description": "The unique identifier for the object."
+          },
+          "van": {
+            "description": "VoorzieningGebruikId",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": true,
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          },
+          "naar": {
+            "description": "VoorzieningGebruikId of LandelijkeVoorzieningid",
+            "type": "string",
+            "format": "",
+            "pattern": "",
+            "default": "",
+            "behavior": "",
+            "required": false,
+            "deprecated": false,
+            "minLength": null,
+            "maxLength": null,
+            "example": "",
+            "immutable": false,
+            "minimum": null,
+            "maximum": null,
+            "multipleOf": null,
+            "exclusiveMin": false,
+            "exclusiveMax": false,
+            "minItems": null,
+            "maxItems": null,
+            "cascadeDelete": false,
+            "inversedBy": "",
+            "$ref": "",
+            "objectConfiguration": {
+              "handling": "nested-object",
+              "schema": ""
+            },
+            "fileConfiguration": {
+              "handling": "ignore",
+              "allowedMimeTypes": [],
+              "location": "",
+              "maxSize": 0
+            },
+            "oneOf": []
+          }
+        }
       }
     }
   },
   "paths": {
-    "/voorzieningen/voorziening": {
+    "/voorzieningen/sector": {
       "tags": [
-        "Voorziening"
+        "sector"
       ],
       "get": {
-        "summary": "Get all Voorziening objects",
-        "operationId": "getAllVoorziening",
+        "summary": "Get all sector objects",
+        "operationId": "getAllSector",
         "tags": [
-          "Voorziening"
+          "sector"
         ],
-        "description": "Retrieve a list of all Voorziening objects",
+        "description": "Retrieve a list of all sector objects",
         "parameters": [
           {
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -1338,7 +1528,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -1363,15 +1553,528 @@
               "type": "string"
             },
             "example": "search term"
-          },
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of sector objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/sector"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new sector object",
+        "operationId": "createSector",
+        "tags": [
+          "sector"
+        ],
+        "description": "Create a new sector object with the provided data",
+        "parameters": [
           {
-            "name": "naam",
+            "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Filter results by naam",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/sector"
+              }
             }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "sector created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sector"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/sector/{id}": {
+      "tags": [
+        "sector"
+      ],
+      "get": {
+        "summary": "Get a sector object by ID",
+        "operationId": "getSector",
+        "tags": [
+          "sector"
+        ],
+        "description": "Retrieve a specific sector object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the sector object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sector found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sector"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "sector not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a sector object",
+        "operationId": "updateSector",
+        "tags": [
+          "sector"
+        ],
+        "description": "Update an existing sector object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the sector object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/sector"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "sector updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/sector"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "sector not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a sector object",
+        "operationId": "deleteSector",
+        "tags": [
+          "sector"
+        ],
+        "description": "Delete a specific sector object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the sector object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "sector deleted successfully"
+          },
+          "404": {
+            "description": "sector not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/sector/{id}/audit-trails": {
+      "tags": [
+        "sector"
+      ],
+      "get": {
+        "summary": "Get audit logs for a sector object",
+        "operationId": "getLogsSector",
+        "tags": [
+          "sector"
+        ],
+        "description": "Retrieve the audit trail for a specific sector object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the sector object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "sector not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/sector/{id}/files": {
+      "tags": [
+        "sector"
+      ],
+      "get": {
+        "summary": "Get files for a sector object",
+        "operationId": "getFilesSector",
+        "tags": [
+          "sector"
+        ],
+        "description": "Retrieve all files associated with a specific sector object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the sector object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "sector not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a sector object",
+        "operationId": "uploadFileSector",
+        "tags": [
+          "sector"
+        ],
+        "description": "Upload a new file and associate it with a specific sector object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the sector object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "sector not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/sector/{id}/lock": {
+      "tags": [
+        "sector"
+      ],
+      "post": {
+        "summary": "Lock a sector object",
+        "operationId": "lockSector",
+        "tags": [
+          "sector"
+        ],
+        "description": "Lock a specific sector object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the sector object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "sector not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/sector/{id}/unlock": {
+      "tags": [
+        "sector"
+      ],
+      "post": {
+        "summary": "Unlock a sector object",
+        "operationId": "unlockSector",
+        "tags": [
+          "sector"
+        ],
+        "description": "Remove the lock from a specific sector object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the sector object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "sector not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/voorziening": {
+      "tags": [
+        "Voorziening"
+      ],
+      "get": {
+        "summary": "Get all Voorziening objects",
+        "operationId": "getAllVoorziening",
+        "tags": [
+          "Voorziening"
+        ],
+        "description": "Retrieve a list of all Voorziening objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
           },
           {
             "name": "beschrijving",
@@ -1435,6 +2138,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "naam",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by naam",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1465,7 +2186,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -1475,7 +2196,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -1542,7 +2263,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -1552,7 +2273,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -1607,7 +2328,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -1617,7 +2338,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -1922,7 +2643,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -1932,7 +2653,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2020,6 +2741,15 @@
             "schema": {
               "type": "array"
             }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by status",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2050,7 +2780,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2060,7 +2790,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2127,7 +2857,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2137,7 +2867,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2192,7 +2922,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2202,7 +2932,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2507,7 +3237,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2517,7 +3247,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2635,7 +3365,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2645,7 +3375,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2712,7 +3442,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2722,7 +3452,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -2777,7 +3507,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -2787,7 +3517,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3092,7 +3822,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3102,7 +3832,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3247,7 +3977,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3257,7 +3987,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3324,7 +4054,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3334,7 +4064,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3389,7 +4119,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3399,7 +4129,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3704,7 +4434,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3714,7 +4444,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3814,7 +4544,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3824,7 +4554,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3891,7 +4621,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3901,7 +4631,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -3956,7 +4686,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -3966,7 +4696,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4271,7 +5001,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4281,7 +5011,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4381,7 +5111,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4391,7 +5121,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4458,7 +5188,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4468,7 +5198,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4523,7 +5253,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4533,7 +5263,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4838,7 +5568,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -4848,7 +5578,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -4929,15 +5659,6 @@
             }
           },
           {
-            "name": "status",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by status",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "opmerkingen",
             "in": "query",
             "required": false,
@@ -4990,6 +5711,15 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by status",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -5020,7 +5750,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5030,7 +5760,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -5097,7 +5827,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5107,7 +5837,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -5162,7 +5892,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5172,7 +5902,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -5477,7 +6207,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5487,7 +6217,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -5659,7 +6389,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5669,7 +6399,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -5736,7 +6466,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5746,7 +6476,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -5801,7 +6531,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -5811,7 +6541,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -6116,7 +6846,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -6126,7 +6856,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -6171,6 +6901,15 @@
             }
           },
           {
+            "name": "standaardtype",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by standaardtype",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "versie",
             "in": "query",
             "required": false,
@@ -6205,15 +6944,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "standaardtype",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by standaardtype",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -6244,7 +6974,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -6254,7 +6984,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -6321,7 +7051,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -6331,7 +7061,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -6386,7 +7116,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -6396,7 +7126,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -6685,555 +7415,6 @@
         }
       }
     },
-    "/voorzieningen/sector": {
-      "tags": [
-        "Sector"
-      ],
-      "get": {
-        "summary": "Get all Sector objects",
-        "operationId": "getAllSector",
-        "tags": [
-          "Sector"
-        ],
-        "description": "Retrieve a list of all Sector objects",
-        "parameters": [
-          {
-            "name": "_extend",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "property1,property2,property3"
-          },
-          {
-            "name": "_filter",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "id,name,description"
-          },
-          {
-            "name": "_unset",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to remove from the response.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "internalField1,internalField2"
-          },
-          {
-            "name": "_search",
-            "in": "query",
-            "required": false,
-            "description": "Full-text search query to filter objects in the collection.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "search term"
-          },
-          {
-            "name": "naam",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by naam",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "beschrijving",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by beschrijving",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "bovenliggendeSector",
-            "in": "query",
-            "required": false,
-            "description": "Filter results by bovenliggendeSector",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of Sector objects",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Sector"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "summary": "Create a new Sector object",
-        "operationId": "createSector",
-        "tags": [
-          "Sector"
-        ],
-        "description": "Create a new Sector object with the provided data",
-        "parameters": [
-          {
-            "name": "_extend",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "property1,property2,property3"
-          },
-          {
-            "name": "_filter",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "id,name,description"
-          },
-          {
-            "name": "_unset",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to remove from the response.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "internalField1,internalField2"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Sector"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Sector created successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Sector"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/voorzieningen/sector/{id}": {
-      "tags": [
-        "Sector"
-      ],
-      "get": {
-        "summary": "Get a Sector object by ID",
-        "operationId": "getSector",
-        "tags": [
-          "Sector"
-        ],
-        "description": "Retrieve a specific Sector object by its unique identifier",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Unique identifier of the Sector object",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "_extend",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "property1,property2,property3"
-          },
-          {
-            "name": "_filter",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "id,name,description"
-          },
-          {
-            "name": "_unset",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to remove from the response.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "internalField1,internalField2"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Sector found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Sector"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Sector not found."
-          }
-        }
-      },
-      "put": {
-        "summary": "Update a Sector object",
-        "operationId": "updateSector",
-        "tags": [
-          "Sector"
-        ],
-        "description": "Update an existing Sector object with the provided data",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Unique identifier of the Sector object to update",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "_extend",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "property1,property2,property3"
-          },
-          {
-            "name": "_filter",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "id,name,description"
-          },
-          {
-            "name": "_unset",
-            "in": "query",
-            "required": false,
-            "description": "Comma-separated list of properties to remove from the response.",
-            "schema": {
-              "type": "string"
-            },
-            "example": "internalField1,internalField2"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Sector"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Sector updated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Sector"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Sector not found"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete a Sector object",
-        "operationId": "deleteSector",
-        "tags": [
-          "Sector"
-        ],
-        "description": "Delete a specific Sector object by its unique identifier",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Unique identifier of the Sector object to delete",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Sector deleted successfully"
-          },
-          "404": {
-            "description": "Sector not found"
-          }
-        }
-      }
-    },
-    "/voorzieningen/sector/{id}/audit-trails": {
-      "tags": [
-        "Sector"
-      ],
-      "get": {
-        "summary": "Get audit logs for a Sector object",
-        "operationId": "getLogsSector",
-        "tags": [
-          "Sector"
-        ],
-        "description": "Retrieve the audit trail for a specific Sector object",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Unique identifier of the Sector object",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Audit logs retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AuditTrail"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Sector not found"
-          }
-        }
-      }
-    },
-    "/voorzieningen/sector/{id}/files": {
-      "tags": [
-        "Sector"
-      ],
-      "get": {
-        "summary": "Get files for a Sector object",
-        "operationId": "getFilesSector",
-        "tags": [
-          "Sector"
-        ],
-        "description": "Retrieve all files associated with a specific Sector object",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Unique identifier of the Sector object",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Files retrieved successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/File"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Sector not found"
-          }
-        }
-      },
-      "post": {
-        "summary": "Upload a file for a Sector object",
-        "operationId": "uploadFileSector",
-        "tags": [
-          "Sector"
-        ],
-        "description": "Upload a new file and associate it with a specific Sector object",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Unique identifier of the Sector object",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "binary",
-                    "description": "The file to upload"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "File uploaded successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/File"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Sector not found"
-          }
-        }
-      }
-    },
-    "/voorzieningen/sector/{id}/lock": {
-      "tags": [
-        "Sector"
-      ],
-      "post": {
-        "summary": "Lock a Sector object",
-        "operationId": "lockSector",
-        "tags": [
-          "Sector"
-        ],
-        "description": "Lock a specific Sector object to prevent concurrent modifications",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Unique identifier of the Sector object to lock",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Object locked successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Lock"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Sector not found"
-          },
-          "409": {
-            "description": "Object is already locked"
-          }
-        }
-      }
-    },
-    "/voorzieningen/sector/{id}/unlock": {
-      "tags": [
-        "Sector"
-      ],
-      "post": {
-        "summary": "Unlock a Sector object",
-        "operationId": "unlockSector",
-        "tags": [
-          "Sector"
-        ],
-        "description": "Remove the lock from a specific Sector object",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Unique identifier of the Sector object to unlock",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Object unlocked successfully"
-          },
-          "404": {
-            "description": "Sector not found"
-          },
-          "409": {
-            "description": "Object is not locked or locked by another user"
-          }
-        }
-      }
-    },
     "/voorzieningen/review": {
       "tags": [
         "Review"
@@ -7250,7 +7431,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -7260,7 +7441,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -7378,7 +7559,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -7388,7 +7569,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -7455,7 +7636,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -7465,7 +7646,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -7520,7 +7701,7 @@
             "name": "_extend",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to extend. Properties referring to other objects will be expanded according to the extend pattern.",
+            "description": "Comma-separated list of properties to extend.",
             "schema": {
               "type": "string"
             },
@@ -7530,7 +7711,7 @@
             "name": "_filter",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of properties to include in the response. Only properties matching these names will be returned.",
+            "description": "Comma-separated list of properties to include in the response. ",
             "schema": {
               "type": "string"
             },
@@ -7812,6 +7993,546 @@
           },
           "404": {
             "description": "Review not found"
+          },
+          "409": {
+            "description": "Object is not locked or locked by another user"
+          }
+        }
+      }
+    },
+    "/voorzieningen/koppeling": {
+      "tags": [
+        "Koppeling"
+      ],
+      "get": {
+        "summary": "Get all Koppeling objects",
+        "operationId": "getAllKoppeling",
+        "tags": [
+          "Koppeling"
+        ],
+        "description": "Retrieve a list of all Koppeling objects",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          },
+          {
+            "name": "_search",
+            "in": "query",
+            "required": false,
+            "description": "Full-text search query to filter objects in the collection.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "search term"
+          },
+          {
+            "name": "van",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by van",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "naar",
+            "in": "query",
+            "required": false,
+            "description": "Filter results by naar",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of Koppeling objects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Koppeling"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new Koppeling object",
+        "operationId": "createKoppeling",
+        "tags": [
+          "Koppeling"
+        ],
+        "description": "Create a new Koppeling object with the provided data",
+        "parameters": [
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Koppeling"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Koppeling created successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Koppeling"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/voorzieningen/koppeling/{id}": {
+      "tags": [
+        "Koppeling"
+      ],
+      "get": {
+        "summary": "Get a Koppeling object by ID",
+        "operationId": "getKoppeling",
+        "tags": [
+          "Koppeling"
+        ],
+        "description": "Retrieve a specific Koppeling object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Koppeling object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Koppeling found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Koppeling"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Koppeling not found."
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a Koppeling object",
+        "operationId": "updateKoppeling",
+        "tags": [
+          "Koppeling"
+        ],
+        "description": "Update an existing Koppeling object with the provided data",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Koppeling object to update",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "_extend",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to extend.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "property1,property2,property3"
+          },
+          {
+            "name": "_filter",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to include in the response. ",
+            "schema": {
+              "type": "string"
+            },
+            "example": "id,name,description"
+          },
+          {
+            "name": "_unset",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of properties to remove from the response.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "internalField1,internalField2"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Koppeling"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Koppeling updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Koppeling"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Koppeling not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a Koppeling object",
+        "operationId": "deleteKoppeling",
+        "tags": [
+          "Koppeling"
+        ],
+        "description": "Delete a specific Koppeling object by its unique identifier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Koppeling object to delete",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Koppeling deleted successfully"
+          },
+          "404": {
+            "description": "Koppeling not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/koppeling/{id}/audit-trails": {
+      "tags": [
+        "Koppeling"
+      ],
+      "get": {
+        "summary": "Get audit logs for a Koppeling object",
+        "operationId": "getLogsKoppeling",
+        "tags": [
+          "Koppeling"
+        ],
+        "description": "Retrieve the audit trail for a specific Koppeling object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Koppeling object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Audit logs retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AuditTrail"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Koppeling not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/koppeling/{id}/files": {
+      "tags": [
+        "Koppeling"
+      ],
+      "get": {
+        "summary": "Get files for a Koppeling object",
+        "operationId": "getFilesKoppeling",
+        "tags": [
+          "Koppeling"
+        ],
+        "description": "Retrieve all files associated with a specific Koppeling object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Koppeling object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/File"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Koppeling not found"
+          }
+        }
+      },
+      "post": {
+        "summary": "Upload a file for a Koppeling object",
+        "operationId": "uploadFileKoppeling",
+        "tags": [
+          "Koppeling"
+        ],
+        "description": "Upload a new file and associate it with a specific Koppeling object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Koppeling object",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary",
+                    "description": "The file to upload"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/File"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Koppeling not found"
+          }
+        }
+      }
+    },
+    "/voorzieningen/koppeling/{id}/lock": {
+      "tags": [
+        "Koppeling"
+      ],
+      "post": {
+        "summary": "Lock a Koppeling object",
+        "operationId": "lockKoppeling",
+        "tags": [
+          "Koppeling"
+        ],
+        "description": "Lock a specific Koppeling object to prevent concurrent modifications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Koppeling object to lock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object locked successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lock"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Koppeling not found"
+          },
+          "409": {
+            "description": "Object is already locked"
+          }
+        }
+      }
+    },
+    "/voorzieningen/koppeling/{id}/unlock": {
+      "tags": [
+        "Koppeling"
+      ],
+      "post": {
+        "summary": "Unlock a Koppeling object",
+        "operationId": "unlockKoppeling",
+        "tags": [
+          "Koppeling"
+        ],
+        "description": "Remove the lock from a specific Koppeling object",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the Koppeling object to unlock",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Object unlocked successfully"
+          },
+          "404": {
+            "description": "Koppeling not found"
           },
           "409": {
             "description": "Object is not locked or locked by another user"

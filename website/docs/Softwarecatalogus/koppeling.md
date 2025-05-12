@@ -12,3 +12,14 @@ import TabItem from '@theme/TabItem';
 # Koppeling
 
 Een koppeling reprecenteerd een door organisatie gerealiseerde koppeling tussen een voorzieningGebruik enerzijdes en een voorzieningGebruik of landelijkeVoorziening anderzijds
+
+:::info 
+Kopeling is geen onderdeel van de voorzieningen catalaogus architectuur en toegevoegd ten behoeve van de software catalogus
+:::
+
+## API Specificatie
+<Tabs>
+  <TabItem value="specificaties" label="Specificaties" default>
+    <ApiSchema id="gemma" pointer="#/components/schemas/Koppeling" />
+  </TabItem>
+</Tabs>

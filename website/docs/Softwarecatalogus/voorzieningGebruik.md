@@ -16,6 +16,12 @@ Een Voorziening Gebruik beschrijft een organisatie die een voorziening gebruikt,
 ## API Specificatie
 <Tabs>
   <TabItem value="specificaties" label="Specificaties" default>
+  :::info 
+    Aan dit object zijn extra properties toegevoegd ten opzichte van het model voorzieningen catalogus, namelijk de 'status'. Deze is gabseerd op https://yml.publiccode.tools/schema.core.html#key-developmentstatus en behelst status van het object. Objecten die inter organsiatie worden aangemaakt kunnen alleen worden aangemaakt op de status concept. Objecten onder de status concept komen niet terug in de zoek resultaten van open catalogi.
+
+    concept, development, beta, stable, obsolete
+  :::
+
   :::note
 
     Het veld 'referentieComponenten' is een tijdelijke oplossing. Deze referentiecomponenten horen eigenlijk bij het [Voorziening](./voorziening) object te leven, maar omdat we momenteel nog geen gerelateerd zoeken ondersteunen, zijn ze tijdelijk hier geplaatst.
