@@ -13,15 +13,14 @@ import TabItem from '@theme/TabItem';
 
 Een voorziening is een softwareproduct of dienst die functionaliteit biedt voor gemeentelijke of andere overheidsprocessen. Voorzieningen vormen de basis van de informatievoorziening en kunnen door verschillende leveranciers worden aangeboden.
 
-:::info 
-  Aan dit object zijn extra properties toegevoegd ten opzichte van het model voorzieningen catalogus, namelijk de 'status'. Deze is gabseerd op https://yml.publiccode.tools/schema.core.html#key-developmentstatus en behelst status van het object. Objecten die inter organsiatie worden aangemaakt kunnen alleen worden aangemaakt op de status concept. Objecten onder de status concept komen niet terug in de zoek resultaten van open catalogi.
-
-  concept, development, beta, stable, obsolete
-:::
-
 ## API Specificatie
 <Tabs>
   <TabItem value="specificaties" label="Specificaties" default>
+  :::info 
+    Aan dit object zijn extra properties toegevoegd ten opzichte van het model voorzieningen catalogus, namelijk de 'status'. Deze is gabseerd op https://yml.publiccode.tools/schema.core.html#key-developmentstatus en behelst status van het object. Objecten die inter organsiatie worden aangemaakt kunnen alleen worden aangemaakt op de status concept. Objecten onder de status concept komen niet terug in de zoek resultaten van open catalogi.
+
+    concept, development, beta, stable, obsolete
+  :::
     <ApiSchema id="gemma" pointer="#/components/schemas/Voorziening" />
   </TabItem>
   <TabItem value="relaties" label="Relaties">

@@ -20,6 +20,17 @@ Een Voorziening Gebruik beschrijft een organisatie die een voorziening gebruikt,
     Aan dit object zijn extra properties toegevoegd ten opzichte van het model voorzieningen catalogus, namelijk de 'status'. Deze is gabseerd op https://yml.publiccode.tools/schema.core.html#key-developmentstatus en behelst status van het object. Objecten die inter organsiatie worden aangemaakt kunnen alleen worden aangemaakt op de status concept. Objecten onder de status concept komen niet terug in de zoek resultaten van open catalogi.
 
     concept, development, beta, stable, obsolete
+
+    Als tweede waarde kan de gekozen hosting worden opgegeven, de refereerd aan de aangeboden hosting vanuit voorzieningAanbod. maar kan maar één waarde bevaten. Daarovoor zijn de volgende opties toegestaan
+    
+    none
+    cloud (bij leverancier)
+    on-premise (bij afnemer)
+    amazon
+    azure
+    aws
+    google
+    other
   :::
 
   :::note
