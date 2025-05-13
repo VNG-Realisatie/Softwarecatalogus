@@ -17,10 +17,12 @@ Een organisatie is een bedrijf, overheidsinstelling of andere entiteit die betro
 <Tabs>
   <TabItem value="specificaties" label="Specificaties" default>
   :::info 
-    Toegevoegde waardes
+    Toegevoegde waardes ten opzichte van voorzieningen catalogus
+
 
     - Links: Een lijst van extra verwijzignen voor organisaties
     - Deelnemingen: Een lijst van organisaties waaraan deze organisatie deelneemt
+    - Status: Of deze organisatie reeds is geacodeerd 
   :::
   </TabItem>
 </Tabs>

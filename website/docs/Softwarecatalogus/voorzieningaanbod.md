@@ -17,31 +17,28 @@ Een voorzieningaanbod is een specifiek aanbod van een voorziening door een lever
 <Tabs>
   <TabItem value="specificaties" label="Specificaties" default>
   :::info 
-    Aan dit object zijn extra properties toegevoegd ten opzichte van het model voorzieningen catalogus, namelijk de 'status'. Deze is gabseerd op https://yml.publiccode.tools/schema.core.html#key-developmentstatus en behelst status van het object. Objecten die inter organsiatie worden aangemaakt kunnen alleen worden aangemaakt op de status concept. Objecten onder de status concept komen niet terug in de zoek resultaten van open catalogi.
+  
+    Toegevoegde waardes ten opzichte van voorzieningen catalogus
 
-    concept, development, beta, stable, obsolete
-
-    De tweede toegevoegde waarde betreft "licentie", hierin kan een waarde worden opgegeven van de lijst: https://opensource.org/licenses (aan de hand van SPDX ID)  OF closed-source
-
-    De derde toegeveogde waarde is 'hosting' in lijn met https://github.com/VNG-Realisatie/Softwarecatalogus/issues/9 zijn daarovoor de volgende opties toegestaan
-    
-    none
-    cloud (bij leverancier)
-    on-premise (bij afnemer)
-    amazon
-    azure
-    aws
-    google
-    other
-
-    De vierde toegevoegde waarde is 'laag', dit representeert een laag uit de commonground architectuur. De waarde van 'laag' moet altijd een integer zijn tussen de 0 en 5, waarbij elke laag een specifieke betekenis heeft:
-    
-    - **0**: Registratie van hosting partijen.
-    - **1**: Infrastructuur laag, verantwoordelijk voor de basis IT-voorzieningen.
-    - **2**: Generieke services, zoals authenticatie en autorisatie.
-    - **3**: Integratielaag, voor de koppeling en uitwisseling van gegevens 
-    - **4**: logicalaag, de busness logica
-    - **5**: Presentatielaag, de gebruikersinterface van de applicaties.
+    - Status: Deze is gabseerd op https://yml.publiccode.tools/schema.core.html#key-developmentstatus en behelst status van het object. Objecten die inter organsiatie worden aangemaakt kunnen alleen worden aangemaakt op de status concept. Objecten onder de status concept komen niet terug in de zoek resultaten van open catalogi. En kan bevatten -> concept, development, beta, stable, obsolete
+    = Contact: verwijzing (username) naar een gebruiker voor contact gegevens
+    - licentie: een waarde worden opgegeven van de lijst: https://opensource.org/licenses (aan de hand van SPDX ID)  OF `closed-source`
+    - hosting: in lijn met https://github.com/VNG-Realisatie/Softwarecatalogus/issues/9 zijn daarovoor de volgende opties toegestaan    
+      - none
+      - cloud (bij leverancier)
+      - on-premise (bij afnemer)
+      - amazon
+      - azure
+      - aws
+      - google
+      - other
+    - laag: dit representeert een laag uit de commonground architectuur. De waarde van 'laag' moet altijd een integer zijn tussen de 0 en 5, waarbij elke laag een specifieke betekenis heeft:    
+      - **0**: Registratie van hosting partijen.
+      - **1**: Infrastructuur laag, verantwoordelijk voor de basis IT-voorzieningen.
+      - **2**: Generieke services, zoals authenticatie en autorisatie.
+      - **3**: Integratielaag, voor de koppeling en uitwisseling van gegevens 
+      - **4**: logicalaag, de busness logica
+      - **5**: Presentatielaag, de gebruikersinterface van de applicaties.
   :::
 
     <ApiSchema id="gemma" example   pointer="#/components/schemas/VoorzieningAanbod" />

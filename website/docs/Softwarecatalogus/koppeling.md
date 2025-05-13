@@ -22,4 +22,8 @@ Kopeling is geen onderdeel van de voorzieningen catalaogus architectuur en toege
   <TabItem value="specificaties" label="Specificaties" default>
     <ApiSchema id="gemma" pointer="#/components/schemas/Koppeling" />
   </TabItem>
+  <TabItem value="relaties" label="Relaties">
+    - Een Koppeling is gekoppeld aan precies één [VoorzieningGebruik](./voorzieninggebruik) (van)
+    - Een Koppeling is gekoppeld aan precies één [VoorzieningGebruik](./voorzieninggebruik) (naar)
+  </TabItem>
 </Tabs>

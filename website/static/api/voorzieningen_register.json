@@ -61,7 +61,7 @@
                 "slug": "voorziening",
                 "title": "Voorziening",
                 "description": "Een generieke voorziening (software product)",
-                "version": "0.0.4",
+                "version": "0.0.7",
                 "summary": "",
                 "icon": null,
                 "required": [
@@ -204,12 +204,49 @@
                             "maxSize": 0
                         },
                         "oneOf": []
+                    },
+                    "contact": {
+                        "description": "",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
                     }
                 },
                 "archive": [],
                 "source": "",
                 "hardValidation": false,
-                "updated": "2025-05-12T14:13:58+00:00",
+                "updated": "2025-05-12T21:33:08+00:00",
                 "created": "2025-05-09T12:14:18+00:00",
                 "maxDepth": 0,
                 "owner": "1",
@@ -223,7 +260,7 @@
                 "slug": "voorzieningaanbod",
                 "title": "Voorzieningaanbod",
                 "description": "Een specifiek aanbod van een voorziening door een leverancier",
-                "version": "0.0.5",
+                "version": "0.0.6",
                 "summary": "",
                 "icon": null,
                 "required": [
@@ -379,12 +416,49 @@
                             "maxSize": 0
                         },
                         "oneOf": []
+                    },
+                    "contact": {
+                        "description": "",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
                     }
                 },
                 "archive": [],
                 "source": "",
                 "hardValidation": false,
-                "updated": "2025-05-12T14:51:09+00:00",
+                "updated": "2025-05-12T21:32:55+00:00",
                 "created": "2025-05-09T12:14:18+00:00",
                 "maxDepth": 0,
                 "owner": "1",
@@ -591,7 +665,7 @@
                 "slug": "organisatie",
                 "title": "Organisatie",
                 "description": "Een organisatie die voorzieningen aanbiedt",
-                "version": "0.0.4",
+                "version": "0.0.6",
                 "summary": "",
                 "icon": null,
                 "required": [
@@ -699,12 +773,49 @@
                             "maxSize": 0
                         },
                         "oneOf": []
+                    },
+                    "status": {
+                        "description": "",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "concept",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
                     }
                 },
                 "archive": [],
                 "source": "",
                 "hardValidation": false,
-                "updated": "2025-05-12T19:24:22+00:00",
+                "updated": "2025-05-13T05:37:01+00:00",
                 "created": "2025-05-09T12:14:18+00:00",
                 "maxDepth": 0,
                 "owner": "1",
@@ -718,7 +829,7 @@
                 "slug": "voorzieninggebruik",
                 "title": "VoorzieningGebruik",
                 "description": "Een organisatie die een voorziening gebruikt",
-                "version": "0.0.4",
+                "version": "0.0.5",
                 "summary": "",
                 "icon": null,
                 "required": [
@@ -946,12 +1057,49 @@
                             "maxSize": 0
                         },
                         "oneOf": []
+                    },
+                    "contact": {
+                        "description": "",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
                     }
                 },
                 "archive": [],
                 "source": "",
                 "hardValidation": false,
-                "updated": "2025-05-12T19:28:51+00:00",
+                "updated": "2025-05-12T21:33:19+00:00",
                 "created": "2025-05-09T12:14:18+00:00",
                 "maxDepth": 0,
                 "owner": "1",

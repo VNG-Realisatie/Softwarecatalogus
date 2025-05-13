@@ -22,4 +22,8 @@ Beoordeeling is geen onderdeel van de voorzieningen catalaogus architectuur en t
   <TabItem value="specificaties" label="Specificaties" default>
     <ApiSchema id="gemma" pointer="#/components/schemas/Beoordeeling" />
   </TabItem>
+  <TabItem value="relaties" label="Relaties">
+    - Een Beoordeeling is gekoppeld aan precies één [VoorzieningAanbod](./voorzieningaanbod)
+    - Een Beoordeeling is gekoppeld aan precies één [VoorzieningGebruik](./voorzieninggebruik)
+  </TabItem>
 </Tabs>

@@ -17,22 +17,22 @@ Een Voorziening Gebruik beschrijft een organisatie die een voorziening gebruikt,
 <Tabs>
   <TabItem value="specificaties" label="Specificaties" default>
   :::info 
-    Aan dit object zijn extra properties toegevoegd ten opzichte van het model voorzieningen catalogus, namelijk de 'status'. Deze is gabseerd op https://yml.publiccode.tools/schema.core.html#key-developmentstatus en behelst status van het object. Objecten die inter organsiatie worden aangemaakt kunnen alleen worden aangemaakt op de status concept. Objecten onder de status concept komen niet terug in de zoek resultaten van open catalogi.
+  
+    Toegevoegde waardes ten opzichte van voorzieningen catalogus
 
-    concept, development, beta, stable, obsolete
+    - Status: Deze is gabseerd op https://yml.publiccode.tools/schema.core.html#key-developmentstatus en behelst status van het object. Objecten die inter organsiatie worden aangemaakt kunnen alleen worden aangemaakt op de status concept. Objecten onder de status concept komen niet terug in de zoek resultaten van open catalogi. En kan bevatten -> concept, development, beta, stable, obsolete
+    = Contact: verwijzing (username) naar een gebruiker voor contact gegevens
+    - hosting: in lijn met https://github.com/VNG-Realisatie/Softwarecatalogus/issues/9 zijn daarovoor de volgende opties toegestaan    
+      - none
+      - cloud (bij leverancier)
+      - on-premise (bij afnemer)
+      - amazon
+      - azure
+      - aws
+      - google
+      - other
+    - deelneming: in het geval dat het gebruik is aangemaakt door een samenwerkings verband (ofwel voor een gemeente) dient hier het id van de aanmakende organisatie te worden ingevuld    
 
-    Als tweede waarde kan de gekozen hosting worden opgegeven, de refereerd aan de aangeboden hosting vanuit voorzieningAanbod. maar kan maar één waarde bevaten. Daarovoor zijn de volgende opties toegestaan
-    
-    none
-    cloud (bij leverancier)
-    on-premise (bij afnemer)
-    amazon
-    azure
-    aws
-    google
-    other
-
-    als derde waarde is toegevoegd deelneming, in het geval dat het gebruik is aangemaakt door een samenwerkings verband (ofwel voor een gemeente) dient hier het id van de aanmakende organisatie te worden ingevuld
   :::
 
   :::note
