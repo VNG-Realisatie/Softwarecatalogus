@@ -9,6 +9,9 @@
     - Bekijken audit trails
 - Toelichting op sprintplanning print 7
 - Informatie uitwisseling
+    - Formulier account
+    - Formulier organisatie
+    - Formulier aanbod
 
 # Issues up for review
 - [Sprint 2,3 en 4](https://github.com/orgs/VNG-Realisatie/projects/17/views/3?filterQuery=status%3AReview+assignee%3Amarkbacker%2CMakkmetp) 
