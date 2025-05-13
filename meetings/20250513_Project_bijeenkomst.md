@@ -18,6 +18,9 @@
 - Toelichting op sprintplanning print 7
     - Even goed ophalen wat nu de rest punten voor archi zijn (uberhaupt) zodat die a.s.a.p kunnen worden afgerond
 - Informatie uitwisseling
+    - Formulier account
+    - Formulier organisatie
+    - Formulier aanbod
 
 # Issues up for review
 - [Sprint 4](https://github.com/orgs/VNG-Realisatie/projects/17/views/3?filterQuery=status%3AReview+assignee%3Amarkbacker%2CMakkmetp) 
