@@ -15,11 +15,4 @@
 
 # Actiepunten
 
-| Actie | Verantwoordelijke | Status |
-|-------|------------------|---------|
-| GitHub-Jira koppeling herstellen | Matthias | TODO |
-| Forken van de benodigde componenten | Ruben | DONE |
-| Security policies en branch protection rules instellen | - | TODO |
-| Bij IBD ophalen hoeveel bestanden zij verwachten per pakket| Peter | Done | -> 4 en dans eens in de drie jaar
-| Rutger VN-R betrekken op api testen | Peter | TODO |
-
+???
