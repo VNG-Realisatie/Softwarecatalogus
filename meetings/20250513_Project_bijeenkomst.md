@@ -5,6 +5,7 @@
     - Wilco is ziek, vervangen door Robert
     - We denken archi af te hebben voor fase 1
     - Er staan redenlijk wat [vragen](https://github.com/VNG-Realisatie/Softwarecatalogus/issues?q=state%3Aopen%20label%3A%22question%22) uit (227)
+    - We zijn door alle issues heen gelopen en hebben per issue de archtecturele wijzigingen in de API verwerkt (voor zover er op de issues geen vragen open stonden)
 - Stand van zaken (sprint demo 4,5,6)
     - Performance van views, status en plan van aanpak
     - Test run archimate
