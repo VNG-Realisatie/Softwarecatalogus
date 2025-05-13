@@ -15,8 +15,10 @@
     - Bekijken audit trails
     - Bekijken import/export functionaliteit
     - Proef migratie software catalogus draaien
+    - Dynamische tabelen
 - Toelichting op sprintplanning print 7
     - Even goed ophalen wat nu de rest punten voor archi zijn (uberhaupt) zodat die a.s.a.p kunnen worden afgerond
+    - Inplannen nieuwe frontend dag
 - Informatie uitwisseling
     - Formulier account
     - Formulier organisatie
