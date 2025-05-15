@@ -88,8 +88,10 @@ De views zijn toegankelijk via het [Softwarecatalogus rapport](https://vng-reali
 
 ## Omgevingen
 Voor deze fase van het poject gebruiken we alleen nog een test en acceptatie omgeving, na fase
-* [Test/Acc omgeving (frontend)](https://vng.opencatalogi.nl/)
-* [Test/Acc omgeving (backend)](vng.accept.commonground.nu)
+* [Acc omgeving (frontend)](https://vng.opencatalogi.nl/)
+* [Acc omgeving (backend)](vng.accept.commonground.nu)
+* [Test omgeving (frontend)](https://vng.test.opencatalogi.nl/)
+* [Test omgeving (backend)](vng.test.commonground.nu)
 * [Project Inrichting](https://github.com/VNG-Realisatie/softwarecatalogus/projects?query=is%3Aopen)
 
 ### Contactgegevens betrokkenen:
