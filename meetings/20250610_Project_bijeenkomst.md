@@ -5,11 +5,7 @@
     - Samenvatting bijeenkomst
     - Testen ahv klant [reizen](https://github.com/VNG-Realisatie/Softwarecatalogus/blob/documentation/docs/klantreis_leverancier.md) 
 - Stand van zaken (sprint 8)
-    - Performance van views, status en plan van aanpak
-    - Test run archimate
-    - Zoeken in applicaties en organisaties -> acc 
-    - Beheren van pagina's en menu's
-    - De AMEF registers zou imutable moeten zijn
+    - email templates
 - Toelichting op sprintplanning print 9
     - Even goed ophalen wat nu de rest punten voor archi zijn (uberhaupt) zodat die a.s.a.p kunnen worden afgerond
     - Inplannen nieuwe frontend dag
