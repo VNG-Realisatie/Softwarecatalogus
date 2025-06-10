@@ -5,7 +5,7 @@
             "voorzieningen": {
                 "slug": "voorzieningen",
                 "title": "Voorzieningen",
-                "version": "1.0.2",
+                "version": "1.0.3",
                 "description": "Register voor voorzieningen uit de softwarecatalogus",
                 "schemas": [
                     "sector",
@@ -20,12 +20,13 @@
                     "standaard",
                     "review",
                     "koppeling",
-                    "beoordeeling"
+                    "beoordeeling",
+                    "gebruiker"
                 ],
                 "source": "",
                 "tablePrefix": "",
                 "folder": "",
-                "updated": "2025-05-12T19:59:34+00:00",
+                "updated": "2025-05-20T13:02:27+00:00",
                 "created": "2025-05-09T12:14:18+00:00",
                 "owner": "1",
                 "application": null,
@@ -39,7 +40,7 @@
                 "slug": "sector",
                 "title": "sector",
                 "description": "",
-                "version": "0.0.1",
+                "version": "0.0.2",
                 "summary": "",
                 "icon": null,
                 "required": [],
@@ -47,7 +48,7 @@
                 "archive": [],
                 "source": "",
                 "hardValidation": false,
-                "updated": "2025-05-01T14:49:55+00:00",
+                "updated": "2025-05-13T19:35:39+00:00",
                 "created": "2025-05-01T14:49:42+00:00",
                 "maxDepth": 0,
                 "owner": null,
@@ -61,7 +62,7 @@
                 "slug": "voorziening",
                 "title": "Voorziening",
                 "description": "Een generieke voorziening (software product)",
-                "version": "0.0.7",
+                "version": "0.0.18",
                 "summary": "",
                 "icon": null,
                 "required": [
@@ -241,12 +242,288 @@
                             "maxSize": 0
                         },
                         "oneOf": []
+                    },
+                    "organisatie": {
+                        "description": "",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "rol": {
+                        "description": "",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "aanbieder",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "logo": {
+                        "description": "",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "licentietype": {
+                        "description": "",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "hosting": {
+                        "description": "",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "diensten": {
+                        "description": "Aanbod diensten e.g. Functioneel beheer Applicatie beheer Technisch beheer Implementatieondersteuning Opleidingen Reseller",
+                        "type": "array",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "items": {
+                            "cascadeDelete": false,
+                            "$ref": "",
+                            "type": "string"
+                        },
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "omvat": {
+                        "description": "Welke andere appliaties zijn onderdeel van deze applicatie? (e.g. dit is een suite)",
+                        "type": "array",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "items": {
+                            "cascadeDelete": false,
+                            "$ref": "",
+                            "type": "string"
+                        },
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
                     }
                 },
                 "archive": [],
                 "source": "",
                 "hardValidation": false,
-                "updated": "2025-05-12T21:33:08+00:00",
+                "updated": "2025-05-23T12:42:13+00:00",
                 "created": "2025-05-09T12:14:18+00:00",
                 "maxDepth": 0,
                 "owner": "1",
@@ -621,8 +898,8 @@
                 "slug": "contactgegevens",
                 "title": "Contactgegevens",
                 "description": "Contactgegevens van een persoon",
-                "version": "0.0.1",
-                "summary": null,
+                "version": "0.0.3",
+                "summary": "",
                 "icon": null,
                 "required": [],
                 "properties": {
@@ -646,12 +923,49 @@
                     "telefoon": {
                         "type": "string",
                         "description": "Telefoonnummer van de contactpersoon"
+                    },
+                    "functie": {
+                        "description": "Functie van de medewerker",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
                     }
                 },
                 "archive": [],
                 "source": "",
                 "hardValidation": false,
-                "updated": "2025-05-09T12:14:18+00:00",
+                "updated": "2025-05-20T08:47:00+00:00",
                 "created": "2025-05-09T12:14:18+00:00",
                 "maxDepth": 0,
                 "owner": "1",
@@ -665,26 +979,17 @@
                 "slug": "organisatie",
                 "title": "Organisatie",
                 "description": "Een organisatie die voorzieningen aanbiedt",
-                "version": "0.0.6",
+                "version": "0.0.27",
                 "summary": "",
                 "icon": null,
                 "required": [
                     "id",
-                    "kvk-nummer",
-                    "organisatienaam"
+                    "type"
                 ],
                 "properties": {
                     "id": {
                         "type": "string",
                         "description": "Unieke identificatie voor de leveranciersorganisatie"
-                    },
-                    "kvk-nummer": {
-                        "type": "string",
-                        "description": "KvK-nummer van de organisatie"
-                    },
-                    "organisatienaam": {
-                        "type": "string",
-                        "description": "Naam van de organisatie"
                     },
                     "contactgegevens": {
                         "$ref": "#/components/schemas/Contactgegevens",
@@ -694,10 +999,6 @@
                         "type": "string",
                         "format": "uri",
                         "description": "Website van de leverancier"
-                    },
-                    "beschrijving": {
-                        "type": "string",
-                        "description": "Beschrijving van de leverancier"
                     },
                     "links": {
                         "description": "Extra verwijzigingen voor deze organisatie (zoals het support-portaal en handleidingen)",
@@ -810,12 +1111,514 @@
                             "maxSize": 0
                         },
                         "oneOf": []
+                    },
+                    "type": {
+                        "description": "Type van de organisatie (Gemeente, Leverancier, Samenwerking)",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": true,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": true,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "naam": {
+                        "description": "Naam van de organisatie",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "kvkNummer": {
+                        "description": "KvK-nummer van de organisatie",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "logo": {
+                        "description": "Logo van de organisatie",
+                        "type": "string",
+                        "format": "uri",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "cbs": {
+                        "description": "",
+                        "type": "number",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "telefoonnummer": {
+                        "description": "Telefoonnummer van de contactpersoon of de organisatie",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "e-mailadres": {
+                        "description": "Het e-mailadres van de contactpersoon of de organisatie",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "rol": {
+                        "description": "aanbieder of gebruiker",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "aanbieder",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "beschrijvingKort": {
+                        "description": "Beschrijving van de leverancier",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "beschrijvingLang": {
+                        "description": "Overige informatie",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": 2000,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "contactpersonen": {
+                        "description": "De contactpersoon van de organisatie",
+                        "type": "array",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "items": {
+                            "cascadeDelete": false,
+                            "$ref": "",
+                            "type": "object"
+                        },
+                        "objectConfiguration": {
+                            "handling": null,
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "samenwerkingen": {
+                        "description": "organisaties van het type samenwerking waar deze organisatie aan deelneemt",
+                        "type": "array",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "items": {
+                            "cascadeDelete": false,
+                            "$ref": "",
+                            "type": "string"
+                        },
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "verklaringen": {
+                        "description": "Link naar intern of extern document, bv ISO-certificering, et cetera)\u00a0 ",
+                        "type": "array",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": false,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "order": null,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "items": {
+                            "cascadeDelete": false,
+                            "$ref": "",
+                            "type": "file"
+                        },
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
                     }
                 },
                 "archive": [],
                 "source": "",
                 "hardValidation": false,
-                "updated": "2025-05-13T05:37:01+00:00",
+                "updated": "2025-05-23T12:35:07+00:00",
                 "created": "2025-05-09T12:14:18+00:00",
                 "maxDepth": 0,
                 "owner": "1",
@@ -1823,6 +2626,106 @@
                 "authorization": null,
                 "deleted": null,
                 "configuration": null
+            },
+            "gebruiker": {
+                "slug": "gebruiker",
+                "title": "gebruiker",
+                "description": "",
+                "version": "0.0.5",
+                "summary": "",
+                "icon": null,
+                "required": [
+                    "username",
+                    "email"
+                ],
+                "properties": {
+                    "username": {
+                        "description": "",
+                        "type": "string",
+                        "format": "",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": true,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    },
+                    "email": {
+                        "description": "",
+                        "type": "string",
+                        "format": "email",
+                        "pattern": "",
+                        "default": "",
+                        "behavior": "",
+                        "required": true,
+                        "deprecated": false,
+                        "visible": true,
+                        "hideOnCollection": false,
+                        "minLength": null,
+                        "maxLength": null,
+                        "example": "",
+                        "immutable": false,
+                        "minimum": null,
+                        "maximum": null,
+                        "multipleOf": null,
+                        "exclusiveMin": false,
+                        "exclusiveMax": false,
+                        "minItems": null,
+                        "maxItems": null,
+                        "cascadeDelete": false,
+                        "inversedBy": "",
+                        "$ref": "",
+                        "objectConfiguration": {
+                            "handling": "nested-object",
+                            "schema": ""
+                        },
+                        "fileConfiguration": {
+                            "handling": "ignore",
+                            "allowedMimeTypes": [],
+                            "location": "",
+                            "maxSize": 0
+                        },
+                        "oneOf": []
+                    }
+                },
+                "archive": [],
+                "source": "",
+                "hardValidation": false,
+                "updated": "2025-05-22T07:02:49+00:00",
+                "created": "2025-05-01T14:29:17+00:00",
+                "maxDepth": 0,
+                "owner": null,
+                "application": null,
+                "organisation": null,
+                "authorization": null,
+                "deleted": null,
+                "configuration": null
             }
         },
         "endpoints": [],
@@ -1833,22 +2736,15 @@
         "rules": [],
         "objects": [
             {
-                "naam": "Vergunningenportaal",
+                "id": "065282d5-c3af-4936-96e9-cc70af766924",
                 "beschrijving": "Systeem voor vergunningenportaal binnen de overheid.",
                 "categorie": "Vergunningsysteem",
-                "functionaliteiten": [
-                    "c840353e-dfcf-44bf-8acb-8f7fa957ee88"
-                ],
-                "doelgroep": [
-                    "Gemeente"
-                ],
-                "referentieComponenten": [],
-                "standaarden": [
-                    "83d03450-3518-49db-af92-3213fca5b943"
-                ],
+                "functionaliteiten": "[\"c840353e-dfcf-44bf-8acb-8f7fa957ee88\"]",
+                "doelgroep": "[\"Gemeente\"]",
+                "referentieComponenten": "[]",
+                "standaarden": "[\"83d03450-3518-49db-af92-3213fca5b943\"]",
                 "voorzieningstype": "Toepassing",
-                "contactgegevensId": "41a08004-fc93-4deb-bd09-e29afc33ad2d",
-                "organisatieId": "66666666-ffff-4bcd-8e5f-000000000006",
+                "naam": "Vergunningenportaal",
                 "@self": {
                     "id": "065282d5-c3af-4936-96e9-cc70af766924",
                     "uri": "",
@@ -1857,12 +2753,7 @@
                     "schema": "voorziening",
                     "schemaVersion": null,
                     "files": [],
-                    "relations": {
-                        "functionaliteiten.0": "c840353e-dfcf-44bf-8acb-8f7fa957ee88",
-                        "standaarden.0": "83d03450-3518-49db-af92-3213fca5b943",
-                        "contactgegevensId": "41a08004-fc93-4deb-bd09-e29afc33ad2d",
-                        "organisatieId": "66666666-ffff-4bcd-8e5f-000000000006"
-                    },
+                    "relations": [],
                     "locked": null,
                     "owner": "Remko Huisman",
                     "folder": "",
@@ -1871,32 +2762,24 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1480",
-                    "updated": "2025-05-12T08:15:56+00:00",
+                    "size": "1008",
+                    "updated": "2025-05-22T07:46:48+00:00",
                     "created": "2025-05-09T12:20:43+00:00",
                     "published": "2025-05-09T12:20:43+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "065282d5-c3af-4936-96e9-cc70af766924"
+                }
             },
             {
-                "naam": "Omgevingsloket",
+                "id": "a1d08788-4f93-4557-b656-c04fc8af53a0",
                 "beschrijving": "Systeem voor omgevingsloket binnen de overheid.",
                 "categorie": "Informatiesysteem",
-                "functionaliteiten": [
-                    "875b391d-c7e4-4ea8-9932-1175e461540d"
-                ],
-                "doelgroep": [
-                    "Gemeente"
-                ],
-                "referentieComponenten": [],
-                "standaarden": [
-                    "83d03450-3518-49db-af92-3213fca5b943"
-                ],
+                "functionaliteiten": "[\"875b391d-c7e4-4ea8-9932-1175e461540d\"]",
+                "doelgroep": "[\"Gemeente\"]",
+                "referentieComponenten": "[]",
+                "standaarden": "[\"83d03450-3518-49db-af92-3213fca5b943\"]",
                 "voorzieningstype": "Service",
-                "contactgegevensId": "9ced52d7-e186-4153-a062-19de23ad764a",
-                "organisatieId": "66666666-ffff-4bcd-8e5f-000000000006",
+                "naam": "Omgevingsloket",
                 "@self": {
                     "id": "a1d08788-4f93-4557-b656-c04fc8af53a0",
                     "uri": "",
@@ -1905,12 +2788,7 @@
                     "schema": "voorziening",
                     "schemaVersion": null,
                     "files": [],
-                    "relations": {
-                        "functionaliteiten.0": "875b391d-c7e4-4ea8-9932-1175e461540d",
-                        "standaarden.0": "83d03450-3518-49db-af92-3213fca5b943",
-                        "contactgegevensId": "9ced52d7-e186-4153-a062-19de23ad764a",
-                        "organisatieId": "66666666-ffff-4bcd-8e5f-000000000006"
-                    },
+                    "relations": [],
                     "locked": null,
                     "owner": "Remko Huisman",
                     "folder": "",
@@ -1919,30 +2797,24 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1466",
-                    "updated": "2025-05-12T08:16:11+00:00",
+                    "size": "994",
+                    "updated": "2025-05-22T07:47:26+00:00",
                     "created": "2025-05-09T12:20:43+00:00",
                     "published": "2025-05-09T12:20:43+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "a1d08788-4f93-4557-b656-c04fc8af53a0"
+                }
             },
             {
-                "naam": "Burgerzaken Suite",
+                "id": "8db5258b-c4d1-474a-af9d-7d631c754a66",
                 "beschrijving": "Systeem voor burgerzaken suite binnen de overheid.",
                 "categorie": "Burgerzaken",
-                "functionaliteiten": [
-                    "33333333-cccc-4bcd-8e5f-000000000003"
-                ],
-                "doelgroep": [
-                    "Gemeente"
-                ],
-                "referentieComponenten": [],
-                "standaarden": [],
+                "functionaliteiten": "[\"33333333-cccc-4bcd-8e5f-000000000003\"]",
+                "doelgroep": "[\"Gemeente\"]",
+                "referentieComponenten": "[]",
+                "standaarden": "[]",
                 "voorzieningstype": "Platform",
-                "contactgegevensId": "d9c6ae93-9251-4e4f-b3f9-ac43f5a8042a",
-                "organisatieId": "66666666-ffff-4bcd-8e5f-000000000006",
+                "naam": "Burgerzaken Suite",
                 "@self": {
                     "id": "8db5258b-c4d1-474a-af9d-7d631c754a66",
                     "uri": "",
@@ -1951,11 +2823,7 @@
                     "schema": "voorziening",
                     "schemaVersion": null,
                     "files": [],
-                    "relations": {
-                        "functionaliteiten.0": "33333333-cccc-4bcd-8e5f-000000000003",
-                        "contactgegevensId": "d9c6ae93-9251-4e4f-b3f9-ac43f5a8042a",
-                        "organisatieId": "66666666-ffff-4bcd-8e5f-000000000006"
-                    },
+                    "relations": [],
                     "locked": null,
                     "owner": "Remko Huisman",
                     "folder": "",
@@ -1964,32 +2832,24 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1354",
-                    "updated": "2025-05-12T08:16:38+00:00",
+                    "size": "956",
+                    "updated": "2025-05-22T07:48:02+00:00",
                     "created": "2025-05-09T12:20:43+00:00",
                     "published": "2025-05-09T12:20:43+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "8db5258b-c4d1-474a-af9d-7d631c754a66"
+                }
             },
             {
-                "naam": "E-Diensten",
+                "id": "87b39d60-58d9-48c3-88d9-5df2626b0e31",
                 "beschrijving": "E-Diensten binnen de overheid.",
                 "categorie": "Diensten",
-                "functionaliteiten": [
-                    "33333333-cccc-4bcd-8e5f-000000000003"
-                ],
-                "doelgroep": [
-                    "Gemeente"
-                ],
-                "referentieComponenten": [
-                    "id-ab83abb1-7ecf-11e3-67ab-0050568a6153"
-                ],
-                "standaarden": [],
+                "functionaliteiten": "[\"33333333-cccc-4bcd-8e5f-000000000003\"]",
+                "doelgroep": "[\"Gemeente\"]",
+                "referentieComponenten": "[\"id-5f236166-7794-4cfa-9ff8-740ca549c130\"]",
+                "standaarden": "[\"83d03450-3518-49db-af92-3213fca5b943\"]",
                 "voorzieningstype": "Platform",
-                "contactgegevensId": "d9c6ae93-9251-4e4f-b3f9-ac43f5a8042a",
-                "organisatieId": "66666666-ffff-4bcd-8e5f-000000000006",
+                "naam": "E-Diensten",
                 "@self": {
                     "id": "87b39d60-58d9-48c3-88d9-5df2626b0e31",
                     "uri": "",
@@ -1998,12 +2858,7 @@
                     "schema": "voorziening",
                     "schemaVersion": null,
                     "files": [],
-                    "relations": {
-                        "functionaliteiten.0": "33333333-cccc-4bcd-8e5f-000000000003",
-                        "contactgegevensId": "d9c6ae93-9251-4e4f-b3f9-ac43f5a8042a",
-                        "organisatieId": "66666666-ffff-4bcd-8e5f-000000000006",
-                        "id": "87b39d60-58d9-48c3-88d9-5df2626b0e31"
-                    },
+                    "relations": [],
                     "locked": null,
                     "owner": "Remko Huisman",
                     "folder": "",
@@ -2012,16 +2867,16 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1383",
-                    "updated": "2025-05-09T12:20:43+00:00",
+                    "size": "1006",
+                    "updated": "2025-05-22T07:48:35+00:00",
                     "created": "2025-05-09T12:20:43+00:00",
                     "published": "2025-05-09T12:20:43+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "87b39d60-58d9-48c3-88d9-5df2626b0e31"
+                }
             },
             {
+                "id": "326a113c-c45a-40ed-9395-634b756838c2",
                 "voorziening": "065282d5-c3af-4936-96e9-cc70af766924",
                 "leverancier": "66666666-ffff-4bcd-8e5f-000000000006",
                 "productpagina": "https://provider.example.com/vergunningenportaal",
@@ -2034,7 +2889,7 @@
                     "ISO27001"
                 ],
                 "ondersteundeStandaarden": [
-                    "11111111-aaaa-4bcd-8e5f-000000000001"
+                    "939dfd31-79e4-4b15-99e3-831faacc2314"
                 ],
                 "@self": {
                     "id": "326a113c-c45a-40ed-9395-634b756838c2",
@@ -2048,8 +2903,7 @@
                         "voorziening": "065282d5-c3af-4936-96e9-cc70af766924",
                         "leverancier": "66666666-ffff-4bcd-8e5f-000000000006",
                         "productpagina": "https://provider.example.com/vergunningenportaal",
-                        "ondersteundeStandaarden.0": "11111111-aaaa-4bcd-8e5f-000000000001",
-                        "id": "326a113c-c45a-40ed-9395-634b756838c2"
+                        "ondersteundeStandaarden.0": "939dfd31-79e4-4b15-99e3-831faacc2314"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2059,30 +2913,23 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1394",
-                    "updated": "2025-05-09T12:20:43+00:00",
+                    "size": "1332",
+                    "updated": "2025-05-23T12:35:30+00:00",
                     "created": "2025-05-09T12:20:43+00:00",
                     "published": "2025-05-09T12:20:43+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "326a113c-c45a-40ed-9395-634b756838c2"
+                }
             },
             {
+                "id": "3344aee0-d269-4ee6-8ca9-a227b1daf8da",
                 "voorziening": "a1d08788-4f93-4557-b656-c04fc8af53a0",
                 "leverancier": "66666666-ffff-4bcd-8e5f-000000000006",
                 "productpagina": "https://provider.example.com/omgevingsloket",
-                "ondersteuningsopties": [
-                    "Handleiding",
-                    "Supportdesk"
-                ],
+                "ondersteuningsopties": "[\"Handleiding\",\"Supportdesk\"]",
                 "prijsmodel": "Gebruik per maand",
-                "certificeringen": [
-                    "ISO27001"
-                ],
-                "ondersteundeStandaarden": [
-                    "11111111-aaaa-4bcd-8e5f-000000000001"
-                ],
+                "certificeringen": "[\"ISO27001\"]",
+                "ondersteundeStandaarden": "[\"939dfd31-79e4-4b15-99e3-831faacc2314\"]",
                 "@self": {
                     "id": "3344aee0-d269-4ee6-8ca9-a227b1daf8da",
                     "uri": "",
@@ -2094,9 +2941,7 @@
                     "relations": {
                         "voorziening": "a1d08788-4f93-4557-b656-c04fc8af53a0",
                         "leverancier": "66666666-ffff-4bcd-8e5f-000000000006",
-                        "productpagina": "https://provider.example.com/omgevingsloket",
-                        "ondersteundeStandaarden.0": "11111111-aaaa-4bcd-8e5f-000000000001",
-                        "id": "3344aee0-d269-4ee6-8ca9-a227b1daf8da"
+                        "productpagina": "https://provider.example.com/omgevingsloket"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2106,30 +2951,23 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1384",
-                    "updated": "2025-05-09T12:20:43+00:00",
+                    "size": "1219",
+                    "updated": "2025-05-22T07:49:39+00:00",
                     "created": "2025-05-09T12:20:43+00:00",
                     "published": "2025-05-09T12:20:43+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "3344aee0-d269-4ee6-8ca9-a227b1daf8da"
+                }
             },
             {
+                "id": "640c5684-f2ce-4e91-a96c-afc2415bb637",
                 "voorziening": "8db5258b-c4d1-474a-af9d-7d631c754a66",
                 "leverancier": "66666666-ffff-4bcd-8e5f-000000000006",
                 "productpagina": "https://provider.example.com/burgerzaken-suite",
-                "ondersteuningsopties": [
-                    "Handleiding",
-                    "Supportdesk"
-                ],
+                "ondersteuningsopties": "[\"Handleiding\",\"Supportdesk\"]",
                 "prijsmodel": "Gebruik per maand",
-                "certificeringen": [
-                    "ISO27001"
-                ],
-                "ondersteundeStandaarden": [
-                    "11111111-aaaa-4bcd-8e5f-000000000001"
-                ],
+                "certificeringen": "[\"ISO27001\"]",
+                "ondersteundeStandaarden": "[\"83d03450-3518-49db-af92-3213fca5b943\"]",
                 "@self": {
                     "id": "640c5684-f2ce-4e91-a96c-afc2415bb637",
                     "uri": "",
@@ -2141,9 +2979,7 @@
                     "relations": {
                         "voorziening": "8db5258b-c4d1-474a-af9d-7d631c754a66",
                         "leverancier": "66666666-ffff-4bcd-8e5f-000000000006",
-                        "productpagina": "https://provider.example.com/burgerzaken-suite",
-                        "ondersteundeStandaarden.0": "11111111-aaaa-4bcd-8e5f-000000000001",
-                        "id": "640c5684-f2ce-4e91-a96c-afc2415bb637"
+                        "productpagina": "https://provider.example.com/burgerzaken-suite"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2153,26 +2989,23 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1390",
-                    "updated": "2025-05-09T12:20:43+00:00",
+                    "size": "1225",
+                    "updated": "2025-05-22T07:49:42+00:00",
                     "created": "2025-05-09T12:20:43+00:00",
                     "published": "2025-05-09T12:20:43+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "640c5684-f2ce-4e91-a96c-afc2415bb637"
+                }
             },
             {
+                "id": "24a21305-1882-4e5e-9c13-e627beb7f8b2",
                 "voorzieningaanbod": "326a113c-c45a-40ed-9395-634b756838c2",
                 "versienummer": "v1.0.0",
                 "releaseNotes": "Eerste release van Vergunningenportaal.",
                 "releaseDatum": "2025-04-25",
                 "eindDatumOndersteuning": "2026-04-25",
                 "systeemvereisten": "Docker + PostgreSQL",
-                "kwetsbaarheden": [
-                    "e6fa872f-d85f-4fff-8e4c-dccd3e1cc0ba",
-                    "f12c94d5-1aef-42be-b425-de3d8daec665"
-                ],
+                "kwetsbaarheden": "[\"e6fa872f-d85f-4fff-8e4c-dccd3e1cc0ba\",\"f12c94d5-1aef-42be-b425-de3d8daec665\"]",
                 "@self": {
                     "id": "24a21305-1882-4e5e-9c13-e627beb7f8b2",
                     "uri": "",
@@ -2182,10 +3015,7 @@
                     "schemaVersion": null,
                     "files": [],
                     "relations": {
-                        "voorzieningaanbod": "326a113c-c45a-40ed-9395-634b756838c2",
-                        "kwetsbaarheden.0": "e6fa872f-d85f-4fff-8e4c-dccd3e1cc0ba",
-                        "kwetsbaarheden.1": "f12c94d5-1aef-42be-b425-de3d8daec665",
-                        "id": "24a21305-1882-4e5e-9c13-e627beb7f8b2"
+                        "voorzieningaanbod": "326a113c-c45a-40ed-9395-634b756838c2"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2195,25 +3025,23 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1290",
-                    "updated": "2025-05-09T12:20:43+00:00",
+                    "size": "1077",
+                    "updated": "2025-05-22T07:49:43+00:00",
                     "created": "2025-05-09T12:20:43+00:00",
                     "published": "2025-05-09T12:20:43+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "24a21305-1882-4e5e-9c13-e627beb7f8b2"
+                }
             },
             {
+                "id": "9f77b93e-9e03-4022-af31-dd670af81656",
                 "voorzieningaanbod": "3344aee0-d269-4ee6-8ca9-a227b1daf8da",
                 "versienummer": "v1.0.0",
                 "releaseNotes": "Eerste release van Omgevingsloket.",
                 "releaseDatum": "2025-04-25",
                 "eindDatumOndersteuning": "2026-04-25",
                 "systeemvereisten": "Docker + PostgreSQL",
-                "kwetsbaarheden": [
-                    "70266937-8487-4248-b469-2383444ec3bd"
-                ],
+                "kwetsbaarheden": "[\"70266937-8487-4248-b469-2383444ec3bd\"]",
                 "@self": {
                     "id": "9f77b93e-9e03-4022-af31-dd670af81656",
                     "uri": "",
@@ -2223,9 +3051,7 @@
                     "schemaVersion": null,
                     "files": [],
                     "relations": {
-                        "voorzieningaanbod": "3344aee0-d269-4ee6-8ca9-a227b1daf8da",
-                        "kwetsbaarheden.0": "70266937-8487-4248-b469-2383444ec3bd",
-                        "id": "9f77b93e-9e03-4022-af31-dd670af81656"
+                        "voorzieningaanbod": "3344aee0-d269-4ee6-8ca9-a227b1daf8da"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2235,23 +3061,23 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1169",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1033",
+                    "updated": "2025-05-22T07:49:43+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "9f77b93e-9e03-4022-af31-dd670af81656"
+                }
             },
             {
+                "id": "7278bd42-0a67-4a08-9904-baa437985a55",
                 "voorzieningaanbod": "640c5684-f2ce-4e91-a96c-afc2415bb637",
                 "versienummer": "v1.0.0",
                 "releaseNotes": "Eerste release van Burgerzaken Suite.",
                 "releaseDatum": "2025-04-25",
                 "eindDatumOndersteuning": "2026-04-25",
                 "systeemvereisten": "Docker + PostgreSQL",
-                "kwetsbaarheden": [],
+                "kwetsbaarheden": "[]",
                 "@self": {
                     "id": "7278bd42-0a67-4a08-9904-baa437985a55",
                     "uri": "",
@@ -2261,8 +3087,7 @@
                     "schemaVersion": null,
                     "files": [],
                     "relations": {
-                        "voorzieningaanbod": "640c5684-f2ce-4e91-a96c-afc2415bb637",
-                        "id": "7278bd42-0a67-4a08-9904-baa437985a55"
+                        "voorzieningaanbod": "640c5684-f2ce-4e91-a96c-afc2415bb637"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2272,16 +3097,16 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1056",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "997",
+                    "updated": "2025-05-22T07:49:43+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "7278bd42-0a67-4a08-9904-baa437985a55"
+                }
             },
             {
+                "id": "e6fa872f-d85f-4fff-8e4c-dccd3e1cc0ba",
                 "voorzieningversieId": "24a21305-1882-4e5e-9c13-e627beb7f8b2",
                 "cveNummer": "CVE-2025-5841",
                 "titel": "Beveiligingsfout in authenticatiemodule",
@@ -2291,9 +3116,7 @@
                 "gepubliceerdOp": "2025-04-15",
                 "opgelostIn": "v1.0.1",
                 "mitigatie": "Update naar versie 1.0.1 of blokkeer de kwetsbare endpoints via firewall.",
-                "referenties": [
-                    "https://security.example.com/advisories/b1b840"
-                ],
+                "referenties": "[\"https://security.example.com/advisories/b1b840\"]",
                 "@self": {
                     "id": "e6fa872f-d85f-4fff-8e4c-dccd3e1cc0ba",
                     "uri": "",
@@ -2303,9 +3126,7 @@
                     "schemaVersion": null,
                     "files": [],
                     "relations": {
-                        "voorzieningversieId": "24a21305-1882-4e5e-9c13-e627beb7f8b2",
-                        "referenties.0": "https://security.example.com/advisories/b1b840",
-                        "id": "e6fa872f-d85f-4fff-8e4c-dccd3e1cc0ba"
+                        "voorzieningversieId": "24a21305-1882-4e5e-9c13-e627beb7f8b2"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2315,16 +3136,16 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1383",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1240",
+                    "updated": "2025-05-22T07:49:43+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "e6fa872f-d85f-4fff-8e4c-dccd3e1cc0ba"
+                }
             },
             {
+                "id": "f12c94d5-1aef-42be-b425-de3d8daec665",
                 "voorzieningversieId": "9f77b93e-9e03-4022-af31-dd670af81656",
                 "cveNummer": "CVE-2025-8903",
                 "titel": "Beveiligingsfout in authenticatiemodule",
@@ -2334,9 +3155,7 @@
                 "gepubliceerdOp": "2025-04-15",
                 "opgelostIn": "v1.0.1",
                 "mitigatie": "Update naar versie 1.0.1 of blokkeer de kwetsbare endpoints via firewall.",
-                "referenties": [
-                    "https://security.example.com/advisories/b08e42"
-                ],
+                "referenties": "[\"https://security.example.com/advisories/b08e42\"]",
                 "@self": {
                     "id": "f12c94d5-1aef-42be-b425-de3d8daec665",
                     "uri": "",
@@ -2346,9 +3165,7 @@
                     "schemaVersion": null,
                     "files": [],
                     "relations": {
-                        "voorzieningversieId": "9f77b93e-9e03-4022-af31-dd670af81656",
-                        "referenties.0": "https://security.example.com/advisories/b08e42",
-                        "id": "f12c94d5-1aef-42be-b425-de3d8daec665"
+                        "voorzieningversieId": "9f77b93e-9e03-4022-af31-dd670af81656"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2358,16 +3175,16 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1383",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1240",
+                    "updated": "2025-05-22T07:49:43+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "f12c94d5-1aef-42be-b425-de3d8daec665"
+                }
             },
             {
+                "id": "70266937-8487-4248-b469-2383444ec3bd",
                 "voorzieningversieId": "7278bd42-0a67-4a08-9904-baa437985a55",
                 "cveNummer": "CVE-2025-5324",
                 "titel": "Beveiligingsfout in authenticatiemodule",
@@ -2377,9 +3194,7 @@
                 "gepubliceerdOp": "2025-04-15",
                 "opgelostIn": "v1.0.1",
                 "mitigatie": "Update naar versie 1.0.1 of blokkeer de kwetsbare endpoints via firewall.",
-                "referenties": [
-                    "https://security.example.com/advisories/7c436d"
-                ],
+                "referenties": "[\"https://security.example.com/advisories/7c436d\"]",
                 "@self": {
                     "id": "70266937-8487-4248-b469-2383444ec3bd",
                     "uri": "",
@@ -2389,9 +3204,7 @@
                     "schemaVersion": null,
                     "files": [],
                     "relations": {
-                        "voorzieningversieId": "7278bd42-0a67-4a08-9904-baa437985a55",
-                        "referenties.0": "https://security.example.com/advisories/7c436d",
-                        "id": "70266937-8487-4248-b469-2383444ec3bd"
+                        "voorzieningversieId": "7278bd42-0a67-4a08-9904-baa437985a55"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2401,14 +3214,13 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1383",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1240",
+                    "updated": "2025-05-22T07:49:43+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "70266937-8487-4248-b469-2383444ec3bd"
+                }
             },
             {
                 "voornaam": "Sophie",
@@ -2441,8 +3253,7 @@
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "41a08004-fc93-4deb-bd09-e29afc33ad2d"
+                }
             },
             {
                 "voornaam": "David",
@@ -2475,8 +3286,7 @@
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "9ced52d7-e186-4153-a062-19de23ad764a"
+                }
             },
             {
                 "voornaam": "Janine",
@@ -2509,8 +3319,7 @@
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "d9c6ae93-9251-4e4f-b3f9-ac43f5a8042a"
+                }
             },
             {
                 "voornaam": "Wouter",
@@ -2543,15 +3352,12 @@
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "e1a87bfb-6f03-4497-b0f1-fa1e01715238"
+                }
             },
             {
-                "kvk-nummer": "22334455",
-                "organisatienaam": "Gemeente Rivierenland",
+                "id": "89e904fc-e0c5-4fc0-ba0f-adf9c4be42a9",
                 "contactgegevens": "9ced52d7-e186-4153-a062-19de23ad764a",
                 "website": "https://www.rivierenland.nl",
-                "beschrijving": "Regionale gemeente verantwoordelijk voor vergunningverlening en burgerzaken.",
                 "@self": {
                     "id": "89e904fc-e0c5-4fc0-ba0f-adf9c4be42a9",
                     "uri": "",
@@ -2562,8 +3368,7 @@
                     "files": [],
                     "relations": {
                         "contactgegevens": "9ced52d7-e186-4153-a062-19de23ad764a",
-                        "website": "https://www.rivierenland.nl",
-                        "id": "89e904fc-e0c5-4fc0-ba0f-adf9c4be42a9"
+                        "website": "https://www.rivierenland.nl"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2573,21 +3378,18 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1076",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "825",
+                    "updated": "2025-05-22T07:49:43+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "89e904fc-e0c5-4fc0-ba0f-adf9c4be42a9"
+                }
             },
             {
-                "kvk-nummer": "33445566",
-                "organisatienaam": "Gemeente Zonnestad",
+                "id": "defca4a4-9952-4c16-b21b-e57177a3ac88",
                 "contactgegevens": "d9c6ae93-9251-4e4f-b3f9-ac43f5a8042a",
                 "website": "https://www.zonnestad.nl",
-                "beschrijving": "Digitale koploper in dienstverlening richting inwoners en bedrijven.",
                 "@self": {
                     "id": "defca4a4-9952-4c16-b21b-e57177a3ac88",
                     "uri": "",
@@ -2598,8 +3400,7 @@
                     "files": [],
                     "relations": {
                         "contactgegevens": "d9c6ae93-9251-4e4f-b3f9-ac43f5a8042a",
-                        "website": "https://www.zonnestad.nl",
-                        "id": "defca4a4-9952-4c16-b21b-e57177a3ac88"
+                        "website": "https://www.zonnestad.nl"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2609,21 +3410,18 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1059",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "819",
+                    "updated": "2025-05-22T07:49:43+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "defca4a4-9952-4c16-b21b-e57177a3ac88"
+                }
             },
             {
-                "kvk-nummer": "12345678",
-                "organisatienaam": "Zaakleverancier BV",
+                "id": "f1c6746d-183d-4f7c-a0fe-3b3d6a779f24",
                 "contactgegevens": "e1a87bfb-6f03-4497-b0f1-fa1e01715238",
                 "website": "https://zaakleverancier.example.com",
-                "beschrijving": "Een innovatieve leverancier van zaaksystemen en platformdiensten voor de overheid.",
                 "@self": {
                     "id": "f1c6746d-183d-4f7c-a0fe-3b3d6a779f24",
                     "uri": "",
@@ -2634,8 +3432,7 @@
                     "files": [],
                     "relations": {
                         "contactgegevens": "e1a87bfb-6f03-4497-b0f1-fa1e01715238",
-                        "website": "https://zaakleverancier.example.com",
-                        "id": "f1c6746d-183d-4f7c-a0fe-3b3d6a779f24"
+                        "website": "https://zaakleverancier.example.com"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2645,32 +3442,26 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1095",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "841",
+                    "updated": "2025-05-22T07:49:44+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "f1c6746d-183d-4f7c-a0fe-3b3d6a779f24"
+                }
             },
             {
+                "id": "bdbf6473-325a-4c98-98e5-105dd25ca91f",
                 "organisatieId": "89e904fc-e0c5-4fc0-ba0f-adf9c4be42a9",
                 "voorzieningId": "065282d5-c3af-4936-96e9-cc70af766924",
                 "versieId": "24a21305-1882-4e5e-9c13-e627beb7f8b2",
-                "beheerder": {
-                    "naam": "Janine de Vries",
-                    "email": "janine.de.vries@zaakleverancier.nl",
-                    "telefoonnummer": "+31-6-12345678",
-                    "functie": "Applicatiebeheerder"
-                },
+                "beheerder": "{\"naam\":\"Janine de Vries\",\"email\":\"janine.de.vries@zaakleverancier.nl\",\"telefoonnummer\":\"+31-6-12345678\",\"functie\":\"Applicatiebeheerder\"}",
                 "startDatum": "2025-04-25",
                 "eindDatum": "2026-04-25",
-                "status": "Actief",
                 "bbnScore": 2,
                 "ibpScore": 3,
-                "bedrijfskritisch": true,
-                "privacyGevoelig": true,
+                "privacyGevoelig": 1,
+                "status": "Actief",
                 "@self": {
                     "id": "bdbf6473-325a-4c98-98e5-105dd25ca91f",
                     "uri": "",
@@ -2682,8 +3473,7 @@
                     "relations": {
                         "organisatieId": "89e904fc-e0c5-4fc0-ba0f-adf9c4be42a9",
                         "voorzieningId": "065282d5-c3af-4936-96e9-cc70af766924",
-                        "versieId": "24a21305-1882-4e5e-9c13-e627beb7f8b2",
-                        "id": "bdbf6473-325a-4c98-98e5-105dd25ca91f"
+                        "versieId": "24a21305-1882-4e5e-9c13-e627beb7f8b2"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2693,32 +3483,26 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1418",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1295",
+                    "updated": "2025-05-22T07:49:44+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "bdbf6473-325a-4c98-98e5-105dd25ca91f"
+                }
             },
             {
+                "id": "5173a77a-9316-47ef-a8fd-181624fbe0bb",
                 "organisatieId": "defca4a4-9952-4c16-b21b-e57177a3ac88",
                 "voorzieningId": "a1d08788-4f93-4557-b656-c04fc8af53a0",
                 "versieId": "9f77b93e-9e03-4022-af31-dd670af81656",
-                "beheerder": {
-                    "naam": "Janine de Vries",
-                    "email": "janine.de.vries@zaakleverancier.nl",
-                    "telefoonnummer": "+31-6-12345678",
-                    "functie": "Applicatiebeheerder"
-                },
+                "beheerder": "{\"naam\":\"Janine de Vries\",\"email\":\"janine.de.vries@zaakleverancier.nl\",\"telefoonnummer\":\"+31-6-12345678\",\"functie\":\"Applicatiebeheerder\"}",
                 "startDatum": "2025-04-25",
                 "eindDatum": "2026-04-25",
-                "status": "Actief",
                 "bbnScore": 2,
                 "ibpScore": 3,
-                "bedrijfskritisch": true,
-                "privacyGevoelig": true,
+                "privacyGevoelig": 1,
+                "status": "Actief",
                 "@self": {
                     "id": "5173a77a-9316-47ef-a8fd-181624fbe0bb",
                     "uri": "",
@@ -2730,8 +3514,7 @@
                     "relations": {
                         "organisatieId": "defca4a4-9952-4c16-b21b-e57177a3ac88",
                         "voorzieningId": "a1d08788-4f93-4557-b656-c04fc8af53a0",
-                        "versieId": "9f77b93e-9e03-4022-af31-dd670af81656",
-                        "id": "5173a77a-9316-47ef-a8fd-181624fbe0bb"
+                        "versieId": "9f77b93e-9e03-4022-af31-dd670af81656"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2741,32 +3524,26 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1418",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1295",
+                    "updated": "2025-05-22T07:49:44+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "5173a77a-9316-47ef-a8fd-181624fbe0bb"
+                }
             },
             {
+                "id": "a1d0942c-b75a-42d7-a9e5-b6c754bbcfd1",
                 "organisatieId": "f1c6746d-183d-4f7c-a0fe-3b3d6a779f24",
                 "voorzieningId": "8db5258b-c4d1-474a-af9d-7d631c754a66",
                 "versieId": "7278bd42-0a67-4a08-9904-baa437985a55",
-                "beheerder": {
-                    "naam": "Janine de Vries",
-                    "email": "janine.de.vries@zaakleverancier.nl",
-                    "telefoonnummer": "+31-6-12345678",
-                    "functie": "Applicatiebeheerder"
-                },
+                "beheerder": "{\"naam\":\"Janine de Vries\",\"email\":\"janine.de.vries@zaakleverancier.nl\",\"telefoonnummer\":\"+31-6-12345678\",\"functie\":\"Applicatiebeheerder\"}",
                 "startDatum": "2025-04-25",
                 "eindDatum": "2026-04-25",
-                "status": "Actief",
                 "bbnScore": 2,
                 "ibpScore": 3,
-                "bedrijfskritisch": true,
-                "privacyGevoelig": true,
+                "privacyGevoelig": 1,
+                "status": "Actief",
                 "@self": {
                     "id": "a1d0942c-b75a-42d7-a9e5-b6c754bbcfd1",
                     "uri": "",
@@ -2778,8 +3555,7 @@
                     "relations": {
                         "organisatieId": "f1c6746d-183d-4f7c-a0fe-3b3d6a779f24",
                         "voorzieningId": "8db5258b-c4d1-474a-af9d-7d631c754a66",
-                        "versieId": "7278bd42-0a67-4a08-9904-baa437985a55",
-                        "id": "a1d0942c-b75a-42d7-a9e5-b6c754bbcfd1"
+                        "versieId": "7278bd42-0a67-4a08-9904-baa437985a55"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2789,32 +3565,26 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1418",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1295",
+                    "updated": "2025-05-22T07:49:44+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "a1d0942c-b75a-42d7-a9e5-b6c754bbcfd1"
+                }
             },
             {
+                "id": "e0546e81-bdab-4bd4-bd11-3791916a3c87",
                 "organisatieId": "89e904fc-e0c5-4fc0-ba0f-adf9c4be42a9",
                 "voorzieningId": "87b39d60-58d9-48c3-88d9-5df2626b0e31",
                 "versieId": "24a21305-1882-4e5e-9c13-e627beb7f8b2",
-                "beheerder": {
-                    "naam": "Piet Notendop",
-                    "email": "piet.notendop@zaakleverancier.nl",
-                    "telefoonnummer": "+31-6-125885678",
-                    "functie": "Applicatiebeheerder"
-                },
+                "beheerder": "{\"naam\":\"Piet Notendop\",\"email\":\"piet.notendop@zaakleverancier.nl\",\"telefoonnummer\":\"+31-6-125885678\",\"functie\":\"Applicatiebeheerder\"}",
                 "startDatum": "2025-04-25",
                 "eindDatum": "2026-04-25",
-                "status": "Actief",
                 "bbnScore": 2,
                 "ibpScore": 3,
-                "bedrijfskritisch": true,
-                "privacyGevoelig": true,
+                "privacyGevoelig": 1,
+                "status": "Actief",
                 "@self": {
                     "id": "e0546e81-bdab-4bd4-bd11-3791916a3c87",
                     "uri": "",
@@ -2826,8 +3596,7 @@
                     "relations": {
                         "organisatieId": "89e904fc-e0c5-4fc0-ba0f-adf9c4be42a9",
                         "voorzieningId": "87b39d60-58d9-48c3-88d9-5df2626b0e31",
-                        "versieId": "24a21305-1882-4e5e-9c13-e627beb7f8b2",
-                        "id": "e0546e81-bdab-4bd4-bd11-3791916a3c87"
+                        "versieId": "24a21305-1882-4e5e-9c13-e627beb7f8b2"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2837,16 +3606,16 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1415",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1292",
+                    "updated": "2025-05-22T07:49:44+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "e0546e81-bdab-4bd4-bd11-3791916a3c87"
+                }
             },
             {
+                "id": "be950c9d-6427-4355-a8aa-ddafc0505003",
                 "voorzieningAanbod": "326a113c-c45a-40ed-9395-634b756838c2",
                 "voorzieningGebruik": "bdbf6473-325a-4c98-98e5-105dd25ca91f",
                 "startDatum": "2025-04-25",
@@ -2855,16 +3624,8 @@
                 "contractType": "Licentie",
                 "kosten": 950,
                 "kostenPeriode": "Maandelijks",
-                "contactpersoonAanbieder": {
-                    "id": "55555555-eeee-4bcd-8e5f-000000000005",
-                    "naam": "Janine de Vries",
-                    "email": "janine.de.vries@zaakleverancier.nl"
-                },
-                "contactpersoonGebruiker": {
-                    "id": "aaaaaaa2-bbbb-4bcd-8e5f-000000000012",
-                    "naam": "Wouter van Dijk",
-                    "email": "wouter.vandijk@gemeentevoorbeeld.nl"
-                },
+                "contactpersoonAanbieder": "{\"id\":\"55555555-eeee-4bcd-8e5f-000000000005\",\"naam\":\"Janine de Vries\",\"email\":\"janine.de.vries@zaakleverancier.nl\"}",
+                "contactpersoonGebruiker": "{\"id\":\"aaaaaaa2-bbbb-4bcd-8e5f-000000000012\",\"naam\":\"Wouter van Dijk\",\"email\":\"wouter.vandijk@gemeentevoorbeeld.nl\"}",
                 "documentReferentie": "https://gemeentevoorbeeld.nl/contracten/58acf8.pdf",
                 "status": "Actief",
                 "@self": {
@@ -2878,10 +3639,7 @@
                     "relations": {
                         "voorzieningAanbod": "326a113c-c45a-40ed-9395-634b756838c2",
                         "voorzieningGebruik": "bdbf6473-325a-4c98-98e5-105dd25ca91f",
-                        "contactpersoonAanbieder.id": "55555555-eeee-4bcd-8e5f-000000000005",
-                        "contactpersoonGebruiker.id": "aaaaaaa2-bbbb-4bcd-8e5f-000000000012",
-                        "documentReferentie": "https://gemeentevoorbeeld.nl/contracten/58acf8.pdf",
-                        "id": "be950c9d-6427-4355-a8aa-ddafc0505003"
+                        "documentReferentie": "https://gemeentevoorbeeld.nl/contracten/58acf8.pdf"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2891,16 +3649,16 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1845",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1581",
+                    "updated": "2025-05-22T07:49:44+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "be950c9d-6427-4355-a8aa-ddafc0505003"
+                }
             },
             {
+                "id": "d4f066e6-774b-480d-8d7a-762621900af0",
                 "voorzieningAanbod": "3344aee0-d269-4ee6-8ca9-a227b1daf8da",
                 "voorzieningGebruik": "5173a77a-9316-47ef-a8fd-181624fbe0bb",
                 "startDatum": "2025-04-25",
@@ -2909,16 +3667,8 @@
                 "contractType": "Licentie",
                 "kosten": 950,
                 "kostenPeriode": "Maandelijks",
-                "contactpersoonAanbieder": {
-                    "id": "55555555-eeee-4bcd-8e5f-000000000005",
-                    "naam": "Janine de Vries",
-                    "email": "janine.de.vries@zaakleverancier.nl"
-                },
-                "contactpersoonGebruiker": {
-                    "id": "aaaaaaa2-bbbb-4bcd-8e5f-000000000012",
-                    "naam": "Wouter van Dijk",
-                    "email": "wouter.vandijk@gemeentevoorbeeld.nl"
-                },
+                "contactpersoonAanbieder": "{\"id\":\"55555555-eeee-4bcd-8e5f-000000000005\",\"naam\":\"Janine de Vries\",\"email\":\"janine.de.vries@zaakleverancier.nl\"}",
+                "contactpersoonGebruiker": "{\"id\":\"aaaaaaa2-bbbb-4bcd-8e5f-000000000012\",\"naam\":\"Wouter van Dijk\",\"email\":\"wouter.vandijk@gemeentevoorbeeld.nl\"}",
                 "documentReferentie": "https://gemeentevoorbeeld.nl/contracten/5f3305.pdf",
                 "status": "Actief",
                 "@self": {
@@ -2932,10 +3682,7 @@
                     "relations": {
                         "voorzieningAanbod": "3344aee0-d269-4ee6-8ca9-a227b1daf8da",
                         "voorzieningGebruik": "5173a77a-9316-47ef-a8fd-181624fbe0bb",
-                        "contactpersoonAanbieder.id": "55555555-eeee-4bcd-8e5f-000000000005",
-                        "contactpersoonGebruiker.id": "aaaaaaa2-bbbb-4bcd-8e5f-000000000012",
-                        "documentReferentie": "https://gemeentevoorbeeld.nl/contracten/5f3305.pdf",
-                        "id": "d4f066e6-774b-480d-8d7a-762621900af0"
+                        "documentReferentie": "https://gemeentevoorbeeld.nl/contracten/5f3305.pdf"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2945,16 +3692,16 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1845",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1581",
+                    "updated": "2025-05-22T07:49:44+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "d4f066e6-774b-480d-8d7a-762621900af0"
+                }
             },
             {
+                "id": "5ba1b48f-d2cf-43b7-8d18-cd07bf829ad1",
                 "voorzieningAanbod": "640c5684-f2ce-4e91-a96c-afc2415bb637",
                 "voorzieningGebruik": "a1d0942c-b75a-42d7-a9e5-b6c754bbcfd1",
                 "startDatum": "2025-04-25",
@@ -2963,16 +3710,8 @@
                 "contractType": "Licentie",
                 "kosten": 950,
                 "kostenPeriode": "Maandelijks",
-                "contactpersoonAanbieder": {
-                    "id": "55555555-eeee-4bcd-8e5f-000000000005",
-                    "naam": "Janine de Vries",
-                    "email": "janine.de.vries@zaakleverancier.nl"
-                },
-                "contactpersoonGebruiker": {
-                    "id": "aaaaaaa2-bbbb-4bcd-8e5f-000000000012",
-                    "naam": "Wouter van Dijk",
-                    "email": "wouter.vandijk@gemeentevoorbeeld.nl"
-                },
+                "contactpersoonAanbieder": "{\"id\":\"55555555-eeee-4bcd-8e5f-000000000005\",\"naam\":\"Janine de Vries\",\"email\":\"janine.de.vries@zaakleverancier.nl\"}",
+                "contactpersoonGebruiker": "{\"id\":\"aaaaaaa2-bbbb-4bcd-8e5f-000000000012\",\"naam\":\"Wouter van Dijk\",\"email\":\"wouter.vandijk@gemeentevoorbeeld.nl\"}",
                 "documentReferentie": "https://gemeentevoorbeeld.nl/contracten/2c20c2.pdf",
                 "status": "Actief",
                 "@self": {
@@ -2986,10 +3725,7 @@
                     "relations": {
                         "voorzieningAanbod": "640c5684-f2ce-4e91-a96c-afc2415bb637",
                         "voorzieningGebruik": "a1d0942c-b75a-42d7-a9e5-b6c754bbcfd1",
-                        "contactpersoonAanbieder.id": "55555555-eeee-4bcd-8e5f-000000000005",
-                        "contactpersoonGebruiker.id": "aaaaaaa2-bbbb-4bcd-8e5f-000000000012",
-                        "documentReferentie": "https://gemeentevoorbeeld.nl/contracten/2c20c2.pdf",
-                        "id": "5ba1b48f-d2cf-43b7-8d18-cd07bf829ad1"
+                        "documentReferentie": "https://gemeentevoorbeeld.nl/contracten/2c20c2.pdf"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -2999,23 +3735,23 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1845",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1581",
+                    "updated": "2025-05-22T07:49:44+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
-                },
-                "id": "5ba1b48f-d2cf-43b7-8d18-cd07bf829ad1"
+                }
             },
             {
+                "id": "83d03450-3518-49db-af92-3213fca5b943",
                 "naam": "Gemeentelijke Basisregistratie Standaard",
                 "beschrijving": "Standaard voor het vastleggen van gemeentelijke basisregistraties conform Nederlandse wetgeving",
+                "standaardtype": "Semantische Standaard",
                 "versie": "2.0.0",
                 "beheerorganisatie": "VNG Realisatie",
                 "website": "https://vng.nl/standaarden",
-                "status": "In Gebruik",
-                "standaardtype": "Semantische Standaard",
+                "status": "Vastgesteld",
                 "@self": {
                     "id": "83d03450-3518-49db-af92-3213fca5b943",
                     "uri": "",
@@ -3025,8 +3761,7 @@
                     "schemaVersion": null,
                     "files": [],
                     "relations": {
-                        "website": "https://vng.nl/standaarden",
-                        "id": "83d03450-3518-49db-af92-3213fca5b943"
+                        "website": "https://vng.nl/standaarden"
                     },
                     "locked": null,
                     "owner": "Remko Huisman",
@@ -3036,14 +3771,616 @@
                     "validation": null,
                     "geo": null,
                     "retention": null,
-                    "size": "1086",
-                    "updated": "2025-05-09T12:20:44+00:00",
+                    "size": "1025",
+                    "updated": "2025-05-22T07:49:44+00:00",
                     "created": "2025-05-09T12:20:44+00:00",
                     "published": "2025-05-09T12:20:44+00:00",
                     "depublished": null,
                     "deleted": null
+                }
+            },
+            {
+                "id": "939dfd31-79e4-4b15-99e3-831faacc2314",
+                "naam": "StUF 3.01",
+                "beschrijving": "Standaard Uitwisseling Formaat (StUF) is de berichtenstandaard voor het elektronisch uitwisselen van gegevens tussen applicaties in het gemeentelijke veld. Deze standaard definieert de structuur en semantiek van berichten.",
+                "standaardtype": "Type2",
+                "versie": 3.01,
+                "beheerorganisatie": "VNG Realisatie",
+                "website": "https://vng.nl/standaarden/stuf",
+                "status": "Concept",
+                "@self": {
+                    "id": "939dfd31-79e4-4b15-99e3-831faacc2314",
+                    "uri": "",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "standaard",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": {
+                        "website": "https://vng.nl/standaarden/stuf"
+                    },
+                    "locked": null,
+                    "owner": "Remko Huisman",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "1104",
+                    "updated": "2025-05-22T07:49:44+00:00",
+                    "created": "2025-05-13T07:21:36+00:00",
+                    "published": "2025-05-13T07:21:36+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "423b2368-1292-488c-bafc-c22d9ffefbec",
+                "voorziening": "065282d5-c3af-4936-96e9-cc70af766924",
+                "leverancier": "89e904fc-e0c5-4fc0-ba0f-adf9c4be42a9",
+                "@self": {
+                    "id": "423b2368-1292-488c-bafc-c22d9ffefbec",
+                    "uri": "",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "voorzieningaanbod",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": {
+                        "voorziening": "065282d5-c3af-4936-96e9-cc70af766924",
+                        "leverancier": "89e904fc-e0c5-4fc0-ba0f-adf9c4be42a9"
+                    },
+                    "locked": null,
+                    "owner": "Remko Huisman",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "844",
+                    "updated": "2025-05-22T07:49:42+00:00",
+                    "created": "2025-05-16T10:51:39+00:00",
+                    "published": "2025-05-16T10:51:39+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "88892f4e-35df-4f59-9a7a-2325bef61abc",
+                "voorziening": "065282d5-c3af-4936-96e9-cc70af766924",
+                "@self": {
+                    "id": "88892f4e-35df-4f59-9a7a-2325bef61abc",
+                    "uri": "",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "voorzieningaanbod",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": {
+                        "voorziening": "065282d5-c3af-4936-96e9-cc70af766924"
+                    },
+                    "locked": null,
+                    "owner": "info@conduction.nl",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "723",
+                    "updated": "2025-05-22T07:49:42+00:00",
+                    "created": "2025-05-19T05:54:42+00:00",
+                    "published": "2025-05-19T05:54:42+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "28c7fa55-ac1d-43ff-a40e-f163a1da5c40",
+                "username": "Remko Huisman",
+                "email": "remko@conduction.nl",
+                "voornaam": "Remko",
+                "achternaam": "Huisman",
+                "functie": "Developer",
+                "organisatie": "Conduction",
+                "telefoonnummer": "+316123456789",
+                "rollen": [
+                    "admin"
+                ],
+                "actief": true,
+                "laatsteInlogdatum": "",
+                "aanmaakdatum": "",
+                "wijzigingsdatum": "",
+                "voorkeuren": {
+                    "taal": "NL-nl",
+                    "thema": "licht"
                 },
-                "id": "83d03450-3518-49db-af92-3213fca5b943"
+                "@self": {
+                    "id": "28c7fa55-ac1d-43ff-a40e-f163a1da5c40",
+                    "uri": "",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "gebruiker",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Remko Huisman",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "1050",
+                    "updated": "2025-05-22T07:06:10+00:00",
+                    "created": "2025-05-22T07:06:10+00:00",
+                    "published": "2025-05-22T07:06:10+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "98bfd769-7936-4f5c-abbd-b140706814a6",
+                "status": "concept",
+                "hosting": "none",
+                "voorziening": "87b39d60-58d9-48c3-88d9-5df2626b0e31",
+                "leverancier": "",
+                "productpagina": "",
+                "prijsmodel": "",
+                "licentie": "",
+                "hostingopties": [],
+                "contact": "Remko Huisman",
+                "@self": {
+                    "id": "98bfd769-7936-4f5c-abbd-b140706814a6",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/voorzieningaanbod/98bfd769-7936-4f5c-abbd-b140706814a6",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "voorzieningaanbod",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": {
+                        "voorziening": "87b39d60-58d9-48c3-88d9-5df2626b0e31"
+                    },
+                    "locked": null,
+                    "owner": "Remko Huisman",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "1068",
+                    "updated": "2025-05-22T07:40:46+00:00",
+                    "created": "2025-05-22T07:40:46+00:00",
+                    "published": "2025-05-22T07:40:46+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "7fe5601c-df2e-44cd-90e9-e0e109fc7d0a",
+                "voornaam": "Sophie",
+                "achternaam": "Koster",
+                "email": "s.koster@gemeentevoorbeeld.nl",
+                "telefoon": "+31-6-12345678",
+                "@self": {
+                    "id": "7fe5601c-df2e-44cd-90e9-e0e109fc7d0a",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/contactgegevens/7fe5601c-df2e-44cd-90e9-e0e109fc7d0a",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "contactgegevens",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "829",
+                    "updated": "2025-05-22T07:49:43+00:00",
+                    "created": "2025-05-22T07:49:43+00:00",
+                    "published": "2025-05-22T07:49:43+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "d58cfefe-81fc-480f-8188-4407de03b3e6",
+                "voornaam": "David",
+                "achternaam": "Pieters",
+                "email": "d.pieters@gemeentevoorbeeld.nl",
+                "telefoon": "+31-6-12345678",
+                "@self": {
+                    "id": "d58cfefe-81fc-480f-8188-4407de03b3e6",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/contactgegevens/d58cfefe-81fc-480f-8188-4407de03b3e6",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "contactgegevens",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "830",
+                    "updated": "2025-05-22T07:49:43+00:00",
+                    "created": "2025-05-22T07:49:43+00:00",
+                    "published": "2025-05-22T07:49:43+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "a2b17abf-179a-4156-bbb6-ef0d0b127774",
+                "voornaam": "Janine",
+                "tussenvoegsel": "de",
+                "achternaam": "Vries",
+                "email": "janine.de.vries@zaakleverancier.nl",
+                "telefoon": "+31-6-12345678",
+                "@self": {
+                    "id": "a2b17abf-179a-4156-bbb6-ef0d0b127774",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/contactgegevens/a2b17abf-179a-4156-bbb6-ef0d0b127774",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "contactgegevens",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "863",
+                    "updated": "2025-05-22T07:49:43+00:00",
+                    "created": "2025-05-22T07:49:43+00:00",
+                    "published": "2025-05-22T07:49:43+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "455447ee-7e06-4380-a718-c49b90c11b28",
+                "voornaam": "Wouter",
+                "tussenvoegsel": "van",
+                "achternaam": "Dijk",
+                "email": "wouter.vandijk@gemeentevoorbeeld.nl",
+                "telefoon": "+31-6-87654321",
+                "@self": {
+                    "id": "455447ee-7e06-4380-a718-c49b90c11b28",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/contactgegevens/455447ee-7e06-4380-a718-c49b90c11b28",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "contactgegevens",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "864",
+                    "updated": "2025-05-22T07:49:43+00:00",
+                    "created": "2025-05-22T07:49:43+00:00",
+                    "published": "2025-05-22T07:49:43+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "5960b940-8ac8-409a-9700-300f9d4f1303",
+                "status": "concept",
+                "type": "Samenwerking",
+                "naam": "Turfbrug samenwerkingsverband (VNG Realisatie)",
+                "e-mailadres": "Maartenvandrongelen@abg.nl",
+                "contactpersoon": "Softwarecatalogus",
+                "@self": {
+                    "id": "5960b940-8ac8-409a-9700-300f9d4f1303",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/organisatie/5960b940-8ac8-409a-9700-300f9d4f1303",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "organisatie",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "903",
+                    "updated": "2025-05-22T07:49:44+00:00",
+                    "created": "2025-05-22T07:49:44+00:00",
+                    "published": "2025-05-22T07:49:44+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "99469813-fedb-4287-b791-653f9b158402",
+                "status": "concept",
+                "type": "Samenwerking",
+                "naam": "Samenwerking A2-gemeenten",
+                "e-mailadres": "j.roijakkers@someren.nl",
+                "contactpersoon": "Bart Aerts",
+                "@self": {
+                    "id": "99469813-fedb-4287-b791-653f9b158402",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/organisatie/99469813-fedb-4287-b791-653f9b158402",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "organisatie",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "872",
+                    "updated": "2025-05-22T07:49:44+00:00",
+                    "created": "2025-05-22T07:49:44+00:00",
+                    "published": "2025-05-22T07:49:44+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "a5627d83-539c-4f44-a96d-8b2e81706b83",
+                "status": "concept",
+                "type": "Samenwerking",
+                "naam": "Noaberkracht Dinkelland Tubbergen",
+                "e-mailadres": "Albrandswaard, Barendrecht, Ridderkerk",
+                "contactpersoon": "Wido Hauwert",
+                "@self": {
+                    "id": "a5627d83-539c-4f44-a96d-8b2e81706b83",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/organisatie/a5627d83-539c-4f44-a96d-8b2e81706b83",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "organisatie",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "897",
+                    "updated": "2025-05-22T07:49:44+00:00",
+                    "created": "2025-05-22T07:49:44+00:00",
+                    "published": "2025-05-22T07:49:44+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "892ef894-8493-4a80-92fc-8566a37c0c48",
+                "status": "concept",
+                "website": "https://www.bctsoftware.com/nl",
+                "type": "Leverancier",
+                "naam": "BCT",
+                "telefoonnummer": "+31 (0)6 51416354",
+                "e-mailadres": "alex.lony@bctsoftware.com",
+                "contactpersoon": "Alex Lony",
+                "@self": {
+                    "id": "892ef894-8493-4a80-92fc-8566a37c0c48",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/organisatie/892ef894-8493-4a80-92fc-8566a37c0c48",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "organisatie",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": {
+                        "website": "https://www.bctsoftware.com/nl"
+                    },
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "999",
+                    "updated": "2025-05-22T07:49:44+00:00",
+                    "created": "2025-05-22T07:49:44+00:00",
+                    "published": "2025-05-22T07:49:44+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "9afab5f3-667a-47df-bd1e-1b2016fa0793",
+                "status": "concept",
+                "website": "http://360Geo.nl/",
+                "type": "Leverancier",
+                "naam": "360Geo",
+                "telefoonnummer": "085 301 8338",
+                "e-mailadres": "jacob@360geo.nl",
+                "contactpersoon": "Jacob Muilwijk",
+                "@self": {
+                    "id": "9afab5f3-667a-47df-bd1e-1b2016fa0793",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/organisatie/9afab5f3-667a-47df-bd1e-1b2016fa0793",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "organisatie",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": {
+                        "website": "http://360Geo.nl/"
+                    },
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "967",
+                    "updated": "2025-05-22T07:49:44+00:00",
+                    "created": "2025-05-22T07:49:44+00:00",
+                    "published": "2025-05-22T07:49:44+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "5fd035bf-903a-4f7c-89ba-78c5239ac56a",
+                "status": "concept",
+                "type": "Gemeente",
+                "naam": "Westerwolde",
+                "cbs": 1950,
+                "e-mailadres": "f.venema@westerwolde.nl",
+                "contactpersoon": "Ferdy Venema",
+                "@self": {
+                    "id": "5fd035bf-903a-4f7c-89ba-78c5239ac56a",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/organisatie/5fd035bf-903a-4f7c-89ba-78c5239ac56a",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "organisatie",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "872",
+                    "updated": "2025-05-22T07:49:44+00:00",
+                    "created": "2025-05-22T07:49:44+00:00",
+                    "published": "2025-05-22T07:49:44+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "4bfb4c05-0c9d-4138-b0d2-90a09374caf4",
+                "status": "concept",
+                "type": "Gemeente",
+                "naam": "Groningen",
+                "cbs": 14,
+                "e-mailadres": "jan.de.baat@groningen.nl",
+                "contactpersoon": "Jan de Baat",
+                "@self": {
+                    "id": "4bfb4c05-0c9d-4138-b0d2-90a09374caf4",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/organisatie/4bfb4c05-0c9d-4138-b0d2-90a09374caf4",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "organisatie",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "867",
+                    "updated": "2025-05-22T07:49:44+00:00",
+                    "created": "2025-05-22T07:49:44+00:00",
+                    "published": "2025-05-22T07:49:44+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "1f66615f-fa81-44f6-92e3-eadac6b11eca",
+                "status": "concept",
+                "type": "Gemeente",
+                "naam": "Almere",
+                "cbs": 34,
+                "e-mailadres": "jmkoeckhoven@almere.nl",
+                "contactpersoon": "Jo\u00c3\u00abl Koeckhoven",
+                "@self": {
+                    "id": "1f66615f-fa81-44f6-92e3-eadac6b11eca",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/organisatie/1f66615f-fa81-44f6-92e3-eadac6b11eca",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "organisatie",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "869",
+                    "updated": "2025-05-22T07:49:44+00:00",
+                    "created": "2025-05-22T07:49:44+00:00",
+                    "published": "2025-05-22T07:49:44+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
+            },
+            {
+                "id": "232e5c86-fa22-4c58-ba84-3b875b5abd1f",
+                "username": "Remko Huisman",
+                "email": "remko@conduction.nl",
+                "@self": {
+                    "id": "232e5c86-fa22-4c58-ba84-3b875b5abd1f",
+                    "uri": "https://vng.test.commonground.nu/apps/openregister/api/objects/voorzieningen/gebruiker/232e5c86-fa22-4c58-ba84-3b875b5abd1f",
+                    "version": "0.0.1",
+                    "register": "voorzieningen",
+                    "schema": "gebruiker",
+                    "schemaVersion": null,
+                    "files": [],
+                    "relations": [],
+                    "locked": null,
+                    "owner": "Peter Makkes",
+                    "folder": "",
+                    "application": null,
+                    "organisation": null,
+                    "validation": null,
+                    "geo": null,
+                    "retention": null,
+                    "size": "753",
+                    "updated": "2025-05-22T07:49:44+00:00",
+                    "created": "2025-05-22T07:49:44+00:00",
+                    "published": "2025-05-22T07:49:44+00:00",
+                    "depublished": null,
+                    "deleted": null
+                }
             }
         ]
     },
@@ -3051,6 +4388,6 @@
         "id": 14,
         "title": "Voorzieningen",
         "description": "Register voor voorzieningen uit de softwarecatalogus",
-        "version": "1.0.2"
+        "version": "1.0.3"
     }
 }
