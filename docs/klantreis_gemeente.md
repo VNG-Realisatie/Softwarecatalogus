@@ -7,14 +7,16 @@ Dit document beschrijft de klantreis van een gemeente in de GEMMA Softwarecatalo
 ## 🔹 Fase 1: Registratie
 
 Komt voor gemeenten niet voor, deze zijn op voorhand aangemaakt
+
 ---
 
 ## 🔹 Fase 2: Organisatie-inrichting
 
 | Stapnr | Actie                                  | Beschrijving                                                       | Gerelateerd issue |
 |--------|-----------------------------------------|--------------------------------------------------------------------|-------------------|
-| 2.1    | Collega’s aanmaken                      | Andere gebruikers uitnodigen voor toegang tot de organisatie       |        |
-| 2.2    | Organisatie-informatie opvoeren         | Naam, contactgegevens, certificeringen, et cetera invullen         |                  |
+| 2.1    | Collega’s aanmaken                      | Andere gebruikers uitnodigen voor toegang tot de organisatie       | #        |
+| 2.2    | Organisatie-informatie opvoeren         | Naam, contactgegevens, certificeringen, et cetera invullen         | #                 |
+| 2.3    | Deelnemingen opvoeren         | Samenwerkingen of communities waaraan deze organisaite deelneemt       | #                 |
 
 ---
 
@@ -24,7 +26,7 @@ Komt voor gemeenten niet voor, deze maken in princiepe geen applicaties aan
 
 ---
 
-## 🔹 Fase 4: Dienst(en) toevoegen bij een andere applicatie
+## 🔹 Fase 4: Gebruik toevoegen bij een applicatie
 
 | Stapnr | Actie                                  | Beschrijving                                                       | Gerelateerd issue |
 |--------|-----------------------------------------|--------------------------------------------------------------------|-------------------|
