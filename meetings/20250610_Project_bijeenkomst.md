@@ -21,7 +21,7 @@
 
 ## Notities aan de hand van review
 
-📋 Registratieformulier
+### 📋 Registratieformulier
 - [ ] Overal “aanmelden” gebruiken in plaats van “registreren”
 - [ ] Organisatietype vooraf laten invullen op basis van een link
 - [ ] Korte beschrijving: gebruik Markdown + toon het resterende aantal tekens duidelijk
@@ -35,7 +35,7 @@
 - [ ] Bij “gemeente” geen formulier tonen, maar informatieve tekst: “Neem contact op met Peter”
 - [ ] Logo: toon een leeg plaatje, vervang dit bij upload door een file selector
 
-🏢 Organisatie-inrichting
+### 🏢 Organisatie-inrichting
 - [ ] Bij organisatiegegevens: logo upload in plaats van URL
 - [ ] Contactpersonen en samenwerkingen tonen als tabbladen
 - [ ] Lange beschrijving kan erg lang zijn – overwegen dit in een apart formulier op te nemen
@@ -55,7 +55,7 @@
 - [ ] Rol wordt verwijderd uit organisaties
 - [ ] Sector staat nu als “doelgroep” bij applicatie → verplaatsen/hernoemen
 
-👥 Gebruikers beheren
+### 👥 Gebruikers beheren
 - [ ] Gebruikers hebben geen bestanden
 - [ ] Rollen moeten overeenkomen met de VNG functiematrix
 - [ ] Formulier tonen in kolommen
@@ -69,10 +69,10 @@
 - [ ] Peter onderzoekt hoeveel accounts aan meerdere organisaties hangen
 - [ ] Als je aanspreekpunt bent → overige contactgegevens verplicht maken (bv. telefoonnummer)
 
-👤 Gebruiker personaliseren (via “My” URL)
+### 👤 Gebruiker personaliseren (via “My” URL)
 - [ ] Thema en taal kunnen kiezen
 
-🧩 Applicaties toevoegen
+### 🧩 Applicaties toevoegen
 - [ ] Waar komt applicatietype vandaan? (vermoedelijk uit datamodel bij voorziening: applicatie, technologie, hosting)
 - [ ] Welke waardes missen nog? Zie PowerPoint
 - [ ] Bij selecteren van referentiecomponent worden standaarden gesuggereerd → keuze uit lijst of zelf toevoegen
@@ -95,14 +95,14 @@
 - [ ] Link naar repository (optioneel)
 - [ ] Knop “Bekijken in catalogus”
 
-🌀 Versies toevoegen
+### 🌀 Versies toevoegen
 - [ ] Productlevenscyclus: met in-/uitdatum per status (bv. “in gebruik”)
 - [ ] Systeemvereisten vervallen
 - [ ] Kwetsbaarheden ook voor nu schrappen
 - [ ] Bij SaaS-applicaties automatisch een default versie aanmaken
 - [ ] Voor nu geen bestanden
 
-📑 Dienst
+### 📑 Dienst
 - [ ] Tabblad “Diensten” met alleen de diensten van de betreffende organisatie
 - [ ] Welk rekencentrum wordt gebruikt voor de dienst?
 - [ ] Voorziening wordt hernoemd naar “applicatie”
@@ -114,7 +114,7 @@
 - [ ] Hostingopties vervallen
 - [ ] Laag verwijst naar applicatie
 
-📊 Gebruik
+### 📊 Gebruik
 - [ ] Elke status heeft een startdatum
 - [ ] Geen einddatum → dat is de startdatum van de volgende status
 - [ ] Peter onderzoekt of BBN en IBP scores velden moeten worden → voorlopig weglaten
