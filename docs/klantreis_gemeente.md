@@ -1,4 +1,4 @@
-# 🧭 [Klantreis leverancier]() @todo link toevoegen <– GEMMA Softwarecatalogus
+# 🧭 Klantreis gemeente > GEMMA Softwarecatalogus
 
 Dit document beschrijft de klantreis van een gemeente in de GEMMA Softwarecatalogus. Per stap kun je een GitHub issue koppelen (bijv. voor feedback, verbeteringen of bugs).
 
@@ -6,34 +6,85 @@ Dit document beschrijft de klantreis van een gemeente in de GEMMA Softwarecatalo
 
 ## 🔹 Fase 1: Registratie
 
-Komt voor gemeenten niet voor, deze zijn op voorhand aangemaakt
+Registratie komt voor gemeenten niet voor. Alle gemeenten hebben automatisch toegang met uitzondering van de bijzondere gemeenten uit het Caribisch gebied. 
 
 ---
 
-## 🔹 Fase 2: Organisatie-inrichting
+## 🔹 Fase 2: Organisatiebeheer (beheerder)
 
-| Stapnr | Actie                                  | Beschrijving                                                       | Gerelateerd issue |
-|--------|-----------------------------------------|--------------------------------------------------------------------|-------------------|
-| 2.1    | Collega’s aanmaken                      | Andere gebruikers uitnodigen voor toegang tot de organisatie       | #        |
-| 2.2    | Organisatie-informatie opvoeren         | Naam, contactgegevens, certificeringen, et cetera invullen         | #                 |
-| 2.3    | Deelnemingen opvoeren         | Samenwerkingen of communities waaraan deze organisaite deelneemt       | #                 |
-
----
-
-## 🔹 Fase 3: Applicaties opvoeren
-
-Komt voor gemeenten niet voor, deze maken in princiepe geen applicaties aan                
+| Stapnr | Actie | Beschrijving | Gerelateerd issue |
+|--------|-------|--------------|-------------------|
+| 2.1 | Organisatie-informatie opvoeren | Vul of wijzig organisatiegegevens | |
+| 2.2 | Organisatie toevoegen aan samenwerking | Voeg de organisatie toe aan een samenwerking | |
+| 2.3 | Organisatie verwijderen van samenwerking | Verwijder de organisatie uit een samenwerking | |
 
 ---
 
-## 🔹 Fase 4: Gebruik toevoegen bij een applicatie
+## ◆ Fase 3: Gebruikersbeheer (beheerder)
 
-| Stapnr | Actie                                  | Beschrijving                                                       | Gerelateerd issue |
-|--------|-----------------------------------------|--------------------------------------------------------------------|-------------------|
-| 4.1    | Applicatie zoeken                       | Zoek een bestaande applicatie binnen de organisatie                | [#144]([url](https://github.com/orgs/VNG-Realisatie/projects/17/views/3?filterQuery=label%3A%22Organisatie+en+configuratie%22+label%3A%22PvE+eis%22+&pane=issue&itemId=98565405&issue=VNG-Realisatie%7CSoftwarecatalogus%7C144))              |
-| 4.2    | Applicatie selecteren                   | Selecteer de juiste applicatie                                     | #                 |
-| 4.3    | Gebruik toevoegen    | Voer gebruik van de applicatie op                                     | #                 |#                 |
-| 4.4    | Kopeling toevoegen   | Koppel de applicatie aan andere applicaites of landelijke diensten                                 | #                 |#                 |
-| 4.5    | Gebruik exporteren   | Exporteer een AMEF bestand van de applicatie                             | #                 |
+| Stapnr | Actie | Beschrijving | Gerelateerd issue |
+|--------|-------|--------------|-------------------|
+| 3.1 | Overzicht van gebruikers openen | Bekijk het overzicht van gebruikers binnen de organisatie | |
+| 3.2 | Nieuwe gebruiker toevoegen voor de organisatie | Voeg een nieuwe gebruiker toe | [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60) |
+| 3.3 | Nieuwe gebruiker ontvangt e-mail met inloggegevens | Automatische e-mail met inloggegevens wordt verstuurd | |
+| 3.4 | Eerste keer inloggen: account activeren, notificatievoorkeuren instellen en wachtwoord instellen | Activeer het account en stel wachtwoord in bij eerste inlog | |
 
 ---
+
+## ◆ Fase 4: Applicatielandschap bewerken (beheerder)
+
+| Stapnr | Actie | Beschrijving | Gerelateerd issue |
+|--------|-------|--------------|-------------------|
+| 4.1 | Applicatie zoeken | Vind applicaties in de catalogus |[#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) , [#21](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/21)|
+| 4.2 | Applicaties vergelijken | Vergelijk eigenschappen en gebruik van applicaties | |
+| 4.3 | Applicatie toevoegen en informatie opvoeren | Voeg een nieuwe applicatie toe en vul informatie in (contactpersoon, documenten) | [#18](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/18) , [#17](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/17) , [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59) , [#58](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/58) , [#37](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/37) , [#41](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/41)|
+| 4.4 | Een niet-geregistreerde applicatie opvoeren | Voeg een applicatie toe als concept voor een aanbieder | [#12](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/12) , [#143](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/143)
+| 4.5 | Versie toevoegen, bewerken of verwijderen | Beheer versies van applicaties | |
+| 4.6 | Koppeling maken tussen applicaties en/of landelijke voorzieningen | Leg koppelingen vast met andere applicaties of voorzieningen | [#56](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/56) , [#55](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/55) |
+| 4.7 | Koppeling verwijderen | Verwijder bestaande koppelingen | |
+| 4.8 | Applicatie verwijderen | Verwijder applicatie uit het applicatielandschap | |
+| 4.9 | Applicatielandschap alleen zichtbaar voor gemeenten | Aanbieders zijn uitgesloten | [#105](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/105) |
+
+---
+
+## ◆ Fase 5: Diensten beheren (beheerder)
+
+| Stapnr | Actie | Beschrijving | Gerelateerd issue |
+|--------|-------|--------------|-------------------|
+| 5.1 | Leveranciers met diensten zoeken | Vind leveranciers die diensten aanbieden | |
+| 5.2 | Dienst toevoegen aan applicatie | Voeg een dienst toe aan een applicatie | [#35](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/35)|
+| 5.3 | Dienstinformatie bewerken | Pas informatie over een dienst aan | |
+| 5.4 | Dienst verwijderen van applicatie | Verwijder een dienst van een applicatie | |
+| 5.5 | Dienstverlener sterren geven | Kwaliteit van dienstverlening beoordelen | [#34](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/34) |
+
+---
+
+## ◆ Fase 6: Aanbevelingen en overzichten
+
+| Stapnr | Actie | Beschrijving | Gerelateerd issue |
+|--------|-------|--------------|-------------------|
+| 6.1 | Meldingen van leveranciers bekijken | Bekijk meldingen over wijzigingen van leveranciers | [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54)|
+| 6.2 | Wijzigingen van leveranciers op applicaties in je landschap bekijken | Bekijk wijzigingen zoals nieuwe versie, beëindiging ondersteuning, alternatieve hosting, etc. |[#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) |
+| 6.3 | Gluren bij de buren | Bekijk welke applicaties door andere gemeenten in gebruik zijn | [ #20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) , [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19) |
+
+---
+
+## ◆ Fase 7: Applicatielandschap exporteren
+
+| Stapnr | Actie | Beschrijving | Gerelateerd issue |
+|--------|-------|--------------|-------------------|
+| 7.1 | Applicatielandschap openen | Open het overzicht van het applicatielandschap | |
+| 7.2 | Filter toepassen in het applicatielandschap | Filter het landschap op relevante criteria |[#22](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/22) |
+| 7.3 | Weergave (view) selecteren en tonen | Selecteer een gewenste weergave (view) van het landschap | |
+| 7.4 | Applicatielandschap exporteren als AMEFF | Exporteer het landschap als AMEFF-bestand | |
+| 7.5 | Applicatielandschap exporteren als CSV of Excel | Exporteer het landschap als CSV of Excel | |
+| 7.6 | Koppelingen exporteren als AMEFF | Exporteer koppelingen als AMEFF-bestand | |
+| 7.7 | Koppelingen exporteren als CSV of Excel | Exporteer koppelingen als CSV of Excel | |
+
+---
+
+# ◆ Fase 8: Applicatielandschappen koppelen
+
+| Stapnr | Actie | Beschrijving | Gerelateerd issue |
+|--------|-------|--------------|-------------------|
+| 8.1 | Data bijwerken vanuit externe bronnen | API, csv of andere opties | [#52](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/52) |
