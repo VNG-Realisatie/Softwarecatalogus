@@ -51,7 +51,7 @@ Registratie komt voor gemeenten niet voor. Alle gemeenten hebben automatisch toe
 
 | Stapnr | Actie | Beschrijving | Gerelateerd issue |
 |--------|-------|--------------|-------------------|
-| 5.1 | Leveranciers met diensten zoeken | Vind leveranciers die diensten aanbieden | |
+| 5.1 | Leveranciers met diensten zoeken | Vind leveranciers die diensten aanbieden | [#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) , [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74) , [#105](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/105) |
 | 5.2 | Dienst toevoegen aan applicatie | Voeg een dienst toe aan een applicatie | [#35](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/35)|
 | 5.3 | Dienstinformatie bewerken | Pas informatie over een dienst aan | |
 | 5.4 | Dienst verwijderen van applicatie | Verwijder een dienst van een applicatie | |
@@ -66,8 +66,7 @@ Registratie komt voor gemeenten niet voor. Alle gemeenten hebben automatisch toe
 | 6.1 | Meldingen van leveranciers bekijken | Bekijk meldingen over wijzigingen van leveranciers | [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54)|
 | 6.2 | Wijzigingen van leveranciers op applicaties in je landschap bekijken | Bekijk wijzigingen zoals nieuwe versie, beëindiging ondersteuning, alternatieve hosting, etc. |[#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) |
 | 6.3 | Gluren bij de buren | Bekijk welke applicaties door andere gemeenten in gebruik zijn | [ #20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) , [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19)  , [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74)|
-| 6.4 | Overzicht van applicatielandschanp | Overzichtelijke tabel weergave van het applicatielandschap | [#33](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/33) |
-| 6.5 | Statistieken van de softwarecatalogus | Inzicht in gebruik van de softwarecatalogus | [#32](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/33) |
+| 6.4 | Statistieken van de softwarecatalogus | Inzicht in gebruik van de softwarecatalogus | [#32](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/33) |
 
 ---
 
@@ -75,13 +74,13 @@ Registratie komt voor gemeenten niet voor. Alle gemeenten hebben automatisch toe
 
 | Stapnr | Actie | Beschrijving | Gerelateerd issue |
 |--------|-------|--------------|-------------------|
-| 7.1 | Applicatielandschap openen | Open het overzicht van het applicatielandschap | |
+| 7.1 | Applicatielandschap overzicht | Overzichtelijke tabel weergave van het applicatielandschap | [#33](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/33) |
 | 7.2 | Filter toepassen in het applicatielandschap | Filter het landschap op relevante criteria |[#22](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/22) |
-| 7.3 | Weergave (view) selecteren en tonen | Selecteer een gewenste weergave (view) van het landschap | |
-| 7.4 | Applicatielandschap exporteren als AMEFF | Exporteer het landschap als AMEFF-bestand | |
+| 7.3 | Weergave (view) selecteren en tonen | Selecteer een gewenste weergave (view) van het landschap | [#68](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/68)|
+| 7.4 | Applicatielandschap exporteren als AMEFF | Exporteer het landschap als AMEFF-bestand | [#16](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/16) |
 | 7.5 | Applicatielandschap exporteren als CSV of Excel | Exporteer het landschap als CSV of Excel | [#15](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/15) |
-| 7.6 | Koppelingen exporteren als AMEFF | Exporteer koppelingen als AMEFF-bestand | |
-| 7.7 | Koppelingen exporteren als CSV of Excel | Exporteer koppelingen als CSV of Excel | |
+| 7.6 | Koppelingen exporteren als AMEFF | Exporteer koppelingen als AMEFF-bestand | [#16](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/16) |
+| 7.7 | Koppelingen exporteren als CSV of Excel | Exporteer koppelingen als CSV of Excel | [#15](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/15)|
 
 ---
 
