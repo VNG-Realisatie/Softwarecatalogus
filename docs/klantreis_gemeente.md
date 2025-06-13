@@ -89,3 +89,59 @@ Registratie komt voor gemeenten niet voor. Alle gemeenten hebben automatisch toe
 | Stapnr | Actie | Beschrijving | Gerelateerd issue |
 |--------|-------|--------------|-------------------|
 | 8.1 | Data bijwerken vanuit externe bronnen | API, csv of andere opties | [#52](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/52) |
+
+# VNG
+
+## Fase 2
+
+- [ ] *Samenwerkingen* moet mogelijk *deelnemingen* of *deelnames* zijn (even uitzoeken).
+- [ ] `inversedBy` moet verwijzen naar *deelnemers*.
+- [ ] Als organisatie verwacht ik een tabblad **Deelnemingen**.
+- [ ] Als organisatie verwacht ik een knop **Deelneming toevoegen**.
+- [ ] En een dialoog waarin ik een *samenwerking* of *community* (organisatietypes) kan selecteren om aan deel te nemen.
+- [ ] Als organisatie verwacht ik *deelnemingen* te kunnen verwijderen.
+- [ ] Bij zoeken verwacht ik bij *samenwerkingen* en *communities* de *deelnemers* te kunnen zien.
+- [ ] Bij zoeken verwacht ik bij *organisaties* hun *deelnemingen* te kunnen zien.
+- [ ] Als *samenwerking* of *community* verwacht ik in **beheer** een menu-item **Deelnemers** met daarop een tabel van organisaties die aan mij deelnemen (doorklikken naar organisatiepagina op zoeken).
+
+## Fase 3
+
+- [ ] Als gebruiker verwacht ik op de **Mijn pagina** notificatievoorkeuren te kunnen opgeven.
+
+## Fase 4
+
+- [ ] 4.2 is een wens.
+- [ ] Bij het opvoeren van een applicatie wil ik ook kunnen opgeven: **"eigenaar onbekend"**. Hiervoor moet een *business flow* worden geschreven. Eerst bouwen, dan refinen.
+  - Radio: **Mijn organisatie**
+  - Radio: **Andere organisatie** → Zoeklijst organisatie. Applicatie aanmaken in concept + *business flow*.
+  - Radio: **Voor nog niet in softwarecatalogus bekende organisatie**. Applicatie aanmaken in concept + *business flow*.
+- [ ] Bij gebruik ook een koppeling toevoegen; object bestaat al.
+  - Koppeling maak je aan vanuit **gebruik**.
+  - Zowel de *van* als *naar* is OF een ander gebruik in de organisatie, of een landelijke voorziening → gebruik.  
+    (*Vraag: waar vinden we de landelijke voorzieningenlijst?*)  
+    *Gebruik naar gebruik* kunnen we al bouwen.
+- [ ] Applicatie verwijderen via gebruik.
+
+## Fase 5
+
+- Neem aan dat dit over gebruik gaat. In dat geval geen nog af te ronden functionaliteiten.
+
+## Fase 6
+
+- [ ] Dienstverleners sterren geven (stickertje achter je naam) gebeurt aan de hand van het *review object*.  
+      (*Wat is hier de business logic?*)
+- [ ] Wat is een melding van een wijziging van leverancier?
+- [ ] Gaat dit om het inzien van *changes*?  
+      Wil je dan ook zien welke *changes*?  
+      Een wijzigingspagina voelt als *scope creep* (wel een coole feature).
+- [ ] Welke statistieken willen we exact?  
+      Wat we nog voor de frontend moeten doen, is een *tracking pixel* toevoegen.
+
+## Fase 7
+
+- Geen nog af te ronden functionaliteiten.
+
+## Fase 8
+
+- 8.1 is niet **P.v.E.**?
+
