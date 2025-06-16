@@ -25,7 +25,7 @@ Registratie komt voor gemeenten niet voor. Alle gemeenten hebben automatisch toe
 | Stapnr | Actie | Beschrijving | Gerelateerd issue |
 |--------|-------|--------------|-------------------|
 | 3.1 | Overzicht van gebruikers openen | Bekijk het overzicht van gebruikers binnen de organisatie | |
-| 3.2 | Nieuwe gebruiker toevoegen voor de organisatie | Voeg een nieuwe gebruiker toe | [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60) , [#65](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/65)|
+| 3.2 | Nieuwe gebruiker toevoegen voor de organisatie | Voeg een nieuwe gebruiker toe | [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60) , [#63](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/63) ,  [#65](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/65)|
 | 3.3 | Nieuwe gebruiker ontvangt e-mail met inloggegevens | Automatische e-mail met inloggegevens wordt verstuurd | |
 | 3.4 | Eerste keer inloggen: account activeren, notificatievoorkeuren instellen en wachtwoord instellen | Activeer het account en stel wachtwoord in bij eerste inlog | |
 
@@ -36,8 +36,8 @@ Registratie komt voor gemeenten niet voor. Alle gemeenten hebben automatisch toe
 | Stapnr | Actie | Beschrijving | Gerelateerd issue |
 |--------|-------|--------------|-------------------|
 | 4.1 | Applicatie zoeken | Vind applicaties in de catalogus |[#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) , [#21](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/21)|
-| 4.2 | Applicaties vergelijken | Vergelijk eigenschappen en gebruik van applicaties | |
-| 4.3 | Applicatie toevoegen en informatie opvoeren | Voeg een nieuwe applicatie toe en vul informatie in (contactpersoon, documenten) | [#18](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/18) , [#17](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/17) , [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59) , [#58](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/58) , [#37](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/37) , [#41](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/41)|
+| 4.2 | Applicaties vergelijken | Vergelijk eigenschappen en gebruik van applicaties | [#31](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/31) |
+| 4.3 | Applicatie toevoegen en informatie opvoeren | Voeg een nieuwe applicatie toe en vul informatie in (contactpersoon, documenten) | [#18](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/18) , [#17](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/17) , [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59) , [#58](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/58) , [#37](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/37) , [#41](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/41) , [#49](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/49)|
 | 4.4 | Een niet-geregistreerde applicatie opvoeren | Voeg een applicatie toe als concept voor een aanbieder | [#12](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/12) , [#143](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/143)
 | 4.5 | Versie toevoegen, bewerken of verwijderen | Beheer versies van applicaties | |
 | 4.6 | Koppeling maken tussen applicaties en/of landelijke voorzieningen | Leg koppelingen vast met andere applicaties of voorzieningen | [#56](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/56) , [#55](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/55) |
@@ -66,7 +66,12 @@ Registratie komt voor gemeenten niet voor. Alle gemeenten hebben automatisch toe
 | 6.1 | Meldingen van leveranciers bekijken | Bekijk meldingen over wijzigingen van leveranciers | [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54)|
 | 6.2 | Wijzigingen van leveranciers op applicaties in je landschap bekijken | Bekijk wijzigingen zoals nieuwe versie, beëindiging ondersteuning, alternatieve hosting, etc. |[#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) |
 | 6.3 | Gluren bij de buren | Bekijk welke applicaties door andere gemeenten in gebruik zijn | [ #20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) , [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19)  , [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74)|
-| 6.4 | Statistieken van de softwarecatalogus | Inzicht in gebruik van de softwarecatalogus | [#32](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/33) |
+| 6.4 | Statistieken van de softwarecatalogus | Inzicht in gebruik van de softwarecatalogus | [#32](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/33)  [#53](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/53) |
+| 6.5 | Advisering door AI | Nieuwe inzichten via AI | [#13](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/13)  [#53](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/53) |
+| 6.6 | Inzicht in informatiestromen | Diagrammen van informatiestromen tussen applicaties | [#51](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/51) |
+| 6.7 | Register van verwerkingen | Genereren van een register van verwerkingen | [#82](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/82) |
+
+
 
 ---
 
