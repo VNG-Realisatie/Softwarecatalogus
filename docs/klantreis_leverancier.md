@@ -118,10 +118,10 @@ Dit document beschrijft de klantreis van een leverancier in de GEMMA Softwarecat
 - [ ] Peter onderzoekt hoeveel accounts aan meerdere organisaties hangen
 - [ ] Als je aanspreekpunt bent → overige contactgegevens verplicht maken (bv. telefoonnummer)
 
-### 👤 Gebruiker personaliseren (via “My” URL)
+### 👤 Gebruiker personaliseren (via “My” URL)](https://conduction.atlassian.net/browse/VSC-346)
 - [ ] Thema en taal kunnen kiezen
 
-### 🧩 Applicaties toevoegen
+### 🧩 Applicaties toevoegen https://conduction.atlassian.net/browse/VSC-347
 - [ ] Waar komt applicatietype vandaan? (vermoedelijk uit datamodel bij voorziening: applicatie, technologie, hosting)
 - [ ] Welke waardes missen nog? Zie PowerPoint
 - [ ] Bij selecteren van referentiecomponent worden standaarden gesuggereerd → keuze uit lijst of zelf toevoegen
@@ -144,7 +144,7 @@ Dit document beschrijft de klantreis van een leverancier in de GEMMA Softwarecat
 - [ ] Link naar repository (optioneel)
 - [ ] Knop “Bekijken in catalogus”
 
-### 🌀 Versies toevoegen
+### 🌀 Versies toevoegen https://conduction.atlassian.net/browse/VSC-348
 - [ ] Productlevenscyclus: met in-/uitdatum per status (bv. “in gebruik”)
 - [ ] Systeemvereisten vervallen
 - [ ] Kwetsbaarheden ook voor nu schrappen
