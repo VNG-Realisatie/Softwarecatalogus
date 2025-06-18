@@ -66,7 +66,7 @@ Registratie komt voor gemeenten niet voor. Alle gemeenten hebben automatisch toe
 | 6.1 | Meldingen van leveranciers bekijken | Bekijk meldingen over wijzigingen van leveranciers | [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54)|
 | 6.2 | Wijzigingen van leveranciers op applicaties in je landschap bekijken | Bekijk wijzigingen zoals nieuwe versie, beëindiging ondersteuning, alternatieve hosting, etc. |[#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) |
 | 6.3 | Gluren bij de buren | Bekijk welke applicaties door andere gemeenten in gebruik zijn | [ #20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) , [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19)  , [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74)|
-| 6.4 | Statistieken van de softwarecatalogus | Inzicht in gebruik van de softwarecatalogus | [#32](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/33)  [#53](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/53) |
+| 6.4 | Statistieken van de softwarecatalogus | Inzicht in gebruik van de softwarecatalogus | [#32](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/32) |
 | 6.5 | Advisering door AI | Nieuwe inzichten via AI | [#13](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/13)  [#53](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/53) |
 | 6.6 | Inzicht in informatiestromen | Diagrammen van informatiestromen tussen applicaties | [#51](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/51) |
 | 6.7 | Register van verwerkingen | Genereren van een register van verwerkingen | [#82](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/82) |
