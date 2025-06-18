@@ -151,7 +151,7 @@ Dit document beschrijft de klantreis van een leverancier in de GEMMA Softwarecat
 - [ ] Bij SaaS-applicaties automatisch een default versie aanmaken
 - [ ] Voor nu geen bestanden
 
-### 📑 Dienst
+### 📑 Dienst https://conduction.atlassian.net/browse/VSC-349
 - [ ] Tabblad “Diensten” met alleen de diensten van de betreffende organisatie
 - [ ] Welk rekencentrum wordt gebruikt voor de dienst?
 - [ ] Voorziening wordt hernoemd naar “applicatie”
@@ -163,7 +163,7 @@ Dit document beschrijft de klantreis van een leverancier in de GEMMA Softwarecat
 - [ ] Hostingopties vervallen
 - [ ] Laag verwijst naar applicatie
 
-### 📊 Gebruik
+### 📊 Gebruik https://conduction.atlassian.net/browse/VSC-350
 - [ ] Elke status heeft een startdatum
 - [ ] Geen einddatum → dat is de startdatum van de volgende status
 - [ ] Peter onderzoekt of BBN en IBP scores velden moeten worden → voorlopig weglaten
