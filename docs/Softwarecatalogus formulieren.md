@@ -199,15 +199,14 @@ bla die blah
 
 | Veld                        | Toelichting                                                                                      |
 |-----------------------------|--------------------------------------------------------------------------------------------------|
-| Applicatie / Technologie / Hosting |                                                                                          |
-| Aanbiedersrol               | Eigenaar / dienstverlener                                                                       |
-| Type                        | Applicatie, Technologie, Hosting                                                                |
+| Aanbiedersrol               | Eigenaar / dienstverlener                                                                        |
+| Voorzieningtype             | Applicatie / Technologie / Hosting                                                               |
 | Naam (verplicht)            |                                                                                                  |
 | Beschrijving kort           | Voor weergave in lijst en overzichten. Max 255 tekens.                                           |
 | Beschrijving aanvulling     | Max 1000 tekens.                                                                                 |
 | URL                         | Link naar productpagina                                                                          |
 | Logo                        |                                                                                                  |
-| Licentie                    | Open Source (MIT, GPLv3, Apache 2.0, MPL, …) / Closed Source (Freeware, Microsoft EULA, …)      |
+| Licentie                    | Open Source (MIT, GPLv3, Apache 2.0, MPL, …) / Closed Source (Freeware, Microsoft EULA, …)       |
 | Hosting door leverancier    |                                                                                                  |
 | SaaS                        | Eén versie actueel met default status in gebruik                                                 |
 | On premise                  | Eén of meer versies                                                                              |
@@ -297,9 +296,7 @@ bla die blah
 
 **Bestaat uit**
 - Technologie: Oracle, Linux
-
-**Cloud provider**
-- Gouw IT rekencentrum
+- Cloud provider: Gouw IT rekencentrum
 
 **Diensten**
 - Technisch beheer (on-premises)
@@ -327,9 +324,7 @@ bla die blah
 
 **Bestaat uit**
 - Applicatie: eDiensten, Module Inzicht, Verkiezingen, Uittreksels BRP
-
-**Cloud provider**
-- Centric cloud
+- Cloud provider: Centric cloud
 
 **Diensten**
 - Implementatieondersteuning
@@ -358,9 +353,7 @@ bla die blah
 **Bestaat uit**
 - Applicatie: Producten en diensten catalogus (OpenPDC), Formulieren (OpenPDD), Mijn omgeving (OpenPDD), OpenPub
 - Technologie: WordPress, Linux
-
-**Cloud provider**
-- Door gemeente te organiseren
+- Cloud provider: Door gemeente te organiseren
 
 ---
 
@@ -385,9 +378,7 @@ bla die blah
 **Is onderdeel van**
 - Applicatie: Open Webconcept
 - Technologie: WordPress, Linux
-
-**Cloud provider**
-- Door gemeente te organiseren
+- Cloud provider: Door gemeente te organiseren
 
 ---
 
@@ -411,9 +402,7 @@ bla die blah
 
 **Is onderdeel van**
 - Technologie: WordPress, Linux
-
-**Cloud provider**
-- Door gemeente te organiseren
+- Cloud provider: Door gemeente te organiseren
 
 ---
 
@@ -493,3 +482,102 @@ bla die blah
 - Centric Begraven
 - Key2Financiën
 
+# Gebruik applicatie, technologie en hosting
+
+## Gebruik voorzieningen in Open Register
+
+| Veld                        | Toelichting                                                                                      |
+|-----------------------------|--------------------------------------------------------------------------------------------------|
+| Beschrijving kort           | Voor weergave in lijst en overzichten. Max 255 tekens.                                           |
+| Beschrijving aanvulling     | Max 1000 tekens                                                                                  |
+| Status en startdatum        | Status van het gebruik door gemeente/samenwerking met datum vanaf wanneer de status geldt        |
+| Versie                      | Versie van de gebruikte voorziening. Keuze uit door leverancier opgegeven versies                |
+| Gebruikt voor               | selectie uit Geschikt voor Referentiecomponenten of Technologiecomponenten, eventueel aangevuld door gebruiker |
+| Hosting                     | Cloud of on-premisses, indien cloud, dan gebruikte hosting locatie uitvragen                     |
+| Hostinglocatie              | gebruikte hosting locatie uitvragen                                                              |
+
+### Applicatie, Technologie, Hostinglocatie
+- Link naar voorziening van type Applicatie (Burgerzaken, vergunningen, …)
+  - toon type (Applicatie, Technologie, Hostinglocatie)
+  - Versie: gebruikte versie (als er 1 versie is dan voorinvullen)
+- Status en startdatum
+  - gepland: [datum]
+  - productie: [datum]
+  - uit te faseren: [datum]
+  - uitgefaseerd: [datum]
+- GEMMA
+  - Gebruikt voor: selectie van de door leverancier aangevinkte Referentiecomponenten, Technologiecomponenten, eventueel aangevuld door gebruiker
+- Hosting: 1 van de door leverancier geboden opties (On premise, cloud)
+
+### Hostinglocatie
+Waar draait de applicatie / technologie
+- keuze uit door leverancier aangeboden hostinglocaties
+- keuze uit overige hostinglocaties
+
+### Diensten
+door gebruiker afgenomen diensten specifiek gericht op de voorziening
+  - Leverancier, dienst (Functioneel beheer, Applicatiebeheer, Technisch beheer, ...)
+  - Leverancier, dienst (Functioneel beheer, Applicatiebeheer, Technisch beheer, ...)
+
+## Voorbeeld Gouw Belastingen 
+
+### Applicatie
+Gouw Belastingen -> linkt naar Gouw belastingen in SWC
+Versie: Actueel 
+
+Beschrijving kort: Verantwoordelijk voor inrichting is de heer x
+Beschrijving lang: 
+
+Status en startdatum
+  - gepland: 15 mei 2023
+  - productie: 15 mei 2024
+- GEMMA
+  - Gebruikt voor: Belastingencomponent
+- Hosting: Cloud
+
+### Hostinglocatie
+Waar draait de applicatie / technologie
+- Gouw IT rekencentrum
+
+### Diensten
+door gebruiker afgenomen diensten specifiek gericht op de voorziening
+  - Opleidingen
+    - Gouw IT - werken met Gouw belastingenapplicaite
+  - Implementatieondersteuning
+    - Leverancier x, Optimaal gebruik van Belastingenapplicatie
+
+### Interne notitie
+Aanwijzingen en opmerkingen tussen collega's
+
+
+# Koppelingen
+## intern
+- lijst van alle applicatie, technologie waarmee een koppeling is en extern
+  - link naar voorziening
+  - standaard/maatwerk
+    - standaard waarmee koppeling gebouwd is (optioneel)
+  - protocol van de koppeling (File-transfer, API, Webservice)
+  - Status en startdatum
+    - gepland: [datum]
+    - productie: [datum]
+    - uit te faseren: [datum]
+    - uitgefaseerd: [datum]
+## extern
+- lijst van GEMMA buitengemeentelijke voorzieningen waarmee gekoppeld is
+  - buitengemeentelijke voorziening
+  - standaard/maatwerk
+    - standaard waarmee koppeling gebouwd is (voorinvullen als opgelegd door BG voorziening)
+  - protocol van de koppeling (File-transfer, API, Webservice)  (voorinvullen als opgelegd door BG voorziening)
+  - Status en startdatum
+    - gepland: [datum]
+    - productie: [datum]
+    - uit te faseren: [datum]
+    - uitgefaseerd: [datum]
+
+---
+
+# Koppelingen
+- lijst van alle koppelingen, intern en extern
+- optie is om koppelingen te definieren bij de applicaties of technologie
+
+---
