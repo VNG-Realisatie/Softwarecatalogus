@@ -20,6 +20,7 @@ Dit document beschrijft de klantreis van functioneel beheer in de GEMMA Software
 | Stapnr | Actie                              | Beschrijving                                                    | Gerelateerd issue |
 |--------|------------------------------------|-----------------------------------------------------------------|-------------------|
 | 2.1    | Voeg gefuseerde organisaties samen | Verwerk herindelingen of fusies van gemeenten of leveranciers   | [#141](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/141) |
+| 2.2    | Voeg applicaties samen | (Concept) applicaties samenvoegen   | [#141](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/141) |
 
 ---
 
@@ -30,3 +31,4 @@ Dit document beschrijft de klantreis van functioneel beheer in de GEMMA Software
 | 3.1    | Controleer conceptpakketten        | Controleer en valideer door gemeenten of samenwerkingen aangeleverde pakketten  | [#11](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/11) |
 | 3.2    | Genereer rapportages               | Maak rapportages over het gebruik en de datakwaliteit            | [#75](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/75) |
 | 3.3    | Raadpleeg gebruikersoverzicht      | Raadpleeg en beheer gebruikers per organisatie                   | [#62](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/62) |
+| 3.3    | Menu items en teksten bewerken    | Bewerken van menu's, pagina's en teksten  | [#28](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/28) , [#29](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/29) , [#30](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/30) , [ |
