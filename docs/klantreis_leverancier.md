@@ -70,7 +70,7 @@ Dit document beschrijft de klantreis van een leverancier in de GEMMA Softwarecat
 
 ## Bevindingen aan de hand van review
 
-### 📋 Registratieformulier
+### 📋 Registratieformulier https://conduction.atlassian.net/browse/VSC-342
 - [ ] Overal “aanmelden” gebruiken in plaats van “registreren”
 - [ ] Organisatietype vooraf laten invullen op basis van een link
 - [ ] Korte beschrijving: gebruik Markdown + toon het resterende aantal tekens duidelijk
@@ -84,7 +84,7 @@ Dit document beschrijft de klantreis van een leverancier in de GEMMA Softwarecat
 - [ ] Bij “gemeente” geen formulier tonen, maar informatieve tekst: “Neem contact op met Peter”
 - [ ] Logo: toon een leeg plaatje, vervang dit bij upload door een file selector
 
-### 🏢 Organisatie-inrichting
+### 🏢 Organisatie-inrichting https://conduction.atlassian.net/browse/VSC-343
 - [ ] Bij organisatiegegevens: logo upload in plaats van URL
 - [ ] Contactpersonen en samenwerkingen tonen als tabbladen
 - [ ] Lange beschrijving kan erg lang zijn – overwegen dit in een apart formulier op te nemen
@@ -104,7 +104,7 @@ Dit document beschrijft de klantreis van een leverancier in de GEMMA Softwarecat
 - [ ] Rol wordt verwijderd uit organisaties
 - [ ] Sector staat nu als “doelgroep” bij applicatie → verplaatsen/hernoemen
 
-### 👥 Gebruikers beheren
+### 👥 Gebruikers beheren https://conduction.atlassian.net/browse/VSC-345
 - [ ] Gebruikers hebben geen bestanden
 - [ ] Rollen moeten overeenkomen met de VNG functiematrix
 - [ ] Formulier tonen in kolommen
