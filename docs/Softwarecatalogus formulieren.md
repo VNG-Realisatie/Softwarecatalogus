@@ -1,88 +1,54 @@
-# Organisatie
+# Informatiedomein Organisatie
 
-## Organisaties in Open Register
-
-| Veld                        | Toelichting                                                                                      |
-|-----------------------------|--------------------------------------------------------------------------------------------------|
-| Id                          | GUID van organisatie, voor bestaande organisaties afkomstig uit huidige SWC                      |
-| Rol                         | aanbieder, gebruiker                                                                             |
-| Type                        | leverancier, gemeente, samenwerking, community                                                   |
-| Naam (verplicht)            |                                                                                                  |
-| Beschrijving kort           | Voor weergave in lijst en overzichten. Max 255 tekens.                                           |
-| Beschrijving aanvulling     | Max 1000 tekens.                                                                                 |
-| KvK-Nummer                  | Optioneel                                                                                        |
-| CBS-Code                    | Alleen voor gemeenten                                                                            |
-| OIN                         | Optioneel                                                                                        |
-| Logo                        |                                                                                                  |
-| URL Website                 |                                                                                                  |
-| Telefoonnummer              |                                                                                                  |
-| E-mailadres                 |                                                                                                  |
-
-### Contactpersonen
-- Naam, Telefoonnummer, E-mailadres  
-(Gebruikers met `is-aanspreekpunt=true` worden getoond)
-
-### Mijn deelnemers
-- Link naar organisatie, type organisatie  
-(Uitzondering: Samenwerkingen kunnen deelnemer zijn van een community)
-
-### Mijn gebruikers
-- Account, rol, is-aanspreekpunt
-
-### Verklaringen
-- Link naar intern of extern document, bijvoorbeeld ISO-certificering
-
----
-
-## Leverancier: Conduction
+## Organisatie
+### Leverancier: Conduction
 
 *Wij zijn wat je zou kunnen noemen Digital Socials.*  
 Aanvulling: wij ontwikkelen techniek volgens de Common Ground-principes, waarbij mens en community centraal staan. Graag dragen we dan ook bij aan het ontwikkelen van digitale oplossingen voor maatschappelijke vraagstukken: ‘Tech to serve people’.
 
 - **KVK:** 76741850
-
-### Contactinformatie
+#### Contactinformatie
 - Tel: +31 (0)85 3036840
 - E-mail: contact@conduction.nl
 - Website: [https://conduction.nl](https://conduction.nl)
 
-### Contactpersonen
+#### +Contactpersonen
 - Remco Damhuis, remco@conduction.nl, Tel: 23947 932749
 
-### Mijn gebruikers
+#### +Mijn gebruikers
 - Remco, beheerder, is-aanspreekpunt: ja
 - Mattias, beheerder, is-aanspreekpunt: nee
 
-### Verklaringen
+#### +Verklaringen
 - ISO-Certificering ISO 9001:2015
 - Groeipakt...
 
 ---
 
-## Gemeente Lansingerland
+### Gemeente Lansingerland
 
 - **CBS:** 1621
 - **OIN:** 00000001817291295000
 
-### Contactinformatie
+#### Contactinformatie
 - Website: [https://www.lansingerland.nl](https://www.lansingerland.nl)
 - Tel: 010-800 40 00
 - E-mail: contact@lansingerland.nl
 
-### Contactpersonen
+#### +Contactpersonen
 - Corinne, 923745 08 4023, corinne@lansingerland.nl
 - Jakob, jakob@lansingerland.nl
 
-### Mijn gebruikers
+#### +Mijn gebruikers
 - Corinne, beheerder, is-aanspreekpunt: ja
 - Jakob, beheerder, is-aanspreekpunt: ja
 
-### Deelnemer van samenwerkingen
+#### Deelnemer van samenwerkingen
 - Samenwerking 1 (ICT samenwerking)
 - Samenwerking 2 (Belastingsamenwerking)
 - Open Webproject (Community)
 
-### Verklaringen
+#### +Verklaringen
 - misschien
 
 ---
@@ -97,21 +63,19 @@ Aanvulling: wij ontwikkelen techniek volgens de Common Ground-principes, waarbij
 - E-mail: info@zaltbommel.nl
 - Website: [www.zaltbommel.nl](https://www.zaltbommel.nl)
 
-### Contactpersonen
+### +Contactpersonen
 - Sophie, sophie@zaltbommel.nl
 
-### Mijn gebruikers
+### +Mijn gebruikers
 - Sophie, beheerder, is-aanspreekpunt: ja
 
-### Mijn deelnemers
+### +Mijn deelnemers
 - Gemeente Zaltbommel
 - Gemeente Maasdriel
-
-### Verklaringen
+### +Verklaringen
 - misschien
 
 ---
-
 ## Community Open Webconcept
 
 **Beschrijving kort:**  
@@ -127,208 +91,221 @@ bla die blah
 - Neem contact op met een van de deelnemende gemeenten via het [contactformulier](https://openwebconcept.nl/)
 - Website: [https://openwebconcept.nl/](https://openwebconcept.nl/)
 
-### Contactpersonen
+### +Contactpersonen
 - Neem contact op met een van de deelnemende gemeenten
 
-### Mijn gebruikers
+### +Mijn gebruikers
 - Holger, beheerder, is-aanspreekpunt: nee
 
-### Mijn deelnemers
+### +Mijn deelnemers
 - Gemeente Buren
 - Gemeente Heerenveen
 - Gemeente Lansingerland
 - Gemeente Súdwest-Fryslân
+- ICT-samenwerking Dimpact
 
-### Verklaringen
+### +Verklaringen
 - Intentieverklaring
 
 ---
 
 # Account en contactgegevens
 
-## Accounts registratie
+### Account: Peter@lansingerland.nl
 
-| Veld              | Toelichting                                  |
-|-------------------|----------------------------------------------|
-| Account           | Naam account                                 |
-| is-aanspreekpunt  | Contactgegevens worden getoond indien aangevinkt |
-| Naam              |                                              |
-| Telefoonnummer    |                                              |
-| E-mailadres       |                                              |
-| Functie           |                                              |
-| Rollen (rechten)  | Beheerder, CISO, etc.                        |
-
-### Voorbeeldaccounts
-
-#### Account: Peter@lansingerland.nl
-- is-aanspreekpunt: ja
+**Van organisatie**
+- Gemeente Lansingerland
 
 **Contactgegevens**
+- is-aanspreekpunt: ja
 - Peter
 - 06 45574074
 - Peter@lansingerland.nl
 - Adviseur
 
-**Organisaties**
-- Gemeente Lansingerland
-
-**Rollen (rechten)**
+**+Rollen (rechten)**
 - Beheerder
 - CISO
 
-#### Account: Matthias@conduction.nl
-- is-aanspreekpunt: ja
+### Account: Matthias@conduction.nl
+
+**Van organisatie**
+- Leverancier Conduction
 
 **Contactgegevens**
+- is-aanspreekpunt: ja
 - Matthias
 - +31 (0)85 3036840
 - Matthias@conduction.nl
 - Eigenaar
 
-**Organisaties**
-- Leverancier Conduction
-
-**Rollen**
+**+Rollen**
 - Beheerder
 
 ---
-
 # Aanbod applicatie, technologie en hosting
-
-## Aanbod voorzieningen in Open Register
-
-| Veld                        | Toelichting                                                                                      |
-|-----------------------------|--------------------------------------------------------------------------------------------------|
-| Aanbiedersrol               | Eigenaar / dienstverlener                                                                        |
-| Voorzieningtype             | Applicatie / Technologie / Hosting                                                               |
-| Naam (verplicht)            |                                                                                                  |
-| Beschrijving kort           | Voor weergave in lijst en overzichten. Max 255 tekens.                                           |
-| Beschrijving aanvulling     | Max 1000 tekens.                                                                                 |
-| URL                         | Link naar productpagina                                                                          |
-| Logo                        |                                                                                                  |
-| Licentie                    | Open Source (MIT, GPLv3, Apache 2.0, MPL, …) / Closed Source (Freeware, Microsoft EULA, …)       |
-| Hosting door leverancier    |                                                                                                  |
-| SaaS                        | Eén versie actueel met default status in gebruik                                                 |
-| On premise                  | Eén of meer versies                                                                              |
-| PaaS/IaaS                   | Versie actueel met default status in gebruik                                                     |
-| Hosting jurisdictie/locatie | EU en EU DC, EU en US DC, US en EU DC, US en US DC                                               |
-
-### Versies
-- Naam (default: ‘Actuele versie’)
-- Beschrijving kort (max 255 tekens)
-- Beschrijving aanvulling (max 1000 tekens)
-- Status en startdatum (in ontwikkeling, in gebruik, einde ondersteuning, teruggetrokken)
-- Status, Start status (tevens publicatiedatum status)
-
-### GEMMA
-- Geschikt voor: Referentiecomponenten, Technologiecomponenten
-- Ondersteund: Standaardversie, compliancy (ja, nee), testrapport (link)
-- Beheert: Bedrijfsobject
-- Raadpleegt: Bedrijfsobject
-
-### Applicatie
-- Link naar voorziening van type Technologie (WordPress, MySQL, …)
-
-### Technologie
-- Link naar voorziening van type Technologie (WordPress, MySQL, …)
-
-### Hosting
-- On premise
-
-### Diensten
-- Functioneel beheer, Applicatiebeheer, Technisch beheer, Implementatieondersteuning, Opleidingen, Licentiereseller
-
-> **Notes:**  
-> - Hoe omgaan met applicaties die niet zelfstandig kunnen draaien en onderdeel zijn van een applicatie? Denk aan modules, extensies, etc.  
-> - Bestaat de applicatie uit meerdere onderdelen (suite)? Ja/Nee  
-> - Bij Ja: kunnen onderdelen zelfstandig draaien? Zo ja, plot op een view; zo niet, plot de suite op een view.
-
----
 
 ## Voorbeelden aanbod
 
-### Microsoft Office
+### Office 365 (suite met meerdere applicaties)
 
-- Kantoorautomatiseringssuite  
-- [Website](https://www.microsoft.com/nl-nl/microsoft-365/word?market=nl)
-- Licentie: Closed Source (Microsoft EULA)
+**Product**
+Online aangeboden kantoorautomatiseringssuite
 
-**Hosting opties**
-- SaaS (US wetgeving, rekencentrum in EU)
-- SaaS (US wetgeving, rekencentrum in US)
-- On premise
+**Jurisdictie**
+Onder welke wetgeving valt het aangeboden product
+- EU of US
 
-**Versies**
-- Actueel
-- 2007
-- 2025
+**Cloud dienstverleningsmodel en -provider**
+Met welke dienstverleningsmodel wordt het product aangeboden
+- SaaS (keuzelijst uit GEMMA met waarden On premises, IaaS, PaaS, SaaS)
 
-**GEMMA**
-- Geschikt voor: Kantoorautomatiseringscomponent
-- Ondersteund: ODF (ja), Office Open XML (ja)
-- Beheert: Document
-- Raadpleegt: Document
+Indien niet on premises, welke cloud-provider wordt gebruikt (keuzelijst zijn producten van type IaaS of PaaS)
+- Microsoft Azure
+- Amazon AWS
+- Google ...
+- True
+- TransIP
+- ...
 
-**Bestaat uit**
-- Applicatie: Word, Excel, PowerPoint
+#### **ICT-oplossingen**
+Beschrijf uit welke ICT-oplossingen en diensten het product bestaat
+
+**+Applicaties**
+- Word
+	- beschrijving Word
+	- [Website Word](https://www.microsoft.com/nl-nl/microsoft-365/word?market=nl)
+	- **Licentie:** Closed Source (Microsoft EULA)
+	- **Versies**
+		- Actueel
+	- **GEMMA**
+		- **+Geschikt voor**: Kantoorautomatiseringscomponent
+		- **+Ondersteund**: ODF (ja), Office Open XML (ja)
+		- **+Beheert**: Document
+		- **+Raadpleegt**: Document
+- Outlook
+	- beschrijving Outlook
+	- [Website Outlook](https://www.microsoft.com/nl-nl/microsoft-365/word?market=nl)
+	- **Licentie:** Closed Source (Microsoft EULA)
+	- **Versies**
+		- Actueel
+	- **GEMMA**
+		- **+Geschikt voor**: Kantoorautomatiseringscomponent
+		- **+Ondersteund**: ODF (ja), Office Open XML (ja)
+		- **+Beheert**: Document
+		- **+Raadpleegt**: Document
+- ...
++**Platform**
+- Windows
+	- beschrijving Windows
+	- website Windows
+	- **Versies**
+		- Actueel
+	- **GEMMA**
+		- **+Geschikt voor**: Operating System
+		- **+Ondersteund**: -
+- ..
++**Infrastructuur** (alleen voor inzicht in stack open source )
+- -
+
+#### Diensten
+Beschrijf welke diensten voor dit product beschikbaar zijn
+
++**Diensten**
+- -
+
+#### Koppelingen
+Beschrijf welke koppelingen voor dit product beschikbaar zijn
++**Koppelingen**
+- -
 
 ---
+### Gouw Belastingen (applicatie met meerdere modules)
 
-### Gouw Belastingen
+**Product**
+Integraal belastingsysteem voor gemeenten, waterschappen en samenwerkingsverbanden en bronhouders van de WOZ. Inclusief module voor herwaarderen, heffen en innen.
+[Website Gouw Belastingen](https://www.gouwit.nl/product/belastingen/)
 
-- Integraal belastingsysteem voor gemeenten, waterschappen, samenwerkingsverbanden en bronhouders van de WOZ.
-- [Website](https://www.gouwit.nl)
-- Licentie: Closed Source
+**Licentie**: Closed Source (Gouw IT licentie)
+**Jurisdictie**: EU  (Valt product onder  wetgeving van EU of US)
 
-**Hosting opties**
-- SaaS (EU wetgeving, rekencentrum in EU)
-- On premise
+**Hosting**
+In te vullen als het product een ICT-oplossing bevat.
 
-**Versies**
-- Actueel
-- Versie 365.2
+**Cloud dienstverleningsmodel en -provider**
+Met welke dienstverleningsmodel wordt het product aangeboden (keuzelijst uit GEMMA met waarden On premises, IaaS, PaaS, SaaS)
+- SaaS 
 
-**GEMMA**
-- Geschikt voor: Belastingencomponent
-- Ondersteund: Betalen en invorderen services 1.0
-- Beheert: WOZ
-- Raadpleegt: Gebouwen, Personen
+Bij welke cloud-provider wordt het product gehost (keuzelijst zijn producten van type IaaS of PaaS)
+- [Gouw hosting](https://www.gouwit.nl/product/hosting/) , locatie Zaltbommel
+Vooringevulde PaaS producten
+- Public Cloud US (vooringevuld Microsoft Azure, Amazon AWS, Google ...
+- Public Cloud EU (vooringevuld True hosting, TransIP, ...)
 
-**Bestaat uit**
-- Technologie: Oracle, Linux
-- Cloud provider: Gouw IT rekencentrum
+#### **ICT-oplossingen**
+Beschrijf uit welke ICT-oplossingen en diensten het product bestaat
 
-**Diensten**
-- Technisch beheer (on-premises)
+**+Applicaties**
+- **GouwHeffen**
+	- Aanslagen versturen voor uw gemeentelijke belastingen? Met GouwHeffen kunt u alle object- en subjectgebonden heffingen registreren en opleggen. En combineer aanslagen over meerdere opdrachtgevers en verschillende heffingsjaren op één biljet. GouwHeffen is het heffingsinstrument voor gemeenten, waterschappen en samenwerkingsverbanden.
+	- Website [gelijk aan product]()
+	- **Licentie:** Closed Source (Gouw IT licentie)
+	- **Versies**
+		- Actueel
+	- **GEMMA**
+		- **+Geschikt voor**: Belastingcomponent, WOZ-beheercomponent, WOZ-taxatiecomponent
+		- **+Ondersteund**: 
+			- Betalen en invorderen, compliant j/n, link naar testrapport
+			- Digitoegankelijk,, compliant j/n, link naar testrapport
+			- StUF BAG, compliant j/n, link naar testrapport
+			- [MijnOverheid Berichtenbox koppelvlak 1.5](https://www.gemmaonline.nl/wiki/GEMMA/id-bb9f0bd1-8db0-11e3-67ab-0050568a6153 "MijnOverheid Berichtenbox koppelvlak 1.5"), compliant j/n, link naar testrapport
+			- Zaak- en documentservices 1.2, compliant j/n, link naar testrapport
+		- **+Beheert**: Belasting
+		- **+Raadpleegt**: Adres, Gebouw, Natuurlijk persoon, ...
+	- **Koppelingen**
+		Beschrijf met welke applicaties en buitengemeentelijke voorzieningen gekoppeld kan worden
+		- **+Extern**
+			- BAG, met standaard StUF BAG
+			- WOZ, met standaard StUF WOZ
+		- **+Intern**
+			- BAG administratie
+			- Zaaksysteem, ...
+			- ...
+- **GouwInnen**
+	- Met GouwInnen kunt u reguliere betalingen verwerken. Ook stelt het u in staat om opgelegde heffingen te innen met aanmaningen, dwangbevelen, betekeningen per post en eventueel beslaglegging
+	- Website [gelijk aan product]()
+	- **Licentie:** Closed Source (Gouw IT licentie)
+	- **GEMMA**
+		- **+Geschikt voor**: Inningencomponent
+		- **+Ondersteund**: Betalen en invorderen, Digitoegankelijk, StUF BAG, Documentcreatieservices 1.0, Zaak- en documentservices 1.2
+		- **+Beheert**: Belasting
+		- **+Raadpleegt**: Adres, Gebouw, Natuurlijk persoon, ...
+	- **Koppelingen**
+		Beschrijf met welke applicaties en buitengemeentelijke voorzieningen gekoppeld kan worden
+		- **+Extern**
+			- BAG, standaard StUF BAG
+			- WOZ, StUF WOZ
+		- **+Intern**
+			- BAG administratie
+			- Zaaksysteem, ...
+			- ...
+**+Platform**: 
+- **Java platform**
+	- java bla die blah
+	- 
+- Unix?
++**Infrastructuur**
+	- -
+
+#### Diensten
+Beschrijf welke diensten voor dit product beschikbaar zijn
+
++**Diensten**
 - Implementatieondersteuning
-- Opleidingen
-
----
-
-### Centric Burgerzaken
-
-- Complete oplossing voor alle voorkomende burgerzaken.
-- [Website](https://centric.eu/nl/it-oplossingen-overheid/gemeentelijke-dienstverlening/burgerzaken/)
-- Licentie: Closed Source (Centric licentie)
-
-**Hosting opties**
-- SaaS (EU wetgeving, rekencentrum in EU)
-
-**Versies**
-- Actueel
-
-**GEMMA**
-- Geschikt voor: Burgerzaken
-- Ondersteund: GBA LO
-- Beheert: Personen
-
-**Bestaat uit**
-- Applicatie: eDiensten, Module Inzicht, Verkiezingen, Uittreksels BRP
-- Cloud provider: Centric cloud
-
-**Diensten**
-- Implementatieondersteuning
-- Opleidingen
+	- Ondersteuning bij de inrichting van het waarderingsmodel taxatie. 
+	- Optimaliseren inrichting processen.
+	- Migratie belastingsystemen
+- -
 
 ---
 
@@ -336,7 +313,7 @@ bla die blah
 
 - Bouwblokken voor digitale gemeentelijke dienstverlening op basis van Common Ground.
 - [Website](https://openwebconcept.nl/blog/27-open-source-gemeente-app-flexibele-digitale-dienstverlening-voor-iedere-gemeente)
-- Licentie: Open Source (EUPL?)
+- **Licentie:** Open Source (EUPL?)
 
 **Hosting opties**
 - SaaS (EU wetgeving, rekencentrum in EU)
@@ -346,14 +323,14 @@ bla die blah
 - Actueel
 
 **GEMMA**
-- Geschikt voor: Gemeentelijke website
-- Ondersteund: WCAG
-- Beheert: Producten
+- **+Geschikt voor**: Gemeentelijke website
+- **+Ondersteund**: WCAG
+- **+Beheert**: Producten
 
 **Bestaat uit**
-- Applicatie: Producten en diensten catalogus (OpenPDC), Formulieren (OpenPDD), Mijn omgeving (OpenPDD), OpenPub
-- Technologie: WordPress, Linux
-- Cloud provider: Door gemeente te organiseren
+- **+Applicaties**: Producten en diensten catalogus (OpenPDC), Formulieren (OpenPDD), Mijn omgeving (OpenPDD), OpenPub
+- **+Technologie**: WordPress, Linux
+- **+Cloud provider**: Door gemeente te organiseren
 
 ---
 
@@ -361,7 +338,7 @@ bla die blah
 
 - Bouwblok voor het registreren van webcontent over producten en diensten.
 - [Website](https://openwebconcept.nl/blog/14-wat-is-de-producten-en-diensten-catalogus-openpdc)
-- Licentie: Open Source (EUPL?)
+- **Licentie:** Open Source (EUPL?)
 
 **Hosting opties**
 - SaaS (EU wetgeving, rekencentrum in EU)
@@ -371,14 +348,14 @@ bla die blah
 - Actueel
 
 **GEMMA**
-- Geschikt voor: Gemeentelijke website
-- Ondersteund: WCAG
-- Beheert: Producten
+- **+Geschikt voor**: Gemeentelijke website
+- **+Ondersteund**: WCAG
+- **+Beheert**: Producten
 
 **Is onderdeel van**
-- Applicatie: Open Webconcept
-- Technologie: WordPress, Linux
-- Cloud provider: Door gemeente te organiseren
+- **+Applicaties**: Open Webconcept
+- **+Technologie**: WordPress, Linux
+- **+Cloud provider**: Door gemeente te organiseren
 
 ---
 
@@ -386,7 +363,7 @@ bla die blah
 
 - Open source CMS voor het beheren en publiceren van websites en webpagina’s.
 - [Website](https://wordpress.org)
-- Licentie: Open Source (GPLv2 of later)
+- **Licentie:** Open Source (GPLv2 of later)
 
 **Hosting opties**
 - SaaS (EU wetgeving, rekencentrum in EU, US en US)
@@ -396,13 +373,13 @@ bla die blah
 - Actueel
 
 **GEMMA**
-- Geschikt voor: Technologiecomponent, Webserver, Applicatieplatform
-- Ondersteund: (toelichting)
-- Gebruikt door: OpenWebconcept
+- **+Geschikt voor**: Technologiecomponent, Webserver, Applicatieplatform
+- **+Ondersteund**: (toelichting)
+- **+Gebruikt door**: OpenWebconcept
 
 **Is onderdeel van**
-- Technologie: WordPress, Linux
-- Cloud provider: Door gemeente te organiseren
+- **+Technologie**: WordPress, Linux
+- **+Cloud provider**: Door gemeente te organiseren
 
 ---
 
@@ -415,14 +392,14 @@ bla die blah
 - **Aanbieder:** Yard
 
 **Diensten**
-- Applicatiebeheer
+- **+Applicaties**beheer
 - Technisch beheer
 
-**Voor applicatie**
+**+Voor applicatie**
 - Open Webconcept
 - OpenPDC
 
-**Met technologie**
+**+Met technologie**
 - WordPress
 - Symfony
 - React
@@ -441,7 +418,7 @@ bla die blah
 **Diensten**
 - Technisch beheer
 
-**Met technologie**
+**+Met technologie**
 - Kubernetes
 
 **Onze hosting**
@@ -451,6 +428,7 @@ bla die blah
 
 ## Dienst – Delta-N Microsoft reseller
 
+
 - Delta-N is officieel Microsoft reseller voor bedrijven in het MKB.
 - [Meer informatie](https://www.delta-n.nl/microsoft-reseller/)
 - **Aanbieder:** Delta-N
@@ -458,7 +436,7 @@ bla die blah
 **Diensten**
 - Licentiereseller
 
-**Voor applicatie**
+**+Voor applicatie**
 - Microsoft Office 365
 - Microsoft Azure
 - Microsoft Defender
@@ -477,7 +455,7 @@ bla die blah
 - Opleidingen
 - End User Servicedesk
 
-**Voor applicatie**
+**+Voor applicatie**
 - Centric Burgerzaken
 - Centric Begraven
 - Key2Financiën
@@ -509,7 +487,7 @@ bla die blah
   - Gebruikt voor: selectie van de door leverancier aangevinkte Referentiecomponenten, Technologiecomponenten, eventueel aangevuld door gebruiker
 - Hosting: 1 van de door leverancier geboden opties (On premise, cloud)
 
-### Hostinglocatie
+### Infrastructuur
 Waar draait de applicatie / technologie
 - keuze uit door leverancier aangeboden hostinglocaties
 - keuze uit overige hostinglocaties
@@ -528,14 +506,14 @@ Versie: Actueel
 Beschrijving kort: Verantwoordelijk voor inrichting is de heer x
 Beschrijving lang: 
 
-Status en startdatum
+- Status en startdatum
   - gepland: 15 mei 2023
   - productie: 15 mei 2024
 - GEMMA
   - Gebruikt voor: Belastingencomponent
 - Hosting: Cloud
 
-### Hostinglocatie
+### Infrastructuur
 Waar draait de applicatie / technologie
 - Gouw IT rekencentrum
 
