@@ -1,6 +1,6 @@
 | Eigenaar | Ingevuld door |
 | --- | --- |
-| Kennis centrum Architectuur | Mark Backer, Peter Makkes |
+| Kennis Centrum Architectuur | Mark Backer, Peter Makkes |
 <hr/>
 
 # Softwarecatalogus
