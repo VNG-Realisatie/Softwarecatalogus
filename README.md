@@ -1,3 +1,8 @@
+| Eigenaar | Ingevuld door |
+| --- | --- |
+| Kennis Centrum Architectuur | Mark Backer, Peter Makkes |
+<hr/>
+
 # Softwarecatalogus
 De Softwarecatalogus van de VNG helpt gemeenten haar applicatielandschap in kaart te brengen, te relateren aan de GEMeentelijke Model Architectuur, inzicht te geven in het softwareaanbod van de aangemelde aanbieders.
 Gemeenten gebruiken de GEMMA Softwarecatalogus bij ICT-vervangings- of investeringsvraagstukken. Zij vergelijken hun ingevoerde applicatielandschap en koppelingen met anderen en zoeken contact met vergelijkbare gemeenten.  
@@ -88,8 +93,10 @@ De views zijn toegankelijk via het [Softwarecatalogus rapport](https://vng-reali
 
 ## Omgevingen
 Voor deze fase van het poject gebruiken we alleen nog een test en acceptatie omgeving, na fase
-* [Test/Acc omgeving (frontend)](https://vng.opencatalogi.nl/)
-* [Test/Acc omgeving (backend)](vng.accept.commonground.nu)
+* [Acc omgeving (frontend)](https://vng.opencatalogi.nl/)
+* [Acc omgeving (backend)](vng.accept.commonground.nu)
+* [Test omgeving (frontend)](https://vng.test.opencatalogi.nl/)
+* [Test omgeving (backend)](vng.test.commonground.nu)
 * [Project Inrichting](https://github.com/VNG-Realisatie/softwarecatalogus/projects?query=is%3Aopen)
 
 ### Contactgegevens betrokkenen:
