@@ -57,7 +57,7 @@
 | 34   |    | Issues + UI doorlopen 🐛🎨 | Data model op orde + Stuugroep 📊  | Kickoff wizards ✨ | Acc deploy 🚀    |
 | 35   | Wizard product + koppeling, DNS 🪄🔗 | Werkgroep + Wizard gebruik, e-Mali 👥📧 | Wizard koppeling 🪄 | e.v.t widget gemeld gebruik 📱 | Acc deploy 🚀     |
 | 36   |    | Werkgroep 🤝 |    |    | Acc deploy 🚀     |
-| 37   |    | Werkgroep 🤝 |    |    | Acc deploy 🚀    |
+| 37   | Werkgroep 🤝   |  |    |    | Acc deploy 🚀    |
 | 38   | Begin gebruikers test 🧪   | Werkgroep 🤝 |    |    |      |
 
 ### Legenda
