@@ -1,4 +1,4 @@
-# Project Bijeenkomst 24/06/2025
+# Project Bijeenkomst 19/08/2025
 
 ## Agenda
 - Mededelingen
