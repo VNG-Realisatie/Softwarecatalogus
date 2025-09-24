@@ -1,0 +1,13 @@
+Alle objecten behouden de uuid de ze krijgen bij het inladen,dat betekend dat ze (mits gepubliceerd) via de voorkant op te vragen zijn. Dat kan op twee manieren:
+
+- Het object opzoeken via de zoek functionaliteit [https://softwarecatalogus.accept.opencatalogi.nl/Zoeken](https://softwarecatalogus.accept.opencatalogi.nl/Zoeken ) 
+- Of direct naar het object toegaan ahv uuid in het import bestand bijvoorbeeld [https://softwarecatalogus.accept.opencatalogi.nl/publicatie/4585af12-7bd0-4357-b298-55e94cef97d1](https://softwarecatalogus.accept.opencatalogi.nl/publicatie/4585af12-7bd0-4357-b298-55e94cef97d1) 
+
+Te testen zaken (buiten de issues om)
+- [ ] volledigheid en juistheid dataimports
+- [ ] volledigheid en werkenheid wizards
+- Issue zo als opgenomen in [https://github.com/orgs/VNG-Realisatie/projects/17/views/3](https://github.com/orgs/VNG-Realisatie/projects/17/views/3)
+
+
+
+Via de achterkant in open registers
