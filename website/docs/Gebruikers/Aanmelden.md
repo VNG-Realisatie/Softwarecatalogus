@@ -1,17 +1,15 @@
 ---
-id: intro
-title: Welkom bij de Softwarecatalogus!👋
-sidebar_label: Over de Softwarecatalogus
+id: aanmelden
+title: Aanmelden bij de Softwarecatalogus
+sidebar_label: Aanmelden
 sidebar_position: 1
-description: De VNG Softwarecatalogus - Het centrale platform voor gemeentelijke software en architectuur informatie
+description: Handleiding voor het aanmelden bij de VNG Softwarecatalogus
 keywords:
+  - aanmelden
+  - registratie
   - softwarecatalogus
   - VNG
-  - gemeenten
-  - software
-  - GEMMA
-  - architectuur
-  - open source
+  - account
 ---
 
 import Tabs from '@theme/Tabs';
@@ -19,5 +17,6 @@ import TabItem from '@theme/TabItem';
 
 # Aanmelden
 
-image.png
 
+
+Nadat u op "Aanmelden" heeft gedrukt kan het heel even duren voordat uw aanmelding is verwerkt.
