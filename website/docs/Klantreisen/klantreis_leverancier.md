@@ -1,10 +1,75 @@
+---
+id: klantreis-leverancier
+title: Klantreis Leverancier
+sidebar_label: Leverancier
+sidebar_position: 4
+description: Klantreis van een leverancier in de GEMMA Softwarecatalogus
+keywords:
+  - klantreis
+  - leverancier
+  - registratie
+  - applicaties
+  - diensten
+  - softwarecatalogus
+  - GEMMA
+---
+
 # 🧭 [Klantreis leverancier](https://github.com/orgs/VNG-Realisatie/projects/17/views/3?filterQuery=label%3A%22Organisatie+en+configuratie%22+label%3A%22PvE+eis%22+&pane=issue&itemId=97109869&issue=VNG-Realisatie%7CSoftwarecatalogus%7C63) – GEMMA Softwarecatalogus
 
 Dit document beschrijft de klantreis van een leverancier in de GEMMA Softwarecatalogus. Per stap kun je een GitHub issue koppelen (bijv. voor feedback, verbeteringen of bugs).
 
+## 📖 Het Verhaal van een Leverancier
+
+*"Ik ben directeur van een ICT-bedrijf dat al jaren software maakt voor gemeenten. We hebben een geweldige applicatie voor vergunningverlening, maar we merken dat gemeenten ons niet altijd kunnen vinden. Dan horen we over de GEMMA Softwarecatalogus - één plek waar alle gemeenten kijken naar software. Dit is onze kans!"*
+
+**De reis van een ambitieuze leverancier die zichtbaar wil worden voor gemeenten...**
+
+## Overzicht Klantreis
+
+```mermaid
+flowchart TD
+    A[Start: Leverancier] --> B[Fase 1: Registratie]
+    B --> B1[1.1 Organisatie aanmelden]
+    B1 --> B2[1.2 Registratie bevestigen via e-mail]
+    B2 --> B3[1.3 Eerste account aanmaken]
+    B3 --> C[Fase 2: Organisatie-inrichting]
+    C --> C1[2.1 Collega's aanmaken]
+    C1 --> C2[2.2 Organisatie-informatie opvoeren]
+    C2 --> D[Fase 3: Applicaties opvoeren]
+    D --> D1[3.1 Applicatie aanmaken]
+    D1 --> D2[3.2 Koppelen aan GEMMA]
+    D2 --> D3[3.3 Versie aanmaken]
+    D3 --> D4[3.4 Hostingtype specificeren]
+    D4 --> D5[3.5 Licentietype kiezen]
+    D5 --> D6[3.6 Diensten koppelen]
+    D6 --> D7[3.7 Documenten uploaden]
+    D7 --> E[Fase 4: Diensten bij andere applicaties]
+    E --> E1[4.1 Applicatie zoeken]
+    E1 --> E2[4.2 Applicatie selecteren]
+    E2 --> E3[4.3 Diensten toevoegen/hergebruiken]
+    E3 --> F[Fase 5: Gemeente informeren]
+    F --> F1[5.1 Overzicht afnemende organisaties]
+    F1 --> F2[5.2 Applicatie/dienst promoten]
+    F2 --> G[Fase 6: Data en inzichten]
+    G --> G1[6.1 Applicatielandschap exporteren]
+    G1 --> G2[6.2 Landschap importeren]
+    G2 --> H[Einde: Leverancier volledig actief]
+    
+    style A fill:#e1f5fe
+    style H fill:#c8e6c9
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style D fill:#e8f5e8
+    style E fill:#fce4ec
+    style F fill:#f1f8e9
+    style G fill:#e3f2fd
+```
+
 ---
 
 ## 🔹 Fase 1: Registratie
+
+*"Ik ga naar de website en zie een aanmeldformulier. Spannend! Ik vul alles in: onze bedrijfsgegevens, wat we doen, welke software we maken. Dan druk ik op 'verzenden' en... wachten maar. Worden we geaccepteerd?"*
 
 | Stapnr | Actie                                 | Beschrijving                                                       | Gerelateerd issue |
 |--------|----------------------------------------|--------------------------------------------------------------------|-------------------|
@@ -12,19 +77,25 @@ Dit document beschrijft de klantreis van een leverancier in de GEMMA Softwarecat
 | 1.2    | Registratie bevestigen (via e-mail)    | Leverancier bevestigt aanmelding via link in e-mail                | [#63](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/63)                 |
 | 1.3    | Eerste account aanmaken (beheerder)    | De eerste gebruiker wordt door de functioneel aangemaakt           | [#63](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/63)                 |
 
+*"Yes! Een e-mail: 'Gefeliciteerd, u bent geaccepteerd!' Ik krijg inloggegevens en kan voor het eerst inloggen. Het voelt als de eerste dag op een nieuwe school - alles is nieuw en opwindend."*
+
 
 ---
 
 ## 🔹 Fase 2: Organisatie-inrichting
 
+*"Nu ik binnen ben, moet ik ons bedrijf goed neerzetten. Ik nodig mijn collega's uit - onze sales manager moet ook toegang hebben, en onze technisch directeur. We vullen ons profiel aan: logo, certificeringen, contactgegevens. Het is net als LinkedIn, maar dan voor gemeentelijke software!"*
+
 | Stapnr | Actie                                  | Beschrijving                                                       | Gerelateerd issue |
 |--------|-----------------------------------------|--------------------------------------------------------------------|-------------------|
-| 2.1    | Collega’s aanmaken                      | Andere gebruikers uitnodigen voor toegang tot de organisatie       | [#73](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/73)                 |
+| 2.1    | Collega's aanmaken                      | Andere gebruikers uitnodigen voor toegang tot de organisatie       | [#73](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/73)                 |
 | 2.2    | Organisatie-informatie opvoeren         | Naam, contactgegevens, certificeringen, et cetera invullen         | [#66](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/66)                 |
 
 ---
 
 ## 🔹 Fase 3: Applicaties opvoeren
+
+*"Dit is het moment waar ik naar heb uitgekeken! Ik ga onze vergunningapplicatie toevoegen. Ik vul alles in: wat het doet, welke GEMMA componenten het ondersteunt, of het SaaS of on-premise is. Het is alsof ik een etalage inricht - alles moet perfect zijn want gemeenten gaan dit zien!"*
 
 | Stapnr | Actie                                  | Beschrijving                                                       | Gerelateerd issue |
 |--------|-----------------------------------------|--------------------------------------------------------------------|-------------------|
@@ -35,6 +106,8 @@ Dit document beschrijft de klantreis van een leverancier in de GEMMA Softwarecat
 | 3.5    | Licentietype kiezen                     | Open source, commercieel, etc.                                     | [#7](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/7)                 |
 | 3.7    | Documenten uploaden                    | Verwerkersovereenkomsten, TPM-verklaringen, et cetera                          | [#43](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/43)                 |
 | 3.6    | Dienst(en) koppelen                     | Direct de eigen diensten kunnen toevoegen                          | [#36](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/36)                 |
+
+*"Klaar! Onze applicatie staat online. Nu kunnen gemeenten ons vinden en zien wat we te bieden hebben. Het voelt als het openen van een nieuwe winkel!"*
 
 ---
 

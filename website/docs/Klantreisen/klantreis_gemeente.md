@@ -1,12 +1,145 @@
+---
+id: klantreis-gemeente
+title: Klantreis Gemeente
+sidebar_label: Gemeente
+sidebar_position: 3
+description: Klantreis van een gemeente in de GEMMA Softwarecatalogus
+keywords:
+  - klantreis
+  - gemeente
+  - applicatielandschap
+  - gebruikersbeheer
+  - diensten
+  - softwarecatalogus
+  - GEMMA
+---
+
 # 🧭 Klantreis gemeente > GEMMA Softwarecatalogus
 
 Dit document beschrijft de klantreis van een gemeente in de GEMMA Softwarecatalogus. Per stap kun je een GitHub issue koppelen (bijv. voor feedback, verbeteringen of bugs).
 
+:::info Gemeente Registratie & Toegang
+- **Aanmaken**: Gemeenten worden aangemaakt door VNG Realisatie, niet door zelfregistratie
+- **Toegang aanvragen**: Gemeentelijke beheerders zonder toegang kunnen contact opnemen met VNG
+- **Toegang verlenen**: VNG geeft toegang of brengt in contact met huidige beheerder
+- **Automatische toegang**: Alle Nederlandse gemeenten hebben in principe toegang (behalve bijzondere gemeenten Caribisch gebied)
+:::
+
+## Overzicht Klantreis
+
+```mermaid
+flowchart TD
+    A[Start: Gemeente] --> B[Gemeente bestaat al in systeem?]
+    B -->|Ja| C[Beheerder heeft toegang?]
+    B -->|Nee| B1[VNG maakt gemeente aan]
+    B1 --> C
+    C -->|Ja| D[Fase 2: Organisatiebeheer]
+    C -->|Nee| C1[Contact opnemen met VNG]
+    C1 --> C2{VNG besluit}
+    C2 -->|Toegang verlenen| C3[VNG geeft toegang]
+    C2 -->|Contact huidige beheerder| C4[VNG brengt in contact met beheerder]
+    C3 --> D
+    C4 --> C5[Huidige beheerder geeft toegang]
+    C5 --> D
+    D --> D1[2.1 Organisatie-informatie opvoeren]
+    C --> C1[2.1 Organisatie-informatie opvoeren]
+    D1 --> D2[2.2 Organisatie toevoegen aan samenwerking]
+    D2 --> D3[2.3 Organisatie verwijderen van samenwerking]
+    D3 --> F[Fase 3: Gebruikersbeheer]
+    F --> F1[3.1 Overzicht gebruikers openen]
+    F1 --> F2[3.2 Nieuwe gebruiker toevoegen]
+    F2 --> F3[3.3 E-mail met inloggegevens]
+    F3 --> F4[3.4 Account activeren]
+    F4 --> G[Fase 4: Applicatielandschap]
+    G --> G1[4.1 Applicatie zoeken]
+    G1 --> G2[4.2 Applicaties vergelijken]
+    G2 --> G3[4.3 Applicatie toevoegen]
+    G3 --> G4[4.4 Niet-geregistreerde applicatie opvoeren]
+    G4 --> G5[4.5 Versie beheren]
+    G5 --> G6[4.6 Koppeling maken]
+    G6 --> G7[4.7 Koppeling verwijderen]
+    G7 --> G8[4.8 Applicatie verwijderen]
+    G8 --> H[Fase 5: Diensten beheren]
+    H --> H1[5.1 Leveranciers zoeken]
+    H1 --> H2[5.2 Dienst toevoegen]
+    H2 --> H3[5.3 Dienstinformatie bewerken]
+    H3 --> H4[5.4 Dienst verwijderen]
+    H4 --> H5[5.5 Dienstverlener beoordelen]
+    H5 --> I[Fase 6: Aanbevelingen]
+    I --> I1[6.1 Meldingen bekijken]
+    I1 --> I2[6.2 Wijzigingen bekijken]
+    I2 --> I3[6.3 Gluren bij de buren]
+    I3 --> I4[6.4 Statistieken bekijken]
+    I4 --> I5[6.5 AI advisering]
+    I5 --> I6[6.6 Informatiestromen inzien]
+    I6 --> I7[6.7 Register van verwerkingen]
+    I7 --> J[Fase 7: Exporteren]
+    J --> J1[7.1 Applicatielandschap overzicht]
+    J1 --> J2[7.2 Filter toepassen]
+    J2 --> J3[7.3 Weergave selecteren]
+    J3 --> J4[7.4 Exporteren als AMEFF]
+    J4 --> J5[7.5 Exporteren als CSV/Excel]
+    J5 --> J6[7.6 Koppelingen als AMEFF]
+    J6 --> J7[7.7 Koppelingen als CSV/Excel]
+    J7 --> K[Fase 8: Koppelen]
+    K --> K1[8.1 Data bijwerken vanuit externe bronnen]
+    K1 --> L[Einde: Gemeente volledig ingericht]
+    
+    style A fill:#e1f5fe
+    style L fill:#c8e6c9
+    style B1 fill:#ffecb3
+    style C1 fill:#ffecb3
+    style C3 fill:#c8e6c9
+    style C4 fill:#fff3e0
+    style D fill:#fff3e0
+    style F fill:#f3e5f5
+    style G fill:#e8f5e8
+    style H fill:#fce4ec
+    style I fill:#f1f8e9
+    style J fill:#e3f2fd
+    style K fill:#fff8e1
+```
+
 ---
 
-## 🔹 Fase 1: Registratie
+## 🔹 Fase 1: Toegang verkrijgen
 
-Registratie komt voor gemeenten niet voor. Alle gemeenten hebben automatisch toegang met uitzondering van de bijzondere gemeenten uit het Caribisch gebied. 
+| Stapnr | Actie | Beschrijving | Gerelateerd issue |
+|--------|-------|--------------|-------------------|
+| 1.1 | Gemeente bestaat controleren | VNG controleert of gemeente al in systeem bestaat | |
+| 1.2 | Gemeente aanmaken (indien nodig) | VNG maakt gemeente aan in het systeem | |
+| 1.3 | Toegang controleren | Controleren of beheerder al toegang heeft | |
+| 1.4 | Contact opnemen met VNG | Beheerder zonder toegang neemt contact op met VNG | |
+| 1.5 | VNG beoordeelt verzoek | VNG besluit over toegang verlenen of doorverwijzen | |
+| 1.6 | Toegang verlenen | VNG geeft direct toegang aan nieuwe beheerder | |
+| 1.7 | Contact met huidige beheerder | VNG brengt in contact met bestaande beheerder | |
+
+:::note Automatische Toegang
+Alle Nederlandse gemeenten hebben in principe toegang tot de softwarecatalogus, met uitzondering van de bijzondere gemeenten uit het Caribisch gebied die apart beoordeeld worden.
+:::
+
+### Toegangsproces voor Gemeentelijke Beheerders
+
+```mermaid
+flowchart TD
+    A[Gemeentelijke beheerder] --> B{Heeft al toegang?}
+    B -->|Ja| C[Direct inloggen]
+    B -->|Nee| D[Contact opnemen met VNG]
+    D --> E{VNG beoordeelt}
+    E -->|Nieuwe beheerder| F[VNG geeft toegang]
+    E -->|Bestaande beheerder aanwezig| G[VNG brengt in contact]
+    F --> H[Toegang verkregen]
+    G --> I[Huidige beheerder geeft toegang]
+    I --> H
+    C --> J[Gemeente beheer starten]
+    H --> J
+    
+    style A fill:#e3f2fd
+    style H fill:#c8e6c9
+    style J fill:#c8e6c9
+    style F fill:#fff3e0
+    style G fill:#fff8e1
+``` 
 
 ---
 

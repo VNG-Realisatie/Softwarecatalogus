@@ -1,6 +1,48 @@
+---
+id: klantreis-functioneel-beheer
+title: Klantreis Functioneel Beheer
+sidebar_label: Functioneel Beheer
+sidebar_position: 2
+description: Klantreis van functioneel beheer in de GEMMA Softwarecatalogus
+keywords:
+  - klantreis
+  - functioneel beheer
+  - beheerders
+  - organisaties
+  - gebruikers
+  - softwarecatalogus
+  - GEMMA
+---
+
 # 🧭 Klantreis functioneel beheer > GEMMA Softwarecatalogus
 
 Dit document beschrijft de klantreis van functioneel beheer in de GEMMA Softwarecatalogus. Per stap kun je een GitHub issue koppelen (bijv. voor feedback, verbeteringen of bugs).
+
+## Overzicht Klantreis
+
+```mermaid
+flowchart TD
+    A[Start: Functioneel Beheer] --> B[Fase 1: Registratie en beheer]
+    B --> B1[1.1 Beoordeel aangemelde organisaties]
+    B1 --> B2[1.2 Voeg samenwerking toe]
+    B2 --> B3[1.3 Verwijder organisatie uit samenwerking]
+    B3 --> B4[1.4 Voeg gebruikers toe]
+    B4 --> C[Fase 2: Organisaties samenvoegen]
+    C --> C1[2.1 Voeg gefuseerde organisaties samen]
+    C1 --> C2[2.2 Voeg applicaties samen]
+    C2 --> D[Fase 3: Inzicht en monitoring]
+    D --> D1[3.1 Controleer conceptpakketten]
+    D1 --> D2[3.2 Genereer rapportages]
+    D2 --> D3[3.3 Raadpleeg gebruikersoverzicht]
+    D3 --> D4[3.4 Menu items en teksten bewerken]
+    D4 --> E[Einde: Beheer voltooid]
+    
+    style A fill:#e1f5fe
+    style E fill:#c8e6c9
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style D fill:#e8f5e8
+```
 
 ---
 

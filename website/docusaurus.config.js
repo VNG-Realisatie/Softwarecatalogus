@@ -59,8 +59,16 @@ const config = {
     ]
   ],
 
+  themes: ['@docusaurus/theme-mermaid'],
+  markdown: {
+    mermaid: true,
+  },
+
   themeConfig:
     {
+      mermaid: {
+        theme: {light: 'neutral', dark: 'forest'},
+      },
       navbar: {
         title: 'VNG Softwarecatalogus',
         logo: {
