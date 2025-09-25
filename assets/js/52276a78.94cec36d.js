@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksoftware_catalogus_docs=self.webpackChunksoftware_catalogus_docs||[]).push([[1825],{9775:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-redoc","id":"gemma"}')}}]);
