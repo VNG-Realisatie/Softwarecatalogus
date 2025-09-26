@@ -58,27 +58,39 @@ flowchart TD
     C4 --> C5[Huidige beheerder geeft toegang]
     C5 --> PARALLEL
     
-    %% Parallelle functionaliteiten
+    %% Basis inrichting
     PARALLEL --> F002[F002 - Organisatie Inrichten]
     PARALLEL --> F003[F003 - Gebruikersbeheer]
-    PARALLEL --> F004[F004 - Applicatiebeheer]
-    PARALLEL --> F005[F005 - Dienstenbeheer]
-    PARALLEL --> F006[F006 - Inzichten en Aanbevelingen]
     
-    %% Convergentie naar export
-    F002 --> F007[F007 - Data Export en Import]
-    F003 --> F007
-    F004 --> F007
-    F005 --> F007
-    F006 --> F007
+    %% Gebruik Software Catalogus (parallelle activiteiten)
+    F002 --> GEBRUIK[Gebruik Software Catalogus]
+    F003 --> GEBRUIK
     
-    F007 --> F008[F008 - Externe Koppelingen]
-    F008 --> END[Maria heeft volledig overzicht]
+    GEBRUIK --> ZOEKEN[Zoeken & Ontdekken]
+    GEBRUIK --> F004[F004 - Gebruik Beheer]
+    GEBRUIK --> F005[F005 - Dienstenbeheer]
+    GEBRUIK --> F010[F010 - Lidmaatschapsbeheer]
+    
+    %% Overige functionaliteiten
+    ZOEKEN --> OVERIG[Overige Functionaliteiten]
+    F004 --> OVERIG
+    F005 --> OVERIG
+    F010 --> OVERIG
+    
+    OVERIG --> F006[F006 - Inzichten en Aanbevelingen]
+    OVERIG --> F007[F007 - Data Export en Import]
+    OVERIG --> F008[F008 - Externe Koppelingen]
+    
+    F006 --> END[Maria heeft volledig overzicht]
+    F007 --> END
+    F008 --> END
     
     %% Styling
     style A fill:#e1f5fe
     style END fill:#c8e6c9
     style PARALLEL fill:#fff3e0
+    style GEBRUIK fill:#e8f5e8
+    style OVERIG fill:#f3e5f5
 ```
 
 ---
@@ -100,15 +112,42 @@ Maria vult de organisatiegegevens aan, zorgt dat contactinformatie klopt, en bek
 
 Maria nodigt relevante collega's uit: de ICT-manager, inkoper, en mogelijk afdelingshoofden die veel met specifieke software werken.
 
-### [F004 - Applicatiebeheer](../Functionaliteiten/F004-applicatiebeheer.md)
-*"Nu het echte werk: ons complete applicatielandschap in kaart brengen."*
+## 🔍 Zoeken & Ontdekken
+*"Voordat ik ons eigen landschap ga invoeren, wil ik eerst eens kijken wat er allemaal beschikbaar is. Misschien gebruiken andere gemeenten software die wij ook zouden kunnen gebruiken, of hebben ze betere alternatieven voor wat wij nu hebben."*
 
-Dit is waar Maria de meeste tijd besteedt. Ze voegt alle applicaties toe die de gemeente gebruikt, zoekt naar alternatieven, vergelijkt oplossingen van andere gemeenten, en brengt koppelingen in kaart.
+Maria verkent de catalogus:
+- **Software zoeken**: Zoeken naar applicaties die andere gemeenten gebruiken
+- **Leveranciers ontdekken**: Nieuwe leveranciers vinden die interessante oplossingen hebben
+- **Vergelijken**: Verschillende oplossingen voor hetzelfde probleem vergelijken
+- **Inspiratie opdoen**: Zien hoe andere gemeenten hun ICT hebben ingericht
+- **Filters gebruiken**: Zoeken op gemeente-type, inwoneraantal, of specifieke domeinen
+
+### [F004 - Gebruik Beheer](../Functionaliteiten/F004-applicatiebeheer.md)
+*"Nu ga ik ons eigen applicatielandschap in kaart brengen. Dit gaat over het gebruik van applicaties - welke software gebruiken we, hoe zijn ze gekoppeld, en hoe tevreden zijn we erover."*
+
+Maria beheert het gebruik van applicaties:
+- **Gebruik registreren**: Applicaties toevoegen die de gemeente gebruikt
+- **Koppelingen documenteren**: Hoe applicaties met elkaar verbonden zijn
+- **Tevredenheid bijhouden**: Beoordelen hoe goed software werkt voor de gemeente
+- **Contracten koppelen**: Licenties en leveranciersinformatie bijhouden
+- **Alternatieven verkennen**: Zoeken naar betere oplossingen voor huidige software
 
 ### [F005 - Dienstenbeheer](../Functionaliteiten/F005-dienstenbeheer.md)
 *"We hebben niet alleen software nodig, maar ook goede leveranciers voor hosting, support en implementatie."*
 
 Maria zoekt leveranciers, voegt diensten toe aan applicaties, en beoordeelt de kwaliteit van dienstverlening.
+
+### [F010 - Lidmaatschapsbeheer](../Functionaliteiten/F010-lidmaatschapsbeheer.md)
+*"Ik zie dat er interessante samenwerkingen zijn waar wij ook bij zouden kunnen aansluiten. En misschien zijn er communities die zich bezighouden met onderwerpen die voor ons relevant zijn."*
+
+Maria beheert lidmaatschappen:
+- **Samenwerkingen verkennen**: Zoeken naar relevante samenwerkingen om bij aan te sluiten
+- **Lidmaatschap aangeven**: Aangeven dat de gemeente lid wil worden van een samenwerking
+- **Communities ontdekken**: Vinden van communities die interessante software ontwikkelen
+- **Voordelen benutten**: Profiteren van gezamenlijke inkoop en kennisdeling
+
+## 🔧 Overige Functionaliteiten
+*"Nu ik de basis op orde heb, kan ik gebruik maken van de meer geavanceerde functies voor analyse, export en integratie."*
 
 ### [F006 - Inzichten en Aanbevelingen](../Functionaliteiten/F006-inzichten-en-aanbevelingen.md)
 *"Dit is waar het interessant wordt - wat kunnen we leren van andere gemeenten?"*

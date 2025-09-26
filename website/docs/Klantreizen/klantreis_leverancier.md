@@ -45,24 +45,40 @@ flowchart TD
     A[Start: Jan ontdekt de catalogus] --> F001[F001 - Toegang Verkrijgen]
     F001 --> PARALLEL[Parallelle Activiteiten]
     
-    %% Parallelle stromen na registratie
+    %% Basis inrichting
     PARALLEL --> F002[F002 - Organisatie Inrichten]
-    PARALLEL --> F004[F004 - Applicatiebeheer]
-    PARALLEL --> F005[F005 - Dienstenbeheer]
+    PARALLEL --> F003[F003 - Gebruikersbeheer]
     
-    %% Convergentie naar promotie
-    F002 --> F006[F006 - Inzichten en Aanbevelingen]
-    F004 --> F006
-    F005 --> F006
+    %% Aanbod beheer
+    F002 --> AANBOD[Aanbod Beheer]
+    F003 --> AANBOD
     
-    %% Data activiteiten
-    F006 --> F007[F007 - Data Export en Import]
-    F007 --> END[Jan heeft succesvolle aanwezigheid]
+    AANBOD --> F004[F004 - Aanbod Beheer]
+    AANBOD --> F005[F005 - Dienstenbeheer]
+    
+    %% Klant beheer
+    F004 --> KLANT[Klant Beheer]
+    F005 --> KLANT
+    KLANT --> F010[F010 - Lidmaatschapsbeheer]
+    KLANT --> GEBRUIK[Gebruik Suggereren]
+    
+    %% Overige functionaliteiten
+    F010 --> OVERIG[Overige Functionaliteiten]
+    GEBRUIK --> OVERIG
+    
+    OVERIG --> F006[F006 - Inzichten en Aanbevelingen]
+    OVERIG --> F007[F007 - Data Export en Import]
+    
+    F006 --> END[Jan heeft succesvolle aanwezigheid]
+    F007 --> END
     
     %% Styling
     style A fill:#e1f5fe
     style END fill:#c8e6c9
     style PARALLEL fill:#fff3e0
+    style AANBOD fill:#e8f5e8
+    style KLANT fill:#f3e5f5
+    style OVERIG fill:#ffecb3
 ```
 
 ---
@@ -76,26 +92,58 @@ Jan meldt zijn bedrijf aan via het registratieformulier, bevestigt zijn e-mail, 
 
 *"Yes! Een e-mail: 'Gefeliciteerd, u bent geaccepteerd!' Ik krijg inloggegevens en kan voor het eerst inloggen. Het voelt als de eerste dag op een nieuwe school - alles is nieuw en opwindend."*
 
-## ◆ Parallelle Activiteiten na Registratie
+### [F003 - Gebruikersbeheer](../Functionaliteiten/F003-gebruikersbeheer.md)
+*"Ik ben niet de enige die met de catalogus gaat werken. Onze sales manager moet klanten kunnen vinden en benaderen, onze technisch directeur moet applicaties kunnen toevoegen, en onze support medewerkers moeten kunnen zien welke klanten welke software gebruiken."*
+
+Jan nodigt zijn team uit en geeft iedereen de juiste rechten voor hun rol.
+
+## 🎯 Aanbod Beheer
 
 ### [F002 - Organisatie Inrichten](../Functionaliteiten/F002-organisatie-inrichten.md)
 *"Nu ik binnen ben, moet ik ons bedrijf goed neerzetten. Ik nodig mijn collega's uit - onze sales manager moet ook toegang hebben, en onze technisch directeur. We vullen ons profiel aan: logo, certificeringen, contactgegevens. Het is net als LinkedIn, maar dan voor gemeentelijke software!"*
 
 Jan richt het bedrijfsprofiel in, nodigt zijn team uit, en zorgt dat alle certificeringen en kwaliteitskeurmerken zichtbaar zijn.
 
-### [F004 - Applicatiebeheer](../Functionaliteiten/F004-applicatiebeheer.md)
-*"Dit is het moment waar ik naar heb uitgekeken! Ik ga onze vergunningapplicatie toevoegen. Ik vul alles in: wat het doet, welke GEMMA componenten het ondersteunt, of het SaaS of on-premise is. Het is alsof ik een etalage inricht - alles moet perfect zijn want gemeenten gaan dit zien!"*
+### [F004 - Aanbod Beheer](../Functionaliteiten/F004-applicatiebeheer.md)
+*"Dit is het moment waar ik naar heb uitgekeken! Ik ga onze software toevoegen aan de catalogus. Dit gaat over het aanmaken en beheren van ons aanbod - applicaties, modules, en alles wat we ontwikkeld hebben."*
 
-Jan voegt hun applicaties toe, koppelt ze aan GEMMA componenten, specificeert hosting opties, en uploadt alle relevante documenten.
+Jan beheert het software-aanbod:
+- **Applicaties aanmaken**: Nieuwe software toevoegen aan de catalogus
+- **Modules toevoegen**: Uitbreidingen en add-ons bij applicaties plaatsen
+- **GEMMA koppeling**: Software koppelen aan relevante GEMMA componenten
+- **Hosting opties**: Specificeren of software SaaS, on-premise, of hybrid is
+- **Documentatie**: Handleidingen, API docs, en technische specificaties uploaden
 
-*"Klaar! Onze applicatie staat online. Nu kunnen gemeenten ons vinden en zien wat we te bieden hebben. Het voelt als het openen van een nieuwe winkel!"*
+*"Het is alsof ik een etalage inricht - alles moet perfect zijn want gemeenten gaan dit zien! Elke applicatie die we toevoegen is een kans om nieuwe klanten te werven."*
 
 ### [F005 - Dienstenbeheer](../Functionaliteiten/F005-dienstenbeheer.md)
 *"Interessant! Ik zie dat er al applicaties van andere leveranciers staan waar wij diensten voor kunnen leveren. We bieden bijvoorbeeld hosting aan, dus ik ga onze hostingdiensten toevoegen bij relevante applicaties."*
 
 Jan ontdekt dat ze niet alleen hun eigen software kunnen promoten, maar ook diensten kunnen aanbieden bij software van anderen.
 
----
+## 👥 Klant Beheer
+*"Nu ik mijn aanbod op orde heb, wil ik actief klanten gaan werven en bestaande klanten beter bedienen. De catalogus biedt interessante mogelijkheden om klanten te vinden en te ondersteunen."*
+
+### Gebruik Suggereren voor Klanten
+*"Ik zie dat gemeente Voorbeeldstad onze vergunningapplicatie nog niet gebruikt, maar wel een vergelijkbare oplossing heeft. Misschien kan ik hen benaderen? En voor onze bestaande klanten kan ik gebruik registreren zodat andere gemeenten zien dat onze software echt wordt gebruikt."*
+
+Jan beheert klantrelaties:
+- **Potentiële klanten identificeren**: Gemeenten vinden die baat zouden hebben bij hun software
+- **Gebruik suggereren**: Voor bestaande klanten gebruik registreren in de catalogus
+- **Referenties tonen**: Laten zien welke gemeenten hun software succesvol gebruiken
+- **Klanten ondersteunen**: Bestaande klanten helpen bij optimaal gebruik
+
+### [F010 - Lidmaatschapsbeheer](../Functionaliteiten/F010-lidmaatschapsbeheer.md)
+*"Ik zie interessante communities die zich bezighouden met onderwerpen waar wij expertise in hebben. Als we lid worden, kunnen we kennis delen en misschien nieuwe samenwerkingen aangaan."*
+
+Jan verkent lidmaatschappen:
+- **Communities verkennen**: Zoeken naar relevante ontwikkelcommunities
+- **Lidmaatschap aangeven**: Aangeven dat het bedrijf lid wil worden
+- **Kennis delen**: Bijdragen aan community projecten en discussies
+- **Netwerk uitbreiden**: Samenwerken met andere leveranciers en gemeenten
+
+## 🔧 Overige Functionaliteiten
+*"Nu ik de basis op orde heb en actief klanten bedien, kan ik gebruik maken van de meer geavanceerde functies voor analyse, promotie en data-uitwisseling."*
 
 ### [F006 - Inzichten en Aanbevelingen](../Functionaliteiten/F006-inzichten-en-aanbevelingen.md)
 *"Een paar weken later krijg ik een melding: 'Gemeente Voorbeeld heeft interesse getoond in uw applicatie!' Dit is fantastisch - de catalogus werkt! Ik kan zien welke gemeenten naar onze software kijken en kan ze direct benaderen. Het is alsof ik een dashboard heb van potentiële klanten."*

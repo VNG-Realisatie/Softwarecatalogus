@@ -18,6 +18,22 @@ keywords:
 
 Dit document beschrijft de klantreis voor **samenwerkingen** en **communities** in de GEMMA Softwarecatalogus.
 
+## 🔍 Onderscheid Samenwerkingen vs Communities
+
+### 🤝 Samenwerkingen
+- **Juridisch kader**: Vast juridisch kader met B&W besluit
+- **Inkoopmacht**: Mogen namens leden inkopen
+- **Gebruik aanmaken**: Kunnen gebruik registreren voor hun leden
+- **Leden**: Voornamelijk gemeenten
+- **Doel**: Gezamenlijk inkopen en beheren van software
+
+### 👥 Communities  
+- **Juridisch kader**: Geen vast juridisch kader
+- **Ontwikkeling**: Gericht op ontwikkelen van software (niet inkopen)
+- **Samenstelling**: Kunnen bestaan uit leveranciers, gemeenten of gemengd
+- **Gebruik**: Mogen **geen** gebruik aanmaken voor leden
+- **Doel**: Kennisdeling en gezamenlijke softwareontwikkeling
+
 ## 👤 Persona: De Samenwerking Coördinator
 
 **Naam**: Linda Bakker  
@@ -44,8 +60,12 @@ Linda coördineert een samenwerking van 8 gemeenten in Noord-Nederland. Ze merkt
 
 :::info Belangrijke kenmerken van Samenwerkingen & Communities
 - **Registratie**: Samenwerkingen en communities kunnen zich **niet zelf registreren**. Ze moeten contact opnemen met VNG Realisatie om te worden toegelaten.
-- **Lidmaatschap**: Ze kunnen niet zelf leden toevoegen, maar beheerders van gemeenten én leveranciers kunnen wel aangeven dat hun organisatie lid is van een samenwerking.
-- **Unieke positie**: Samenwerkingen zijn uniek omdat ze zowel software, modules en diensten kunnen **aanbieden** als **gebruik kunnen aanmelden** voor hun leden.
+- **Lidmaatschap**: Ze kunnen niet zelf leden toevoegen, maar beheerders van gemeenten én leveranciers kunnen wel aangeven dat hun organisatie lid is van een samenwerking/community.
+- **Lidmaatschap aansporen**: Het is aan de samenwerkingen/communities zelf om hun leden aan te sporen het lidmaatschap op de softwarecatalogus aan te geven.
+- **Uitstappen**: Organisaties kunnen zelf ook uit een lidmaatschap stappen.
+- **Unieke posities**: 
+  - **Samenwerkingen** zijn uniek omdat ze zowel software kunnen **aanbieden** als **gebruik kunnen aanmelden** voor hun leden (dankzij juridisch kader)
+  - **Communities** richten zich op ontwikkeling en mogen **geen gebruik** voor leden aanmelden
 :::
 
 ## Overzicht Klantreis
@@ -54,7 +74,8 @@ Linda coördineert een samenwerking van 8 gemeenten in Noord-Nederland. Ze merkt
 flowchart TD
     A[Start: Linda ontdekt mogelijkheden] --> F001[F001 - Toegang Verkrijgen]
     F001 --> F002[F002 - Organisatie Inrichten]
-    F002 --> F004[F004 - Applicatiebeheer]
+    F002 --> F010[F010 - Lidmaatschapsbeheer]
+    F010 --> F004[F004 - Applicatiebeheer]
     F004 --> GROWTH[Groei en Onderhoud]
     GROWTH --> END[Linda heeft succesvolle samenwerking]
     
@@ -78,7 +99,8 @@ Linda doorloopt het toelatingsprces:
 *"Gefeliciteerd! Jullie aanvraag is goedgekeurd. We gaan jullie organisatie aanmaken in het systeem en jullie eerste beheerder toegang geven."*
 
 ### [F002 - Organisatie Inrichten](../Functionaliteiten/F002-organisatie-inrichten.md)
-*"Een week later krijgen we een e-mail: 'Jullie organisatie staat nu in het systeem!' We loggen voor het eerst in en zien ons eigen dashboard. Het voelt als de sleutel krijgen van een nieuw huis - alles is mogelijk, maar we moeten nog leren hoe alles werkt."*
+*"Een week later krijgen we een e-mail: 'Jullie organisatie staat nu in het s
+ysteem!' We loggen voor het eerst in en zien ons eigen dashboard. Het voelt als de sleutel krijgen van een nieuw huis - alles is mogelijk, maar we moeten nog leren hoe alles werkt."*
 
 Linda richt de samenwerking in:
 - Organisatieprofiel completeren
@@ -86,6 +108,17 @@ Linda richt de samenwerking in:
 - Contactpersonen instellen
 
 *"Nu begint het echte werk. We bellen onze aangesloten gemeenten: 'Hé, we staan nu in de softwarecatalogus! Kunnen jullie aangeven dat jullie lid zijn van onze samenwerking?' Het is een beetje als het organiseren van een reünie - iedereen moet zich aanmelden voordat het feest kan beginnen."*
+
+### [F010 - Lidmaatschapsbeheer](../Functionaliteiten/F010-lidmaatschapsbeheer.md)
+*"Dit is cruciaal voor ons als samenwerking. We moeten onze leden actief aansporen om hun lidmaatschap aan te geven in de catalogus. Alleen dan kunnen we namens hen gebruik aanmelden en echt waarde toevoegen. We starten een campagne: bellen, mailen, en zelfs persoonlijke bezoeken om ervoor te zorgen dat alle 8 gemeenten hun lidmaatschap registreren."*
+
+Linda beheert het lidmaatschap:
+- **Leden werven**: Actief benaderen van de 8 aangesloten gemeenten
+- **Lidmaatschap aansporen**: Gemeenten helpen bij het aangeven van lidmaatschap
+- **Lidmaatschappen bevestigen**: Inkomende verzoeken beoordelen en goedkeuren
+- **Nieuwe leden**: Uitbreiden naar andere gemeenten in de regio
+
+*"Het is geweldig om te zien hoe één voor één onze gemeenten hun lidmaatschap bevestigen. Elke bevestiging betekent dat we een stap dichter bij ons doel komen: samen sterker staan dan alleen. En het mooie is, als een gemeente later besluit om uit te stappen, kunnen ze dat zelf doen - we dwingen niemand."*
 
 ### [F004 - Applicatiebeheer](../Functionaliteiten/F004-applicatiebeheer.md)
 *"Dit is waar het interessant wordt! We hebben onze eigen software ontwikkeld voor burgerzaken die perfect werkt. Die gaan we aanbieden aan andere gemeenten. Maar tegelijkertijd zien we dat gemeente A een geweldige financiële applicatie gebruikt - die gaan we aanmelden voor al onze leden. We zijn tegelijk winkelier én klant!"*
