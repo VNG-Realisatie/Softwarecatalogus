@@ -12,7 +12,7 @@ keywords:
 
 # Overzicht Functionaliteiten
 
-De GEMMA Softwarecatalogus bestaat uit 11 hoofdfunctionaliteiten die door verschillende typen gebruikers worden gebruikt. Hieronder een overzicht:
+De GEMMA Softwarecatalogus bestaat uit 12 hoofdfunctionaliteiten die door verschillende typen gebruikers worden gebruikt. Hieronder een overzicht:
 
 ## Functionaliteiten Matrix
 
@@ -29,6 +29,7 @@ De GEMMA Softwarecatalogus bestaat uit 11 hoofdfunctionaliteiten die door versch
 | [F008 - Externe Koppelingen](./F008-externe-koppelingen.md) | ✅ Synchronisatie | ❌ N.v.t. | ❌ N.v.t. | ❌ N.v.t. |
 | [F009 - Beheer en Configuratie](./F009-beheer-en-configuratie.md) | ❌ N.v.t. | ❌ N.v.t. | ❌ N.v.t. | ✅ Systeem beheer |
 | [F010 - Lidmaatschapsbeheer](./F010-lidmaatschapsbeheer.md) | ✅ Lid worden | ✅ Leden beheren | ✅ Lid worden | ✅ Ondersteuning |
+| [F011 - Zoeken & Ontdekken](./F011-zoeken-en-ontdekken.md) | ✅ Software zoeken | ✅ Oplossingen vinden | ✅ Marktonderzoek | ✅ Overzicht |
 
 ## Functionaliteiten Flow
 
@@ -40,6 +41,7 @@ flowchart TD
     F002 --> F003[F003 - Gebruikersbeheer]
     
     F003 --> PARALLEL[Parallelle Functionaliteiten]
+    PARALLEL --> F011[F011 - Zoeken & Ontdekken]
     PARALLEL --> F004[F004 - Applicatiebeheer]
     PARALLEL --> F005[F005 - Dienstenbeheer]
     PARALLEL --> F006[F006 - Inzichten en Aanbevelingen]
@@ -62,6 +64,7 @@ flowchart TD
     F009 -.-> F007
     F009 -.-> F008
     F009 -.-> F010
+    F009 -.-> F011
     
     style F000 fill:#f3e5f5
     style F001 fill:#e1f5fe
@@ -75,22 +78,22 @@ flowchart TD
 ### 🏛️ Gemeenten
 Gemeenten gebruiken de catalogus om hun applicatielandschap te beheren, software te zoeken, en inzichten te verkrijgen over hun ICT-omgeving.
 
-**Primaire functionaliteiten**: F000, F001, F002, F003, F004, F005, F006, F007, F008, F010
+**Primaire functionaliteiten**: F000, F001, F002, F003, F004, F005, F006, F007, F008, F010, F011
 
 ### 🤝 Samenwerkingen & Communities
 Samenwerkingen hebben een unieke positie als zowel aanbieder als afnemer van software voor hun leden.
 
-**Primaire functionaliteiten**: F000, F001, F002, F004, F010
+**Primaire functionaliteiten**: F000, F001, F002, F004, F010, F011
 
 ### 🏢 Leveranciers
 Leveranciers gebruiken de catalogus om hun software zichtbaar te maken voor gemeenten en diensten aan te bieden.
 
-**Primaire functionaliteiten**: F000, F001, F002, F003, F004, F005, F006, F007, F010
+**Primaire functionaliteiten**: F000, F001, F002, F003, F004, F005, F006, F007, F010, F011
 
 ### ⚙️ Functioneel Beheer
 VNG medewerkers die de catalogus beheren en organisaties ondersteunen.
 
-**Primaire functionaliteiten**: F000, F001, F002, F003, F004, F006, F007, F009, F010
+**Primaire functionaliteiten**: F000, F001, F002, F003, F004, F006, F007, F009, F010, F011
 
 ## Implementatie Volgorde
 

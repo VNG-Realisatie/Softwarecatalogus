@@ -23,20 +23,20 @@ Dit document beschrijft de klantreis van een leverancier in de GEMMA Softwarecat
 **Naam**: Jan Pietersen  
 **Functie**: Directeur ICT Solutions BV  
 **Ervaring**: 15 jaar gemeentelijke software  
-**Motivatie**: "Ik wil dat gemeenten ons gemakkelijk kunnen vinden en zien wat we te bieden hebben. We maken goede software, maar marketing is niet onze sterkste kant."
+**Motivatie**: "Als kleine speler is het onmogelijk om alle 342 gemeenten te bereiken. De GEMMA Softwarecatalogus is onze kans om in één keer zichtbaar te zijn voor de hele gemeentelijke markt - dat is goud waard!"
 
 ### Achtergrond
-Jan runt een middelgroot ICT-bedrijf dat gespecialiseerd is in software voor gemeenten. Ze hebben een uitstekende vergunningapplicatie ontwikkeld, maar merken dat gemeenten hen niet altijd weten te vinden. Ze horen van klanten over andere leveranciers en realiseren zich dat ze meer zichtbaar moeten zijn in de markt.
+Jan runt een klein ICT-bedrijf (8 medewerkers) dat gespecialiseerd is in software voor gemeenten. Ze hebben een uitstekende vergunningapplicatie ontwikkeld die bij 15 gemeenten draait, maar als kleine speler hebben ze geen budget voor grote marketing campagnes. Ze kunnen niet alle gemeenten individueel benaderen - dat zou jaren kosten. Ze zoeken naar een manier om hun software onder de aandacht te brengen van alle gemeenten tegelijk.
 
 ### Doelen
-- Zichtbaarheid vergroten bij gemeenten
-- Nieuwe klanten werven
-- Bestaande klanten beter bedienen
-- Samenwerken met andere leveranciers
+- **Etalage functie**: Software zichtbaar maken voor alle 342+ gemeenten
+- **Directe markttoegång**: In één keer bereik krijgen tot de hele gemeentelijke markt
+- **Gelijke kansen**: Als kleine speler concurreren met grote leveranciers
+- **Efficiënte klantwerving**: Gemeenten laten ons vinden in plaats van andersom
 
 ## 📖 Het Verhaal van Jan
 
-*"We maken al jaren software voor gemeenten. Onze vergunningapplicatie draait bij 15 gemeenten en ze zijn er heel tevreden over. Maar we merken dat nieuwe gemeenten ons niet vinden. Dan horen we over de GEMMA Softwarecatalogus - één plek waar alle gemeenten kijken naar software. Dit is onze kans om echt zichtbaar te worden!"*
+*"We maken al jaren uitstekende software voor gemeenten. Onze vergunningapplicatie draait bij 15 gemeenten en ze zijn er heel tevreden over. Maar als klein bedrijf kunnen we niet alle 342 gemeenten individueel benaderen - dat zou onbetaalbaar zijn. Dan horen we over de GEMMA Softwarecatalogus: dé digitale etalage waar alle gemeenten naar software zoeken. Dit is onze gouden kans! In plaats van dat wij alle gemeenten moeten vinden, kunnen zij ons nu vinden. Het is alsof we een winkelpand krijgen op de drukste winkelstraat van Nederland - maar dan voor gemeentelijke software!"*
 
 ## Overzicht Klantreis
 
@@ -49,23 +49,22 @@ flowchart TD
     PARALLEL --> F002[F002 - Organisatie Inrichten]
     PARALLEL --> F003[F003 - Gebruikersbeheer]
     
-    %% Aanbod beheer
-    F002 --> AANBOD[Aanbod Beheer]
-    F003 --> AANBOD
+    %% Parallelle activiteiten na basis inrichting
+    F002 --> PARALLEL2[Parallelle Leverancier Activiteiten]
+    F003 --> PARALLEL2
     
+    %% Aanbod beheer (parallel)
+    PARALLEL2 --> AANBOD[Aanbod Beheer]
     AANBOD --> F004[F004 - Aanbod Beheer]
     AANBOD --> F005[F005 - Dienstenbeheer]
     
-    %% Klant beheer
-    F004 --> KLANT[Klant Beheer]
-    F005 --> KLANT
+    %% Klant beheer (parallel)
+    PARALLEL2 --> KLANT[Klant Beheer]
     KLANT --> F010[F010 - Lidmaatschapsbeheer]
     KLANT --> GEBRUIK[Gebruik Suggereren]
     
-    %% Overige functionaliteiten
-    F010 --> OVERIG[Overige Functionaliteiten]
-    GEBRUIK --> OVERIG
-    
+    %% Overige functionaliteiten (parallel)
+    PARALLEL2 --> OVERIG[Overige Functionaliteiten]
     OVERIG --> F006[F006 - Inzichten en Aanbevelingen]
     OVERIG --> F007[F007 - Data Export en Import]
     
@@ -76,6 +75,7 @@ flowchart TD
     style A fill:#e1f5fe
     style END fill:#c8e6c9
     style PARALLEL fill:#fff3e0
+    style PARALLEL2 fill:#f0f0f0
     style AANBOD fill:#e8f5e8
     style KLANT fill:#f3e5f5
     style OVERIG fill:#ffecb3
@@ -105,16 +105,23 @@ Jan nodigt zijn team uit en geeft iedereen de juiste rechten voor hun rol.
 Jan richt het bedrijfsprofiel in, nodigt zijn team uit, en zorgt dat alle certificeringen en kwaliteitskeurmerken zichtbaar zijn.
 
 ### [F004 - Aanbod Beheer](../Functionaliteiten/F004-applicatiebeheer.md)
-*"Dit is het moment waar ik naar heb uitgekeken! Ik ga onze software toevoegen aan de catalogus. Dit gaat over het aanmaken en beheren van ons aanbod - applicaties, modules, en alles wat we ontwikkeld hebben."*
+*"Dit is het moment waar ik naar heb uitgekeken! Ik ga onze digitale etalage inrichten. Elke gemeente in Nederland kan straks onze software vinden - dat is de kracht van deze catalogus. Als kleine speler krijg ik dezelfde zichtbaarheid als de grote jongens!"*
 
-Jan beheert het software-aanbod:
-- **Applicaties aanmaken**: Nieuwe software toevoegen aan de catalogus
-- **Modules toevoegen**: Uitbreidingen en add-ons bij applicaties plaatsen
-- **GEMMA koppeling**: Software koppelen aan relevante GEMMA componenten
-- **Hosting opties**: Specificeren of software SaaS, on-premise, of hybrid is
-- **Documentatie**: Handleidingen, API docs, en technische specificaties uploaden
+Jan richt zijn digitale etalage in:
+- **🏪 Etalage inrichten**: Software aantrekkelijk presenteren voor alle gemeenten
+- **📱 Applicaties showcasen**: Onze vergunningapplicatie prominent neerzetten
+- **🧩 Modules uitstallen**: Uitbreidingen en add-ons zichtbaar maken
+- **🔗 GEMMA koppeling**: Aantonen welke GEMMA componenten we ondersteunen
+- **☁️ Hosting opties**: Duidelijk maken: SaaS, on-premise, of hybrid
+- **📚 Verkoopmateriaal**: Screenshots, demo's, case studies uploaden
 
-*"Het is alsof ik een etalage inricht - alles moet perfect zijn want gemeenten gaan dit zien! Elke applicatie die we toevoegen is een kans om nieuwe klanten te werven."*
+*"Het is net als een fysieke winkel - de etalage moet perfect zijn! Maar dan wel een etalage die door alle 342+ gemeenten bekeken wordt. Elke gemeente die op zoek is naar vergunningssoftware zal ons nu vinden. Dat is onbetaalbare exposure voor een klein bedrijf zoals wij!"*
+
+**De kracht van de catalogus voor kleine leveranciers:**
+- 🎯 **Directe toegang** tot alle gemeenten zonder dure marketing
+- ⚖️ **Gelijke kansen** - kleine en grote leveranciers krijgen dezelfde zichtbaarheid  
+- 🔍 **Vindbaar zijn** in plaats van zelf zoeken naar klanten
+- 💰 **Kosteneffectief** - geen dure sales teams of marketing campagnes nodig
 
 ### [F005 - Dienstenbeheer](../Functionaliteiten/F005-dienstenbeheer.md)
 *"Interessant! Ik zie dat er al applicaties van andere leveranciers staan waar wij diensten voor kunnen leveren. We bieden bijvoorbeeld hosting aan, dus ik ga onze hostingdiensten toevoegen bij relevante applicaties."*
@@ -146,9 +153,16 @@ Jan verkent lidmaatschappen:
 *"Nu ik de basis op orde heb en actief klanten bedien, kan ik gebruik maken van de meer geavanceerde functies voor analyse, promotie en data-uitwisseling."*
 
 ### [F006 - Inzichten en Aanbevelingen](../Functionaliteiten/F006-inzichten-en-aanbevelingen.md)
-*"Een paar weken later krijg ik een melding: 'Gemeente Voorbeeld heeft interesse getoond in uw applicatie!' Dit is fantastisch - de catalogus werkt! Ik kan zien welke gemeenten naar onze software kijken en kan ze direct benaderen. Het is alsof ik een dashboard heb van potentiële klanten."*
+*"Dit is waar de magie gebeurt! Een paar weken later krijg ik meldingen: 'Gemeente Almere heeft interesse getoond in uw applicatie!', 'Gemeente Zwolle heeft uw product bekeken', 'Gemeente Enschede heeft contact opgenomen'. Dit is ongelooflijk - gemeenten vinden ons nu! Als kleine leverancier hadden we deze gemeenten nooit kunnen bereiken met traditionele marketing."*
 
-Jan gebruikt de promotie functionaliteiten om zijn software onder de aandacht te brengen en krijgt inzicht in welke gemeenten interesse tonen.
+Jan ervaart de kracht van de etalage functie:
+- **📊 Interesse tracking**: Zien welke gemeenten naar onze software kijken
+- **🎯 Gerichte benadering**: Direct contact opnemen met geïnteresseerde gemeenten  
+- **📈 Markt inzichten**: Begrijpen wat gemeenten zoeken
+- **🏆 Concurrentie analyse**: Zien hoe we presteren ten opzichte van anderen
+- **💡 AI aanbevelingen**: Suggesties voor betere zichtbaarheid
+
+*"Het is alsof ik een dashboard heb van de hele gemeentelijke markt! Ik zie precies welke gemeenten op zoek zijn naar vergunningssoftware, welke alternatieven ze bekijken, en kan ze direct benaderen. Voor een klein bedrijf is dit goud waard - we hebben nu dezelfde marktinformatie als de grote spelers!"*
 
 ### [F007 - Data Export en Import](../Functionaliteiten/F007-data-export-import.md)
 *"Nu we actief zijn in de catalogus, willen we ook data kunnen uitwisselen. We kunnen ons applicatielandschap exporteren om te delen met partners, en we kunnen landschappen importeren van gemeenten die met ons willen samenwerken."*
@@ -167,22 +181,3 @@ Na het doorlopen van deze reis heeft Jan:
 - ✅ Professionele uitstraling richting gemeenten
 
 *"De softwarecatalogus heeft ons bedrijf echt op de kaart gezet. We krijgen nu regelmatig aanvragen van gemeenten die ons gevonden hebben via de catalogus. Het is de beste marketing investering die we ooit hebben gedaan - en het kost ons niets!"*
-
-## 🎯 Voordelen van Parallelle Aanpak
-
-Het parallelle model voor leveranciers biedt verschillende voordelen:
-
-### ⚡ **Efficiëntie**
-- Teams kunnen gelijktijdig werken aan verschillende aspecten
-- Snellere time-to-market voor nieuwe applicaties
-- Optimaal gebruik van beschikbare resources
-
-### 🎯 **Flexibiliteit**
-- Prioriteiten kunnen worden aangepast zonder andere stromen te blokkeren
-- Verschillende teamleden kunnen zich focussen op hun expertise
-- Iteratieve verbetering van verschillende onderdelen
-
-### 📈 **Schaalbaarheid**
-- Nieuwe applicaties kunnen worden toegevoegd zonder bestaande te verstoren
-- Organisatie-informatie kan worden bijgewerkt onafhankelijk van productlanceringen
-- Diensten kunnen worden uitgebreid naar meerdere applicaties tegelijk

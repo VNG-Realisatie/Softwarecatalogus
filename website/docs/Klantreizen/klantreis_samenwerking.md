@@ -153,10 +153,11 @@ Samenwerkingen hebben een unieke positie in de softwarecatalogus:
 ```mermaid
 flowchart LR
     A[Gemeente/Leverancier] --> B[Geeft lidmaatschap aan]
-    B --> C[Samenwerking bevestigt]
-    C --> D[Lid toegevoegd aan samenwerking]
+    B --> C[Direct zichtbaar in catalogus]
+    C --> D[Kan profiteren van voordelen]
     
     style A fill:#e3f2fd
+    style C fill:#fff3e0
     style D fill:#c8e6c9
 ```
 

@@ -49,7 +49,7 @@ flowchart TD
     B -->|Ja| C[Beheerder heeft toegang?]
     B -->|Nee| B1[VNG maakt gemeente aan]
     B1 --> C
-    C -->|Ja| PARALLEL[Parallelle Functionaliteiten]
+    C -->|Ja| PARALLEL[Gebruik Software Catalogus]
     C -->|Nee| C1[Contact opnemen met VNG]
     C1 --> C2{VNG besluit}
     C2 -->|Toegang verlenen| C3[VNG geeft toegang]
@@ -63,16 +63,16 @@ flowchart TD
     PARALLEL --> F003[F003 - Gebruikersbeheer]
     
     %% Gebruik Software Catalogus (parallelle activiteiten)
-    F002 --> GEBRUIK[Gebruik Software Catalogus]
-    F003 --> GEBRUIK
+    F002 --> PARALLEL
+    F003 --> PARALLEL
     
-    GEBRUIK --> ZOEKEN[Zoeken & Ontdekken]
-    GEBRUIK --> F004[F004 - Gebruik Beheer]
-    GEBRUIK --> F005[F005 - Dienstenbeheer]
-    GEBRUIK --> F010[F010 - Lidmaatschapsbeheer]
+    PARALLEL --> F011[F011 - Zoeken & Ontdekken]
+    PARALLEL --> F004[F004 - Gebruik Beheer]
+    PARALLEL --> F005[F005 - Dienstenbeheer]
+    PARALLEL --> F010[F010 - Lidmaatschapsbeheer]
     
     %% Overige functionaliteiten
-    ZOEKEN --> OVERIG[Overige Functionaliteiten]
+    F011 --> OVERIG[Overige Functionaliteiten]
     F004 --> OVERIG
     F005 --> OVERIG
     F010 --> OVERIG
@@ -88,8 +88,7 @@ flowchart TD
     %% Styling
     style A fill:#e1f5fe
     style END fill:#c8e6c9
-    style PARALLEL fill:#fff3e0
-    style GEBRUIK fill:#e8f5e8
+    style PARALLEL fill:#e8f5e8
     style OVERIG fill:#f3e5f5
 ```
 
@@ -112,7 +111,7 @@ Maria vult de organisatiegegevens aan, zorgt dat contactinformatie klopt, en bek
 
 Maria nodigt relevante collega's uit: de ICT-manager, inkoper, en mogelijk afdelingshoofden die veel met specifieke software werken.
 
-## 🔍 Zoeken & Ontdekken
+### [F011 - Zoeken & Ontdekken](../Functionaliteiten/F011-zoeken-en-ontdekken.md)
 *"Voordat ik ons eigen landschap ga invoeren, wil ik eerst eens kijken wat er allemaal beschikbaar is. Misschien gebruiken andere gemeenten software die wij ook zouden kunnen gebruiken, of hebben ze betere alternatieven voor wat wij nu hebben."*
 
 Maria verkent de catalogus:
