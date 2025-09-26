@@ -48,8 +48,7 @@ flowchart TD
     F005 --> SECURITY
     F006 --> SECURITY
     
-    SECURITY --> F007[F007 - Data Export en Import]
-    F007 --> END[Mark heeft security overzicht]
+    SECURITY --> END[Mark heeft security overzicht]
     
     style A fill:#e1f5fe
     style END fill:#c8e6c9

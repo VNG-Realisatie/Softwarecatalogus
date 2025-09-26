@@ -1,80 +1,101 @@
 ---
-id: f006-inzichten-en-aanbevelingen
-title: F006 - Inzichten en Aanbevelingen
-sidebar_label: F006 - Inzichten en Aanbevelingen
+id: f006-reviews-en-community-feedback
+title: F006 - Reviews en Community Feedback
+sidebar_label: F006 - Reviews en Community Feedback
 sidebar_position: 6
-description: Functionaliteit voor het verkrijgen van inzichten en aanbevelingen
+description: Functionaliteit voor het schrijven en lezen van reviews, beoordelingen en community feedback
 keywords:
-  - inzichten
-  - aanbevelingen
-  - AI
-  - statistieken
+  - reviews
+  - beoordelingen
+  - community
+  - feedback
+  - ervaringen
+  - gebruikersmeldingen
 ---
 
-# F006 - Inzichten en Aanbevelingen
+# F006 - Reviews en Community Feedback
 
 ## Beschrijving
-Deze functionaliteit beschrijft hoe gebruikers inzichten kunnen verkrijgen en aanbevelingen kunnen ontvangen over hun applicatielandschap.
+Deze functionaliteit beschrijft hoe gebruikers reviews kunnen schrijven, beoordelingen kunnen geven en community feedback kunnen delen over software, leveranciers en diensten. Het gaat om peer-to-peer informatie uitwisseling tussen gebruikers.
 
 ## Toepasselijk voor
-- 🏛️ **Gemeenten**: Meldingen bekijken, benchmarking, AI-adviezen
-- 🤝 **Samenwerkingen & Communities**: Niet direct van toepassing
-- 🏢 **Leveranciers**: Overzicht van afnemende organisaties, promotie
-- ⚙️ **Functioneel Beheer**: Rapportages genereren, statistieken
+- 🏛️ **Gemeenten**: Reviews schrijven/lezen, ervaringen delen, meldingen bekijken
+- 🤝 **Samenwerkingen & Communities**: Community feedback faciliteren, ervaringen bundelen
+- 🏢 **Leveranciers**: Reviews ontvangen, feedback verwerken, reputatie beheren
+- ⚙️ **Functioneel Beheer**: Review moderatie, feedback trends analyseren
 
 ## Processtappen
 
-### Voor Gemeenten
+### Voor Gemeenten (Reviews schrijven/lezen)
 | Stap | Actie | Beschrijving |
 |------|-------|--------------|
-| 6.1 | Meldingen bekijken | Bekijk meldingen over wijzigingen van leveranciers |
-| 6.2 | Wijzigingen bekijken | Bekijk wijzigingen zoals nieuwe versie, beëindiging ondersteuning |
-| 6.3 | Gluren bij de buren | Bekijk welke applicaties door andere gemeenten in gebruik zijn |
-| 6.4 | Statistieken bekijken | Inzicht in gebruik van de softwarecatalogus |
-| 6.5 | AI advisering | Nieuwe inzichten via AI |
-| 6.6 | Informatiestromen inzien | Diagrammen van informatiestromen tussen applicaties |
-| 6.7 | Register van verwerkingen | Genereren van een register van verwerkingen |
+| 6.1 | Software beoordelen | Beoordeling geven aan software die in gebruik is (sterren + tekst) |
+| 6.2 | Review schrijven | Uitgebreide review schrijven over ervaringen met software/leverancier |
+| 6.3 | Meldingen bekijken | Bekijk meldingen over wijzigingen van leveranciers |
+| 6.4 | Gluren bij de buren | Bekijk welke applicaties door andere gemeenten in gebruik zijn |
+| 6.5 | Reviews lezen | Lees ervaringen van andere gemeenten met software/leveranciers |
+| 6.6 | Vragen stellen | Stel vragen aan andere gebruikers over hun ervaringen |
 
-### Voor Leveranciers
+### Voor Leveranciers (Feedback ontvangen)
 | Stap | Actie | Beschrijving |
 |------|-------|--------------|
-| 6.1 | Overzicht afnemende organisaties | Inzicht wie mijn applicaties hebben opgevoerd |
-| 6.2 | Applicatie/dienst promoten | Een dienst of applicatie delen met gemeenten via catalogus |
+| 6.1 | Reviews bekijken | Bekijk reviews en beoordelingen van klanten |
+| 6.2 | Feedback verwerken | Reageer op feedback en verbeter dienstverlening |
+| 6.3 | Overzicht afnemende organisaties | Inzicht wie mijn applicaties hebben opgevoerd |
+| 6.4 | Applicatie/dienst promoten | Een dienst of applicatie delen met gemeenten via catalogus |
+
+### Voor Samenwerkingen & Communities
+| Stap | Actie | Beschrijving |
+|------|-------|--------------|
+| 6.1 | Leden ervaringen bundelen | Verzamel en deel ervaringen van leden |
+| 6.2 | Gezamenlijke beoordelingen | Faciliteer gezamenlijke evaluaties van software |
+| 6.3 | Best practices delen | Deel succesvolle implementaties en lessons learned |
 
 ### Voor Functioneel Beheer
 | Stap | Actie | Beschrijving |
 |------|-------|--------------|
-| 6.1 | Genereer rapportages | Maak rapportages over het gebruik en de datakwaliteit |
-| 6.2 | Menu items en teksten bewerken | Bewerken van menu's, pagina's en teksten |
+| 6.1 | Review moderatie | Modereer reviews op kwaliteit en geschiktheid |
+| 6.2 | Feedback trends analyseren | Analyseer patronen in gebruikersfeedback |
+| 6.3 | Rapportages genereren | Maak rapportages over gebruikerstevredenheid |
 
 ## Gerelateerde Issues
 - [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) - Meldingen
 - [#20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) - Gluren bij de buren
 - [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19) - Benchmarking
-- [#32](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/32) - Statistieken
-- [#13](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/13) - AI advisering
-- [#53](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/53) - AI inzichten
-- [#51](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/51) - Informatiestromen
-- [#82](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/82) - Register van verwerkingen
 - [#8](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/8) - Afnemende organisaties
 - [#10](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/10) - Promotie
-- [#75](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/75) - Rapportages
-- [#28](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/28) - Menu bewerken
-- [#29](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/29) - Pagina's bewerken
-- [#30](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/30) - Teksten bewerken
+- [#75](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/75) - Rapportages (voor feedback trends)
 
 ## Autorisatie Matrix
 
 | Functionaliteit | Aanbod-beheerder | Gebruik-beheerder | Gebruik-raadpleger | Functioneel beheerder | VNG-raadpleger | Bezoeker |
 |------------------|------------------|-------------------|--------------------|-----------------------|----------------|----------|
-| **Tonen statistieken gebruik** | ✅ (van eigen pakketten) | ✅ | ✅ | ✅ (alles) | ❌ | ❌ |
-| **Filteren pakketoverzicht** | ❌ | ✅ (eigen overzicht) | ❌ | ✅ | ❌ | ❌ |
-| **Database toegang informatietool** | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
-| **Raadplegen aanbod API** | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| **Reviews schrijven** | ✅ (eigen software) | ✅ (eigen organisatie) | ❌ | ✅ (moderatie) | ❌ | ❌ |
+| **Reviews lezen** | ✅ (alle) | ✅ (alle) | ✅ (alle) | ✅ (alle) | ✅ (alle) | ✅ (publieke) |
+| **Beoordelingen geven** | ✅ (eigen software) | ✅ (eigen organisatie) | ❌ | ✅ (moderatie) | ❌ | ❌ |
+| **Meldingen bekijken** | ✅ (eigen software) | ✅ (eigen organisatie) | ✅ (eigen organisatie) | ✅ (alle) | ✅ (alle) | ❌ |
+| **Community vragen stellen** | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ |
+| **Review moderatie** | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 
-### Detailering
-- [Gebruik View](https://vng-realisatie.github.io/Softwarecatalogus-Archi-repository/id-5af2e6f1-0ffa-403a-b8e5-1bf6153acfe1/views/id-8f3fd01f6b974c0f85e43f514225e973.html)
-- [Managementinformatie View](https://vng-realisatie.github.io/Softwarecatalogus-Archi-repository/id-5af2e6f1-0ffa-403a-b8e5-1bf6153acfe1/views/id-6071c57cc54647b8b82a29df8c170bcf.html)
+## Gebruikershandleidingen
+
+### Review Schrijven
+
+1. **Ga naar de software** die je wilt beoordelen
+2. **Klik op 'Review schrijven'** 
+3. **Geef een sterren beoordeling** (1-5 sterren)
+4. **Schrijf je ervaring** in de tekstveld
+5. **Voeg tags toe** (optioneel: implementatie, support, gebruiksvriendelijkheid)
+6. **Publiceer je review**
+
+### Reviews Lezen
+
+1. **Ga naar een software pagina**
+2. **Scroll naar de reviews sectie**
+3. **Filter reviews** op sterren, datum, of organisatie type
+4. **Lees ervaringen** van andere gebruikers
+5. **Vind nuttige reviews** door op 'Nuttig' te klikken
 
 ## Vervolgfunctionaliteiten
+- [F012 - AI Ondersteuning](./F012-ai-ondersteuning.md)
 - [F007 - Data Export en Import](./F007-data-export-import.md)

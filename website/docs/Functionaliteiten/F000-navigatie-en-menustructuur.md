@@ -271,6 +271,107 @@ De interface past zich aan verschillende schermformaten aan:
 - **Heading Structure**: Logische heading hiërarchie
 - **Focus Indicators**: Duidelijke focus states
 
+## Formulieren vs Wizards
+
+De GEMMA Softwarecatalogus gebruikt twee verschillende typen formulieren, afhankelijk van de complexiteit van de taak:
+
+### 🔧 Simpele Formulieren
+**Wanneer gebruiken**: Voor eenvoudige taken met weinig velden of stappen.
+
+**Kenmerken**:
+- Alle velden op één pagina
+- Directe opslag na 'Opslaan'
+- Overzichtelijk en snel in te vullen
+- Meestal voor wijzigingen of eenvoudige toevoegingen
+
+**Voorbeelden in de catalogus**:
+- Contactgegevens wijzigen
+- Organisatie-informatie bijwerken
+- Gebruiker uitnodigen
+- Wachtwoord wijzigen
+- Eenvoudige zoekfilters instellen
+
+### 🧙‍♂️ Wizards (Stap-voor-stap formulieren)
+**Wanneer gebruiken**: Voor complexe processen die begeleiding nodig hebben.
+
+**Kenmerken**:
+- Meerdere stappen/pagina's
+- Voortgangsindicator bovenaan
+- 'Volgende' en 'Vorige' knoppen
+- Validatie per stap
+- Overzicht aan het eind voor bevestiging
+
+**Wizards in de catalogus**:
+
+#### Voor Leveranciers 🏢
+- **Aanmaken nieuw product**: Stap-voor-stap proces voor het toevoegen van software
+  - Stap 1: Basisinformatie (naam, beschrijving, categorie)
+  - Stap 2: Technische specificaties (GEMMA componenten, hosting)
+  - Stap 3: Documentatie en media (screenshots, handleidingen)
+  - Stap 4: Prijsmodel en licenties
+  - Stap 5: Overzicht en publiceren
+
+- **Melden missend gebruik**: Leverancier meldt dat gemeente hun software gebruikt
+  - Stap 1: Gemeente selecteren
+  - Stap 2: Product/dienst specificeren
+  - Stap 3: Gebruiksdetails (sinds wanneer, welke modules)
+  - Stap 4: Contactpersoon bij gemeente
+  - Stap 5: Bevestiging en verzenden
+
+- **Aanmaken dienst**: Nieuwe dienst toevoegen bij bestaande software
+  - Stap 1: Dienst type kiezen (hosting, support, implementatie)
+  - Stap 2: Dienst details en beschrijving
+  - Stap 3: Prijsmodel en voorwaarden
+  - Stap 4: Beschikbaarheid en regio's
+  - Stap 5: Overzicht en activeren
+
+#### Voor Gemeenten 🏛️
+- **Melden missend product**: Gemeente meldt software die niet in catalogus staat
+  - Stap 1: Software identificeren (naam, leverancier)
+  - Stap 2: Gebruiksdetails (welke afdeling, sinds wanneer)
+  - Stap 3: Functionaliteit beschrijven
+  - Stap 4: Contactgegevens leverancier (indien bekend)
+  - Stap 5: Aanvullende informatie en verzenden
+
+- **Aanmaken gebruik**: Gemeente registreert gebruik van bestaande software
+  - Stap 1: Software selecteren uit catalogus
+  - Stap 2: Gebruiksdetails (afdeling, aantal gebruikers)
+  - Stap 3: Implementatie informatie (go-live datum, versie)
+  - Stap 4: Tevredenheid en beoordeling
+  - Stap 5: Bevestiging en opslaan
+
+- **Registreren koppeling**: Gemeente registreert koppeling tussen systemen
+  - Stap 1: Bronsysteem selecteren
+  - Stap 2: Doelsysteem selecteren  
+  - Stap 3: Koppeling type en richting
+  - Stap 4: Technische details (API, bestandsuitwisseling)
+  - Stap 5: Validatie en opslaan
+
+### 💡 Tips voor Gebruikers
+
+#### Bij Wizards:
+- **Sla tussentijds op**: Gebruik 'Concept opslaan' om je voortgang te bewaren
+- **Voortgangsbalk**: Zie hoeveel stappen er nog komen
+- **Validatie**: Rode velden moeten ingevuld worden voor je verder kunt
+- **Overzicht**: Controleer alles in de laatste stap voor je bevestigt
+- **Terug navigeren**: Je kunt altijd terug naar vorige stappen
+
+#### Bij Simpele Formulieren:
+- **Verplichte velden**: Zijn gemarkeerd met een * (asterisk)
+- **Directe feedback**: Foutmeldingen verschijnen direct bij invoer
+- **Annuleren**: Wijzigingen gaan verloren als je annuleert zonder opslaan
+
+### 🎯 Wanneer Welk Type?
+
+| Criteria | Simpel Formulier | Wizard |
+|----------|------------------|--------|
+| **Aantal velden** | < 10 velden | > 10 velden |
+| **Complexiteit** | Eenvoudig | Complex proces |
+| **Begeleiding nodig** | Nee | Ja |
+| **Meerdere categorieën** | Nee | Ja |
+| **Validatie tussen stappen** | Nee | Ja |
+| **Concepten opslaan** | Niet nodig | Gewenst |
+
 ## Autorisatie Matrix
 
 | Functionaliteit | Aanbod-beheerder | Gebruik-beheerder | Gebruik-raadpleger | Functioneel beheerder | VNG-raadpleger | Bezoeker |

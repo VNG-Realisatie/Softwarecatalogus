@@ -1,64 +1,63 @@
 ---
-id: f004-applicatiebeheer
-title: F004 - Applicatiebeheer
-sidebar_label: F004 - Applicatiebeheer
+id: f004-aanbod-beheer
+title: F004 - Aanbod Beheer
+sidebar_label: F004 - Aanbod Beheer
 sidebar_position: 4
-description: Functionaliteit voor het beheren van applicaties en software
+description: Functionaliteit voor het beheren van software aanbod, producten en diensten door leveranciers
 keywords:
-  - applicaties
+  - aanbod
+  - producten
   - software
-  - beheer
+  - leveranciers
+  - applicaties
+  - modules
   - GEMMA
 ---
 
-# F004 - Applicatiebeheer
+# F004 - Aanbod Beheer
 
 ## Beschrijving
-Deze functionaliteit beschrijft hoe applicaties kunnen worden toegevoegd, beheerd en gekoppeld in de GEMMA Softwarecatalogus.
+Deze functionaliteit beschrijft hoe leveranciers hun software aanbod kunnen beheren. Het gaat om het aanmaken, onderhouden en promoten van applicaties, modules en diensten in de softwarecatalogus. Leveranciers gebruiken dit om hun digitale etalage te beheren en zichtbaar te zijn voor gemeenten.
 
 ## Toepasselijk voor
-- 🏛️ **Gemeenten**: Applicatielandschap beheren, software zoeken en toevoegen
-- 🤝 **Samenwerkingen & Communities**: Software aanbieden en gebruik aanmelden voor leden
-- 🏢 **Leveranciers**: Eigen applicaties toevoegen en promoten
-- ⚙️ **Functioneel Beheer**: Conceptpakketten controleren
+- 🏢 **Leveranciers**: Applicaties, modules en diensten aanbieden en beheren
+- 🤝 **Samenwerkingen & Communities**: Eigen software aanbieden (indien van toepassing)
+- ⚙️ **Functioneel Beheer**: Aanbod valideren, conceptpakketten controleren
 
 ## Processtappen
 
-### Voor Gemeenten
+### Voor Leveranciers (Aanbod Creëren en Beheren)
 | Stap | Actie | Beschrijving |
 |------|-------|--------------|
-| 4.1 | Applicatie zoeken | Vind applicaties in de catalogus |
-| 4.2 | Applicaties vergelijken | Vergelijk eigenschappen en gebruik van applicaties |
-| 4.3 | Applicatie toevoegen | Voeg een nieuwe applicatie toe en vul informatie in |
-| 4.4 | Niet-geregistreerde app opvoeren | Voeg een applicatie toe als concept voor een aanbieder |
-| 4.5 | Versie beheren | Beheer versies van applicaties |
-| 4.6 | Koppeling maken | Leg koppelingen vast met andere applicaties of voorzieningen |
-| 4.7 | Koppeling verwijderen | Verwijder bestaande koppelingen |
-| 4.8 | Applicatie verwijderen | Verwijder applicatie uit het applicatielandschap |
+| 4.1 | Applicatie aanmaken | Nieuwe applicatie toevoegen aan de catalogus (via wizard) |
+| 4.2 | Productinformatie vastleggen | Naam, beschrijving, functionaliteiten, doelgroep |
+| 4.3 | GEMMA koppeling | Applicatie relateren aan GEMMA referentiecomponenten |
+| 4.4 | Technische specificaties | Hostingtype (SaaS, on-premise, hybrid), technologie stack |
+| 4.5 | Licentiemodel definiëren | Open source, commercieel, freemium, etc. |
+| 4.6 | Prijsmodel instellen | Kosten per gebruiker, eenmalig, abonnement |
+| 4.7 | Documentatie uploaden | Brochures, handleidingen, verwerkersovereenkomsten |
+| 4.8 | Screenshots en media | Visuele presentatie van de software |
+| 4.9 | Modules toevoegen | Uitbreidingen en add-ons bij hoofdapplicatie |
+| 4.10 | Versies beheren | Verschillende versies en releases bijhouden |
+| 4.11 | Aanbod promoten | Software actief promoten bij doelgroepen |
+| 4.12 | Aanbod bijwerken | Wijzigingen in functionaliteit, prijzen, of beschikbaarheid |
 
-### Voor Samenwerkingen & Communities
+### Voor Samenwerkingen & Communities (Eigen Software Aanbieden)
 | Stap | Actie | Beschrijving |
 |------|-------|--------------|
-| 4.1 | Software/diensten aanbieden | Samenwerking biedt eigen software, modules en diensten aan |
-| 4.2 | Gebruik aanmelden voor leden | Samenwerking meldt gebruik aan namens hun leden |
-| 4.3 | Applicatielandschap beheren | Beheer van applicaties voor de gehele samenwerking |
-| 4.4 | Koppelingen maken | Koppelingen tussen applicaties van verschillende leden |
+| 4.1 | Gezamenlijk ontwikkelde software | Software die door de samenwerking is ontwikkeld aanbieden |
+| 4.2 | Open source projecten | Community-ontwikkelde software beschikbaar maken |
+| 4.3 | Collectieve licenties | Software aanbieden met speciale voorwaarden voor leden |
 
-### Voor Leveranciers
+### Voor Functioneel Beheer (Aanbod Validatie)
 | Stap | Actie | Beschrijving |
 |------|-------|--------------|
-| 4.1 | Applicatie aanmaken | Nieuwe applicatie toevoegen aan het overzicht |
-| 4.2 | Koppelen aan GEMMA | Applicatie relateren aan GEMMA referentiecomponenten |
-| 4.3 | Versies aanmaken | Versie aanmaken voor on premise |
-| 4.4 | Hostingtype specificeren | SaaS, lokaal, hybride etc. + jurisdictie |
-| 4.5 | Licentietype kiezen | Open source, commercieel, etc. |
-| 4.6 | Documenten uploaden | Verwerkersovereenkomsten, TPM-verklaringen, et cetera |
-
-### Voor Functioneel Beheer
-| Stap | Actie | Beschrijving |
-|------|-------|--------------|
-| 4.1 | Controleer conceptpakketten | Controleer en valideer door gemeenten of samenwerkingen aangeleverde pakketten |
-| 4.2 | Voeg applicaties samen | (Concept) applicaties samenvoegen |
+| 4.1 | Aanbod valideren | Controleren of aangeboden software klopt en compleet is |
+| 4.2 | Conceptpakketten controleren | Valideren van door gemeenten aangemelde software |
+| 4.3 | Duplicaten samenvoegen | Meerdere registraties van dezelfde software samenvoegen |
+| 4.4 | Aanbod kwaliteit bewaken | Controleren op volledigheid van productinformatie |
+| 4.5 | Leverancier koppelen | Conceptpakketten koppelen aan de juiste leverancier |
+| 4.6 | GEMMA compliance | Controleren of GEMMA koppelingen correct zijn |
 
 ## Gerelateerde Issues
 - [#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) - Applicatie zoeken
@@ -77,18 +76,60 @@ Deze functionaliteit beschrijft hoe applicaties kunnen worden toegevoegd, beheer
 
 | Functionaliteit | Aanbod-beheerder | Gebruik-beheerder | Gebruik-raadpleger | Functioneel beheerder | VNG-raadpleger | Bezoeker |
 |------------------|------------------|-------------------|--------------------|-----------------------|----------------|----------|
-| **Registreren gebruikte pakketten** | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| **Registreren koppelingen** | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| **Registreren aangeboden pakketten** | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| **Raadplegen gebruik** | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ |
-| **Raadplegen aanbod** | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| **Plotten op views** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **Applicatie aanmaken** | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| **Aanbod beheren (eigen software)** | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| **Aanbod bekijken** | ✅ (eigen) | ✅ (alle) | ✅ (alle) | ✅ (alle) | ✅ (alle) | ✅ (publiek) |
+| **Prijsmodel beheren** | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| **GEMMA koppeling beheren** | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| **Documentatie uploaden** | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| **Aanbod promoten** | ✅ | ❌ | ❌ | ✅ | ❌ | ❌ |
+| **Aanbod valideren** | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ |
 
 ### Detailering
 - [Gebruik View](https://vng-realisatie.github.io/Softwarecatalogus-Archi-repository/id-5af2e6f1-0ffa-403a-b8e5-1bf6153acfe1/views/id-8f3fd01f6b974c0f85e43f514225e973.html)
 - [Aanbod View](https://vng-realisatie.github.io/Softwarecatalogus-Archi-repository/id-5af2e6f1-0ffa-403a-b8e5-1bf6153acfe1/views/id-0a04a95fc8b743089aa04706580e0dc3.html)
 - [Referentiearchitectuur View](https://vng-realisatie.github.io/Softwarecatalogus-Archi-repository/id-5af2e6f1-0ffa-403a-b8e5-1bf6153acfe1/views/id-00da0c7e38764f8f82a57792dcddab00.html)
 
+## Gebruikershandleidingen
+
+### Nieuwe Applicatie Aanmaken (voor Leveranciers)
+
+1. **Ga naar uw leverancierspaneel** en klik op "Nieuwe applicatie"
+2. **Doorloop de wizard** met de volgende stappen:
+   - **Stap 1**: Basisinformatie (naam, beschrijving, categorie)
+   - **Stap 2**: Technische specificaties (GEMMA componenten, hosting type)
+   - **Stap 3**: Documentatie en media (screenshots, brochures, handleidingen)
+   - **Stap 4**: Prijsmodel en licenties (kosten, licentie type)
+   - **Stap 5**: Overzicht en publiceren
+3. **Controleer alle gegevens** in het overzicht
+4. **Publiceer uw applicatie** in de catalogus
+5. **Applicatie is nu zichtbaar** voor gemeenten
+
+### Aanbod Beheren en Bijwerken
+
+1. **Ga naar "Mijn Aanbod"** in het leverancierspaneel
+2. **Selecteer de applicatie** die u wilt bijwerken
+3. **Bewerk de gewenste secties**:
+   - Productinformatie en beschrijving
+   - Prijsmodel en voorwaarden
+   - Screenshots en documentatie
+   - GEMMA koppelingen
+4. **Sla wijzigingen op** - deze zijn direct zichtbaar
+5. **Promoot uw software** via de promotie tools
+
+### Modules en Versies Toevoegen
+
+1. **Open uw applicatie** in het beheerportaal
+2. **Ga naar "Modules"** of "Versies"
+3. **Klik op "Toevoegen"**
+4. **Vul module/versie details in**:
+   - Naam en beschrijving
+   - Functionaliteiten
+   - Prijsinformatie
+   - Technische vereisten
+5. **Koppel aan hoofdapplicatie** en publiceer
+
 ## Vervolgfunctionaliteiten
+- [F013 - Gebruik Beheer](./F013-gebruik-beheer.md)
 - [F005 - Dienstenbeheer](./F005-dienstenbeheer.md)
-- [F006 - Inzichten-en-aanbevelingen](./F006-inzichten-en-aanbevelingen.md)
+- [F006 - Reviews en Community Feedback](./F006-reviews-en-community-feedback.md)

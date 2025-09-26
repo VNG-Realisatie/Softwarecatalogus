@@ -43,33 +43,37 @@ Jan runt een klein ICT-bedrijf (8 medewerkers) dat gespecialiseerd is in softwar
 ```mermaid
 flowchart TD
     A[Start: Jan ontdekt de catalogus] --> F001[F001 - Toegang Verkrijgen]
-    F001 --> PARALLEL[Parallelle Activiteiten]
-    
-    %% Basis inrichting
-    PARALLEL --> F002[F002 - Organisatie Inrichten]
-    PARALLEL --> F003[F003 - Gebruikersbeheer]
+    F001 --> GEBRUIK[Gebruik software catalogus]
+
     
     %% Parallelle activiteiten na basis inrichting
-    F002 --> PARALLEL2[Parallelle Leverancier Activiteiten]
-    F003 --> PARALLEL2
     
     %% Aanbod beheer (parallel)
-    PARALLEL2 --> AANBOD[Aanbod Beheer]
+    GEBRUIK --> INRICHTING[Inrichting]
+    INRICHTING --> F002[F002 - Organisatie Inrichten]
+    INRICHTING --> F003[F003 - Gebruikersbeheer]
+
+    %% Aanbod beheer (parallel)
+    GEBRUIK --> AANBOD[Aanbod Beheer]
     AANBOD --> F004[F004 - Aanbod Beheer]
     AANBOD --> F005[F005 - Dienstenbeheer]
     
     %% Klant beheer (parallel)
-    PARALLEL2 --> KLANT[Klant Beheer]
-    KLANT --> F010[F010 - Lidmaatschapsbeheer]
-    KLANT --> GEBRUIK[Gebruik Suggereren]
+    GEBRUIK --> KLANT[Gebruik Beheer]
+    KLANT --> F013[F013 Gebruik Suggereren]
     
     %% Overige functionaliteiten (parallel)
-    PARALLEL2 --> OVERIG[Overige Functionaliteiten]
+    GEBRUIK --> OVERIG[Overige Functionaliteiten]
     OVERIG --> F006[F006 - Inzichten en Aanbevelingen]
     OVERIG --> F007[F007 - Data Export en Import]
     
-    F006 --> END[Jan heeft succesvolle aanwezigheid]
+    F002 --> END[Jan heeft succesvolle aanwezigheid]
+    F003 --> END
+    F004 --> END
+    F005 --> END
+    F006 --> END
     F007 --> END
+    F013 --> END
     
     %% Styling
     style A fill:#e1f5fe

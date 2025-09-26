@@ -54,36 +54,43 @@ flowchart TD
     C1 --> C2{VNG besluit}
     C2 -->|Toegang verlenen| C3[VNG geeft toegang]
     C2 -->|Contact huidige beheerder| C4[VNG brengt in contact met beheerder]
-    C3 --> PARALLEL
+    C3 --> GEBRUIK
     C4 --> C5[Huidige beheerder geeft toegang]
-    C5 --> PARALLEL
+    C5 --> GEBRUIK
     
-    %% Basis inrichting
-    PARALLEL --> F002[F002 - Organisatie Inrichten]
-    PARALLEL --> F003[F003 - Gebruikersbeheer]
     
+       
     %% Gebruik Software Catalogus (parallelle activiteiten)
-    F002 --> PARALLEL
-    F003 --> PARALLEL
-    
-    PARALLEL --> F011[F011 - Zoeken & Ontdekken]
-    PARALLEL --> F004[F004 - Gebruik Beheer]
-    PARALLEL --> F005[F005 - Dienstenbeheer]
-    PARALLEL --> F010[F010 - Lidmaatschapsbeheer]
-    
-    %% Overige functionaliteiten
-    F011 --> OVERIG[Overige Functionaliteiten]
-    F004 --> OVERIG
-    F005 --> OVERIG
-    F010 --> OVERIG
-    
+    GEBRUIK --> INRICHTING[Inrichting]
+    INRICHTING --> F002[F002 - Organisatie Inrichten]
+    INRICHTING --> F003[F003 - Gebruikersbeheer]
+
+    %% Overige functionaliteiten (parallel)
+    GEBRUIK --> BEHEER[Overige Functionaliteiten]
+    BEHEER --> F013[F013 - Gebruik Beheer]
+    BEHEER --> F004[F004 - Aanvullen misende applicaties]
+
+    %% Overige functionaliteiten (parallel)
+    GEBRUIK --> OVERIG[Overige Functionaliteiten]
     OVERIG --> F006[F006 - Inzichten en Aanbevelingen]
     OVERIG --> F007[F007 - Data Export en Import]
     OVERIG --> F008[F008 - Externe Koppelingen]
+    OVERIG --> F010[F010 - Lidmaatschapsbeheer]
+    OVERIG --> F011[F011 - Zoeken & Ontdekken]
+    OVERIG --> F012[F012 - AI Ondersteuning]
     
-    F006 --> END[Maria heeft volledig overzicht]
+    %% Overige functionaliteiten
+        
+    F002 --> END[Maria heeft volledig overzicht]
+    F003 --> END
+    F004 --> END
+    F006 --> END
     F007 --> END
     F008 --> END
+    F010 --> END
+    F011 --> END
+    F012 --> END
+    F013 --> END
     
     %% Styling
     style A fill:#e1f5fe
@@ -95,6 +102,8 @@ flowchart TD
 ---
 
 ## 🎯 Functionaliteiten voor Gemeenten
+
+## 🚀 Opstarten en Toegang
 
 ### [F001 - Toegang Verkrijgen](../Functionaliteiten/F001-toegang-verkrijgen.md)
 *"Ik hoor van collega's over de softwarecatalogus. Hoe krijg ik toegang?"*
@@ -110,6 +119,8 @@ Maria vult de organisatiegegevens aan, zorgt dat contactinformatie klopt, en bek
 *"Mijn collega's moeten ook toegang krijgen. De ICT-manager wil meekijken, en onze inkoper moet leveranciers kunnen beoordelen."*
 
 Maria nodigt relevante collega's uit: de ICT-manager, inkoper, en mogelijk afdelingshoofden die veel met specifieke software werken.
+
+## 🔍 Ontdekken en Beheren
 
 ### [F011 - Zoeken & Ontdekken](../Functionaliteiten/F011-zoeken-en-ontdekken.md)
 *"Voordat ik ons eigen landschap ga invoeren, wil ik eerst eens kijken wat er allemaal beschikbaar is. Misschien gebruiken andere gemeenten software die wij ook zouden kunnen gebruiken, of hebben ze betere alternatieven voor wat wij nu hebben."*
@@ -136,6 +147,8 @@ Maria beheert het gebruik van applicaties:
 
 Maria zoekt leveranciers, voegt diensten toe aan applicaties, en beoordeelt de kwaliteit van dienstverlening.
 
+## 🤝 Samenwerking en Community
+
 ### [F010 - Lidmaatschapsbeheer](../Functionaliteiten/F010-lidmaatschapsbeheer.md)
 *"Ik zie dat er interessante samenwerkingen zijn waar wij ook bij zouden kunnen aansluiten. En misschien zijn er communities die zich bezighouden met onderwerpen die voor ons relevant zijn."*
 
@@ -145,13 +158,28 @@ Maria beheert lidmaatschappen:
 - **Communities ontdekken**: Vinden van communities die interessante software ontwikkelen
 - **Voordelen benutten**: Profiteren van gezamenlijke inkoop en kennisdeling
 
-## 🔧 Overige Functionaliteiten
-*"Nu ik de basis op orde heb, kan ik gebruik maken van de meer geavanceerde functies voor analyse, export en integratie."*
+### [F006 - Reviews en Community Feedback](../Functionaliteiten/F006-reviews-en-community-feedback.md)
+*"Ik wil graag weten wat andere gemeenten vinden van de software die wij overwegen. En onze ervaringen kunnen ook nuttig zijn voor anderen."*
 
-### [F006 - Inzichten en Aanbevelingen](../Functionaliteiten/F006-inzichten-en-aanbevelingen.md)
-*"Dit is waar het interessant wordt - wat kunnen we leren van andere gemeenten?"*
+Maria gebruikt community feedback:
+- **Reviews lezen**: Ervaringen van andere gemeenten met software en leveranciers
+- **Beoordelingen geven**: Eigen ervaringen delen over software die de gemeente gebruikt
+- **Vragen stellen**: Community raadplegen over implementatie-uitdagingen
+- **Best practices delen**: Succesvolle implementaties delen met andere gemeenten
 
-Maria gebruikt de benchmarking functie om te zien wat andere gemeenten gebruiken, krijgt AI-aanbevelingen voor optimalisaties, en genereert rapporten voor het management.
+## 🔧 Geavanceerde Functionaliteiten
+*"Nu ik de basis op orde heb, kan ik gebruik maken van de meer geavanceerde functies voor analyse, export, integratie en AI ondersteuning."*
+
+### [F012 - AI Ondersteuning](../Functionaliteiten/F012-ai-ondersteuning.md)
+*"Dit is fantastisch - alsof ik een ervaren consultant altijd bij de hand heb!"*
+
+Maria gebruikt AI als haar **slimme adviseur** voor:
+- **Softwarekeuze advies**: "Welke burgerzaken software past bij onze gemeente van 45.000 inwoners?"
+- **Implementatie ondersteuning**: "Wat zijn veelvoorkomende uitdagingen bij zaakgericht werken?"
+- **Kosten vergelijking**: "Vergelijk de totale kosten van deze 3 CRM oplossingen"
+- **Best practices**: "Hoe hebben andere gemeenten hun digitalisering aangepakt?"
+- **Compliance check**: "Welke software voldoet aan AVG en toegankelijkheidseisen?"
+- **Trend analyse**: "Welke nieuwe technologieën worden populair in gemeenten?"
 
 ### [F007 - Data Export en Import](../Functionaliteiten/F007-data-export-import.md)
 *"Ik moet dit overzicht kunnen delen met onze architecten en het college."*
