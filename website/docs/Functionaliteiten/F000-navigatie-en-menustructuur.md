@@ -24,214 +24,219 @@ Deze functionaliteit beschrijft hoe gebruikers kunnen navigeren door de GEMMA So
 - ⚙️ **Functioneel Beheer**: Toegang tot alle beheerfuncties
 - 👁️ **Bezoekers**: Beperkte navigatie voor publieke informatie
 
-## Menustructuren per Gebruikerstype
+## Menustructuur Overzicht
 
-### 🏛️ Gemeente Menu
+De GEMMA Softwarecatalogus heeft drie verschillende menu's die elk een specifieke functie hebben:
+
+### 1. 👤 Gebruikersmenu (Rechtsboven)
+
+![img_2.png](img_2.png)
+**Voor niet-ingelogde gebruikers:**
+```
+👤 Gebruiker
+├── 🔑 Aanmelden
+└── 📝 Inloggen
+```
+![img_1.png](img_1.png)
+**Voor ingelogde gebruikers:**
+```
+👤 Gebruiker
+├── ⚙️ Beheer
+└── 🚪 Uitloggen
+```
+
+### 2. 🧭 Hoofdmenu (Hoofdnavigatie)
+![img_3.png](img_3.png)
+Dit menu is zichtbaar voor alle bezoekers (ingelogd en niet-ingelogd):
+
+```
+🏠 Home
+├── 📊 Overzicht softwarecatalogus
+├── 📈 Statistieken
+└── 🎯 Introductie
+
+🔍 Zoeken
+├── 🔎 Geavanceerd zoeken
+├── 📊 Filters en sortering
+├── 💡 Zoeksuggesties
+└── 📋 Zoekresultaten
+
+💻 Producten
+├── 🔍 → Doorverwijzing naar Zoeken
+├── 🏷️ → Filter: "Producten" actief
+└── 📱 Overzicht van alle software
+
+🏢 Organisaties  
+├── 🔍 → Doorverwijzing naar Zoeken
+├── 🏷️ → Filter: "Organisaties" actief
+└── 🏛️ Overzicht van gemeenten en leveranciers
+
+🧩 Modules
+├── 🔍 → Doorverwijzing naar Zoeken
+├── 🏷️ → Filter: "Modules" actief
+└── 🔧 Overzicht van software modules
+```
+
+### 3. ⚙️ Beheermenu (Alleen op beheerpagina)
+
+![img_4.png](img_4.png)
+
+Dit menu is alleen zichtbaar voor ingelogde gebruikers op de beheerpagina:
+
 ```
 📊 Dashboard
-├── 📈 Overzicht applicatielandschap
-├── 🔔 Meldingen en updates
-└── 📋 Recente activiteiten
+├── 📈 Persoonlijk overzicht
+├── 🔔 Meldingen
+├── 📋 Recente activiteiten
+└── 🎯 Snelkoppelingen
 
-🏢 Organisatie
+👤 Mijn Account
+├── ⚙️ Profiel instellingen
+├── 🔑 Wachtwoord wijzigen
+├── 📧 E-mail voorkeuren
+└── 🔐 Beveiliging
+
+🏢 Mijn Organisatie
 ├── ⚙️ Organisatie-instellingen
-├── 👥 Gebruikersbeheer
+├── 📞 Contactgegevens
 ├── 🤝 Lidmaatschappen
-└── 📞 Contactgegevens
+└── 🏆 Certificeringen
 
-🔍 Zoeken & Ontdekken
-├── 🔎 Software zoeken
-├── 🏢 Leveranciers vinden
-├── 📊 Vergelijken
-└── 💡 Inspiratie
-
-💻 Gebruik Beheer
+💻 Producten
 ├── 📱 Mijn Applicaties
-├── 🔗 Koppelingen
-├── ⭐ Beoordelingen
-└── 📋 Contracten
-
-🛠️ Diensten
-├── 🔍 Diensten zoeken
-├── 📋 Mijn Diensten
-└── ⭐ Leveranciers beoordelen
-
-🤝 Lidmaatschappen
-├── 🔍 Samenwerkingen zoeken
-├── 👥 Communities ontdekken
-├── 📋 Mijn Lidmaatschappen
-└── 🎯 Voordelen
-
-📊 Inzichten
-├── 🏆 Benchmarking
-├── 🤖 AI Aanbevelingen
-├── 📈 Rapporten
-└── 📊 Analytics
-
-📤 Export & Integratie
-├── 📄 AMEFF Export
-├── 📊 CSV Export
-├── 🔗 API Koppelingen
-└── 🔄 Synchronisatie
-```
-
-### 🏢 Leverancier Menu
-```
-📊 Dashboard
-├── 📈 Verkoop overzicht
-├── 👀 Interesse tracking
-└── 📋 Recente activiteiten
-
-🏢 Organisatie
-├── ⚙️ Bedrijfsprofiel
-├── 👥 Team beheer
-├── 🏆 Certificeringen
-└── 📞 Contactgegevens
-
-🎯 Aanbod Beheer
-├── 💻 Mijn Applicaties
-├── 🧩 Modules
-├── 📋 Product informatie
-└── 📸 Media & Documentatie
+├── ➕ Nieuwe Applicatie
+├── ✏️ Bewerken
+└── 📊 Statistieken
 
 🛠️ Diensten
 ├── 🔧 Mijn Diensten
-├── 🤝 Partnerships
+├── ➕ Nieuwe Dienst
 ├── 💰 Prijsmodellen
 └── 📋 Service Level Agreements
 
-👥 Klant Beheer
-├── 🎯 Potentiële Klanten
-├── 📊 Gebruik Suggereren
-├── 🤝 Klantrelaties
-└── 📞 Support
+👥 Contactpersonen
+├── 📋 Contactenlijst
+├── ➕ Contact Toevoegen
+├── 👥 Teams
+└── 📞 Communicatie
 
-🤝 Lidmaatschappen
-├── 👥 Communities
-├── 🔍 Netwerk uitbreiden
-├── 💡 Kennis delen
-└── 🤝 Samenwerkingen
+📱 Applicaties
+├── 🔍 Applicatie Zoeken
+├── 📊 Gebruik Overzicht
+├── ⭐ Beoordelingen
+└── 🔗 Koppelingen
 
-📊 Inzichten
-├── 📈 Markt Analytics
-├── 👀 Interesse Tracking
-├── 🏆 Performance
-└── 📊 Rapporten
+💼 Gebruik
+├── 📊 Mijn Applicatielandschap
+├── ➕ Gebruik Registreren
+├── 📋 Contracten
+└── 📈 Gebruik Statistieken
 
-📤 Export & Integratie
-├── 📄 Product Catalogi
-├── 🔗 API Integraties
-├── 📊 Data Export
-└── 🔄 CRM Synchronisatie
+🗺️ Kaarten
+├── 🏛️ Gemeente Kaart
+├── 🏢 Leverancier Kaart
+├── 📊 Gebruik Visualisatie
+└── 🔗 Koppelingen Diagram
+
+📚 Documentatie
+├── 📖 Gebruikershandleidingen
+├── 🎯 Klantreizen
+├── ⚙️ Functionaliteiten
+├── 🔧 API Documentatie
+└── ❓ Veelgestelde Vragen
 ```
 
-### 🤝 Samenwerking/Community Menu
-```
-📊 Dashboard
-├── 👥 Leden overzicht
-├── 📈 Activiteit
-└── 🎯 Doelstellingen
+## Toegang per Gebruikersrol
 
-🏢 Organisatie
-├── ⚙️ Profiel beheer
-├── 🎯 Missie & Visie
-├── 📋 Statuten
-└── 📞 Contactgegevens
+### 🧭 Hoofdmenu Toegang
+Het **Hoofdmenu** (Home, Zoeken, Producten, Organisaties, Modules) is voor **alle bezoekers** toegankelijk, zowel ingelogd als niet-ingelogd.
 
-👥 Leden Beheer
-├── 📋 Ledenlijst
-├── 🔍 Nieuwe Leden Werven
-├── 📊 Lidmaatschap Statistieken
-└── 📞 Leden Ondersteuning
+### ⚙️ Beheermenu Toegang
+Het **Beheermenu** is alleen zichtbaar voor **ingelogde gebruikers** en de beschikbare functionaliteiten verschillen per rol:
 
-🎯 Aanbod (alleen Samenwerkingen)
-├── 💻 Gezamenlijke Applicaties
-├── 🛒 Inkoop Beheer
-├── 🤝 Leverancier Relaties
-└── 💰 Kostenbesparingen
+### 🏛️ Gemeenten
+- **Dashboard**: Applicatielandschap overzicht, meldingen over software updates
+- **Mijn Account**: Profiel en voorkeuren beheren
+- **Mijn Organisatie**: Gemeente gegevens en lidmaatschappen
+- **Producten**: Alleen bekijken van software aanbod (geen bewerken)
+- **Diensten**: Zoeken en beoordelen van leveranciers
+- **Contactpersonen**: Eigen contacten beheren
+- **Applicaties**: Software zoeken en vergelijken
+- **Gebruik**: Volledig beheer van eigen applicatielandschap
+- **Kaarten**: Visualisatie van eigen applicatielandschap
+- **Documentatie**: Toegang tot alle documentatie
 
-👥 Gebruik Beheer (alleen Samenwerkingen)
-├── 📊 Leden Gebruik
-├── 🎯 Gebruik Suggereren
-├── 📋 Gezamenlijke Contracten
-└── 📈 Voordelen Tracking
+### 🏢 Leveranciers
+- **Dashboard**: Verkoop overzicht, interesse tracking, klant activiteit
+- **Mijn Account**: Profiel en bedrijfsgegevens
+- **Mijn Organisatie**: Bedrijfsprofiel en certificeringen
+- **Producten**: Volledig beheer van eigen software portfolio
+- **Diensten**: Beheer van eigen diensten en partnerships
+- **Contactpersonen**: Klanten en partners beheren
+- **Applicaties**: Marktoverzicht en concurrentie analyse
+- **Gebruik**: Gebruik voorstellen voor eigen software, klantoverzicht
+- **Kaarten**: Visualisatie van klanten en marktpenetratie
+- **Documentatie**: Toegang tot alle documentatie
 
-💡 Community Projecten (alleen Communities)
-├── 🔧 Ontwikkelprojecten
-├── 💡 Innovatie Initiatieven
-├── 📚 Kennis Delen
-└── 🤝 Samenwerkingen
+### 🤝 Samenwerkingen & Communities
+- **Dashboard**: Leden overzicht, activiteit tracking, doelstellingen
+- **Mijn Account**: Profiel van de samenwerking/community
+- **Mijn Organisatie**: Missie, visie en statuten
+- **Producten**: Gezamenlijke software (alleen samenwerkingen)
+- **Diensten**: Collectieve inkoop, leverancier relaties
+- **Contactpersonen**: Leden en partners beheren
+- **Applicaties**: Software voor leden zoeken
+- **Gebruik**: Gebruik registreren voor leden, gezamenlijke contracten
+- **Kaarten**: Visualisatie van leden en hun software gebruik
+- **Documentatie**: Toegang tot alle documentatie
 
-📊 Rapportage
-├── 👥 Leden Rapporten
-├── 💰 Kostenbesparingen
-├── 🎯 Impact Meting
-└── 📈 Groei Statistieken
-```
+### ⚙️ Functioneel Beheer
+- **Volledige Toegang**: Tot alle menu-items en functionaliteiten
+- **Extra Functies**: Gebruikersbeheer, content moderatie, systeem configuratie
+- **Monitoring**: Gebruik statistieken, performance metrics, audit trails
+- **Onderhoud**: Data backup, cleanup, incident management
 
-### ⚙️ Functioneel Beheer Menu
-```
-📊 Dashboard
-├── 🌐 Systeem Status
-├── 👥 Gebruikers Overzicht
-├── 📊 Platform Statistieken
-└── 🚨 Alerts & Meldingen
+### 👁️ VNG-raadpleger
+- **Beperkte Toegang**: Alleen lezen van geanonimiseerde data
+- **Dashboard**: Algemene statistieken en trends
+- **Rapportages**: Toegang tot algemene rapporten
+- **Geen Bewerking**: Kan geen data wijzigen of toevoegen
 
-🏢 Organisatie Beheer
-├── 🏛️ Gemeenten
-├── 🏢 Leveranciers
-├── 🤝 Samenwerkingen
-├── 👥 Communities
-└── ➕ Nieuwe Organisaties
-
-👥 Gebruikers Beheer
-├── 👤 Alle Gebruikers
-├── 🔐 Rechten & Rollen
-├── 🔑 Toegang Verlenen
-└── 🚫 Account Beheer
-
-💻 Content Beheer
-├── 📱 Applicaties Modereren
-├── 🛠️ Diensten Goedkeuren
-├── 📋 Content Review
-└── 🏷️ Categorieën
-
-🔧 Systeem Configuratie
-├── ⚙️ Platform Instellingen
-├── 🔗 API Configuratie
-├── 📊 AMEFF Import
-└── 🔄 Data Synchronisatie
-
-📊 Monitoring & Analytics
-├── 📈 Gebruik Statistieken
-├── 🔍 Zoek Analytics
-├── 👥 Gebruiker Gedrag
-└── 📊 Performance Metrics
-
-🛠️ Onderhoud
-├── 🔄 Data Backup
-├── 🧹 Data Cleanup
-├── 📋 Logs & Audit Trail
-└── 🚨 Incident Management
-```
+### 🌐 Bezoekers (niet ingelogd)
+- **Alleen Hoofdmenu**: Home, Zoeken, Producten, Organisaties, Modules
+- **Geen Beheermenu**: Geen toegang tot persoonlijke of beheer functionaliteiten
+- **Publieke Informatie**: Alleen basis software en organisatie informatie
 
 ## Gebruikershandleidingen
 
-### Dashboard Navigatie
+### 👤 Gebruikersmenu Navigatie
 
-Het **Dashboard** is de startpagina na inloggen en biedt:
-- **Overzicht**: Snelle statistieken relevant voor uw rol
-- **Recente Activiteit**: Laatste acties en updates
-- **Snelkoppelingen**: Directe toegang tot veelgebruikte functies
-- **Meldingen**: Belangrijke updates en alerts
+Het **Gebruikersmenu** (rechtsboven) biedt:
+- **Voor bezoekers**: Directe toegang tot aanmelden en inloggen
+- **Voor ingelogde gebruikers**: Snelle toegang tot beheeromgeving en uitloggen
+- **Altijd zichtbaar**: Op elke pagina beschikbaar
+- **Eenvoudige toegang**: Minimale klikken naar belangrijke functies
 
-### Hoofdmenu Gebruik
+### 🧭 Hoofdmenu Gebruik
 
-Het **Hoofdmenu** (meestal links) bevat:
-- **Iconen**: Visuele indicatoren voor elke sectie
-- **Uitklapbare Secties**: Submenu's voor gerelateerde functies
-- **Breadcrumbs**: Tonen waar u zich bevindt in de navigatie
-- **Zoekfunctie**: Globaal zoeken naar content
+Het **Hoofdmenu** (hoofdnavigatie) bevat:
+- **🏠 Home**: Startpagina met overzicht en introductie
+- **🔍 Zoeken**: Centrale zoekfunctionaliteit met filters
+- **💻 Producten**: Snelkoppeling naar software overzicht (via zoeken)
+- **🏢 Organisaties**: Snelkoppeling naar organisatie overzicht (via zoeken)  
+- **🧩 Modules**: Snelkoppeling naar modules overzicht (via zoeken)
+- **Publiek toegankelijk**: Voor alle bezoekers beschikbaar
+- **Consistent**: Zelfde menu op alle publieke pagina's
+
+### ⚙️ Beheermenu Navigatie
+
+Het **Beheermenu** (alleen op beheerpagina) biedt:
+- **📊 Dashboard**: Persoonlijk overzicht en snelkoppelingen
+- **👤 Mijn Account**: Profiel en account instellingen
+- **🏢 Mijn Organisatie**: Organisatie gegevens en instellingen
+- **Functionaliteit menu's**: Producten, Diensten, Contactpersonen, etc.
+- **📚 Documentatie**: Toegang tot alle hulpbronnen
+- **Rolgebaseerd**: Inhoud aangepast aan gebruikersrol
 
 ### Contextmenu's
 
@@ -248,6 +253,40 @@ Het **Hoofdmenu** (meestal links) bevat:
 - **Sectie Filters**: Filteren binnen specifieke secties
 - **Geavanceerd Zoeken**: Complexe zoekopdrachten
 - **Opgeslagen Zoekopdrachten**: Herbruikbare filters
+
+### Documentatie Menu
+
+Het **📚 Documentatie** menu biedt toegang tot alle hulpbronnen:
+
+#### 📖 Gebruikershandleidingen
+- **Stap-voor-stap instructies** voor alle functionaliteiten
+- **Screenshots en voorbeelden** van werkelijke gebruik
+- **Veelvoorkomende scenario's** en oplossingen
+- **Best practices** voor optimaal gebruik
+
+#### 🎯 Klantreizen
+- **Gemeente Klantreis**: Hoe gemeenten de catalogus gebruiken
+- **Leverancier Klantreis**: Van registratie tot klantwerving
+- **Samenwerking Klantreis**: Collectieve inkoop en beheer
+- **Functioneel Beheer**: Beheer en onderhoud van het platform
+
+#### ⚙️ Functionaliteiten
+- **Functionaliteiten Overzicht**: Alle beschikbare functies
+- **Gedetailleerde Beschrijvingen**: Per functionaliteit uitgelegd
+- **Autorisatie Matrices**: Wie heeft toegang tot wat
+- **Processtappen**: Hoe elke functionaliteit werkt
+
+#### 🔧 Technische Documentatie
+- **API Documentatie**: Voor ontwikkelaars en integraties
+- **Data Modellen**: Structuur van de gegevens
+- **Export Formaten**: AMEFF, CSV en andere formaten
+- **Technische Specificaties**: Systeemvereisten en architectuur
+
+#### ❓ Veelgestelde Vragen
+- **Algemene Vragen**: Over het gebruik van de catalogus
+- **Technische Vragen**: Over integraties en export
+- **Account Vragen**: Over toegang en gebruikersbeheer
+- **Troubleshooting**: Oplossingen voor veelvoorkomende problemen
 
 ### Responsive Design
 
