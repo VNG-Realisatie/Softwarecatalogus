@@ -1,5 +1,5 @@
 ---
-id: functionaliteiten-overzicht
+id: index
 title: Overzicht Functionaliteiten
 sidebar_label: Overzicht
 sidebar_position: 0
@@ -12,12 +12,13 @@ keywords:
 
 # Overzicht Functionaliteiten
 
-De GEMMA Softwarecatalogus bestaat uit 10 hoofdfunctionaliteiten die door verschillende typen gebruikers worden gebruikt. Hieronder een overzicht:
+De GEMMA Softwarecatalogus bestaat uit 11 hoofdfunctionaliteiten die door verschillende typen gebruikers worden gebruikt. Hieronder een overzicht:
 
 ## Functionaliteiten Matrix
 
 | Functionaliteit | 🏛️ Gemeenten | 🤝 Samenwerkingen | 🏢 Leveranciers | ⚙️ Functioneel Beheer |
 |-----------------|---------------|-------------------|------------------|----------------------|
+| [F000 - Navigatie en Menustructuur](./F000-navigatie-en-menustructuur.md) | ✅ Gemeente UI | ✅ Samenwerking UI | ✅ Leverancier UI | ✅ Beheer UI |
 | [F001 - Toegang Verkrijgen](./F001-toegang-verkrijgen.md) | ✅ Via VNG | ✅ Via VNG | ✅ Aanmelden | ✅ Direct |
 | [F002 - Organisatie Inrichten](./F002-organisatie-inrichten.md) | ✅ Profiel | ✅ Leden werven | ✅ Bedrijfsprofiel | ✅ Organisaties beheren |
 | [F003 - Gebruikersbeheer](./F003-gebruikersbeheer.md) | ✅ Collega's | ❌ N.v.t. | ✅ Team | ✅ Alle gebruikers |
@@ -33,7 +34,9 @@ De GEMMA Softwarecatalogus bestaat uit 10 hoofdfunctionaliteiten die door versch
 
 ```mermaid
 flowchart TD
-    F001[F001 - Toegang Verkrijgen] --> F002[F002 - Organisatie Inrichten]
+    F000[F000 - Navigatie en Menustructuur]
+    F000 -.-> F001[F001 - Toegang Verkrijgen]
+    F001 --> F002[F002 - Organisatie Inrichten]
     F002 --> F003[F003 - Gebruikersbeheer]
     
     F003 --> PARALLEL[Parallelle Functionaliteiten]
@@ -49,6 +52,7 @@ flowchart TD
     F007 --> F008[F008 - Externe Koppelingen]
     
     F009[F009 - Beheer en Configuratie]
+    F009 -.-> F000
     F009 -.-> F001
     F009 -.-> F002
     F009 -.-> F003
@@ -59,6 +63,7 @@ flowchart TD
     F009 -.-> F008
     F009 -.-> F010
     
+    style F000 fill:#f3e5f5
     style F001 fill:#e1f5fe
     style F008 fill:#c8e6c9
     style F009 fill:#ffecb3
@@ -70,31 +75,32 @@ flowchart TD
 ### 🏛️ Gemeenten
 Gemeenten gebruiken de catalogus om hun applicatielandschap te beheren, software te zoeken, en inzichten te verkrijgen over hun ICT-omgeving.
 
-**Primaire functionaliteiten**: F001, F002, F003, F004, F005, F006, F007, F008, F010
+**Primaire functionaliteiten**: F000, F001, F002, F003, F004, F005, F006, F007, F008, F010
 
 ### 🤝 Samenwerkingen & Communities
 Samenwerkingen hebben een unieke positie als zowel aanbieder als afnemer van software voor hun leden.
 
-**Primaire functionaliteiten**: F001, F002, F004, F010
+**Primaire functionaliteiten**: F000, F001, F002, F004, F010
 
 ### 🏢 Leveranciers
 Leveranciers gebruiken de catalogus om hun software zichtbaar te maken voor gemeenten en diensten aan te bieden.
 
-**Primaire functionaliteiten**: F001, F002, F003, F004, F005, F006, F007, F010
+**Primaire functionaliteiten**: F000, F001, F002, F003, F004, F005, F006, F007, F010
 
 ### ⚙️ Functioneel Beheer
 VNG medewerkers die de catalogus beheren en organisaties ondersteunen.
 
-**Primaire functionaliteiten**: F001, F002, F003, F004, F006, F007, F009, F010
+**Primaire functionaliteiten**: F000, F001, F002, F003, F004, F006, F007, F009, F010
 
 ## Implementatie Volgorde
 
-1. **Basis** (F001-F003): Toegang, organisatie en gebruikers
-2. **Kern** (F004-F005): Applicaties en diensten
-3. **Samenwerking** (F010): Lidmaatschapsbeheer
-4. **Toegevoegde Waarde** (F006): Inzichten en aanbevelingen
-5. **Integratie** (F007-F008): Export en externe koppelingen
-6. **Beheer** (F009): Systeem beheer en configuratie
+1. **Interface** (F000): Navigatie en menustructuur
+2. **Basis** (F001-F003): Toegang, organisatie en gebruikers
+3. **Kern** (F004-F005): Applicaties en diensten
+4. **Samenwerking** (F010): Lidmaatschapsbeheer
+5. **Toegevoegde Waarde** (F006): Inzichten en aanbevelingen
+6. **Integratie** (F007-F008): Export en externe koppelingen
+7. **Beheer** (F009): Systeem beheer en configuratie
 
 ## Autorisatie Rollen
 

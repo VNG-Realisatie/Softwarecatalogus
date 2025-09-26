@@ -62,6 +62,7 @@ Linda coördineert een samenwerking van 8 gemeenten in Noord-Nederland. Ze merkt
 - **Registratie**: Samenwerkingen en communities kunnen zich **niet zelf registreren**. Ze moeten contact opnemen met VNG Realisatie om te worden toegelaten.
 - **Lidmaatschap**: Ze kunnen niet zelf leden toevoegen, maar beheerders van gemeenten én leveranciers kunnen wel aangeven dat hun organisatie lid is van een samenwerking/community.
 - **Lidmaatschap aansporen**: Het is aan de samenwerkingen/communities zelf om hun leden aan te sporen het lidmaatschap op de softwarecatalogus aan te geven.
+- **Geen bevestiging**: Organisaties geven zelf aan waar ze lid van zijn, er vindt geen bevestigingsproces plaats.
 - **Uitstappen**: Organisaties kunnen zelf ook uit een lidmaatschap stappen.
 - **Unieke posities**: 
   - **Samenwerkingen** zijn uniek omdat ze zowel software kunnen **aanbieden** als **gebruik kunnen aanmelden** voor hun leden (dankzij juridisch kader)
@@ -115,10 +116,10 @@ Linda richt de samenwerking in:
 Linda beheert het lidmaatschap:
 - **Leden werven**: Actief benaderen van de 8 aangesloten gemeenten
 - **Lidmaatschap aansporen**: Gemeenten helpen bij het aangeven van lidmaatschap
-- **Lidmaatschappen bevestigen**: Inkomende verzoeken beoordelen en goedkeuren
+- **Ledenlijst bekijken**: Zien welke gemeenten zich als lid hebben aangegeven
 - **Nieuwe leden**: Uitbreiden naar andere gemeenten in de regio
 
-*"Het is geweldig om te zien hoe één voor één onze gemeenten hun lidmaatschap bevestigen. Elke bevestiging betekent dat we een stap dichter bij ons doel komen: samen sterker staan dan alleen. En het mooie is, als een gemeente later besluit om uit te stappen, kunnen ze dat zelf doen - we dwingen niemand."*
+*"Het is geweldig om te zien hoe één voor één onze gemeenten hun lidmaatschap aangeven. Ze hoeven niet te wachten op onze goedkeuring - zodra ze aangeven dat ze lid zijn, is het direct zichtbaar. Elke aanmelding betekent dat we een stap dichter bij ons doel komen: samen sterker staan dan alleen. En het mooie is, als een gemeente later besluit om uit te stappen, kunnen ze dat zelf doen - we dwingen niemand."*
 
 ### [F004 - Applicatiebeheer](../Functionaliteiten/F004-applicatiebeheer.md)
 *"Dit is waar het interessant wordt! We hebben onze eigen software ontwikkeld voor burgerzaken die perfect werkt. Die gaan we aanbieden aan andere gemeenten. Maar tegelijkertijd zien we dat gemeente A een geweldige financiële applicatie gebruikt - die gaan we aanmelden voor al onze leden. We zijn tegelijk winkelier én klant!"*

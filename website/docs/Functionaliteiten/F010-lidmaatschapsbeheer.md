@@ -14,41 +14,39 @@ keywords:
 # F010 - Lidmaatschapsbeheer
 
 ## Beschrijving
-Deze functionaliteit beschrijft hoe organisaties lidmaatschappen van samenwerkingen en communities kunnen aangeven, bevestigen en beheren.
+Deze functionaliteit beschrijft hoe organisaties kunnen aangeven waar ze lid van zijn (samenwerkingen en communities) en hoe ze deze lidmaatschappen kunnen beheren.
 
 ## Toepasselijk voor
 - 🏛️ **Gemeenten**: Lidmaatschap aangeven bij samenwerkingen/communities
-- 🤝 **Samenwerkingen & Communities**: Lidmaatschappen bevestigen en beheren
+- 🤝 **Samenwerkingen & Communities**: Zien welke organisaties lid zijn
 - 🏢 **Leveranciers**: Lidmaatschap aangeven bij communities
 - ⚙️ **Functioneel Beheer**: Lidmaatschappen monitoren en ondersteunen
 
 ## Processtappen
 
-### Voor Gemeenten en Leveranciers (Lid worden)
+### Voor Gemeenten en Leveranciers (Lidmaatschap aangeven)
 | Stap | Actie | Beschrijving |
 |------|-------|--------------|
 | 10.1 | Samenwerking/community identificeren | Organisatie identificeert relevante samenwerking of community |
-| 10.2 | Contact opnemen | Informeel contact met samenwerking/community over lidmaatschap |
-| 10.3 | Lidmaatschap aangeven | Via beheerder lidmaatschap aangeven in softwarecatalogus |
-| 10.4 | Wachten op bevestiging | Samenwerking/community bevestigt het lidmaatschap |
-| 10.5 | Lidmaatschap actief | Organisatie is officieel lid en kan profiteren van voordelen |
+| 10.2 | Lidmaatschap aangeven | Via beheerder lidmaatschap aangeven in softwarecatalogus |
+| 10.3 | Lidmaatschap direct actief | Lidmaatschap is direct zichtbaar, geen bevestiging nodig |
+| 10.4 | Voordelen benutten | Organisatie kan profiteren van lidmaatschap voordelen |
 
-### Voor Samenwerkingen & Communities (Leden beheren)
+### Voor Samenwerkingen & Communities (Leden zien)
 | Stap | Actie | Beschrijving |
 |------|-------|--------------|
 | 10.1 | Potentiële leden benaderen | Actief benaderen van organisaties voor lidmaatschap |
 | 10.2 | Lidmaatschap aansporen | Leden aansporen om lidmaatschap aan te geven in catalogus |
-| 10.3 | Lidmaatschapsverzoeken beoordelen | Beoordelen van inkomende lidmaatschapsverzoeken |
-| 10.4 | Lidmaatschap bevestigen | Goedgekeurde lidmaatschappen bevestigen |
-| 10.5 | Leden ondersteunen | Nieuwe leden begeleiden en ondersteunen |
+| 10.3 | Ledenlijst bekijken | Zien welke organisaties zich als lid hebben aangegeven |
+| 10.4 | Leden ondersteunen | Leden begeleiden en ondersteunen bij gebruik van voordelen |
 
-### Voor Organisaties (Uitstappen)
+### Voor Organisaties (Lidmaatschap beëindigen)
 | Stap | Actie | Beschrijving |
 |------|-------|--------------|
 | 10.1 | Besluit tot uitstappen | Organisatie besluit lidmaatschap te beëindigen |
-| 10.2 | Lidmaatschap opzeggen | Via beheerder lidmaatschap opzeggen in catalogus |
-| 10.3 | Bevestiging ontvangen | Systeem bevestigt beëindiging lidmaatschap |
-| 10.4 | Toegang aanpassen | Toegang tot samenwerking/community wordt aangepast |
+| 10.2 | Lidmaatschap verwijderen | Via beheerder lidmaatschap verwijderen uit catalogus |
+| 10.3 | Direct effect | Lidmaatschap is direct niet meer zichtbaar |
+| 10.4 | Voordelen vervallen | Toegang tot lidmaatschap voordelen vervalt |
 
 ## Gebruikershandleidingen
 
@@ -58,32 +56,33 @@ Deze functionaliteit beschrijft hoe organisaties lidmaatschappen van samenwerkin
 2. **Ga naar organisatiebeheer**
 3. **Zoek de samenwerking/community** in de lijst
 4. **Klik op "Lidmaatschap aangeven"**
-5. **Bevestig uw verzoek**
-6. **Wacht op goedkeuring** van de samenwerking/community
+5. **Bevestig uw keuze**
+6. **Lidmaatschap is direct actief** - geen wachttijd
 
-### Lidmaatschap Bevestigen (voor Samenwerkingen/Communities)
+### Ledenlijst Bekijken (voor Samenwerkingen/Communities)
 
 1. **Log in** als beheerder van de samenwerking/community
 2. **Ga naar ledenbeheer**
-3. **Bekijk openstaande lidmaatschapsverzoeken**
-4. **Beoordeel elk verzoek**:
-   - Controleer of organisatie past bij doelstellingen
-   - Controleer of organisatie voldoet aan criteria
-5. **Klik op "Goedkeuren" of "Afwijzen"**
-6. **Voeg eventueel een bericht toe** voor de aanvrager
+3. **Bekijk huidige leden** die zich hebben aangegeven
+4. **Zie organisatie details**:
+   - Welke organisaties zijn lid
+   - Wanneer ze lid zijn geworden
+   - Contactgegevens van leden
+5. **Export ledenlijst** indien gewenst
+6. **Neem contact op** met leden voor samenwerking
 
 ### Leden Werven
 
 1. **Identificeer potentiële leden** die passen bij uw doelstellingen
 2. **Neem contact op** via telefoon, e-mail of persoonlijk gesprek
 3. **Leg voordelen uit** van lidmaatschap van uw samenwerking/community
-4. **Verwijs naar de softwarecatalogus** voor officiële aanmelding
-5. **Volg op** of de organisatie het lidmaatschap heeft aangegeven
+4. **Verwijs naar de softwarecatalogus** voor lidmaatschap aangeven
+5. **Controleer** of de organisatie het lidmaatschap heeft aangegeven
 6. **Begeleid nieuwe leden** bij hun eerste stappen
 
 ## Gerelateerde Issues
 - [#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) - Lidmaatschap aangeven
-- [#145](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/145) - Lidmaatschap bevestigen
+- [#145](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/145) - Ledenlijst bekijken
 - [#146](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/146) - Leden werven
 
 ## Autorisatie Matrix
@@ -91,7 +90,7 @@ Deze functionaliteit beschrijft hoe organisaties lidmaatschappen van samenwerkin
 | Functionaliteit | Aanbod-beheerder | Gebruik-beheerder | Gebruik-raadpleger | Functioneel beheerder | VNG-raadpleger | Bezoeker |
 |------------------|------------------|-------------------|--------------------|-----------------------|----------------|----------|
 | **Lidmaatschap aangeven** | ✅ (eigen organisatie) | ✅ (eigen organisatie) | ❌ | ✅ (alle organisaties) | ❌ | ❌ |
-| **Lidmaatschap bevestigen** | ✅ (eigen samenwerking/community) | ✅ (eigen samenwerking/community) | ❌ | ✅ (alle) | 👁️ (alleen lezen) | ❌ |
+| **Ledenlijst bekijken** | ✅ (eigen samenwerking/community) | ✅ (eigen samenwerking/community) | 👁️ (eigen samenwerking/community) | ✅ (alle) | 👁️ (alleen lezen) | ❌ |
 | **Leden werven** | ✅ (eigen samenwerking/community) | ✅ (eigen samenwerking/community) | ❌ | ✅ (alle) | ❌ | ❌ |
 | **Lidmaatschap opzeggen** | ✅ (eigen organisatie) | ✅ (eigen organisatie) | ❌ | ✅ (alle organisaties) | ❌ | ❌ |
 
