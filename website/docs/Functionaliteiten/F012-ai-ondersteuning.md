@@ -202,6 +202,6 @@ Deze functionaliteit biedt AI-gestuurde ondersteuning via een Large Language Mod
 - "Wat moet ik doen?" (geen context)
 
 ## Vervolgfunctionaliteiten
-- [F006 - Reviews en Community Feedback](./F006-reviews-en-community-feedback.md)
+- [F006 - Inzichten en Aanbevelingen](./F006-inzichten-en-aanbevelingen.md)
 - [F011 - Zoeken & Ontdekken](./F011-zoeken-en-ontdekken.md)
 - [F007 - Data Export en Import](./F007-data-export-import.md)

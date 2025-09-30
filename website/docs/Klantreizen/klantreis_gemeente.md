@@ -158,7 +158,7 @@ Maria beheert lidmaatschappen:
 - **Communities ontdekken**: Vinden van communities die interessante software ontwikkelen
 - **Voordelen benutten**: Profiteren van gezamenlijke inkoop en kennisdeling
 
-### [F006 - Reviews en Community Feedback](../Functionaliteiten/F006-reviews-en-community-feedback.md)
+### [F006 - Inzichten en Aanbevelingen](../Functionaliteiten/F006-inzichten-en-aanbevelingen.md)
 *"Ik wil graag weten wat andere gemeenten vinden van de software die wij overwegen. En onze ervaringen kunnen ook nuttig zijn voor anderen."*
 
 Maria gebruikt community feedback:

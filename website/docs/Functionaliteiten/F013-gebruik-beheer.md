@@ -132,7 +132,7 @@ Deze functionaliteit beschrijft hoe organisaties hun applicatielandschap kunnen 
 5. **Trends analyseren**: Zie ontwikkelingen in uw applicatielandschap
 
 ## Vervolgfunctionaliteiten
-- [F004 - Aanbod Beheer](./F004-aanbod-beheer.md)
+- [F004 - Applicatiebeheer](./F004-applicatiebeheer.md)
 - [F005 - Dienstenbeheer](./F005-dienstenbeheer.md)
-- [F006 - Reviews en Community Feedback](./F006-reviews-en-community-feedback.md)
+- [F006 - Inzichten en Aanbevelingen](./F006-inzichten-en-aanbevelingen.md)
 - [F008 - Externe Koppelingen](./F008-externe-koppelingen.md)
