@@ -49,7 +49,7 @@ flowchart TD
     %% Parallelle activiteiten na basis inrichting
     
     %% Aanbod beheer (parallel)
-    GEBRUIK --> INRICHTING[Inrichting]
+    GEBRUIK --> INRICHTING[Organisatie en configuratie]
     INRICHTING --> F002[F002 - Organisatie Inrichten]
     INRICHTING --> F003[F003 - Gebruikersbeheer]
 
