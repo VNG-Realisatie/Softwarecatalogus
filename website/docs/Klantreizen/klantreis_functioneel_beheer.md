@@ -46,6 +46,7 @@ flowchart TD
     PARALLEL --> F004[F004 - Applicatiebeheer]
     PARALLEL --> F006[F006 - Inzichten en Aanbevelingen]
     PARALLEL --> F007[F007 - Data Export en Import]
+    PARALLEL --> F014[F014 - Data Migratie]
     
     F001 --> SUPPORT[Gebruiker Ondersteuning]
     F002 --> SUPPORT
@@ -53,6 +54,7 @@ flowchart TD
     F004 --> SUPPORT
     F006 --> SUPPORT
     F007 --> SUPPORT
+    F014 --> SUPPORT
     
     SUPPORT --> END[Peter houdt catalogus operationeel]
     
@@ -119,6 +121,15 @@ Peter ondersteunt:
 - Import van externe data
 - Organisatie fusies verwerken
 - Data migraties begeleiden
+
+### [F014 - Data Migratie](../Functionaliteiten/F014-data-migratie.md)
+*"Ik begeleid organisaties bij het migreren van hun bestaande data naar de nieuwe catalogus en zorg voor continuïteit."*
+
+Peter ondersteunt:
+- Legacy systeem migraties
+- Historische data behoud
+- Organisatie fusie data samenvoegingen
+- Migratie validatie en kwaliteitscontrole
 
 ---
 
