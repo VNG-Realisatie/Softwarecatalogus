@@ -40,57 +40,57 @@ Alle functionaliteiten zijn gebaseerd op de PvE eisen uit de GitHub issues. Hier
 
 | Issue | Titel | Status | Onderdeel | Functionaliteit |
 |-------|-------|--------|-----------|------------------|
-| #174 | Testresultaten 2025-09-24 (blok 2) | open | Test | N.v.t. (operationeel) |
-| #173 | Testresultaten 2025-09-24 (Blok 1) | open | Test | N.v.t. (operationeel) |
-| #172 | Testresultaten Jeroen de Ruig 5/9/2025 acceptatietest | open | Test | N.v.t. (operationeel) |
-| #144 | Overzicht organisaties met zoek- en filteropties | open | Gebruik | F011 - Zoeken & Ontdekken |
-| #143 | Aanbieder registreren die nog niet bestaat | open | Aanbod | F002 - Organisatie Inrichten |
-| #142 | Nieuwe organisaties en gebruikersaccounts aanmaken | closed | Beheer | F002 - Organisatie Inrichten |
-| #141 | Organisaties samenvoegen bij herindeling/overname | open | Datamigratie | F014 - Data Migratie |
-| #140 | Overzicht organisaties met status 'concept' | closed | Beheer | F002 - Organisatie Inrichten |
-| #139 | Organisatiegegevens in concept registreren | closed | Aanbod | F001 - Toegang Verkrijgen |
-| #106 | Tonen beschrijving bij concept (tooltip/glossary) | closed | Aanbod | F004 - Aanbod Beheer |
-| #105 | Aanbieders zien geen applicatielandschappen van gebruikers | open | Gebruik | F005 - Dienstenbeheer |
-| #75 | Rapportages maken over catalogus data | open | Beheer | F006 - Inzichten en Aanbevelingen |
-| #74 | Overzicht organisaties die pakketten/diensten gebruiken | open | Gebruik | F005 - Dienstenbeheer |
-| #73 | Meerdere contactpersonen registreren per pakket | open | Aanbod | F002 - Organisatie Inrichten |
-| #72 | Exporteren ArchiMate | open | Datamigratie | F014 - Data Migratie |
-| #71 | Importeren ArchiMate | open | Datamigratie | F014 - Data Migratie |
-| #70 | Ontsluiten architectuur concepten (filteren) | open | Datamigratie | F014 - Data Migratie |
-| #69 | Doorverwijzing naar GEMMA online vanuit architectuurconcepten | closed | Aanbod | F004 - Aanbod Beheer |
-| #68 | Plotten op views | closed | Gebruik | F007 - Data Export en Import |
-| #66 | Aanvullende organisatie-informatie delen | open | Aanbod | F002 - Organisatie Inrichten |
-| #65 | Collega's toegang geven tot softwarecatalogus | open | Beheer | F003 - Gebruikersbeheer |
-| #64 | Meerdere type gebruikersrollen met rechten | closed | Beheer | F003 - Gebruikersbeheer |
-| #63 | Eerste (beheer)account aanmaken/fiateren | closed | Beheer | F003 - Gebruikersbeheer |
-| #62 | Gebruikers gekoppeld aan organisatie | closed | Beheer | F003 - Gebruikersbeheer |
-| #61 | Nieuwe gebruikers aanmelden bij bestaande organisatie | closed | Beheer | F003 - Gebruikersbeheer |
-| #60 | Voor meerdere organisaties pakketoverzichten bewerken | open | Gebruik | F003 - Gebruikersbeheer |
-| #59 | Alle informatie over applicaties invoeren | open | Gebruik | F013 - Gebruik Beheer |
-| #58 | Pakketten door aanbod-beheerders koppelen aan applicatielandschap | open | Gebruik | F013 - Gebruik Beheer |
-| #57 | Samenwerkingsverband pakketten opvoeren voor gemeenten | open | Gebruik | F010 - Lidmaatschapsbeheer |
-| #56 | Koppelingen registreren tussen applicaties | open | Gebruik | F013 - Gebruik Beheer |
-| #55 | Bij koppeling aangeven of standaard wordt gebruikt | open | Gebruik | F013 - Gebruik Beheer |
-| #54 | Statistieken over pakketoverzicht | open | Gebruik | F006 - Inzichten en Aanbevelingen |
-| #30 | Menustructuur kunnen aanpassen | closed | Beheer | F009 - Beheer en Configuratie |
-| #29 | Toelichtende teksten en foutmeldingen maken/wijzigen | closed | Beheer | F009 - Beheer en Configuratie |
-| #28 | Verschillende soorten content publiceren | closed | Beheer | F009 - Beheer en Configuratie |
-| #23 | Reeds geregistreerde gegevens weer zien in nieuwe catalogus | open | Datamigratie | F014 - Data Migratie |
-| #22 | Pakketoverzicht filteren op eigenschappen | open | Gebruik | F007 - Data Export en Import |
-| #21 | Zoeken en filteren in gebruikte pakketten | open | Gebruik | F004 - Aanbod Beheer |
-| #20 | 'Gluren bij de buren' - pakketten andere gemeenten | open | Gebruik | F006 - Inzichten en Aanbevelingen |
-| #19 | Zien welke gemeenten pakket gebruiken | open | Gebruik | F006 - Inzichten en Aanbevelingen |
-| #18 | Geregistreerde pakketten selecteren en toevoegen | open | Gebruik | F013 - Gebruik Beheer |
-| #15 | Data vanuit softwarecatalogus exporteren | open | Datamigratie | F007 - Data Export en Import |
-| #12 | Namens aanbieder pakketten opvoeren die ontbreken | open | Gebruik | F013 - Gebruik Beheer |
-| #11 | Overzicht door gebruik-beheerders geregistreerde pakketten | open | Beheer | F004 - Aanbod Beheer |
-| #10 | Registreren welke organisaties pakket gebruiken | open | Aanbod | F006 - Inzichten en Aanbevelingen |
-| #9 | Aangeven of applicatie on-premise of Cloud wordt aangeboden | closed | Aanbod | F004 - Aanbod Beheer |
-| #8 | Door gebruik-beheerders toegevoegde pakketten zien | open | Aanbod | F006 - Inzichten en Aanbevelingen |
-| #7 | Licentievorm per pakket registreren | closed | Aanbod | F004 - Aanbod Beheer |
-| #6 | Registreren welke standaarden door pakket worden ondersteund | open | Aanbod | F004 - Aanbod Beheer |
-| #5 | Voor elk pakket contactpersoon aanwijzen | closed | Aanbod | F004 - Aanbod Beheer |
-| #3 | Pakketten zoeken/filteren op standaarden ondersteuning | open | Aanbod | F005 - Dienstenbeheer |
+| [#174](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/174) | Testresultaten 2025-09-24 (blok 2) | open | Test | N.v.t. (operationeel) |
+| [#173](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/173) | Testresultaten 2025-09-24 (Blok 1) | open | Test | N.v.t. (operationeel) |
+| [#172](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/172) | Testresultaten Jeroen de Ruig 5/9/2025 acceptatietest | open | Test | N.v.t. (operationeel) |
+| [#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) | Overzicht organisaties met zoek- en filteropties | open | Gebruik | F011 - Zoeken & Ontdekken |
+| [#143](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/143) | Aanbieder registreren die nog niet bestaat | open | Aanbod | F002 - Organisatie Inrichten |
+| [#142](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/142) | Nieuwe organisaties en gebruikersaccounts aanmaken | closed | Beheer | F002 - Organisatie Inrichten |
+| [#141](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/141) | Organisaties samenvoegen bij herindeling/overname | open | Datamigratie | F014 - Data Migratie |
+| [#140](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/140) | Overzicht organisaties met status 'concept' | closed | Beheer | F002 - Organisatie Inrichten |
+| [#139](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/139) | Organisatiegegevens in concept registreren | closed | Aanbod | F001 - Toegang Verkrijgen |
+| [#106](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/106) | Tonen beschrijving bij concept (tooltip/glossary) | closed | Aanbod | F004 - Aanbod Beheer |
+| [#105](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/105) | Aanbieders zien geen applicatielandschappen van gebruikers | open | Gebruik | F005 - Dienstenbeheer |
+| [#75](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/75) | Rapportages maken over catalogus data | open | Beheer | F006 - Inzichten en Aanbevelingen |
+| [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74) | Overzicht organisaties die pakketten/diensten gebruiken | open | Gebruik | F005 - Dienstenbeheer |
+| [#73](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/73) | Meerdere contactpersonen registreren per pakket | open | Aanbod | F002 - Organisatie Inrichten |
+| [#72](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/72) | Exporteren ArchiMate | open | Datamigratie | F014 - Data Migratie |
+| [#71](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/71) | Importeren ArchiMate | open | Datamigratie | F014 - Data Migratie |
+| [#70](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/70) | Ontsluiten architectuur concepten (filteren) | open | Datamigratie | F014 - Data Migratie |
+| [#69](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/69) | Doorverwijzing naar GEMMA online vanuit architectuurconcepten | closed | Aanbod | F004 - Aanbod Beheer |
+| [#68](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/68) | Plotten op views | closed | Gebruik | F007 - Data Export en Import |
+| [#66](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/66) | Aanvullende organisatie-informatie delen | open | Aanbod | F002 - Organisatie Inrichten |
+| [#65](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/65) | Collega's toegang geven tot softwarecatalogus | open | Beheer | F003 - Gebruikersbeheer |
+| [#64](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/64) | Meerdere type gebruikersrollen met rechten | closed | Beheer | F003 - Gebruikersbeheer |
+| [#63](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/63) | Eerste (beheer)account aanmaken/fiateren | closed | Beheer | F003 - Gebruikersbeheer |
+| [#62](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/62) | Gebruikers gekoppeld aan organisatie | closed | Beheer | F003 - Gebruikersbeheer |
+| [#61](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/61) | Nieuwe gebruikers aanmelden bij bestaande organisatie | closed | Beheer | F003 - Gebruikersbeheer |
+| [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60) | Voor meerdere organisaties pakketoverzichten bewerken | open | Gebruik | F003 - Gebruikersbeheer |
+| [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59) | Alle informatie over applicaties invoeren | open | Gebruik | F013 - Gebruik Beheer |
+| [#58](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/58) | Pakketten door aanbod-beheerders koppelen aan applicatielandschap | open | Gebruik | F013 - Gebruik Beheer |
+| [#57](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/57) | Samenwerkingsverband pakketten opvoeren voor gemeenten | open | Gebruik | F010 - Lidmaatschapsbeheer |
+| [#56](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/56) | Koppelingen registreren tussen applicaties | open | Gebruik | F013 - Gebruik Beheer |
+| [#55](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/55) | Bij koppeling aangeven of standaard wordt gebruikt | open | Gebruik | F013 - Gebruik Beheer |
+| [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) | Statistieken over pakketoverzicht | open | Gebruik | F006 - Inzichten en Aanbevelingen |
+| [#30](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/30) | Menustructuur kunnen aanpassen | closed | Beheer | F009 - Beheer en Configuratie |
+| [#29](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/29) | Toelichtende teksten en foutmeldingen maken/wijzigen | closed | Beheer | F009 - Beheer en Configuratie |
+| [#28](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/28) | Verschillende soorten content publiceren | closed | Beheer | F009 - Beheer en Configuratie |
+| [#23](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/23) | Reeds geregistreerde gegevens weer zien in nieuwe catalogus | open | Datamigratie | F014 - Data Migratie |
+| [#22](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/22) | Pakketoverzicht filteren op eigenschappen | open | Gebruik | F007 - Data Export en Import |
+| [#21](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/21) | Zoeken en filteren in gebruikte pakketten | open | Gebruik | F004 - Aanbod Beheer |
+| [#20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) | 'Gluren bij de buren' - pakketten andere gemeenten | open | Gebruik | F006 - Inzichten en Aanbevelingen |
+| [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19) | Zien welke gemeenten pakket gebruiken | open | Gebruik | F006 - Inzichten en Aanbevelingen |
+| [#18](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/18) | Geregistreerde pakketten selecteren en toevoegen | open | Gebruik | F013 - Gebruik Beheer |
+| [#15](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/15) | Data vanuit softwarecatalogus exporteren | open | Datamigratie | F007 - Data Export en Import |
+| [#12](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/12) | Namens aanbieder pakketten opvoeren die ontbreken | open | Gebruik | F013 - Gebruik Beheer |
+| [#11](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/11) | Overzicht door gebruik-beheerders geregistreerde pakketten | open | Beheer | F004 - Aanbod Beheer |
+| [#10](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/10) | Registreren welke organisaties pakket gebruiken | open | Aanbod | F006 - Inzichten en Aanbevelingen |
+| [#9](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/9) | Aangeven of applicatie on-premise of Cloud wordt aangeboden | closed | Aanbod | F004 - Aanbod Beheer |
+| [#8](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/8) | Door gebruik-beheerders toegevoegde pakketten zien | open | Aanbod | F006 - Inzichten en Aanbevelingen |
+| [#7](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/7) | Licentievorm per pakket registreren | closed | Aanbod | F004 - Aanbod Beheer |
+| [#6](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/6) | Registreren welke standaarden door pakket worden ondersteund | open | Aanbod | F004 - Aanbod Beheer |
+| [#5](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/5) | Voor elk pakket contactpersoon aanwijzen | closed | Aanbod | F004 - Aanbod Beheer |
+| [#3](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/3) | Pakketten zoeken/filteren op standaarden ondersteuning | open | Aanbod | F005 - Dienstenbeheer |
 
 ### Onderdelen Verdeling
 - **Beheer** (9 issues): Systeem beheer, gebruikersbeheer, organisatie beheer
@@ -98,6 +98,22 @@ Alle functionaliteiten zijn gebaseerd op de PvE eisen uit de GitHub issues. Hier
 - **Gebruik** (16 issues): Applicatielandschap, software gebruik, gemeenten
 - **Datamigratie** (6 issues): Import/export, legacy migratie, data overzetten
 - **Test** (3 issues): Operationele test issues (niet functioneel)
+
+## Implementatie Planning
+
+| Week | Dag | Activiteit | Onderdeel | Status |
+|------|-----|------------|-----------|--------|
+| **Week 40** | Woensdag 2 okt | Aanbod uitrollen en doortesten (ACC) | Aanbod | 🔄 In uitvoering |
+| | Donderdag 3 okt | Aftesten door VNG | Aanbod | ⏳ Gepland |
+| **Week 41** | Dinsdag 8 okt | Demo Gebruik + Beheer | Gebruik + Beheer | ⏳ Gepland |
+| | Woensdag 9 okt | Gebruik + Beheer uitrollen en doortesten (ACC) | Gebruik + Beheer | ⏳ Gepland |
+| | Donderdag 10 okt | Aftesten door VNG | Gebruik + Beheer | ⏳ Gepland |
+
+### Planning Details
+- **Aanbod onderdeel**: F001, F002, F004 (Toegang, Organisatie, Applicatiebeheer)
+- **Gebruik onderdeel**: F003, F005, F013 (Gebruikersbeheer, Dienstenbeheer, Gebruik Beheer)  
+- **Beheer onderdeel**: F009 (Beheer en Configuratie)
+- **Toekomstige releases**: F006, F007, F008, F010, F011, F012, F014 (Inzichten, Export, Koppelingen, Lidmaatschap, Zoeken, AI, Migratie)
 
 ## Functionaliteiten Flow
 
