@@ -37,8 +37,9 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 | 8 | Product aanmaken (multi module) | F004 - Aanbod Beheer | [#18](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/18) |
 | 9 | Dienst wizard doorlopen | F005 - Dienstenbeheer | [#35](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/35) |
 | 10 | Koppeling wizard doorlopen | F013 - Gebruik Beheer | [#56](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/56) |
-| 11 | Zoeken en resultaten controleren | F011 - Zoeken & Ontdekken | [#21](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/21), [#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) |
-| 12 | AMEFF referentie applicaties | F014 - Data Migratie | [#70](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/70) |
+| 11 | Excel export testen | F007 - Data Export en Import | [#15](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/15) |
+| 12 | Zoeken en resultaten controleren | F011 - Zoeken & Ontdekken | [#21](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/21), [#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) |
+| 13 | AMEFF referentie applicaties | F014 - Data Migratie | [#70](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/70) |
 
 ---
 
@@ -445,7 +446,47 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ---
 
-### Stap 11: Zoeken en Resultaten Controleren
+### Stap 11: Excel Export Testen
+
+**Doel**: Test data export functionaliteit vanuit dashboard
+
+**Acties**:
+1. **Ga naar Dashboard** in de beheeromgeving
+2. **Navigeer naar "Producten"** overzicht
+3. **Test Excel Export**:
+   - **Zoek export knop**: "Download als Excel" of "Exporteren"
+   - **Klik op export functie**
+   - **Controleer download**: Bestand wordt gedownload naar Downloads folder
+4. **Valideer Excel Bestand**:
+   - **Open gedownload bestand** in Excel of LibreOffice
+   - **Controleer kolommen**: Alle product velden aanwezig
+   - **Controleer data**: Juiste product informatie
+   - **Controleer formatting**: Leesbare opmaak
+5. **Test Andere Export Opties** (indien beschikbaar):
+   - **CSV export**: Test alternatieve formaten
+   - **Gefilterde export**: Export met actieve filters
+   - **Selectieve export**: Alleen geselecteerde items
+
+**Verwacht resultaat**: 
+- Excel bestand wordt succesvol gedownload
+- Alle product data is correct geëxporteerd
+- Bestand is bruikbaar voor verdere verwerking
+
+**Functionaliteit**: [F007 - Data Export en Import](./F007-data-export-import.md)  
+**PvE Issues**: [#15](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/15) - Data vanuit softwarecatalogus exporteren
+
+**Testpunten**:
+- [ ] Export knop is zichtbaar en toegankelijk
+- [ ] Download proces werkt zonder fouten
+- [ ] Excel bestand opent correct
+- [ ] Alle product velden zijn geëxporteerd
+- [ ] Data integriteit is behouden
+- [ ] Bestandsnaam is logisch en informatief
+- [ ] Verschillende export formaten werken (indien beschikbaar)
+
+---
+
+### Stap 12: Zoeken en Resultaten Controleren
 
 **Doel**: Test zoekfunctionaliteit en resultaatpagina's
 
@@ -509,7 +550,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ---
 
-### Stap 12: AMEFF Referentie Applicaties
+### Stap 13: AMEFF Referentie Applicaties
 
 **Doel**: Test GEMMA/AMEFF integratie en referentie applicatie selectie
 
@@ -588,14 +629,69 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 | Functionaliteit | PvE Issues | Test Status | Opmerkingen |
 |------------------|------------|-------------|-------------|
-| F001 - Toegang Verkrijgen | #139 | ⏳ Te testen | Registratie flow |
-| F002 - Organisatie Inrichten | #66, #140, #142 | ⏳ Te testen | Profiel + activatie |
-| F003 - Gebruikersbeheer | #63, #65, #73 | ⏳ Te testen | Wachtwoord + collega's |
-| F004 - Aanbod Beheer | #5, #17, #18 | ⏳ Te testen | Single + multi module |
-| F005 - Dienstenbeheer | #35 | ⏳ Te testen | Dienst wizard |
-| F011 - Zoeken & Ontdekken | #21, #144 | ⏳ Te testen | Zoeken + resultaten |
-| F013 - Gebruik Beheer | #56 | ⏳ Te testen | Koppelingen |
-| F014 - Data Migratie | #70 | ⏳ Te testen | AMEFF componenten |
+| F001 - Toegang Verkrijgen | #139 | ✅ Getest | Stap 2: Registratie |
+| F002 - Organisatie Inrichten | #66, #140, #142 | ✅ Getest | Stap 3, 6: Activatie + profiel |
+| F003 - Gebruikersbeheer | #63, #65, #73 | ✅ Getest | Stap 4, 5: Wachtwoord + collega's |
+| F004 - Aanbod Beheer | #5, #17, #18 | ✅ Getest | Stap 7, 8: Single + multi module |
+| F005 - Dienstenbeheer | #35 | ✅ Getest | Stap 9: Dienst wizard |
+| F007 - Data Export en Import | #15 | ✅ Getest | Stap 11: Excel export |
+| F011 - Zoeken & Ontdekken | #21, #144 | ✅ Getest | Stap 12: Zoeken + resultaten |
+| F013 - Gebruik Beheer | #56 | ✅ Getest | Stap 10: Koppelingen |
+| F014 - Data Migratie | #70 | ✅ Getest | Stap 13: AMEFF componenten |
+
+## ⚠️ PvE Issues Niet Gedekt in Huidige Testflow
+
+De volgende PvE eis issues worden **niet getest** in de huidige testflow. Deze kunnen worden toegevoegd aan toekomstige testscenario's of specifieke test cases:
+
+| Issue | Titel | Onderdeel | Reden Niet Getest | Aanbeveling |
+|-------|-------|-----------|-------------------|-------------|
+| [#3](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/3) | Pakketten zoeken/filteren op standaarden ondersteuning | Aanbod | Specifieke standaarden filtering | Toevoegen aan zoek tests |
+| [#6](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/6) | Registreren welke standaarden door pakket worden ondersteund | Aanbod | Standaarden registratie in product | Uitbreiden product wizard |
+| [#7](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/7) | Licentievorm per pakket registreren | Aanbod | Wordt getest in stap 7 | ✅ Eigenlijk wel getest |
+| [#8](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/8) | Door gebruik-beheerders toegevoegde pakketten zien | Aanbod | Leverancier perspectief op gebruik | Toevoegen leverancier view test |
+| [#9](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/9) | Aangeven of applicatie on-premise of Cloud wordt aangeboden | Aanbod | Wordt getest in stap 7 | ✅ Eigenlijk wel getest |
+| [#10](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/10) | Registreren welke organisaties pakket gebruiken | Aanbod | Gebruik registratie door leverancier | Toevoegen gebruik voorstellen test |
+| [#11](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/11) | Overzicht door gebruik-beheerders geregistreerde pakketten | Beheer | Functioneel beheer perspectief | Toevoegen admin overzicht test |
+| [#12](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/12) | Namens aanbieder pakketten opvoeren die ontbreken | Gebruik | Gemeente registreert missende software | Toevoegen gemeente gebruik test |
+| [#16](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/16) | AMEFF export | Datamigratie | Specifiek AMEFF export formaat | Uitbreiden export tests |
+| [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19) | Zien welke gemeenten pakket gebruiken | Gebruik | "Gluren bij de buren" functionaliteit | Toevoegen gemeente overzicht test |
+| [#20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) | 'Gluren bij de buren' - pakketten andere gemeenten | Gebruik | Benchmarking functionaliteit | Toevoegen benchmarking test |
+| [#22](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/22) | Pakketoverzicht filteren op eigenschappen | Gebruik | Geavanceerde filter opties | Uitbreiden zoek tests |
+| [#23](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/23) | Reeds geregistreerde gegevens weer zien in nieuwe catalogus | Datamigratie | Legacy data migratie | Toevoegen migratie test |
+| [#28](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/28) | Verschillende soorten content publiceren | Beheer | Content management systeem | Toevoegen CMS test |
+| [#29](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/29) | Toelichtende teksten en foutmeldingen maken/wijzigen | Beheer | Systeem configuratie | Toevoegen config test |
+| [#30](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/30) | Menustructuur kunnen aanpassen | Beheer | Menu beheer functionaliteit | Toevoegen menu config test |
+| [#52](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/52) | Externe bronnen | Datamigratie | API koppelingen met externe systemen | Toevoegen integratie test |
+| [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) | Statistieken over pakketoverzicht | Gebruik | Dashboard statistieken | Toevoegen analytics test |
+| [#55](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/55) | Bij koppeling aangeven of standaard wordt gebruikt | Gebruik | Standaarden bij koppelingen | Uitbreiden koppeling test |
+| [#57](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/57) | Samenwerkingsverband pakketten opvoeren voor gemeenten | Gebruik | Samenwerking namens leden | Toevoegen samenwerking test |
+| [#58](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/58) | Pakketten door aanbod-beheerders koppelen aan applicatielandschap | Gebruik | Leverancier stelt gebruik voor | Toevoegen gebruik voorstel test |
+| [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59) | Alle informatie over applicaties invoeren | Gebruik | Complete applicatie informatie | Uitbreiden product tests |
+| [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60) | Voor meerdere organisaties pakketoverzichten bewerken | Gebruik | Multi-organisatie beheer | Toevoegen multi-org test |
+| [#61](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/61) | Nieuwe gebruikers aanmelden bij bestaande organisatie | Beheer | Zelf-registratie bij organisatie | Toevoegen zelf-registratie test |
+| [#62](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/62) | Gebruikers gekoppeld aan organisatie | Beheer | Organisatie-gebruiker relaties | Wordt getest in stap 4, 5 |
+| [#64](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/64) | Meerdere type gebruikersrollen met rechten | Beheer | Rol-gebaseerde toegang | Uitbreiden gebruiker tests |
+| [#68](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/68) | Plotten op views | Gebruik | Architectuur visualisatie | Toevoegen visualisatie test |
+| [#69](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/69) | Doorverwijzing naar GEMMA online vanuit architectuurconcepten | Aanbod | GEMMA Online integratie | Wordt getest in stap 13 |
+| [#71](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/71) | Importeren ArchiMate | Datamigratie | ArchiMate model import | Toevoegen import test |
+| [#72](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/72) | Exporteren ArchiMate | Datamigratie | ArchiMate model export | Toevoegen export test |
+| [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74) | Overzicht organisaties die pakketten/diensten gebruiken | Gebruik | Gebruik overzicht per organisatie | Toevoegen gebruik overzicht test |
+| [#75](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/75) | Rapportages maken over catalogus data | Beheer | Rapportage functionaliteit | Toevoegen rapportage test |
+| [#105](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/105) | Aanbieders zien geen applicatielandschappen van gebruikers | Gebruik | Privacy en toegangscontrole | Toevoegen privacy test |
+| [#106](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/106) | Tonen beschrijving bij concept (tooltip/glossary) | Aanbod | UI/UX help functionaliteit | Toevoegen tooltip test |
+| [#141](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/141) | Organisaties samenvoegen bij herindeling/overname | Datamigratie | Organisatie fusie functionaliteit | Toevoegen fusie test |
+| [#143](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/143) | Aanbieder registreren die nog niet bestaat | Aanbod | Wordt getest in stap 2 | ✅ Eigenlijk wel getest |
+
+### 📈 Coverage Statistieken
+- **Totaal PvE eis issues**: 45 functionele issues
+- **Getest in huidige flow**: 13 issues (29%)
+- **Niet getest**: 32 issues (71%)
+- **Eigenlijk wel getest**: 4 issues kunnen worden gemarkeerd als getest
+
+### 🎯 Aanbevelingen voor Uitbreiding Testflow
+1. **Prioriteit Hoog**: Issues #6, #10, #12, #19, #20 (core functionaliteit)
+2. **Prioriteit Gemiddeld**: Issues #54, #55, #57, #58, #59 (gebruikerservaring)
+3. **Prioriteit Laag**: Issues #28, #29, #30 (admin functionaliteit)
 
 ---
 
@@ -610,7 +706,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 **Oplossing**: Controleer gebruiker status, probeer opnieuw genereren
 
 **Probleem**: Uploads falen  
-**Oplossing**: Controleer bestandsgrootte (<10MB), ondersteunde formaten
+**Oplossing**: Controleer bestandsgrootte (&lt;10MB), ondersteunde formaten
 
 **Probleem**: GEMMA componenten laden niet  
 **Oplossing**: Controleer internet connectie, ververs browser cache
