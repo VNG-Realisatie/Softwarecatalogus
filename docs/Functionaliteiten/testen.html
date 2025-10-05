@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.7.0">
 <title data-rh="true">Testhandleiding GEMMA Softwarecatalogus | Softwarecatalogus</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://vng-realisatie.github.io/Softwarecatalogus/docs/Functionaliteiten/testen"><meta data-rh="true" property="og:locale" content="nl"><meta data-rh="true" name="docusaurus_locale" content="nl"><meta data-rh="true" name="docsearch:language" content="nl"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Testhandleiding GEMMA Softwarecatalogus | Softwarecatalogus"><meta data-rh="true" name="description" content="Uitgebreide testflow voor het testen van de GEMMA Softwarecatalogus functionaliteiten"><meta data-rh="true" property="og:description" content="Uitgebreide testflow voor het testen van de GEMMA Softwarecatalogus functionaliteiten"><meta data-rh="true" name="keywords" content="testen,testflow,acceptatietesten,gebruikerstesten,softwarecatalogus"><link data-rh="true" rel="canonical" href="https://vng-realisatie.github.io/Softwarecatalogus/docs/Functionaliteiten/testen"><link data-rh="true" rel="alternate" href="https://vng-realisatie.github.io/Softwarecatalogus/docs/Functionaliteiten/testen" hreflang="nl"><link data-rh="true" rel="alternate" href="https://vng-realisatie.github.io/Softwarecatalogus/docs/Functionaliteiten/testen" hreflang="x-default"><link rel="stylesheet" href="/Softwarecatalogus/assets/css/styles.7b5eb8f9.css">
-<script src="/Softwarecatalogus/assets/js/runtime~main.b4bc8464.js" defer="defer"></script>
+<script src="/Softwarecatalogus/assets/js/runtime~main.15a792bf.js" defer="defer"></script>
 <script src="/Softwarecatalogus/assets/js/main.a4b76a80.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -79,7 +79,7 @@
 </ul>
 <hr>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="stap-3-organisatie-activatie-backend">Stap 3: Organisatie Activatie (Backend)<a href="#stap-3-organisatie-activatie-backend" class="hash-link" aria-label="Direct link naar Stap 3: Organisatie Activatie (Backend)" title="Direct link naar Stap 3: Organisatie Activatie (Backend)">​</a></h3>
-<p><strong>Doel</strong>: Test het activatieproces door functioneel beheer</p>
+<p><strong>Doel</strong>: Test het activatieproces door functioneel beheer en stel gebruiker wachtwoord in</p>
 <p><strong>Acties</strong>:</p>
 <ol>
 <li><strong>Navigeer naar</strong>: <a href="https://softwarecatalogus.accept.commonground.nu/" target="_blank" rel="noopener noreferrer">https://softwarecatalogus.accept.commonground.nu/</a></li>
@@ -98,6 +98,16 @@
 <li>Klik op organisatie card</li>
 <li>Klik op &quot;Activeren&quot; knop</li>
 <li>Wacht tot activatie voltooid is (kan enkele minuten duren)</li>
+</ul>
+</li>
+<li><strong>Stel gebruiker wachtwoord in</strong> (belangrijk voor volgende stappen):<!-- -->
+<ul>
+<li>Ga naar de geactiveerde organisatie</li>
+<li>Klik op &quot;Bekijk contactpersonen&quot;</li>
+<li>Selecteer de hoofdgebruiker (aangemaakt tijdens registratie)</li>
+<li>Klik op &quot;Change Password&quot;</li>
+<li>Stel nieuw wachtwoord in (bijvoorbeeld: &quot;Test123!&quot;)</li>
+<li>Noteer het wachtwoord voor stap 4</li>
 </ul>
 </li>
 </ol>
@@ -120,36 +130,32 @@
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Status wordt correct bijgewerkt na activatie</li>
 </ul>
 <hr>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="stap-4-eerste-inlog-en-wachtwoord-instellen">Stap 4: Eerste Inlog en Wachtwoord Instellen<a href="#stap-4-eerste-inlog-en-wachtwoord-instellen" class="hash-link" aria-label="Direct link naar Stap 4: Eerste Inlog en Wachtwoord Instellen" title="Direct link naar Stap 4: Eerste Inlog en Wachtwoord Instellen">​</a></h3>
-<p><strong>Doel</strong>: Test gebruikersaccount activatie en wachtwoordbeheer</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="stap-4-eerste-inlog">Stap 4: Eerste Inlog<a href="#stap-4-eerste-inlog" class="hash-link" aria-label="Direct link naar Stap 4: Eerste Inlog" title="Direct link naar Stap 4: Eerste Inlog">​</a></h3>
+<p><strong>Doel</strong>: Test eerste inlog met het in stap 3 ingestelde wachtwoord</p>
 <p><strong>Acties</strong>:</p>
 <ol>
-<li><strong>Blijf in backend omgeving</strong>: <a href="https://softwarecatalogus.accept.commonground.nu/" target="_blank" rel="noopener noreferrer">https://softwarecatalogus.accept.commonground.nu/</a></li>
-<li><strong>Ga naar de geactiveerde organisatie</strong></li>
-<li><strong>Klik op &quot;Bekijk contactpersonen&quot;</strong></li>
-<li><strong>Selecteer de hoofdgebruiker</strong> (aangemaakt tijdens registratie)</li>
-<li><strong>Reset wachtwoord</strong>:<!-- -->
+<li><strong>Ga naar frontend</strong>: <a href="https://softwarecatalogus.accept.opencatalogi.nl/" target="_blank" rel="noopener noreferrer">https://softwarecatalogus.accept.opencatalogi.nl/</a></li>
+<li><strong>Klik op &quot;Inloggen&quot;</strong> (rechtsboven)</li>
+<li><strong>Voer credentials in</strong>:<!-- -->
 <ul>
-<li>Klik op gebruiker</li>
-<li>Klik op &quot;Change Password&quot;</li>
-<li><strong>Optie A</strong>: Genereer automatisch wachtwoord</li>
-<li><strong>Optie B</strong>: Stel handmatig wachtwoord in</li>
-<li>Noteer het nieuwe wachtwoord</li>
+<li><strong>E-mailadres</strong>: Het geregistreerde e-mailadres uit stap 2</li>
+<li><strong>Wachtwoord</strong>: Het wachtwoord dat in stap 3 is ingesteld</li>
 </ul>
 </li>
-<li><strong>Test inlog</strong>:<!-- -->
+<li><strong>Controleer inlog</strong>:<!-- -->
 <ul>
-<li>Ga naar beheeromgeving van de organisatie</li>
-<li>Log in met e-mailadres en nieuwe wachtwoord</li>
-<li>Controleer toegang tot dashboard</li>
+<li>Dashboard moet laden</li>
+<li>Gebruikersnaam moet zichtbaar zijn rechtsboven</li>
+<li>Menu opties moeten beschikbaar zijn</li>
 </ul>
 </li>
+<li><strong>Verken dashboard</strong>: Bekijk beschikbare functionaliteiten</li>
 </ol>
 <p><strong>Verwacht resultaat</strong>:</p>
 <ul>
-<li>Wachtwoord kan succesvol worden ingesteld</li>
-<li>Gebruiker kan inloggen op beheeromgeving</li>
+<li>Inlog verloopt succesvol</li>
 <li>Dashboard is toegankelijk</li>
+<li>Gebruiker heeft juiste rechten (aanbod-beheerder)</li>
 </ul>
 <p><strong>Functionaliteit</strong>: <a href="/Softwarecatalogus/docs/Functionaliteiten/f003-gebruikersbeheer">F003 - Gebruikersbeheer</a><br>
 <strong>PvE Issues</strong>:</p>
@@ -159,10 +165,10 @@
 </ul>
 <p><strong>Testpunten</strong>:</p>
 <ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Wachtwoord reset functionaliteit werkt</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Inlogproces verloopt soepel</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Dashboard laadt correct na inlog</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Gebruiker heeft juiste rechten (aanbod-beheerder)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Menu opties zijn zichtbaar en toegankelijk</li>
 </ul>
 <hr>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="stap-5-collegas-uitnodigen">Stap 5: Collega&#x27;s Uitnodigen<a href="#stap-5-collegas-uitnodigen" class="hash-link" aria-label="Direct link naar Stap 5: Collega&#x27;s Uitnodigen" title="Direct link naar Stap 5: Collega&#x27;s Uitnodigen">​</a></h3>
@@ -181,23 +187,31 @@
 </li>
 <li><strong>Voeg contactpersoon toe</strong></li>
 <li><strong>Controleer contactpersoon in lijst</strong></li>
-<li><strong>Test wachtwoord instellen</strong> voor nieuwe gebruiker:<!-- -->
+<li><strong>Wachtwoord instellen voor collega&#x27;s</strong> (indien nodig voor test inloggen):<!-- -->
 <ul>
-<li>Selecteer nieuwe contactpersoon</li>
-<li>Stel wachtwoord in via &quot;Change Password&quot;</li>
+<li><strong>Belangrijk</strong>: Wachtwoorden kunnen NIET direct worden ingesteld in de frontend</li>
+<li><strong>Security feature</strong>: Dit is een beveiligingsmaatregel</li>
+<li><strong>Procedure</strong>:<!-- -->
+<ul>
+<li>Ga terug naar backend: <a href="https://softwarecatalogus.accept.commonground.nu/" target="_blank" rel="noopener noreferrer">https://softwarecatalogus.accept.commonground.nu/</a></li>
+<li>Zoek de organisatie en bijbehorende gebruikers</li>
+<li>Stel wachtwoorden in voor de nieuwe gebruikers via &quot;Change Password&quot;</li>
+<li>Noteer de inloggegevens voor later gebruik</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>Test inlog nieuwe gebruiker</strong> (optioneel):<!-- -->
 <ul>
 <li>Log uit met hoofdaccount</li>
-<li>Log in met nieuwe collega account</li>
+<li>Log in met nieuwe collega account en ingesteld wachtwoord</li>
 </ul>
 </li>
 </ol>
 <p><strong>Verwacht resultaat</strong>:</p>
 <ul>
 <li>Nieuwe contactpersoon wordt succesvol toegevoegd</li>
-<li>Wachtwoord kan worden ingesteld</li>
+<li>Wachtwoord kan worden ingesteld via backend (security feature)</li>
 <li>Nieuwe gebruiker kan inloggen (indien getest)</li>
 </ul>
 <p><strong>Functionaliteit</strong>: <a href="/Softwarecatalogus/docs/Functionaliteiten/f003-gebruikersbeheer">F003 - Gebruikersbeheer</a><br>
@@ -348,21 +362,18 @@
 <ul>
 <li>Naam: &quot;Basis Module&quot;</li>
 <li>Beschrijving: Kernfunctionaliteit</li>
-<li>Prijs: Basisprijs</li>
 </ul>
 </li>
 <li><strong>Voeg Module 2 toe</strong>:<!-- -->
 <ul>
 <li>Naam: &quot;Premium Module&quot;</li>
 <li>Beschrijving: Uitgebreide functionaliteit</li>
-<li>Prijs: Premium prijs</li>
 </ul>
 </li>
 <li><strong>Voeg Module 3 toe</strong>:<!-- -->
 <ul>
 <li>Naam: &quot;Integratie Module&quot;</li>
 <li>Beschrijving: Koppelingen met andere systemen</li>
-<li>Prijs: Integratie kosten</li>
 </ul>
 </li>
 </ul>
@@ -377,7 +388,7 @@
 <li><strong>Test module weergave</strong>:<!-- -->
 <ul>
 <li><strong>Controleer productpagina</strong> met alle modules</li>
-<li><strong>Verifieer prijsberekening</strong> per module combinatie</li>
+<li><strong>Verifieer module relaties</strong> en afhankelijkheden</li>
 </ul>
 </li>
 </ol>
@@ -385,7 +396,7 @@
 <ul>
 <li>Hoofdproduct met meerdere modules wordt aangemaakt</li>
 <li>Module beheer functionaliteit werkt correct</li>
-<li>Prijsberekening per module klopt</li>
+<li>Module relaties worden correct weergegeven</li>
 </ul>
 <p><strong>Functionaliteit</strong>: <a href="/Softwarecatalogus/docs/Functionaliteiten/f004-aanbod-beheer">F004 - Aanbod Beheer</a><br>
 <strong>PvE Issues</strong>: <a href="https://github.com/VNG-Realisatie/Softwarecatalogus/issues/18" target="_blank" rel="noopener noreferrer">#18</a> - Geregistreerde pakketten selecteren en toevoegen</p>
@@ -422,14 +433,7 @@
 <li><strong>Response tijd</strong>: Maximale reactietijd</li>
 </ul>
 </li>
-<li><strong>Stap 3: Prijsmodel</strong>:<!-- -->
-<ul>
-<li><strong>Prijs per maand/jaar</strong></li>
-<li><strong>Setup kosten</strong></li>
-<li><strong>Variabele kosten</strong></li>
-</ul>
-</li>
-<li><strong>Stap 4: Regio en Beschikbaarheid</strong>:<!-- -->
+<li><strong>Stap 3: Regio en Beschikbaarheid</strong>:<!-- -->
 <ul>
 <li><strong>Geografische dekking</strong></li>
 <li><strong>Taalondersteuning</strong></li>
@@ -660,7 +664,6 @@
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Koppelingen worden getoond</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Organisatie pagina&#x27;s zijn compleet</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Alle links en navigatie werken</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Responsive design werkt op verschillende schermformaten</li>
 </ul>
 <hr>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="stap-13-ameff-referentie-applicaties">Stap 13: AMEFF Referentie Applicaties<a href="#stap-13-ameff-referentie-applicaties" class="hash-link" aria-label="Direct link naar Stap 13: AMEFF Referentie Applicaties" title="Direct link naar Stap 13: AMEFF Referentie Applicaties">​</a></h3>
@@ -676,13 +679,7 @@
 </li>
 <li><strong>Test Referentie Applicatie Selectie</strong>:<!-- -->
 <ul>
-<li><strong>Browse door GEMMA lagen</strong>:<!-- -->
-<ul>
-<li>Gebruikersinteractie laag</li>
-<li>Bedrijfsprocessen laag</li>
-<li>Gegevens laag</li>
-</ul>
-</li>
+<li><strong>Bekijk beschikbare componenten</strong>: Volledige lijst van GEMMA componenten</li>
 <li><strong>Selecteer relevante componenten</strong>:<!-- -->
 <ul>
 <li>Kies componenten die passen bij uw product</li>
@@ -696,13 +693,6 @@
 <li>Links naar GEMMA Online (indien beschikbaar)</li>
 </ul>
 </li>
-</ul>
-</li>
-<li><strong>Test Component Filtering</strong>:<!-- -->
-<ul>
-<li><strong>Filter op domein</strong>: Burgerzaken, Financiën, etc.</li>
-<li><strong>Filter op laag</strong>: Specificeer architectuur laag</li>
-<li><strong>Zoek componenten</strong>: Gebruik zoekfunctionaliteit</li>
 </ul>
 </li>
 <li><strong>Valideer Opgeslagen Selecties</strong>:<!-- -->
@@ -725,9 +715,9 @@
 <p><strong>Testpunten</strong>:</p>
 <ul class="contains-task-list containsTaskList_mC6p">
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->GEMMA componenten zijn beschikbaar in wizard</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Componentenlijst wordt correct geladen</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Componenten kunnen worden geselecteerd</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Filtering op domein en laag werkt</li>
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Zoeken in componenten functioneert</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Meerdere componenten kunnen worden gekozen</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Component details zijn informatief</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Selecties worden correct opgeslagen</li>
 <li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->GEMMA componenten zijn zichtbaar op product pagina</li>
@@ -799,6 +789,6 @@
 <li><strong>Documentatie</strong>: Raadpleeg relevante functionaliteit pagina&#x27;s</li>
 </ul>
 <hr>
-<p><em>Deze testhandleiding wordt regelmatig bijgewerkt op basis van nieuwe functionaliteiten en testresultaten.</em></p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Documentatie pagina"><a class="pagination-nav__link pagination-nav__link--prev" href="/Softwarecatalogus/docs/Functionaliteiten/f014-data-migratie"><div class="pagination-nav__sublabel">Vorige</div><div class="pagination-nav__label">F014 - Data Migratie</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Softwarecatalogus/docs/GEMMA/api-introductie"><div class="pagination-nav__sublabel">Volgende</div><div class="pagination-nav__label">Introductie</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#-testomgeving" class="table-of-contents__link toc-highlight">🧪 Testomgeving</a></li><li><a href="#-testflow-overzicht" class="table-of-contents__link toc-highlight">📋 Testflow Overzicht</a></li><li><a href="#-gedetailleerde-testflow" class="table-of-contents__link toc-highlight">🚀 Gedetailleerde Testflow</a><ul><li><a href="#stap-1-browser-voorbereiding" class="table-of-contents__link toc-highlight">Stap 1: Browser Voorbereiding</a></li><li><a href="#stap-2-organisatie-registratie" class="table-of-contents__link toc-highlight">Stap 2: Organisatie Registratie</a></li><li><a href="#stap-3-organisatie-activatie-backend" class="table-of-contents__link toc-highlight">Stap 3: Organisatie Activatie (Backend)</a></li><li><a href="#stap-4-eerste-inlog-en-wachtwoord-instellen" class="table-of-contents__link toc-highlight">Stap 4: Eerste Inlog en Wachtwoord Instellen</a></li><li><a href="#stap-5-collegas-uitnodigen" class="table-of-contents__link toc-highlight">Stap 5: Collega&#39;s Uitnodigen</a></li><li><a href="#stap-6-organisatie-profiel-invullen" class="table-of-contents__link toc-highlight">Stap 6: Organisatie Profiel Invullen</a></li><li><a href="#stap-7-product-aanmaken-enkele-module" class="table-of-contents__link toc-highlight">Stap 7: Product Aanmaken (Enkele Module)</a></li><li><a href="#stap-8-product-aanmaken-meerdere-modules" class="table-of-contents__link toc-highlight">Stap 8: Product Aanmaken (Meerdere Modules)</a></li><li><a href="#stap-9-dienst-wizard-doorlopen" class="table-of-contents__link toc-highlight">Stap 9: Dienst Wizard Doorlopen</a></li><li><a href="#stap-10-koppeling-wizard-doorlopen" class="table-of-contents__link toc-highlight">Stap 10: Koppeling Wizard Doorlopen</a></li><li><a href="#stap-11-excel-export-testen" class="table-of-contents__link toc-highlight">Stap 11: Excel Export Testen</a></li><li><a href="#stap-12-zoeken-en-resultaten-controleren" class="table-of-contents__link toc-highlight">Stap 12: Zoeken en Resultaten Controleren</a></li><li><a href="#stap-13-ameff-referentie-applicaties" class="table-of-contents__link toc-highlight">Stap 13: AMEFF Referentie Applicaties</a></li></ul></li><li><a href="#-test-afronding" class="table-of-contents__link toc-highlight">✅ Test Afronding</a><ul><li><a href="#testresultaten-documenteren" class="table-of-contents__link toc-highlight">Testresultaten Documenteren</a></li><li><a href="#opruimen-testdata" class="table-of-contents__link toc-highlight">Opruimen Testdata</a></li></ul></li><li><a href="#-test-coverage-matrix" class="table-of-contents__link toc-highlight">📊 Test Coverage Matrix</a></li><li><a href="#️-pve-issues-niet-gedekt-in-huidige-testflow" class="table-of-contents__link toc-highlight">⚠️ PvE Issues Niet Gedekt in Huidige Testflow</a><ul><li><a href="#-coverage-statistieken" class="table-of-contents__link toc-highlight">📈 Coverage Statistieken</a></li><li><a href="#-aanbevelingen-voor-uitbreiding-testflow" class="table-of-contents__link toc-highlight">🎯 Aanbevelingen voor Uitbreiding Testflow</a></li></ul></li><li><a href="#-troubleshooting" class="table-of-contents__link toc-highlight">🆘 Troubleshooting</a><ul><li><a href="#veelvoorkomende-problemen" class="table-of-contents__link toc-highlight">Veelvoorkomende Problemen</a></li><li><a href="#contact" class="table-of-contents__link toc-highlight">Contact</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentatie</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Softwarecatalogus/docs/intro">Handleiding</a></li><li class="footer__item"><a class="footer__link-item" href="/Softwarecatalogus/api">API Specificatie</a></li><li class="footer__item"><a href="https://github.com/vng-realisatie/softwarecatalogus" target="_blank" rel="noopener noreferrer" class="footer__link-item" position="right">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://forum.vng.nl" target="_blank" rel="noopener noreferrer" class="footer__link-item">VNG Forum<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/VNG-Realisatie/softwarecatalogus" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 VNG Realisatie. Gebouwd met Docusaurus.</div></div></div></footer></div>
+<p><em>Deze testhandleiding wordt regelmatig bijgewerkt op basis van nieuwe functionaliteiten en testresultaten.</em></p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Documentatie pagina"><a class="pagination-nav__link pagination-nav__link--prev" href="/Softwarecatalogus/docs/Functionaliteiten/f014-data-migratie"><div class="pagination-nav__sublabel">Vorige</div><div class="pagination-nav__label">F014 - Data Migratie</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Softwarecatalogus/docs/GEMMA/api-introductie"><div class="pagination-nav__sublabel">Volgende</div><div class="pagination-nav__label">Introductie</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#-testomgeving" class="table-of-contents__link toc-highlight">🧪 Testomgeving</a></li><li><a href="#-testflow-overzicht" class="table-of-contents__link toc-highlight">📋 Testflow Overzicht</a></li><li><a href="#-gedetailleerde-testflow" class="table-of-contents__link toc-highlight">🚀 Gedetailleerde Testflow</a><ul><li><a href="#stap-1-browser-voorbereiding" class="table-of-contents__link toc-highlight">Stap 1: Browser Voorbereiding</a></li><li><a href="#stap-2-organisatie-registratie" class="table-of-contents__link toc-highlight">Stap 2: Organisatie Registratie</a></li><li><a href="#stap-3-organisatie-activatie-backend" class="table-of-contents__link toc-highlight">Stap 3: Organisatie Activatie (Backend)</a></li><li><a href="#stap-4-eerste-inlog" class="table-of-contents__link toc-highlight">Stap 4: Eerste Inlog</a></li><li><a href="#stap-5-collegas-uitnodigen" class="table-of-contents__link toc-highlight">Stap 5: Collega&#39;s Uitnodigen</a></li><li><a href="#stap-6-organisatie-profiel-invullen" class="table-of-contents__link toc-highlight">Stap 6: Organisatie Profiel Invullen</a></li><li><a href="#stap-7-product-aanmaken-enkele-module" class="table-of-contents__link toc-highlight">Stap 7: Product Aanmaken (Enkele Module)</a></li><li><a href="#stap-8-product-aanmaken-meerdere-modules" class="table-of-contents__link toc-highlight">Stap 8: Product Aanmaken (Meerdere Modules)</a></li><li><a href="#stap-9-dienst-wizard-doorlopen" class="table-of-contents__link toc-highlight">Stap 9: Dienst Wizard Doorlopen</a></li><li><a href="#stap-10-koppeling-wizard-doorlopen" class="table-of-contents__link toc-highlight">Stap 10: Koppeling Wizard Doorlopen</a></li><li><a href="#stap-11-excel-export-testen" class="table-of-contents__link toc-highlight">Stap 11: Excel Export Testen</a></li><li><a href="#stap-12-zoeken-en-resultaten-controleren" class="table-of-contents__link toc-highlight">Stap 12: Zoeken en Resultaten Controleren</a></li><li><a href="#stap-13-ameff-referentie-applicaties" class="table-of-contents__link toc-highlight">Stap 13: AMEFF Referentie Applicaties</a></li></ul></li><li><a href="#-test-afronding" class="table-of-contents__link toc-highlight">✅ Test Afronding</a><ul><li><a href="#testresultaten-documenteren" class="table-of-contents__link toc-highlight">Testresultaten Documenteren</a></li><li><a href="#opruimen-testdata" class="table-of-contents__link toc-highlight">Opruimen Testdata</a></li></ul></li><li><a href="#-test-coverage-matrix" class="table-of-contents__link toc-highlight">📊 Test Coverage Matrix</a></li><li><a href="#️-pve-issues-niet-gedekt-in-huidige-testflow" class="table-of-contents__link toc-highlight">⚠️ PvE Issues Niet Gedekt in Huidige Testflow</a><ul><li><a href="#-coverage-statistieken" class="table-of-contents__link toc-highlight">📈 Coverage Statistieken</a></li><li><a href="#-aanbevelingen-voor-uitbreiding-testflow" class="table-of-contents__link toc-highlight">🎯 Aanbevelingen voor Uitbreiding Testflow</a></li></ul></li><li><a href="#-troubleshooting" class="table-of-contents__link toc-highlight">🆘 Troubleshooting</a><ul><li><a href="#veelvoorkomende-problemen" class="table-of-contents__link toc-highlight">Veelvoorkomende Problemen</a></li><li><a href="#contact" class="table-of-contents__link toc-highlight">Contact</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentatie</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Softwarecatalogus/docs/intro">Handleiding</a></li><li class="footer__item"><a class="footer__link-item" href="/Softwarecatalogus/api">API Specificatie</a></li><li class="footer__item"><a href="https://github.com/vng-realisatie/softwarecatalogus" target="_blank" rel="noopener noreferrer" class="footer__link-item" position="right">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://forum.vng.nl" target="_blank" rel="noopener noreferrer" class="footer__link-item">VNG Forum<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/VNG-Realisatie/softwarecatalogus" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 VNG Realisatie. Gebouwd met Docusaurus.</div></div></div></footer></div>
 </body>
 </html>
