@@ -29,7 +29,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 |------|-------------|-----------------|------------|
 | 1 | Browser voorbereiding | - | - |
 | 2 | Organisatie registratie | F001 - Toegang Verkrijgen | [#139](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/139) |
-| 3 | Organisatie activatie | F002 - Organisatie Inrichten | [#140](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/140), [#142](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/142) |
+| 3 | Organisatie activatie + gebruikersbeheer | F002 - Organisatie Inrichten, F003 - Gebruikersbeheer | [#140](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/140), [#142](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/142), [#63](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/63), [#64](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/64), [#65](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/65) |
 | 4 | Eerste inlog en wachtwoord | F003 - Gebruikersbeheer | [#63](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/63), [#65](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/65) |
 | 5 | Collega's uitnodigen | F003 - Gebruikersbeheer | [#73](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/73) |
 | 6 | Organisatie profiel invullen | F002 - Organisatie Inrichten | [#66](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/66) |
@@ -98,9 +98,9 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ---
 
-### Stap 3: Organisatie Activatie (Backend)
+### Stap 3: Organisatie Activatie en Gebruikersbeheer (Backend)
 
-**Doel**: Test het activatieproces door functioneel beheer en stel gebruiker wachtwoord in
+**Doel**: Test het activatieproces en volledige organisatie/gebruikersbeheer functionaliteiten
 
 **Acties**:
 1. **Navigeer naar**: https://softwarecatalogus.accept.commonground.nu/
@@ -115,28 +115,76 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - Klik op organisatie card
    - Klik op "Activeren" knop
    - Wacht tot activatie voltooid is (kan enkele minuten duren)
-8. **Stel gebruiker wachtwoord in** (belangrijk voor volgende stappen):
-   - Ga naar de geactiveerde organisatie
-   - Klik op "Bekijk contactpersonen"
+8. **Test Organisatie Beheer Functionaliteiten**:
+   - **Ga naar de geactiveerde organisatie**
+   - **Klik op "Bekijk contactpersonen"**
+   
+   **A. Gebruiker Wachtwoord Beheer:**
    - Selecteer de hoofdgebruiker (aangemaakt tijdens registratie)
    - Klik op "Change Password"
    - Stel nieuw wachtwoord in (bijvoorbeeld: "Test123!")
    - Noteer het wachtwoord voor stap 4
+   
+   **B. Nieuwe Gebruikers Toevoegen:**
+   - Klik op "Nieuwe contactpersoon toevoegen"
+   - Vul gegevens in:
+     - Voornaam: "Backend"
+     - Achternaam: "Testgebruiker"
+     - Email: "backend.test@example.com"
+     - Telefoonnummer: "+31612345678"
+   - Sla contactpersoon op
+   - **Converteer naar gebruiker**:
+     - Selecteer de nieuwe contactpersoon
+     - Klik op "Omzetten naar gebruiker"
+     - Stel wachtwoord in
+     - Selecteer gebruikersgroep/rol
+   
+   **C. Gebruiker Status Beheer:**
+   - **Activeren gebruiker**: Zet status op "Actief"
+   - **Deactiveren gebruiker**: Test status wijziging naar "Inactief"
+   - **Heractiveren**: Zet terug naar "Actief" voor verdere tests
+   
+   **D. Groepen en Rollen Beheer:**
+   - **Bekijk beschikbare groepen**: Admin, Gebruiker, etc.
+   - **Wijzig gebruikersgroep**: Test verschillende rollen
+   - **Controleer rechten**: Verifieer dat rechten correct worden toegewezen
+   
+   **E. Organisatie Status Beheer:**
+   - **Test organisatie deactiveren**: Zet organisatie status op "Inactief"
+   - **Controleer gevolgen**: Gebruikers kunnen niet meer inloggen
+   - **Heractiveer organisatie**: Zet terug naar "Actief" voor verdere tests
 
 **Verwacht resultaat**: 
 - Organisatie status verandert van "concept" naar "actief"
 - Organisatie is nu operationeel in het systeem
+- Gebruiker wachtwoord is succesvol ingesteld
+- Nieuwe gebruikers kunnen worden toegevoegd en geconverteerd
+- Gebruiker status beheer werkt correct (activeren/deactiveren)
+- Groepen en rollen kunnen worden toegewezen
+- Organisatie kan worden gedeactiveerd en hergeactiveerd
 
-**Functionaliteit**: [F002 - Organisatie Inrichten](./F002-organisatie-inrichten.md)  
+**Functionaliteit**: [F002 - Organisatie Inrichten](./F002-organisatie-inrichten.md), [F003 - Gebruikersbeheer](./F003-gebruikersbeheer.md)  
 **PvE Issues**: 
 - [#140](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/140) - Overzicht organisaties met status 'concept'
 - [#142](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/142) - Nieuwe organisaties en gebruikersaccounts aanmaken
+- [#63](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/63) - Eerste (beheer)account aanmaken/fiateren
+- [#64](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/64) - Meerdere type gebruikersrollen met rechten
+- [#65](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/65) - Collega's toegang geven tot softwarecatalogus
 
 **Testpunten**:
 - [ ] Concept organisaties zijn zichtbaar in overzicht
 - [ ] Organisatie details zijn correct overgenomen
 - [ ] Activatieproces verloopt zonder fouten
 - [ ] Status wordt correct bijgewerkt na activatie
+- [ ] Gebruiker wachtwoord kan worden ingesteld
+- [ ] Nieuwe contactpersonen kunnen worden toegevoegd
+- [ ] Contactpersonen kunnen worden omgezet naar gebruikers
+- [ ] Gebruikers kunnen worden geactiveerd en gedeactiveerd
+- [ ] Verschillende gebruikersgroepen/rollen zijn beschikbaar
+- [ ] Groepen kunnen worden toegewezen aan gebruikers
+- [ ] Organisatie kan worden gedeactiveerd
+- [ ] Gedeactiveerde organisatie voorkomt gebruiker inlog
+- [ ] Organisatie kan worden hergeactiveerd
 
 ---
 
@@ -623,8 +671,8 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 | Functionaliteit | PvE Issues | Test Status | Opmerkingen |
 |------------------|------------|-------------|-------------|
 | F001 - Toegang Verkrijgen | #139 | ✅ Getest | Stap 2: Registratie |
-| F002 - Organisatie Inrichten | #66, #140, #142 | ✅ Getest | Stap 3, 6: Activatie + profiel |
-| F003 - Gebruikersbeheer | #63, #65, #73 | ✅ Getest | Stap 4, 5: Wachtwoord + collega's |
+| F002 - Organisatie Inrichten | #66, #140, #142 | ✅ Getest | Stap 3, 6: Activatie + gebruikersbeheer + profiel |
+| F003 - Gebruikersbeheer | #63, #64, #65, #73 | ✅ Getest | Stap 3, 4, 5: Backend beheer + frontend beheer |
 | F004 - Aanbod Beheer | #5, #17, #18 | ✅ Getest | Stap 7, 8: Single + multi module |
 | F005 - Dienstenbeheer | #35 | ✅ Getest | Stap 9: Dienst wizard |
 | F007 - Data Export en Import | #15 | ✅ Getest | Stap 11: Excel export |
@@ -662,8 +710,7 @@ De volgende PvE eis issues worden **niet getest** in de huidige testflow. Deze k
 | [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59) | Alle informatie over applicaties invoeren | Gebruik | Complete applicatie informatie | Uitbreiden product tests |
 | [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60) | Voor meerdere organisaties pakketoverzichten bewerken | Gebruik | Multi-organisatie beheer | Toevoegen multi-org test |
 | [#61](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/61) | Nieuwe gebruikers aanmelden bij bestaande organisatie | Beheer | Zelf-registratie bij organisatie | Toevoegen zelf-registratie test |
-| [#62](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/62) | Gebruikers gekoppeld aan organisatie | Beheer | Organisatie-gebruiker relaties | Wordt getest in stap 4, 5 |
-| [#64](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/64) | Meerdere type gebruikersrollen met rechten | Beheer | Rol-gebaseerde toegang | Uitbreiden gebruiker tests |
+| [#62](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/62) | Gebruikers gekoppeld aan organisatie | Beheer | Organisatie-gebruiker relaties | Wordt getest in stap 3, 4, 5 |
 | [#68](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/68) | Plotten op views | Gebruik | Architectuur visualisatie | Toevoegen visualisatie test |
 | [#69](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/69) | Doorverwijzing naar GEMMA online vanuit architectuurconcepten | Aanbod | GEMMA Online integratie | Wordt getest in stap 13 |
 | [#71](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/71) | Importeren ArchiMate | Datamigratie | ArchiMate model import | Toevoegen import test |
@@ -677,8 +724,8 @@ De volgende PvE eis issues worden **niet getest** in de huidige testflow. Deze k
 
 ### 📈 Coverage Statistieken
 - **Totaal PvE eis issues**: 45 functionele issues
-- **Getest in huidige flow**: 13 issues (29%)
-- **Niet getest**: 32 issues (71%)
+- **Getest in huidige flow**: 14 issues (31%)
+- **Niet getest**: 31 issues (69%)
 - **Eigenlijk wel getest**: 4 issues kunnen worden gemarkeerd als getest
 
 ### 🎯 Aanbevelingen voor Uitbreiding Testflow
