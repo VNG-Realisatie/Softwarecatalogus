@@ -37,19 +37,15 @@ Sarah is verantwoordelijk voor het bewaken van de GEMMA architectuur principes. 
 ```mermaid
 flowchart TD
     A[Start: Sarah analyseert architectuur] --> F001[F001 - Toegang Verkrijgen]
-    F001 --> F002[F002 - Organisatie Inrichten]
-    F002 --> PARALLEL[Parallelle Architectuur Activiteiten]
-    
-    PARALLEL --> F004[F004 - Applicatiebeheer]
-    PARALLEL --> F006[F006 - Inzichten en Aanbevelingen]
-    PARALLEL --> F007[F007 - Data Export en Import]
+    F001 --> GEBRUIK[Gebruik software catalogus]
+    GEBRUIK --> F002[F002 - Organisatie Inrichten]    
+    GEBRUIK --> F004[F004 - Applicatiebeheer]
+    GEBRUIK --> F006[F006 - Inzichten en Aanbevelingen]
+    GEBRUIK --> F007[F007 - Data Export en Import]
     
     F004 --> VALIDATE[Architectuur Validatie]
-    F006 --> VALIDATE
-    F007 --> VALIDATE
     
-    VALIDATE --> F008[F008 - Externe Koppelingen]
-    F008 --> END[Sarah heeft architectuur overzicht]
+    VALIDATE --> END[Sarah heeft architectuur overzicht]
     
     style A fill:#e1f5fe
     style END fill:#c8e6c9

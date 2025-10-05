@@ -39,6 +39,8 @@ Acceptatie
   - PHPStan en Psalm annotaties waar nodig
 
 ### Testing
+
+- Zie [omgevingen](#omgevingen) voor de juiste omgeving
 - Alle nieuwe code moet voorzien zijn van PHPUnit tests
 - Code coverage moet minimaal 80% zijn
 - Tests moeten georganiseerd zijn volgens de applicatie structuur

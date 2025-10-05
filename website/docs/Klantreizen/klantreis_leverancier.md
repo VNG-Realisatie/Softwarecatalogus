@@ -45,9 +45,7 @@ flowchart TD
     A[Start: Jan ontdekt de catalogus] --> F001[F001 - Toegang Verkrijgen]
     F001 --> GEBRUIK[Gebruik software catalogus]
 
-    
-    %% Parallelle activiteiten na basis inrichting
-    
+       
     %% Aanbod beheer (parallel)
     GEBRUIK --> INRICHTING[Organisatie en configuratie]
     INRICHTING --> F002[F002 - Organisatie Inrichten]
@@ -78,8 +76,6 @@ flowchart TD
     %% Styling
     style A fill:#e1f5fe
     style END fill:#c8e6c9
-    style PARALLEL fill:#fff3e0
-    style PARALLEL2 fill:#f0f0f0
     style AANBOD fill:#e8f5e8
     style KLANT fill:#f3e5f5
     style OVERIG fill:#ffecb3

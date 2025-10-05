@@ -74,10 +74,13 @@ Linda coördineert een samenwerking van 8 gemeenten in Noord-Nederland. Ze merkt
 ```mermaid
 flowchart TD
     A[Start: Linda ontdekt mogelijkheden] --> F001[F001 - Toegang Verkrijgen]
-    F001 --> F002[F002 - Organisatie Inrichten]
-    F002 --> F010[F010 - Lidmaatschapsbeheer]
-    F010 --> F004[F004 - Applicatiebeheer]
+    F001 --> GEBRUIK[Gebruik software catalogus]
+    GEBRUIK --> F002[F002 - Organisatie Inrichten]
+    GEBRUIK --> F010[F010 - Lidmaatschapsbeheer]
+    GEBRUIK --> F004[F004 - Applicatiebeheer]
     F004 --> GROWTH[Groei en Onderhoud]
+    F010 --> GROWTH[Groei en Onderhoud]
+    F002 --> GROWTH[Groei en Onderhoud]
     GROWTH --> END[Linda heeft succesvolle samenwerking]
     
     style A fill:#e1f5fe
