@@ -100,7 +100,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 3: Organisatie Activatie (Backend)
 
-**Doel**: Test het activatieproces door functioneel beheer
+**Doel**: Test het activatieproces door functioneel beheer en stel gebruiker wachtwoord in
 
 **Acties**:
 1. **Navigeer naar**: https://softwarecatalogus.accept.commonground.nu/
@@ -115,6 +115,13 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - Klik op organisatie card
    - Klik op "Activeren" knop
    - Wacht tot activatie voltooid is (kan enkele minuten duren)
+8. **Stel gebruiker wachtwoord in** (belangrijk voor volgende stappen):
+   - Ga naar de geactiveerde organisatie
+   - Klik op "Bekijk contactpersonen"
+   - Selecteer de hoofdgebruiker (aangemaakt tijdens registratie)
+   - Klik op "Change Password"
+   - Stel nieuw wachtwoord in (bijvoorbeeld: "Test123!")
+   - Noteer het wachtwoord voor stap 4
 
 **Verwacht resultaat**: 
 - Organisatie status verandert van "concept" naar "actief"
@@ -133,30 +140,26 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ---
 
-### Stap 4: Eerste Inlog en Wachtwoord Instellen
+### Stap 4: Eerste Inlog
 
-**Doel**: Test gebruikersaccount activatie en wachtwoordbeheer
+**Doel**: Test eerste inlog met het in stap 3 ingestelde wachtwoord
 
 **Acties**:
-1. **Blijf in backend omgeving**: https://softwarecatalogus.accept.commonground.nu/
-2. **Ga naar de geactiveerde organisatie**
-3. **Klik op "Bekijk contactpersonen"**
-4. **Selecteer de hoofdgebruiker** (aangemaakt tijdens registratie)
-5. **Reset wachtwoord**:
-   - Klik op gebruiker
-   - Klik op "Change Password"
-   - **Optie A**: Genereer automatisch wachtwoord
-   - **Optie B**: Stel handmatig wachtwoord in
-   - Noteer het nieuwe wachtwoord
-6. **Test inlog**:
-   - Ga naar beheeromgeving van de organisatie
-   - Log in met e-mailadres en nieuwe wachtwoord
-   - Controleer toegang tot dashboard
+1. **Ga naar frontend**: https://softwarecatalogus.accept.opencatalogi.nl/
+2. **Klik op "Inloggen"** (rechtsboven)
+3. **Voer credentials in**:
+   - **E-mailadres**: Het geregistreerde e-mailadres uit stap 2
+   - **Wachtwoord**: Het wachtwoord dat in stap 3 is ingesteld
+4. **Controleer inlog**:
+   - Dashboard moet laden
+   - Gebruikersnaam moet zichtbaar zijn rechtsboven
+   - Menu opties moeten beschikbaar zijn
+5. **Verken dashboard**: Bekijk beschikbare functionaliteiten
 
 **Verwacht resultaat**: 
-- Wachtwoord kan succesvol worden ingesteld
-- Gebruiker kan inloggen op beheeromgeving
+- Inlog verloopt succesvol
 - Dashboard is toegankelijk
+- Gebruiker heeft juiste rechten (aanbod-beheerder)
 
 **Functionaliteit**: [F003 - Gebruikersbeheer](./F003-gebruikersbeheer.md)  
 **PvE Issues**: 
@@ -164,10 +167,10 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 - [#65](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/65) - Collega's toegang geven tot softwarecatalogus
 
 **Testpunten**:
-- [ ] Wachtwoord reset functionaliteit werkt
 - [ ] Inlogproces verloopt soepel
 - [ ] Dashboard laadt correct na inlog
 - [ ] Gebruiker heeft juiste rechten (aanbod-beheerder)
+- [ ] Menu opties zijn zichtbaar en toegankelijk
 
 ---
 
@@ -185,16 +188,21 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - **Rol**: Selecteer gewenste rol
 4. **Voeg contactpersoon toe**
 5. **Controleer contactpersoon in lijst**
-6. **Test wachtwoord instellen** voor nieuwe gebruiker:
-   - Selecteer nieuwe contactpersoon
-   - Stel wachtwoord in via "Change Password"
+6. **Wachtwoord instellen voor collega's** (indien nodig voor test inloggen):
+   - **Belangrijk**: Wachtwoorden kunnen NIET direct worden ingesteld in de frontend
+   - **Security feature**: Dit is een beveiligingsmaatregel
+   - **Procedure**:
+     - Ga terug naar backend: https://softwarecatalogus.accept.commonground.nu/
+     - Zoek de organisatie en bijbehorende gebruikers
+     - Stel wachtwoorden in voor de nieuwe gebruikers via "Change Password"
+     - Noteer de inloggegevens voor later gebruik
 7. **Test inlog nieuwe gebruiker** (optioneel):
    - Log uit met hoofdaccount
-   - Log in met nieuwe collega account
+   - Log in met nieuwe collega account en ingesteld wachtwoord
 
 **Verwacht resultaat**: 
 - Nieuwe contactpersoon wordt succesvol toegevoegd
-- Wachtwoord kan worden ingesteld
+- Wachtwoord kan worden ingesteld via backend (security feature)
 - Nieuwe gebruiker kan inloggen (indien getest)
 
 **Functionaliteit**: [F003 - Gebruikersbeheer](./F003-gebruikersbeheer.md)  
@@ -315,27 +323,24 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - **Voeg Module 1 toe**:
      - Naam: "Basis Module"
      - Beschrijving: Kernfunctionaliteit
-     - Prijs: Basisprijs
    - **Voeg Module 2 toe**:
      - Naam: "Premium Module"  
      - Beschrijving: Uitgebreide functionaliteit
-     - Prijs: Premium prijs
    - **Voeg Module 3 toe**:
      - Naam: "Integratie Module"
      - Beschrijving: Koppelingen met andere systemen
-     - Prijs: Integratie kosten
 3. **Configureer module afhankelijkheden**:
    - **Stel in welke modules verplicht zijn**
    - **Definieer optionele modules**
    - **Configureer module combinaties**
 4. **Test module weergave**:
    - **Controleer productpagina** met alle modules
-   - **Verifieer prijsberekening** per module combinatie
+   - **Verifieer module relaties** en afhankelijkheden
 
 **Verwacht resultaat**: 
 - Hoofdproduct met meerdere modules wordt aangemaakt
 - Module beheer functionaliteit werkt correct
-- Prijsberekening per module klopt
+- Module relaties worden correct weergegeven
 
 **Functionaliteit**: [F004 - Aanbod Beheer](./F004-applicatiebeheer.md)  
 **PvE Issues**: [#18](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/18) - Geregistreerde pakketten selecteren en toevoegen
@@ -367,11 +372,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
      - **SLA**: Service Level Agreement details
      - **Beschikbaarheid**: 24/7, kantooruren, etc.
      - **Response tijd**: Maximale reactietijd
-   - **Stap 3: Prijsmodel**:
-     - **Prijs per maand/jaar**
-     - **Setup kosten**
-     - **Variabele kosten**
-   - **Stap 4: Regio en Beschikbaarheid**:
+   - **Stap 3: Regio en Beschikbaarheid**:
      - **Geografische dekking**
      - **Taalondersteuning**
      - **Lokale aanwezigheid**
@@ -546,7 +547,6 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 - [ ] Koppelingen worden getoond
 - [ ] Organisatie pagina's zijn compleet
 - [ ] Alle links en navigatie werken
-- [ ] Responsive design werkt op verschillende schermformaten
 
 ---
 
@@ -560,10 +560,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - **Open GEMMA componenten selectie**
    - **Controleer beschikbare referentie applicaties**
 3. **Test Referentie Applicatie Selectie**:
-   - **Browse door GEMMA lagen**:
-     - Gebruikersinteractie laag
-     - Bedrijfsprocessen laag  
-     - Gegevens laag
+   - **Bekijk beschikbare componenten**: Volledige lijst van GEMMA componenten
    - **Selecteer relevante componenten**:
      - Kies componenten die passen bij uw product
      - Selecteer meerdere componenten indien van toepassing
@@ -571,11 +568,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
      - Beschrijving van component
      - Relaties met andere componenten
      - Links naar GEMMA Online (indien beschikbaar)
-4. **Test Component Filtering**:
-   - **Filter op domein**: Burgerzaken, Financiën, etc.
-   - **Filter op laag**: Specificeer architectuur laag
-   - **Zoek componenten**: Gebruik zoekfunctionaliteit
-5. **Valideer Opgeslagen Selecties**:
+4. **Valideer Opgeslagen Selecties**:
    - **Sla product op** met geselecteerde componenten
    - **Controleer product pagina**: GEMMA componenten zichtbaar
    - **Test publieke weergave**: Componenten tonen op frontend
@@ -591,9 +584,9 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 **Testpunten**:
 - [ ] GEMMA componenten zijn beschikbaar in wizard
+- [ ] Componentenlijst wordt correct geladen
 - [ ] Componenten kunnen worden geselecteerd
-- [ ] Filtering op domein en laag werkt
-- [ ] Zoeken in componenten functioneert
+- [ ] Meerdere componenten kunnen worden gekozen
 - [ ] Component details zijn informatief
 - [ ] Selecties worden correct opgeslagen
 - [ ] GEMMA componenten zijn zichtbaar op product pagina
