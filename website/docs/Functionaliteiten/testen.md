@@ -79,9 +79,9 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - **Organisatienaam**: "Test Leverancier [Datum]" (bijv. "Test Leverancier 2025-10-02")
    - **Contactpersoon**: Fictieve naam en e-mailadres
    - **Beschrijving**: Korte beschrijving van de test organisatie
-   - **Type software**: Selecteer relevante categorie
 4. **Verstuur aanmelding**
 5. **Controleer bevestigingsmelding**
+6. **Registreer in totaal 3 keer leverancier, samenwerking, community**
 
 **Verwacht resultaat**: 
 - Succesvolle registratie met bevestigingsmelding
@@ -103,7 +103,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 **Doel**: Test het activatieproces en volledige organisatie/gebruikersbeheer functionaliteiten
 
 **Acties**:
-1. **Navigeer naar**: https://softwarecatalogus.accept.commonground.nu/
+1. **Navigeer naar**: https://softwarecatalogus.accept.commonground.nu/ (backend omgeving)
 2. **Log in** met functioneel beheerder account
 3. **Open Softwarecatalogus app** (klik op catalogus icoon)
 4. **Ga naar Organisaties** in het menu
@@ -113,7 +113,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - Alle ingevoerde gegevens moeten zichtbaar zijn
 7. **Activeer organisatie**:
    - Klik op organisatie card
-   - Klik op "Activeren" knop
+   - Klik op "Activeren" knop onder .....
    - Wacht tot activatie voltooid is (kan enkele minuten duren)
 8. **Test Organisatie Beheer Functionaliteiten**:
    - **Ga naar de geactiveerde organisatie**
@@ -200,14 +200,13 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - **Wachtwoord**: Het wachtwoord dat in stap 3 is ingesteld
 4. **Controleer inlog**:
    - Dashboard moet laden
-   - Gebruikersnaam moet zichtbaar zijn rechtsboven
-   - Menu opties moeten beschikbaar zijn
+   - Menu opties moeten beschikbaar zijn aan de linker kant
+   - Wizards moeten tonen
 5. **Verken dashboard**: Bekijk beschikbare functionaliteiten
 
 **Verwacht resultaat**: 
 - Inlog verloopt succesvol
 - Dashboard is toegankelijk
-- Gebruiker heeft juiste rechten (aanbod-beheerder)
 
 **Functionaliteit**: [F003 - Gebruikersbeheer](./F003-gebruikersbeheer.md)  
 **PvE Issues**: 
@@ -217,7 +216,6 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 **Testpunten**:
 - [ ] Inlogproces verloopt soepel
 - [ ] Dashboard laadt correct na inlog
-- [ ] Gebruiker heeft juiste rechten (aanbod-beheerder)
 - [ ] Menu opties zijn zichtbaar en toegankelijk
 
 ---
@@ -244,14 +242,22 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
      - Zoek de organisatie en bijbehorende gebruikers
      - Stel wachtwoorden in voor de nieuwe gebruikers via "Change Password"
      - Noteer de inloggegevens voor later gebruik
-7. **Test inlog nieuwe gebruiker** (optioneel):
+7. **Test inlog nieuwe gebruiker**:
    - Log uit met hoofdaccount
    - Log in met nieuwe collega account en ingesteld wachtwoord
+8. **Test inlog nieuwe gebruiker**:
+   - Ga terug naar backend: https://softwarecatalogus.accept.commonground.nu/
+   - Zoek de organisatie en bijbehorende gebruikers
+   - Deactiveerd de gebruiker
+   - Log uit met hoofdaccount
+   - Log in met nieuwe collega account en ingesteld wachtwoord (moet nu falen)
+
 
 **Verwacht resultaat**: 
 - Nieuwe contactpersoon wordt succesvol toegevoegd
 - Wachtwoord kan worden ingesteld via backend (security feature)
-- Nieuwe gebruiker kan inloggen (indien getest)
+- Nieuwe gebruiker kan inloggen 
+- Gedeactiveerde gebruiker kan niet meer inloggen
 
 **Functionaliteit**: [F003 - Gebruikersbeheer](./F003-gebruikersbeheer.md)  
 **PvE Issues**: [#73](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/73) - Meerdere contactpersonen registreren per pakket
@@ -275,8 +281,6 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - **Logo**: Upload organisatie logo
    - **Website URL**: Voeg website toe
    - **Beschrijving**: Uitgebreide beschrijving
-   - **Specialisaties**: Voeg expertise gebieden toe
-   - **Certificeringen**: Voeg kwaliteitskeurmerken toe
 3. **Samenwerkingen en Communities**:
    - **Zoek relevante samenwerkingen** in de lijst
    - **Geef lidmaatschap aan** bij een testsamenwerkingsverband
@@ -311,29 +315,20 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 **Doel**: Test product aanmaak wizard voor eenvoudige producten
 
 **Acties**:
-1. **Ga naar "Producten"** in het menu
+1. **Ga naar "Producten"** klik in het dashboard op de wizard product aanmaken
 2. **Klik op "Nieuwe Applicatie"**
-3. **Doorloop Product Wizard - Stap 1: Basisinformatie**:
+3. **Doorloop Product Wizard - Stap 1: Productinformatie**:
    - **Naam**: "Test Applicatie Single Module"
-   - **Beschrijving**: Uitgebreide beschrijving van het product
-   - **Categorie**: Selecteer passende categorie
-   - **Status**: "Actief"
-4. **Stap 2: Technische Specificaties**:
-   - **GEMMA Componenten**: Selecteer relevante referentiecomponenten
+   - **Korte Beschrijving**: Uitgebreide beschrijving van het product
+   - **Uitgebereide Beschrijving**: Uitgebreide beschrijving van het product
+   - **Website**: De website waar meer over dit product is te vinden
    - **Hosting Type**: Kies uit SaaS, On-premise, of Hybrid
-   - **Technologie Stack**: Voeg technische details toe
-5. **Stap 3: Documentatie en Media**:
-   - **Screenshots**: Upload product screenshots
-   - **Brochures**: Upload productbrochure (PDF)
-   - **Handleidingen**: Voeg links naar documentatie toe
-6. **Stap 4: Prijsmodel en Licenties**:
-   - **Licentie Type**: Selecteer licentiemodel
-   - **Prijsmodel**: Voeg prijsinformatie toe
-   - **Kosten**: Specificeer kosten per gebruiker/maand
-7. **Stap 5: Contactpersoon**:
-   - **Selecteer contactpersoon**: Kies de eerder aangemaakte collega
-   - **Rol**: Specificeer rol (bijv. "Product Manager")
-8. **Stap 6: Overzicht en Publiceren**:
+4. **Stap 2: Licentie**:
+4. **Stap 3: Referentiecomponenten**:
+4. **Stap 4: Standaarden**:
+4. **Stap 5: Koppelingen**:
+4. **Stap 6: Diensten**:
+8. **Stap 7: Overzicht en Publiceren**:
    - **Controleer alle gegevens**
    - **Publiceer applicatie**
 
@@ -351,9 +346,9 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 - [ ] Wizard navigatie werkt soepel
 - [ ] Alle velden kunnen worden ingevuld
 - [ ] GEMMA componenten zijn selecteerbaar
-- [ ] Bestandsuploads werken (screenshots, brochures)
 - [ ] Contactpersoon kan worden toegewezen
-- [ ] Product wordt gepubliceerd en is zichtbaar
+- [ ] Product wordt gepubliceerd en is zichtbaar/vindbaar in frontend
+- [ ] Alle informaite wordt goed weergegeven in de frontend
 
 ---
 
@@ -398,8 +393,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 - [ ] Meerdere modules kunnen worden toegevoegd
 - [ ] Module informatie is compleet invulbaar
 - [ ] Module afhankelijkheden kunnen worden ingesteld
-- [ ] Prijsberekening werkt per module
-- [ ] Productpagina toont alle modules correct
+- [ ] Productpagina toont alle applicaties correct
 
 ---
 
@@ -412,18 +406,6 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 2. **Klik op "Nieuwe Dienst"**
 3. **Selecteer product**: Kies een van de eerder aangemaakte producten
 4. **Doorloop Dienst Wizard**:
-   - **Stap 1: Dienst Type**:
-     - Type: Hosting, Support, Implementatie, Training
-     - Naam: "Premium Support Dienst"
-     - Beschrijving: Uitgebreide supportdienst
-   - **Stap 2: Dienst Details**:
-     - **SLA**: Service Level Agreement details
-     - **Beschikbaarheid**: 24/7, kantooruren, etc.
-     - **Response tijd**: Maximale reactietijd
-   - **Stap 3: Regio en Beschikbaarheid**:
-     - **Geografische dekking**
-     - **Taalondersteuning**
-     - **Lokale aanwezigheid**
 5. **Publiceer dienst**
 6. **Herhaal voor verschillende dienst types**:
    - Implementatie dienst
@@ -433,7 +415,6 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 **Verwacht resultaat**: 
 - Verschillende diensten worden succesvol toegevoegd
 - Diensten zijn gekoppeld aan juiste producten
-- Prijsmodellen zijn correct geconfigureerd
 
 **Functionaliteit**: [F005 - Dienstenbeheer](./F005-dienstenbeheer.md)  
 **PvE Issues**: [#35](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/35) - Dienst toevoegen
@@ -442,8 +423,6 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 - [ ] Dienst wizard werkt voor alle dienst types
 - [ ] Diensten kunnen aan producten worden gekoppeld
 - [ ] SLA en service details kunnen worden ingevoerd
-- [ ] Prijsmodellen zijn flexibel configureerbaar
-- [ ] Geografische instellingen werken correct
 - [ ] Diensten zijn zichtbaar bij gekoppelde producten
 
 ---
@@ -511,10 +490,6 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - **Controleer kolommen**: Alle product velden aanwezig
    - **Controleer data**: Juiste product informatie
    - **Controleer formatting**: Leesbare opmaak
-5. **Test Andere Export Opties** (indien beschikbaar):
-   - **CSV export**: Test alternatieve formaten
-   - **Gefilterde export**: Export met actieve filters
-   - **Selectieve export**: Alleen geselecteerde items
 
 **Verwacht resultaat**: 
 - Excel bestand wordt succesvol gedownload
@@ -531,7 +506,6 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 - [ ] Alle product velden zijn geëxporteerd
 - [ ] Data integriteit is behouden
 - [ ] Bestandsnaam is logisch en informatief
-- [ ] Verschillende export formaten werken (indien beschikbaar)
 
 ---
 
@@ -547,7 +521,6 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - **Zoek op categorie**: Browse per domein
 3. **Test Geavanceerd Zoeken**:
    - **Combineer filters**: Categorie + hosting type
-   - **Filter op prijs**: Prijs ranges
    - **Filter op features**: Specifieke functionaliteiten
 4. **Controleer Zoekresultaten**:
    - **Product resultaten**: Toon juiste informatie
