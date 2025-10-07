@@ -123,7 +123,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
    - Selecteer de hoofdgebruiker (aangemaakt tijdens registratie)
    - Klik op "Change Password"
    - Stel nieuw wachtwoord in (bijvoorbeeld: "Test123!")
-   - Noteer het wachtwoord voor stap 4
+   - Noteer het wachtwoord (en e-mailadres) voor stap 4
    
    **B. Nieuwe Gebruikers Toevoegen:**
    - Klik op "Nieuwe contactpersoon toevoegen"
