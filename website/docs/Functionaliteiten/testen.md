@@ -140,9 +140,8 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
      - Selecteer gebruikersgroep/rol
    
    **C. Gebruiker Status Beheer:**
-   - **Activeren gebruiker**: Zet status op "Actief"
-   - **Deactiveren gebruiker**: Test status wijziging naar "Inactief"
-   - **Heractiveren**: Zet terug naar "Actief" voor verdere tests
+   - **Deactiveren gebruiker**: Test status wijziging naar "Disable User"
+   - **Heractiveren**: Zet terug naar "Enable User" voor verdere tests
    
    **D. Groepen en Rollen Beheer:**
    - **Bekijk beschikbare groepen**: Admin, Gebruiker, etc.
