@@ -131,7 +131,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
      - Voornaam: "Backend"
      - Achternaam: "Testgebruiker"
      - Email: "backend.test@example.com"
-     - Telefoonnummer: "+31612345678"
+     
    - Sla contactpersoon op
    - **Converteer naar gebruiker**:
      - Selecteer de nieuwe contactpersoon
