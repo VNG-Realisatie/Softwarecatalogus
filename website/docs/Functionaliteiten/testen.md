@@ -77,8 +77,8 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 2. **Klik op "Aanmelden"** (rechtsboven in het gebruikersmenu)
 3. **Vul registratieformulier in**:
    - **Organisatienaam**: "Test Leverancier [Datum]" (bijv. "Test Leverancier 2025-10-02")
-   - **Contactpersoon**: Fictieve naam en e-mailadres
    - **Beschrijving**: Korte beschrijving van de test organisatie
+   - **Contactpersoon**: Fictieve naam en e-mailadres
 4. **Verstuur aanmelding**
 5. **Controleer bevestigingsmelding**
 6. **Registreer in totaal 3 keer leverancier, samenwerking, community**
