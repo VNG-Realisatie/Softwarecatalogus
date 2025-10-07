@@ -74,7 +74,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 **Acties**:
 1. **Navigeer naar**: https://softwarecatalogus.accept.opencatalogi.nl/
-2. **Klik op "Registreren"** (rechtsboven in het gebruikersmenu)
+2. **Klik op "Aanmelden"** (rechtsboven in het gebruikersmenu)
 3. **Vul registratieformulier in**:
    - **Organisatienaam**: "Test Leverancier [Datum]" (bijv. "Test Leverancier 2025-10-02")
    - **Contactpersoon**: Fictieve naam en e-mailadres
