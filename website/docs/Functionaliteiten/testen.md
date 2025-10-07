@@ -247,7 +247,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 8. **Test inlog nieuwe gebruiker**:
    - Ga terug naar backend: https://softwarecatalogus.accept.commonground.nu/
    - Zoek de organisatie en bijbehorende gebruikers
-   - Deactiveerd de gebruiker
+   - Deactiveer de gebruiker
    - Log uit met hoofdaccount
    - Log in met nieuwe collega account en ingesteld wachtwoord (moet nu falen)
 
