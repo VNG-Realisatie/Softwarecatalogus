@@ -36,10 +36,12 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 | 7 | Product aanmaken (single module) | F004 - Aanbod Beheer | [#5](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/5), [#17](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/17) |
 | 8 | Product aanmaken (multi module) | F004 - Aanbod Beheer | [#18](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/18) |
 | 9 | Dienst wizard doorlopen | F005 - Dienstenbeheer | [#35](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/35) |
-| 10 | Koppeling wizard doorlopen | F013 - Gebruik Beheer | [#56](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/56) |
-| 11 | Excel export testen | F007 - Data Export en Import | [#15](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/15) |
-| 12 | Zoeken en resultaten controleren | F011 - Zoeken & Ontdekken | [#21](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/21), [#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) |
-| 13 | AMEFF referentie applicaties | F014 - Data Migratie | [#70](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/70) |
+| 10 | Gebruik melden en beheren | F013 - Gebruik Beheer | [#12](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/12), [#143](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/143), [#58](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/58) |
+| 11 | Koppeling wizard doorlopen | F013 - Gebruik Beheer | [#56](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/56) |
+| 12 | Privacy en zichtbaarheid testen | F013 - Gebruik Beheer, F003 - Gebruikersbeheer | [#105](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/105), [#58](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/58) |
+| 13 | Excel export testen | F007 - Data Export en Import | [#15](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/15) |
+| 14 | Zoeken en resultaten controleren | F011 - Zoeken & Ontdekken | [#21](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/21), [#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) |
+| 15 | AMEFF referentie applicaties | F014 - Data Migratie | [#70](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/70) |
 
 ---
 
@@ -426,7 +428,88 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ---
 
-### Stap 10: Koppeling Wizard Doorlopen
+### Stap 10: Gebruik Melden en Beheren
+
+**Doel**: Test gebruik registratie en beheer voor andere organisaties
+
+**Acties**:
+1. **Gebruik Melden voor Andere Organisatie**:
+   - **Ga naar "Gebruik"** in het menu
+   - **Klik op "Gebruik Melden"**
+   - **Zoek organisatie**: Zoek een andere organisatie in de catalogus
+   - **Selecteer product**: Kies een product van een andere leverancier
+   - **Vul gebruik details in**:
+     - **Gebruikende organisatie**: Selecteer de organisatie
+     - **Product/Module**: Specificeer welke modules gebruikt worden
+     - **Implementatie details**: Beschrijf hoe het wordt gebruikt
+     - **Contactpersoon**: Wijs contactpersoon toe
+   - **Verstuur gebruik melding**
+
+2. **Gebruik Aanvaarden (als Leverancier)**:
+   - **Log in als leverancier** van het gemelde product
+   - **Ga naar "Gebruik Beheer"** 
+   - **Bekijk openstaande meldingen**
+   - **Controleer gebruik details**:
+     - **Organisatie informatie**: Klopt de organisatie?
+     - **Product/Module**: Correct product geselecteerd?
+     - **Implementatie**: Realistisch gebruik scenario?
+   - **Accepteer of weiger gebruik**:
+     - **Accepteren**: Bevestig gebruik en maak zichtbaar
+     - **Weigeren**: Geef reden van weigering
+   - **Voeg aanvullende informatie toe** (optioneel)
+
+3. **Aanbieder Aanmaken die Nog Niet Bestaat**:
+   - **Ga naar "Gebruik Melden"**
+   - **Zoek naar niet-bestaande leverancier**
+   - **Klik op "Nieuwe Aanbieder Toevoegen"**
+   - **Vul aanbieder gegevens in**:
+     - **Organisatienaam**: Naam van de leverancier
+     - **Type**: Leverancier/Softwarebedrijf
+     - **Contactgegevens**: Basis informatie
+     - **Beschrijving**: Korte beschrijving
+   - **Sla aanbieder op**
+
+4. **Product Aanmaken voor Aanbieder (Gemeente Meldt)**:
+   - **Selecteer de nieuwe aanbieder**
+   - **Klik op "Product Toevoegen voor Aanbieder"**
+   - **Vul product informatie in**:
+     - **Productnaam**: Naam van het ontbrekende product
+     - **Beschrijving**: Wat doet het product
+     - **Categorie**: Selecteer passende categorie
+     - **Hosting**: On-premise/Cloud/Hybrid
+   - **Voeg gebruik toe**:
+     - **Gebruikende organisatie**: Eigen organisatie
+     - **Implementatie details**: Hoe wordt het gebruikt
+   - **Verstuur voor goedkeuring**
+
+**Verwacht resultaat**: 
+- Gebruik kan worden gemeld voor andere organisaties
+- Leveranciers kunnen gebruik accepteren/weigeren
+- Nieuwe aanbieders kunnen worden aangemaakt
+- Ontbrekende producten kunnen worden gemeld
+- Alle meldingen worden correct verwerkt
+
+**Functionaliteit**: [F013 - Gebruik Beheer](./F013-gebruik-beheer.md)  
+**PvE Issues**: 
+- [#12](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/12) - Namens aanbieder pakketten opvoeren die ontbreken
+- [#143](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/143) - Aanbieder registreren die nog niet bestaat
+- [#58](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/58) - Pakketten door aanbod-beheerders koppelen aan applicatielandschap
+
+**Testpunten**:
+- [ ] Gebruik kan worden gemeld voor andere organisaties
+- [ ] Organisaties kunnen worden gezocht en geselecteerd
+- [ ] Producten van andere leveranciers zijn selecteerbaar
+- [ ] Gebruik details kunnen volledig worden ingevuld
+- [ ] Leveranciers ontvangen meldingen van gebruik
+- [ ] Gebruik kan worden geaccepteerd door leveranciers
+- [ ] Gebruik kan worden geweigerd met reden
+- [ ] Nieuwe aanbieders kunnen worden aangemaakt
+- [ ] Ontbrekende producten kunnen worden gemeld
+- [ ] Gemeente kan producten melden namens aanbieders
+
+---
+
+### Stap 11: Koppeling Wizard Doorlopen (pas bij gebruik!)
 
 **Doel**: Test koppelingen registreren tussen applicaties
 
@@ -473,7 +556,95 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ---
 
-### Stap 11: Excel Export Testen
+### Stap 12: Privacy en Zichtbaarheid Testen
+
+**Doel**: Test privacy instellingen voor gebruik en koppelingen
+
+**Acties**:
+1. **Test Gebruik Zichtbaarheid**:
+   - **Log in als verschillende gebruikerstypen**:
+     - **Leverancier**: Eigenaar van het product
+     - **Gemeente**: Gebruiker van het product  
+     - **Derde partij**: Niet-gerelateerde organisatie
+     - **Ambtenaar**: VNG/Functioneel beheerder
+   
+   - **Controleer gebruik zichtbaarheid per rol**:
+     - **Als Leverancier**: 
+       - Kan alle gebruik van eigen producten zien
+       - Kan gebruik details bekijken
+       - Kan gebruikende organisaties zien
+     - **Als Gemeente (gebruiker)**:
+       - Kan eigen gebruik zien
+       - Kan NIET gebruik van andere organisaties zien
+     - **Als Derde Partij**:
+       - Kan GEEN gebruik details zien
+       - Kan GEEN gebruikende organisaties zien
+       - Ziet alleen publieke product informatie
+     - **Als Ambtenaar/VNG**:
+       - Kan alle gebruik zien (beheerdersrechten)
+       - Kan alle organisaties en hun gebruik inzien
+
+2. **Test Koppeling Zichtbaarheid**:
+   - **Maak koppelingen aan** tussen verschillende producten
+   - **Test zichtbaarheid per gebruikerstype**:
+     - **Als Leverancier van bron/doel product**:
+       - Kan koppelingen van eigen producten zien
+       - Kan technische details bekijken
+       - Kan gekoppelde organisaties zien
+     - **Als Gemeente (eigenaar koppeling)**:
+       - Kan eigen koppelingen zien en beheren
+       - Kan NIET koppelingen van andere organisaties zien
+     - **Als Derde Partij**:
+       - Kan GEEN koppeling details zien
+       - Kan GEEN technische informatie zien
+       - Ziet alleen publieke product informatie
+     - **Als Ambtenaar/VNG**:
+       - Kan alle koppelingen zien (beheerdersrechten)
+       - Kan alle technische details inzien
+
+3. **Test Privacy Uitzonderingen**:
+   - **Controleer leverancier toegang**:
+     - Leverancier kan gebruik van eigen product zien
+     - Leverancier kan koppelingen met eigen product zien
+     - Leverancier kan NIET gebruik/koppelingen van andere producten zien
+   - **Controleer ambtenaar toegang**:
+     - VNG ambtenaren hebben volledige toegang
+     - Functioneel beheerders kunnen alles inzien
+     - Normale ambtenaren hebben beperkte toegang
+
+4. **Test Foutieve Toegang Pogingen**:
+   - **Probeer directe URL toegang** tot gebruik/koppeling details
+   - **Controleer foutmeldingen**: "Geen toegang" berichten
+   - **Test API endpoints**: Controleer autorisatie op API niveau
+
+**Verwacht resultaat**: 
+- Gebruik is alleen zichtbaar voor betrokken partijen
+- Koppelingen zijn alleen zichtbaar voor betrokken partijen  
+- Leveranciers zien alleen hun eigen product gebruik/koppelingen
+- Ambtenaren hebben beheerdersrechten
+- Derde partijen zien geen gevoelige informatie
+- Privacy wordt correct gehandhaafd
+
+**Functionaliteit**: [F013 - Gebruik Beheer](./F013-gebruik-beheer.md), [F003 - Gebruikersbeheer](./F003-gebruikersbeheer.md)  
+**PvE Issues**: 
+- [#105](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/105) - Aanbieders zien geen applicatielandschappen van gebruikers
+- [#58](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/58) - Pakketten door aanbod-beheerders koppelen aan applicatielandschap
+
+**Testpunten**:
+- [ ] Gebruik is niet zichtbaar voor derde partijen
+- [ ] Koppelingen zijn niet zichtbaar voor derde partijen
+- [ ] Leveranciers zien alleen gebruik van eigen producten
+- [ ] Leveranciers zien alleen koppelingen met eigen producten
+- [ ] Gemeenten zien alleen eigen gebruik en koppelingen
+- [ ] Ambtenaren hebben volledige toegang (beheerdersrechten)
+- [ ] VNG functioneel beheerders kunnen alles inzien
+- [ ] Directe URL toegang wordt geblokkeerd voor onbevoegden
+- [ ] API endpoints respecteren autorisatie regels
+- [ ] Foutmeldingen zijn duidelijk en informatief
+
+---
+
+### Stap 13: Excel Export Testen
 
 **Doel**: Test data export functionaliteit vanuit dashboard
 
@@ -508,7 +679,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ---
 
-### Stap 12: Zoeken en Resultaten Controleren
+### Stap 14: Zoeken en Resultaten Controleren
 
 **Doel**: Test zoekfunctionaliteit en resultaatpagina's
 
@@ -570,7 +741,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ---
 
-### Stap 13: AMEFF Referentie Applicaties
+### Stap 15: AMEFF Referentie Applicaties
 
 **Doel**: Test GEMMA/AMEFF integratie en referentie applicatie selectie
 
@@ -649,7 +820,7 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 | F005 - Dienstenbeheer | #35 | ✅ Getest | Stap 9: Dienst wizard |
 | F007 - Data Export en Import | #15 | ✅ Getest | Stap 11: Excel export |
 | F011 - Zoeken & Ontdekken | #21, #144 | ✅ Getest | Stap 12: Zoeken + resultaten |
-| F013 - Gebruik Beheer | #56 | ✅ Getest | Stap 10: Koppelingen |
+| F013 - Gebruik Beheer | #12, #56, #58, #143 | ✅ Getest | Stap 10, 11, 12: Gebruik beheer + koppelingen + privacy |
 | F014 - Data Migratie | #70 | ✅ Getest | Stap 13: AMEFF componenten |
 
 ## ⚠️ PvE Issues Niet Gedekt in Huidige Testflow
@@ -665,7 +836,6 @@ De volgende PvE eis issues worden **niet getest** in de huidige testflow. Deze k
 | [#9](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/9) | Aangeven of applicatie on-premise of Cloud wordt aangeboden | Aanbod | Wordt getest in stap 7 | ✅ Eigenlijk wel getest |
 | [#10](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/10) | Registreren welke organisaties pakket gebruiken | Aanbod | Gebruik registratie door leverancier | Toevoegen gebruik voorstellen test |
 | [#11](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/11) | Overzicht door gebruik-beheerders geregistreerde pakketten | Beheer | Functioneel beheer perspectief | Toevoegen admin overzicht test |
-| [#12](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/12) | Namens aanbieder pakketten opvoeren die ontbreken | Gebruik | Gemeente registreert missende software | Toevoegen gemeente gebruik test |
 | [#16](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/16) | AMEFF export | Datamigratie | Specifiek AMEFF export formaat | Uitbreiden export tests |
 | [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19) | Zien welke gemeenten pakket gebruiken | Gebruik | "Gluren bij de buren" functionaliteit | Toevoegen gemeente overzicht test |
 | [#20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) | 'Gluren bij de buren' - pakketten andere gemeenten | Gebruik | Benchmarking functionaliteit | Toevoegen benchmarking test |
@@ -678,7 +848,6 @@ De volgende PvE eis issues worden **niet getest** in de huidige testflow. Deze k
 | [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) | Statistieken over pakketoverzicht | Gebruik | Dashboard statistieken | Toevoegen analytics test |
 | [#55](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/55) | Bij koppeling aangeven of standaard wordt gebruikt | Gebruik | Standaarden bij koppelingen | Uitbreiden koppeling test |
 | [#57](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/57) | Samenwerkingsverband pakketten opvoeren voor gemeenten | Gebruik | Samenwerking namens leden | Toevoegen samenwerking test |
-| [#58](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/58) | Pakketten door aanbod-beheerders koppelen aan applicatielandschap | Gebruik | Leverancier stelt gebruik voor | Toevoegen gebruik voorstel test |
 | [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59) | Alle informatie over applicaties invoeren | Gebruik | Complete applicatie informatie | Uitbreiden product tests |
 | [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60) | Voor meerdere organisaties pakketoverzichten bewerken | Gebruik | Multi-organisatie beheer | Toevoegen multi-org test |
 | [#61](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/61) | Nieuwe gebruikers aanmelden bij bestaande organisatie | Beheer | Zelf-registratie bij organisatie | Toevoegen zelf-registratie test |
@@ -689,20 +858,18 @@ De volgende PvE eis issues worden **niet getest** in de huidige testflow. Deze k
 | [#72](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/72) | Exporteren ArchiMate | Datamigratie | ArchiMate model export | Toevoegen export test |
 | [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74) | Overzicht organisaties die pakketten/diensten gebruiken | Gebruik | Gebruik overzicht per organisatie | Toevoegen gebruik overzicht test |
 | [#75](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/75) | Rapportages maken over catalogus data | Beheer | Rapportage functionaliteit | Toevoegen rapportage test |
-| [#105](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/105) | Aanbieders zien geen applicatielandschappen van gebruikers | Gebruik | Privacy en toegangscontrole | Toevoegen privacy test |
 | [#106](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/106) | Tonen beschrijving bij concept (tooltip/glossary) | Aanbod | UI/UX help functionaliteit | Toevoegen tooltip test |
 | [#141](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/141) | Organisaties samenvoegen bij herindeling/overname | Datamigratie | Organisatie fusie functionaliteit | Toevoegen fusie test |
-| [#143](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/143) | Aanbieder registreren die nog niet bestaat | Aanbod | Wordt getest in stap 2 | ✅ Eigenlijk wel getest |
 
 ### 📈 Coverage Statistieken
 - **Totaal PvE eis issues**: 45 functionele issues
-- **Getest in huidige flow**: 14 issues (31%)
-- **Niet getest**: 31 issues (69%)
+- **Getest in huidige flow**: 18 issues (40%)
+- **Niet getest**: 27 issues (60%)
 - **Eigenlijk wel getest**: 4 issues kunnen worden gemarkeerd als getest
 
 ### 🎯 Aanbevelingen voor Uitbreiding Testflow
-1. **Prioriteit Hoog**: Issues #6, #10, #12, #19, #20 (core functionaliteit)
-2. **Prioriteit Gemiddeld**: Issues #54, #55, #57, #58, #59 (gebruikerservaring)
+1. **Prioriteit Hoog**: Issues #6, #10, #19, #20 (core functionaliteit)
+2. **Prioriteit Gemiddeld**: Issues #54, #55, #57, #59 (gebruikerservaring)
 3. **Prioriteit Laag**: Issues #28, #29, #30 (admin functionaliteit)
 
 ---
