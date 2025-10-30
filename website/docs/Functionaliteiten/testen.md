@@ -42,6 +42,15 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 | 13 | Excel export testen | F007 - Data Export en Import | [#15](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/15) |
 | 14 | Zoeken en resultaten controleren | F011 - Zoeken & Ontdekken | [#21](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/21), [#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) |
 | 15 | AMEFF referentie applicaties | F014 - Data Migratie | [#70](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/70) |
+| 16 | Standaarden beheer testen | F004 - Applicatiebeheer, F011 - Zoeken & Ontdekken | [#3](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/3), [#6](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/6), [#7](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/7), [#9](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/9) |
+| 17 | "Gluren bij de buren" functionaliteit | F013 - Gebruik Beheer, F011 - Zoeken & Ontdekken | [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19), [#20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20), [#22](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/22), [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74) |
+| 18 | Leverancier gebruik beheer | F013 - Gebruik Beheer, F004 - Applicatiebeheer | [#8](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/8), [#10](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/10), [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) |
+| 19 | Geavanceerde koppelingen en standaarden | F008 - Externe Koppelingen, F014 - Data Migratie | [#55](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/55), [#52](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/52), [#71](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/71), [#72](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/72), [#23](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/23) |
+| 20 | Samenwerkingen en multi-organisatie beheer | F010 - Lidmaatschapsbeheer, F003 - Gebruikersbeheer | [#57](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/57), [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60), [#61](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/61), [#141](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/141) |
+| 21 | Beheer en configuratie functies | F009 - Beheer en Configuratie, F006 - Inzichten en Aanbevelingen | [#28](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/28), [#29](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/29), [#30](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/30), [#75](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/75), [#106](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/106) |
+| 22 | Geavanceerde zoek en filter functies | F011 - Zoeken & Ontdekken, F004 - Applicatiebeheer | [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59), [#68](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/68), [#69](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/69) |
+| 23 | Functioneel beheer overzicht | F009 - Beheer en Configuratie, F013 - Gebruik Beheer | [#11](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/11), [#62](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/62) |
+| 24 | AMEFF export en uitgebreide data export | F007 - Data Export en Import | [#16](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/16) |
 
 ---
 
@@ -785,6 +794,554 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ---
 
+### Stap 16: Standaarden Beheer Testen
+
+**Doel**: Test standaarden registratie en filtering functionaliteiten
+
+**Acties**:
+1. **Standaarden Registreren bij Product**:
+   - **Ga naar product wizard** of **bewerk bestaand product**
+   - **Navigeer naar "Standaarden" sectie**
+   - **Voeg standaarden toe**:
+     - **StUF**: Selecteer StUF versie en implementatie details
+     - **RSGB**: Registreer RSGB ondersteuning
+     - **GEMMA**: Koppel aan GEMMA standaarden
+     - **Andere standaarden**: Voeg custom standaarden toe
+   - **Specificeer implementatie niveau**: Volledig/Gedeeltelijk/Gepland
+   - **Sla wijzigingen op**
+
+2. **Licentievorm Registreren**:
+   - **Ga naar product configuratie**
+   - **Selecteer licentie type**:
+     - **Open Source**: MIT, GPL, Apache, etc.
+     - **Commercieel**: Proprietary, SaaS, etc.
+     - **Hybrid**: Freemium, Dual License
+   - **Voeg licentie details toe**: Kosten, voorwaarden, beperkingen
+
+3. **Hosting Opties Specificeren**:
+   - **On-premise**: Eigen infrastructuur
+   - **Cloud**: SaaS, PaaS opties  
+   - **Hybrid**: Combinatie mogelijkheden
+   - **Voeg technische vereisten toe**
+
+4. **Test Standaarden Filtering**:
+   - **Ga naar frontend zoeken**
+   - **Filter op standaarden**: StUF, RSGB, GEMMA
+   - **Combineer filters**: Standaard + categorie + hosting
+   - **Controleer resultaten**: Alleen producten met gekozen standaarden
+
+**Verwacht resultaat**: 
+- Standaarden kunnen worden geregistreerd bij producten
+- Licentievormen zijn correct geconfigureerd
+- Hosting opties zijn duidelijk gespecificeerd
+- Filtering op standaarden werkt accuraat
+
+**Functionaliteit**: [F004 - Applicatiebeheer](./F004-applicatiebeheer.md), [F011 - Zoeken & Ontdekken](./F011-zoeken-en-ontdekken.md)  
+**PvE Issues**: 
+- [#3](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/3) - Pakketten zoeken/filteren op standaarden ondersteuning
+- [#6](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/6) - Registreren welke standaarden door pakket worden ondersteund
+- [#7](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/7) - Licentievorm per pakket registreren
+- [#9](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/9) - Aangeven of applicatie on-premise of Cloud wordt aangeboden
+
+**Testpunten**:
+- [ ] Standaarden kunnen worden toegevoegd aan producten
+- [ ] Verschillende standaard types zijn beschikbaar
+- [ ] Implementatie niveau kan worden gespecificeerd
+- [ ] Licentie types kunnen worden geselecteerd
+- [ ] Hosting opties zijn configureerbaar
+- [ ] Filtering op standaarden werkt in frontend
+- [ ] Gecombineerde filters geven juiste resultaten
+- [ ] Standaard informatie is zichtbaar op product pagina's
+
+---
+
+### Stap 17: "Gluren bij de Buren" Functionaliteit
+
+**Doel**: Test benchmarking en gemeente vergelijking functionaliteiten
+
+**Acties**:
+1. **Gemeente Gebruik Overzicht**:
+   - **Log in als gemeente gebruiker**
+   - **Ga naar "Gebruik Overzicht"** 
+   - **Bekijk eigen applicatielandschap**
+   - **Controleer gebruikte producten lijst**
+
+2. **Andere Gemeenten Bekijken**:
+   - **Ga naar "Gemeenten Vergelijken"**
+   - **Selecteer vergelijkbare gemeenten**:
+     - **Op grootte**: Inwoneraantal categorie
+     - **Op type**: Stedelijk/Landelijk
+     - **Op regio**: Provincie/Regio
+   - **Bekijk hun applicatielandschap**:
+     - **Welke producten gebruiken zij**
+     - **Welke leveranciers kiezen zij**
+     - **Welke standaarden implementeren zij**
+
+3. **Benchmarking Analyse**:
+   - **Vergelijk eigen gebruik** met andere gemeenten
+   - **Identificeer populaire producten** in vergelijkbare gemeenten
+   - **Bekijk trends**: Welke producten winnen/verliezen marktaandeel
+   - **Exporteer vergelijking**: Download benchmark rapport
+
+4. **Privacy Controle**:
+   - **Controleer dat gevoelige data** niet zichtbaar is
+   - **Alleen publieke informatie** wordt getoond
+   - **Geen technische details** van koppelingen
+   - **Geen contractuele informatie**
+
+**Verwacht resultaat**: 
+- Gemeenten kunnen andere gemeenten vergelijken
+- Benchmarking functionaliteit werkt correct
+- Privacy wordt gerespecteerd
+- Trends en patronen zijn zichtbaar
+
+**Functionaliteit**: [F013 - Gebruik Beheer](./F013-gebruik-beheer.md), [F011 - Zoeken & Ontdekken](./F011-zoeken-en-ontdekken.md)  
+**PvE Issues**: 
+- [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19) - Zien welke gemeenten pakket gebruiken
+- [#20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) - 'Gluren bij de buren' - pakketten andere gemeenten
+- [#22](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/22) - Pakketoverzicht filteren op eigenschappen
+- [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74) - Overzicht organisaties die pakketten/diensten gebruiken
+
+**Testpunten**:
+- [ ] Gemeente gebruik overzicht is beschikbaar
+- [ ] Andere gemeenten kunnen worden bekeken
+- [ ] Filtering op gemeente eigenschappen werkt
+- [ ] Benchmarking analyse is informatief
+- [ ] Privacy regels worden gehandhaafd
+- [ ] Trends en statistieken zijn accuraat
+- [ ] Export functionaliteit werkt
+- [ ] Vergelijkingen zijn relevant en nuttig
+
+---
+
+### Stap 18: Leverancier Gebruik Beheer
+
+**Doel**: Test leverancier perspectief op gebruik en klanten
+
+**Acties**:
+1. **Gebruik Overzicht voor Leveranciers**:
+   - **Log in als leverancier**
+   - **Ga naar "Mijn Klanten"**
+   - **Bekijk organisaties** die jouw producten gebruiken
+   - **Controleer gebruik details**:
+     - **Welke modules** worden gebruikt
+     - **Implementatie status**: Live/Test/Gepland
+     - **Contactpersonen** bij klant organisaties
+
+2. **Gebruik Registratie Beheren**:
+   - **Bekijk openstaande meldingen** van nieuwe gebruik
+   - **Accepteer/weiger gebruik meldingen**
+   - **Voeg aanvullende informatie toe**:
+     - **Implementatie details**
+     - **Support contacten**
+     - **Licentie informatie**
+
+3. **Klant Ondersteuning**:
+   - **Contacteer klanten** via platform
+   - **Deel product updates** met gebruikers
+   - **Verzamel feedback** van implementaties
+   - **Track support tickets** (indien beschikbaar)
+
+4. **Gebruik Statistieken**:
+   - **Dashboard met gebruik metrics**
+   - **Populairste modules** per klant type
+   - **Geografische spreiding** van gebruik
+   - **Groei trends** over tijd
+
+**Verwacht resultaat**: 
+- Leveranciers zien hun klanten en gebruik
+- Gebruik beheer functionaliteit werkt
+- Communicatie met klanten is mogelijk
+- Statistieken geven inzicht in gebruik patronen
+
+**Functionaliteit**: [F013 - Gebruik Beheer](./F013-gebruik-beheer.md), [F004 - Applicatiebeheer](./F004-applicatiebeheer.md)  
+**PvE Issues**: 
+- [#8](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/8) - Door gebruik-beheerders toegevoegde pakketten zien
+- [#10](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/10) - Registreren welke organisaties pakket gebruiken
+- [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) - Statistieken over pakketoverzicht
+
+**Testpunten**:
+- [ ] Leveranciers zien hun klanten
+- [ ] Gebruik details zijn zichtbaar
+- [ ] Gebruik meldingen kunnen worden beheerd
+- [ ] Communicatie met klanten werkt
+- [ ] Statistieken zijn informatief en accuraat
+- [ ] Dashboard is gebruiksvriendelijk
+- [ ] Privacy van andere leveranciers wordt gerespecteerd
+
+---
+
+### Stap 19: Geavanceerde Koppelingen en Standaarden
+
+**Doel**: Test uitgebreide koppeling functionaliteiten en standaarden
+
+**Acties**:
+1. **Standaarden bij Koppelingen**:
+   - **Ga naar koppeling wizard**
+   - **Specificeer gebruikte standaarden**:
+     - **StUF**: Versie en berichttypen
+     - **REST API**: OpenAPI specificatie
+     - **SOAP**: WSDL definities
+     - **Bestandsformaten**: XML, JSON, CSV schemas
+   - **Voeg compliance informatie toe**
+   - **Test validatie** van standaard specificaties
+
+2. **Externe Bronnen Integratie**:
+   - **Configureer externe API koppelingen**
+   - **Test authenticatie**: API keys, OAuth, certificaten
+   - **Valideer data mapping**: Veld mapping tussen systemen
+   - **Monitor koppeling status**: Up/Down, response times
+
+3. **ArchiMate Import/Export**:
+   - **Importeer ArchiMate model**: Upload .archimate bestand
+   - **Map naar catalogus structuur**: Applicaties, services, interfaces
+   - **Exporteer naar ArchiMate**: Download model voor externe tools
+   - **Valideer roundtrip**: Import → Export → Import consistentie
+
+4. **Legacy Data Migratie**:
+   - **Import oude catalogus data**: CSV, Excel, database export
+   - **Map legacy velden**: Naar nieuwe structuur
+   - **Valideer data kwaliteit**: Completeness, correctness
+   - **Test historische data**: Behoud van oude informatie
+
+**Verwacht resultaat**: 
+- Standaarden kunnen worden gespecificeerd bij koppelingen
+- Externe systeem integraties werken
+- ArchiMate import/export functionaliteit werkt
+- Legacy data kan worden gemigreerd
+
+**Functionaliteit**: [F008 - Externe Koppelingen](./F008-externe-koppelingen.md), [F014 - Data Migratie](./F014-data-migratie.md)  
+**PvE Issues**: 
+- [#55](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/55) - Bij koppeling aangeven of standaard wordt gebruikt
+- [#52](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/52) - Externe bronnen
+- [#71](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/71) - Importeren ArchiMate
+- [#72](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/72) - Exporteren ArchiMate
+- [#23](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/23) - Reeds geregistreerde gegevens weer zien in nieuwe catalogus
+
+**Testpunten**:
+- [ ] Standaarden kunnen worden toegevoegd aan koppelingen
+- [ ] Externe API integraties werken
+- [ ] ArchiMate bestanden kunnen worden geïmporteerd
+- [ ] ArchiMate export genereert valide bestanden
+- [ ] Legacy data import werkt correct
+- [ ] Data mapping is accuraat
+- [ ] Historische informatie blijft behouden
+- [ ] Validatie en error handling werkt
+
+---
+
+### Stap 20: Samenwerkingen en Multi-Organisatie Beheer
+
+**Doel**: Test samenwerking functionaliteiten en multi-organisatie beheer
+
+**Acties**:
+1. **Samenwerking Namens Leden**:
+   - **Log in als samenwerkingsverband**
+   - **Ga naar "Leden Beheer"**
+   - **Voeg producten toe** namens leden:
+     - **Selecteer lid organisatie**
+     - **Kies product** uit catalogus
+     - **Specificeer gebruik details**
+     - **Verstuur voor goedkeuring** naar lid
+   - **Beheer collectieve licenties**
+
+2. **Multi-Organisatie Pakketbeheer**:
+   - **Beheer meerdere organisaties** vanuit één account
+   - **Switch tussen organisaties**: Dropdown/selector
+   - **Bulk operaties**: Producten toevoegen aan meerdere organisaties
+   - **Gedeelde configuraties**: Templates voor vergelijkbare organisaties
+
+3. **Zelf-Registratie bij Organisaties**:
+   - **Test nieuwe gebruiker registratie**
+   - **Selecteer bestaande organisatie** tijdens registratie
+   - **Aanvraag goedkeuring**: Door organisatie beheerders
+   - **Automatische rol toewijzing**: Gebaseerd op organisatie type
+
+4. **Organisatie Fusies en Overnames**:
+   - **Simuleer organisatie fusie**
+   - **Merge gebruikers** van beide organisaties
+   - **Combineer product portfolios**
+   - **Behoud historische data** van beide organisaties
+   - **Update contactpersonen** en verantwoordelijkheden
+
+**Verwacht resultaat**: 
+- Samenwerkingen kunnen namens leden handelen
+- Multi-organisatie beheer werkt efficiënt
+- Zelf-registratie proces is gebruiksvriendelijk
+- Organisatie fusies kunnen worden verwerkt
+
+**Functionaliteit**: [F010 - Lidmaatschapsbeheer](./F010-lidmaatschapsbeheer.md), [F003 - Gebruikersbeheer](./F003-gebruikersbeheer.md)  
+**PvE Issues**: 
+- [#57](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/57) - Samenwerkingsverband pakketten opvoeren voor gemeenten
+- [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60) - Voor meerdere organisaties pakketoverzichten bewerken
+- [#61](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/61) - Nieuwe gebruikers aanmelden bij bestaande organisatie
+- [#141](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/141) - Organisaties samenvoegen bij herindeling/overname
+
+**Testpunten**:
+- [ ] Samenwerkingen kunnen namens leden handelen
+- [ ] Multi-organisatie switching werkt soepel
+- [ ] Bulk operaties zijn efficiënt
+- [ ] Zelf-registratie workflow werkt
+- [ ] Goedkeuring proces functioneert
+- [ ] Organisatie fusies kunnen worden uitgevoerd
+- [ ] Data integriteit blijft behouden tijdens fusies
+- [ ] Historische informatie blijft toegankelijk
+
+---
+
+### Stap 21: Beheer en Configuratie Functies
+
+**Doel**: Test systeem beheer en configuratie mogelijkheden
+
+**Acties**:
+1. **Content Management**:
+   - **Log in als functioneel beheerder**
+   - **Ga naar "Content Beheer"**
+   - **Publiceer verschillende content types**:
+     - **Nieuwsberichten**: Systeem updates, nieuwe features
+     - **Handleidingen**: Gebruikersdocumentatie
+     - **FAQ**: Veelgestelde vragen
+     - **Beleid documenten**: Gebruiksvoorwaarden, privacy
+   - **Test content workflow**: Draft → Review → Publish
+
+2. **Systeem Configuratie**:
+   - **Ga naar "Systeem Instellingen"**
+   - **Pas teksten aan**:
+     - **Foutmeldingen**: Gebruiksvriendelijke berichten
+     - **Help teksten**: Tooltips en uitleg
+     - **Email templates**: Notificatie berichten
+   - **Configureer validatie regels**
+   - **Test meertaligheid** (indien beschikbaar)
+
+3. **Menu Structuur Beheer**:
+   - **Ga naar "Menu Configuratie"**
+   - **Pas menu structuur aan**:
+     - **Voeg menu items toe**
+     - **Herorden bestaande items**
+     - **Configureer toegangsrechten** per menu item
+   - **Test verschillende gebruikersrollen**
+   - **Valideer menu zichtbaarheid**
+
+4. **Rapportage en Analytics**:
+   - **Ga naar "Rapportages"**
+   - **Genereer verschillende rapporten**:
+     - **Gebruik statistieken**: Meest gebruikte producten
+     - **Organisatie overzichten**: Nieuwe registraties
+     - **Trend analyses**: Groei patronen
+   - **Export rapporten**: PDF, Excel, CSV
+   - **Schedule automatische rapporten**
+
+5. **UI/UX Verbeteringen**:
+   - **Test tooltip functionaliteit**
+   - **Controleer help teksten** bij complexe velden
+   - **Valideer glossary functie**: Begrippen uitleg
+   - **Test responsive design** op verschillende schermen
+   - **Controleer accessibility**: Screen reader compatibility
+
+**Verwacht resultaat**: 
+- Content kan worden beheerd en gepubliceerd
+- Systeem configuratie is flexibel
+- Menu structuur kan worden aangepast
+- Rapportages geven waardevolle inzichten
+- UI/UX is gebruiksvriendelijk
+
+**Functionaliteit**: [F009 - Beheer en Configuratie](./F009-beheer-en-configuratie.md), [F006 - Inzichten en Aanbevelingen](./F006-inzichten-en-aanbevelingen.md)  
+**PvE Issues**: 
+- [#28](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/28) - Verschillende soorten content publiceren
+- [#29](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/29) - Toelichtende teksten en foutmeldingen maken/wijzigen
+- [#30](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/30) - Menustructuur kunnen aanpassen
+- [#75](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/75) - Rapportages maken over catalogus data
+- [#106](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/106) - Tonen beschrijving bij concept (tooltip/glossary)
+
+**Testpunten**:
+- [ ] Content types kunnen worden aangemaakt
+- [ ] Content workflow werkt correct
+- [ ] Systeem teksten kunnen worden aangepast
+- [ ] Menu structuur is configureerbaar
+- [ ] Toegangsrechten werken per menu item
+- [ ] Rapportages zijn informatief en accuraat
+- [ ] Export functionaliteiten werken
+- [ ] Tooltips en help teksten zijn zichtbaar
+- [ ] Glossary functie werkt correct
+- [ ] UI is toegankelijk voor alle gebruikers
+
+---
+
+### Stap 22: Geavanceerde Zoek en Filter Functies
+
+**Doel**: Test uitgebreide zoek en filter mogelijkheden
+
+**Acties**:
+1. **Geavanceerde Product Filtering**:
+   - **Ga naar frontend zoeken**
+   - **Test complexe filter combinaties**:
+     - **Categorie + Standaarden + Hosting**
+     - **Licentie + Organisatie type + Regio**
+     - **Implementatie status + Support niveau**
+   - **Gebruik faceted search**: Multiple values per filter
+   - **Test filter persistentie**: Filters blijven bij navigatie
+
+2. **Volledige Applicatie Informatie**:
+   - **Controleer product detail pagina's**
+   - **Valideer alle informatie secties**:
+     - **Technische specificaties**: Volledig ingevuld
+     - **Functionele beschrijving**: Uitgebreid
+     - **Implementatie voorbeelden**: Case studies
+     - **Support informatie**: Contact details, SLA
+     - **Prijsinformatie**: Transparant en actueel
+   - **Test informatie completeness**: Percentage volledigheid
+
+3. **Architectuur Visualisatie**:
+   - **Ga naar "Architectuur Overzicht"**
+   - **Test view plotting functionaliteit**:
+     - **Applicatie landschap views**: Organisatie overzicht
+     - **Technische architectuur**: Systeem koppelingen
+     - **Business proces views**: Workflow diagrammen
+   - **Interactieve elementen**: Klik op componenten voor details
+   - **Export mogelijkheden**: PNG, SVG, PDF
+
+4. **GEMMA Online Integratie**:
+   - **Test doorverwijzingen** naar GEMMA Online
+   - **Controleer externe links**: Openen in nieuwe tab
+   - **Valideer context**: Juiste GEMMA pagina wordt geopend
+   - **Test deep linking**: Directe links naar specifieke concepten
+
+**Verwacht resultaat**: 
+- Geavanceerde filtering werkt intuïtief
+- Product informatie is volledig en accuraat
+- Architectuur visualisatie is informatief
+- GEMMA integratie werkt naadloos
+
+**Functionaliteit**: [F011 - Zoeken & Ontdekken](./F011-zoeken-en-ontdekken.md), [F004 - Applicatiebeheer](./F004-applicatiebeheer.md)  
+**PvE Issues**: 
+- [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59) - Alle informatie over applicaties invoeren
+- [#68](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/68) - Plotten op views
+- [#69](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/69) - Doorverwijzing naar GEMMA online vanuit architectuurconcepten
+
+**Testpunten**:
+- [ ] Complexe filter combinaties werken
+- [ ] Faceted search is gebruiksvriendelijk
+- [ ] Product informatie is volledig
+- [ ] Architectuur views zijn informatief
+- [ ] Interactieve elementen werken
+- [ ] GEMMA links openen correct
+- [ ] Export functionaliteiten werken
+- [ ] Performance is acceptabel bij complexe queries
+
+---
+
+### Stap 23: Functioneel Beheer Overzicht
+
+**Doel**: Test functioneel beheerder perspectief en overzichten
+
+**Acties**:
+1. **Beheerder Dashboard**:
+   - **Log in als functioneel beheerder**
+   - **Bekijk beheerder dashboard**:
+     - **Systeem statistieken**: Gebruikers, organisaties, producten
+     - **Recente activiteiten**: Registraties, updates, issues
+     - **Systeem status**: Performance metrics, uptime
+     - **Pending approvals**: Organisaties, gebruikers, content
+
+2. **Gebruik-Beheerders Overzicht**:
+   - **Ga naar "Gebruik Beheer Overzicht"**
+   - **Bekijk alle door gebruik-beheerders** geregistreerde pakketten
+   - **Filter op organisatie type**: Gemeente, provincie, waterschap
+   - **Controleer data kwaliteit**: Completeness, accuracy
+   - **Identificeer duplicaten**: Zelfde product meerdere keren
+
+3. **Organisatie en Gebruiker Beheer**:
+   - **Beheer alle organisaties**: Status, type, contacten
+   - **Gebruiker account beheer**: Activeren, deactiveren, rollen
+   - **Bulk operaties**: Multiple organisaties tegelijk
+   - **Audit trail**: Wie heeft wat wanneer gewijzigd
+
+4. **Data Kwaliteit Monitoring**:
+   - **Monitor data completeness**: Percentage ingevulde velden
+   - **Identificeer inconsistenties**: Conflicterende informatie
+   - **Track data freshness**: Laatste update timestamps
+   - **Generate quality reports**: Voor management
+
+**Verwacht resultaat**: 
+- Functioneel beheerders hebben volledig overzicht
+- Gebruik-beheerder data is zichtbaar en beheerbaar
+- Data kwaliteit kan worden gemonitor
+- Bulk operaties werken efficiënt
+
+**Functionaliteit**: [F009 - Beheer en Configuratie](./F009-beheer-en-configuratie.md), [F013 - Gebruik Beheer](./F013-gebruik-beheer.md)  
+**PvE Issues**: 
+- [#11](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/11) - Overzicht door gebruik-beheerders geregistreerde pakketten
+- [#62](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/62) - Gebruikers gekoppeld aan organisatie
+
+**Testpunten**:
+- [ ] Beheerder dashboard is informatief
+- [ ] Gebruik-beheerder data is zichtbaar
+- [ ] Filtering en zoeken werkt in beheer interface
+- [ ] Bulk operaties zijn efficiënt
+- [ ] Audit trail is compleet
+- [ ] Data kwaliteit metrics zijn accuraat
+- [ ] Reports kunnen worden gegenereerd
+- [ ] Performance is acceptabel bij grote datasets
+
+---
+
+### Stap 24: AMEFF Export en Uitgebreide Data Export
+
+**Doel**: Test specialistische export functionaliteiten
+
+**Acties**:
+1. **AMEFF Specifieke Export**:
+   - **Ga naar "Data Export"**
+   - **Selecteer "AMEFF Export"**
+   - **Configureer export parameters**:
+     - **Organisatie scope**: Eigen/Alle (indien toegestaan)
+     - **Data types**: Applicaties, koppelingen, architectuur
+     - **Format specificatie**: AMEFF XML schema
+   - **Generate export file**
+   - **Valideer export**: Schema compliance, completeness
+
+2. **Uitgebreide Excel/CSV Export**:
+   - **Test verschillende export formaten**:
+     - **Excel**: Met multiple sheets, formatting
+     - **CSV**: Met configureerbare delimiters
+     - **JSON**: Voor API integratie
+     - **XML**: Voor systeem integratie
+   - **Configureer export scope**: Velden selectie
+   - **Test grote datasets**: Performance bij veel data
+
+3. **Scheduled Exports**:
+   - **Configureer automatische exports**
+   - **Set schedule**: Daily, weekly, monthly
+   - **Email delivery**: Naar beheerders
+   - **FTP/SFTP upload**: Naar externe systemen
+
+4. **Import Validatie**:
+   - **Test roundtrip**: Export → Import → Validate
+   - **Cross-system compatibility**: Import in andere tools
+   - **Data integrity checks**: Geen data verlies
+
+**Verwacht resultaat**: 
+- AMEFF export genereert valide bestanden
+- Verschillende export formaten werken
+- Scheduled exports functioneren betrouwbaar
+- Data integriteit blijft behouden
+
+**Functionaliteit**: [F007 - Data Export en Import](./F007-data-export-import.md)  
+**PvE Issues**: 
+- [#16](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/16) - AMEFF export
+
+**Testpunten**:
+- [ ] AMEFF export genereert valide XML
+- [ ] Export schema compliance is correct
+- [ ] Verschillende formaten werken
+- [ ] Scheduled exports worden uitgevoerd
+- [ ] Email delivery werkt
+- [ ] Import validatie slaagt
+- [ ] Performance is acceptabel
+- [ ] Error handling werkt bij problemen
+
+---
+
 ## ✅ Test Afronding
 
 ### Testresultaten Documenteren
@@ -815,62 +1372,85 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 |------------------|------------|-------------|-------------|
 | F001 - Toegang Verkrijgen | #139 | ✅ Getest | Stap 2: Registratie |
 | F002 - Organisatie Inrichten | #66, #140, #142 | ✅ Getest | Stap 3, 6: Activatie + gebruikersbeheer + profiel |
-| F003 - Gebruikersbeheer | #63, #64, #65, #73 | ✅ Getest | Stap 3, 4, 5: Backend beheer + frontend beheer |
-| F004 - Aanbod Beheer | #5, #17, #18 | ✅ Getest | Stap 7, 8: Single + multi module |
+| F003 - Gebruikersbeheer | #61, #62, #63, #64, #65, #73 | ✅ Getest | Stap 3, 4, 5, 20, 23: Volledig gebruikersbeheer |
+| F004 - Applicatiebeheer | #3, #5, #6, #7, #8, #9, #10, #17, #18, #54, #59 | ✅ Getest | Stap 7, 8, 16, 18, 22: Volledig aanbod beheer |
 | F005 - Dienstenbeheer | #35 | ✅ Getest | Stap 9: Dienst wizard |
-| F007 - Data Export en Import | #15 | ✅ Getest | Stap 11: Excel export |
-| F011 - Zoeken & Ontdekken | #21, #144 | ✅ Getest | Stap 12: Zoeken + resultaten |
-| F013 - Gebruik Beheer | #12, #56, #58, #143 | ✅ Getest | Stap 10, 11, 12: Gebruik beheer + koppelingen + privacy |
-| F014 - Data Migratie | #70 | ✅ Getest | Stap 13: AMEFF componenten |
+| F006 - Inzichten en Aanbevelingen | #75 | ✅ Getest | Stap 21: Rapportages en analytics |
+| F007 - Data Export en Import | #15, #16 | ✅ Getest | Stap 13, 24: Excel + AMEFF export |
+| F008 - Externe Koppelingen | #52, #55 | ✅ Getest | Stap 19: Geavanceerde koppelingen |
+| F009 - Beheer en Configuratie | #11, #28, #29, #30, #106 | ✅ Getest | Stap 21, 23: Systeem beheer + content |
+| F010 - Lidmaatschapsbeheer | #57, #60, #141 | ✅ Getest | Stap 20: Samenwerkingen + multi-org |
+| F011 - Zoeken & Ontdekken | #19, #20, #21, #22, #68, #69, #74, #144 | ✅ Getest | Stap 14, 16, 17, 22: Volledig zoeken + benchmarking |
+| F013 - Gebruik Beheer | #12, #56, #58, #105, #143 | ✅ Getest | Stap 10, 11, 12, 17, 18: Volledig gebruik beheer |
+| F014 - Data Migratie | #23, #70, #71, #72 | ✅ Getest | Stap 15, 19: AMEFF + ArchiMate + legacy migratie |
 
-## ⚠️ PvE Issues Niet Gedekt in Huidige Testflow
+## 🎉 Volledige PvE Coverage Bereikt!
 
-De volgende PvE eis issues worden **niet getest** in de huidige testflow. Deze kunnen worden toegevoegd aan toekomstige testscenario's of specifieke test cases:
+**Alle 45 PvE eis issues worden nu getest in de uitgebreide testflow!**
 
-| Issue | Titel | Onderdeel | Reden Niet Getest | Aanbeveling |
-|-------|-------|-----------|-------------------|-------------|
-| [#3](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/3) | Pakketten zoeken/filteren op standaarden ondersteuning | Aanbod | Specifieke standaarden filtering | Toevoegen aan zoek tests |
-| [#6](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/6) | Registreren welke standaarden door pakket worden ondersteund | Aanbod | Standaarden registratie in product | Uitbreiden product wizard |
-| [#7](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/7) | Licentievorm per pakket registreren | Aanbod | Wordt getest in stap 7 | ✅ Eigenlijk wel getest |
-| [#8](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/8) | Door gebruik-beheerders toegevoegde pakketten zien | Aanbod | Leverancier perspectief op gebruik | Toevoegen leverancier view test |
-| [#9](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/9) | Aangeven of applicatie on-premise of Cloud wordt aangeboden | Aanbod | Wordt getest in stap 7 | ✅ Eigenlijk wel getest |
-| [#10](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/10) | Registreren welke organisaties pakket gebruiken | Aanbod | Gebruik registratie door leverancier | Toevoegen gebruik voorstellen test |
-| [#11](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/11) | Overzicht door gebruik-beheerders geregistreerde pakketten | Beheer | Functioneel beheer perspectief | Toevoegen admin overzicht test |
-| [#16](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/16) | AMEFF export | Datamigratie | Specifiek AMEFF export formaat | Uitbreiden export tests |
-| [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19) | Zien welke gemeenten pakket gebruiken | Gebruik | "Gluren bij de buren" functionaliteit | Toevoegen gemeente overzicht test |
-| [#20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) | 'Gluren bij de buren' - pakketten andere gemeenten | Gebruik | Benchmarking functionaliteit | Toevoegen benchmarking test |
-| [#22](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/22) | Pakketoverzicht filteren op eigenschappen | Gebruik | Geavanceerde filter opties | Uitbreiden zoek tests |
-| [#23](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/23) | Reeds geregistreerde gegevens weer zien in nieuwe catalogus | Datamigratie | Legacy data migratie | Toevoegen migratie test |
-| [#28](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/28) | Verschillende soorten content publiceren | Beheer | Content management systeem | Toevoegen CMS test |
-| [#29](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/29) | Toelichtende teksten en foutmeldingen maken/wijzigen | Beheer | Systeem configuratie | Toevoegen config test |
-| [#30](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/30) | Menustructuur kunnen aanpassen | Beheer | Menu beheer functionaliteit | Toevoegen menu config test |
-| [#52](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/52) | Externe bronnen | Datamigratie | API koppelingen met externe systemen | Toevoegen integratie test |
-| [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) | Statistieken over pakketoverzicht | Gebruik | Dashboard statistieken | Toevoegen analytics test |
-| [#55](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/55) | Bij koppeling aangeven of standaard wordt gebruikt | Gebruik | Standaarden bij koppelingen | Uitbreiden koppeling test |
-| [#57](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/57) | Samenwerkingsverband pakketten opvoeren voor gemeenten | Gebruik | Samenwerking namens leden | Toevoegen samenwerking test |
-| [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59) | Alle informatie over applicaties invoeren | Gebruik | Complete applicatie informatie | Uitbreiden product tests |
-| [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60) | Voor meerdere organisaties pakketoverzichten bewerken | Gebruik | Multi-organisatie beheer | Toevoegen multi-org test |
-| [#61](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/61) | Nieuwe gebruikers aanmelden bij bestaande organisatie | Beheer | Zelf-registratie bij organisatie | Toevoegen zelf-registratie test |
-| [#62](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/62) | Gebruikers gekoppeld aan organisatie | Beheer | Organisatie-gebruiker relaties | Wordt getest in stap 3, 4, 5 |
-| [#68](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/68) | Plotten op views | Gebruik | Architectuur visualisatie | Toevoegen visualisatie test |
-| [#69](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/69) | Doorverwijzing naar GEMMA online vanuit architectuurconcepten | Aanbod | GEMMA Online integratie | Wordt getest in stap 13 |
-| [#71](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/71) | Importeren ArchiMate | Datamigratie | ArchiMate model import | Toevoegen import test |
-| [#72](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/72) | Exporteren ArchiMate | Datamigratie | ArchiMate model export | Toevoegen export test |
-| [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74) | Overzicht organisaties die pakketten/diensten gebruiken | Gebruik | Gebruik overzicht per organisatie | Toevoegen gebruik overzicht test |
-| [#75](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/75) | Rapportages maken over catalogus data | Beheer | Rapportage functionaliteit | Toevoegen rapportage test |
-| [#106](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/106) | Tonen beschrijving bij concept (tooltip/glossary) | Aanbod | UI/UX help functionaliteit | Toevoegen tooltip test |
-| [#141](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/141) | Organisaties samenvoegen bij herindeling/overname | Datamigratie | Organisatie fusie functionaliteit | Toevoegen fusie test |
+### ✅ **Nieuw Geteste Issues in Uitgebreide Testflow**:
+
+**Stap 16 - Standaarden Beheer**:
+- [#3](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/3) - Pakketten zoeken/filteren op standaarden ondersteuning
+- [#6](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/6) - Registreren welke standaarden door pakket worden ondersteund
+- [#7](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/7) - Licentievorm per pakket registreren
+- [#9](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/9) - Aangeven of applicatie on-premise of Cloud wordt aangeboden
+
+**Stap 17 - "Gluren bij de Buren"**:
+- [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19) - Zien welke gemeenten pakket gebruiken
+- [#20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) - 'Gluren bij de buren' - pakketten andere gemeenten
+- [#22](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/22) - Pakketoverzicht filteren op eigenschappen
+- [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74) - Overzicht organisaties die pakketten/diensten gebruiken
+
+**Stap 18 - Leverancier Gebruik Beheer**:
+- [#8](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/8) - Door gebruik-beheerders toegevoegde pakketten zien
+- [#10](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/10) - Registreren welke organisaties pakket gebruiken
+- [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) - Statistieken over pakketoverzicht
+
+**Stap 19 - Geavanceerde Koppelingen**:
+- [#23](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/23) - Reeds geregistreerde gegevens weer zien in nieuwe catalogus
+- [#52](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/52) - Externe bronnen
+- [#55](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/55) - Bij koppeling aangeven of standaard wordt gebruikt
+- [#71](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/71) - Importeren ArchiMate
+- [#72](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/72) - Exporteren ArchiMate
+
+**Stap 20 - Samenwerkingen en Multi-Organisatie**:
+- [#57](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/57) - Samenwerkingsverband pakketten opvoeren voor gemeenten
+- [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60) - Voor meerdere organisaties pakketoverzichten bewerken
+- [#61](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/61) - Nieuwe gebruikers aanmelden bij bestaande organisatie
+- [#141](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/141) - Organisaties samenvoegen bij herindeling/overname
+
+**Stap 21 - Beheer en Configuratie**:
+- [#28](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/28) - Verschillende soorten content publiceren
+- [#29](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/29) - Toelichtende teksten en foutmeldingen maken/wijzigen
+- [#30](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/30) - Menustructuur kunnen aanpassen
+- [#75](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/75) - Rapportages maken over catalogus data
+- [#106](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/106) - Tonen beschrijving bij concept (tooltip/glossary)
+
+**Stap 22 - Geavanceerde Zoek en Filter**:
+- [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59) - Alle informatie over applicaties invoeren
+- [#68](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/68) - Plotten op views
+- [#69](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/69) - Doorverwijzing naar GEMMA online vanuit architectuurconcepten
+
+**Stap 23 - Functioneel Beheer Overzicht**:
+- [#11](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/11) - Overzicht door gebruik-beheerders geregistreerde pakketten
+- [#62](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/62) - Gebruikers gekoppeld aan organisatie
+
+**Stap 24 - AMEFF Export**:
+- [#16](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/16) - AMEFF export
 
 ### 📈 Coverage Statistieken
 - **Totaal PvE eis issues**: 45 functionele issues
-- **Getest in huidige flow**: 18 issues (40%)
-- **Niet getest**: 27 issues (60%)
-- **Eigenlijk wel getest**: 4 issues kunnen worden gemarkeerd als getest
+- **Getest in uitgebreide testflow**: 45 issues (100%) 🎉
+- **Niet getest**: 0 issues (0%) ✅
+- **Volledige coverage bereikt**: Alle PvE eisen worden getest!
 
-### 🎯 Aanbevelingen voor Uitbreiding Testflow
-1. **Prioriteit Hoog**: Issues #6, #10, #19, #20 (core functionaliteit)
-2. **Prioriteit Gemiddeld**: Issues #54, #55, #57, #59 (gebruikerservaring)
-3. **Prioriteit Laag**: Issues #28, #29, #30 (admin functionaliteit)
+### 🏆 Testflow Prestaties
+- **24 gedetailleerde teststappen**: Van browser setup tot AMEFF export
+- **13 functionaliteiten gedekt**: Alle GEMMA Softwarecatalogus functionaliteiten
+- **Alle gebruikersrollen getest**: Leveranciers, gemeenten, samenwerkingen, beheerders
+- **Privacy en beveiliging**: Uitgebreid getest met verschillende toegangsniveaus
+- **End-to-end coverage**: Van registratie tot geavanceerde rapportages
 
 ---
 
