@@ -47,6 +47,13 @@ const config = {
             // Redocusaurus will automatically bundle your spec into a single file during the build
             id: 'gemma',
             spec: 'static/oas/gemma.yaml',
+            route: '/gemma',
+          },
+          // Pass it a path to a local OpenAPI YAML file
+          {
+            // Redocusaurus will automatically bundle your spec into a single file during the build
+            id: 'swc',
+            spec: 'softwarecatalogus_register.json',
             route: '/api',
           },
         ],

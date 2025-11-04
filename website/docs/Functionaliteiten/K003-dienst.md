@@ -257,7 +257,7 @@ sequenceDiagram
     U->>W: Vul dienst gegevens in
     
     alt Naam al in gebruik binnen applicatie
-        W-->>U: Foutmelding - naam al in gebruik
+        W-->>U: Foutmelding - naam al in gebruik (wens)
         U->>W: Pas naam aan
     else Naam beschikbaar
         U->>W: Ga naar volgende stap
