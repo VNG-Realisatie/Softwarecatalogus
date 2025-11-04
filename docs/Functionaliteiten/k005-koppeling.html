@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="nl" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Functionaliteiten/k005-koppeling" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.7.0">
+<title data-rh="true">K005 - Koppeling | Softwarecatalogus</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://vng-realisatie.github.io/Softwarecatalogus/docs/Functionaliteiten/k005-koppeling"><meta data-rh="true" property="og:locale" content="nl"><meta data-rh="true" name="docusaurus_locale" content="nl"><meta data-rh="true" name="docsearch:language" content="nl"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="K005 - Koppeling | Softwarecatalogus"><meta data-rh="true" name="description" content="Kern concept Koppeling - Technische integraties tussen applicaties in de GEMMA Softwarecatalogus"><meta data-rh="true" property="og:description" content="Kern concept Koppeling - Technische integraties tussen applicaties in de GEMMA Softwarecatalogus"><meta data-rh="true" name="keywords" content="koppeling,integratie,API,data uitwisseling,kern concept,K005"><link data-rh="true" rel="canonical" href="https://vng-realisatie.github.io/Softwarecatalogus/docs/Functionaliteiten/k005-koppeling"><link data-rh="true" rel="alternate" href="https://vng-realisatie.github.io/Softwarecatalogus/docs/Functionaliteiten/k005-koppeling" hreflang="nl"><link data-rh="true" rel="alternate" href="https://vng-realisatie.github.io/Softwarecatalogus/docs/Functionaliteiten/k005-koppeling" hreflang="x-default"><link rel="stylesheet" href="/Softwarecatalogus/assets/css/styles.7b5eb8f9.css">
+<script src="/Softwarecatalogus/assets/js/runtime~main.91b25acb.js" defer="defer"></script>
+<script src="/Softwarecatalogus/assets/js/main.cb911c9b.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Ga naar hoofdinhoud"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Ga naar hoofdinhoud</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Navigatiebalk schakelen" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/Softwarecatalogus/"><div class="navbar__logo"><img src="/Softwarecatalogus/img/logo.svg" alt="VNG Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/Softwarecatalogus/img/logo.svg" alt="VNG Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">VNG Softwarecatalogus</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/Softwarecatalogus/docs/Softwarecatalogus">Documentatie</a></div><div class="navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/Softwarecatalogus/api">API Specificatie</a><a href="https://github.com/VNG-Realisatie/softwarecatalogus" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><a href="https://www.vng.nl" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">VNG Website<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Schakel tussen donkere en lichte modus (momenteel lichte modus)" aria-label="Schakel tussen donkere en lichte modus (momenteel lichte modus)" aria-live="polite" aria-pressed="false"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll naar boven" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs zijbalk" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/Softwarecatalogus/docs/Softwarecatalogus">Software Catalogus</a><button aria-label="Categorie zijbalk uitklappen &#x27;Software Catalogus&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/intro">Over de Softwarecatalogus</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/Softwarecatalogus/docs/Functionaliteiten">Functionaliteiten</a><button aria-label="Categorie zijbalk inklappen &#x27;Functionaliteiten&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f000-navigatie-en-menustructuur">F000 - Navigatie en Menustructuur</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f001-toegang-verkrijgen">F001 - Toegang Verkrijgen</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f002-organisatie-inrichten">F002 - Organisatie Inrichten</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f003-gebruikersbeheer">F003 - Gebruikersbeheer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f004-aanbod-beheer">F004 - Aanbod Beheer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f005-dienstenbeheer">F005 - Dienstenbeheer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f006-reviews-en-community-feedback">F006 - Reviews en Community Feedback</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f007-data-export-import">F007 - Data Export en Import</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f008-externe-koppelingen">F008 - Externe Koppelingen</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f009-beheer-en-configuratie">F009 - Beheer en Configuratie</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f010-lidmaatschapsbeheer">F010 - Lidmaatschapsbeheer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/k001-organisatie">K001 - Organisatie</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f011-zoeken-en-ontdekken">F011 - Zoeken &amp; Ontdekken</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/k002-applicatie">K002 - Applicatie</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f012-ai-ondersteuning">F012 - AI Ondersteuning</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/k003-dienst">K003 - Dienst</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f013-gebruik-beheer">F013 - Gebruik Beheer</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/k004-gebruik">K004 - Gebruik</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/f014-data-migratie">F014 - Data Migratie</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/k005-koppeling">K005 - Koppeling</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/k006-suite">K006 - Suite</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/testen">Testen</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/Softwarecatalogus/docs/Functionaliteiten/k007-component">K007 - Component</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Softwarecatalogus/docs/GEMMA/api-introductie">GEMMA</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/Gegevensmodel">Model Structuur</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/Softwarecatalogus/docs/Klantreizen/klantreis-samenwerking">Klantreizen</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/contributing">Development</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/referentiearchitectuur acceptatiecriteria">Acceptatiecriteria SWC component referentiearchitectuur</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/security">Security</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/Softwarecatalogus/docs/technical-architecture">Technische Architectuur</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Broodkruimels"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Homepagina" class="breadcrumbs__link" href="/Softwarecatalogus/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/Softwarecatalogus/docs/Functionaliteiten"><span itemprop="name">Functionaliteiten</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">K005 - Koppeling</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">Op deze pagina</button></div><div class="theme-doc-markdown markdown"><header><h1>K005 - Koppeling</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="beschrijving">Beschrijving<a href="#beschrijving" class="hash-link" aria-label="Direct link naar Beschrijving" title="Direct link naar Beschrijving">​</a></h2>
+<p>Koppelingen beschrijven de technische integraties tussen verschillende applicaties. Dit kunnen API-koppelingen, bestandsuitwisselingen, database koppelingen of andere vormen van data-uitwisseling zijn. Koppelingen zijn essentieel voor een geïntegreerd applicatielandschap.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="kenmerken">Kenmerken<a href="#kenmerken" class="hash-link" aria-label="Direct link naar Kenmerken" title="Direct link naar Kenmerken">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="basis-koppeling">Basis Koppeling<a href="#basis-koppeling" class="hash-link" aria-label="Direct link naar Basis Koppeling" title="Direct link naar Basis Koppeling">​</a></h3>
+<ul>
+<li><strong>Koppeling naam</strong>: Beschrijvende naam van de integratie</li>
+<li><strong>Applicatie A</strong>: Eerste applicatie in de koppeling (bron)</li>
+<li><strong>Applicatie B</strong>: Tweede applicatie in de koppeling (doel)</li>
+<li><strong>Richting</strong>: Unidirectioneel (A→B), Bidirectioneel (A↔B), of Multi-directioneel</li>
+<li><strong>Status</strong>: Actief, Inactief, In ontwikkeling, Gepland, Uitgefaseerd</li>
+<li><strong>Kriticaliteit</strong>: Laag, Gemiddeld, Hoog, Kritiek, Bedrijfskritiek</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="technische-specificaties">Technische Specificaties<a href="#technische-specificaties" class="hash-link" aria-label="Direct link naar Technische Specificaties" title="Direct link naar Technische Specificaties">​</a></h3>
+<ul>
+<li><strong>Type</strong>: API, Webservice, Bestandsuitwisseling, Database koppeling, Message queue</li>
+<li><strong>Protocol</strong>: HTTP/HTTPS, SOAP, REST, GraphQL, FTP, SFTP, JMS, AMQP</li>
+<li><strong>Authenticatie</strong>: OAuth 2.0, API Key, Basic Auth, Certificate, SAML, JWT</li>
+<li><strong>Data formaat</strong>: JSON, XML, CSV, EDI, Fixed width, Binary</li>
+<li><strong>Frequentie</strong>: Real-time, Near real-time, Batch, Scheduled, Event-driven</li>
+<li><strong>Endpoint</strong>: URL of toegangspunt voor de koppeling</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="data-uitwisseling">Data Uitwisseling<a href="#data-uitwisseling" class="hash-link" aria-label="Direct link naar Data Uitwisseling" title="Direct link naar Data Uitwisseling">​</a></h3>
+<ul>
+<li><strong>Data types</strong>: Welke soorten gegevens worden uitgewisseld</li>
+<li><strong>Volume</strong>: Geschat aantal records per periode</li>
+<li><strong>Grootte</strong>: Gemiddelde berichtgrootte</li>
+<li><strong>Transformatie</strong>: Data mapping en conversie regels</li>
+<li><strong>Validatie</strong>: Business rules en data validatie</li>
+<li><strong>Error handling</strong>: Foutafhandeling en retry mechanismen</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="performance-en-sla">Performance en SLA<a href="#performance-en-sla" class="hash-link" aria-label="Direct link naar Performance en SLA" title="Direct link naar Performance en SLA">​</a></h3>
+<ul>
+<li><strong>Response tijd</strong>: Maximale verwerkingstijd</li>
+<li><strong>Throughput</strong>: Aantal berichten per seconde/minuut</li>
+<li><strong>Beschikbaarheid</strong>: Uptime vereisten</li>
+<li><strong>Recovery tijd</strong>: Maximum downtime bij storingen</li>
+<li><strong>Monitoring</strong>: Performance en health monitoring</li>
+<li><strong>Alerting</strong>: Automatische waarschuwingen bij problemen</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="standaarden-en-compliance">Standaarden en Compliance<a href="#standaarden-en-compliance" class="hash-link" aria-label="Direct link naar Standaarden en Compliance" title="Direct link naar Standaarden en Compliance">​</a></h3>
+<ul>
+<li><strong>Standaard</strong>: Welke standaard wordt gebruikt (StUF, RSGB, etc.)</li>
+<li><strong>Versie</strong>: Versie van de gebruikte standaard</li>
+<li><strong>Compliance niveau</strong>: Mate van standaard naleving</li>
+<li><strong>Certificering</strong>: Formele certificeringen</li>
+<li><strong>Interoperabiliteit</strong>: GEMMA compliance en interoperabiliteit</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="beveiliging">Beveiliging<a href="#beveiliging" class="hash-link" aria-label="Direct link naar Beveiliging" title="Direct link naar Beveiliging">​</a></h3>
+<ul>
+<li><strong>Encryptie</strong>: Data encryptie in transit en at rest</li>
+<li><strong>Toegangscontrole</strong>: Wie heeft toegang tot de koppeling</li>
+<li><strong>Audit trail</strong>: Logging van alle transacties</li>
+<li><strong>Data privacy</strong>: GDPR/AVG compliance</li>
+<li><strong>Penetratie test</strong>: Security testing resultaten</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="relaties">Relaties<a href="#relaties" class="hash-link" aria-label="Direct link naar Relaties" title="Direct link naar Relaties">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="applicaties">Applicaties<a href="#applicaties" class="hash-link" aria-label="Direct link naar Applicaties" title="Direct link naar Applicaties">​</a></h3>
+<ul>
+<li><strong>Verbindt</strong>: Twee of meer applicaties</li>
+<li><strong>Gebruikt door</strong>: Organisaties die de applicaties gebruiken</li>
+<li><strong>Beheerd door</strong>: IT teams of externe partijen</li>
+<li><strong>Ondersteund door</strong>: Leveranciers van de gekoppelde applicaties</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="standaarden">Standaarden<a href="#standaarden" class="hash-link" aria-label="Direct link naar Standaarden" title="Direct link naar Standaarden">​</a></h3>
+<ul>
+<li><strong>Implementeert</strong>: Technische standaarden</li>
+<li><strong>Voldoet aan</strong>: Compliance vereisten</li>
+<li><strong>Gebruikt</strong>: Data uitwisseling protocollen</li>
+<li><strong>Ondersteunt</strong>: Interoperabiliteit frameworks</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructuur">Infrastructuur<a href="#infrastructuur" class="hash-link" aria-label="Direct link naar Infrastructuur" title="Direct link naar Infrastructuur">​</a></h3>
+<ul>
+<li><strong>Loopt over</strong>: Netwerk infrastructuur</li>
+<li><strong>Gebruikt</strong>: Middleware en integration platforms</li>
+<li><strong>Afhankelijk van</strong>: Database en storage systemen</li>
+<li><strong>Monitored door</strong>: Monitoring en alerting systemen</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="koppeling-types">Koppeling Types<a href="#koppeling-types" class="hash-link" aria-label="Direct link naar Koppeling Types" title="Direct link naar Koppeling Types">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-api-koppelingen">🔌 API Koppelingen<a href="#-api-koppelingen" class="hash-link" aria-label="Direct link naar 🔌 API Koppelingen" title="Direct link naar 🔌 API Koppelingen">​</a></h3>
+<p>Real-time programmatische integraties via REST of GraphQL APIs.</p>
+<p><strong>Kenmerken:</strong></p>
+<ul>
+<li>Synchrone communicatie</li>
+<li>JSON/XML data uitwisseling</li>
+<li>HTTP/HTTPS protocol</li>
+<li>Real-time data toegang</li>
+<li>Stateless architectuur</li>
+</ul>
+<p><strong>Voorbeelden:</strong></p>
+<ul>
+<li>BRP koppeling voor persoongegevens</li>
+<li>BAG koppeling voor adresgegevens</li>
+<li>Zaaksysteem naar DMS koppeling</li>
+<li>CRM naar e-mail marketing integratie</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-webservice-koppelingen">🌐 Webservice Koppelingen<a href="#-webservice-koppelingen" class="hash-link" aria-label="Direct link naar 🌐 Webservice Koppelingen" title="Direct link naar 🌐 Webservice Koppelingen">​</a></h3>
+<p>SOAP-gebaseerde enterprise integraties met uitgebreide functionaliteit.</p>
+<p><strong>Kenmerken:</strong></p>
+<ul>
+<li>WSDL service definities</li>
+<li>XML message formaat</li>
+<li>WS-Security standaarden</li>
+<li>Transactionele ondersteuning</li>
+<li>Enterprise service bus integratie</li>
+</ul>
+<p><strong>Voorbeelden:</strong></p>
+<ul>
+<li>StUF-ZKN zaakservices</li>
+<li>DigiKoppeling services</li>
+<li>Suwinet koppelingen</li>
+<li>GBA/BRP webservices</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-bestandsuitwisseling">📁 Bestandsuitwisseling<a href="#-bestandsuitwisseling" class="hash-link" aria-label="Direct link naar 📁 Bestandsuitwisseling" title="Direct link naar 📁 Bestandsuitwisseling">​</a></h3>
+<p>Batch-gebaseerde data uitwisseling via bestanden.</p>
+<p><strong>Kenmerken:</strong></p>
+<ul>
+<li>Asynchrone verwerking</li>
+<li>Grote data volumes</li>
+<li>Scheduled transfers</li>
+<li>FTP/SFTP protocol</li>
+<li>Verschillende bestandsformaten</li>
+</ul>
+<p><strong>Voorbeelden:</strong></p>
+<ul>
+<li>Salarisverwerking export</li>
+<li>Factuur import/export</li>
+<li>Backup data transfers</li>
+<li>Rapportage distributie</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="️-database-koppelingen">🗄️ Database Koppelingen<a href="#️-database-koppelingen" class="hash-link" aria-label="Direct link naar 🗄️ Database Koppelingen" title="Direct link naar 🗄️ Database Koppelingen">​</a></h3>
+<p>Directe database toegang en synchronisatie.</p>
+<p><strong>Kenmerken:</strong></p>
+<ul>
+<li>SQL-gebaseerde toegang</li>
+<li>Real-time of batch sync</li>
+<li>Transactionele integriteit</li>
+<li>Database triggers</li>
+<li>Replicatie mechanismen</li>
+</ul>
+<p><strong>Voorbeelden:</strong></p>
+<ul>
+<li>Data warehouse ETL</li>
+<li>Master data synchronisatie</li>
+<li>Backup en archivering</li>
+<li>Business intelligence feeds</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-message-queue-koppelingen">📨 Message Queue Koppelingen<a href="#-message-queue-koppelingen" class="hash-link" aria-label="Direct link naar 📨 Message Queue Koppelingen" title="Direct link naar 📨 Message Queue Koppelingen">​</a></h3>
+<p>Asynchrone berichtuitwisseling via message brokers.</p>
+<p><strong>Kenmerken:</strong></p>
+<ul>
+<li>Publish/subscribe patronen</li>
+<li>Message persistence</li>
+<li>Load balancing</li>
+<li>Error recovery</li>
+<li>Scalable architectuur</li>
+</ul>
+<p><strong>Voorbeelden:</strong></p>
+<ul>
+<li>Event-driven architectuur</li>
+<li>Workflow orchestration</li>
+<li>Notification services</li>
+<li>Integration patterns</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="koppeling-lifecycle">Koppeling Lifecycle<a href="#koppeling-lifecycle" class="hash-link" aria-label="Direct link naar Koppeling Lifecycle" title="Direct link naar Koppeling Lifecycle">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-analyse-en-design">📋 Analyse en Design<a href="#-analyse-en-design" class="hash-link" aria-label="Direct link naar 📋 Analyse en Design" title="Direct link naar 📋 Analyse en Design">​</a></h3>
+<ul>
+<li><strong>Requirements analyse</strong>: Functionele en technische vereisten</li>
+<li><strong>Architectuur design</strong>: Integratie patronen en technologie keuzes</li>
+<li><strong>Data mapping</strong>: Mapping tussen verschillende data modellen</li>
+<li><strong>Security design</strong>: Beveiliging en toegangscontrole ontwerp</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="️-ontwikkeling">🛠️ Ontwikkeling<a href="#️-ontwikkeling" class="hash-link" aria-label="Direct link naar 🛠️ Ontwikkeling" title="Direct link naar 🛠️ Ontwikkeling">​</a></h3>
+<ul>
+<li><strong>Interface development</strong>: API of service ontwikkeling</li>
+<li><strong>Data transformation</strong>: Implementatie van data conversie logica</li>
+<li><strong>Error handling</strong>: Foutafhandeling en recovery mechanismen</li>
+<li><strong>Testing</strong>: Unit, integration en performance testing</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-deployment">🚀 Deployment<a href="#-deployment" class="hash-link" aria-label="Direct link naar 🚀 Deployment" title="Direct link naar 🚀 Deployment">​</a></h3>
+<ul>
+<li><strong>Environment setup</strong>: Configuratie van test en productie omgevingen</li>
+<li><strong>Security configuration</strong>: Implementatie van beveiliging</li>
+<li><strong>Monitoring setup</strong>: Performance en health monitoring</li>
+<li><strong>Documentation</strong>: Technische en gebruikersdocumentatie</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-operatie">🔄 Operatie<a href="#-operatie" class="hash-link" aria-label="Direct link naar 🔄 Operatie" title="Direct link naar 🔄 Operatie">​</a></h3>
+<ul>
+<li><strong>Monitoring</strong>: Continue bewaking van performance en beschikbaarheid</li>
+<li><strong>Maintenance</strong>: Regulier onderhoud en updates</li>
+<li><strong>Support</strong>: Incident management en troubleshooting</li>
+<li><strong>Optimization</strong>: Performance tuning en capacity planning</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-evolutie">📈 Evolutie<a href="#-evolutie" class="hash-link" aria-label="Direct link naar 📈 Evolutie" title="Direct link naar 📈 Evolutie">​</a></h3>
+<ul>
+<li><strong>Version management</strong>: Nieuwe versies en backward compatibility</li>
+<li><strong>Enhancement</strong>: Uitbreiding van functionaliteit</li>
+<li><strong>Migration</strong>: Overgang naar nieuwe technologieën</li>
+<li><strong>Scaling</strong>: Capaciteit uitbreiding bij groeiend gebruik</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="-retirement">🔚 Retirement<a href="#-retirement" class="hash-link" aria-label="Direct link naar 🔚 Retirement" title="Direct link naar 🔚 Retirement">​</a></h3>
+<ul>
+<li><strong>Deprecation</strong>: Aankondiging van uitfasering</li>
+<li><strong>Migration planning</strong>: Overgang naar vervangend systeem</li>
+<li><strong>Data preservation</strong>: Behoud van historische gegevens</li>
+<li><strong>Decommissioning</strong>: Definitieve uitschakeling</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="gerelateerde-concepten">Gerelateerde Concepten<a href="#gerelateerde-concepten" class="hash-link" aria-label="Direct link naar Gerelateerde Concepten" title="Direct link naar Gerelateerde Concepten">​</a></h2>
+<ul>
+<li><a href="/Softwarecatalogus/docs/Functionaliteiten/k002-applicatie">K002 - Applicatie</a>: Applicaties die worden gekoppeld</li>
+<li><a href="/Softwarecatalogus/docs/Functionaliteiten/k003-dienst">K003 - Dienst</a>: Diensten die worden gebruikt in koppelingen</li>
+<li><a href="/Softwarecatalogus/docs/Functionaliteiten/k004-gebruik">K004 - Gebruik</a>: Gebruik context van koppelingen</li>
+<li><a href="/Softwarecatalogus/docs/Functionaliteiten/k007-component">K007 - Component</a>: Componenten die koppelingen implementeren</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="gerelateerde-functionaliteiten">Gerelateerde Functionaliteiten<a href="#gerelateerde-functionaliteiten" class="hash-link" aria-label="Direct link naar Gerelateerde Functionaliteiten" title="Direct link naar Gerelateerde Functionaliteiten">​</a></h2>
+<ul>
+<li><a href="/Softwarecatalogus/docs/Functionaliteiten/f008-externe-koppelingen">F008 - Externe Koppelingen</a></li>
+<li><a href="/Softwarecatalogus/docs/Functionaliteiten/f004-aanbod-beheer">F004 - Applicatiebeheer</a></li>
+<li><a href="/Softwarecatalogus/docs/Functionaliteiten/f013-gebruik-beheer">F013 - Gebruik Beheer</a></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="koppeling-wizard">Koppeling Wizard<a href="#koppeling-wizard" class="hash-link" aria-label="Direct link naar Koppeling Wizard" title="Direct link naar Koppeling Wizard">​</a></h2>
+<p>De Koppeling wizard begeleidt gebruikers door het proces van het definiëren van een nieuwe integratie tussen applicaties.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="wizard-stappen">Wizard Stappen<a href="#wizard-stappen" class="hash-link" aria-label="Direct link naar Wizard Stappen" title="Direct link naar Wizard Stappen">​</a></h3>
+<ol>
+<li><strong>Applicatie A Selectie</strong>: Bron applicatie voor de koppeling</li>
+<li><strong>Applicatie B Selectie</strong>: Doel applicatie voor de koppeling</li>
+<li><strong>Koppeling Type</strong>: Soort integratie en richting</li>
+<li><strong>Technische Specificaties</strong>: Protocol, formaat, authenticatie</li>
+<li><strong>Data Mapping</strong>: Welke gegevens worden uitgewisseld en hoe</li>
+<li><strong>Standaarden</strong>: Welke standaarden worden gebruikt</li>
+<li><strong>Performance en SLA</strong>: Service level agreements en performance eisen</li>
+<li><strong>Beveiliging</strong>: Authenticatie, autorisatie en encryptie</li>
+<li><strong>Testing</strong>: Test scenario&#x27;s en validatie criteria</li>
+<li><strong>Controleren</strong>: Overzicht en bevestiging van alle gegevens</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="sequence-diagram">Sequence Diagram<a href="#sequence-diagram" class="hash-link" aria-label="Direct link naar Sequence Diagram" title="Direct link naar Sequence Diagram">​</a></h3>
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="belangrijke-wizard-kenmerken">Belangrijke Wizard Kenmerken<a href="#belangrijke-wizard-kenmerken" class="hash-link" aria-label="Direct link naar Belangrijke Wizard Kenmerken" title="Direct link naar Belangrijke Wizard Kenmerken">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="applicatie-compatibiliteit">Applicatie Compatibiliteit<a href="#applicatie-compatibiliteit" class="hash-link" aria-label="Direct link naar Applicatie Compatibiliteit" title="Direct link naar Applicatie Compatibiliteit">​</a></h3>
+<ul>
+<li><strong>Automatische validatie</strong>: Controle op technische compatibiliteit tussen applicaties</li>
+<li><strong>Bestaande koppeling detectie</strong>: Waarschuwing bij duplicate koppelingen</li>
+<li><strong>Capability matching</strong>: Matching van ondersteunde protocollen en formaten</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="data-mapping-ondersteuning">Data Mapping Ondersteuning<a href="#data-mapping-ondersteuning" class="hash-link" aria-label="Direct link naar Data Mapping Ondersteuning" title="Direct link naar Data Mapping Ondersteuning">​</a></h3>
+<ul>
+<li><strong>Schema discovery</strong>: Automatische detectie van data modellen</li>
+<li><strong>Transformatie wizard</strong>: Visuele data mapping interface</li>
+<li><strong>Validatie regels</strong>: Automatische generatie van data validatie</li>
+<li><strong>Test data generatie</strong>: Automatische generatie van test datasets</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="standaarden-integratie">Standaarden Integratie<a href="#standaarden-integratie" class="hash-link" aria-label="Direct link naar Standaarden Integratie" title="Direct link naar Standaarden Integratie">​</a></h3>
+<ul>
+<li><strong>Automatische detectie</strong>: Identificatie van relevante standaarden</li>
+<li><strong>Compliance checking</strong>: Validatie van standaard naleving</li>
+<li><strong>Certificering ondersteuning</strong>: Integratie met certificering processen</li>
+<li><strong>Version management</strong>: Ondersteuning voor verschillende standaard versies</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-by-design">Security by Design<a href="#security-by-design" class="hash-link" aria-label="Direct link naar Security by Design" title="Direct link naar Security by Design">​</a></h3>
+<ul>
+<li><strong>Security templates</strong>: Voorgedefinieerde security configuraties</li>
+<li><strong>Compliance checking</strong>: Automatische GDPR/AVG compliance controle</li>
+<li><strong>Risk assessment</strong>: Automatische security risk evaluatie</li>
+<li><strong>Audit trail setup</strong>: Automatische configuratie van logging</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="implementatie-overwegingen">Implementatie Overwegingen<a href="#implementatie-overwegingen" class="hash-link" aria-label="Direct link naar Implementatie Overwegingen" title="Direct link naar Implementatie Overwegingen">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="integration-architecture">Integration Architecture<a href="#integration-architecture" class="hash-link" aria-label="Direct link naar Integration Architecture" title="Direct link naar Integration Architecture">​</a></h3>
+<ul>
+<li><strong>Pattern library</strong>: Herbruikbare integratie patronen</li>
+<li><strong>Middleware integration</strong>: Koppeling met ESB en API gateways</li>
+<li><strong>Service mesh</strong>: Ondersteuning voor moderne microservice architecturen</li>
+<li><strong>Event-driven architecture</strong>: Ondersteuning voor event streaming platforms</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="monitoring-en-observability">Monitoring en Observability<a href="#monitoring-en-observability" class="hash-link" aria-label="Direct link naar Monitoring en Observability" title="Direct link naar Monitoring en Observability">​</a></h3>
+<ul>
+<li><strong>Real-time monitoring</strong>: Continue bewaking van koppeling gezondheid</li>
+<li><strong>Performance analytics</strong>: Gedetailleerde performance metrieken</li>
+<li><strong>Error tracking</strong>: Automatische detectie en classificatie van fouten</li>
+<li><strong>Business impact analysis</strong>: Impact analyse van koppeling storingen</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="lifecycle-management">Lifecycle Management<a href="#lifecycle-management" class="hash-link" aria-label="Direct link naar Lifecycle Management" title="Direct link naar Lifecycle Management">​</a></h3>
+<ul>
+<li><strong>Version control</strong>: Systematisch beheer van koppeling versies</li>
+<li><strong>Change management</strong>: Gecontroleerde wijzigingen en rollbacks</li>
+<li><strong>Dependency tracking</strong>: Automatische tracking van afhankelijkheden</li>
+<li><strong>Impact analysis</strong>: Analyse van wijzigingsimpact op andere koppelingen</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="governance-en-compliance">Governance en Compliance<a href="#governance-en-compliance" class="hash-link" aria-label="Direct link naar Governance en Compliance" title="Direct link naar Governance en Compliance">​</a></h3>
+<ul>
+<li><strong>Approval workflows</strong>: Goedkeuringsprocessen voor nieuwe koppelingen</li>
+<li><strong>Compliance monitoring</strong>: Continue monitoring van regelgeving naleving</li>
+<li><strong>Documentation management</strong>: Automatisch bijhouden van documentatie</li>
+<li><strong>Audit support</strong>: Ondersteuning voor compliance audits</li>
+</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Documentatie pagina"><a class="pagination-nav__link pagination-nav__link--prev" href="/Softwarecatalogus/docs/Functionaliteiten/f014-data-migratie"><div class="pagination-nav__sublabel">Vorige</div><div class="pagination-nav__label">F014 - Data Migratie</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/Softwarecatalogus/docs/Functionaliteiten/k006-suite"><div class="pagination-nav__sublabel">Volgende</div><div class="pagination-nav__label">K006 - Suite</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#beschrijving" class="table-of-contents__link toc-highlight">Beschrijving</a></li><li><a href="#kenmerken" class="table-of-contents__link toc-highlight">Kenmerken</a><ul><li><a href="#basis-koppeling" class="table-of-contents__link toc-highlight">Basis Koppeling</a></li><li><a href="#technische-specificaties" class="table-of-contents__link toc-highlight">Technische Specificaties</a></li><li><a href="#data-uitwisseling" class="table-of-contents__link toc-highlight">Data Uitwisseling</a></li><li><a href="#performance-en-sla" class="table-of-contents__link toc-highlight">Performance en SLA</a></li><li><a href="#standaarden-en-compliance" class="table-of-contents__link toc-highlight">Standaarden en Compliance</a></li><li><a href="#beveiliging" class="table-of-contents__link toc-highlight">Beveiliging</a></li></ul></li><li><a href="#relaties" class="table-of-contents__link toc-highlight">Relaties</a><ul><li><a href="#applicaties" class="table-of-contents__link toc-highlight">Applicaties</a></li><li><a href="#standaarden" class="table-of-contents__link toc-highlight">Standaarden</a></li><li><a href="#infrastructuur" class="table-of-contents__link toc-highlight">Infrastructuur</a></li></ul></li><li><a href="#koppeling-types" class="table-of-contents__link toc-highlight">Koppeling Types</a><ul><li><a href="#-api-koppelingen" class="table-of-contents__link toc-highlight">🔌 API Koppelingen</a></li><li><a href="#-webservice-koppelingen" class="table-of-contents__link toc-highlight">🌐 Webservice Koppelingen</a></li><li><a href="#-bestandsuitwisseling" class="table-of-contents__link toc-highlight">📁 Bestandsuitwisseling</a></li><li><a href="#️-database-koppelingen" class="table-of-contents__link toc-highlight">🗄️ Database Koppelingen</a></li><li><a href="#-message-queue-koppelingen" class="table-of-contents__link toc-highlight">📨 Message Queue Koppelingen</a></li></ul></li><li><a href="#koppeling-lifecycle" class="table-of-contents__link toc-highlight">Koppeling Lifecycle</a><ul><li><a href="#-analyse-en-design" class="table-of-contents__link toc-highlight">📋 Analyse en Design</a></li><li><a href="#️-ontwikkeling" class="table-of-contents__link toc-highlight">🛠️ Ontwikkeling</a></li><li><a href="#-deployment" class="table-of-contents__link toc-highlight">🚀 Deployment</a></li><li><a href="#-operatie" class="table-of-contents__link toc-highlight">🔄 Operatie</a></li><li><a href="#-evolutie" class="table-of-contents__link toc-highlight">📈 Evolutie</a></li><li><a href="#-retirement" class="table-of-contents__link toc-highlight">🔚 Retirement</a></li></ul></li><li><a href="#gerelateerde-concepten" class="table-of-contents__link toc-highlight">Gerelateerde Concepten</a></li><li><a href="#gerelateerde-functionaliteiten" class="table-of-contents__link toc-highlight">Gerelateerde Functionaliteiten</a></li><li><a href="#koppeling-wizard" class="table-of-contents__link toc-highlight">Koppeling Wizard</a><ul><li><a href="#wizard-stappen" class="table-of-contents__link toc-highlight">Wizard Stappen</a></li><li><a href="#sequence-diagram" class="table-of-contents__link toc-highlight">Sequence Diagram</a></li></ul></li><li><a href="#belangrijke-wizard-kenmerken" class="table-of-contents__link toc-highlight">Belangrijke Wizard Kenmerken</a><ul><li><a href="#applicatie-compatibiliteit" class="table-of-contents__link toc-highlight">Applicatie Compatibiliteit</a></li><li><a href="#data-mapping-ondersteuning" class="table-of-contents__link toc-highlight">Data Mapping Ondersteuning</a></li><li><a href="#standaarden-integratie" class="table-of-contents__link toc-highlight">Standaarden Integratie</a></li><li><a href="#security-by-design" class="table-of-contents__link toc-highlight">Security by Design</a></li></ul></li><li><a href="#implementatie-overwegingen" class="table-of-contents__link toc-highlight">Implementatie Overwegingen</a><ul><li><a href="#integration-architecture" class="table-of-contents__link toc-highlight">Integration Architecture</a></li><li><a href="#monitoring-en-observability" class="table-of-contents__link toc-highlight">Monitoring en Observability</a></li><li><a href="#lifecycle-management" class="table-of-contents__link toc-highlight">Lifecycle Management</a></li><li><a href="#governance-en-compliance" class="table-of-contents__link toc-highlight">Governance en Compliance</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentatie</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/Softwarecatalogus/docs/intro">Handleiding</a></li><li class="footer__item"><a class="footer__link-item" href="/Softwarecatalogus/api">API Specificatie</a></li><li class="footer__item"><a href="https://github.com/vng-realisatie/softwarecatalogus" target="_blank" rel="noopener noreferrer" class="footer__link-item" position="right">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://forum.vng.nl" target="_blank" rel="noopener noreferrer" class="footer__link-item">VNG Forum<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/VNG-Realisatie/softwarecatalogus" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 VNG Realisatie. Gebouwd met Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
