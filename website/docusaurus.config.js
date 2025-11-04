@@ -53,7 +53,7 @@ const config = {
           {
             // Redocusaurus will automatically bundle your spec into a single file during the build
             id: 'swc',
-            spec: 'static/oas/softwarecatalogus_register.json',
+            spec: 'static/api/softwarecatalogus_register.json',
             route: '/api',
           },
         ],
