@@ -19,6 +19,8 @@ keywords:
 ## Beschrijving
 Deze functionaliteit beschrijft hoe leveranciers hun software aanbod kunnen beheren. Het gaat om het aanmaken, onderhouden en promoten van applicaties, modules en diensten in de softwarecatalogus. Leveranciers gebruiken dit om hun digitale etalage te beheren en zichtbaar te zijn voor gemeenten.
 
+Deze functionaliteit is gekoppeld aan **[K002 - Applicatie](./K002-applicatie.md)** en ondersteunt ook de nieuwe concepten **[K006 - Suite](./K006-suite.md)** en **[K007 - Component](./K007-component.md)**.
+
 ## Toepasselijk voor
 - 🏢 **Leveranciers**: Applicaties, modules en diensten aanbieden en beheren
 - 🤝 **Samenwerkingen & Communities**: Eigen software aanbieden (indien van toepassing)
@@ -92,18 +94,59 @@ Deze functionaliteit beschrijft hoe leveranciers hun software aanbod kunnen behe
 
 ## Gebruikershandleidingen
 
-### Nieuwe Applicatie Aanmaken (voor Leveranciers)
+### Nieuwe Applicatie Aanmelden (Applicatie Wizard)
 
-1. **Ga naar uw leverancierspaneel** en klik op "Nieuwe applicatie"
-2. **Doorloop de wizard** met de volgende stappen:
-   - **Stap 1**: Basisinformatie (naam, beschrijving, categorie)
-   - **Stap 2**: Technische specificaties (GEMMA componenten, hosting type)
-   - **Stap 3**: Documentatie en media (screenshots, brochures, handleidingen)
-   - **Stap 4**: Prijsmodel en licenties (kosten, licentie type)
-   - **Stap 5**: Overzicht en publiceren
-3. **Controleer alle gegevens** in het overzicht
-4. **Publiceer uw applicatie** in de catalogus
-5. **Applicatie is nu zichtbaar** voor gemeenten
+De applicatie wizard begeleidt u door het complete aanmeldproces in 8 stappen:
+
+#### Stap 0: Organisatie Selectie (Optioneel)
+- **Alleen getoond** wanneer u een applicatie aanmeldt voor een andere organisatie
+- **Selecteer organisatie** uit de lijst of klik 'Ik kan de gewenste aanbieder niet vinden'
+- **Controle tabel** toont bestaande applicaties van de geselecteerde leverancier
+
+#### Stap 1: Applicatie Informatie
+- **Naam en website** van de applicatie
+- **Korte en uitgebreide omschrijving** van functionaliteiten
+- **Logo upload** voor visuele herkenning
+- **Contactpersoon toewijzing** (nieuw!)
+
+#### Stap 2: Versies (Conditioneel)
+- **Alleen getoond** bij On-Premises (Self-managed) hosting
+- **Versienummer, status en acties** beheren
+- **Meerdere versies** kunnen worden toegevoegd
+
+#### Stap 3: Licentie / Hosting
+- **Licentievorm en specifieke licentie** selecteren
+- **Hosting locatie** waar de applicatie wordt gehost
+- **Data opslag land** voor compliance (omgedraaid voor betere titel lengte)
+- **Hosting vorm** (SaaS, On-premise, Hybrid)
+
+#### Stap 4: Referentie Componenten
+- **GEMMA referentiecomponenten** zoeken en selecteren
+- **Koppeling** aan architectuur concepten voor interoperabiliteit
+- **Doorverwijzing** naar GEMMA Online voor meer informatie
+
+#### Stap 5: Standaarden
+- **Standaarden compliance** configureren
+- **Ondersteund checkbox** per standaard
+- **Bewijs upload** of link voor compliance
+- *Applicatie kolom vervalt* voor meer overzicht
+
+#### Stap 6: Koppelingen
+- **Integraties** met andere applicaties definiëren
+- **Applicatie A** is automatisch de huidige applicatie (niet selecteerbaar)
+- **Richting data-uitwisseling** en soort koppeling specificeren
+
+#### Stap 7: Diensten
+- **Services** die de applicatie aanbiedt
+- **Dienst type** selecteren uit beschikbare opties
+- *Applicatie kolom vervalt* voor meer ruimte voor dienst naam
+
+#### Stap 8: Controleren
+- **Samengevoegd overzicht** van alle ingevoerde informatie
+- **Alle gegevens** in één scherm voor finale controle
+- **Product aanmelden** of terug naar vorige stappen voor aanpassingen
+
+Zie [K002 - Applicatie](./K002-applicatie.md) voor de gedetailleerde wizard sequence diagram en technische flow.
 
 ### Aanbod Beheren en Bijwerken
 
