@@ -13,6 +13,10 @@ keywords:
   - K001
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # K001 - Organisatie
 
 ## Beschrijving
@@ -20,30 +24,7 @@ Organisaties zijn de verschillende partijen die betrokken zijn bij de softwareca
 
 ## Kenmerken
 
-### Basisgegevens
-- **Organisatie naam**: Officiële naam van de organisatie
-- **Type**: Leverancier, Gemeente, Samenwerkingsverband, Overheid
-- **Beschrijving**: Korte omschrijving van de organisatie
-- **Website**: Officiële website URL
-- **Logo**: Visuele identiteit van de organisatie
-
-### Contactgegevens
-- **Adres**: Postadres en bezoekadres
-- **Telefoon**: Primair telefoonnummer
-- **E-mail**: Algemeen contactadres
-- **Contactpersonen**: Primaire en secundaire contacten
-
-### Juridische Informatie
-- **KvK nummer**: Kamer van Koophandel registratie (indien van toepassing)
-- **BTW nummer**: Belasting identificatie
-- **Rechtsvorm**: BV, NV, Stichting, Gemeente, etc.
-- **Vestigingsland**: Land waar de organisatie gevestigd is
-
-### Status en Certificeringen
-- **Status**: Actief, Inactief, Concept, Gearchiveerd
-- **Verificatie status**: Geverifieerd, In behandeling, Niet geverifieerd
-- **Certificeringen**: Relevante certificaten en keurmerken
-- **Kwaliteitsmarken**: ISO, NEN, etc.
+<ApiSchema id="swc" example pointer="#/components/schemas/organisatie" />
 
 ## Relaties
 
@@ -100,6 +81,10 @@ Provincies, ministeries en andere overheidsinstanties.
 - Regelgeving en compliance
 - Interoperabiliteit vereisten
 - Publieke verantwoording
+
+## Contactpersonen 
+
+<ApiSchema id="swc" example pointer="#/components/schemas/contactpersoon" />
 
 ## Autorisatie en Toegang
 

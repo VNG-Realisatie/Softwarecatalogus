@@ -13,6 +13,10 @@ keywords:
   - K005
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # K005 - Koppeling
 
 ## Beschrijving
@@ -20,51 +24,7 @@ Koppelingen beschrijven de technische integraties tussen verschillende applicati
 
 ## Kenmerken
 
-### Basis Koppeling
-- **Koppeling naam**: Beschrijvende naam van de integratie
-- **Applicatie A**: Eerste applicatie in de koppeling (bron)
-- **Applicatie B**: Tweede applicatie in de koppeling (doel)
-- **Richting**: Unidirectioneel (A→B), Bidirectioneel (A↔B), of Multi-directioneel
-- **Status**: Actief, Inactief, In ontwikkeling, Gepland, Uitgefaseerd
-- **Kriticaliteit**: Laag, Gemiddeld, Hoog, Kritiek, Bedrijfskritiek
-
-### Technische Specificaties
-- **Type**: API, Webservice, Bestandsuitwisseling, Database koppeling, Message queue
-- **Protocol**: HTTP/HTTPS, SOAP, REST, GraphQL, FTP, SFTP, JMS, AMQP
-- **Authenticatie**: OAuth 2.0, API Key, Basic Auth, Certificate, SAML, JWT
-- **Data formaat**: JSON, XML, CSV, EDI, Fixed width, Binary
-- **Frequentie**: Real-time, Near real-time, Batch, Scheduled, Event-driven
-- **Endpoint**: URL of toegangspunt voor de koppeling
-
-### Data Uitwisseling
-- **Data types**: Welke soorten gegevens worden uitgewisseld
-- **Volume**: Geschat aantal records per periode
-- **Grootte**: Gemiddelde berichtgrootte
-- **Transformatie**: Data mapping en conversie regels
-- **Validatie**: Business rules en data validatie
-- **Error handling**: Foutafhandeling en retry mechanismen
-
-### Performance en SLA
-- **Response tijd**: Maximale verwerkingstijd
-- **Throughput**: Aantal berichten per seconde/minuut
-- **Beschikbaarheid**: Uptime vereisten
-- **Recovery tijd**: Maximum downtime bij storingen
-- **Monitoring**: Performance en health monitoring
-- **Alerting**: Automatische waarschuwingen bij problemen
-
-### Standaarden en Compliance
-- **Standaard**: Welke standaard wordt gebruikt (StUF, RSGB, etc.)
-- **Versie**: Versie van de gebruikte standaard
-- **Compliance niveau**: Mate van standaard naleving
-- **Certificering**: Formele certificeringen
-- **Interoperabiliteit**: GEMMA compliance en interoperabiliteit
-
-### Beveiliging
-- **Encryptie**: Data encryptie in transit en at rest
-- **Toegangscontrole**: Wie heeft toegang tot de koppeling
-- **Audit trail**: Logging van alle transacties
-- **Data privacy**: GDPR/AVG compliance
-- **Penetratie test**: Security testing resultaten
+<ApiSchema id="swc" example pointer="#/components/schemas/kopeling" />
 
 ## Relaties
 

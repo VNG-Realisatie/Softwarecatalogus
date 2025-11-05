@@ -13,6 +13,10 @@ keywords:
   - K003
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # K003 - Dienst
 
 ## Beschrijving
@@ -20,46 +24,7 @@ Diensten zijn specifieke services of functionaliteiten die door applicaties word
 
 ## Kenmerken
 
-### Basisinformatie
-- **Dienst naam**: Officiële naam van de service
-- **Beschrijving**: Wat de dienst doet en welke waarde het biedt
-- **Categorie**: Type dienst (API, Webservice, Interface, Proces, Rapportage)
-- **Versie**: Versienummer van de dienst
-- **Status**: Actief, Beta, Deprecated, Uitgeschakeld
-
-### Technische Specificaties
-- **Type**: API, Webservice, Interface, Batch proces, Real-time service
-- **Protocol**: HTTP/HTTPS, SOAP, REST, GraphQL, WebSocket, FTP
-- **Data formaat**: JSON, XML, CSV, PDF, Excel
-- **Authenticatie**: OAuth, API Key, Basic Auth, Certificate, SAML
-- **Endpoint**: URL of toegangspunt voor de dienst
-- **Rate limiting**: Beperkingen op gebruik en frequentie
-
-### Functionele Aspecten
-- **Input parameters**: Welke gegevens zijn vereist
-- **Output formaat**: Wat levert de dienst op
-- **Business regels**: Logica en validaties die worden toegepast
-- **Error handling**: Hoe worden fouten afgehandeld en gecommuniceerd
-- **Logging**: Welke activiteiten worden gelogd
-
-### Toegankelijkheid
-- **Zichtbaarheid**: Publiek, Privé, Beperkt, Partner-only
-- **Gebruikers**: Wie kan de dienst gebruiken
-- **Rechten**: Welke permissies zijn vereist
-- **Geografische beperkingen**: Regionale beschikbaarheid
-
-### Service Level Agreement (SLA)
-- **Beschikbaarheid**: Uptime garanties (99.9%, 99.99%)
-- **Response tijd**: Maximale reactietijd
-- **Throughput**: Aantal verzoeken per seconde/minuut
-- **Support niveau**: 24/7, kantooruren, best-effort
-- **Escalatie procedures**: Hoe worden problemen geëscaleerd
-
-### Kosten en Licenties
-- **Prijsmodel**: Gratis, Per verzoek, Abonnement, Volume-gebaseerd
-- **Kosten**: Transparante prijsinformatie
-- **Licentie voorwaarden**: Gebruiksvoorwaarden en beperkingen
-- **Fair use policy**: Redelijk gebruik beleid
+<ApiSchema id="swc" example pointer="#/components/schemas/dienst" />
 
 ## Relaties
 

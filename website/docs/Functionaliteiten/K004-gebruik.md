@@ -13,6 +13,10 @@ keywords:
   - K004
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # K004 - Gebruik
 
 ## Beschrijving
@@ -20,43 +24,7 @@ Gebruik beschrijft hoe organisaties applicaties inzetten in hun ICT-landschap. D
 
 ## Kenmerken
 
-### Implementatie Details
-- **Organisatie**: Welke organisatie gebruikt de applicatie
-- **Applicatie**: Welke applicatie wordt gebruikt
-- **Implementatie datum**: Wanneer is de applicatie in gebruik genomen
-- **Go-live datum**: Officiële start van productie gebruik
-- **Project manager**: Verantwoordelijke voor de implementatie
-- **Implementatie partner**: Externe partij die heeft geholpen bij implementatie
-
-### Status en Fase
-- **Status**: In gebruik, Uitfasering, Pilot, Productie, Onderhoud, Gearchiveerd
-- **Fase**: Proof of Concept, Pilot, Rollout, Productie, Optimalisatie
-- **Volwassenheid**: Beginnend, Gevorderd, Volwassen, Geoptimaliseerd
-- **Kriticaliteit**: Laag, Gemiddeld, Hoog, Kritiek, Bedrijfskritiek
-
-### Gebruikers en Licenties
-- **Aantal gebruikers**: Totaal aantal actieve gebruikers
-- **Gebruikers groepen**: Verschillende typen gebruikers (admin, eindgebruiker, etc.)
-- **Licentie type**: Welke licenties zijn afgenomen
-- **Licentie aantal**: Hoeveel licenties zijn aangeschaft
-- **Licentie verloop**: Wanneer verlopen de licenties
-- **Kosten**: Jaarlijkse kosten voor licenties en onderhoud
-
-### Technische Configuratie
-- **Hosting model**: Cloud, On-premise, Hybrid
-- **Omgeving**: Productie, Test, Acceptatie, Ontwikkeling
-- **Infrastructuur**: Server specificaties en capaciteit
-- **Database**: Type en configuratie van database
-- **Integraties**: Koppelingen met andere systemen
-- **Customisaties**: Specifieke aanpassingen en configuraties
-
-### Performance en Gebruik
-- **Gebruiksintensiteit**: Dagelijks, Wekelijks, Maandelijks, Incidenteel
-- **Peak usage**: Piekbelasting en capaciteitsbehoefte
-- **Response times**: Gemiddelde reactietijden
-- **Beschikbaarheid**: Uptime percentage
-- **Gebruikerstevredenheid**: Satisfaction scores en feedback
-- **Adoptie rate**: Percentage gebruikers dat actief gebruik maakt
+<ApiSchema id="swc" example pointer="#/components/schemas/gebruik" />
 
 ## Relaties
 

@@ -13,6 +13,10 @@ keywords:
   - K006
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # K006 - Suite
 
 ## Beschrijving
@@ -20,48 +24,7 @@ Een suite is een verzameling van gerelateerde applicaties die samen een breder s
 
 ## Kenmerken
 
-### Basis Informatie
-- **Suite naam**: Officiële naam van de verzameling
-- **Beschrijving**: Wat de suite omvat en welke waarde het biedt
-- **Categorie**: Type suite (Office, ERP, CRM, HR, Financieel, etc.)
-- **Website**: Officiële product website van de suite
-- **Logo**: Visuele identiteit van de suite
-- **Tagline**: Korte beschrijving van de suite propositie
-
-### Leverancier Informatie
-- **Leverancier**: Organisatie die de suite aanbiedt
-- **Contactpersoon**: Aangewezen contactpersoon voor de suite
-- **Support**: Ondersteuning en service informatie
-- **Documentatie**: Links naar suite documentatie en handleidingen
-- **Community**: Gebruikerscommunity en forums
-
-### Suite Compositie
-- **Applicaties**: Welke applicaties zijn onderdeel van de suite
-- **Kern applicaties**: Verplichte onderdelen van de suite
-- **Optionele modules**: Uitbreidingen die kunnen worden toegevoegd
-- **Add-ons**: Externe uitbreidingen en plugins
-- **Integratie niveau**: Hoe goed zijn de applicaties geïntegreerd
-
-### Technische Architectuur
-- **Platform**: Onderliggende technologie platform
-- **Database**: Gedeelde of separate databases
-- **Authenticatie**: Centraal gebruikersbeheer (SSO)
-- **API's**: Gemeenschappelijke API's en services
-- **Deployment**: Gezamenlijke of separate installatie
-
-### Licentie en Prijsmodel
-- **Licentiemodel**: Suite licentie, Per module, Gebruiker-gebaseerd
-- **Bundel voordeel**: Kostenvoordeel vs individuele aankoop
-- **Flexibiliteit**: Mogelijkheid om modules toe te voegen/verwijderen
-- **Upgrade pad**: Overgang tussen verschillende suite niveaus
-- **Volume korting**: Schaalvoordelen bij grotere implementaties
-
-### Versie en Roadmap
-- **Suite versie**: Versienummer van de complete suite
-- **Release cyclus**: Hoe vaak worden nieuwe versies uitgebracht
-- **Roadmap**: Toekomstige ontwikkelingen en uitbreidingen
-- **Lifecycle**: Ondersteuning en end-of-life planning
-- **Backward compatibility**: Compatibiliteit met eerdere versies
+<ApiSchema id="swc" example pointer="#/components/schemas/suite" />
 
 ## Relaties
 
