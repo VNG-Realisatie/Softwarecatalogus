@@ -376,25 +376,25 @@ sequenceDiagram
       <li>Referentie Componenten: Selecteer welke referentie componenten daadwerkelijk worden gebruikt, met optie om extra componenten toe te voegen</li>
       <li>deze mist in de huidige wizard, mag worden weergegeven als een tabel met checkboxes</li>
       <li>Er kunnen door gebruiker ook referentie componenten worden toegeveogd die geen onderdeel van de applicaite</li>
-  </ul>
+    </ul>
+    ![img_10.png](img_10.png)
   </TabItem>
-  ![img_10.png](img_10.png)
   <TabItem value="stap4" label="Stap 4: Standaarden">
     <ul>
       <li>Standaarden: Selecteer welke standaarden worden gebruikt in de implementatie, met optie om extra standaarden toe te voegen</li>
     </ul>
+    ![](../Functionaliteiten/img_10.png)
   </TabItem>
-  ![](../Functionaliteiten/img_10.png)
   <TabItem value="stap5" label="Stap 5: Diensten">
     <ul>
       <li>Diensten: Tabel van alle diensten van de applicatie met checkboxes om aan te geven welke worden gebruikt</li>
     </ul>
+    ![img_7.png](img_7.png)
   </TabItem>
-  ![img_7.png](img_7.png)
   <TabItem value="stap6" label="Stap 6: Controleren">
     <ul>
       <li>Controleren: Overzicht en bevestiging van alle gegevens</li>
     </ul>
+    ![img_8.png](img_8.png)
   </TabItem>
- ![img_8.png](img_8.png)
 </Tabs>
