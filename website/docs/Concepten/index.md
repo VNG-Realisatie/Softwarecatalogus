@@ -2,7 +2,7 @@
 id: concepten-overzicht
 title: Kern Concepten Overzicht
 sidebar_label: Overzicht
-sidebar_position: 1
+sidebar_position: 0
 description: Overzicht van de 7 kern concepten in de GEMMA Softwarecatalogus en hun onderlinge relaties
 keywords:
   - kern concepten
@@ -69,7 +69,7 @@ graph TB
 |---------|--------------|------------------|--------|
 | **[K001 - Organisatie](./K001-organisatie.md)** | Leveranciers, gemeenten en samenwerkingsverbanden | Basis voor alle andere concepten | ✅ Geïmplementeerd |
 | **[K002 - Applicatie](./K002-applicatie.md)** | Software producten en modules | Centrale software catalogus | ✅ Geïmplementeerd |
-| **[K003 - Dienst](./K003-dienst.md)** | Services die applicaties bieden | API's en functionaliteiten | ✅ Geïmplementeerd |
+| **[K003 - Dienst](./K003-dienst.md)** | Services die leveranciers aanbieden op applicaties | Ondersteuning en service verlening | ✅ Geïmplementeerd |
 | **[K004 - Gebruik](./K004-gebruik.md)** | Hoe organisaties applicaties gebruiken | Implementatie en adoptie | ✅ Geïmplementeerd |
 | **[K005 - Koppeling](./K005-koppeling.md)** | Integraties tussen applicaties | Technische koppelingen | ✅ Geïmplementeerd |
 | **[K006 - Suite](./K006-suite.md)** | Verzameling van gerelateerde applicaties | Geïntegreerde pakketten | 🚧 **Concept** |
@@ -83,7 +83,7 @@ graph TB
 
 ### 🔗 Directe Relaties (doorgetrokken lijnen)
 - **Organisatie → Applicatie**: Organisaties bieden applicaties aan of gebruiken ze
-- **Applicatie → Dienst**: Applicaties bieden diensten aan
+- **Applicatie → Dienst**: Leveranciers bieden diensten aan op applicaties
 - **Applicatie → Component**: Applicaties bevatten componenten
 - **Applicatie → Suite**: Applicaties kunnen onderdeel zijn van suites
 - **Gebruik → Applicatie**: Gebruik beschrijft hoe een applicatie wordt ingezet

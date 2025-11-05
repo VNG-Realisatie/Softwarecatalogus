@@ -334,42 +334,67 @@ sequenceDiagram
   </TabItem>
   <TabItem value="stap0" label="Stap 0: Organisatie Selectie">
     <ul>
-      <li>Organisatie Selectie (optioneel - alleen bij melden voor anderen): Selecteer organisatie waarvoor gebruik wordt geregistreerd</li>
+      <li>Organisatie Selectie (optioneel - alleen bij melden voor anderen)</li>
+      <li>Wens: Na selecteren Organisatie tonen van applicaties van die organisatie zodert er minder doubleurs worden aangemaakt</li>
     </ul>
+    ![img_17.png](../Functionaliteiten/img_17.png)
+    <ul>
+      <li>Organisatie opvoeren (optioneel - alleen ná klikken op "Ik kan de gewenste leverancier niet vinden")</li>
+      <li>Wens: Organisatie formulier terugbrengen tot naam + website</li>
+      <li>Wens: Organisatie naam controleren op doubleurs</li>
+    </ul>
+    ![img_16.png](../Functionaliteiten/img_16.png)
   </TabItem>
   <TabItem value="stap1" label="Stap 1: Applicatie Selectie">
     <ul>
-      <li>Applicatie Selectie: Welke applicatie wordt gebruikt</li>
+      <li>Organisatie Selectie (optioneel - alleen bij melden voor anderen)</li>
+      <li>Wens: Na selecteren Organisatie tonen van applicaties van die organisatie zodert er minder doubleurs worden aangemaakt</li>
     </ul>
+    ![img_17.png](../Functionaliteiten/img_17.png)
+    <ul>
+      <li>Organisatie opvoeren (optioneel - alleen ná klikken op "Ik kan de gewenste leverancier niet vinden")</li>
+      <li>Wens: Organisatie formulier terugbrengen tot naam + website</li>
+      <li>Wens: Organisatie naam controleren op doubleurs</li>
+    </ul>
+    ![img_16.png](../Functionaliteiten/img_16.png)
+    ![img_6.png](img_6.png)
   </TabItem>
   <TabItem value="stap1b" label="Stap 1b: Versie Selectie">
     <ul>
       <li>Versie Selectie (optioneel - alleen bij meerdere versies): Selecteer specifieke versie van de applicatie</li>
     </ul>
+    ![](img_5.png)
   </TabItem>
   <TabItem value="stap2" label="Stap 2: Gebruik Informatie">
     <ul>
       <li>Gebruik Informatie: Alle gebruik eigenschappen in één uitgebreide stap (implementatie details, licentie info, technische configuratie, gebruikers info, evaluatie gegevens)</li>
     </ul>
+   ![](img_2.png)
   </TabItem>
   <TabItem value="stap3" label="Stap 3: Referentie Componenten">
     <ul>
       <li>Referentie Componenten: Selecteer welke referentie componenten daadwerkelijk worden gebruikt, met optie om extra componenten toe te voegen</li>
-    </ul>
+      <li>deze mist in de huidige wizard, mag worden weergegeven als een tabel met checkboxes</li>
+      <li>Er kunnen door gebruiker ook referentie componenten worden toegeveogd die geen onderdeel van de applicaite</li>
+  </ul>
   </TabItem>
+  ![img_10.png](img_10.png)
   <TabItem value="stap4" label="Stap 4: Standaarden">
     <ul>
       <li>Standaarden: Selecteer welke standaarden worden gebruikt in de implementatie, met optie om extra standaarden toe te voegen</li>
     </ul>
   </TabItem>
+  ![](../Functionaliteiten/img_10.png)
   <TabItem value="stap5" label="Stap 5: Diensten">
     <ul>
       <li>Diensten: Tabel van alle diensten van de applicatie met checkboxes om aan te geven welke worden gebruikt</li>
     </ul>
   </TabItem>
+  ![img_7.png](img_7.png)
   <TabItem value="stap6" label="Stap 6: Controleren">
     <ul>
       <li>Controleren: Overzicht en bevestiging van alle gegevens</li>
     </ul>
   </TabItem>
+ ![img_8.png](img_8.png)
 </Tabs>

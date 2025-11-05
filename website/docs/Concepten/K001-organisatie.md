@@ -126,138 +126,87 @@ De Organisatie wizard begeleidt gebruikers door het proces van het registreren v
 ```mermaid
 sequenceDiagram
     participant U as Gebruiker
-    participant W as Wizard Controller
-    participant OS as Organisatie Service
-    participant VS as Verificatie Service
-    participant CS as Contact Service
-    participant DB as Database
+    participant S1 as Stap 1: Organisatie Type
+    participant S2 as Stap 2: Basisgegevens
+    participant S3 as Stap 3: Contactgegevens
+    participant S4 as Stap 4: Juridische Informatie
+    participant S5 as Stap 5: Contactpersonen
+    participant S6 as Stap 6: Verificatie
+    participant S7 as Stap 7: Controleren
 
-    Note over U,DB: Organisatie Wizard - Nieuwe Organisatie Registreren
+    Note over U,S7: Organisatie Wizard - Gebruiker Flow
 
     %% Stap 1: Organisatie Type
-    U->>W: Start organisatie wizard
-    W-->>U: Toon organisatie type selectie
-    Note over U: Leverancier, Gemeente, Samenwerking, Overheid
-    U->>W: Selecteer organisatie type
-    W->>OS: Valideer organisatie type
-    OS-->>W: Type gevalideerd
-    U->>W: Volgende stap
+    U->>S1: Start organisatie wizard
+    S1-->>U: Stap 1 - Organisatie type selectie
+    Note over U: Invoer: Type organisatie (Leverancier, Gemeente, Samenwerking, Overheid)
+    U->>S1: Selecteer organisatie type
+    S1->>S2: Ga naar Stap 2
 
     %% Stap 2: Basisgegevens
-    W-->>U: Toon basisgegevens formulier
-    Note over U: Naam, beschrijving, website, logo upload
-    U->>W: Vul basisgegevens in
-    W->>OS: Valideer organisatie naam (uniciteit)
-    OS->>DB: Check naam beschikbaarheid
-    DB-->>OS: Naam beschikbaar/bezet
-    OS-->>W: Validatie resultaat
+    S2-->>U: Stap 2 - Basisgegevens formulier
+    Note over U: Invoer: Naam, beschrijving, website, logo upload
+    U->>S2: Vul basisgegevens in
     
     alt Naam al in gebruik
-        W-->>U: Toon foutmelding - naam al in gebruik
-        U->>W: Pas naam aan
+        S2-->>U: Foutmelding - naam al in gebruik
+        U->>S2: Pas naam aan
     else Naam beschikbaar
-        U->>W: Volgende stap
+        S2->>S3: Ga naar Stap 3
     end
 
     %% Stap 3: Contactgegevens
-    W-->>U: Toon contactgegevens formulier
-    Note over U: Adres, telefoon, e-mail, vestigingsland
-    U->>W: Vul contactgegevens in
-    W->>OS: Valideer contactgegevens
-    OS-->>W: Contactgegevens gevalideerd
-    U->>W: Volgende stap
+    S3-->>U: Stap 3 - Contactgegevens formulier
+    Note over U: Invoer: Adres, telefoon, e-mail, vestigingsland
+    U->>S3: Vul contactgegevens in
+    S3->>S4: Ga naar Stap 4
 
     %% Stap 4: Juridische Informatie (Conditioneel)
     alt Organisatie type vereist juridische info
-        W-->>U: Toon juridische informatie formulier
-        Note over U: KvK nummer, BTW nummer, rechtsvorm
-        U->>W: Vul juridische gegevens in
-        W->>VS: Valideer KvK nummer (indien ingevuld)
-        VS->>DB: Check KvK in externe database
-        DB-->>VS: KvK validatie resultaat
-        VS-->>W: Juridische gegevens gevalideerd
-        U->>W: Volgende stap
+        S4-->>U: Stap 4 - Juridische informatie formulier
+        Note over U: Invoer: KvK nummer, BTW nummer, rechtsvorm
+        U->>S4: Vul juridische gegevens in
+        
+        alt KvK nummer validatie mislukt
+            S4-->>U: Foutmelding - ongeldig KvK nummer
+            U->>S4: Corrigeer KvK nummer
+        else KvK nummer geldig
+            S4->>S5: Ga naar Stap 5
+        end
+        
     else Geen juridische info vereist
-        Note over W: Sla juridische stap over
+        Note over S4: Sla juridische stap over
+        S3->>S5: Ga direct naar Stap 5
     end
 
     %% Stap 5: Contactpersonen
-    W-->>U: Toon contactpersonen formulier
-    Note over U: Primaire contactpersoon, secundaire contacten
-    U->>W: Voeg contactpersonen toe
-    W->>CS: Valideer contactpersoon gegevens
-    CS-->>W: Contactpersonen gevalideerd
-    U->>W: Volgende stap
+    S5-->>U: Stap 5 - Contactpersonen formulier
+    Note over U: Invoer: Primaire contactpersoon, secundaire contacten
+    U->>S5: Voeg contactpersonen toe
+    S5->>S6: Ga naar Stap 6
 
     %% Stap 6: Verificatie
-    W-->>U: Toon verificatie formulier
-    Note over U: Upload documenten, verificatie methode
-    U->>W: Upload verificatie documenten
-    W->>VS: Verwerk verificatie documenten
-    VS->>DB: Sla documenten op
-    DB-->>VS: Documenten opgeslagen
-    VS-->>W: Verificatie gestart
-    U->>W: Volgende stap
+    S6-->>U: Stap 6 - Verificatie formulier
+    Note over U: Invoer: Upload documenten, verificatie methode
+    U->>S6: Upload verificatie documenten
+    S6->>S7: Ga naar Stap 7
 
     %% Stap 7: Controleren
-    W->>OS: Verzamel alle organisatie gegevens
-    W->>CS: Verzamel contactpersoon gegevens
-    W->>VS: Verzamel verificatie status
+    S7-->>U: Stap 7 - Overzicht en controle
+    Note over U: Overzicht: Alle ingevoerde organisatie informatie ter controle
     
-    par Parallel data ophalen
-        OS-->>W: Organisatie overzicht
-    and
-        CS-->>W: Contactpersonen overzicht
-    and
-        VS-->>W: Verificatie overzicht
-    end
-    
-    W-->>U: Toon samengevoegd overzicht
-    Note over U: Alle informatie voor finale controle
-    
-    alt Gebruiker bevestigt
-        U->>W: Organisatie registreren (bevestigen)
-        
-        %% Opslaan in database
-        par Parallel opslaan
-            W->>OS: Sla organisatie op
-            OS->>DB: Insert organisatie
-        and
-            W->>CS: Sla contactpersonen op
-            CS->>DB: Insert contactpersonen
-        and
-            W->>VS: Start verificatie proces
-            VS->>DB: Update verificatie status
+    alt Gebruiker wil wijzigingen maken
+        U->>S7: Klik 'Vorige' naar specifieke stap
+        Note over S7: Navigeer terug naar gewenste stap
+        alt Terug naar Stap 1
+            S7->>S1: Ga terug naar Stap 1
+        else Terug naar andere stap
+            Note over S7: Navigeer naar gewenste stap
         end
-        
-        par Database responses
-            DB-->>OS: Organisatie opgeslagen
-        and
-            DB-->>CS: Contactpersonen opgeslagen
-        and
-            DB-->>VS: Verificatie gestart
-        end
-        
-        W-->>U: Bevestiging - Organisatie succesvol geregistreerd
+    else Gebruiker bevestigt
+        U->>S7: Klik 'Organisatie registreren'
+        S7-->>U: Bevestiging - Organisatie succesvol geregistreerd
         Note over U: Verificatie proces is gestart, wacht op goedkeuring
-        
-    else Gebruiker gaat terug
-        U->>W: Vorige stap
-        Note over W: Navigeer terug naar gewenste stap voor aanpassingen
-    end
-
-    %% Verificatie Proces (Asynchroon)
-    Note over VS,DB: Verificatie proces loopt asynchroon
-    VS->>VS: Controleer documenten
-    VS->>DB: Update verificatie status
-    
-    alt Verificatie succesvol
-        VS->>OS: Activeer organisatie
-        OS->>DB: Update organisatie status naar 'Actief'
-        OS->>U: Stuur bevestiging e-mail
-    else Verificatie mislukt
-        VS->>OS: Markeer als 'Verificatie vereist'
-        OS->>U: Stuur e-mail met aanvullende vereisten
     end
 ```
   </TabItem>

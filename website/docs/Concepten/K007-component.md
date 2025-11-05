@@ -259,6 +259,19 @@ sequenceDiagram
     end
 ```
   </TabItem>
+  <TabItem value="stap0" label="Stap 0: Organisatie Selectie">
+    <ul>
+      <li>Organisatie Selectie (optioneel - alleen bij melden voor anderen)</li>
+      <li>Wens: Na selecteren Organisatie tonen van applicaties van die organisatie zodert er minder doubleurs worden aangemaakt</li>
+    </ul>
+    ![img_17.png](../Functionaliteiten/img_17.png)
+    <ul>
+      <li>Organisatie opvoeren (optioneel - alleen ná klikken op "Ik kan de gewenste leverancier niet vinden")</li>
+      <li>Wens: Organisatie formulier terugbrengen tot naam + website</li>
+      <li>Wens: Organisatie naam controleren op doubleurs</li>
+    </ul>
+    ![img_16.png](../Functionaliteiten/img_16.png)
+  </TabItem>
   <TabItem value="stap1" label="Stap 1: Component Informatie">
     <ul>
       <li>Component Informatie: Naam, korte en lange beschrijving, website, logo</li>

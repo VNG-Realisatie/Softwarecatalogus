@@ -22,7 +22,7 @@ De catalogus is gebaseerd op 7 kern concepten die elk hun eigen beheer functiona
 |--------|---------|--------------|--------|------------------------|
 | **K001** | [Organisatie](../Concepten/K001-organisatie.md) | Leveranciers, gemeenten, samenwerkingsverbanden | ✅ | F002 - Organisatie Inrichten |
 | **K002** | [Applicatie](../Concepten/K002-applicatie.md) | Software producten en modules | ✅ | F004 - Applicatiebeheer |
-| **K003** | [Dienst](../Concepten/K003-dienst.md) | Services die applicaties bieden | ✅ | F005 - Dienstenbeheer |
+| **K003** | [Dienst](../Concepten/K003-dienst.md) | Services die leveranciers aanbieden op applicaties | ✅ | F005 - Dienstenbeheer |
 | **K004** | [Gebruik](../Concepten/K004-gebruik.md) | Hoe organisaties applicaties gebruiken | ✅ | F013 - Gebruik Beheer |
 | **K005** | [Koppeling](../Concepten/K005-koppeling.md) | Integraties tussen applicaties | ✅ | F008 - Externe Koppelingen |
 | **K006** | [Suite](../Concepten/K006-suite.md) | Verzameling van gerelateerde applicaties | 🚧 | *Concept - In Ontwikkeling* |

@@ -3,12 +3,17 @@ id: k003-dienst
 title: K003 - Dienst
 sidebar_label: K003 - Dienst
 sidebar_position: 3
-description: Kern concept Dienst - Services en functionaliteiten die applicaties bieden in de GEMMA Softwarecatalogus
+description: Kern concept Dienst - Services en ondersteuning die leveranciers aanbieden op applicaties in de GEMMA Softwarecatalogus
 keywords:
   - dienst
   - service
-  - API
-  - functionaliteit
+  - ondersteuning
+  - functioneel beheer
+  - applicatiebeheer
+  - technisch beheer
+  - implementatieondersteuning
+  - opleidingen
+  - licentiereseller
   - kern concept
   - K003
 ---
@@ -20,7 +25,7 @@ import TabItem from '@theme/TabItem';
 # K003 - Dienst
 
 ## Beschrijving
-Diensten zijn specifieke services of functionaliteiten die door applicaties worden aangeboden. Een applicatie kan meerdere diensten bieden, zoals API's, webservices, interfaces of geautomatiseerde processen. Diensten vormen de brug tussen applicaties en hun gebruikers.
+Diensten zijn specifieke services die door leveranciers of samenwerkingen worden aangeboden op één of meerdere applicaties. Dit betreft het aanbod van verschillende soorten ondersteuning en services rondom software, zoals functioneel beheer, technische ondersteuning, implementatie en training. Diensten vormen de brug tussen leveranciers en organisaties die hun software gebruiken.
 
 ## Schema Eigenschappen
 
@@ -48,123 +53,147 @@ Diensten zijn specifieke services of functionaliteiten die door applicaties word
 
 ## Dienst Types
 
-### 🔌 API Services
-Programmatische interfaces voor data en functionaliteit toegang.
+### 🎯 Functioneel Beheer
+Ondersteuning bij het functioneel gebruik en beheer van de applicatie.
 
 **Kenmerken:**
-- RESTful of GraphQL endpoints
-- JSON/XML data uitwisseling
-- Authenticatie en autorisatie
-- Rate limiting en throttling
-- Uitgebreide documentatie
+- Advies over optimaal gebruik
+- Configuratie ondersteuning
+- Proces optimalisatie
+- Best practices begeleiding
+- Gebruikers ondersteuning
 
 **Voorbeelden:**
-- Zaakgegevens API
-- Personen registratie API
-- Document management API
-- Notificatie service API
+- Workflow configuratie
+- Rapportage inrichting
+- Gebruikersrechten beheer
+- Proces optimalisatie advies
 
-### 🌐 Web Services
-SOAP-gebaseerde services voor enterprise integratie.
+### ⚙️ Applicatiebeheer
+Technische ondersteuning en beheer van de applicatie zelf.
 
 **Kenmerken:**
-- WSDL service beschrijvingen
-- XML message formaat
-- WS-Security standaarden
-- Enterprise service bus integratie
-- Transactionele ondersteuning
+- Technische configuratie
+- Performance monitoring
+- Update management
+- Backup en recovery
+- Integratie ondersteuning
 
 **Voorbeelden:**
-- Betalingsverwerking service
-- Identity management service
-- Workflow orchestration service
-- Data synchronisatie service
+- Systeem configuratie
+- Database beheer
+- API configuratie
+- Performance tuning
 
-### 📊 Rapportage Services
-Geautomatiseerde rapportage en data analyse diensten.
+### 🔧 Technisch Beheer
+Infrastructurele en technische ondersteuning van de onderliggende systemen.
 
 **Kenmerken:**
-- Scheduled report generatie
-- Verschillende output formaten
-- Parameteriseerbare rapporten
-- Dashboard integraties
-- Data visualisatie
+- Server beheer
+- Netwerk configuratie
+- Beveiliging management
+- Monitoring en alerting
+- Disaster recovery
 
 **Voorbeelden:**
-- Financiële rapportage
-- Performance dashboards
-- Compliance rapporten
-- Gebruiksstatistieken
+- Hosting services
+- Security management
+- Backup services
+- Monitoring dashboards
 
-### 🔄 Batch Processen
-Geautomatiseerde achtergrond processen voor data verwerking.
+### 🚀 Implementatieondersteuning
+Begeleiding bij de implementatie en uitrol van de applicatie.
 
 **Kenmerken:**
-- Scheduled execution
-- Grote data volumes
-- Error recovery mechanismen
-- Progress monitoring
-- Result notifications
+- Project management
+- Migratie ondersteuning
+- Go-live begeleiding
+- Integratie realisatie
+- Change management
 
 **Voorbeelden:**
-- Data import/export
-- Backup processen
-- Data cleaning routines
-- Archivering processen
+- Data migratie
+- Systeem integratie
+- Gebruikers migratie
+- Pilot begeleiding
 
-### 📱 User Interfaces
-Webgebaseerde interfaces voor eindgebruiker interactie.
+### 📚 Opleidingen
+Training en kennisoverdracht voor gebruikers en beheerders.
 
 **Kenmerken:**
-- Responsive design
-- Gebruiksvriendelijke interface
-- Toegankelijkheidsondersteuning
-- Multi-language support
-- Mobile optimalisatie
+- Gebruikerstraining
+- Beheerders cursussen
+- Online learning platforms
+- Certificering programma's
+- Kennisbank toegang
 
 **Voorbeelden:**
-- Self-service portalen
-- Administrative interfaces
-- Citizen service portals
-- Mobile applications
+- Eindgebruiker training
+- Administrator cursus
+- E-learning modules
+- Certificering trajecten
 
-## Service Lifecycle
+### 💼 Licentiereseller
+Verkoop en beheer van software licenties en abonnementen.
 
-### 🚀 Ontwikkeling
-- **Requirements analyse**: Functionele en technische vereisten
-- **API design**: Interface ontwerp en specificatie
-- **Implementatie**: Ontwikkeling en unit testing
-- **Documentatie**: API documentatie en gebruikershandleidingen
+**Kenmerken:**
+- Licentie verkoop
+- Volume kortingen
+- Licentie beheer tools
+- Compliance monitoring
+- Renewal management
 
-### 🧪 Testing
-- **Unit testing**: Individuele functie tests
-- **Integration testing**: Koppeling met andere systemen
-- **Performance testing**: Load en stress testing
-- **Security testing**: Penetratie en vulnerability tests
+**Voorbeelden:**
+- Software licenties
+- SaaS abonnementen
+- Volume licensing
+- Enterprise agreements
 
-### 📦 Deployment
-- **Staging deployment**: Test omgeving uitrol
-- **Production deployment**: Live omgeving uitrol
-- **Monitoring setup**: Performance en error monitoring
-- **Documentation publishing**: Publieke documentatie
+## Dienst Aanbod
 
-### 🔄 Operatie
-- **Monitoring**: Continue bewaking van performance
-- **Maintenance**: Regulier onderhoud en updates
-- **Support**: Gebruikersondersteuning en troubleshooting
-- **Optimization**: Performance en functionaliteit verbeteringen
+### 📋 Aanbod Definitie
+Leveranciers en samenwerkingen definiëren hun diensten aanbod per applicatie.
 
-### 📈 Evolutie
-- **Version management**: Nieuwe versies en backward compatibility
-- **Feature enhancement**: Uitbreiding van functionaliteit
-- **Integration expansion**: Nieuwe koppelingen en integraties
-- **Scaling**: Capaciteit uitbreiding bij groeiend gebruik
+- **Service portfolio**: Overzicht van alle aangeboden diensten
+- **Applicatie koppeling**: Welke diensten bij welke applicaties horen
+- **Service levels**: Verschillende niveaus van ondersteuning
+- **Prijsmodellen**: Kosten en facturatie per dienst type
 
-### 🔚 Retirement
-- **Deprecation notice**: Aankondiging van uitfasering
-- **Migration support**: Ondersteuning bij overgang naar alternatief
-- **Sunset period**: Geleidelijke afbouw van ondersteuning
-- **Service termination**: Definitieve beëindiging van dienst
+### 🎯 Service Scoping
+Bepaling van de omvang en dekking van elke dienst.
+
+- **Functionaliteit dekking**: Welke onderdelen worden ondersteund
+- **Gebruikersgroepen**: Voor wie de dienst beschikbaar is
+- **Geografische dekking**: Waar de dienst wordt aangeboden
+- **Tijdsvensters**: Wanneer de dienst beschikbaar is
+
+### 💰 Commerciële Aspecten
+Prijsstelling en commerciële voorwaarden van diensten.
+
+- **Prijsmodellen**: Vast tarief, per uur, abonnement
+- **Volume kortingen**: Schaalvoordelen bij grotere afname
+- **Contract voorwaarden**: SLA's en service garanties
+- **Facturatie**: Hoe en wanneer wordt gefactureerd
+
+### 📞 Service Delivery
+Hoe diensten worden geleverd aan klanten.
+
+- **Delivery kanalen**: Online, telefoon, on-site
+- **Response tijden**: Hoe snel wordt gereageerd
+- **Escalatie procedures**: Wat gebeurt bij problemen
+- **Kwaliteitsborging**: Hoe wordt kwaliteit gewaarborgd
+
+### 📊 Service Management
+Beheer en monitoring van het diensten aanbod.
+
+- **Performance monitoring**: Meting van service kwaliteit
+- **Customer satisfaction**: Klant tevredenheid metingen
+- **Service improvement**: Continue verbetering van diensten
+- **Capacity planning**: Zorgen voor voldoende capaciteit
+
+:::info Lifecycle Management
+Het **aanbod** van diensten heeft geen lifecycle management. De **afname** van diensten door organisaties wordt beheerd via [K004 - Gebruik](./K004-gebruik.md), waar wel lifecycle management van toepassing is.
+:::
 
 ## Gerelateerde Concepten
 - [K001 - Organisatie](./K001-organisatie.md): Leveranciers en gebruikers van diensten
@@ -253,7 +282,7 @@ sequenceDiagram
 
     %% Stap 2: Dienst Informatie
     S2-->>U: Stap 2 - Dienst informatie
-    Note over U: Invoer: Naam, Type (API/Webservice/Interface/Proces), Beschrijving, Categorie, Protocol, Data formaat, Endpoint URL, Zichtbaarheid, Prijsmodel, Documentatie links
+    Note over U: Invoer: Naam, Type (Functioneel beheer/Applicatiebeheer/Technisch beheer/Implementatieondersteuning/Opleidingen/Licentiereseller), Beschrijving, Service level, Prijsmodel, Delivery kanalen, Response tijden, Documentatie links
     U->>S2: Vul alle dienst gegevens in
     
     alt Naam al in gebruik binnen applicatie
@@ -284,27 +313,39 @@ sequenceDiagram
   </TabItem>
   <TabItem value="stap0" label="Stap 0: Organisatie Selectie">
     <ul>
-      <li>Organisatie Selectie (optioneel - alleen bij melden voor anderen): Selecteer aanbieder of maak nieuwe aan</li>
+      <li>Organisatie Selectie (optioneel - alleen bij melden voor anderen)</li>
+      <li>Wens: Na selecteren Organisatie tonen van applicaties van die organisatie zodert er minder doubleurs worden aangemaakt</li>
     </ul>
+    ![img_17.png](../Functionaliteiten/img_17.png)
+    <ul>
+      <li>Organisatie opvoeren (optioneel - alleen ná klikken op "Ik kan de gewenste leverancier niet vinden")</li>
+      <li>Wens: Organisatie formulier terugbrengen tot naam + website</li>
+      <li>Wens: Organisatie naam controleren op doubleurs</li>
+    </ul>
+    ![img_16.png](../Functionaliteiten/img_16.png)
   </TabItem>
   <TabItem value="stap1" label="Stap 1: Applicatie Selectie">
     <ul>
       <li>Applicatie Selectie: Welke applicatie biedt de dienst aan</li>
     </ul>
+    ![img_6.png](img_6.png)
   </TabItem>
   <TabItem value="stap1b" label="Stap 1b: Versie Selectie">
     <ul>
       <li>Versie Selectie (optioneel - alleen bij meerdere versies): Selecteer specifieke versie van de applicatie</li>
     </ul>
+    ![img_5.png](img_5.png)
   </TabItem>
   <TabItem value="stap2" label="Stap 2: Dienst Informatie">
     <ul>
-      <li>Dienst Informatie: Alle dienst eigenschappen in één uitgebreide stap (naam, type, beschrijving, technische specs, toegang, prijsmodel, documentatie)</li>
+      <li>Dienst Informatie: Alle dienst eigenschappen in één uitgebreide stap (naam, type service, beschrijving, service level, prijsmodel, delivery kanalen, response tijden, documentatie)</li>
     </ul>
+    ![](img.png)
   </TabItem>
   <TabItem value="stap3" label="Stap 3: Controleren">
     <ul>
       <li>Controleren: Overzicht en bevestiging van alle gegevens</li>
     </ul>
-  </TabItem>
+    ![img_11.png](img_11.png)
+  </TabItem>  
 </Tabs>
