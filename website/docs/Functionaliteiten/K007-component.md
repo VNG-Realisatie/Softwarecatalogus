@@ -13,58 +13,18 @@ keywords:
   - K007
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # K007 - Component
 
 ## Beschrijving
-Een component is een specifiek onderdeel of module van een applicatie dat een bepaalde functionaliteit biedt. Componenten kunnen herbruikbaar zijn tussen verschillende applicaties en vormen de bouwstenen van complexe software systemen. Ze kunnen variëren van kleine utility functies tot grote functionele modules.
+Een component is een specifiek onderdeel of module van een applicatie dat een bepaalde functionaliteit biedt. Componenten kunnen herbruikbaar zijn tussen verschillende applicaties en vormen de bouwstenen van complexe software systemen. Ze kunnen variëren van kleine utility functies tot grote functionele modules. Voorbeelden hiervan lopen dus uit een van een [zaakregistratie component]() tot een specifieke [libary]()
 
 ## Kenmerken
 
-### Basis Informatie
-- **Component naam**: Officiële naam van het onderdeel
-- **Beschrijving**: Wat het component doet en welke functionaliteit het biedt
-- **Type**: Module, Plugin, Service, Library, Widget, Microservice
-- **Categorie**: Functionele classificatie (UI, Business Logic, Data Access, etc.)
-- **Versie**: Versienummer van het component
-- **Status**: Actief, Beta, Deprecated, Ontwikkeling, Gearchiveerd
-
-### Applicatie Context
-- **Applicatie**: Tot welke applicatie behoort het component
-- **Vereist**: Is het component verplicht of optioneel
-- **Positie**: Waar bevindt zich het component in de applicatie architectuur
-- **Scope**: Lokaal, Gedeeld, Globaal beschikbaar
-- **Eigenaar**: Wie is verantwoordelijk voor het component
-
-### Functionele Aspecten
-- **Functionaliteit**: Specifieke functies die het component biedt
-- **Input**: Welke gegevens heeft het component nodig
-- **Output**: Wat produceert het component
-- **Business regels**: Welke bedrijfslogica is geïmplementeerd
-- **Gebruikersinterface**: Heeft het component een UI component
-- **API**: Programmatische interfaces die worden aangeboden
-
-### Technische Specificaties
-- **Technologie**: Programmeertaal en frameworks
-- **Architectuur**: Hoe is het component gebouwd
-- **Dependencies**: Afhankelijkheden van andere componenten of libraries
-- **Resources**: CPU, geheugen en storage vereisten
-- **Performance**: Response tijd en throughput karakteristieken
-- **Schaalbaarheid**: Hoe schaalt het component onder load
-
-### Integratie Aspecten
-- **Interfaces**: Hoe communiceert het component met andere onderdelen
-- **Protocols**: Welke communicatie protocollen worden gebruikt
-- **Data formaten**: Ondersteunde input en output formaten
-- **Events**: Welke events worden gegenereerd of geconsumeerd
-- **Configuratie**: Instelbare parameters en opties
-- **Monitoring**: Hoe kan het component worden gemonitord
-
-### GEMMA Koppeling
-- **Referentiecomponent**: Koppeling aan GEMMA referentiecomponenten
-- **Standaarden**: Welke standaarden worden geïmplementeerd
-- **Interoperabiliteit**: Hoe draagt het bij aan interoperabiliteit
-- **Compliance**: Naleving van GEMMA richtlijnen
-- **Certificering**: Formele certificeringen en validaties
+<ApiSchema id="swc" example pointer="#/components/schemas/component" />
 
 ## Relaties
 

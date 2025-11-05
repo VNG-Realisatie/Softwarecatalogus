@@ -24,7 +24,7 @@ Applicaties zijn software producten die door leveranciers worden aangeboden en d
 
 ## Schema Eigenschappen
 
-<ApiSchema id="swc" example pointer="#/components/schemas/module" />
+<ApiSchema id="swc" example pointer="#/components/schemas/Module" />
 
 ## Belangrijke Kenmerken
 
