@@ -315,36 +315,47 @@ De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van 
     <ul>
       <li>Applicatie Informatie: naam, website, beschrijving, logo, contact</li>
     </ul>
+    ![img_14.png](img_14.png)
   </TabItem>
   <TabItem value="stap2" label="Stap 2: Licentie/Hosting">
     <ul>
       <li>Licentie / Hosting: licentievorm, hosting type, data locatie, versies bij On-Premises</li>
     </ul>
+    ![img_13.png](img_13.png)
   </TabItem>
   <TabItem value="stap3" label="Stap 3: Referentie Componenten">
     <ul>
       <li>Referentie Componenten: zoek en voeg GEMMA componenten één voor één toe</li>
     </ul>
+    ![img_12.png](img_12.png)
+    ![img_11.png](img_11.png)
   </TabItem>
   <TabItem value="stap4" label="Stap 4: Standaarden">
+   <h3>Standaarden: automatisch getoond op basis van referentiecomponenten, per standaard compliance en bewijs</h3> 
     <ul>
-      <li>Standaarden: automatisch getoond op basis van referentiecomponenten, per standaard compliance en bewijs</li>
+      <li></li>
     </ul>
+    ![img_9.png](img_9.png)
   </TabItem>
   <TabItem value="stap5" label="Stap 5: Koppelingen">
+   ****
     <ul>
-      <li>Koppelingen: integraties met andere applicaties</li>
+      <li>Koppelingen: integraties met andere applicaties![img_10.png](img_10.png)</li>
     </ul>
+    ![img_8.png](img_8.png)
   </TabItem>
   <TabItem value="stap6" label="Stap 6: Diensten">
     <ul>
       <li>Diensten: services die de applicatie biedt</li>
     </ul>
+    ![img_7.png](img_7.png)
   </TabItem>
   <TabItem value="stap7" label="Stap 7: Controleren">
+    <h3></h3>
     <ul>
       <li>Controleren: samengevoegd overzicht en bevestiging</li>
     </ul>
+    ![img_6.png](img_6.png)
   </TabItem>
 </Tabs>
 
