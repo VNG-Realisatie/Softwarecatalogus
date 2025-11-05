@@ -3160,7 +3160,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+                            "$ref": "#/components/schemas/property",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3413,7 +3413,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json",
+                            "$ref": "#/components/schemas/property",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3441,7 +3441,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Node.json",
+                            "type": "object",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3469,7 +3469,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Connection.json",
+                            "type": "object",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3755,7 +3755,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+                            "$ref": "#/components/schemas/property",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3783,7 +3783,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Element.json/10",
+                            "$ref": "#/components/schemas/element",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3811,7 +3811,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Relation.json/13",
+                            "$ref": "#/components/schemas/relation",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3839,7 +3839,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "gebruiker",
+                            "$ref": "#/components/schemas/organization",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3867,7 +3867,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Property_Definition.json/15",
+                            "$ref": "#/components/schemas/property-definition",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3895,7 +3895,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View.json/11",
+                            "$ref": "#/components/schemas/view",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -4069,7 +4069,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "gebruiker",
+                            "$ref": "#/components/schemas/organization",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -4496,7 +4496,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+                            "$ref": "#/components/schemas/property",
                             "type": "object"
                         },
                         "objectConfiguration": {
