@@ -159,7 +159,7 @@ Versienummering volgt het MAJOR.MINOR.PATCH formaat:
 
 ## Applicatie Wizard
 
-De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van een nieuwe applicatie in de GEMMA Softwarecatalogus. Dit is de meest uitgebreide wizard met 7 stappen.
+De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van een nieuwe applicatie in de GEMMA Softwarecatalogus. Dit is de meest uitgebreide wizard met 7 stappen (plus een conditionele stap 2b voor versie beheer bij On-Premise hosting).
 
 ### Wizard Stappen
 
@@ -319,9 +319,15 @@ De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van 
   </TabItem>
   <TabItem value="stap2" label="Stap 2: Licentie/Hosting">
     <ul>
-      <li>Licentie / Hosting: licentievorm, hosting type, data locatie, versies bij On-Premises</li>
+      <li>Licentie / Hosting: licentievorm, hosting type, data locatie</li>
     </ul>
     ![img_13.png](img_13.png)
+  </TabItem>
+  <TabItem value="stap2b" label="Stap 2b: Versies (conditioneel)">
+    <ul>
+      <li>Versie Beheer (alleen bij On-Premise hosting): versienummer, status (Productie/Beta/Alpha)</li>
+    </ul>
+   ![img_15.png](img_15.png)
   </TabItem>
   <TabItem value="stap3" label="Stap 3: Referentie Componenten">
     <ul>
@@ -331,14 +337,12 @@ De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van 
     ![img_11.png](img_11.png)
   </TabItem>
   <TabItem value="stap4" label="Stap 4: Standaarden">
-   <h3>Standaarden: automatisch getoond op basis van referentiecomponenten, per standaard compliance en bewijs</h3> 
     <ul>
-      <li></li>
+      <li>Standaarden: automatisch getoond op basis van referentiecomponenten, per standaard compliance en bewijs</li>
     </ul>
     ![img_9.png](img_9.png)
   </TabItem>
   <TabItem value="stap5" label="Stap 5: Koppelingen">
-   ****
     <ul>
       <li>Koppelingen: integraties met andere applicaties![img_10.png](img_10.png)</li>
     </ul>
@@ -351,7 +355,6 @@ De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van 
     ![img_7.png](img_7.png)
   </TabItem>
   <TabItem value="stap7" label="Stap 7: Controleren">
-    <h3></h3>
     <ul>
       <li>Controleren: samengevoegd overzicht en bevestiging</li>
     </ul>
@@ -362,9 +365,9 @@ De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van 
 ## Belangrijke Wizard Kenmerken
 
 ### Conditionele Stappen
-- **Organisatie selectie**: Alleen bij aanmelden voor anderen
-- **Versies beheer**: Alleen bij On-Premises hosting
-- **Leverancier controle**: Tabel met bestaande applicaties ter verificatie
+- **Stap 0 - Organisatie selectie**: Alleen bij aanmelden voor anderen (niet voor eigen organisatie)
+- **Stap 2b - Versies beheer**: Alleen bij On-Premises hosting (wordt overgeslagen bij SaaS/Cloud)
+- **Leverancier controle**: Tabel met bestaande applicaties ter verificatie bij bestaande aanbieder
 
 ### Nieuwe Functionaliteiten
 - **Contactpersoon toewijzing**: Directe koppeling van contactpersoon aan applicatie
