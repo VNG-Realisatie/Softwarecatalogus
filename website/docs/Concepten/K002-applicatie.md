@@ -2,7 +2,7 @@
 id: k002-applicatie
 title: K002 - Applicatie
 sidebar_label: K002 - Applicatie
-sidebar_position: 11
+sidebar_position: 2
 description: Kern concept Applicatie - Software producten en modules in de GEMMA Softwarecatalogus
 keywords:
   - applicatie
@@ -25,45 +25,6 @@ Applicaties zijn software producten die door leveranciers worden aangeboden en d
 ## Schema Eigenschappen
 
 <ApiSchema id="swc" example pointer="#/components/schemas/Module" />
-
-## Belangrijke Kenmerken
-
-### Basisinformatie (Verplicht)
-- **naam**: Naam van de module (max 200 karakters, verplicht)
-- **beschrijvingKort**: Korte omschrijving (max 255 karakters, verplicht)
-- **beschrijvingLang**: Uitgebreide beschrijving in Markdown formaat (max 5000 karakters)
-- **website**: Website URL van de module
-- **logo**: URL naar het logo van de module
-- **contactpersoon**: Gekoppelde contactpersoon voor de module
-
-### Hosting & Deployment
-- **cloudDienstverleningsmodel**: Array met hosting vormen (On-premises, IaaS, PaaS, SaaS)
-- **hostingJurisdictie**: Jurisdictie waar data wordt opgeslagen (NL, EU, US, Elders)
-- **hostingLocatie**: Locatie waar applicatie wordt gehost (NL, EU, US, Elders)
-
-### Licentie Informatie
-- **licentietype**: Type licentie (Open source, Closed source)
-- **licentie**: Specifieke licentie bij Open Source (MIT, GPL, Apache, BSD, EUPL)
-
-### Organisatie & Relaties
-- **aanbieder**: Gekoppelde organisatie die de module aanbiedt
-- **type**: Type module (Applicatie, Systeemsoftware)
-
-### GEMMA Integratie
-- **referentieComponenten**: Array van GEMMA referentiecomponenten
-- **standaarden**: Array van AMEF standaard ID's
-- **standaardenGemma**: Array van GEMMA standaard ID's
-
-### Gerelateerde Objecten
-- **omvat**: Andere modules die onderdeel zijn van deze module
-- **onderdeelVan**: Modules waarvan deze module onderdeel is
-- **diensten**: Diensten waarvan deze module onderdeel is
-- **koppelingen**: Koppelingen waarbij deze module betrokken is
-- **compliancy**: Standaarden compliance registraties
-- **moduleVersies**: Versies van deze module
-- **gebruiken**: Gebruik registraties van deze module
-- **beoordelingen**: Beoordelingen van deze module
-- **kwetsbaarheden**: Kwetsbaarheden die deze module treffen
 
 ## Applicatie Types
 
@@ -153,19 +114,13 @@ Versienummering volgt het MAJOR.MINOR.PATCH formaat:
 - [K007 - Component](./K007-component.md): Onderdelen van applicaties
 
 ## Gerelateerde Functionaliteiten
-- [F004 - Applicatiebeheer](./F004-applicatiebeheer.md)
-- [F005 - Dienstenbeheer](./F005-dienstenbeheer.md)
-- [F013 - Gebruik Beheer](./F013-gebruik-beheer.md)
+- [F004 - Applicatiebeheer](../Functionaliteiten/F004-applicatiebeheer.md)
+- [F005 - Dienstenbeheer](../Functionaliteiten/F005-dienstenbeheer.md)
+- [F013 - Gebruik Beheer](../Functionaliteiten/F013-gebruik-beheer.md)
 
 ## Applicatie Wizard
 
 De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van een nieuwe applicatie in de GEMMA Softwarecatalogus. Dit is de meest uitgebreide wizard met 7 stappen (plus een conditionele stap 2b voor versie beheer bij On-Premise hosting).
-
-### Wizard Stappen
-
-
-
-### 
 
 <Tabs>
   <TabItem value="specificaties" label="Sequence Diagram" default>
@@ -202,11 +157,9 @@ De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van 
                 Note over U: Overzicht: Bestaande applicaties ter verificatie (wens)
                 U->>S0: Bevestig aanbieder keuze
             else Nieuwe aanbieder aanmaken
-                U->>S0: Klik 'Nieuwe aanbieder'
+                U->>S0: Klik 'Ik kan de gewenste leverancier niet vinden'
                 S0-->>U: Nieuwe aanbieder formulier
                 Note over U: Invoer: Naam aanbieder + Website URL
-                U->>S0: Vul aanbieder gegevens in
-                S0-->>U: Bevestig nieuwe aanbieder
             end
             
         else Applicatie registreren (eigen organisatie)
@@ -220,12 +173,6 @@ De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van 
         Note over U: Invoer: Naam, BeschrijvingKort, BeschrijvingLang, Contactpersoon, Website
         U->>S1: Vul algemene gegevens in
         
-        alt Naam al in gebruik
-            S1-->>U: Foutmelding - naam al in gebruik (wens)
-            U->>S1: Pas naam aan
-        else Naam beschikbaar
-            S1->>S2: Ga naar Stap 2
-        end
 
         %% Stap 2: Licentie / Hosting
         S2-->>U: Stap 2 - Licentie / Hosting informatie
@@ -308,77 +255,66 @@ De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van 
   </TabItem>
   <TabItem value="stap0" label="Stap 0: Organisatie Selectie">
     <ul>
-      <li>Organisatie Selectie (optioneel - alleen bij aanmelden voor anderen)</li>
+      <li>Organisatie Selectie (optioneel - alleen bij melden voor anderen)</li>
+      <li>Wens: Na selecteren Organisatie tonen van applicaties van die organisatie zodert er minder doubleurs worden aangemaakt</li>
     </ul>
-    ![img_17.png](img_17.png)
-    ![img_16.png](img_16.png)
+    ![img_17.png](../Functionaliteiten/img_17.png)
+    <ul>
+      <li>Organisatie opvoeren (optioneel - alleen ná klikken op "Ik kan de gewenste leverancier niet vinden")</li>
+      <li>Wens: Organisatie formulier terugbrengen tot naam + website</li>
+      <li>Wens: Organisatie naam controleren op doubleurs</li>
+    </ul>
+    ![img_16.png](../Functionaliteiten/img_16.png)
   </TabItem>
   <TabItem value="stap1" label="Stap 1: Applicatie Informatie">
     <ul>
       <li>Applicatie Informatie: naam, website, beschrijving, logo, contact</li>
+      <li>Wens: Applicatie naam controleren op doubleurs</li>
     </ul>
-    ![img_14.png](img_14.png)
+    ![img_14.png](../Functionaliteiten/img_14.png)
   </TabItem>
   <TabItem value="stap2" label="Stap 2: Licentie/Hosting">
     <ul>
       <li>Licentie / Hosting: licentievorm, hosting type, data locatie</li>
     </ul>
-    ![img_13.png](img_13.png)
+    ![img_13.png](../Functionaliteiten/img_13.png)
   </TabItem>
   <TabItem value="stap2b" label="Stap 2b: Versies (conditioneel)">
     <ul>
       <li>Versie Beheer (alleen bij On-Premise hosting): versienummer, status (Productie/Beta/Alpha)</li>
     </ul>
-   ![img_15.png](img_15.png)
+   ![img_15.png](../Functionaliteiten/img_15.png)
+    
   </TabItem>
   <TabItem value="stap3" label="Stap 3: Referentie Componenten">
     <ul>
       <li>Referentie Componenten: zoek en voeg GEMMA componenten één voor één toe</li>
     </ul>
-    ![img_12.png](img_12.png)
-    ![img_11.png](img_11.png)
+    ![img_12.png](../Functionaliteiten/img_12.png)
+    ![img_11.png](../Functionaliteiten/img_11.png)
   </TabItem>
   <TabItem value="stap4" label="Stap 4: Standaarden">
     <ul>
       <li>Standaarden: automatisch getoond op basis van referentiecomponenten, per standaard compliance en bewijs</li>
     </ul>
-    ![img_9.png](img_9.png)
+    ![img_9.png](../Functionaliteiten/img_9.png)
   </TabItem>
   <TabItem value="stap5" label="Stap 5: Koppelingen">
     <ul>
-      <li>Koppelingen: integraties met andere applicaties![img_10.png](img_10.png)</li>
+      <li>Koppelingen: integraties met andere applicaties![img_10.png](../Functionaliteiten/img_10.png)</li>
     </ul>
-    ![img_8.png](img_8.png)
+    ![img_8.png](../Functionaliteiten/img_8.png)
   </TabItem>
   <TabItem value="stap6" label="Stap 6: Diensten">
     <ul>
       <li>Diensten: services die de applicatie biedt</li>
     </ul>
-    ![img_7.png](img_7.png)
+    ![img_7.png](../Functionaliteiten/img_7.png)
   </TabItem>
   <TabItem value="stap7" label="Stap 7: Controleren">
     <ul>
       <li>Controleren: samengevoegd overzicht en bevestiging</li>
     </ul>
-    ![img_6.png](img_6.png)
+    ![img_6.png](../Functionaliteiten/img_6.png)
   </TabItem>
 </Tabs>
-
-## Belangrijke Wizard Kenmerken
-
-### Conditionele Stappen
-- **Stap 0 - Organisatie selectie**: Alleen bij aanmelden voor anderen (niet voor eigen organisatie)
-- **Stap 2b - Versies beheer**: Alleen bij On-Premises hosting (wordt overgeslagen bij SaaS/Cloud)
-- **Leverancier controle**: Tabel met bestaande applicaties ter verificatie bij bestaande aanbieder
-
-### Nieuwe Functionaliteiten
-- **Contactpersoon toewijzing**: Directe koppeling van contactpersoon aan applicatie
-- **Iteratieve component selectie**: Referentiecomponenten één voor één zoeken en toevoegen
-- **Automatische standaarden koppeling**: Standaarden worden automatisch getoond op basis van geselecteerde referentiecomponenten
-- **Bewijs management**: Per standaard bewijs uploaden of verwijzen naar externe documentatie
-- **Samengevoegd overzicht**: Alle informatie in één scherm voor finale controle
-
-### UX Verbeteringen
-- **Weggevallen kolommen**: Applicatie kolom in Standaarden en Diensten voor meer ruimte
-- **Automatische selectie**: Applicatie A in Koppelingen is altijd de huidige applicatie
-- **Land/hosting omgedraaid**: Betere titel lengte in Licentie/Hosting stap

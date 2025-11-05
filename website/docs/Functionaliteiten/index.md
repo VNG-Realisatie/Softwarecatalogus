@@ -20,13 +20,13 @@ De catalogus is gebaseerd op 7 kern concepten die elk hun eigen beheer functiona
 
 | Nummer | Concept | Beschrijving | Wizard | Beheer Functionaliteit |
 |--------|---------|--------------|--------|------------------------|
-| **K001** | [Organisatie](./K001-organisatie.md) | Leveranciers, gemeenten, samenwerkingsverbanden | ✅ | F002 - Organisatie Inrichten |
-| **K002** | [Applicatie](./K002-applicatie.md) | Software producten en modules | ✅ | F004 - Applicatiebeheer |
-| **K003** | [Dienst](./K003-dienst.md) | Services die applicaties bieden | ✅ | F005 - Dienstenbeheer |
-| **K004** | [Gebruik](./K004-gebruik.md) | Hoe organisaties applicaties gebruiken | ✅ | F013 - Gebruik Beheer |
-| **K005** | [Koppeling](./K005-koppeling.md) | Integraties tussen applicaties | ✅ | F008 - Externe Koppelingen |
-| **K006** | [Suite](./K006-suite.md) | Verzameling van gerelateerde applicaties | ✅ | *Nieuw* |
-| **K007** | [Component](./K007-component.md) | Onderdelen van applicaties | ✅ | *Nieuw* |
+| **K001** | [Organisatie](../Concepten/K001-organisatie.md) | Leveranciers, gemeenten, samenwerkingsverbanden | ✅ | F002 - Organisatie Inrichten |
+| **K002** | [Applicatie](../Concepten/K002-applicatie.md) | Software producten en modules | ✅ | F004 - Applicatiebeheer |
+| **K003** | [Dienst](../Concepten/K003-dienst.md) | Services die applicaties bieden | ✅ | F005 - Dienstenbeheer |
+| **K004** | [Gebruik](../Concepten/K004-gebruik.md) | Hoe organisaties applicaties gebruiken | ✅ | F013 - Gebruik Beheer |
+| **K005** | [Koppeling](../Concepten/K005-koppeling.md) | Integraties tussen applicaties | ✅ | F008 - Externe Koppelingen |
+| **K006** | [Suite](../Concepten/K006-suite.md) | Verzameling van gerelateerde applicaties | ✅ | *Nieuw* |
+| **K007** | [Component](../Concepten/K007-component.md) | Onderdelen van applicaties | ✅ | *Nieuw* |
 
 Elk kern concept heeft zijn eigen gedetailleerde documentatie met wizard sequence diagrammen. Klik op de links hierboven voor meer informatie.
 

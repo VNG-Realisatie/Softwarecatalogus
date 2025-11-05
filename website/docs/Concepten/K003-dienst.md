@@ -2,7 +2,7 @@
 id: k003-dienst
 title: K003 - Dienst
 sidebar_label: K003 - Dienst
-sidebar_position: 12
+sidebar_position: 3
 description: Kern concept Dienst - Services en functionaliteiten die applicaties bieden in de GEMMA Softwarecatalogus
 keywords:
   - dienst
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
 ## Beschrijving
 Diensten zijn specifieke services of functionaliteiten die door applicaties worden aangeboden. Een applicatie kan meerdere diensten bieden, zoals API's, webservices, interfaces of geautomatiseerde processen. Diensten vormen de brug tussen applicaties en hun gebruikers.
 
-## Kenmerken
+## Schema Eigenschappen
 
 <ApiSchema id="swc" example pointer="#/components/schemas/dienst" />
 
@@ -174,15 +174,13 @@ Webgebaseerde interfaces voor eindgebruiker interactie.
 - [K007 - Component](./K007-component.md): Componenten die diensten implementeren
 
 ## Gerelateerde Functionaliteiten
-- [F005 - Dienstenbeheer](./F005-dienstenbeheer.md)
-- [F004 - Applicatiebeheer](./F004-applicatiebeheer.md)
-- [F008 - Externe Koppelingen](./F008-externe-koppelingen.md)
+- [F005 - Dienstenbeheer](../Functionaliteiten/F005-dienstenbeheer.md)
+- [F004 - Applicatiebeheer](../Functionaliteiten/F004-applicatiebeheer.md)
+- [F008 - Externe Koppelingen](../Functionaliteiten/F008-externe-koppelingen.md)
 
 ## Dienst Wizard
 
 De Dienst wizard begeleidt gebruikers door het proces van het registreren van een nieuwe dienst in de GEMMA Softwarecatalogus.
-
-### 
 
 <Tabs>
   <TabItem value="specificaties" label="Sequence Diagram" default>
@@ -190,27 +188,63 @@ De Dienst wizard begeleidt gebruikers door het proces van het registreren van ee
 ```mermaid
 sequenceDiagram
     participant U as Gebruiker
+    participant S0 as Stap 0: Organisatie Selectie
     participant S1 as Stap 1: Applicatie Selectie
-    participant S2 as Stap 2: Dienst Info
-    participant S3 as Stap 3: Technische Specs
-    participant S4 as Stap 4: Toegang & Beveiliging
-    participant S5 as Stap 5: SLA & Performance
-    participant S6 as Stap 6: Prijsmodel
-    participant S7 as Stap 7: Documentatie
-    participant S8 as Stap 8: Controleren
+    participant S1b as Stap 1b: Versie Selectie
+    participant S2 as Stap 2: Dienst Informatie
+    participant S3 as Stap 3: Controleren
     participant AW as Applicatie Wizard
 
-    Note over U,S8: Dienst Wizard - Gebruiker Flow
+    Note over U,S3: Dienst Wizard - Gebruiker Flow
+
+    %% Entry Point Keuze
+    U->>S0: Start dienst wizard
+    S0-->>U: Toon entry point keuze
+    Note over U: Keuze: 'Dienst registreren' (eigen org) of 'Dienst melden' (andere org)
+    
+    alt Dienst melden (voor andere organisatie)
+        U->>S0: Kies 'Dienst melden'
+        
+        %% Stap 0: Aanbieder Selectie
+        S0-->>U: Stap 0 - Aanbieder selectie formulier
+        Note over U: Invoer: Zoek bestaande aanbieder of 'Nieuwe aanbieder'
+        
+        alt Bestaande aanbieder selecteren
+            U->>S0: Selecteer bestaande aanbieder uit lijst
+            S0-->>U: Toon applicaties van geselecteerde aanbieder (controle)
+            Note over U: Overzicht: Bestaande applicaties ter verificatie
+            U->>S0: Bevestig aanbieder keuze
+        else Nieuwe aanbieder aanmaken
+            U->>S0: Klik 'Ik kan de gewenste leverancier niet vinden'
+            S0-->>U: Nieuwe aanbieder formulier
+            Note over U: Invoer: Naam aanbieder + Website URL
+        end
+        
+    else Dienst registreren (eigen organisatie)
+        U->>S0: Kies 'Dienst registreren'
+        Note over S0: Sla aanbieder selectie over - gebruik eigen organisatie
+    end
 
     %% Stap 1: Applicatie Selectie
-    U->>S1: Start dienst wizard
+    S0->>S1: Ga naar Stap 1
     S1-->>U: Stap 1 - Applicatie selectie
-    Note over U: Overzicht: Lijst van beschikbare applicaties 
+    Note over U: Overzicht: Lijst van beschikbare applicaties van geselecteerde aanbieder
     
     alt Applicatie selecteren
         U->>S1: Selecteer applicatie uit lijst
         Note over U: Invoer: Kies applicatie die de dienst gaat aanbieden
-        S1->>S2: Ga naar Stap 2
+        
+        %% Controleer of applicatie meerdere versies heeft
+        alt Applicatie heeft meerdere versies
+            S1->>S1b: Ga naar Versie selectie
+            S1b-->>U: Stap 1b - Versie selectie (optioneel)
+            Note over U: Overzicht: Lijst van beschikbare versies van de applicatie
+            U->>S1b: Selecteer versie
+            S1b->>S2: Ga naar Stap 2
+        else Applicatie heeft één versie
+            S1->>S2: Ga naar Stap 2
+        end
+        
     else Geen geschikte applicatie
         U->>S1: Klik 'Applicatie niet gevonden'
         S1->>AW: Redirect naar Applicatie wizard
@@ -219,148 +253,58 @@ sequenceDiagram
 
     %% Stap 2: Dienst Informatie
     S2-->>U: Stap 2 - Dienst informatie
-    Note over U: Invoer: Naam, Type (API/Webservice/Interface/Proces), Beschrijving, Categorie, Versie
-    U->>S2: Vul dienst gegevens in
+    Note over U: Invoer: Naam, Type (API/Webservice/Interface/Proces), Beschrijving, Categorie, Protocol, Data formaat, Endpoint URL, Zichtbaarheid, Prijsmodel, Documentatie links
+    U->>S2: Vul alle dienst gegevens in
     
     alt Naam al in gebruik binnen applicatie
-        S2-->>U: Foutmelding - naam al in gebruik (wens)
+        S2-->>U: Foutmelding - naam al in gebruik
         U->>S2: Pas naam aan
     else Naam beschikbaar
         S2->>S3: Ga naar Stap 3
     end
 
-    %% Stap 3: Technische Specificaties
-    S3-->>U: Stap 3 - Technische specificaties
-    Note over U: Invoer: Protocol (REST/SOAP/GraphQL), Data formaat (JSON/XML), Authenticatie, Endpoint URL
-    U->>S3: Vul technische specificaties in
-    S3->>S4: Ga naar Stap 4
-
-    %% Stap 4: Toegang en Beveiliging
-    S4-->>U: Stap 4 - Toegang en beveiliging
-    Note over U: Invoer: Zichtbaarheid (Publiek/Privé/Beperkt), Gebruikersrechten, Geografische beperkingen
-    U->>S4: Configureer toegang en beveiliging
-    S4->>S5: Ga naar Stap 5
-
-    %% Stap 5: SLA en Performance
-    S5-->>U: Stap 5 - SLA en performance
-    Note over U: Invoer: Beschikbaarheid %, Response tijd (ms), Throughput, Support niveau, Escalatie procedures
-    U->>S5: Definieer SLA en performance eisen
-    S5->>S6: Ga naar Stap 6
-
-    %% Stap 6: Prijsmodel
-    S6-->>U: Stap 6 - Prijsmodel
-    Note over U: Invoer: Prijsmodel (Gratis/Per verzoek/Abonnement), Kosten, Licentie voorwaarden
-    U->>S6: Configureer prijsmodel
-    S6->>S7: Ga naar Stap 7
-
-    %% Stap 7: Documentatie
-    S7-->>U: Stap 7 - Documentatie
-    Note over U: Invoer: API documentatie URL, Code voorbeelden, Handleidingen, Contact informatie
-    U->>S7: Upload/link documentatie (optioneel)
-    S7->>S8: Ga naar Stap 8
-
-    %% Stap 8: Controleren
-    S8-->>U: Stap 8 - Overzicht en controle
+    %% Stap 3: Controleren
+    S3-->>U: Stap 3 - Overzicht en controle
     Note over U: Overzicht: Alle ingevoerde dienst informatie ter controle
     
     alt Gebruiker wil wijzigingen maken
-        U->>S8: Klik 'Vorige' naar specifieke stap
-        Note over S8: Navigeer terug naar gewenste stap
-        alt Terug naar Stap 2
-            S8->>S2: Ga terug naar Stap 2
-        else Terug naar andere stap
-            Note over S8: Navigeer naar gewenste stap
+        U->>S3: Klik 'Vorige' naar specifieke stap
+        Note over S3: Navigeer terug naar gewenste stap
+        alt Terug naar Stap 1
+            S3->>S1: Ga terug naar Stap 1
+        else Terug naar Stap 2
+            S3->>S2: Ga terug naar Stap 2
         end
     else Gebruiker bevestigt
-        U->>S8: Klik 'Dienst registreren'
-        S8-->>U: Bevestiging - Dienst succesvol geregistreerd
+        U->>S3: Klik 'Dienst registreren'
+        S3-->>U: Bevestiging - Dienst succesvol geregistreerd
         Note over U: Dienst is gekoppeld aan applicatie en beschikbaar in catalogus
     end
 ```
+  </TabItem>
+  <TabItem value="stap0" label="Stap 0: Organisatie Selectie">
+    <ul>
+      <li>Organisatie Selectie (optioneel - alleen bij melden voor anderen): Selecteer aanbieder of maak nieuwe aan</li>
+    </ul>
   </TabItem>
   <TabItem value="stap1" label="Stap 1: Applicatie Selectie">
     <ul>
       <li>Applicatie Selectie: Welke applicatie biedt de dienst aan</li>
     </ul>
   </TabItem>
+  <TabItem value="stap1b" label="Stap 1b: Versie Selectie">
+    <ul>
+      <li>Versie Selectie (optioneel - alleen bij meerdere versies): Selecteer specifieke versie van de applicatie</li>
+    </ul>
+  </TabItem>
   <TabItem value="stap2" label="Stap 2: Dienst Informatie">
     <ul>
-      <li>Dienst Informatie: Naam, type, beschrijving en categorie</li>
+      <li>Dienst Informatie: Alle dienst eigenschappen in één uitgebreide stap (naam, type, beschrijving, technische specs, toegang, prijsmodel, documentatie)</li>
     </ul>
   </TabItem>
-  <TabItem value="stap3" label="Stap 3: Technische Specificaties">
-    <ul>
-      <li>Technische Specificaties: Protocol, formaat, authenticatie, endpoint</li>
-    </ul>
-  </TabItem>
-  <TabItem value="stap4" label="Stap 4: Toegang & Beveiliging">
-    <ul>
-      <li>Toegang en Beveiliging: Wie kan de dienst gebruiken en onder welke voorwaarden</li>
-    </ul>
-  </TabItem>
-  <TabItem value="stap5" label="Stap 5: SLA & Performance">
-    <ul>
-      <li>SLA en Performance: Service level agreements en performance garanties</li>
-    </ul>
-  </TabItem>
-  <TabItem value="stap6" label="Stap 6: Prijsmodel">
-    <ul>
-      <li>Prijsmodel: Kosten, licenties en gebruiksvoorwaarden</li>
-    </ul>
-  </TabItem>
-  <TabItem value="stap7" label="Stap 7: Documentatie">
-    <ul>
-      <li>Documentatie: API documentatie, voorbeelden en handleidingen</li>
-    </ul>
-  </TabItem>
-  <TabItem value="stap8" label="Stap 8: Controleren">
+  <TabItem value="stap3" label="Stap 3: Controleren">
     <ul>
       <li>Controleren: Overzicht en bevestiging van alle gegevens</li>
     </ul>
   </TabItem>
 </Tabs>
-
-## Belangrijke Wizard Kenmerken
-
-### Applicatie Koppeling
-- **Eigendom validatie**: Alleen applicaties van eigen organisatie selecteerbaar
-- **Automatische koppeling**: Dienst wordt automatisch gekoppeld aan geselecteerde applicatie
-- **Consistentie controle**: Technische specificaties moeten passen bij applicatie architectuur
-
-### Technische Validatie
-- **Endpoint validatie**: URL formaat en toegankelijkheid controle
-- **Protocol compatibiliteit**: Controle op ondersteunde protocollen
-- **Security configuratie**: Validatie van authenticatie en autorisatie instellingen
-- **Performance realisme**: Controle op realistische SLA waarden
-
-### Automatische Setup
-- **API endpoint configuratie**: Automatische setup van technische endpoints
-- **Monitoring activatie**: Automatische configuratie van performance monitoring
-- **Rate limiting**: Automatische implementatie van gebruiksbeperkingen
-- **Documentatie generatie**: Automatische API documentatie generatie
-
-## Implementatie Overwegingen
-
-### API Management
-- **Gateway integratie**: Koppeling met API gateway voor centraal beheer
-- **Version management**: Ondersteuning voor meerdere API versies
-- **Deprecation handling**: Geleidelijke uitfasering van oude versies
-- **Backward compatibility**: Ondersteuning voor bestaande integraties
-
-### Monitoring en Analytics
-- **Real-time monitoring**: Continue bewaking van dienst performance
-- **Usage analytics**: Gedetailleerde gebruiksstatistieken
-- **Error tracking**: Automatische detectie en rapportage van fouten
-- **Capacity planning**: Voorspelling van toekomstige capaciteitsbehoeften
-
-### Security en Compliance
-- **Authentication integration**: Koppeling met identity providers
-- **Authorization policies**: Granulaire toegangscontrole
-- **Audit logging**: Volledige traceerbaarheid van API calls
-- **Data protection**: Encryptie en privacy bescherming
-
-### Developer Experience
-- **Interactive documentation**: Swagger/OpenAPI documentatie
-- **Code samples**: Voorbeelden in verschillende programmeertalen
-- **SDKs en libraries**: Client libraries voor populaire platforms
-- **Developer portal**: Self-service portal voor ontwikkelaars

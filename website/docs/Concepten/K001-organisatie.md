@@ -2,7 +2,7 @@
 id: k001-organisatie
 title: K001 - Organisatie
 sidebar_label: K001 - Organisatie
-sidebar_position: 10
+sidebar_position: 1
 description: Kern concept Organisatie - Leveranciers, gemeenten en samenwerkingsverbanden in de GEMMA Softwarecatalogus
 keywords:
   - organisatie
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
 ## Beschrijving
 Organisaties zijn de verschillende partijen die betrokken zijn bij de softwarecatalogus. Dit kunnen leveranciers, gemeenten, samenwerkingsverbanden of andere overheidsorganisaties zijn. Organisaties vormen de basis voor alle andere concepten in de catalogus.
 
-## Kenmerken
+## Schema Eigenschappen
 
 <ApiSchema id="swc" example pointer="#/components/schemas/organisatie" />
 
@@ -103,16 +103,22 @@ Provincies, ministeries en andere overheidsinstanties.
 | **Gegevens bekijken** | ✅ | ✅ | ✅ | ✅ (publiek) |
 | **Rapportages genereren** | ✅ | ✅ | ✅ | ❌ |
 
+## Gerelateerde Concepten
+- [K002 - Applicatie](./K002-applicatie.md): Software die organisaties aanbieden of gebruiken
+- [K003 - Dienst](./K003-dienst.md): Services die organisaties leveren
+- [K004 - Gebruik](./K004-gebruik.md): Hoe organisaties applicaties gebruiken
+- [K005 - Koppeling](./K005-koppeling.md): Integraties tussen applicaties
+- [K006 - Suite](./K006-suite.md): Verzamelingen van applicaties
+- [K007 - Component](./K007-component.md): Onderdelen van applicaties
+
 ## Gerelateerde Functionaliteiten
-- [F002 - Organisatie Inrichten](./F002-organisatie-inrichten.md)
-- [F003 - Gebruikersbeheer](./F003-gebruikersbeheer.md)
-- [F010 - Lidmaatschapsbeheer](./F010-lidmaatschapsbeheer.md)
+- [F002 - Organisatie Inrichten](../Functionaliteiten/F002-organisatie-inrichten.md)
+- [F003 - Gebruikersbeheer](../Functionaliteiten/F003-gebruikersbeheer.md)
+- [F010 - Lidmaatschapsbeheer](../Functionaliteiten/F010-lidmaatschapsbeheer.md)
 
 ## Organisatie Wizard
 
 De Organisatie wizard begeleidt gebruikers door het proces van het registreren van een nieuwe organisatie in de GEMMA Softwarecatalogus.
-
-### 
 
 <Tabs>
   <TabItem value="specificaties" label="Sequence Diagram" default>
@@ -291,42 +297,3 @@ sequenceDiagram
     </ul>
   </TabItem>
 </Tabs>
-
-## Verificatie Proces
-
-### Automatische Verificatie
-- **KvK validatie**: Automatische controle bij Nederlandse Kamer van Koophandel
-- **E-mail verificatie**: Bevestiging van e-mailadres
-- **Website controle**: Validatie van website URL
-
-### Handmatige Verificatie
-- **Document controle**: Handmatige review van geüploade documenten
-- **Telefonische verificatie**: Bevestiging via telefoon (indien nodig)
-- **Referentie controle**: Controle van referenties en bestaande relaties
-
-### Verificatie Status
-- **Niet geverifieerd**: Nieuwe organisatie, nog niet gecontroleerd
-- **In behandeling**: Verificatie proces is gestart
-- **Geverifieerd**: Organisatie is goedgekeurd en actief
-- **Afgewezen**: Verificatie mislukt, aanvullende informatie vereist
-- **Geschorst**: Tijdelijk gedeactiveerd
-
-## Implementatie Overwegingen
-
-### Data Validatie
-- **Uniciteit**: Organisatie namen moeten uniek zijn binnen type
-- **Formaat controle**: E-mail, telefoon, website URL validatie
-- **Verplichte velden**: Afhankelijk van organisatie type
-- **Internationale ondersteuning**: Verschillende adres formaten
-
-### Beveiliging
-- **Toegangscontrole**: Rol-gebaseerde autorisatie
-- **Data encryptie**: Gevoelige gegevens versleuteld opslaan
-- **Audit trail**: Logging van alle wijzigingen
-- **Privacy compliance**: GDPR/AVG naleving
-
-### Performance
-- **Caching**: Organisatie gegevens cachen voor snelle toegang
-- **Indexering**: Database indexen voor zoek performance
-- **Lazy loading**: Gerelateerde gegevens alleen laden wanneer nodig
-- **Batch processing**: Bulk operaties voor grote datasets

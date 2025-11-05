@@ -2,7 +2,7 @@
 id: k005-koppeling
 title: K005 - Koppeling
 sidebar_label: K005 - Koppeling
-sidebar_position: 14
+sidebar_position: 5
 description: Kern concept Koppeling - Technische integraties tussen applicaties in de GEMMA Softwarecatalogus
 keywords:
   - koppeling
@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
 ## Beschrijving
 Koppelingen beschrijven de technische integraties tussen verschillende applicaties. Dit kunnen API-koppelingen, bestandsuitwisselingen, database koppelingen of andere vormen van data-uitwisseling zijn. Koppelingen zijn essentieel voor een geïntegreerd applicatielandschap.
 
-## Kenmerken
+## Schema Eigenschappen
 
 <ApiSchema id="swc" example pointer="#/components/schemas/koppeling" />
 
@@ -173,15 +173,13 @@ Asynchrone berichtuitwisseling via message brokers.
 - [K007 - Component](./K007-component.md): Componenten die koppelingen implementeren
 
 ## Gerelateerde Functionaliteiten
-- [F008 - Externe Koppelingen](./F008-externe-koppelingen.md)
-- [F004 - Applicatiebeheer](./F004-applicatiebeheer.md)
-- [F013 - Gebruik Beheer](./F013-gebruik-beheer.md)
+- [F008 - Externe Koppelingen](../Functionaliteiten/F008-externe-koppelingen.md)
+- [F004 - Applicatiebeheer](../Functionaliteiten/F004-applicatiebeheer.md)
+- [F013 - Gebruik Beheer](../Functionaliteiten/F013-gebruik-beheer.md)
 
 ## Koppeling Wizard
 
 De Koppeling wizard begeleidt gebruikers door het proces van het definiëren van een nieuwe integratie tussen applicaties.
-
-### 
 
 <Tabs>
   <TabItem value="specificaties" label="Sequence Diagram" default>
@@ -189,105 +187,139 @@ De Koppeling wizard begeleidt gebruikers door het proces van het definiëren van
 ```mermaid
 sequenceDiagram
     participant U as Gebruiker
-    participant W as Koppeling Wizard
+    participant S0 as Stap 0: Organisatie Selectie
+    participant S1 as Stap 1: Applicatie A Selectie
+    participant S1b as Stap 1b: Versie A Selectie
+    participant S2 as Stap 2: Applicatie B Selectie
+    participant S2b as Stap 2b: Versie B Selectie
+    participant S3 as Stap 3: Koppeling Informatie
+    participant S4 as Stap 4: Controleren
+    participant AW as Applicatie Wizard
 
-    Note over U,W: Koppeling Wizard - Gebruiker Flow
+    Note over U,S4: Koppeling Wizard - Gebruiker Flow
+
+    %% Entry Point Keuze
+    U->>S0: Start koppeling wizard
+    S0-->>U: Toon entry point keuze
+    Note over U: Keuze: 'Koppeling registreren' (eigen org) of 'Koppeling melden' (andere org)
+    
+    alt Koppeling melden (voor andere organisatie)
+        U->>S0: Kies 'Koppeling melden'
+        
+        %% Stap 0: Aanbieder Selectie
+        S0-->>U: Stap 0 - Aanbieder selectie formulier
+        Note over U: Invoer: Zoek bestaande aanbieder of 'Nieuwe aanbieder'
+        
+        alt Bestaande aanbieder selecteren
+            U->>S0: Selecteer bestaande aanbieder uit lijst
+            S0-->>U: Toon applicaties van geselecteerde aanbieder (controle)
+            Note over U: Overzicht: Bestaande applicaties ter verificatie
+            U->>S0: Bevestig aanbieder keuze
+        else Nieuwe aanbieder aanmaken
+            U->>S0: Klik 'Ik kan de gewenste leverancier niet vinden'
+            S0-->>U: Nieuwe aanbieder formulier
+            Note over U: Invoer: Naam aanbieder + Website URL
+        end
+        
+    else Koppeling registreren (eigen organisatie)
+        U->>S0: Kies 'Koppeling registreren'
+        Note over S0: Sla aanbieder selectie over - gebruik eigen organisatie
+    end
 
     %% Stap 1: Applicatie A Selectie
-    U->>W: Start koppeling wizard
-    W-->>U: Stap 1 - Applicatie A selectie (bron)
-    Note over U: Overzicht: Lijst van beschikbare applicaties
+    S0->>S1: Ga naar Stap 1
+    S1-->>U: Stap 1 - Applicatie A selectie (bron)
+    Note over U: Overzicht: Lijst van beschikbare applicaties van geselecteerde aanbieder
     
     alt Applicatie A selecteren
-        U->>W: Selecteer Applicatie A uit lijst
+        U->>S1: Selecteer Applicatie A uit lijst
         Note over U: Invoer: Kies bron applicatie voor de koppeling
+        
+        %% Controleer of applicatie A meerdere versies heeft
+        alt Applicatie A heeft meerdere versies
+            S1->>S1b: Ga naar Versie A selectie
+            S1b-->>U: Stap 1b - Versie A selectie (optioneel)
+            Note over U: Overzicht: Lijst van beschikbare versies van Applicatie A
+            U->>S1b: Selecteer versie A
+            S1b->>S2: Ga naar Stap 2
+        else Applicatie A heeft één versie
+            S1->>S2: Ga naar Stap 2
+        end
+        
     else Geen geschikte applicatie A
-        U->>W: Klik 'Applicatie niet gevonden'
-        W-->>U: Redirect naar Applicatie wizard
+        U->>S1: Klik 'Applicatie niet gevonden'
+        S1->>AW: Redirect naar Applicatie wizard
         Note over U: Wizard wordt afgebroken - ga naar Applicatie wizard (gegevens worden NIET opgeslagen)
     end
 
     %% Stap 2: Applicatie B Selectie
-    W-->>U: Stap 2 - Applicatie B selectie (doel)
+    S2-->>U: Stap 2 - Applicatie B selectie (doel)
     Note over U: Overzicht: Lijst van beschikbare applicaties (exclusief Applicatie A)
     
     alt Applicatie B selecteren
-        U->>W: Selecteer Applicatie B uit lijst
+        U->>S2: Selecteer Applicatie B uit lijst
         Note over U: Invoer: Kies doel applicatie voor de koppeling
         
         alt Koppeling bestaat al tussen A en B
-            W-->>U: Waarschuwing - koppeling bestaat al
-            U->>W: Bewerk bestaande koppeling of kies andere applicatie
+            S2-->>U: Waarschuwing - koppeling bestaat al
+            U->>S2: Bewerk bestaande koppeling of kies andere applicatie
         else Nieuwe koppeling
-            U->>W: Ga naar volgende stap
+            %% Controleer of applicatie B meerdere versies heeft
+            alt Applicatie B heeft meerdere versies
+                S2->>S2b: Ga naar Versie B selectie
+                S2b-->>U: Stap 2b - Versie B selectie (optioneel)
+                Note over U: Overzicht: Lijst van beschikbare versies van Applicatie B
+                U->>S2b: Selecteer versie B
+                S2b->>S3: Ga naar Stap 3
+            else Applicatie B heeft één versie
+                S2->>S3: Ga naar Stap 3
+            end
         end
         
     else Geen geschikte applicatie B
-        U->>W: Klik 'Applicatie niet gevonden'
-        W-->>U: Redirect naar Applicatie wizard
+        U->>S2: Klik 'Applicatie niet gevonden'
+        S2->>AW: Redirect naar Applicatie wizard
         Note over U: Wizard wordt afgebroken - ga naar Applicatie wizard (gegevens worden NIET opgeslagen)
     end
 
-    %% Stap 3: Koppeling Type
-    W-->>U: Stap 3 - Koppeling type
-    Note over U: Invoer: Type (API/Webservice/Bestand/Database), Richting (A→B/B→A/A↔B), Frequentie
-    U->>W: Selecteer koppeling type en eigenschappen
-    U->>W: Ga naar volgende stap
+    %% Stap 3: Koppeling Informatie
+    S3-->>U: Stap 3 - Koppeling informatie
+    Note over U: Invoer: Type (API/Webservice/Bestand/Database), Richting (A→B/B→A/A↔B), Protocol, Data formaat, Authenticatie, Data mapping, Standaarden, Performance eisen, Beveiliging, Test aanpak
+    U->>S3: Vul alle koppeling gegevens in
+    S3->>S4: Ga naar Stap 4
 
-    %% Stap 4: Technische Specificaties
-    W-->>U: Stap 4 - Technische specificaties
-    Note over U: Invoer: Protocol (REST/SOAP/FTP), Data formaat (JSON/XML/CSV), Authenticatie, Endpoint URL
-    U->>W: Configureer technische specificaties
-    U->>W: Ga naar volgende stap
-
-    %% Stap 5: Data Mapping
-    W-->>U: Stap 5 - Data mapping
-    Note over U: Invoer: Bron velden, Doel velden, Transformatie regels, Validatie regels
-    U->>W: Configureer data mapping
-    U->>W: Ga naar volgende stap
-
-    %% Stap 6: Standaarden
-    W-->>U: Stap 6 - Standaarden
-    Note over U: Invoer: Standaard selectie (StUF/RSGB/etc), Versie, Compliance niveau, Certificering
-    U->>W: Selecteer standaarden (optioneel)
-    U->>W: Ga naar volgende stap
-
-    %% Stap 7: Performance en SLA
-    W-->>U: Stap 7 - Performance en SLA
-    Note over U: Invoer: Response tijd (ms), Throughput, Beschikbaarheid %, Recovery tijd, Monitoring
-    U->>W: Definieer performance eisen en SLA
-    U->>W: Ga naar volgende stap
-
-    %% Stap 8: Beveiliging
-    W-->>U: Stap 8 - Beveiliging
-    Note over U: Invoer: Encryptie type, Toegangscontrole, Audit trail, Privacy compliance (GDPR)
-    U->>W: Configureer beveiliging
-    U->>W: Ga naar volgende stap
-
-    %% Stap 9: Testing
-    W-->>U: Stap 9 - Testing
-    Note over U: Invoer: Test scenario's, Validatie criteria, Test data, Acceptance criteria
-    U->>W: Definieer test aanpak
-    U->>W: Ga naar volgende stap
-
-    %% Stap 10: Controleren
-    W-->>U: Stap 10 - Overzicht en controle
+    %% Stap 4: Controleren
+    S4-->>U: Stap 4 - Overzicht en controle
     Note over U: Overzicht: Alle ingevoerde koppeling informatie ter controle
     
     alt Gebruiker wil wijzigingen maken
-        U->>W: Klik 'Vorige' naar specifieke stap
-        Note over W: Navigeer terug naar gewenste stap
-        W-->>U: Toon geselecteerde stap voor aanpassing
+        U->>S4: Klik 'Vorige' naar specifieke stap
+        Note over S4: Navigeer terug naar gewenste stap
+        alt Terug naar Stap 1
+            S4->>S1: Ga terug naar Stap 1
+        else Terug naar andere stap
+            Note over S4: Navigeer naar gewenste stap
+        end
     else Gebruiker bevestigt
-        U->>W: Klik 'Koppeling registreren'
-        W-->>U: Bevestiging - Koppeling succesvol geregistreerd
+        U->>S4: Klik 'Koppeling registreren'
+        S4-->>U: Bevestiging - Koppeling succesvol geregistreerd
         Note over U: Koppeling is gedefinieerd en gereed voor implementatie
     end
 ```
   </TabItem>
+  <TabItem value="stap0" label="Stap 0: Organisatie Selectie">
+    <ul>
+      <li>Organisatie Selectie (optioneel - alleen bij melden voor anderen): Selecteer aanbieder of maak nieuwe aan</li>
+    </ul>
+  </TabItem>
   <TabItem value="stap1" label="Stap 1: Applicatie A Selectie">
     <ul>
       <li>Applicatie A Selectie: Bron applicatie voor de koppeling</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap1b" label="Stap 1b: Versie A Selectie">
+    <ul>
+      <li>Versie A Selectie (optioneel - alleen bij meerdere versies): Selecteer specifieke versie van Applicatie A</li>
     </ul>
   </TabItem>
   <TabItem value="stap2" label="Stap 2: Applicatie B Selectie">
@@ -295,95 +327,19 @@ sequenceDiagram
       <li>Applicatie B Selectie: Doel applicatie voor de koppeling</li>
     </ul>
   </TabItem>
-  <TabItem value="stap3" label="Stap 3: Koppeling Type">
+  <TabItem value="stap2b" label="Stap 2b: Versie B Selectie">
     <ul>
-      <li>Koppeling Type: Soort integratie en richting</li>
+      <li>Versie B Selectie (optioneel - alleen bij meerdere versies): Selecteer specifieke versie van Applicatie B</li>
     </ul>
   </TabItem>
-  <TabItem value="stap4" label="Stap 4: Technische Specificaties">
+  <TabItem value="stap3" label="Stap 3: Koppeling Informatie">
     <ul>
-      <li>Technische Specificaties: Protocol, formaat, authenticatie</li>
+      <li>Koppeling Informatie: Alle koppeling eigenschappen in één uitgebreide stap (type, richting, protocol, data mapping, standaarden, performance, beveiliging, testing)</li>
     </ul>
   </TabItem>
-  <TabItem value="stap5" label="Stap 5: Data Mapping">
-    <ul>
-      <li>Data Mapping: Welke gegevens worden uitgewisseld en hoe</li>
-    </ul>
-  </TabItem>
-  <TabItem value="stap6" label="Stap 6: Standaarden">
-    <ul>
-      <li>Standaarden: Welke standaarden worden gebruikt</li>
-    </ul>
-  </TabItem>
-  <TabItem value="stap7" label="Stap 7: Performance & SLA">
-    <ul>
-      <li>Performance en SLA: Service level agreements en performance eisen</li>
-    </ul>
-  </TabItem>
-  <TabItem value="stap8" label="Stap 8: Beveiliging">
-    <ul>
-      <li>Beveiliging: Authenticatie, autorisatie en encryptie</li>
-    </ul>
-  </TabItem>
-  <TabItem value="stap9" label="Stap 9: Testing">
-    <ul>
-      <li>Testing: Test scenario's en validatie criteria</li>
-    </ul>
-  </TabItem>
-  <TabItem value="stap10" label="Stap 10: Controleren">
+  <TabItem value="stap4" label="Stap 4: Controleren">
     <ul>
       <li>Controleren: Overzicht en bevestiging van alle gegevens</li>
     </ul>
   </TabItem>
 </Tabs>
-
-## Belangrijke Wizard Kenmerken
-
-### Applicatie Compatibiliteit
-- **Automatische validatie**: Controle op technische compatibiliteit tussen applicaties
-- **Bestaande koppeling detectie**: Waarschuwing bij duplicate koppelingen
-- **Capability matching**: Matching van ondersteunde protocollen en formaten
-
-### Data Mapping Ondersteuning
-- **Schema discovery**: Automatische detectie van data modellen
-- **Transformatie wizard**: Visuele data mapping interface
-- **Validatie regels**: Automatische generatie van data validatie
-- **Test data generatie**: Automatische generatie van test datasets
-
-### Standaarden Integratie
-- **Automatische detectie**: Identificatie van relevante standaarden
-- **Compliance checking**: Validatie van standaard naleving
-- **Certificering ondersteuning**: Integratie met certificering processen
-- **Version management**: Ondersteuning voor verschillende standaard versies
-
-### Security by Design
-- **Security templates**: Voorgedefinieerde security configuraties
-- **Compliance checking**: Automatische GDPR/AVG compliance controle
-- **Risk assessment**: Automatische security risk evaluatie
-- **Audit trail setup**: Automatische configuratie van logging
-
-## Implementatie Overwegingen
-
-### Integration Architecture
-- **Pattern library**: Herbruikbare integratie patronen
-- **Middleware integration**: Koppeling met ESB en API gateways
-- **Service mesh**: Ondersteuning voor moderne microservice architecturen
-- **Event-driven architecture**: Ondersteuning voor event streaming platforms
-
-### Monitoring en Observability
-- **Real-time monitoring**: Continue bewaking van koppeling gezondheid
-- **Performance analytics**: Gedetailleerde performance metrieken
-- **Error tracking**: Automatische detectie en classificatie van fouten
-- **Business impact analysis**: Impact analyse van koppeling storingen
-
-### Lifecycle Management
-- **Version control**: Systematisch beheer van koppeling versies
-- **Change management**: Gecontroleerde wijzigingen en rollbacks
-- **Dependency tracking**: Automatische tracking van afhankelijkheden
-- **Impact analysis**: Analyse van wijzigingsimpact op andere koppelingen
-
-### Governance en Compliance
-- **Approval workflows**: Goedkeuringsprocessen voor nieuwe koppelingen
-- **Compliance monitoring**: Continue monitoring van regelgeving naleving
-- **Documentation management**: Automatisch bijhouden van documentatie
-- **Audit support**: Ondersteuning voor compliance audits

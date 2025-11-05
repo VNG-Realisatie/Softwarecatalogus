@@ -19,7 +19,7 @@ keywords:
 ## Beschrijving
 Deze functionaliteit beschrijft hoe leveranciers hun software aanbod kunnen beheren. Het gaat om het aanmaken, onderhouden en promoten van applicaties, modules en diensten in de softwarecatalogus. Leveranciers gebruiken dit om hun digitale etalage te beheren en zichtbaar te zijn voor gemeenten.
 
-Deze functionaliteit is gekoppeld aan **[K002 - Applicatie](./K002-applicatie.md)** en ondersteunt ook de nieuwe concepten **[K006 - Suite](./K006-suite.md)** en **[K007 - Component](./K007-component.md)**.
+Deze functionaliteit is gekoppeld aan **[K002 - Applicatie](../Concepten/K002-applicatie.md)** en ondersteunt ook de nieuwe concepten **[K006 - Suite](../Concepten/K006-suite.md)** en **[K007 - Component](../Concepten/K007-component.md)**.
 
 ## Toepasselijk voor
 - 🏢 **Leveranciers**: Applicaties, modules en diensten aanbieden en beheren
@@ -146,7 +146,7 @@ De applicatie wizard begeleidt u door het complete aanmeldproces in 8 stappen:
 - **Alle gegevens** in één scherm voor finale controle
 - **Product aanmelden** of terug naar vorige stappen voor aanpassingen
 
-Zie [K002 - Applicatie](./K002-applicatie.md) voor de gedetailleerde wizard sequence diagram en technische flow.
+Zie [K002 - Applicatie](../Concepten/K002-applicatie.md) voor de gedetailleerde wizard sequence diagram en technische flow.
 
 ### Aanbod Beheren en Bijwerken
 

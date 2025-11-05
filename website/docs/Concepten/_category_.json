@@ -1,0 +1,8 @@
+{
+  "label": "Kern Concepten",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "De kern concepten van de GEMMA Softwarecatalogus met hun wizard flows en technische specificaties."
+  }
+}
