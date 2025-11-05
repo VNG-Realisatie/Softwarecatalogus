@@ -105,6 +105,51 @@ Versienummering volgt het MAJOR.MINOR.PATCH formaat:
 - **beschrijvingLang**: Uitgebreide release notes (Markdown, max 5000 karakters)
 - **gebruiken**: Welke organisaties gebruiken deze specifieke versie
 
+## Compliancy (Standaard Naleving)
+
+<ApiSchema id="swc" example pointer="#/components/schemas/compliancy" />
+
+Compliancy registreert de naleving van standaarden door applicaties. Het toont aan welke standaardversies een applicatie ondersteunt en biedt bewijs van compliance.
+
+### 📋 Compliance Eigenschappen
+- **Standaard Versie**: GEMMA standaardversie die wordt ondersteund
+- **Standaard Gemma**: Het GEMMA ID van de standaardversie  
+- **Module**: De applicatie waarvan de compliance wordt geregistreerd
+- **Bewijs**: Bewijsstuk (PDF, afbeelding, Word document, max 10MB)
+- **URL**: URL naar online bewijs van compliance
+
+### 🏆 Compliance Types
+
+#### 📋 GEMMA Standaarden
+- GEMMA Referentiecomponenten
+- GEMMA Informatiemodel
+- GEMMA Procesmodel
+- GEMMA Technische Architectuur
+
+#### 🌐 Technische Standaarden  
+- REST API specificaties
+- SOAP Webservice standaarden
+- DigiKoppeling profielen
+- StUF standaarden
+
+#### 🔒 Security Standaarden
+- ISO 27001 certificering
+- NEN 7510 compliance
+- AVG/GDPR compliance
+- Baseline Informatiebeveiliging Overheid (BIO)
+
+#### 🏛️ Overheids Standaarden
+- NORA (Nederlandse Overheid Referentie Architectuur)
+- Common Ground principes
+- Wet Digitale Overheid (WDO)
+- Archiefwet compliance
+
+### 📄 Bewijs Materiaal
+- **Testrapport**: Officiële testresultaten met datum en testorganisatie
+- **Certificaat**: Formele certificering door erkende instantie
+- **Conformance Statement**: Verklaring van leverancier over ondersteuning
+- **Online Validatie**: Link naar real-time validatie tools
+
 ## Gerelateerde Concepten
 - [K001 - Organisatie](./K001-organisatie.md): Leveranciers en gebruikers
 - [K003 - Dienst](./K003-dienst.md): Services die applicaties bieden
@@ -112,6 +157,8 @@ Versienummering volgt het MAJOR.MINOR.PATCH formaat:
 - [K005 - Koppeling](./K005-koppeling.md): Integraties tussen applicaties
 - [K006 - Suite](./K006-suite.md): Verzamelingen van applicaties
 - [K007 - Component](./K007-component.md): Onderdelen van applicaties
+- [K008 - Kwetsbaarheid](./K008-kwetsbaarheid.md): Beveiligingslekken in applicaties
+- [K009 - Beoordeeling](./K009-beoordeeling.md): Waarderingen van applicaties
 
 ## Persona Perspectief
 

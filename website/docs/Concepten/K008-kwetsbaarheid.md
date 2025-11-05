@@ -113,7 +113,7 @@ Zeer ernstige kwetsbaarheid die onmiddellijke actie vereist.
 - **Belang**: Data kwaliteit en betrouwbaarheid van security informatie
 
 ## Gerelateerde Concepten
-- [K002 - Applicatie](./K002-applicatie.md): Applicaties die kwetsbaarheden kunnen hebben
+- [K002 - Applicatie](./K002-applicatie.md): Applicaties die kwetsbaarheden kunnen hebben (inclusief compliancy)
 - [K004 - Gebruik](./K004-gebruik.md): Impact van kwetsbaarheden op gebruik
 - [K009 - Beoordeeling](./K009-beoordeeling.md): Security beoordelingen van applicaties
 

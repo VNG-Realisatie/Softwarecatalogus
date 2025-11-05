@@ -150,7 +150,7 @@ Beoordeling van service en support kwaliteit.
 - **Belang**: Architectuur consistentie en GEMMA compliance
 
 ## Gerelateerde Concepten
-- [K002 - Applicatie](./K002-applicatie.md): Applicaties die beoordeeld worden
+- [K002 - Applicatie](./K002-applicatie.md): Applicaties die beoordeeld worden (inclusief compliancy)
 - [K003 - Dienst](./K003-dienst.md): Diensten die beoordeeld worden
 - [K004 - Gebruik](./K004-gebruik.md): Gebruik ervaringen die beoordeeld worden
 - [K005 - Koppeling](./K005-koppeling.md): Koppelingen die beoordeeld worden

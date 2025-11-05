@@ -29,8 +29,6 @@ graph TB
     K007[K007 - Component<br/>🧩 Herbruikbare bouwstenen<br/>van applicaties]
     K008[K008 - Kwetsbaarheid<br/>🛡️ Beveiligingslekken<br/>in applicaties]
     K009[K009 - Beoordeeling<br/>⭐ Waarderingen en<br/>gebruikerservaringen]
-    K010[K010 - Compliancy<br/>✅ Standaard naleving<br/>en certificering]
-
     %% Primaire Relaties
     K001 -.->|"biedt aan"| K002
     K001 -.->|"gebruikt"| K002
@@ -49,7 +47,6 @@ graph TB
     K009 -->|"beoordeelt"| K003
     K009 -->|"beoordeelt"| K004
     K009 -->|"beoordeelt"| K005
-    K010 -->|"compliance van"| K002
 
     %% Secundaire Relaties
     K006 -.->|"deelt"| K007
@@ -66,7 +63,6 @@ graph TB
     classDef component fill:#e0f2f1,stroke:#004d40,stroke-width:2px
     classDef kwetsbaarheid fill:#ffebee,stroke:#c62828,stroke-width:2px
     classDef beoordeeling fill:#f9fbe7,stroke:#827717,stroke-width:2px
-    classDef compliancy fill:#e8eaf6,stroke:#283593,stroke-width:2px
 
     class K001 organisatie
     class K002 applicatie
@@ -77,7 +73,6 @@ graph TB
     class K007 component
     class K008 kwetsbaarheid
     class K009 beoordeeling
-    class K010 compliancy
 ```
 
 ## Concepten Overzicht
@@ -93,7 +88,6 @@ graph TB
 | **[K007 - Component](./K007-component.md)** | Herbruikbare onderdelen van applicaties | Modulaire architectuur | 🚧 **Concept** |
 | **[K008 - Kwetsbaarheid](./K008-kwetsbaarheid.md)** | Beveiligingslekken in applicaties | Security monitoring | ✅ Geïmplementeerd |
 | **[K009 - Beoordeeling](./K009-beoordeeling.md)** | Waarderingen en gebruikerservaringen | Kwaliteit feedback | ✅ Geïmplementeerd |
-| **[K010 - Compliancy](./K010-compliancy.md)** | Standaard naleving en certificering | Compliance tracking | ✅ Geïmplementeerd |
 
 :::warning Concept Status
 **K006 - Suite** en **K007 - Component** zijn conceptuele uitbreidingen die nog niet volledig zijn geïmplementeerd in de GEMMA Softwarecatalogus. De wizards en functionaliteiten zijn in ontwikkeling.
