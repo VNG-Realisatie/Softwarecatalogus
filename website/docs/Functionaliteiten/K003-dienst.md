@@ -233,77 +233,90 @@ De Dienst wizard begeleidt gebruikers door het proces van het registreren van ee
 ```mermaid
 sequenceDiagram
     participant U as Gebruiker
-    participant W as Dienst Wizard
+    participant S1 as Stap 1: Applicatie Selectie
+    participant S2 as Stap 2: Dienst Info
+    participant S3 as Stap 3: Technische Specs
+    participant S4 as Stap 4: Toegang & Beveiliging
+    participant S5 as Stap 5: SLA & Performance
+    participant S6 as Stap 6: Prijsmodel
+    participant S7 as Stap 7: Documentatie
+    participant S8 as Stap 8: Controleren
+    participant AW as Applicatie Wizard
 
-    Note over U,W: Dienst Wizard - Gebruiker Flow
+    Note over U,S8: Dienst Wizard - Gebruiker Flow
 
     %% Stap 1: Applicatie Selectie
-    U->>W: Start dienst wizard
-    W-->>U: Stap 1 - Applicatie selectie
+    U->>S1: Start dienst wizard
+    S1-->>U: Stap 1 - Applicatie selectie
     Note over U: Overzicht: Lijst van beschikbare applicaties 
     
     alt Applicatie selecteren
-        U->>W: Selecteer applicatie uit lijst
+        U->>S1: Selecteer applicatie uit lijst
         Note over U: Invoer: Kies applicatie die de dienst gaat aanbieden
+        S1->>S2: Ga naar Stap 2
     else Geen geschikte applicatie
-        U->>W: Klik 'Applicatie niet gevonden'
-        W-->>U: Redirect naar Applicatie wizard
+        U->>S1: Klik 'Applicatie niet gevonden'
+        S1->>AW: Redirect naar Applicatie wizard
         Note over U: Wizard wordt afgebroken - ga naar Applicatie wizard (gegevens worden NIET opgeslagen)
     end
 
     %% Stap 2: Dienst Informatie
-    W-->>U: Stap 2 - Dienst informatie
+    S2-->>U: Stap 2 - Dienst informatie
     Note over U: Invoer: Naam, Type (API/Webservice/Interface/Proces), Beschrijving, Categorie, Versie
-    U->>W: Vul dienst gegevens in
+    U->>S2: Vul dienst gegevens in
     
     alt Naam al in gebruik binnen applicatie
-        W-->>U: Foutmelding - naam al in gebruik (wens)
-        U->>W: Pas naam aan
+        S2-->>U: Foutmelding - naam al in gebruik (wens)
+        U->>S2: Pas naam aan
     else Naam beschikbaar
-        U->>W: Ga naar volgende stap
+        S2->>S3: Ga naar Stap 3
     end
 
     %% Stap 3: Technische Specificaties
-    W-->>U: Stap 3 - Technische specificaties
+    S3-->>U: Stap 3 - Technische specificaties
     Note over U: Invoer: Protocol (REST/SOAP/GraphQL), Data formaat (JSON/XML), Authenticatie, Endpoint URL
-    U->>W: Vul technische specificaties in
-    U->>W: Ga naar volgende stap
+    U->>S3: Vul technische specificaties in
+    S3->>S4: Ga naar Stap 4
 
     %% Stap 4: Toegang en Beveiliging
-    W-->>U: Stap 4 - Toegang en beveiliging
+    S4-->>U: Stap 4 - Toegang en beveiliging
     Note over U: Invoer: Zichtbaarheid (Publiek/Privé/Beperkt), Gebruikersrechten, Geografische beperkingen
-    U->>W: Configureer toegang en beveiliging
-    U->>W: Ga naar volgende stap
+    U->>S4: Configureer toegang en beveiliging
+    S4->>S5: Ga naar Stap 5
 
     %% Stap 5: SLA en Performance
-    W-->>U: Stap 5 - SLA en performance
+    S5-->>U: Stap 5 - SLA en performance
     Note over U: Invoer: Beschikbaarheid %, Response tijd (ms), Throughput, Support niveau, Escalatie procedures
-    U->>W: Definieer SLA en performance eisen
-    U->>W: Ga naar volgende stap
+    U->>S5: Definieer SLA en performance eisen
+    S5->>S6: Ga naar Stap 6
 
     %% Stap 6: Prijsmodel
-    W-->>U: Stap 6 - Prijsmodel
+    S6-->>U: Stap 6 - Prijsmodel
     Note over U: Invoer: Prijsmodel (Gratis/Per verzoek/Abonnement), Kosten, Licentie voorwaarden
-    U->>W: Configureer prijsmodel
-    U->>W: Ga naar volgende stap
+    U->>S6: Configureer prijsmodel
+    S6->>S7: Ga naar Stap 7
 
     %% Stap 7: Documentatie
-    W-->>U: Stap 7 - Documentatie
+    S7-->>U: Stap 7 - Documentatie
     Note over U: Invoer: API documentatie URL, Code voorbeelden, Handleidingen, Contact informatie
-    U->>W: Upload/link documentatie (optioneel)
-    U->>W: Ga naar volgende stap
+    U->>S7: Upload/link documentatie (optioneel)
+    S7->>S8: Ga naar Stap 8
 
     %% Stap 8: Controleren
-    W-->>U: Stap 8 - Overzicht en controle
+    S8-->>U: Stap 8 - Overzicht en controle
     Note over U: Overzicht: Alle ingevoerde dienst informatie ter controle
     
     alt Gebruiker wil wijzigingen maken
-        U->>W: Klik 'Vorige' naar specifieke stap
-        Note over W: Navigeer terug naar gewenste stap
-        W-->>U: Toon geselecteerde stap voor aanpassing
+        U->>S8: Klik 'Vorige' naar specifieke stap
+        Note over S8: Navigeer terug naar gewenste stap
+        alt Terug naar Stap 2
+            S8->>S2: Ga terug naar Stap 2
+        else Terug naar andere stap
+            Note over S8: Navigeer naar gewenste stap
+        end
     else Gebruiker bevestigt
-        U->>W: Klik 'Dienst registreren'
-        W-->>U: Bevestiging - Dienst succesvol geregistreerd
+        U->>S8: Klik 'Dienst registreren'
+        S8-->>U: Bevestiging - Dienst succesvol geregistreerd
         Note over U: Dienst is gekoppeld aan applicatie en beschikbaar in catalogus
     end
 ```

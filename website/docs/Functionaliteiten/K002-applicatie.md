@@ -16,66 +16,11 @@ keywords:
 # K002 - Applicatie
 
 ## Beschrijving
-Applicaties zijn software producten die door leveranciers worden aangeboden en door organisaties kunnen worden gebruikt. Een applicatie kan bestaan uit meerdere modules of componenten en kan onderdeel zijn van een grotere suite.
+Applicaties zijn software producten die door leveranciers worden aangeboden en door organisaties kunnen worden gebruikt. Een applicatie kan bestaan uit meerdere modules of componenten en kan onderdeel zijn van een grotere suite. Applicaties worden in de fotware gesien als architecurele elementen ofwel modules en het onderliggende object heet derhalve ook module. Applicaties zijn elementen in de architecurele plaat van gemeenten en kunnen worden geexporteerd naar AMEF bestanden. 
 
 ## Kenmerken
 
-### Basisinformatie
-- **Applicatie naam**: Officiële naam van de software
-- **Beschrijving**: Korte en uitgebreide omschrijving van functionaliteiten
-- **Categorie**: Type software (DMS, Financieel, HR, CRM, etc.)
-- **Website**: Officiële product website
-- **Logo**: Visuele identiteit van de applicatie
-- **Screenshots**: Visuele presentatie van de gebruikersinterface
-
-### Leverancier Informatie
-- **Leverancier**: Organisatie die de software aanbiedt
-- **Contactpersoon**: Aangewezen contactpersoon voor de applicatie
-- **Support**: Ondersteuning en service informatie
-- **Documentatie**: Links naar handleidingen en documentatie
-
-### Technische Specificaties
-- **Versies**: Verschillende releases van de software
-- **Technologie stack**: Gebruikte programmeertalen en frameworks
-- **Architectuur**: Monoliet, Microservices, Cloud-native
-- **Integratie mogelijkheden**: API's, webservices, koppelingen
-- **Schaalbaarheid**: Ondersteuning voor groei en uitbreiding
-
-### Hosting en Deployment
-- **Hosting type**: SaaS, On-premise, Hybrid, Cloud
-- **Cloud providers**: AWS, Azure, Google Cloud, Nederlandse cloud
-- **Data locatie**: Waar worden gegevens opgeslagen
-- **Compliance**: Certificeringen en standaarden naleving
-
-### Licentie en Prijsmodel
-- **Licentiemodel**: Open source, Commercieel, Freemium, Enterprise
-- **Specifieke licentie**: GPL, MIT, Apache, Proprietary
-- **Prijsstructuur**: Per gebruiker, Per maand, Eenmalig, Volume korting
-- **Kosten**: Transparante prijsinformatie
-
-## Relaties
-
-### Eigendom
-- **Eigendom van**: Organisatie (leverancier)
-- **Ontwikkeld door**: Ontwikkelteam of externe partijen
-- **Onderhouden door**: Support en ontwikkel organisatie
-
-### Gebruik
-- **Gebruikt door**: Organisaties (klanten)
-- **Geïmplementeerd bij**: Specifieke implementaties
-- **Licenties**: Actieve licentie overeenkomsten
-
-### Structuur
-- **Bestaat uit**: Componenten en modules
-- **Onderdeel van**: Suite of product familie
-- **Afhankelijk van**: Andere applicaties of services
-- **Integreert met**: Externe systemen en applicaties
-
-### Functionaliteit
-- **Biedt**: Diensten en services
-- **Ondersteunt**: Standaarden en protocollen
-- **Gekoppeld aan**: GEMMA referentiecomponenten
-- **Voldoet aan**: Compliance vereisten
+    <ApiSchema id="swc" example   pointer="#/components/schemas/module" />
 
 ## Applicatie Types
 
@@ -180,119 +125,136 @@ De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van 
 ```mermaid
 sequenceDiagram
     participant U as Gebruiker
-    participant W as Applicatie Wizard
+    participant S0 as Stap 0: Organisatie Selectie
+    participant S1 as Stap 1: Applicatie Info
+    participant S2 as Stap 2: Licentie/Hosting
+    participant S2b as Stap 2b: Versies
+    participant S3 as Stap 3: Referentie Componenten
+    participant S4 as Stap 4: Standaarden
+    participant S5 as Stap 5: Koppelingen
+    participant S6 as Stap 6: Diensten
+    participant S7 as Stap 7: Controleren
 
-    Note over U,W: Applicatie Wizard - Gebruiker Flow
+    Note over U,S7: Applicatie Wizard - Gebruiker Flow
 
     %% Entry Point Keuze
-    U->>W: Start applicatie wizard
-    W-->>U: Toon entry point keuze
+    U->>S0: Start applicatie wizard
+    S0-->>U: Toon entry point keuze
     Note over U: Keuze: 'Applicatie registreren' (eigen org) of 'Applicatie melden' (andere org)
     
     alt Applicatie melden (voor andere organisatie)
-        U->>W: Kies 'Applicatie melden'
+        U->>S0: Kies 'Applicatie melden'
         
         %% Stap 0: Aanbieder Selectie
-        W-->>U: Stap 0 - Aanbieder selectie formulier
+        S0-->>U: Stap 0 - Aanbieder selectie formulier
         Note over U: Invoer: Zoek bestaande aanbieder of 'Nieuwe aanbieder'
         
         alt Bestaande aanbieder selecteren
-            U->>W: Selecteer bestaande aanbieder uit lijst
-            W-->>U: Toon applicaties van geselecteerde aanbieder (controle)
+            U->>S0: Selecteer bestaande aanbieder uit lijst
+            S0-->>U: Toon applicaties van geselecteerde aanbieder (controle)
             Note over U: Overzicht: Bestaande applicaties ter verificatie (wens)
-            U->>W: Bevestig aanbieder keuze
+            U->>S0: Bevestig aanbieder keuze
         else Nieuwe aanbieder aanmaken
-            U->>W: Klik 'Nieuwe aanbieder'
-            W-->>U: Nieuwe aanbieder formulier
+            U->>S0: Klik 'Nieuwe aanbieder'
+            S0-->>U: Nieuwe aanbieder formulier
             Note over U: Invoer: Naam aanbieder + Website URL
-            U->>W: Vul aanbieder gegevens in
-            W-->>U: Bevestig nieuwe aanbieder
+            U->>S0: Vul aanbieder gegevens in
+            S0-->>U: Bevestig nieuwe aanbieder
         end
         
     else Applicatie registreren (eigen organisatie)
-        U->>W: Kies 'Applicatie registreren'
-        Note over W: Sla aanbieder selectie over - gebruik eigen organisatie
+        U->>S0: Kies 'Applicatie registreren'
+        Note over S0: Sla aanbieder selectie over - gebruik eigen organisatie
     end
 
     %% Stap 1: Algemene Applicatie Gegevens
-    W-->>U: Stap 1 - Algemene applicatie gegevens
+    S0->>S1: Ga naar Stap 1
+    S1-->>U: Stap 1 - Algemene applicatie gegevens
     Note over U: Invoer: Naam, BeschrijvingKort, BeschrijvingLang, Contactpersoon, Website
-    U->>W: Vul algemene gegevens in
+    U->>S1: Vul algemene gegevens in
     
     alt Naam al in gebruik
-        W-->>U: Foutmelding - naam al in gebruik (wens)
-        U->>W: Pas naam aan
+        S1-->>U: Foutmelding - naam al in gebruik (wens)
+        U->>S1: Pas naam aan
     else Naam beschikbaar
-        U->>W: Ga naar volgende stap
+        S1->>S2: Ga naar Stap 2
     end
 
     %% Stap 2: Licentie / Hosting
-    W-->>U: Stap 2 - Licentie / Hosting informatie
+    S2-->>U: Stap 2 - Licentie / Hosting informatie
     Note over U: Invoer: Licentievorm (Open source/Commercieel), Specifieke licentie, Kosten, Hosting vorm (SaaS/On-premise/Hybrid), Data locatie, Hosting provider
-    U->>W: Vul licentie en hosting gegevens in
+    U->>S2: Vul licentie en hosting gegevens in
     
     %% Conditionele Stap: Versies (alleen bij On-premise)
     alt Hosting = On-premise
-        W-->>U: Stap 2b - Versie beheer (optioneel)
+        S2->>S2b: Ga naar Versie beheer
+        S2b-->>U: Stap 2b - Versie beheer (optioneel)
         Note over U: Invoer: Versienummer, Status (Productie/Beta/Alpha)
-        U->>W: Voeg versie(s) toe (optioneel)
+        U->>S2b: Voeg versie(s) toe (optioneel)
+        S2b->>S3: Ga naar Stap 3
+    else Hosting = SaaS/Cloud
+        S2->>S3: Ga naar Stap 3
     end
-    
-    U->>W: Ga naar volgende stap
 
     %% Stap 3: Referentie Componenten
-    W-->>U: Stap 3 - GEMMA referentiecomponenten
+    S3-->>U: Stap 3 - GEMMA referentiecomponenten
     Note over U: Invoer: Zoek referentiecomponent → Selecteer → Toevoegen aan lijst (herhaal voor meerdere componenten)
     
     loop Voor elk referentiecomponent
-        U->>W: Zoek referentiecomponent
-        U->>W: Selecteer component uit zoekresultaten
-        U->>W: Voeg toe aan lijst
-        W-->>U: Component toegevoegd aan lijst
+        U->>S3: Zoek referentiecomponent
+        U->>S3: Selecteer component uit zoekresultaten
+        U->>S3: Voeg toe aan lijst
+        S3-->>U: Component toegevoegd aan lijst
     end
     
-    U->>W: Ga naar volgende stap
+    S3->>S4: Ga naar Stap 4
 
     %% Stap 4: Standaarden
-    W-->>U: Stap 4 - Standaarden compliance
+    S4-->>U: Stap 4 - Standaarden compliance
     Note over U: Overzicht: Alle standaarden van geselecteerde referentiecomponenten worden automatisch getoond
     
     loop Voor elke standaard
-        W-->>U: Toon standaard (gekoppeld aan referentiecomponent)
+        S4-->>U: Toon standaard (gekoppeld aan referentiecomponent)
         Note over U: Invoer: Voldoet applicatie aan standaard? (ja/nee)
-        U->>W: Selecteer compliance status
+        U->>S4: Selecteer compliance status
         
         alt Applicatie voldoet aan standaard
             Note over U: Invoer: Upload bewijsstuk of verwijs naar bewijs (URL/document)
-            U->>W: Upload bewijs of voeg referentie toe
+            U->>S4: Upload bewijs of voeg referentie toe
         end
     end
     
-    U->>W: Ga naar volgende stap
+    S4->>S5: Ga naar Stap 5
 
     %% Stap 5: Koppelingen
-    W-->>U: Stap 5 - Koppelingen met andere applicaties
+    S5-->>U: Stap 5 - Koppelingen met andere applicaties
     Note over U: Invoer: Selecteer Applicatie B + Richting + Soort koppeling + Beschrijving
-    U->>W: Definieer koppelingen (optioneel)
-    U->>W: Ga naar volgende stap
+    U->>S5: Definieer koppelingen (optioneel)
+    S5->>S6: Ga naar Stap 6
 
     %% Stap 6: Diensten
-    W-->>U: Stap 6 - Diensten die applicatie biedt
+    S6-->>U: Stap 6 - Diensten die applicatie biedt
     Note over U: Invoer: Dienst type (API/Webservice/Interface) + Naam + Beschrijving
-    U->>W: Voeg diensten toe (optioneel)
-    U->>W: Ga naar volgende stap
+    U->>S6: Voeg diensten toe (optioneel)
+    S6->>S7: Ga naar Stap 7
 
     %% Stap 7: Controleren
-    W-->>U: Stap 7 - Overzicht en controle
+    S7-->>U: Stap 7 - Overzicht en controle
     Note over U: Overzicht: Alle ingevoerde gegevens ter controle
     
     alt Gebruiker wil wijzigingen maken
-        U->>W: Klik 'Vorige' naar specifieke stap
-        Note over W: Navigeer terug naar gewenste stap
-        W-->>U: Toon geselecteerde stap voor aanpassing
+        U->>S7: Klik 'Vorige' naar specifieke stap
+        Note over S7: Navigeer terug naar gewenste stap
+        alt Terug naar Stap 1
+            S7->>S1: Ga terug naar Stap 1
+        else Terug naar Stap 2
+            S7->>S2: Ga terug naar Stap 2
+        else Terug naar andere stap
+            Note over S7: Navigeer naar gewenste stap
+        end
     else Gebruiker bevestigt
-        U->>W: Klik 'Applicatie aanmelden'
-        W-->>U: Bevestiging - Applicatie succesvol aangemeld
+        U->>S7: Klik 'Applicatie aanmelden'
+        S7-->>U: Bevestiging - Applicatie succesvol aangemeld
         Note over U: Applicatie is opgeslagen en beschikbaar in catalogus
     end
 ```
