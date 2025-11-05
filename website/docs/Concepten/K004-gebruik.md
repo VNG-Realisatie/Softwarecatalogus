@@ -46,125 +46,79 @@ Gebruik beschrijft hoe organisaties applicaties inzetten in hun ICT-landschap. D
 - **Vervult rollen**: Functionele rollen in de organisatie
 - **Levert waarde**: Meetbare business value
 
-## Gebruik Types
+## Gebruik Status
 
-### 🏛️ Productie Gebruik
-Volledig operationeel gebruik in de dagelijkse bedrijfsvoering.
+Het gebruik van een applicatie doorloopt verschillende statussen die de levenscyclus van de implementatie weergeven:
 
-**Kenmerken:**
-- Live omgeving met echte data
-- Volledige gebruikersbasis
-- 24/7 beschikbaarheid vereist
-- Formele support overeenkomsten
-- Backup en disaster recovery
-
-**Voorbeelden:**
-- Zaaksysteem voor burgerzaken
-- Financieel systeem voor boekhouding
-- HR systeem voor personeelsbeheer
-- CRM voor klantrelatiebeheer
-
-### 🧪 Pilot Gebruik
-Beperkte test implementatie om geschiktheid te evalueren.
+### 🔍 Verwerving
+De organisatie onderzoekt en evalueert de applicatie voor mogelijke implementatie.
 
 **Kenmerken:**
-- Beperkte gebruikersgroep
-- Gecontroleerde omgeving
-- Evaluatie criteria en KPI's
-- Tijdelijke implementatie
-- Intensieve begeleiding
+- Marktonderzoek en evaluatie
+- Proof of concept activiteiten
+- Business case ontwikkeling
+- Leverancier selectie
 
-**Voorbeelden:**
-- Nieuwe workflow tool in één afdeling
-- Innovatieve citizen service in één wijk
-- Cloud migratie van één applicatie
-- Nieuwe rapportage tool voor management
-
-### 🔄 Migratie Gebruik
-Overgang van oude naar nieuwe applicatie of versie.
+### 📋 Gepland
+De beslissing is genomen om de applicatie te implementeren en er is een implementatieplan.
 
 **Kenmerken:**
-- Parallelle systemen
-- Data migratie processen
-- Gebruikerstraining
-- Rollback procedures
-- Gefaseerde uitrol
+- Goedgekeurde business case
+- Projectplan en tijdlijn
+- Budget toegewezen
+- Contractonderhandelingen
 
-**Voorbeelden:**
-- Migratie van legacy systeem naar cloud
-- Upgrade naar nieuwe versie
-- Consolidatie van meerdere systemen
-- Platform modernisering
-
-### 📊 Analytische Gebruik
-Gebruik voor rapportage, analyse en business intelligence.
+### ✅ In productie
+De applicatie is actief in gebruik binnen de organisatie.
 
 **Kenmerken:**
-- Read-only toegang tot data
-- Batch processing
-- Scheduled reports
-- Dashboard integraties
-- Data warehouse koppelingen
+- Live omgeving operationeel
+- Gebruikers zijn getraind
+- Support processen actief
+- Monitoring en beheer ingesteld
 
-**Voorbeelden:**
-- BI dashboards voor management
-- Compliance rapportage
-- Performance monitoring
-- Trend analyse tools
-
-### 🔧 Ontwikkeling Gebruik
-Gebruik voor ontwikkeling, test en configuratie doeleinden.
+### ⚠️ Uit te faseren
+De organisatie heeft besloten om het gebruik van de applicatie te beëindigen.
 
 **Kenmerken:**
-- Ontwikkel en test omgevingen
-- Sandbox configuraties
-- API testing tools
-- Prototype development
-- Integration testing
+- End-of-life planning
+- Migratiestrategie bepaald
+- Data archivering voorbereid
+- Gebruikers geïnformeerd
 
-**Voorbeelden:**
-- API development platforms
-- Test automation tools
-- Configuration management
-- Integration testing suites
+### 🔚 Uitgefaseerd
+Het gebruik van de applicatie is volledig beëindigd.
 
-## Gebruik Lifecycle
+**Kenmerken:**
+- Applicatie is uitgeschakeld
+- Data is gemigreerd of gearchiveerd
+- Licenties zijn opgezegd
+- Documentatie is bijgewerkt
 
-### 📋 Planning
-- **Behoefteanalyse**: Identificatie van functionele requirements
-- **Marktonderzoek**: Evaluatie van beschikbare oplossingen
-- **Business case**: Kosten-baten analyse en ROI berekening
-- **Projectplan**: Implementatie roadmap en mijlpalen
+## Gebruik Eigenschappen
 
-### 🚀 Implementatie
-- **Procurement**: Aanschaf en contractering
-- **Setup**: Technische installatie en configuratie
-- **Integratie**: Koppeling met bestaande systemen
-- **Training**: Gebruikerstraining en change management
+### 🏢 Organisatie Gegevens
+- **Afnemer**: De organisatie die de applicatie gebruikt
+- **Contactpersoon**: Verantwoordelijke persoon voor dit gebruik
+- **Deelnemers**: Andere organisaties die deelnemen (bij samenwerkingen)
+- **Interne Aantekening**: Aanvullende interne informatie
 
-### 📈 Adoptie
-- **Rollout**: Gefaseerde uitrol naar gebruikers
-- **Support**: Helpdesk en gebruikersondersteuning
-- **Monitoring**: Performance en gebruiksmonitoring
-- **Optimalisatie**: Aanpassingen en verbeteringen
+### 📅 Tijdlijn Gegevens
+- **Startdatum Verwerving**: Wanneer de evaluatie is gestart
+- **Startdatum Gepland**: Geplande implementatiedatum
+- **Startdatum In Productie**: Wanneer de applicatie live is gegaan
+- **Startdatum Uit Te Faseren**: Wanneer uitfasering begint
+- **Startdatum Uitgefaseerd**: Wanneer gebruik definitief is beëindigd
 
-### 🔄 Operatie
-- **Dagelijks beheer**: Routine onderhoud en monitoring
-- **Incident management**: Probleem oplossing en escalatie
-- **Change management**: Wijzigingen en updates
-- **Capacity management**: Capaciteitsplanning en scaling
+### 🔗 Applicatie Koppelingen
+- **Module**: De specifieke applicatie die wordt gebruikt
+- **Module Versie**: De specifieke versie van de applicatie
+- **Referentiecomponenten**: GEMMA componenten waarvoor de applicatie wordt gebruikt
+- **AMEF Elementen**: Architectuur elementen die worden ondersteund
 
-### 📊 Evaluatie
-- **Performance review**: Evaluatie van KPI's en doelstellingen
-- **User satisfaction**: Gebruikerstevredenheid onderzoek
-- **Cost analysis**: Kosten analyse en optimalisatie
-- **Future planning**: Roadmap voor toekomstige ontwikkelingen
-
-### 🔚 Uitfasering
-- **End-of-life planning**: Voorbereiding op vervanging
-- **Data migratie**: Overzetten van gegevens naar opvolger
-- **User transition**: Overgang gebruikers naar nieuwe oplossing
-- **Decommissioning**: Definitieve uitschakeling van systeem
+### 🤝 Diensten en Koppelingen
+- **Diensten**: Services die worden afgenomen bij dit gebruik
+- **Koppelingen**: Integraties die worden gebruikt binnen dit gebruik
 
 ## Gerelateerde Concepten
 - [K001 - Organisatie](./K001-organisatie.md): Organisaties die applicaties gebruiken
@@ -172,6 +126,33 @@ Gebruik voor ontwikkeling, test en configuratie doeleinden.
 - [K003 - Dienst](./K003-dienst.md): Diensten die worden afgenomen
 - [K005 - Koppeling](./K005-koppeling.md): Integraties in het gebruik
 - [K007 - Component](./K007-component.md): Componenten die worden gebruikt
+
+## Persona Perspectief
+
+### 🏛️ Voor Gemeenten (Maria - ICT-coördinator)
+- **Doel**: Compleet overzicht van eigen applicatielandschap
+- **Gebruik**: Registreren van alle applicaties die de gemeente gebruikt
+- **Belang**: Inzicht in kosten, afhankelijkheden en lifecycle planning
+
+### 🏢 Voor Leveranciers (Jan - Directeur ICT Solutions)
+- **Doel**: Inzicht in wie hun software gebruikt
+- **Gebruik**: Gebruik melden van eigen applicaties bij gemeenten
+- **Belang**: Klantenbeheer en referentie cases
+
+### 🤝 Voor Samenwerkingen (Linda - Samenwerking Coördinator)
+- **Doel**: Gebruik namens leden registreren en beheren
+- **Gebruik**: Centraal overzicht van software gebruik door alle leden
+- **Belang**: Gezamenlijke inkoop en beheer optimalisatie
+
+### ⚙️ Voor Functioneel Beheer (Peter - Functioneel Beheerder)
+- **Doel**: Overzicht van software gebruik in gemeentelijke sector
+- **Gebruik**: Valideren en analyseren van gebruik registraties
+- **Belang**: Marktinzichten en trend analyse
+
+### 🏗️ Voor Architectuur Experts (Sarah - Enterprise Architect)
+- **Doel**: Architectuur compliance en standaarden gebruik monitoren
+- **Gebruik**: Analyseren welke referentie componenten en standaarden gebruikt worden
+- **Belang**: GEMMA adoptie en compliance monitoring
 
 ## Gerelateerde Functionaliteiten
 - [F013 - Gebruik Beheer](../Functionaliteiten/F013-gebruik-beheer.md)
@@ -261,7 +242,7 @@ sequenceDiagram
 
     %% Stap 2: Gebruik Informatie
     S2-->>U: Stap 2 - Gebruik informatie
-    Note over U: Invoer: Implementatie datum, Go-live datum, Status, Fase, Licentie info, Technische configuratie, Gebruikers info, Evaluatie gegevens
+    Note over U: Invoer: Status, Startdata per status, Contactpersoon, Deelnemers, Interne aantekening
     U->>S2: Vul alle gebruik gegevens in
     S2->>S3: Ga naar Stap 3
 
@@ -367,7 +348,9 @@ sequenceDiagram
   </TabItem>
   <TabItem value="stap2" label="Stap 2: Gebruik Informatie">
     <ul>
-      <li>Gebruik Informatie: Alle gebruik eigenschappen in één uitgebreide stap (implementatie details, licentie info, technische configuratie, gebruikers info, evaluatie gegevens)</li>
+      <li>Gebruik Informatie: Status, Startdata per status, Contactpersoon, Deelnemers, Interne aantekening</li>
+      <li>Status keuze bepaalt welke startdata velden relevant zijn</li>
+      <li>Deelnemers alleen relevant bij samenwerkingsverbanden</li>
     </ul>
    ![](img_2.png)
   </TabItem>

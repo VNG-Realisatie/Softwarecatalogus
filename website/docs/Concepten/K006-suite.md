@@ -23,130 +23,44 @@ import TabItem from '@theme/TabItem';
 :::
 
 ## Beschrijving
-Een suite is een verzameling van gerelateerde applicaties die samen een compleet softwarepakket vormen. Denk hierbij aan een kantoorsuite met tekstverwerker, spreadsheet en presentatiesoftware. Suites bieden vaak een geïntegreerde gebruikerservaring en gedeelde functionaliteiten.
+Een suite is een verzameling van modules (applicaties) die samen een product vormen. Dit is een eenvoudig beschrijvend object dat de relatie tussen gerelateerde applicaties vastlegt, zoals Microsoft Office (Word, Excel, PowerPoint) of Adobe Creative Suite.
 
 ## Schema Eigenschappen
 
 <ApiSchema id="swc" example pointer="#/components/schemas/suite" />
 
-## Relaties
+### Basis Informatie
+- **Naam**: Naam van de suite (verplicht)
+- **Korte omschrijving**: Korte beschrijving van de suite (verplicht)
+- **Uitgebreide omschrijving**: Uitgebreide beschrijving in markdown formaat
+- **Logo**: URL naar het logo van de suite
+- **Website**: Website van de suite
 
-### Bevat
-- **Applicaties**: Individuele applicaties die deel uitmaken van de suite
-- **Componenten**: Herbruikbare bouwstenen binnen de suite
-- **Diensten**: Gedeelde services die door de suite worden aangeboden
-- **Documentatie**: Overkoepelende documentatie voor de gehele suite
+### Relaties
+- **Contactpersoon**: Contactpersoon voor de suite
+- **Applicaties**: De modules (applicaties) die onderdeel zijn van deze suite
 
-### Gebruik
-- **Gebruikt door**: Organisaties die de suite inzetten
-- **Geïntegreerd met**: Externe systemen via de individuele applicaties
-- **Ondersteund door**: Leverancier van de suite
-- **Beheerd door**: IT afdeling van de organisatie
-
-### Standaarden
-- **Voldoet aan**: Overkoepelende standaarden voor de suite
-- **Implementeert**: Specifieke standaarden per applicatie
-- **Gecertificeerd voor**: Compliance vereisten voor het gehele pakket
-
-## Suite Types
+## Voorbeelden van Suites
 
 ### 🏢 Kantoorsuites
-Geïntegreerde pakketten voor algemene kantoorproductiviteit.
+- **Microsoft Office**: Word, Excel, PowerPoint, Outlook
+- **Google Workspace**: Docs, Sheets, Slides, Gmail
+- **LibreOffice**: Writer, Calc, Impress, Draw
 
-**Kenmerken:**
-- Tekstverwerking, spreadsheets, presentaties
-- E-mail en agenda functionaliteit
-- Cloud-integratie en samenwerking
-- Licentiebeheer voor de gehele suite
-- Gedeelde gebruikersinterface elementen
+### 🏛️ Gemeentelijke Suites
+- **Centric Suite**: Burgerzaken, Vergunningen, Handhaving modules
+- **Atos Suite**: Zaakgericht werken, DMS, Workflow modules
+- **Roxit Suite**: Burgerzaken, Financiën, Personeelszaken modules
 
-**Voorbeelden:**
-- Microsoft 365 (Word, Excel, PowerPoint, Outlook)
-- Google Workspace (Docs, Sheets, Slides, Gmail)
-- LibreOffice (Writer, Calc, Impress)
-
-### 📊 Business Suites
-Geïntegreerde applicaties voor specifieke bedrijfsprocessen.
-
-**Kenmerken:**
-- ERP, CRM, HRM functionaliteit
-- Gedeelde data modellen
-- End-to-end procesondersteuning
-- Modulaire opbouw met integratiemogelijkheden
-- Centralized reporting en analytics
-
-**Voorbeelden:**
-- SAP Business Suite
-- Oracle E-Business Suite
-- Microsoft Dynamics 365
-
-### ⚙️ Ontwikkelingssuites
-Pakketten met tools voor softwareontwikkeling en -beheer.
-
-**Kenmerken:**
-- IDE's, compilers, debuggers
-- Version control integratie
-- Test automation tools
-- Deployment en CI/CD functionaliteit
-- Project management tools
-
-**Voorbeelden:**
-- JetBrains All Products Pack
-- Visual Studio Enterprise
-- Eclipse IDE for Java Developers
+### 💼 ERP Suites
+- **SAP ERP**: FI, CO, MM, SD, HR modules
+- **Microsoft Dynamics 365**: Sales, Finance, Operations modules
+- **Odoo**: CRM, Accounting, Inventory, Manufacturing modules
 
 ### ☁️ Cloud Suites
-Volledig cloud-native pakketten met geïntegreerde services.
-
-**Kenmerken:**
-- SaaS-gebaseerd
-- Schaalbare infrastructuur
-- Automatische updates en onderhoud
-- Pay-as-you-go modellen
-- Integratie met andere cloud services
-
-**Voorbeelden:**
-- Salesforce Cloud
-- Adobe Creative Cloud
-- Amazon Web Services (diverse services)
-
-## Suite Lifecycle
-
-### 📋 Planning en Samenstelling
-- **Marktanalyse**: Identificatie van behoeften en trends
-- **Productstrategie**: Definitie van de suite visie en doelstellingen
-- **Applicatie selectie**: Keuze van individuele applicaties
-- **Integratie design**: Ontwerp van de integratie tussen applicaties
-
-### 🛠️ Ontwikkeling en Integratie
-- **Applicatie ontwikkeling**: Ontwikkeling van nieuwe applicaties
-- **Integratie implementatie**: Realisatie van koppelingen
-- **Gedeelde componenten**: Ontwikkeling van herbruikbare componenten
-- **Testen**: Functionele, integratie en performance tests
-
-### 🚀 Lancering en Adoptie
-- **Marketing en sales**: Promotie en verkoop van de suite
-- **Implementatie**: Uitrol bij klanten
-- **Training**: Gebruikerstraining en adoptieprogramma's
-- **Support**: Helpdesk en ondersteuning voor de gehele suite
-
-### 🔄 Beheer en Onderhoud
-- **Versiebeheer**: Updates en upgrades van de suite
-- **Bug fixing**: Oplossen van problemen
-- **Security management**: Beveiliging van de suite
-- **Performance monitoring**: Bewaking van prestaties
-
-### 📈 Evolutie en Uitbreiding
-- **Nieuwe functionaliteiten**: Toevoegen van nieuwe features
-- **Applicatie toevoeging**: Integratie van nieuwe applicaties
-- **Marktuitbreiding**: Nieuwe doelgroepen en sectoren
-- **Technologische updates**: Aanpassing aan nieuwe technologieën
-
-### 🔚 Uitfasering
-- **End-of-life planning**: Strategie voor het beëindigen van de suite
-- **Migratiepaden**: Ondersteuning bij overgang naar alternatieven
-- **Data archivering**: Behoud van historische gegevens
-- **Decommissioning**: Definitieve uitschakeling
+- **Salesforce Cloud**: Sales, Service, Marketing modules
+- **Adobe Creative Cloud**: Photoshop, Illustrator, InDesign modules
+- **Microsoft 365**: Office apps, Teams, SharePoint modules
 
 ## Gerelateerde Concepten
 - [K001 - Organisatie](./K001-organisatie.md): Leveranciers en gebruikers van suites
@@ -155,6 +69,23 @@ Volledig cloud-native pakketten met geïntegreerde services.
 - [K004 - Gebruik](./K004-gebruik.md): Hoe suites worden gebruikt
 - [K005 - Koppeling](./K005-koppeling.md): Integraties tussen applicaties in een suite
 - [K007 - Component](./K007-component.md): Onderdelen van applicaties in een suite
+
+## Persona Perspectief
+
+### 🏛️ Voor Gemeenten (Maria - ICT-coördinator)
+- **Doel**: Overzicht van complete software pakketten
+- **Gebruik**: Zoeken naar geïntegreerde oplossingen voor meerdere processen
+- **Belang**: Kostenefficiëntie en consistente gebruikerservaring
+
+### 🏢 Voor Leveranciers (Jan - Directeur ICT Solutions)
+- **Doel**: Gerelateerde applicaties bundelen en promoten
+- **Gebruik**: Suite samenstellen uit eigen applicatie portfolio
+- **Belang**: Hogere verkoop waarde en klant binding
+
+### 🏗️ Voor Architectuur Experts (Sarah - Enterprise Architect)
+- **Doel**: Architectuur samenhang van gerelateerde applicaties beoordelen
+- **Gebruik**: Suite compliance met GEMMA principes valideren
+- **Belang**: Consistentie en interoperabiliteit binnen suites
 
 ## Gerelateerde Functionaliteiten
 - [F004 - Applicatiebeheer](../Functionaliteiten/F004-applicatiebeheer.md)
@@ -181,7 +112,7 @@ sequenceDiagram
     %% Stap 1: Suite Informatie
     U->>W: Start suite wizard
     W-->>U: Stap 1 - Suite informatie formulier
-    Note over U: Invoer: Naam, BeschrijvingKort, BeschrijvingLang, Website, Logo URL
+    Note over U: Invoer: Naam, Korte omschrijving, Uitgebreide omschrijving, Website, Logo URL, Contactpersoon
     U->>W: Vul suite informatie in
     W->>W: Valideer suite informatie
     W->>W: Sla suite informatie op (tijdelijk)

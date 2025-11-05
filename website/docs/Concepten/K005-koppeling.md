@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 # K005 - Koppeling
 
 ## Beschrijving
-Koppelingen beschrijven de technische integraties tussen verschillende applicaties. Dit kunnen API-koppelingen, bestandsuitwisselingen, database koppelingen of andere vormen van data-uitwisseling zijn. Koppelingen zijn essentieel voor een geïntegreerd applicatielandschap.
+Koppelingen beschrijven de technische integraties tussen applicaties (modules) onderling en/of met buitengemeentelijke voorzieningen. Hetzelfde koppeling object wordt gebruikt voor zowel het aanbod (welke koppelingen zijn beschikbaar voor een applicatie) als voor het gebruik (welke koppelingen hebben afnemers daadwerkelijk geïmplementeerd).
 
 ## Schema Eigenschappen
 
@@ -28,149 +28,125 @@ Koppelingen beschrijven de technische integraties tussen verschillende applicati
 
 ## Relaties
 
-### Applicaties
-- **Verbindt**: Twee of meer applicaties
-- **Gebruikt door**: Organisaties die de applicaties gebruiken
-- **Beheerd door**: IT teams of externe partijen
-- **Ondersteund door**: Leveranciers van de gekoppelde applicaties
+### Modules (Applicaties)
+- **Module A**: De bron module waarvan gegevens worden uitgewisseld
+- **Module B**: De doel module waarnaar gegevens worden uitgewisseld (optioneel)
+- **Intermediair Module**: Module die wordt gebruikt voor realisatie van de koppeling
+
+### Buitengemeentelijke Voorzieningen
+- **Buitengemeentelijke Voorziening**: Externe voorziening waarmee wordt gekoppeld (alternatief voor Module B)
+
+### Organisatie en Diensten
+- **Aanbieder**: De organisatie die de koppeling aanbiedt
+- **Dienst**: De dienst die deze koppeling gebruikt
 
 ### Standaarden
-- **Implementeert**: Technische standaarden
-- **Voldoet aan**: Compliance vereisten
-- **Gebruikt**: Data uitwisseling protocollen
-- **Ondersteunt**: Interoperabiliteit frameworks
-
-### Infrastructuur
-- **Loopt over**: Netwerk infrastructuur
-- **Gebruikt**: Middleware en integration platforms
-- **Afhankelijk van**: Database en storage systemen
-- **Monitored door**: Monitoring en alerting systemen
+- **Standaardversies**: Standaarden die door deze koppeling worden geïmplementeerd
 
 ## Koppeling Types
 
-### 🔌 API Koppelingen
-Real-time programmatische integraties via REST of GraphQL APIs.
+Het schema ondersteunt de volgende koppeling types:
 
-**Kenmerken:**
-- Synchrone communicatie
-- JSON/XML data uitwisseling
-- HTTP/HTTPS protocol
-- Real-time data toegang
-- Stateless architectuur
+### 🔌 API
+Moderne REST of GraphQL API koppelingen voor real-time data uitwisseling.
 
-**Voorbeelden:**
-- BRP koppeling voor persoongegevens
-- BAG koppeling voor adresgegevens
-- Zaaksysteem naar DMS koppeling
-- CRM naar e-mail marketing integratie
+### 🌐 Webservices
+SOAP-gebaseerde webservice koppelingen, vaak gebruikt voor overheidsstandaarden.
 
-### 🌐 Webservice Koppelingen
-SOAP-gebaseerde enterprise integraties met uitgebreide functionaliteit.
+### 📁 Bestandsoverdracht
+Batch-gebaseerde uitwisseling via bestanden (CSV, XML, etc.).
 
-**Kenmerken:**
-- WSDL service definities
-- XML message formaat
-- WS-Security standaarden
-- Transactionele ondersteuning
-- Enterprise service bus integratie
+### 🔗 DigiKoppeling
+Overheidsstandaard voor veilige gegevensuitwisseling tussen overheden.
 
-**Voorbeelden:**
-- StUF-ZKN zaakservices
-- DigiKoppeling services
-- Suwinet koppelingen
-- GBA/BRP webservices
-
-### 📁 Bestandsuitwisseling
-Batch-gebaseerde data uitwisseling via bestanden.
-
-**Kenmerken:**
-- Asynchrone verwerking
-- Grote data volumes
-- Scheduled transfers
-- FTP/SFTP protocol
-- Verschillende bestandsformaten
-
-**Voorbeelden:**
-- Salarisverwerking export
-- Factuur import/export
-- Backup data transfers
-- Rapportage distributie
-
-### 🗄️ Database Koppelingen
-Directe database toegang en synchronisatie.
-
-**Kenmerken:**
-- SQL-gebaseerde toegang
-- Real-time of batch sync
-- Transactionele integriteit
-- Database triggers
-- Replicatie mechanismen
-
-**Voorbeelden:**
-- Data warehouse ETL
-- Master data synchronisatie
-- Backup en archivering
-- Business intelligence feeds
-
-### 📨 Message Queue Koppelingen
+### 📨 Message Queue
 Asynchrone berichtuitwisseling via message brokers.
 
+### 🌐 Upload naar portaal
+Handmatige of geautomatiseerde upload naar webportalen.
+
+### ❓ N.v.t.
+Voor koppelingen waar het type niet van toepassing is of onbekend.
+
+## Koppeling Status
+
+De koppeling doorloopt verschillende statussen die de levenscyclus weergeven:
+
+### 🛠️ In ontwikkeling
+De koppeling wordt ontwikkeld en getest.
+
 **Kenmerken:**
-- Publish/subscribe patronen
-- Message persistence
-- Load balancing
-- Error recovery
-- Scalable architectuur
+- Technische specificatie wordt uitgewerkt
+- Ontwikkeling en testing in gang
+- Nog niet beschikbaar voor productie gebruik
 
-**Voorbeelden:**
-- Event-driven architectuur
-- Workflow orchestration
-- Notification services
-- Integration patterns
+### ✅ In gebruik
+De koppeling is operationeel en beschikbaar voor gebruik.
 
-## Koppeling Lifecycle
+**Kenmerken:**
+- Volledig getest en goedgekeurd
+- Beschikbaar voor implementatie door afnemers
+- Documentatie en support beschikbaar
 
-### 📋 Analyse en Design
-- **Requirements analyse**: Functionele en technische vereisten
-- **Architectuur design**: Integratie patronen en technologie keuzes
-- **Data mapping**: Mapping tussen verschillende data modellen
-- **Security design**: Beveiliging en toegangscontrole ontwerp
+### ⚠️ Einde ondersteuning
+De koppeling wordt niet meer actief ondersteund maar is nog beschikbaar.
 
-### 🛠️ Ontwikkeling
-- **Interface development**: API of service ontwikkeling
-- **Data transformation**: Implementatie van data conversie logica
-- **Error handling**: Foutafhandeling en recovery mechanismen
-- **Testing**: Unit, integration en performance testing
+**Kenmerken:**
+- Geen nieuwe features of updates
+- Beperkte support beschikbaar
+- Migratie naar alternatief wordt aanbevolen
 
-### 🚀 Deployment
-- **Environment setup**: Configuratie van test en productie omgevingen
-- **Security configuration**: Implementatie van beveiliging
-- **Monitoring setup**: Performance en health monitoring
-- **Documentation**: Technische en gebruikersdocumentatie
+### 🔚 Teruggetrokken
+De koppeling is niet meer beschikbaar.
 
-### 🔄 Operatie
-- **Monitoring**: Continue bewaking van performance en beschikbaarheid
-- **Maintenance**: Regulier onderhoud en updates
-- **Support**: Incident management en troubleshooting
-- **Optimization**: Performance tuning en capacity planning
+**Kenmerken:**
+- Volledig uitgefaseerd
+- Geen ondersteuning meer
+- Alternatieve oplossing vereist
 
-### 📈 Evolutie
-- **Version management**: Nieuwe versies en backward compatibility
-- **Enhancement**: Uitbreiding van functionaliteit
-- **Migration**: Overgang naar nieuwe technologieën
-- **Scaling**: Capaciteit uitbreiding bij groeiend gebruik
+## Gegevensuitwisseling Richting
 
-### 🔚 Retirement
-- **Deprecation**: Aankondiging van uitfasering
-- **Migration planning**: Overgang naar vervangend systeem
-- **Data preservation**: Behoud van historische gegevens
-- **Decommissioning**: Definitieve uitschakeling
+### A naar B
+Gegevens stromen van Module A naar Module B (of buitengemeentelijke voorziening).
+
+### B naar A  
+Gegevens stromen van Module B (of buitengemeentelijke voorziening) naar Module A.
+
+### Bi-directioneel
+Gegevens kunnen in beide richtingen stromen.
 
 ## Gerelateerde Concepten
 - [K002 - Applicatie](./K002-applicatie.md): Applicaties die worden gekoppeld
 - [K003 - Dienst](./K003-dienst.md): Diensten die worden gebruikt in koppelingen
 - [K004 - Gebruik](./K004-gebruik.md): Gebruik context van koppelingen
 - [K007 - Component](./K007-component.md): Componenten die koppelingen implementeren
+
+## Persona Perspectief
+
+### 🏛️ Voor Gemeenten (Maria - ICT-coördinator)
+- **Doel**: Overzicht van alle integraties in het applicatielandschap
+- **Gebruik**: Inzicht in afhankelijkheden en risico's van koppelingen
+- **Belang**: Impact analyse bij wijzigingen en uitval scenario's
+
+### 🏢 Voor Leveranciers (Jan - Directeur ICT Solutions)
+- **Doel**: Koppelingen aanbieden en beschikbaar stellen
+- **Gebruik**: Integratie mogelijkheden van eigen applicaties registreren
+- **Belang**: Interoperabiliteit en ecosysteem participatie
+
+### 🤝 Voor Samenwerkingen (Linda - Samenwerking Coördinator)
+- **Doel**: Gestandaardiseerde koppelingen voor leden
+- **Gebruik**: Koppelingen definiëren die door meerdere leden gebruikt worden
+- **Belang**: Efficiëntie en consistentie in integraties
+
+### 🔒 Voor Security Officers (Mark - Information Security Officer)
+- **Doel**: Security aspecten van data uitwisseling beoordelen
+- **Gebruik**: Koppelingen controleren op veilige data overdracht
+- **Belang**: Data beveiliging en compliance waarborgen
+
+### 🏗️ Voor Architectuur Experts (Sarah - Enterprise Architect)
+- **Doel**: Architectuur compliance van integraties valideren
+- **Gebruik**: Standaarden en protocollen van koppelingen beoordelen
+- **Belang**: Interoperabiliteit en architectuur consistentie
 
 ## Gerelateerde Functionaliteiten
 - [F008 - Externe Koppelingen](../Functionaliteiten/F008-externe-koppelingen.md)
@@ -284,7 +260,7 @@ sequenceDiagram
 
     %% Stap 3: Koppeling Informatie
     S3-->>U: Stap 3 - Koppeling informatie
-    Note over U: Invoer: Type (API/Webservice/Bestand/Database), Richting (A→B/B→A/A↔B), Protocol, Data formaat, Authenticatie, Data mapping, Standaarden, Performance eisen, Beveiliging, Test aanpak
+    Note over U: Invoer: Naam, Beschrijving, Type (api/webservices/bestandsoverdracht/digikoppeling/message que/upload naar portaal), Status, Datums per status, Richting (AnaarB/BnaarA/bi-directioneel), Standaardversies, Intermediair module
     U->>S3: Vul alle koppeling gegevens in
     S3->>S4: Ga naar Stap 4
 
@@ -342,7 +318,9 @@ sequenceDiagram
   </TabItem>
   <TabItem value="stap3" label="Stap 3: Koppeling Informatie">
     <ul>
-      <li>Koppeling Informatie: Alle koppeling eigenschappen in één uitgebreide stap (type, richting, protocol, data mapping, standaarden, performance, beveiliging, testing)</li>
+      <li>Koppeling Informatie: Naam, Beschrijving, Type, Status, Datums per status, Gegevensuitwisseling richting</li>
+      <li>Optioneel: Standaardversies die worden geïmplementeerd</li>
+      <li>Optioneel: Intermediaire module voor realisatie van de koppeling</li>
     </ul>
   </TabItem>
   <TabItem value="stap4" label="Stap 4: Controleren">

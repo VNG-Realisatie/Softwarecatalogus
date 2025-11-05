@@ -24,135 +24,40 @@ import TabItem from '@theme/TabItem';
 :::
 
 ## Beschrijving
-Een component is een specifiek onderdeel of module van een applicatie dat een bepaalde functionaliteit biedt. Componenten kunnen herbruikbaar zijn tussen verschillende applicaties en vormen de bouwstenen van complexe software systemen. Ze kunnen variëren van kleine utility functies tot grote functionele modules. Voorbeelden hiervan lopen van een zaakregistratie component tot een specifieke library.
+Een component is een logische groepering van modules (applicaties). Dit is een eenvoudig beschrijvend object dat de relatie tussen gerelateerde applicaties vastlegt, zoals een zaakregistratie component dat verschillende zaak-gerelateerde modules groepeert.
 
 ## Schema Eigenschappen
 
 <ApiSchema id="swc" example pointer="#/components/schemas/component" />
 
-## Relaties
+### Basis Informatie
+- **Naam**: Naam van het component (verplicht)
+- **Korte omschrijving**: Korte beschrijving van het component (verplicht)
+- **Uitgebreide omschrijving**: Uitgebreide beschrijving in markdown formaat
+- **Logo**: URL naar het logo van het component
+- **Website**: Website van het component
 
-### Onderdeel van
-- **Applicaties**: Componenten maken deel uit van applicaties
-- **Suites**: Gedeelde componenten binnen een suite
-- **Andere componenten**: Hiërarchische relaties tussen componenten
-- **Diensten**: Componenten implementeren specifieke diensten
+### Relaties
+- **Contactpersoon**: Contactpersoon voor het component
+- **Modules**: De modules (applicaties) die onderdeel zijn van dit component
 
-### Gebruik
-- **Gebruikt door**: Applicaties en andere componenten
-- **Geïntegreerd in**: Software systemen
-- **Afhankelijk van**: Andere componenten of libraries
-- **Levert functionaliteit aan**: Hoger gelegen applicaties
+## Voorbeelden van Componenten
 
-### Standaarden
-- **Voldoet aan**: Technische standaarden en protocollen
-- **Implementeert**: Interface specificaties
-- **Ondersteunt**: Data uitwisseling standaarden
-- **Gecertificeerd voor**: Compliance vereisten
+### 🏛️ Gemeentelijke Componenten
+- **Zaakregistratie Component**: Zaaksysteem, Workflow module, Document module
+- **Burgerzaken Component**: BRP module, Paspoort module, Uittreksel module
+- **Vergunningen Component**: Aanvraag module, Toetsing module, Verlening module
 
-## Component Types
+### 💼 Bedrijfsprocessen Componenten
+- **HR Component**: Personeelssysteem, Salarisverwerking, Verlof module
+- **Financiën Component**: Boekhouding, Facturering, Rapportage module
+- **CRM Component**: Klantbeheer, Contacthistorie, Marketing module
 
-### ⚙️ Functionele Componenten
-Componenten die specifieke bedrijfsfunctionaliteit leveren.
+### 🔧 Technische Componenten
+- **Authenticatie Component**: Login module, SSO module, Rechten module
+- **Document Component**: DMS, Archivering, Zoek module
+- **Integratie Component**: API gateway, Message broker, ETL module
 
-**Kenmerken:**
-- Encapsuleert bedrijfslogica
-- Herbruikbaar in verschillende contexten
-- Duidelijk gedefinieerde interfaces
-- Onafhankelijk van specifieke applicaties
-- Testbaar en onderhoudbaar
-
-**Voorbeelden:**
-- Zaakregistratie component
-- Document management component
-- Authenticatie component
-- Notificatie component
-
-### 🛠️ Technische Componenten
-Componenten die technische functionaliteit leveren, vaak generiek.
-
-**Kenmerken:**
-- Database connectiviteit
-- Logging en monitoring
-- Caching mechanismen
-- Message queuing
-- Security utilities
-
-**Voorbeelden:**
-- Database connector
-- Logging framework
-- Cache manager
-- Message broker client
-
-### 🧩 UI Componenten
-Herbruikbare componenten voor de gebruikersinterface.
-
-**Kenmerken:**
-- Visuele elementen
-- Interactieve controls
-- Consistent design
-- Responsief gedrag
-- Toegankelijkheidsondersteuning
-
-**Voorbeelden:**
-- Datumkiezer component
-- Tabel component
-- Formulier veld component
-- Navigatiebalk component
-
-### 🔗 Integratie Componenten
-Componenten die zorgen voor integratie met externe systemen.
-
-**Kenmerken:**
-- API clients
-- Data transformatie
-- Protocol adapters
-- Error handling voor externe communicatie
-- Retry mechanismen
-
-**Voorbeelden:**
-- Digikoppeling adapter
-- REST API client
-- SOAP webservice connector
-- Bestandsuitwisseling handler
-
-## Component Lifecycle
-
-### 📋 Design en Specificatie
-- **Behoefteanalyse**: Identificatie van herbruikbare functionaliteit
-- **Component design**: Ontwerp van interfaces en interne structuur
-- **API specificatie**: Gedetailleerde beschrijving van de API
-- **Testplan**: Definitie van testscenario's
-
-### 🛠️ Ontwikkeling en Testen
-- **Implementatie**: Codering van de component
-- **Unit testen**: Testen van individuele functies
-- **Integratie testen**: Testen van de interactie met andere componenten
-- **Documentatie**: Technische documentatie en code voorbeelden
-
-### 📦 Publicatie en Distributie
-- **Versiebeheer**: Beheer van component versies
-- **Pakketbeheer**: Publicatie naar een component repository
-- **Distributie**: Beschikbaar stellen aan andere teams/applicaties
-- **Ondersteuning**: Documentatie en support voor gebruikers
-
-### 🔄 Gebruik en Onderhoud
-- **Integratie**: Gebruik in applicaties
-- **Monitoring**: Bewaking van performance en stabiliteit
-- **Bug fixing**: Oplossen van problemen
-- **Updates**: Nieuwe versies en verbeteringen
-
-### 📈 Evolutie
-- **Feature toevoeging**: Uitbreiding van functionaliteit
-- **Refactoring**: Verbetering van interne structuur
-- **Technologische updates**: Aanpassing aan nieuwe technologieën
-- **Prestatie optimalisatie**: Verbetering van snelheid en efficiëntie
-
-### 🔚 Uitfasering
-- **Deprecation**: Aankondiging van uitfasering
-- **Migratie**: Ondersteuning bij overgang naar alternatieven
-- **Archivering**: Opslag van oude versies
-- **Verwijdering**: Definitieve verwijdering uit repository
 
 ## Gerelateerde Concepten
 - [K002 - Applicatie](./K002-applicatie.md): Applicaties die componenten gebruiken
@@ -160,6 +65,23 @@ Componenten die zorgen voor integratie met externe systemen.
 - [K004 - Gebruik](./K004-gebruik.md): Gebruik van componenten in applicaties
 - [K005 - Koppeling](./K005-koppeling.md): Koppelingen die componenten implementeren
 - [K006 - Suite](./K006-suite.md): Suites die componenten delen
+
+## Persona Perspectief
+
+### 🏛️ Voor Gemeenten (Maria - ICT-coördinator)
+- **Doel**: Overzicht van functionele groeperingen van applicaties
+- **Gebruik**: Zoeken naar applicaties per functiegebied (bijv. zaakregistratie)
+- **Belang**: Functionele dekking en proces ondersteuning
+
+### 🏢 Voor Leveranciers (Jan - Directeur ICT Solutions)
+- **Doel**: Applicaties groeperen per functiegebied
+- **Gebruik**: Component portfolio opbouwen voor betere positionering
+- **Belang**: Markt segmentatie en specialisatie tonen
+
+### 🏗️ Voor Architectuur Experts (Sarah - Enterprise Architect)
+- **Doel**: Functionele architectuur en component samenhang beoordelen
+- **Gebruik**: Component compliance met GEMMA referentie architectuur
+- **Belang**: Functionele consistentie en herbruikbaarheid
 
 ## Gerelateerde Functionaliteiten
 - [F004 - Applicatiebeheer](../Functionaliteiten/F004-applicatiebeheer.md)
@@ -185,7 +107,7 @@ sequenceDiagram
     %% Stap 1: Component Informatie
     U->>W: Start component wizard
     W-->>U: Stap 1 - Component informatie formulier
-    Note over U: Invoer: Naam, BeschrijvingKort, BeschrijvingLang, Website, Logo URL
+    Note over U: Invoer: Naam, Korte omschrijving, Uitgebreide omschrijving, Website, Logo URL, Contactpersoon
     U->>W: Vul component informatie in
     W->>W: Valideer component informatie
     W->>W: Sla component informatie op (tijdelijk)

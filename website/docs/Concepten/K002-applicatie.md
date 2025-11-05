@@ -113,6 +113,33 @@ Versienummering volgt het MAJOR.MINOR.PATCH formaat:
 - [K006 - Suite](./K006-suite.md): Verzamelingen van applicaties
 - [K007 - Component](./K007-component.md): Onderdelen van applicaties
 
+## Persona Perspectief
+
+### 🏛️ Voor Gemeenten (Maria - ICT-coördinator)
+- **Doel**: Vinden van geschikte applicaties voor gemeentelijke processen
+- **Gebruik**: Zoeken en vergelijken van applicaties op functionaliteit en compliance
+- **Belang**: Inzicht in hosting, licenties en referentie componenten
+
+### 🏢 Voor Leveranciers (Jan - Directeur ICT Solutions)
+- **Doel**: Applicaties zichtbaar maken voor alle gemeenten
+- **Gebruik**: Applicatie registreren met alle relevante informatie
+- **Belang**: Duidelijke beschrijving, GEMMA compliance en referenties
+
+### 🤝 Voor Samenwerkingen (Linda - Samenwerking Coördinator)
+- **Doel**: Applicaties namens leden gemeenten registreren
+- **Gebruik**: Gebruik van applicaties aanmelden voor meerdere gemeenten
+- **Belang**: Overzicht van welke leden welke applicaties gebruiken
+
+### 🔒 Voor Security Officers (Mark - Information Security Officer)
+- **Doel**: Security aspecten van applicaties beoordelen
+- **Gebruik**: Hosting locatie, compliance en kwetsbaarheden controleren
+- **Belang**: Veilige software keuzes ondersteunen
+
+### 🏗️ Voor Architectuur Experts (Sarah - Enterprise Architect)
+- **Doel**: GEMMA compliance en architectuur fit beoordelen
+- **Gebruik**: Referentie componenten en standaarden valideren
+- **Belang**: Consistentie in gemeentelijk ICT-landschap
+
 ## Gerelateerde Functionaliteiten
 - [F004 - Applicatiebeheer](../Functionaliteiten/F004-applicatiebeheer.md)
 - [F005 - Dienstenbeheer](../Functionaliteiten/F005-dienstenbeheer.md)

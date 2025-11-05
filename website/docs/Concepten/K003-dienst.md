@@ -149,48 +149,6 @@ Verkoop en beheer van software licenties en abonnementen.
 - Volume licensing
 - Enterprise agreements
 
-## Dienst Aanbod
-
-### 📋 Aanbod Definitie
-Leveranciers en samenwerkingen definiëren hun diensten aanbod per applicatie.
-
-- **Service portfolio**: Overzicht van alle aangeboden diensten
-- **Applicatie koppeling**: Welke diensten bij welke applicaties horen
-- **Service levels**: Verschillende niveaus van ondersteuning
-- **Prijsmodellen**: Kosten en facturatie per dienst type
-
-### 🎯 Service Scoping
-Bepaling van de omvang en dekking van elke dienst.
-
-- **Functionaliteit dekking**: Welke onderdelen worden ondersteund
-- **Gebruikersgroepen**: Voor wie de dienst beschikbaar is
-- **Geografische dekking**: Waar de dienst wordt aangeboden
-- **Tijdsvensters**: Wanneer de dienst beschikbaar is
-
-### 💰 Commerciële Aspecten
-Prijsstelling en commerciële voorwaarden van diensten.
-
-- **Prijsmodellen**: Vast tarief, per uur, abonnement
-- **Volume kortingen**: Schaalvoordelen bij grotere afname
-- **Contract voorwaarden**: SLA's en service garanties
-- **Facturatie**: Hoe en wanneer wordt gefactureerd
-
-### 📞 Service Delivery
-Hoe diensten worden geleverd aan klanten.
-
-- **Delivery kanalen**: Online, telefoon, on-site
-- **Response tijden**: Hoe snel wordt gereageerd
-- **Escalatie procedures**: Wat gebeurt bij problemen
-- **Kwaliteitsborging**: Hoe wordt kwaliteit gewaarborgd
-
-### 📊 Service Management
-Beheer en monitoring van het diensten aanbod.
-
-- **Performance monitoring**: Meting van service kwaliteit
-- **Customer satisfaction**: Klant tevredenheid metingen
-- **Service improvement**: Continue verbetering van diensten
-- **Capacity planning**: Zorgen voor voldoende capaciteit
-
 :::info Lifecycle Management
 Het **aanbod** van diensten heeft geen lifecycle management. De **afname** van diensten door organisaties wordt beheerd via [K004 - Gebruik](./K004-gebruik.md), waar wel lifecycle management van toepassing is.
 :::
@@ -201,6 +159,28 @@ Het **aanbod** van diensten heeft geen lifecycle management. De **afname** van d
 - [K004 - Gebruik](./K004-gebruik.md): Hoe diensten worden gebruikt
 - [K005 - Koppeling](./K005-koppeling.md): Technische integraties via diensten
 - [K007 - Component](./K007-component.md): Componenten die diensten implementeren
+
+## Persona Perspectief
+
+### 🏛️ Voor Gemeenten (Maria - ICT-coördinator)
+- **Doel**: Vinden van geschikte dienstverleners voor applicatie ondersteuning
+- **Gebruik**: Zoeken naar implementatie, beheer en training diensten
+- **Belang**: Service levels, kosten en lokale beschikbaarheid
+
+### 🏢 Voor Leveranciers (Jan - Directeur ICT Solutions)
+- **Doel**: Diensten aanbieden op eigen en andere applicaties
+- **Gebruik**: Dienst portfolio registreren en promoten
+- **Belang**: Duidelijke service beschrijving en differentiatie
+
+### 🤝 Voor Samenwerkingen (Linda - Samenwerking Coördinator)
+- **Doel**: Gezamenlijk diensten inkopen voor leden
+- **Gebruik**: Dienst afname coördineren voor meerdere gemeenten
+- **Belang**: Volume voordelen en gestandaardiseerde service levels
+
+### 🔒 Voor Security Officers (Mark - Information Security Officer)
+- **Doel**: Security aspecten van dienstverlening beoordelen
+- **Gebruik**: Compliance en security procedures van diensten valideren
+- **Belang**: Veilige dienstverlening waarborgen
 
 ## Gerelateerde Functionaliteiten
 - [F005 - Dienstenbeheer](../Functionaliteiten/F005-dienstenbeheer.md)

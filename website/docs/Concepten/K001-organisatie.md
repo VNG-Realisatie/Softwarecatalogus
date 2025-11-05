@@ -111,6 +111,28 @@ Provincies, ministeries en andere overheidsinstanties.
 - [K006 - Suite](./K006-suite.md): Verzamelingen van applicaties
 - [K007 - Component](./K007-component.md): Onderdelen van applicaties
 
+## Persona Perspectief
+
+### 🏛️ Voor Gemeenten (Maria - ICT-coördinator)
+- **Doel**: Overzicht van leveranciers en hun betrouwbaarheid
+- **Gebruik**: Zoeken naar geschikte leveranciers voor nieuwe software
+- **Belang**: Verificatie van leverancier gegevens en referenties
+
+### 🏢 Voor Leveranciers (Jan - Directeur ICT Solutions)
+- **Doel**: Zichtbaarheid creëren voor alle gemeenten
+- **Gebruik**: Organisatie profiel optimaliseren voor betere vindbaarheid
+- **Belang**: Contactgegevens en bedrijfsinformatie actueel houden
+
+### 🤝 Voor Samenwerkingen (Linda - Samenwerking Coördinator)
+- **Doel**: Namens leden gemeenten software inkopen en beheren
+- **Gebruik**: Samenwerking registreren met juridisch kader
+- **Belang**: Duidelijke rol en bevoegdheden vastleggen
+
+### ⚙️ Voor Functioneel Beheer (Peter - Functioneel Beheerder)
+- **Doel**: Organisaties valideren en goedkeuren
+- **Gebruik**: Nieuwe organisaties beoordelen en status toekennen
+- **Belang**: Data kwaliteit en betrouwbaarheid waarborgen
+
 ## Gerelateerde Functionaliteiten
 - [F002 - Organisatie Inrichten](../Functionaliteiten/F002-organisatie-inrichten.md)
 - [F003 - Gebruikersbeheer](../Functionaliteiten/F003-gebruikersbeheer.md)
