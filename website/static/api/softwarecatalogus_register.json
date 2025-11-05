@@ -448,7 +448,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/Module"
+                            "$ref": "#/components/schemas/module"
                         }
                     }
                 },
@@ -628,7 +628,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/Module"
+                            "$ref": "#/components/schemas/module"
                         }
                     }
                 },
@@ -819,7 +819,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/Module",
+                            "$ref": "#/components/schemas/module",
                             "inversedBy": "diensten"
                         }
                     },
@@ -1045,7 +1045,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/Module",
+                            "$ref": "#/components/schemas/module",
                             "inversedBy": "kwetsbaarheid"
                         }
                     }
@@ -2228,7 +2228,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/Module",
+                        "$ref": "#/components/schemas/module",
                         "inversedBy": "gebruik"
                     },
                     "moduleVersie": {
@@ -2750,7 +2750,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/Module",
+                        "$ref": "#/components/schemas/module",
                         "inversedBy": "koppeling"
                     },
                     "moduleB": {
@@ -2765,7 +2765,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/Module"
+                        "$ref": "#/components/schemas/module"
                     },
                     "buitengemeentelijkVoorziening": {
                         "description": "Buitengemeentelijke voorziening waarmee gekoppeld wordt",
@@ -2803,7 +2803,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/Module",
+                        "$ref": "#/components/schemas/module",
                         "inversedBy": "koppeling"
                     },
                     "aanbieder": {
@@ -2917,7 +2917,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/Module",
+                            "$ref": "#/components/schemas/module",
                             "inversedBy": "beoordeeling"
                         }
                     },
@@ -4526,7 +4526,7 @@
                 },
                 "searchable": true
             },
-            "Module": {
+            "module": {
                 "uri": null,
                 "slug": "module",
                 "title": "Module",
@@ -4777,7 +4777,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/Module",
+                            "$ref": "#/components/schemas/module",
                             "inversedBy": "onderdeelVan"
                         }
                     },
@@ -4793,7 +4793,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/Module",
+                            "$ref": "#/components/schemas/module",
                             "inversedBy": "omvat"
                         }
                     },
@@ -5006,7 +5006,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/Module",
+                        "$ref": "#/components/schemas/module",
                         "inversedBy": "compliancy"
                     },
                     "bewijs": {
@@ -5081,7 +5081,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/Module",
+                        "$ref": "#/components/schemas/module",
                         "inversedBy": "moduleVersie"
                     },
                     "versie": {

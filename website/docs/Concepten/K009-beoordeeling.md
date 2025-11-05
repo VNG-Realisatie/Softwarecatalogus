@@ -18,6 +18,10 @@ keywords:
 
 # K009 - Beoordeeling
 
+:::info Concept Status
+**K009 - Beoordeeling** is een **concept** dat nog niet volledig is geïmplementeerd in de GEMMA Softwarecatalogus. De functionaliteiten zijn in ontwikkeling.
+:::
+
 ## Beschrijving
 Een beoordeling is een waardering en evaluatie van modules, diensten, koppelingen of gebruik door gebruikers. Beoordelingen helpen andere gebruikers bij het maken van geïnformeerde keuzes over software en diensten.
 

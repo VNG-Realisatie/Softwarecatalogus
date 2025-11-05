@@ -18,6 +18,10 @@ keywords:
 
 # K008 - Kwetsbaarheid
 
+:::info Concept Status
+**K008 - Kwetsbaarheid** is een **concept** dat nog niet volledig is geïmplementeerd in de GEMMA Softwarecatalogus. De functionaliteiten zijn in ontwikkeling.
+:::
+
 ## Beschrijving
 Een kwetsbaarheid is een beveiligingslek of zwakte in een applicatie of module die door kwaadwillenden kan worden misbruikt. Kwetsbaarheden worden geregistreerd met CVE-codes en CVSS-scores om de ernst en impact te beoordelen.
 

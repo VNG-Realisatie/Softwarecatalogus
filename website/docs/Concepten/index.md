@@ -86,11 +86,11 @@ graph TB
 | **[K005 - Koppeling](./K005-koppeling.md)** | Integraties tussen applicaties | Technische koppelingen | ✅ Geïmplementeerd |
 | **[K006 - Suite](./K006-suite.md)** | Verzameling van gerelateerde applicaties | Geïntegreerde pakketten | 🚧 **Concept** |
 | **[K007 - Component](./K007-component.md)** | Herbruikbare onderdelen van applicaties | Modulaire architectuur | 🚧 **Concept** |
-| **[K008 - Kwetsbaarheid](./K008-kwetsbaarheid.md)** | Beveiligingslekken in applicaties | Security monitoring | ✅ Geïmplementeerd |
-| **[K009 - Beoordeeling](./K009-beoordeeling.md)** | Waarderingen en gebruikerservaringen | Kwaliteit feedback | ✅ Geïmplementeerd |
+| **[K008 - Kwetsbaarheid](./K008-kwetsbaarheid.md)** | Beveiligingslekken in applicaties | Security monitoring | 🚧 **Concept** |
+| **[K009 - Beoordeeling](./K009-beoordeeling.md)** | Waarderingen en gebruikerservaringen | Kwaliteit feedback | 🚧 **Concept** |
 
 :::warning Concept Status
-**K006 - Suite** en **K007 - Component** zijn conceptuele uitbreidingen die nog niet volledig zijn geïmplementeerd in de GEMMA Softwarecatalogus. De wizards en functionaliteiten zijn in ontwikkeling.
+**K006 - Suite**, **K007 - Component**, **K008 - Kwetsbaarheid** en **K009 - Beoordeeling** zijn concepten die nog niet volledig zijn geïmplementeerd in de GEMMA Softwarecatalogus. De wizards en functionaliteiten zijn in ontwikkeling.
 :::
 
 ## Relatie Types

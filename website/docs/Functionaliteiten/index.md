@@ -27,8 +27,8 @@ De catalogus is gebaseerd op 9 kern concepten die elk hun eigen beheer functiona
 | **K005** | [Koppeling](../Concepten/K005-koppeling.md) | Integraties tussen applicaties | ✅ | F008 - Externe Koppelingen |
 | **K006** | [Suite](../Concepten/K006-suite.md) | Verzameling van gerelateerde applicaties | 🚧 | *Concept - In Ontwikkeling* |
 | **K007** | [Component](../Concepten/K007-component.md) | Onderdelen van applicaties | 🚧 | *Concept - In Ontwikkeling* |
-| **K008** | [Kwetsbaarheid](../Concepten/K008-kwetsbaarheid.md) | Beveiligingslekken in applicaties | ❌ | F004 - Applicatiebeheer |
-| **K009** | [Beoordeeling](../Concepten/K009-beoordeeling.md) | Waarderingen en gebruikerservaringen | ❌ | F006 - Inzichten en Aanbevelingen |
+| **K008** | [Kwetsbaarheid](../Concepten/K008-kwetsbaarheid.md) | Beveiligingslekken in applicaties | 🚧 | *Concept - In Ontwikkeling* |
+| **K009** | [Beoordeeling](../Concepten/K009-beoordeeling.md) | Waarderingen en gebruikerservaringen | 🚧 | *Concept - In Ontwikkeling* |
 
 Elk kern concept heeft zijn eigen gedetailleerde documentatie met wizard sequence diagrammen. Klik op de links hierboven voor meer informatie.
 
