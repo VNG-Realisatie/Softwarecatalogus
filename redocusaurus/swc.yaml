@@ -404,7 +404,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/module'
+            $ref: '#/components/schemas/Module'
       archive: []
       source: internal
       hardValidation: false
@@ -561,7 +561,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/module'
+            $ref: '#/components/schemas/Module'
       archive: []
       source: internal
       hardValidation: false
@@ -732,7 +732,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/module'
+            $ref: '#/components/schemas/Module'
             inversedBy: diensten
         aanbieder:
           description: De leverende partij die deze dienst beschikbaar stelt
@@ -930,7 +930,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/module'
+            $ref: '#/components/schemas/Module'
             inversedBy: kwetsbaarheid
       archive: []
       source: internal
@@ -1986,7 +1986,7 @@ components:
           title: Module
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/module'
+          $ref: '#/components/schemas/Module'
           inversedBy: gebruik
         moduleVersie:
           description: De specifieke versie van de module die gebruikt wordt
@@ -2437,7 +2437,7 @@ components:
           title: Module A
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/module'
+          $ref: '#/components/schemas/Module'
           inversedBy: koppeling
         moduleB:
           description: De module waarnaar de gegevens uitgewisseld worden
@@ -2449,7 +2449,7 @@ components:
           title: Module B
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/module'
+          $ref: '#/components/schemas/Module'
         buitengemeentelijkVoorziening:
           description: Buitengemeentelijke voorziening waarmee gekoppeld wordt
           type: object
@@ -2482,7 +2482,7 @@ components:
           title: Gerealiseerd Met Intermediair Module
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/module'
+          $ref: '#/components/schemas/Module'
           inversedBy: koppeling
         aanbieder:
           description: De aanbieder van deze koppeling
@@ -2581,7 +2581,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/module'
+            $ref: '#/components/schemas/Module'
             inversedBy: beoordeeling
         diensten:
           description: 'Optioneel: specifieke diensten die beoordeeld worden'
@@ -2797,8 +2797,7 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: >-
-              https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19
+            $ref: '#/components/schemas/property'
             type: object
           objectConfiguration:
             handling: nested-object
@@ -3021,8 +3020,7 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: >-
-              https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json
+            $ref: '#/components/schemas/property'
             type: object
           objectConfiguration:
             handling: nested-object
@@ -3046,8 +3044,6 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: >-
-              https://vng.accept.commonground.nu/openregister/schemas/View_Node.json
             type: object
           objectConfiguration:
             handling: nested-object
@@ -3071,8 +3067,6 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: >-
-              https://vng.accept.commonground.nu/openregister/schemas/View_Connection.json
             type: object
           objectConfiguration:
             handling: nested-object
@@ -3330,8 +3324,7 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: >-
-              https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19
+            $ref: '#/components/schemas/property'
             type: object
           objectConfiguration:
             handling: nested-object
@@ -3355,8 +3348,7 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: >-
-              https://vng.accept.commonground.nu/openregister/schemas/Element.json/10
+            $ref: '#/components/schemas/element'
             type: object
           objectConfiguration:
             handling: nested-object
@@ -3380,8 +3372,7 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: >-
-              https://vng.accept.commonground.nu/openregister/schemas/Relation.json/13
+            $ref: '#/components/schemas/relation'
             type: object
           objectConfiguration:
             handling: nested-object
@@ -3405,7 +3396,7 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: gebruiker
+            $ref: '#/components/schemas/organization'
             type: object
           objectConfiguration:
             handling: nested-object
@@ -3429,8 +3420,7 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: >-
-              https://vng.accept.commonground.nu/openregister/schemas/Property_Definition.json/15
+            $ref: '#/components/schemas/property-definition'
             type: object
           objectConfiguration:
             handling: nested-object
@@ -3454,8 +3444,7 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: >-
-              https://vng.accept.commonground.nu/openregister/schemas/View.json/11
+            $ref: '#/components/schemas/view'
             type: object
           objectConfiguration:
             handling: nested-object
@@ -3611,7 +3600,7 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: gebruiker
+            $ref: '#/components/schemas/organization'
             type: object
           objectConfiguration:
             handling: nested-object
@@ -3990,8 +3979,7 @@ components:
           $ref: ''
           items:
             cascadeDelete: true
-            $ref: >-
-              https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19
+            $ref: '#/components/schemas/property'
             type: object
           objectConfiguration:
             handling: nested-object
@@ -4016,7 +4004,7 @@ components:
       configuration:
         autoPublish: false
       searchable: true
-    module:
+    Module:
       uri: null
       slug: module
       title: Module
@@ -4238,7 +4226,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/module'
+            $ref: '#/components/schemas/Module'
             inversedBy: onderdeelVan
         onderdeelVan:
           description: Modules waarvan deze module onderdeel is
@@ -4251,7 +4239,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/module'
+            $ref: '#/components/schemas/Module'
             inversedBy: omvat
         diensten:
           description: De diensten waarvan deze module onderdeel is
@@ -4437,7 +4425,7 @@ components:
           facetable: false
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/module'
+          $ref: '#/components/schemas/Module'
           inversedBy: compliancy
         bewijs:
           description: >-
@@ -4505,7 +4493,7 @@ components:
           facetable: false
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/module'
+          $ref: '#/components/schemas/Module'
           inversedBy: moduleVersie
         versie:
           description: Versienummer in semantic versioning format (MAJOR.MINOR.PATCH)

@@ -448,7 +448,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/module"
+                            "$ref": "#/components/schemas/Module"
                         }
                     }
                 },
@@ -628,7 +628,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/module"
+                            "$ref": "#/components/schemas/Module"
                         }
                     }
                 },
@@ -819,7 +819,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/module",
+                            "$ref": "#/components/schemas/Module",
                             "inversedBy": "diensten"
                         }
                     },
@@ -1045,7 +1045,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/module",
+                            "$ref": "#/components/schemas/Module",
                             "inversedBy": "kwetsbaarheid"
                         }
                     }
@@ -2228,7 +2228,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/module",
+                        "$ref": "#/components/schemas/Module",
                         "inversedBy": "gebruik"
                     },
                     "moduleVersie": {
@@ -2750,7 +2750,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/module",
+                        "$ref": "#/components/schemas/Module",
                         "inversedBy": "koppeling"
                     },
                     "moduleB": {
@@ -2765,7 +2765,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/module"
+                        "$ref": "#/components/schemas/Module"
                     },
                     "buitengemeentelijkVoorziening": {
                         "description": "Buitengemeentelijke voorziening waarmee gekoppeld wordt",
@@ -2803,7 +2803,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/module",
+                        "$ref": "#/components/schemas/Module",
                         "inversedBy": "koppeling"
                     },
                     "aanbieder": {
@@ -2917,7 +2917,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/module",
+                            "$ref": "#/components/schemas/Module",
                             "inversedBy": "beoordeeling"
                         }
                     },
@@ -3160,7 +3160,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+                            "$ref": "#/components/schemas/property",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3413,7 +3413,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json",
+                            "$ref": "#/components/schemas/property",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3441,7 +3441,6 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Node.json",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3469,7 +3468,6 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View_Connection.json",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3755,7 +3753,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+                            "$ref": "#/components/schemas/property",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3783,7 +3781,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Element.json/10",
+                            "$ref": "#/components/schemas/element",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3811,7 +3809,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Relation.json/13",
+                            "$ref": "#/components/schemas/relation",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3839,7 +3837,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "gebruiker",
+                            "$ref": "#/components/schemas/organization",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3867,7 +3865,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Property_Definition.json/15",
+                            "$ref": "#/components/schemas/property-definition",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3895,7 +3893,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/View.json/11",
+                            "$ref": "#/components/schemas/view",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -4069,7 +4067,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "gebruiker",
+                            "$ref": "#/components/schemas/organization",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -4496,7 +4494,7 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "$ref": "https://vng.accept.commonground.nu/openregister/schemas/Model_Property.json/19",
+                            "$ref": "#/components/schemas/property",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -4528,7 +4526,7 @@
                 },
                 "searchable": true
             },
-            "module": {
+            "Module": {
                 "uri": null,
                 "slug": "module",
                 "title": "Module",
@@ -4779,7 +4777,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/module",
+                            "$ref": "#/components/schemas/Module",
                             "inversedBy": "onderdeelVan"
                         }
                     },
@@ -4795,7 +4793,7 @@
                             "objectConfiguration": {
                                 "handling": "related-object"
                             },
-                            "$ref": "#/components/schemas/module",
+                            "$ref": "#/components/schemas/Module",
                             "inversedBy": "omvat"
                         }
                     },
@@ -5008,7 +5006,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/module",
+                        "$ref": "#/components/schemas/Module",
                         "inversedBy": "compliancy"
                     },
                     "bewijs": {
@@ -5083,7 +5081,7 @@
                         "objectConfiguration": {
                             "handling": "related-object"
                         },
-                        "$ref": "#/components/schemas/module",
+                        "$ref": "#/components/schemas/Module",
                         "inversedBy": "moduleVersie"
                     },
                     "versie": {
