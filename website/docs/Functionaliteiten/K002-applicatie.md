@@ -13,14 +13,57 @@ keywords:
   - K002
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # K002 - Applicatie
 
 ## Beschrijving
-Applicaties zijn software producten die door leveranciers worden aangeboden en door organisaties kunnen worden gebruikt. Een applicatie kan bestaan uit meerdere modules of componenten en kan onderdeel zijn van een grotere suite. Applicaties worden in de fotware gesien als architecurele elementen ofwel modules en het onderliggende object heet derhalve ook module. Applicaties zijn elementen in de architecurele plaat van gemeenten en kunnen worden geexporteerd naar AMEF bestanden. 
+Applicaties zijn software producten die door leveranciers worden aangeboden en door organisaties kunnen worden gebruikt. Een applicatie kan bestaan uit meerdere modules of componenten en kan onderdeel zijn van een grotere suite. Applicaties worden in de software gezien als architecturale elementen ofwel modules en het onderliggende object heet derhalve ook module. Applicaties zijn elementen in de architecturale plaat van gemeenten en kunnen worden geëxporteerd naar AMEF bestanden.
 
-## Kenmerken
+## Schema Eigenschappen
 
-    <ApiSchema id="swc" example   pointer="#/components/schemas/module" />
+<ApiSchema id="swc" example pointer="#/components/schemas/module" />
+
+## Belangrijke Kenmerken
+
+### Basisinformatie (Verplicht)
+- **naam**: Naam van de module (max 200 karakters, verplicht)
+- **beschrijvingKort**: Korte omschrijving (max 255 karakters, verplicht)
+- **beschrijvingLang**: Uitgebreide beschrijving in Markdown formaat (max 5000 karakters)
+- **website**: Website URL van de module
+- **logo**: URL naar het logo van de module
+- **contactpersoon**: Gekoppelde contactpersoon voor de module
+
+### Hosting & Deployment
+- **cloudDienstverleningsmodel**: Array met hosting vormen (On-premises, IaaS, PaaS, SaaS)
+- **hostingJurisdictie**: Jurisdictie waar data wordt opgeslagen (NL, EU, US, Elders)
+- **hostingLocatie**: Locatie waar applicatie wordt gehost (NL, EU, US, Elders)
+
+### Licentie Informatie
+- **licentietype**: Type licentie (Open source, Closed source)
+- **licentie**: Specifieke licentie bij Open Source (MIT, GPL, Apache, BSD, EUPL)
+
+### Organisatie & Relaties
+- **aanbieder**: Gekoppelde organisatie die de module aanbiedt
+- **type**: Type module (Applicatie, Systeemsoftware)
+
+### GEMMA Integratie
+- **referentieComponenten**: Array van GEMMA referentiecomponenten
+- **standaarden**: Array van AMEF standaard ID's
+- **standaardenGemma**: Array van GEMMA standaard ID's
+
+### Gerelateerde Objecten
+- **omvat**: Andere modules die onderdeel zijn van deze module
+- **onderdeelVan**: Modules waarvan deze module onderdeel is
+- **diensten**: Diensten waarvan deze module onderdeel is
+- **koppelingen**: Koppelingen waarbij deze module betrokken is
+- **compliancy**: Standaarden compliance registraties
+- **moduleVersies**: Versies van deze module
+- **gebruiken**: Gebruik registraties van deze module
+- **beoordelingen**: Beoordelingen van deze module
+- **kwetsbaarheden**: Kwetsbaarheden die deze module treffen
 
 ## Applicatie Types
 
@@ -60,37 +103,46 @@ Uitbreidbare platforms waarop andere applicaties kunnen worden gebouwd.
 - API-first ontwerp
 - Ecosysteem van uitbreidingen
 
-## Levenscyclus
+## Levenscyclus & Versie Beheer
 
-### 🚀 Ontwikkeling
-- **Concept fase**: Idee en marktonderzoek
-- **Design fase**: Architectuur en gebruikersinterface ontwerp
-- **Ontwikkeling**: Programmeren en testen
-- **Beta testing**: Gebruikerstests en feedback verwerking
+### Module vs Module Versie
+De **module** (applicatie) zelf bevat de algemene informatie zoals naam, beschrijving, aanbieder en technische specificaties. De **levenscyclus wordt beheerd per versie** via het `moduleVersie` object.
 
-### 📦 Release
-- **Productie release**: Officiële lancering
-- **Versie beheer**: Systematische versie nummering
-- **Deployment**: Uitrol naar productie omgeving
-- **Documentatie**: Gebruikershandleidingen en technische documentatie
+<ApiSchema id="swc" example pointer="#/components/schemas/moduleVersie" />
 
-### 🔄 Onderhoud
-- **Bug fixes**: Oplossen van problemen
-- **Security updates**: Beveiligingspatches
-- **Feature updates**: Nieuwe functionaliteiten
-- **Performance optimalisatie**: Verbeteringen in snelheid en efficiëntie
+### Module Versie Lifecycle
+Elke versie van een module heeft zijn eigen lifecycle met de volgende statussen:
 
-### 📈 Evolutie
-- **Major releases**: Grote functionaliteitsuitbreidingen
-- **Platform migratie**: Overstap naar nieuwe technologieën
-- **Integratie uitbreiding**: Nieuwe koppelingen en API's
-- **Markt aanpassingen**: Reactie op veranderende behoeften
+#### 📋 Status Overzicht
+- **in ontwikkeling**: Versie wordt nog ontwikkeld
+- **in gebruik**: Versie is actief en beschikbaar
+- **einde ondersteuning**: Versie wordt uitgefaseerd
+- **teruggetrokken**: Versie is niet meer beschikbaar
 
-### 🔚 End-of-Life
-- **Deprecation**: Aankondiging van uitfasering
-- **Migration path**: Overgang naar opvolger
-- **Support beëindiging**: Einde van ondersteuning
-- **Data migratie**: Overzetten van gegevens
+#### 📅 Datum Tracking
+- **datumInOntwikkeling**: Startdatum ontwikkelingsfase
+- **datumInGebruik**: Startdatum actief gebruik
+- **datumEindeOndersteuning**: Startdatum einde ondersteuning
+- **datumTeruggetrokken**: Datum waarop versie teruggetrokken is
+
+### Versie Beheer Strategie
+
+#### 🔢 Semantic Versioning
+Versienummering volgt het MAJOR.MINOR.PATCH formaat:
+- **MAJOR**: Grote wijzigingen, mogelijk incompatibel
+- **MINOR**: Nieuwe functionaliteiten, backwards compatible
+- **PATCH**: Bug fixes, backwards compatible
+
+#### 🌐 SaaS vs On-Premises
+- **SaaS applicaties**: Meestal één actieve versie (automatische updates)
+- **On-premises**: Meerdere versies kunnen tegelijk actief zijn
+- **Hybrid**: Combinatie van beide modellen mogelijk
+
+#### 📊 Versie Informatie
+- **versie**: Versienummer (verplicht, semantic versioning)
+- **beschrijvingKort**: Wat is nieuw in deze versie (max 255 karakters)
+- **beschrijvingLang**: Uitgebreide release notes (Markdown, max 5000 karakters)
+- **gebruiken**: Welke organisaties gebruiken deze specifieke versie
 
 ## Gerelateerde Concepten
 - [K001 - Organisatie](./K001-organisatie.md): Leveranciers en gebruikers
