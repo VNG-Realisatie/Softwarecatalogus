@@ -404,7 +404,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/Module'
+            $ref: '#/components/schemas/module'
       archive: []
       source: internal
       hardValidation: false
@@ -561,7 +561,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/Module'
+            $ref: '#/components/schemas/module'
       archive: []
       source: internal
       hardValidation: false
@@ -732,7 +732,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/Module'
+            $ref: '#/components/schemas/module'
             inversedBy: diensten
         aanbieder:
           description: De leverende partij die deze dienst beschikbaar stelt
@@ -930,7 +930,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/Module'
+            $ref: '#/components/schemas/module'
             inversedBy: kwetsbaarheid
       archive: []
       source: internal
@@ -1986,7 +1986,7 @@ components:
           title: Module
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/Module'
+          $ref: '#/components/schemas/module'
           inversedBy: gebruik
         moduleVersie:
           description: De specifieke versie van de module die gebruikt wordt
@@ -2437,7 +2437,7 @@ components:
           title: Module A
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/Module'
+          $ref: '#/components/schemas/module'
           inversedBy: koppeling
         moduleB:
           description: De module waarnaar de gegevens uitgewisseld worden
@@ -2449,7 +2449,7 @@ components:
           title: Module B
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/Module'
+          $ref: '#/components/schemas/module'
         buitengemeentelijkVoorziening:
           description: Buitengemeentelijke voorziening waarmee gekoppeld wordt
           type: object
@@ -2482,7 +2482,7 @@ components:
           title: Gerealiseerd Met Intermediair Module
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/Module'
+          $ref: '#/components/schemas/module'
           inversedBy: koppeling
         aanbieder:
           description: De aanbieder van deze koppeling
@@ -2581,7 +2581,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/Module'
+            $ref: '#/components/schemas/module'
             inversedBy: beoordeeling
         diensten:
           description: 'Optioneel: specifieke diensten die beoordeeld worden'
@@ -4004,7 +4004,7 @@ components:
       configuration:
         autoPublish: false
       searchable: true
-    Module:
+    module:
       uri: null
       slug: module
       title: Module
@@ -4226,7 +4226,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/Module'
+            $ref: '#/components/schemas/module'
             inversedBy: onderdeelVan
         onderdeelVan:
           description: Modules waarvan deze module onderdeel is
@@ -4239,7 +4239,7 @@ components:
             type: object
             objectConfiguration:
               handling: related-object
-            $ref: '#/components/schemas/Module'
+            $ref: '#/components/schemas/module'
             inversedBy: omvat
         diensten:
           description: De diensten waarvan deze module onderdeel is
@@ -4425,7 +4425,7 @@ components:
           facetable: false
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/Module'
+          $ref: '#/components/schemas/module'
           inversedBy: compliancy
         bewijs:
           description: >-
@@ -4493,7 +4493,7 @@ components:
           facetable: false
           objectConfiguration:
             handling: related-object
-          $ref: '#/components/schemas/Module'
+          $ref: '#/components/schemas/module'
           inversedBy: moduleVersie
         versie:
           description: Versienummer in semantic versioning format (MAJOR.MINOR.PATCH)
