@@ -310,6 +310,8 @@ De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van 
     <ul>
       <li>Organisatie Selectie (optioneel - alleen bij aanmelden voor anderen)</li>
     </ul>
+    ![img_17.png](img_17.png)
+    ![img_16.png](img_16.png)
   </TabItem>
   <TabItem value="stap1" label="Stap 1: Applicatie Informatie">
     <ul>
