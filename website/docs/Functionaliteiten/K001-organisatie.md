@@ -112,17 +112,10 @@ Provincies, ministeries en andere overheidsinstanties.
 
 De Organisatie wizard begeleidt gebruikers door het proces van het registreren van een nieuwe organisatie in de GEMMA Softwarecatalogus.
 
-### Wizard Stappen
+### 
 
-1. **Organisatie Type**: Selecteer type organisatie (Leverancier, Gemeente, Samenwerking, Overheid)
-2. **Basisgegevens**: Naam, beschrijving, website, logo
-3. **Contactgegevens**: Adres, telefoon, e-mail
-4. **Juridische Informatie**: KvK, BTW, rechtsvorm (indien van toepassing)
-5. **Contactpersonen**: Primaire en secundaire contacten aanwijzen
-6. **Verificatie**: Documenten uploaden voor verificatie
-7. **Controleren**: Overzicht en bevestiging van alle gegevens
-
-### Sequence Diagram
+<Tabs>
+  <TabItem value="specificaties" label="Sequence Diagram" default>
 
 ```mermaid
 sequenceDiagram
@@ -261,6 +254,43 @@ sequenceDiagram
         OS->>U: Stuur e-mail met aanvullende vereisten
     end
 ```
+  </TabItem>
+  <TabItem value="stap1" label="Stap 1: Organisatie Type">
+    <ul>
+      <li>Organisatie Type: Selecteer type organisatie (Leverancier, Gemeente, Samenwerking, Overheid)</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap2" label="Stap 2: Basisgegevens">
+    <ul>
+      <li>Basisgegevens: Naam, beschrijving, website, logo</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap3" label="Stap 3: Contactgegevens">
+    <ul>
+      <li>Contactgegevens: Adres, telefoon, e-mail</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap4" label="Stap 4: Juridische Informatie">
+    <ul>
+      <li>Juridische Informatie: KvK, BTW, rechtsvorm (indien van toepassing)</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap5" label="Stap 5: Contactpersonen">
+    <ul>
+      <li>Contactpersonen: Primaire en secundaire contacten aanwijzen</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap6" label="Stap 6: Verificatie">
+    <ul>
+      <li>Verificatie: Documenten uploaden voor verificatie</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap7" label="Stap 7: Controleren">
+    <ul>
+      <li>Controleren: Overzicht en bevestiging van alle gegevens</li>
+    </ul>
+  </TabItem>
+</Tabs>
 
 ## Verificatie Proces
 

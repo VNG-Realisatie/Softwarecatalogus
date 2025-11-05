@@ -182,18 +182,10 @@ Webgebaseerde interfaces voor eindgebruiker interactie.
 
 De Dienst wizard begeleidt gebruikers door het proces van het registreren van een nieuwe dienst in de GEMMA Softwarecatalogus.
 
-### Wizard Stappen
+### 
 
-1. **Applicatie Selectie**: Welke applicatie biedt de dienst aan
-2. **Dienst Informatie**: Naam, type, beschrijving en categorie
-3. **Technische Specificaties**: Protocol, formaat, authenticatie, endpoint
-4. **Toegang en Beveiliging**: Wie kan de dienst gebruiken en onder welke voorwaarden
-5. **SLA en Performance**: Service level agreements en performance garanties
-6. **Prijsmodel**: Kosten, licenties en gebruiksvoorwaarden
-7. **Documentatie**: API documentatie, voorbeelden en handleidingen
-8. **Controleren**: Overzicht en bevestiging van alle gegevens
-
-### Sequence Diagram
+<Tabs>
+  <TabItem value="specificaties" label="Sequence Diagram" default>
 
 ```mermaid
 sequenceDiagram
@@ -285,6 +277,48 @@ sequenceDiagram
         Note over U: Dienst is gekoppeld aan applicatie en beschikbaar in catalogus
     end
 ```
+  </TabItem>
+  <TabItem value="stap1" label="Stap 1: Applicatie Selectie">
+    <ul>
+      <li>Applicatie Selectie: Welke applicatie biedt de dienst aan</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap2" label="Stap 2: Dienst Informatie">
+    <ul>
+      <li>Dienst Informatie: Naam, type, beschrijving en categorie</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap3" label="Stap 3: Technische Specificaties">
+    <ul>
+      <li>Technische Specificaties: Protocol, formaat, authenticatie, endpoint</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap4" label="Stap 4: Toegang & Beveiliging">
+    <ul>
+      <li>Toegang en Beveiliging: Wie kan de dienst gebruiken en onder welke voorwaarden</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap5" label="Stap 5: SLA & Performance">
+    <ul>
+      <li>SLA en Performance: Service level agreements en performance garanties</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap6" label="Stap 6: Prijsmodel">
+    <ul>
+      <li>Prijsmodel: Kosten, licenties en gebruiksvoorwaarden</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap7" label="Stap 7: Documentatie">
+    <ul>
+      <li>Documentatie: API documentatie, voorbeelden en handleidingen</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap8" label="Stap 8: Controleren">
+    <ul>
+      <li>Controleren: Overzicht en bevestiging van alle gegevens</li>
+    </ul>
+  </TabItem>
+</Tabs>
 
 ## Belangrijke Wizard Kenmerken
 

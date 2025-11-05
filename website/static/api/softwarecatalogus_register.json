@@ -3441,7 +3441,6 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "type": "object",
                             "type": "object"
                         },
                         "objectConfiguration": {
@@ -3469,7 +3468,6 @@
                         "$ref": "",
                         "items": {
                             "cascadeDelete": true,
-                            "type": "object",
                             "type": "object"
                         },
                         "objectConfiguration": {

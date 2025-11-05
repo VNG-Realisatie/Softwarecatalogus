@@ -24,7 +24,7 @@ Koppelingen beschrijven de technische integraties tussen verschillende applicati
 
 ## Kenmerken
 
-<ApiSchema id="swc" example pointer="#/components/schemas/kopeling" />
+<ApiSchema id="swc" example pointer="#/components/schemas/koppeling" />
 
 ## Relaties
 
@@ -181,20 +181,10 @@ Asynchrone berichtuitwisseling via message brokers.
 
 De Koppeling wizard begeleidt gebruikers door het proces van het definiëren van een nieuwe integratie tussen applicaties.
 
-### Wizard Stappen
+### 
 
-1. **Applicatie A Selectie**: Bron applicatie voor de koppeling
-2. **Applicatie B Selectie**: Doel applicatie voor de koppeling  
-3. **Koppeling Type**: Soort integratie en richting
-4. **Technische Specificaties**: Protocol, formaat, authenticatie
-5. **Data Mapping**: Welke gegevens worden uitgewisseld en hoe
-6. **Standaarden**: Welke standaarden worden gebruikt
-7. **Performance en SLA**: Service level agreements en performance eisen
-8. **Beveiliging**: Authenticatie, autorisatie en encryptie
-9. **Testing**: Test scenario's en validatie criteria
-10. **Controleren**: Overzicht en bevestiging van alle gegevens
-
-### Sequence Diagram
+<Tabs>
+  <TabItem value="specificaties" label="Sequence Diagram" default>
 
 ```mermaid
 sequenceDiagram
@@ -294,6 +284,58 @@ sequenceDiagram
         Note over U: Koppeling is gedefinieerd en gereed voor implementatie
     end
 ```
+  </TabItem>
+  <TabItem value="stap1" label="Stap 1: Applicatie A Selectie">
+    <ul>
+      <li>Applicatie A Selectie: Bron applicatie voor de koppeling</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap2" label="Stap 2: Applicatie B Selectie">
+    <ul>
+      <li>Applicatie B Selectie: Doel applicatie voor de koppeling</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap3" label="Stap 3: Koppeling Type">
+    <ul>
+      <li>Koppeling Type: Soort integratie en richting</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap4" label="Stap 4: Technische Specificaties">
+    <ul>
+      <li>Technische Specificaties: Protocol, formaat, authenticatie</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap5" label="Stap 5: Data Mapping">
+    <ul>
+      <li>Data Mapping: Welke gegevens worden uitgewisseld en hoe</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap6" label="Stap 6: Standaarden">
+    <ul>
+      <li>Standaarden: Welke standaarden worden gebruikt</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap7" label="Stap 7: Performance & SLA">
+    <ul>
+      <li>Performance en SLA: Service level agreements en performance eisen</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap8" label="Stap 8: Beveiliging">
+    <ul>
+      <li>Beveiliging: Authenticatie, autorisatie en encryptie</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap9" label="Stap 9: Testing">
+    <ul>
+      <li>Testing: Test scenario's en validatie criteria</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap10" label="Stap 10: Controleren">
+    <ul>
+      <li>Controleren: Overzicht en bevestiging van alle gegevens</li>
+    </ul>
+  </TabItem>
+</Tabs>
 
 ## Belangrijke Wizard Kenmerken
 

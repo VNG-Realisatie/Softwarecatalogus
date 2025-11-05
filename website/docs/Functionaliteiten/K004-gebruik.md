@@ -182,19 +182,10 @@ Gebruik voor ontwikkeling, test en configuratie doeleinden.
 
 De Gebruik wizard begeleidt gebruikers door het proces van het registreren van applicatie gebruik in de GEMMA Softwarecatalogus.
 
-### Wizard Stappen
+### 
 
-1. **Organisatie Context**: Voor welke organisatie wordt het gebruik geregistreerd
-2. **Applicatie Selectie**: Welke applicatie wordt gebruikt
-3. **Implementatie Details**: Datum, status, project informatie
-4. **Licentie Informatie**: Welke licenties zijn afgenomen en kosten
-5. **Technische Configuratie**: Hosting, omgeving, infrastructuur details
-6. **Gebruikers en Adoptie**: Aantal gebruikers, groepen, tevredenheid
-7. **Integraties**: Koppelingen met andere systemen in het landschap
-8. **Evaluatie**: Performance, KPI's en toekomstplannen
-9. **Controleren**: Overzicht en bevestiging van alle gegevens
-
-### Sequence Diagram
+<Tabs>
+  <TabItem value="specificaties" label="Sequence Diagram" default>
 
 ```mermaid
 sequenceDiagram
@@ -284,6 +275,53 @@ sequenceDiagram
         Note over U: Gebruik is toegevoegd aan applicatielandschap van organisatie
     end
 ```
+  </TabItem>
+  <TabItem value="stap1" label="Stap 1: Applicatie Selectie">
+    <ul>
+      <li>Applicatie Selectie: Welke applicatie wordt gebruikt</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap2" label="Stap 2: Organisatie Context">
+    <ul>
+      <li>Organisatie Context: Voor welke organisatie wordt het gebruik geregistreerd</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap3" label="Stap 3: Implementatie Details">
+    <ul>
+      <li>Implementatie Details: Datum, status, project informatie</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap4" label="Stap 4: Licentie Informatie">
+    <ul>
+      <li>Licentie Informatie: Welke licenties zijn afgenomen en kosten</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap5" label="Stap 5: Technische Configuratie">
+    <ul>
+      <li>Technische Configuratie: Hosting, omgeving, infrastructuur details</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap6" label="Stap 6: Gebruikers & Adoptie">
+    <ul>
+      <li>Gebruikers en Adoptie: Aantal gebruikers, groepen, tevredenheid</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap7" label="Stap 7: Integraties">
+    <ul>
+      <li>Integraties: Koppelingen met andere systemen in het landschap</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap8" label="Stap 8: Evaluatie">
+    <ul>
+      <li>Evaluatie: Performance, KPI's en toekomstplannen</li>
+    </ul>
+  </TabItem>
+  <TabItem value="stap9" label="Stap 9: Controleren">
+    <ul>
+      <li>Controleren: Overzicht en bevestiging van alle gegevens</li>
+    </ul>
+  </TabItem>
+</Tabs>
 
 ## Belangrijke Wizard Kenmerken
 
