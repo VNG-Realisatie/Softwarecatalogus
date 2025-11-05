@@ -16,7 +16,7 @@ import ApiSchema from '@theme/ApiSchema';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# K006 - Suite
+# K006 - Suite (Niet geimplementeerd concept)
 
 ## Beschrijving
 Een suite is een verzameling van gerelateerde applicaties die samen een compleet softwarepakket vormen. Denk hierbij aan een kantoorsuite met tekstverwerker, spreadsheet en presentatiesoftware. Suites bieden vaak een geïntegreerde gebruikerservaring en gedeelde functionaliteiten.

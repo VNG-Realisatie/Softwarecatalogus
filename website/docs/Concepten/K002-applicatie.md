@@ -301,7 +301,7 @@ De Applicatie wizard begeleidt gebruikers door het proces van het aanmelden van 
   </TabItem>
   <TabItem value="stap5" label="Stap 5: Koppelingen">
     <ul>
-      <li>Koppelingen: integraties met andere applicaties![img_10.png](../Functionaliteiten/img_10.png)</li>
+      <li>Koppelingen: integraties met andere applicaties!</li>
     </ul>
     ![img_8.png](../Functionaliteiten/img_8.png)
   </TabItem>
