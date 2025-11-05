@@ -16,6 +16,8 @@ keywords:
   - GEMMA
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+
 # K009 - Beoordeeling
 
 :::info Concept Status

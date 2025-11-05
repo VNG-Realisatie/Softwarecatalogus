@@ -16,6 +16,8 @@ keywords:
   - GEMMA
 ---
 
+import ApiSchema from '@theme/ApiSchema';
+
 # K008 - Kwetsbaarheid
 
 :::info Concept Status
