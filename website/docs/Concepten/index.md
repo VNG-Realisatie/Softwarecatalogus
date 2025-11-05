@@ -65,15 +65,19 @@ graph TB
 
 ## Concepten Overzicht
 
-| Concept | Beschrijving | Primaire Functie | Wizard |
+| Concept | Beschrijving | Primaire Functie | Status |
 |---------|--------------|------------------|--------|
-| **[K001 - Organisatie](./K001-organisatie.md)** | Leveranciers, gemeenten en samenwerkingsverbanden | Basis voor alle andere concepten | ✅ |
-| **[K002 - Applicatie](./K002-applicatie.md)** | Software producten en modules | Centrale software catalogus | ✅ |
-| **[K003 - Dienst](./K003-dienst.md)** | Services die applicaties bieden | API's en functionaliteiten | ✅ |
-| **[K004 - Gebruik](./K004-gebruik.md)** | Hoe organisaties applicaties gebruiken | Implementatie en adoptie | ✅ |
-| **[K005 - Koppeling](./K005-koppeling.md)** | Integraties tussen applicaties | Technische koppelingen | ✅ |
-| **[K006 - Suite](./K006-suite.md)** | Verzameling van gerelateerde applicaties | Geïntegreerde pakketten | ✅ |
-| **[K007 - Component](./K007-component.md)** | Herbruikbare onderdelen van applicaties | Modulaire architectuur | ✅ |
+| **[K001 - Organisatie](./K001-organisatie.md)** | Leveranciers, gemeenten en samenwerkingsverbanden | Basis voor alle andere concepten | ✅ Geïmplementeerd |
+| **[K002 - Applicatie](./K002-applicatie.md)** | Software producten en modules | Centrale software catalogus | ✅ Geïmplementeerd |
+| **[K003 - Dienst](./K003-dienst.md)** | Services die applicaties bieden | API's en functionaliteiten | ✅ Geïmplementeerd |
+| **[K004 - Gebruik](./K004-gebruik.md)** | Hoe organisaties applicaties gebruiken | Implementatie en adoptie | ✅ Geïmplementeerd |
+| **[K005 - Koppeling](./K005-koppeling.md)** | Integraties tussen applicaties | Technische koppelingen | ✅ Geïmplementeerd |
+| **[K006 - Suite](./K006-suite.md)** | Verzameling van gerelateerde applicaties | Geïntegreerde pakketten | 🚧 **Concept** |
+| **[K007 - Component](./K007-component.md)** | Herbruikbare onderdelen van applicaties | Modulaire architectuur | 🚧 **Concept** |
+
+:::warning Concept Status
+**K006 - Suite** en **K007 - Component** zijn conceptuele uitbreidingen die nog niet volledig zijn geïmplementeerd in de GEMMA Softwarecatalogus. De wizards en functionaliteiten zijn in ontwikkeling.
+:::
 
 ## Relatie Types
 
@@ -105,9 +109,9 @@ Alle concepten hebben hun eigen wizard voor registratie:
 - **K004 - Gebruik**: Start met applicatie selectie  
 - **K005 - Koppeling**: Start met twee applicatie selecties
 
-### 📦 Compositie Wizards (Verzamelen)
-- **K006 - Suite**: Verzamelt meerdere applicaties
-- **K007 - Component**: Kan aan meerdere applicaties gekoppeld worden
+### 📦 Compositie Wizards (Verzamelen) - 🚧 In Ontwikkeling
+- **K006 - Suite**: Verzamelt meerdere applicaties *(concept)*
+- **K007 - Component**: Kan aan meerdere applicaties gekoppeld worden *(concept)*
 
 ## Navigatie
 

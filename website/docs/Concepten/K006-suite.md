@@ -16,7 +16,11 @@ import ApiSchema from '@theme/ApiSchema';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# K006 - Suite (Niet geimplementeerd concept)
+# K006 - Suite
+
+:::info Concept Status
+**K006 - Suite** is een **concept** dat nog niet is geïmplementeerd in de GEMMA Softwarecatalogus. De wizard en functionaliteiten zijn in ontwikkeling.
+:::
 
 ## Beschrijving
 Een suite is een verzameling van gerelateerde applicaties die samen een compleet softwarepakket vormen. Denk hierbij aan een kantoorsuite met tekstverwerker, spreadsheet en presentatiesoftware. Suites bieden vaak een geïntegreerde gebruikerservaring en gedeelde functionaliteiten.

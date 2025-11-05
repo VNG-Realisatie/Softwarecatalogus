@@ -25,8 +25,8 @@ De catalogus is gebaseerd op 7 kern concepten die elk hun eigen beheer functiona
 | **K003** | [Dienst](../Concepten/K003-dienst.md) | Services die applicaties bieden | ✅ | F005 - Dienstenbeheer |
 | **K004** | [Gebruik](../Concepten/K004-gebruik.md) | Hoe organisaties applicaties gebruiken | ✅ | F013 - Gebruik Beheer |
 | **K005** | [Koppeling](../Concepten/K005-koppeling.md) | Integraties tussen applicaties | ✅ | F008 - Externe Koppelingen |
-| **K006** | [Suite](../Concepten/K006-suite.md) | Verzameling van gerelateerde applicaties | ✅ | *Nieuw* |
-| **K007** | [Component](../Concepten/K007-component.md) | Onderdelen van applicaties | ✅ | *Nieuw* |
+| **K006** | [Suite](../Concepten/K006-suite.md) | Verzameling van gerelateerde applicaties | 🚧 | *Concept - In Ontwikkeling* |
+| **K007** | [Component](../Concepten/K007-component.md) | Onderdelen van applicaties | 🚧 | *Concept - In Ontwikkeling* |
 
 Elk kern concept heeft zijn eigen gedetailleerde documentatie met wizard sequence diagrammen. Klik op de links hierboven voor meer informatie.
 

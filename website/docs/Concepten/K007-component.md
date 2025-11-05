@@ -17,7 +17,11 @@ import ApiSchema from '@theme/ApiSchema';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# K007 - Component  (Niet geimplementeerd concept)
+# K007 - Component
+
+:::info Concept Status
+**K007 - Component** is een **concept** dat nog niet is geïmplementeerd in de GEMMA Softwarecatalogus. De wizard en functionaliteiten zijn in ontwikkeling.
+:::
 
 ## Beschrijving
 Een component is een specifiek onderdeel of module van een applicatie dat een bepaalde functionaliteit biedt. Componenten kunnen herbruikbaar zijn tussen verschillende applicaties en vormen de bouwstenen van complexe software systemen. Ze kunnen variëren van kleine utility functies tot grote functionele modules. Voorbeelden hiervan lopen van een zaakregistratie component tot een specifieke library.
