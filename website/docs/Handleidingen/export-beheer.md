@@ -2,7 +2,7 @@
 id: export-beheer
 title: Export beheer
 sidebar_label: Export beheer
-sidebar_position: 5
+sidebar_position: 7
 description: Handleiding voor het exporteren van registers en schema's uit de Softwarecatalogus
 keywords:
   - export

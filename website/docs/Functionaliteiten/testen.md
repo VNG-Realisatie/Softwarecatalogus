@@ -501,31 +501,43 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 > - [#363](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/363) - Diensten wizard: catalogus i.p.v. softwarecatalogus
 > - [#408](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/408) - Tabblad beschrijving bij Dienst
 
-**Doel**: Test diensten toevoegen aan bestaande producten
+**Doel**: Test diensten toevoegen aan bestaande producten (leverancier én gemeente perspectief)
 
-**Acties**:
-1. **Ga naar "Diensten"** in het menu
-2. **Klik op "Nieuwe Dienst"**
+**Acties (leverancier — aanbod-beheerder)**:
+1. **Ga naar "Diensten"** in het menu of klik **"Dienst publiceren"** op het dashboard
+2. **Klik op "Nieuwe Dienst"** (of navigeer naar `/forms/dienst?type=eigen`)
 3. **Selecteer product**: Kies een van de eerder aangemaakte producten
-4. **Doorloop Dienst Wizard**:
+4. **Doorloop Dienst Wizard** (3 stappen: Applicaties → Dienst-informatie → Controleren)
 5. **Publiceer dienst**
 6. **Herhaal voor verschillende dienst types**:
    - Implementatie dienst
    - Training dienst
    - Hosting dienst
 
-**Verwacht resultaat**: 
-- Verschillende diensten worden succesvol toegevoegd
-- Diensten zijn gekoppeld aan juiste producten
+**Acties (gemeente — gebruik-beheerder)**:
+1. **Ga naar `/beheer/diensten`**
+2. **Klik op "Toevoegen"**
+3. **Doorloop Gemeente Dienst Wizard** (3 stappen: Applicaties → Dienst informatie → Controleren):
+   - **Stap 1**: Selecteer applicatie(s) waarop de dienst betrekking heeft
+   - **Stap 2**: Vul naam, beschrijving, diensttype in (Functioneel beheer, Applicatiebeheer, Technisch beheer, Implementatieondersteuning, Opleidingen, Licentiereseller)
+   - **Stap 3**: Controleer en registreer
+4. **Verifieer** dat de dienst verschijnt in `/beheer/diensten`
 
-**Functionaliteit**: [F005 - Dienstenbeheer](./F005-dienstenbeheer.md)  
-**PvE Issues**: [#35](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/35) - Dienst toevoegen
+**Verwacht resultaat**:
+- Verschillende diensten worden succesvol toegevoegd (zowel leverancier als gemeente)
+- Diensten zijn gekoppeld aan juiste producten
+- Gemeente dienst wizard is volledig doorloopbaar
+
+**Functionaliteit**: [F005 - Dienstenbeheer](./F005-dienstenbeheer.md)
+**PvE Issues**: [#35](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/35) - Dienst toevoegen, [#316](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/316) - Dienst toevoegen: Stap 1, [#317](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/317) - Stap 2, [#318](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/318) - Stap 3
 
 **Testpunten**:
-- [ ] Dienst wizard werkt voor alle dienst types
+- [ ] Dienst wizard werkt voor alle dienst types (leverancier)
 - [ ] Diensten kunnen aan producten worden gekoppeld
 - [ ] SLA en service details kunnen worden ingevoerd
 - [ ] Diensten zijn zichtbaar bij gekoppelde producten
+- [ ] Gemeente kan diensten toevoegen via beheer/diensten wizard
+- [ ] Gemeente dienst wizard doorloopt alle 3 stappen correct
 
 ---
 
@@ -635,48 +647,47 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 > - [#321](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/321) - Koppeling toevoegen: Stap 3 Deelnemer
 > - [#322](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/322) - Koppeling toevoegen: Stap 4 Controleren
 
-**Doel**: Test koppelingen registreren tussen applicaties
+**Doel**: Test koppelingen registreren tussen applicaties (leverancier én gemeente perspectief)
 
-**Acties**:
-1. **Ga naar "Koppelingen"** in het menu
-2. **Klik op "Nieuwe Koppeling"**
-3. **Doorloop Koppeling Wizard**:
-   - **Stap 1: Bronsysteem**:
-     - Selecteer een van uw producten als bronsysteem
-     - Specificeer versie en configuratie
-   - **Stap 2: Doelsysteem**:
-     - Zoek en selecteer doelsysteem uit catalogus
-     - Of voeg extern systeem toe
-   - **Stap 3: Koppeling Type**:
-     - **Type**: API, Bestandsuitwisseling, Database, Webservice
-     - **Richting**: Unidirectioneel of bidirectioneel
-     - **Frequentie**: Real-time, batch, scheduled
-   - **Stap 4: Technische Details**:
-     - **Protocol**: REST, SOAP, FTP, etc.
-     - **Authenticatie**: API key, OAuth, certificaten
-     - **Data formaat**: JSON, XML, CSV
-   - **Stap 5: Standaarden**:
-     - **Gebruikt standaard**: Ja/Nee
-     - **Welke standaard**: StUF, RSGB, etc.
-     - **Toelichting**: Beschrijving van implementatie
-4. **Registreer koppeling**
-5. **Maak meerdere koppelingen** met verschillende configuraties
+**Acties (leverancier — aanbod-beheerder)**:
+1. **Klik op "Koppeling publiceren"** op het dashboard (of navigeer naar `/forms/koppeling?type=eigen-organisatie`)
+2. **Doorloop Koppeling Wizard** (4 stappen):
+   - **Stap 1: Koppeling zoeken** — Selecteer applicatie, bekijk bestaande koppelingen
+   - **Stap 2: Koppeling definiëren** — Applicatie A (locked), richting (A→B / B→A / Bi-directioneel), Applicatie B of BGV, naam
+   - **Stap 3: Aanvullende informatie** — Beschrijving, standaardversies, transportprotocol, intermediair
+   - **Stap 4: Controleren** — Overzicht controleren en opslaan
+3. **Registreer koppeling**
+4. **Maak meerdere koppelingen** met verschillende configuraties
 
-**Verwacht resultaat**: 
-- Koppelingen worden succesvol geregistreerd
-- Verschillende koppeling types werken
+**Acties (gemeente — gebruik-beheerder)**:
+1. **Ga naar `/beheer/koppelingen`**
+2. **Klik op "Toevoegen"**
+3. **Doorloop Gemeente Koppeling Wizard** (4 stappen):
+   - **Stap 1: Koppeling zoeken** — Selecteer applicatie uit gemeentelijk landschap, bekijk bestaande koppelingen
+   - **Stap 2: Koppeling definiëren** — Applicatie A (locked), richting, Applicatie B of BGV, naam, status. Optie om meerdere koppelingen tegelijk toe te voegen via "Nieuwe koppeling toevoegen"
+   - **Stap 3: Aanvullende informatie** — Beschrijving (kort/lang), standaardversies, transportprotocol, intermediair
+   - **Stap 4: Controleren** — Overzicht met koppeling(en) en richting controleren
+4. **Verifieer** dat de koppeling verschijnt in `/beheer/koppelingen`
+
+**Verwacht resultaat**:
+- Koppelingen worden succesvol geregistreerd (zowel leverancier als gemeente)
+- Verschillende koppeling types en richtingen werken
 - Standaarden kunnen worden gespecificeerd
+- Gemeente koppeling wizard is volledig doorloopbaar
 
-**Functionaliteit**: [F013 - Gebruik Beheer](./F013-gebruik-beheer.md)  
-**PvE Issues**: [#56](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/56) - Koppelingen registreren tussen applicaties
+**Functionaliteit**: [F013 - Gebruik Beheer](./F013-gebruik-beheer.md)
+**PvE Issues**: [#56](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/56) - Koppelingen registreren, [#319](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/319) - Stap 1, [#320](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/320) - Stap 2, [#321](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/321) - Stap 3, [#322](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/322) - Stap 4
 
 **Testpunten**:
-- [ ] Koppeling wizard doorloopt alle stappen
+- [ ] Koppeling wizard doorloopt alle stappen (leverancier)
 - [ ] Bron- en doelsystemen kunnen worden geselecteerd
 - [ ] Verschillende koppeling types zijn beschikbaar
 - [ ] Technische details kunnen worden gespecificeerd
 - [ ] Standaarden kunnen worden aangegeven
 - [ ] Koppelingen zijn zichtbaar in overzichten
+- [ ] Gemeente kan koppelingen toevoegen via beheer/koppelingen wizard
+- [ ] Gemeente koppeling wizard doorloopt alle 4 stappen correct
+- [ ] Meerdere koppelingen tegelijk toevoegen werkt (gemeente wizard)
 
 ---
 
@@ -1066,19 +1077,26 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 > - [#10](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/10) - Registreren welke organisaties pakket gebruiken
 > - [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) - Statistieken over pakketoverzicht
 
-**Doel**: Test leverancier perspectief op gebruik en klanten
+**Doel**: Test leverancier perspectief op gebruik en klanten, inclusief "Applicatiegebruik melden" wizard
 
 **Acties**:
-1. **Gebruik Overzicht voor Leveranciers**:
+1. **Applicatiegebruik Melden (Wizard)**:
    - **Log in als leverancier**
-   - **Ga naar "Mijn Klanten"**
+   - **Klik op "Applicatiegebruik melden"** op het dashboard (of navigeer naar `/forms/gebruik/applicatie?type=ontbrekend-organisatie`)
+   - **Doorloop wizard** (2 stappen):
+     - **Stap 1 — Selecteren**: Selecteer uw applicatie en één of meer klanten (gemeenten/samenwerkingen)
+     - **Stap 2 — Controleren**: Overzicht controleren, klik "Verzenden"
+   - **Verifieer** succes: "Gebruik succesvol geregistreerd!" — klant moet goedkeuren voordat het definitief wordt
+
+2. **Gebruik Overzicht voor Leveranciers**:
+   - **Ga naar "Mijn Klanten"** of gebruik overzicht
    - **Bekijk organisaties** die jouw producten gebruiken
    - **Controleer gebruik details**:
      - **Welke modules** worden gebruikt
      - **Implementatie status**: Live/Test/Gepland
      - **Contactpersonen** bij klant organisaties
 
-2. **Gebruik Registratie Beheren**:
+3. **Gebruik Registratie Beheren**:
    - **Bekijk openstaande meldingen** van nieuwe gebruik
    - **Accepteer/weiger gebruik meldingen**
    - **Voeg aanvullende informatie toe**:
@@ -1086,35 +1104,32 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
      - **Support contacten**
      - **Licentie informatie**
 
-3. **Klant Ondersteuning**:
-   - **Contacteer klanten** via platform
-   - **Deel product updates** met gebruikers
-   - **Verzamel feedback** van implementaties
-   - **Track support tickets** (indien beschikbaar)
-
 4. **Gebruik Statistieken**:
    - **Dashboard met gebruik metrics**
    - **Populairste modules** per klant type
    - **Geografische spreiding** van gebruik
    - **Groei trends** over tijd
 
-**Verwacht resultaat**: 
+**Verwacht resultaat**:
+- "Applicatiegebruik melden" wizard doorloopt succesvol
+- Gemeld gebruik verschijnt als voorstel bij de klantorganisatie
 - Leveranciers zien hun klanten en gebruik
 - Gebruik beheer functionaliteit werkt
-- Communicatie met klanten is mogelijk
 - Statistieken geven inzicht in gebruik patronen
 
-**Functionaliteit**: [F013 - Gebruik Beheer](./F013-gebruik-beheer.md), [F004 - Applicatiebeheer](./F004-applicatiebeheer.md)  
-**PvE Issues**: 
+**Functionaliteit**: [F013 - Gebruik Beheer](./F013-gebruik-beheer.md), [F004 - Applicatiebeheer](./F004-applicatiebeheer.md)
+**PvE Issues**:
 - [#8](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/8) - Door gebruik-beheerders toegevoegde pakketten zien
 - [#10](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/10) - Registreren welke organisaties pakket gebruiken
 - [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) - Statistieken over pakketoverzicht
 
 **Testpunten**:
+- [ ] "Applicatiegebruik melden" wizard doorloopt alle stappen
+- [ ] Applicatie en klant(en) kunnen worden geselecteerd
+- [ ] Gemeld gebruik verschijnt als voorstel bij de klant
 - [ ] Leveranciers zien hun klanten
 - [ ] Gebruik details zijn zichtbaar
 - [ ] Gebruik meldingen kunnen worden beheerd
-- [ ] Communicatie met klanten werkt
 - [ ] Statistieken zijn informatief en accuraat
 - [ ] Dashboard is gebruiksvriendelijk
 - [ ] Privacy van andere leveranciers wordt gerespecteerd

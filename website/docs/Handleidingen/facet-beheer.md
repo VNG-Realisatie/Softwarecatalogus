@@ -1,6 +1,6 @@
 ---
 id: facet-beheer
-title: Facetbeheer (zoekfilters)
+title: Facetbeheer en tabel weergave (zoekfilters)
 sidebar_label: Facetbeheer
 sidebar_position: 4
 description: Handleiding voor het configureren van zoekfacetten en filters in de Softwarecatalogus
@@ -115,3 +115,8 @@ De facetresolutie voor alle waarden vindt plaats bij het eerste bezoek aan de zo
 
 - [F011 - Zoeken & Ontdekken](../Functionaliteiten/F011-zoeken-en-ontdekken.md) — Zoekfunctionaliteit
 - [F009 - Beheer en Configuratie](../Functionaliteiten/F009-beheer-en-configuratie.md) — Systeemconfiguratie
+
+## Kolomweergave in de beheeromgeving
+
+Wilt u aanpassen welke kolommen zichtbaar zijn in de overzichtstabellen? Dit doet u via de schema-eigenschappen. Zie de handleiding [Schema-instellingen](./schema-instellingen.md#in-tabel-te-tonen-kolommen) voor meer informatie.
+
