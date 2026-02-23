@@ -181,3 +181,9 @@ Na het doorlopen van deze reis heeft Jan:
 - ✅ Professionele uitstraling richting gemeenten
 
 *"De softwarecatalogus heeft ons bedrijf echt op de kaart gezet. We krijgen nu regelmatig aanvragen van gemeenten die ons gevonden hebben via de catalogus. Het is de beste marketing investering die we ooit hebben gedaan - en het kost ons niets!"*
+
+---
+
+## 🤖 Geautomatiseerd Testen
+
+Deze agent test de leverancier-specifieke functionaliteiten: organisatie registratie, product wizards (single/multi module), diensten toevoegen, standaarden registreren, en klantenbeheer.

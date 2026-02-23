@@ -157,3 +157,9 @@ Na het doorlopen van deze reis heeft Mark:
 - ✅ Mogelijkheid om proactief security advies te geven
 
 *"De softwarecatalogus geeft me de security visibility die ik nodig heb om gemeenten te helpen veilige keuzes te maken. Ik kan nu security risico's proactief identificeren en aanpakken voordat ze problemen worden."*
+
+---
+
+## 🤖 Geautomatiseerd Testen
+
+Deze agent test de security-specifieke functionaliteiten: RBAC verificatie, privacy controles, contactpersonen zichtbaarheid, API endpoint autorisatie, en sessie beveiliging.

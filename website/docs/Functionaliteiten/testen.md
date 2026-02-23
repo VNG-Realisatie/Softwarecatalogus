@@ -54,6 +54,38 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ---
 
+## 📌 Open Bevindingen per Stap (2026-02-21)
+
+| Stap | Bevindingen | Hotspots |
+|------|:-----------:|----------|
+| 3. Org activatie | 5 | Backend bugs, user conversion |
+| 4. Eerste inlog | 4 | Account leeg, menu verdwijnt |
+| 5. Contactpersonen | 4 | Save error, tussenvoegsel |
+| 6. Org profiel | 2 | Functie niet opgeslagen |
+| **7. Applicaties** | **20** | **Compliance, wizard labels, diensten tabel** |
+| **9. Diensten** | **13** | **Wizard teksten, type verwarring, concept status** |
+| **10. Gebruik** | **10** | **Wizard stappen (dienst/app toevoegen)** |
+| **11. Koppelingen** | **9** | **Save fouten, import leeg, wizard stappen** |
+| 12. Privacy | 5 | Contactpersonen zichtbaar, API auth |
+| 13. Export | 3 | UUID's in export |
+| 14. Zoeken | 6 | Sorteren, filter resultaten |
+| 16. Standaarden | 2 | ID-referenties |
+| 17. Gluren bij buren | 4 | Gebruik overzicht |
+| 18. Leverancier gebruik | 3 | Statistieken |
+| 19. Geavanceerd | 5 | Data migratie, ArchiMate |
+| 20. Samenwerkingen | 2 | Multi-org |
+| **21. Beheer/Config** | **11** | **CMS, teksten, footer, voorpagina** |
+| 22. Geavanceerd zoeken | 3 | Views, architectuur |
+| 23. Functioneel beheer | 1 | Overzicht |
+| 24. AMEFF export | 1 | Import fout |
+| General | 4 | Witte schermen, UX, errors |
+| Infra | 4 | NextCloud versie, CI/CD |
+| **Totaal** | **123** | |
+
+> Grootste pijnpunten: **Stap 7** (applicaties, 20 issues), **Stap 9** (diensten, 13 issues), **Stap 21** (beheer, 11 issues), **Stap 10** (gebruik, 10 issues)
+
+---
+
 ## 🚀 Gedetailleerde Testflow
 
 ### Stap 1: Browser Voorbereiding
@@ -110,6 +142,13 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 ---
 
 ### Stap 3: Organisatie Activatie en Gebruikersbeheer (Backend)
+
+> **📌 Open bevindingen (5):**
+> - [#391](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/391) - Testen met een gebruiker van een bestaande organisatie
+> - [#392](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/392) - Back-end: geimporteerde gebruiker geeft error bij omzetten naar user
+> - [#195](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/195) - [Bug] NC dashboard organisatie 'acties dropdown' werkt niet goed
+> - [#208](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/208) - [Bug] NC Dashboard organisatie overzicht toont alleen ID
+> - [#209](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/209) - [Bug] Help knop gaat naar niet bestaande pagina
 
 **Doel**: Test het activatieproces en volledige organisatie/gebruikersbeheer functionaliteiten
 
@@ -200,6 +239,12 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 4: Eerste Inlog
 
+> **📌 Open bevindingen (4):**
+> - [#266](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/266) - Na inloggen: Mijn account & persoonlijke gegevens leeg?
+> - [#350](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/350) - Link achter gebruikersnaam verwijzen naar Mij account
+> - [#395](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/395) - Menu linkerkant verdwijnt
+> - [#183](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/183) - [Feature] 'Wachtwoord vergeten' optie
+
 **Doel**: Test eerste inlog met het in stap 3 ingestelde wachtwoord
 
 **Acties**:
@@ -231,6 +276,12 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 ---
 
 ### Stap 5: Collega's Uitnodigen
+
+> **📌 Open bevindingen (4):**
+> - [#65](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/65) - Collega's toegang geven tot de softwarecatalogus
+> - [#73](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/73) - Meerdere contactpersonen registreren en aan pakketten koppelen
+> - [#365](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/365) - Contactpersonen: error bij het opslaan van een contactpersoon
+> - [#367](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/367) - Contactpersonen: Tussenvoegsel wordt niet getoond
 
 **Doel**: Test gebruikersbeheer en uitnodigingsfunctionaliteit
 
@@ -283,6 +334,10 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 6: Organisatie Profiel Invullen
 
+> **📌 Open bevindingen (2):**
+> - [#353](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/353) - Mijn account – "functie" wordt niet aangepast na bewerken en opslaan
+> - [#192](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/192) - [Taak] Organisatie adres info in organisatie cards
+
 **Doel**: Test organisatie-informatie beheer en profiel completering
 
 **Acties**:
@@ -321,6 +376,28 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 ---
 
 ### Stap 7: Product Aanmaken (Enkele Module)
+
+> **📌 Open bevindingen (20):**
+> - [#294](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/294) - Applicatie publiceren: uitlijning rechthoek
+> - [#300](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/300) - Beheer: overzicht applicaties teveel applicaties
+> - [#302](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/302) - Beheer: applicatie bewerken (ophalen traag)
+> - [#370](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/370) - Applicatie: teveel kolommen worden getoond
+> - [#373](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/373) - Applicatie: Gekoppelde diensten worden niet getoond
+> - [#375](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/375) - Applicaties: versie voor SaaS applicaties?
+> - [#376](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/376) - Applicaties: labels wizard en tabel zijn anders
+> - [#377](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/377) - Applicaties: tabel toont diensten niet
+> - [#379](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/379) - Applicatie: verschillende manier van tonen compliancy
+> - [#380](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/380) - Applicatie: compliance aantallen komen niet overeen
+> - [#381](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/381) - Applicaties: non-compliant vervangen door niet ondersteund
+> - [#382](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/382) - Applicatie: compliancy link werkt niet
+> - [#383](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/383) - Applicatie: selectie vakken werken niet
+> - [#384](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/384) - Applicaties: eenduidige manier van bewerken
+> - [#385](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/385) - Applicatie: Geen huidige versie in gebruik
+> - [#386](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/386) - Applicaties – publiceren: andere labels
+> - [#387](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/387) - Applicaties – publiceren: i niet aanwezig
+> - [#390](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/390) - Applicaties – publiceren: labels komen niet overeen
+> - [#399](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/399) - Versies: versie van andere leverancier geeft foutmelding
+> - [#402](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/402) - Verschil tussen Edge en Chrome bij laden applicaties
 
 **Doel**: Test product aanmaak wizard voor eenvoudige producten
 
@@ -409,6 +486,21 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 9: Dienst Wizard Doorlopen
 
+> **📌 Open bevindingen (13):**
+> - [#274](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/274) - Wizard dienst: tekst naar nieuwe benamingen
+> - [#306](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/306) - Dienst: Overzicht controleren verbeteren
+> - [#307](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/307) - Diensten overzicht: meer dienst bij organisatie dan er horen
+> - [#308](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/308) - Diensten overzicht: default kolommen + kolom verwijderen
+> - [#356](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/356) - Diensten: geen tussenvoegsel bij namen
+> - [#357](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/357) - Diensten: Diensttype en Type door elkaar
+> - [#358](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/358) - Diensten: Status "Concept" nog op verschillende plekken
+> - [#359](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/359) - Diensten wizard: tekst aanpassen
+> - [#360](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/360) - Diensten wizard: Meerdere i komen niet overeen met ppt
+> - [#361](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/361) - Diensten wizard: inconsistentie in labels
+> - [#362](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/362) - Diensten wizard: onlogische tekst bovenaan aanmeld-stap
+> - [#363](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/363) - Diensten wizard: catalogus i.p.v. softwarecatalogus
+> - [#408](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/408) - Tabblad beschrijving bij Dienst
+
 **Doel**: Test diensten toevoegen aan bestaande producten
 
 **Acties**:
@@ -438,6 +530,18 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 ---
 
 ### Stap 10: Gebruik Melden en Beheren
+
+> **📌 Open bevindingen (8):**
+> - [#35](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/35) - Registreren welke diensten ik afneem
+> - [#316](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/316) - Dienst toevoegen: Stap 1 Dienst zoeken
+> - [#317](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/317) - Dienst toevoegen: Stap 2 Gebruiksinformatie
+> - [#318](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/318) - Dienst toevoegen: Stap 3 Controleren
+> - [#323](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/323) - Applicatie toevoegen: Stap 1 Applicatie zoeken
+> - [#324](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/324) - Applicatie toevoegen: Stap 2 gebruiksinformatie
+> - [#325](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/325) - Applicatie toevoegen: Stap 3 Referentiecomponenten
+> - [#326](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/326) - Applicatie toevoegen: Stap 4 Deelnemer
+> - [#327](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/327) - Applicatie toevoegen: Stap 5 Controleren
+> - [#328](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/328) - Applicatie toevoegen: Stap 1.1 Nieuwe applicatie opvoeren
 
 **Doel**: Test gebruik registratie en beheer voor andere organisaties
 
@@ -520,6 +624,17 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 11: Koppeling Wizard Doorlopen (pas bij gebruik!)
 
+> **📌 Open bevindingen (8):**
+> - [#186](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/186) - Koppelingen (restpunt)
+> - [#312](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/312) - Koppeling heeft verplicht een naam
+> - [#314](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/314) - Wizard Koppeling publiceren vind zelf aangemaakte applicaties niet
+> - [#400](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/400) - Koppeling - Opslaan geeft een foutmelding
+> - [#401](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/401) - Koppeling - geïmporteerde koppelingen kaartjes zijn leeg
+> - [#319](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/319) - Koppeling toevoegen: Stap 1 Koppeling zoeken
+> - [#320](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/320) - Koppeling toevoegen: Stap 2 Gebruiksinformatie
+> - [#321](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/321) - Koppeling toevoegen: Stap 3 Deelnemer
+> - [#322](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/322) - Koppeling toevoegen: Stap 4 Controleren
+
 **Doel**: Test koppelingen registreren tussen applicaties
 
 **Acties**:
@@ -566,6 +681,13 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 ---
 
 ### Stap 12: Privacy en Zichtbaarheid Testen
+
+> **📌 Open bevindingen (5):**
+> - [#394](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/394) - Contactpersonen van gemeenten publiekelijk zichtbaar
+> - [#105](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/105) - Aanbieders zien applicatielandschappen en koppelingen niet
+> - [#41](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/41) - Documenten (DPIA's, verwerkersovereenkomsten) delen
+> - [#83](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/83) - Beveiligde API aanbodinformatie registreren
+> - [#84](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/84) - Beveiligde API toegang tot gebruiksinformatie
 
 **Doel**: Test privacy instellingen voor gebruik en koppelingen
 
@@ -655,6 +777,11 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 13: Excel Export Testen
 
+> **📌 Open bevindingen (3):**
+> - [#15](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/15) - Data vanuit softwarecatalogus exporteren
+> - [#355](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/355) - Diensten: Export geeft allerlei UUID's
+> - [#109](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/109) - Organisatie- en softwaregegevens integreren in export
+
 **Doel**: Test data export functionaliteit vanuit dashboard
 
 **Acties**:
@@ -689,6 +816,14 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 ---
 
 ### Stap 14: Zoeken en Resultaten Controleren
+
+> **📌 Open bevindingen (6):**
+> - [#144](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/144) - Overzicht organisaties met zoek- en filteropties
+> - [#280](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/280) - Zoeken: sorteren gaat niet goed
+> - [#340](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/340) - Bevindingen op tussenoplevering Zoeken
+> - [#344](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/344) - Zoeken: Geen resultaten bij Gravenbeheercomponent (niet ingelogd)
+> - [#205](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/205) - [Bug] Gedepubliceerde applicatie nog te vinden via zoeken
+> - [#342](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/342) - Zoeken: op kaartjes aantal referentiecomponenten duidelijk maken
 
 **Doel**: Test zoekfunctionaliteit en resultaatpagina's
 
@@ -796,6 +931,10 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 16: Standaarden Beheer Testen
 
+> **📌 Open bevindingen (2):**
+> - [#6](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/6) - Registreren welke standaarden door pakket worden ondersteund
+> - [#407](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/407) - Toegevoegde standaarden verwijzen naar id-id-....
+
 **Doel**: Test standaarden registratie en filtering functionaliteiten
 
 **Acties**:
@@ -857,6 +996,12 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 17: "Gluren bij de Buren" Functionaliteit
 
+> **📌 Open bevindingen (4):**
+> - [#19](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/19) - Bij pakket zien welke gemeenten het gebruiken
+> - [#20](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/20) - "Gluren bij de buren" - pakketten andere gemeenten bekijken
+> - [#22](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/22) - Pakketoverzicht filteren op meerdere eigenschappen
+> - [#74](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/74) - Overzicht organisaties die pakketten/diensten gebruiken
+
 **Doel**: Test benchmarking en gemeente vergelijking functionaliteiten
 
 **Acties**:
@@ -916,6 +1061,11 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 18: Leverancier Gebruik Beheer
 
+> **📌 Open bevindingen (3):**
+> - [#8](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/8) - Door gebruik-beheerders toegevoegde pakketten zien
+> - [#10](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/10) - Registreren welke organisaties pakket gebruiken
+> - [#54](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/54) - Statistieken over pakketoverzicht
+
 **Doel**: Test leverancier perspectief op gebruik en klanten
 
 **Acties**:
@@ -972,6 +1122,13 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 ---
 
 ### Stap 19: Geavanceerde Koppelingen en Standaarden
+
+> **📌 Open bevindingen (5):**
+> - [#23](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/23) - Geregistreerde gegevens weer zien in nieuwe Softwarecatalogus
+> - [#393](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/393) - Backend: fouten in voorzieningenregister
+> - [#55](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/55) - Bij koppeling aangeven of standaardversie wordt gebruikt
+> - [#71](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/71) - (VNGR) Importeren ArchiMate
+> - [#117](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/117) - Robuuste foutafhandeling voor mislukte imports
 
 **Doel**: Test uitgebreide koppeling functionaliteiten en standaarden
 
@@ -1032,6 +1189,10 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 20: Samenwerkingen en Multi-Organisatie Beheer
 
+> **📌 Open bevindingen (2):**
+> - [#57](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/57) - Samenwerkingsverband pakketten opvoeren voor gemeenten
+> - [#60](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/60) - Voor meerdere organisaties pakketoverzichten bewerken
+
 **Doel**: Test samenwerking functionaliteiten en multi-organisatie beheer
 
 **Acties**:
@@ -1090,6 +1251,19 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 ---
 
 ### Stap 21: Beheer en Configuratie Functies
+
+> **📌 Open bevindingen (10):**
+> - [#155](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/155) - Definities via interactieve optie (tooltip/glossary)
+> - [#169](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/169) - Rest issues van Organisatie en Configuratie
+> - [#267](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/267) - Naam softwarecatalogus i.p.v. VNG softwarecatalogus
+> - [#332](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/332) - Voorpagina inrichten
+> - [#397](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/397) - Pagina aanmaken via CMS
+> - [#403](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/403) - Tekst verwijderen aanpassen
+> - [#406](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/406) - SiteImprove verwijderen
+> - [#409](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/409) - Footer anders: inlog of uitgelogd
+> - [#410](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/410) - Dashboard schrijfwijze softwarecatalogus
+> - [#75](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/75) - Rapportages maken over catalogus data
+> - [#92](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/92) - Open source webstatistiekenpakket
 
 **Doel**: Test systeem beheer en configuratie mogelijkheden
 
@@ -1169,6 +1343,11 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 22: Geavanceerde Zoek en Filter Functies
 
+> **📌 Open bevindingen (3):**
+> - [#160](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/160) - (VNGR) Performance plotten views
+> - [#59](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/59) - Alle informatie over applicaties invoeren
+> - [#135](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/135) - Valideren non-functionele eisen Referentiearchitectuur
+
 **Doel**: Test uitgebreide zoek en filter mogelijkheden
 
 **Acties**:
@@ -1232,6 +1411,9 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 
 ### Stap 23: Functioneel Beheer Overzicht
 
+> **📌 Open bevindingen (1):**
+> - [#11](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/11) - Overzicht door gebruik-beheerders geregistreerde pakketten/aanbieders
+
 **Doel**: Test functioneel beheerder perspectief en overzichten
 
 **Acties**:
@@ -1286,6 +1468,9 @@ Deze handleiding beschrijft de complete testflow voor het testen van de GEMMA So
 ---
 
 ### Stap 24: AMEFF Export en Uitgebreide Data Export
+
+> **📌 Open bevindingen (1):**
+> - [#231](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/231) - [Bug] AMEFF exports geven foutmelding bij importeren in Archi
 
 **Doel**: Test specialistische export functionaliteiten
 

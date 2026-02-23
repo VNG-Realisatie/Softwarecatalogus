@@ -197,3 +197,9 @@ Na het doorlopen van deze reis heeft Linda:
 - ✅ Sterke positie als regionale ICT-speler
 
 *"Wat begon als een simpel telefoontje naar VNG Realisatie, is uitgegroeid tot een bloeiende samenwerking die waarde toevoegt voor alle betrokkenen. We zijn trots op wat we hebben bereikt en kijken uit naar verdere groei!"*
+
+---
+
+## 🤖 Geautomatiseerd Testen
+
+Deze agent test de samenwerking-specifieke functionaliteiten: dual-role beheer (aanbod + gebruik), multi-organisatie management, collectieve licenties, en namens leden handelen.

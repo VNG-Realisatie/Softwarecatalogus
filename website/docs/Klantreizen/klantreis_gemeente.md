@@ -203,3 +203,9 @@ Na het doorlopen van deze reis heeft Maria:
 - ✅ Een team dat meewerkt aan ICT-beheer
 
 *"De softwarecatalogus heeft ons geholpen om van een chaotisch applicatielandschap naar een gestructureerd overzicht te gaan. Nu kunnen we eindelijk strategische beslissingen nemen over onze ICT."*
+
+---
+
+## 🤖 Geautomatiseerd Testen
+
+Deze agent test de gemeente-specifieke functionaliteiten: gebruik melden, koppelingen registreren, "gluren bij de buren", privacy van eigen data, en Excel export.

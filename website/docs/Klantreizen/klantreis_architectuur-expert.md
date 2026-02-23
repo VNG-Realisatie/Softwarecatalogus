@@ -132,3 +132,9 @@ Na het doorlopen van deze reis heeft Sarah:
 - ✅ Mogelijkheid om proactief advies te geven
 
 *"De softwarecatalogus geeft me eindelijk het overzicht dat ik nodig heb om GEMMA architectuur effectief te bewaken. Ik kan nu zien waar we staan, waar problemen zitten, en hoe we als sector kunnen verbeteren."*
+
+---
+
+## 🤖 Geautomatiseerd Testen
+
+Deze agent test de architectuur-specifieke functionaliteiten: GEMMA component mappings, standaarden compliance, ArchiMate import/export, en architectuur visualisaties.

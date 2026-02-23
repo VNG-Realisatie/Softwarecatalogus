@@ -184,3 +184,9 @@ Na het doorlopen van deze reis heeft Peter:
 - ✅ Proactieve identificatie van verbeterpunten
 
 *"Als functioneel beheerder ben ik de spil in het web. Ik zorg ervoor dat iedereen de catalogus optimaal kan gebruiken en dat de data betrouwbaar blijft. Het is een uitdagende maar zeer bevredigende rol."*
+
+---
+
+## 🤖 Geautomatiseerd Testen
+
+Deze agent test de beheerder-specifieke functionaliteiten: organisatie activatie, gebruikersbeheer, AMEFF/ArchiMate, content management, systeem configuratie, en rapportages.
