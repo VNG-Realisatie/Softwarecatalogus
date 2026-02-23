@@ -53,6 +53,8 @@ Elke kaart toont:
    - **Description**: De volledige pagina-inhoud
 3. Klik op **Opslaan**
 
+![Het Add Page dialoogvenster met Title en Slug velden](./pages/addPage.jpg)
+
 :::tip Slug-conventies
 Gebruik voor de slug alleen kleine letters, cijfers en koppeltekens. Vermijd spaties en speciale tekens. Bijvoorbeeld: `veelgestelde-vragen` in plaats van `Veelgestelde Vragen`.
 :::
@@ -64,6 +66,8 @@ Gebruik voor de slug alleen kleine letters, cijfers en koppeltekens. Vermijd spa
 3. Kies **Bewerken**
 4. Pas de gewenste velden aan (titel, slug, samenvatting, beschrijving)
 5. Klik op **Opslaan**
+
+![Het bewerkscherm van een pagina met Content Items, Configuration en Security tabs](./pages/editPage.jpg)
 
 De wijzigingen zijn direct zichtbaar op de publieke website.
 
@@ -78,6 +82,40 @@ De wijzigingen zijn direct zichtbaar op de publieke website.
 Verwijderde pagina's zijn niet te herstellen. Controleer of de pagina niet meer nodig is voordat u deze verwijdert. Links naar verwijderde pagina's zullen een 404-fout opleveren.
 :::
 
+## Content toevoegen aan een pagina
+
+Een pagina kan meerdere content items bevatten. Elk content item heeft een **type** en een **volgorde** (order) die bepaalt waar het op de pagina verschijnt. U voegt content toe via de knop **+ Add Content** in het bewerkscherm van een pagina.
+
+### Beschikbare content types
+
+| Type | Beschrijving |
+|------|--------------|
+| **Text** | Onopgemaakte platte tekst |
+| **RichText** | Opgemaakte tekst met een toolbar voor opmaak (vet, cursief, lijsten, tabellen, afbeeldingen, links, etc.) |
+| **Faq** | Veelgestelde vragen met Vraag/Antwoord-paren |
+
+### Text content
+
+Kies content type **Text** om een blok onopgemaakte tekst toe te voegen. Voer de tekst in het tekstveld in en stel de volgorde in.
+
+![Text content bewerken — onopgemaakte tekst met volgorde](./pages/addPageContentText.jpg)
+
+### RichText content
+
+Kies content type **RichText** voor opgemaakte tekst. De editor biedt een toolbar met opties voor koppen, vet, cursief, lijsten, tabellen, afbeeldingen, links en codeblokken.
+
+![RichText content toevoegen met opgemaakte tekst en toolbar](./pages/addPageContentRichText.jpg)
+
+### FAQ content
+
+Kies content type **Faq** om een lijst met veelgestelde vragen toe te voegen. Elke FAQ-entry bestaat uit een **Vraag** en een **Antwoord**. U kunt meerdere paren toevoegen.
+
+![FAQ content toevoegen met Vraag/Antwoord-paren](./pages/addPageFaqText.jpg)
+
+:::tip Volgorde
+De volgorde (order) bepaalt de positie van het content item op de pagina. Lagere nummers verschijnen hoger op de pagina. Let op de volgorde wanneer u meerdere content items toevoegt.
+:::
+
 ## Pagina's op de publieke website
 
 CMS-pagina's zijn publiek toegankelijk via hun slug:
@@ -90,6 +128,8 @@ Bijvoorbeeld:
 - `https://softwarecatalogus.nl/privacyverklaring`
 - `https://softwarecatalogus.nl/faq`
 - `https://softwarecatalogus.nl/algemene-voorwaarden`
+
+![Voorbeeld van de publieke website van de Softwarecatalogus](./pages/WebsiteExample.png)
 
 De footer van de publieke website bevat automatisch links naar de privacyverklaring, algemene voorwaarden, disclaimer en FAQ.
 

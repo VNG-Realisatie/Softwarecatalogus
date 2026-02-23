@@ -77,6 +77,8 @@ Begrippen worden beheerd via de Nextcloud-backend.
    - **Keywords**: Trefwoorden voor betere herkenning op pagina's (optioneel)
 3. Klik op **Opslaan**
 
+![Het Add Term formulier met Title, Summary, Description, External link en Keywords velden](./glossery/addTerm.jpg)
+
 :::tip Trefwoorden
 Voeg synoniemen en gerelateerde termen toe als trefwoorden. Dit vergroot de kans dat het begrip automatisch wordt herkend op pagina's. Bijvoorbeeld bij "SaaS" kunt u "Software as a Service" en "cloud software" als trefwoorden toevoegen.
 :::

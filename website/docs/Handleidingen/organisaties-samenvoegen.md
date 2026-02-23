@@ -54,16 +54,26 @@ Bij het samenvoegen worden de volgende gegevens van de bronorganisatie overgedra
 4. Filter op het **Voorzieningen**-register en het **Organisatie**-schema
 5. Zoek de bronorganisatie (de organisatie die zal opgaan in de andere)
 
+![Search/Views gefilterd op Voorzieningen register en Organisatie schema](./ObjectenVinden.jpg)
+
 ### 2. De samenvoeg-actie starten
 
 1. Klik op het **drie-puntjes-menu** (acties) naast de bronorganisatie
 2. Kies **Samenvoegen** (Merge)
 3. Het samenvoeg-venster (MergeObject modal) opent
 
+![Het drie-puntjes-menu met de opties Edit, Merge, Copy, Publish en Delete](./ObjectActies.jpg)
+
 ### 3. Doelorganisatie selecteren
 
 1. In het samenvoeg-venster zoekt u de **doelorganisatie** (de organisatie die overblijft)
+
+![Het Merge Objects venster met de lijst van beschikbare doelorganisaties](./merging/ObjectSammenvoegen.jpg)
+
 2. Selecteer de doelorganisatie uit de lijst
+
+![Zoeken naar de doelorganisatie en selecteren uit de resultaten](./merging/ObjectSamenvoegenSelecteren.jpg)
+
 3. U krijgt een overzicht te zien van wat er samengevoegd zal worden
 
 ### 4. Controleren en bevestigen
@@ -72,6 +82,11 @@ Bij het samenvoegen worden de volgende gegevens van de bronorganisatie overgedra
    - Welke gegevens worden overgedragen
    - Welke gegevens mogelijk conflicteren
    - Wat er gebeurt met de bronorganisatie na het samenvoegen
+
+![Bestanden en relaties overdragen of verwijderen](./merging/objectSamenvoegenRelatiesenBestanden.jpg)
+
+![Eigenschappen vergelijken tussen bron en doel, en de resultaatwaarde kiezen](./merging/ObjectSamenvoegenBepalen.jpg)
+
 2. Klik op **Samenvoegen** om de actie te bevestigen
 
 :::danger Waarschuwing
@@ -81,6 +96,9 @@ Het samenvoegen van organisaties is **niet omkeerbaar**. Controleer zorgvuldig o
 ### 5. Na het samenvoegen
 
 Na het samenvoegen:
+
+![Resultaat van het samenvoegen met overzicht van gewijzigde eigenschappen, overgedragen relaties en bestanden](./merging/ObjectSammenvoegenResultaat.jpg)
+
 - Alle gegevens van de bronorganisatie zijn overgedragen naar de doelorganisatie
 - De bronorganisatie kan worden gedeactiveerd of verwijderd
 - Gebruikers van de bronorganisatie moeten mogelijk opnieuw worden gekoppeld aan de doelorganisatie

@@ -70,6 +70,8 @@ Facetten worden geconfigureerd via de schema-eigenschappen in OpenRegister.
 3. Schakel deze optie in
 4. Sla de wijzigingen op
 
+![Schema-eigenschap met Facettable checkbox, Facet Title, Facet Description en Facet Order instellingen](./facets/facetFromShemaProeprty.png)
+
 ### Facetlabels aanpassen
 
 De naam die in het filter wordt getoond, komt overeen met de **titel** van de schema-eigenschap. Om een facetlabel te wijzigen:

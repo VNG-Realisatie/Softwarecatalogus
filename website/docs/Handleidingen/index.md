@@ -23,6 +23,7 @@ Praktische stap-voor-stap handleidingen voor het beheren van de GEMMA Softwareca
 | [Begrippenlijst beheer](./glossary-beheer.md) | Functioneel beheerder | Begrippen en definities in de begrippenlijst beheren |
 | [Organisaties samenvoegen](./organisaties-samenvoegen.md) | Functioneel beheerder | Organisaties samenvoegen bij herindeling of overname |
 | [Facetbeheer](./facet-beheer.md) | Functioneel beheerder | Zoekfacetten en filters configureren |
+| [Export beheer](./export-beheer.md) | Functioneel beheerder | Registers en schema's exporteren |
 
 ## Vereisten
 
