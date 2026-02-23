@@ -1,0 +1,434 @@
+- generic [active] [ref=e3]:
+  - banner [ref=e4]:
+    - paragraph:
+      - link "Direct naar de inhoud" [ref=e5] [cursor=pointer]:
+        - /url: "#main"
+    - generic [ref=e6]:
+      - link "Development Catalogus" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - heading "Development Catalogus" [level=1] [ref=e10]
+      - button "Menu" [ref=e13]:
+        - img
+        - text: Menu
+    - navigation "Hoofdnavigatie" [ref=e17]:
+      - list [ref=e18]:
+        - listitem [ref=e19]:
+          - link "Privacy" [ref=e20] [cursor=pointer]:
+            - /url: /privacy
+            - generic [ref=e21]: Privacy
+        - listitem [ref=e22]:
+          - link "Terms" [ref=e23] [cursor=pointer]:
+            - /url: /terms
+            - generic [ref=e24]: Terms
+    - navigation "Kruimelpad" [ref=e27]:
+      - list [ref=e28]:
+        - listitem [ref=e29]:
+          - link "Home" [ref=e30] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e31]:
+          - img [ref=e32]
+        - listitem [ref=e34]:
+          - link "Zoeken" [disabled] [ref=e35]
+  - main [ref=e36]:
+    - generic [ref=e39]:
+      - generic [ref=e41]:
+        - generic [ref=e42]: Zoeken
+        - generic [ref=e43]:
+          - textbox "Zoek op naam of trefwoord" [ref=e44]
+          - button "Zoeken" [ref=e45]:
+            - img
+            - generic: Zoeken
+      - button "Filter & sorteer" [ref=e47]:
+        - img
+        - text: Filter & sorteer
+    - generic [ref=e50]:
+      - generic [ref=e51]: Zoekresulten geladen Resultaten gevonden.
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - heading "12.643 resultaten" [level=2] [ref=e54]
+          - generic [ref=e57]:
+            - paragraph [ref=e59]: Sorteren
+            - combobox "Sorteren" [ref=e60]:
+              - option "Meest relevant"
+              - option "Datum - oud naar nieuw"
+              - option "Datum - nieuw naar oud"
+              - option "Naam - A naar Z" [selected]
+              - option "Naam - Z naar A"
+        - generic [ref=e62]:
+          - generic [ref=e64]:
+            - img [ref=e65]
+            - heading "←" [level=3] [ref=e67]
+          - paragraph [ref=e69]: ↔
+          - generic [ref=e70]:
+            - generic [ref=e72]:
+              - paragraph [ref=e73]: 01 januari 2025
+              - img [ref=e74]
+              - paragraph [ref=e76]: Koppeling
+              - img [ref=e77]
+            - link "Lees meer over ←" [ref=e79] [cursor=pointer]:
+              - /url: /publicatie/c8a8323e-650b-5577-9343-271d31568368
+              - generic [ref=e80]: Lees meer over ←
+              - img [ref=e81]
+        - generic [ref=e85]:
+          - generic [ref=e87]:
+            - img [ref=e88]
+            - heading "←" [level=3] [ref=e90]
+          - paragraph [ref=e92]: ↔
+          - generic [ref=e93]:
+            - generic [ref=e95]:
+              - paragraph [ref=e96]: 01 januari 2025
+              - img [ref=e97]
+              - paragraph [ref=e99]: Koppeling
+              - img [ref=e100]
+            - link "Lees meer over ←" [ref=e102] [cursor=pointer]:
+              - /url: /publicatie/29c39a58-3b0b-563c-a5ba-6fcfc08737ad
+              - generic [ref=e103]: Lees meer over ←
+              - img [ref=e104]
+        - generic [ref=e108]:
+          - generic [ref=e110]:
+            - img [ref=e111]
+            - heading "→" [level=3] [ref=e113]
+          - paragraph [ref=e115]: ↔
+          - generic [ref=e116]:
+            - generic [ref=e118]:
+              - paragraph [ref=e119]: 01 januari 2025
+              - img [ref=e120]
+              - paragraph [ref=e122]: Koppeling
+              - img [ref=e123]
+            - link "Lees meer over →" [ref=e125] [cursor=pointer]:
+              - /url: /publicatie/cb04ad64-6582-5b6f-914a-a648f0692b3b
+              - generic [ref=e126]: Lees meer over →
+              - img [ref=e127]
+        - generic [ref=e131]:
+          - generic [ref=e133]:
+            - img [ref=e134]
+            - heading "↔" [level=3] [ref=e136]
+          - paragraph [ref=e138]: ↔
+          - generic [ref=e139]:
+            - generic [ref=e141]:
+              - paragraph [ref=e142]: 01 januari 2025
+              - img [ref=e143]
+              - paragraph [ref=e145]: Koppeling
+              - img [ref=e146]
+            - link "Lees meer over ↔" [ref=e148] [cursor=pointer]:
+              - /url: /publicatie/50aa33d1-8bfe-5e23-a92a-09fc07124619
+              - generic [ref=e149]: Lees meer over ↔
+              - img [ref=e150]
+        - generic [ref=e154]:
+          - generic [ref=e156]:
+            - img [ref=e157]
+            - heading "↔" [level=3] [ref=e159]
+          - paragraph [ref=e161]: ↔
+          - generic [ref=e162]:
+            - generic [ref=e164]:
+              - paragraph [ref=e165]: 01 januari 2025
+              - img [ref=e166]
+              - paragraph [ref=e168]: Koppeling
+              - img [ref=e169]
+            - link "Lees meer over ↔" [ref=e171] [cursor=pointer]:
+              - /url: /publicatie/1e8c0b3c-adff-52bd-b364-8aa1bcf158d3
+              - generic [ref=e172]: Lees meer over ↔
+              - img [ref=e173]
+        - generic [ref=e177]:
+          - generic [ref=e179]:
+            - img [ref=e180]
+            - heading "↔" [level=3] [ref=e182]
+          - paragraph [ref=e184]: ↔
+          - generic [ref=e185]:
+            - generic [ref=e187]:
+              - paragraph [ref=e188]: 01 januari 2025
+              - img [ref=e189]
+              - paragraph [ref=e191]: Koppeling
+              - img [ref=e192]
+            - link "Lees meer over ↔" [ref=e194] [cursor=pointer]:
+              - /url: /publicatie/41223fa8-40f7-56c2-b842-cff085282009
+              - generic [ref=e195]: Lees meer over ↔
+              - img [ref=e196]
+        - generic [ref=e200]:
+          - generic [ref=e202]:
+            - img [ref=e203]
+            - heading "↔" [level=3] [ref=e205]
+          - paragraph [ref=e207]: ↔
+          - generic [ref=e208]:
+            - generic [ref=e210]:
+              - paragraph [ref=e211]: 01 januari 2025
+              - img [ref=e212]
+              - paragraph [ref=e214]: Koppeling
+              - img [ref=e215]
+            - link "Lees meer over ↔" [ref=e217] [cursor=pointer]:
+              - /url: /publicatie/ea91f22d-1c51-5f5d-b6f1-01de8d5ee17e
+              - generic [ref=e218]: Lees meer over ↔
+              - img [ref=e219]
+        - generic [ref=e223]:
+          - generic [ref=e225]:
+            - img [ref=e226]
+            - heading "050media" [level=3] [ref=e228]
+          - paragraph
+          - generic [ref=e229]:
+            - generic [ref=e231]:
+              - paragraph [ref=e232]: 30 maart 2020
+              - img [ref=e233]
+              - paragraph [ref=e235]: Organisatie
+            - link "Lees meer over 050media" [ref=e236] [cursor=pointer]:
+              - /url: /publicatie/8f8a428e-5c73-51ba-92f2-664cd80675b9
+              - generic [ref=e237]: Lees meer over 050media
+              - img [ref=e238]
+        - generic [ref=e242]:
+          - generic [ref=e244]:
+            - img [ref=e245]
+            - heading "12view Gisprogramma rioolinspecties" [level=3] [ref=e247]
+            - paragraph [ref=e248]:
+              - generic [ref=e249]: (Aangeboden door Bloemendaal-Heemstede)
+          - paragraph
+          - generic [ref=e250]:
+            - generic [ref=e252]:
+              - paragraph [ref=e253]: 26 september 2019
+              - img [ref=e254]
+              - paragraph [ref=e256]: Applicatie
+            - link "Lees meer over 12view Gisprogramma rioolinspecties" [ref=e257] [cursor=pointer]:
+              - /url: /publicatie/0a5bed37-81da-5ce1-ae8d-d91d4cc6bc6e
+              - generic [ref=e258]: Lees meer over 12view Gisprogramma rioolinspecties
+              - img [ref=e259]
+        - generic [ref=e263]:
+          - generic [ref=e265]:
+            - img [ref=e266]
+            - heading "14010 - VANAD - outsourcing , Interne telefonie - Imtech - outsourcing" [level=3] [ref=e268]
+            - paragraph [ref=e269]:
+              - generic [ref=e270]: (Aangeboden door Rotterdam)
+          - paragraph
+          - generic [ref=e271]:
+            - generic [ref=e273]:
+              - paragraph [ref=e274]: 01 juli 2014
+              - img [ref=e275]
+              - paragraph [ref=e277]: Applicatie
+            - link "Lees meer over 14010 - VANAD - outsourcing , Interne telefonie - Imtech - outsourcing" [ref=e278] [cursor=pointer]:
+              - /url: /publicatie/626ee386-e236-51f5-a203-898e13367af1
+              - generic [ref=e279]: Lees meer over 14010 - VANAD - outsourcing , Interne telefonie - Imtech - outsourcing
+              - img [ref=e280]
+        - generic [ref=e284]:
+          - generic [ref=e286]:
+            - img [ref=e287]
+            - heading "Test Wizard App ↔ Open Zaakbrug" [level=3] [ref=e289]
+          - paragraph [ref=e291]: ↔
+          - generic [ref=e292]:
+            - generic [ref=e294]:
+              - paragraph [ref=e295]: 22 februari 2026
+              - img [ref=e296]
+              - paragraph [ref=e298]: Koppeling
+              - img [ref=e299]
+            - link "Lees meer over Test Wizard App ↔ Open Zaakbrug" [ref=e301] [cursor=pointer]:
+              - /url: /publicatie/5929659e-978c-40ec-abe2-0f71a225f392
+              - generic [ref=e302]: Lees meer over Test Wizard App ↔ Open Zaakbrug
+              - img [ref=e303]
+        - generic [ref=e307]:
+          - generic [ref=e309]:
+            - img [ref=e310]
+            - heading "1Password" [level=3] [ref=e312]
+            - paragraph [ref=e313]:
+              - generic [ref=e314]: (Aangeboden door Deurne)
+          - paragraph
+          - generic [ref=e315]:
+            - generic [ref=e317]:
+              - paragraph [ref=e318]: 14 mei 2024
+              - img [ref=e319]
+              - paragraph [ref=e321]: Applicatie
+            - link "Lees meer over 1Password" [ref=e322] [cursor=pointer]:
+              - /url: /publicatie/3485ccf1-7a8c-5b42-8de1-3008d5a02b3b
+              - generic [ref=e323]: Lees meer over 1Password
+              - img [ref=e324]
+        - generic [ref=e328]:
+          - generic [ref=e330]:
+            - img [ref=e331]
+            - heading "1Password.com" [level=3] [ref=e333]
+          - paragraph
+          - generic [ref=e334]:
+            - generic [ref=e336]:
+              - paragraph [ref=e337]: 14 mei 2024
+              - img [ref=e338]
+              - paragraph [ref=e340]: Organisatie
+            - link "Lees meer over 1Password.com" [ref=e341] [cursor=pointer]:
+              - /url: /publicatie/d2889e63-76c7-5b0e-931a-1a983e58bca7
+              - generic [ref=e342]: Lees meer over 1Password.com
+              - img [ref=e343]
+        - generic [ref=e347]:
+          - generic [ref=e349]:
+            - img [ref=e350]
+            - heading "2150" [level=3] [ref=e352]
+          - paragraph
+          - generic [ref=e353]:
+            - generic [ref=e355]:
+              - paragraph [ref=e356]: 28 december 2021
+              - img [ref=e357]
+              - paragraph [ref=e359]: Organisatie
+            - link "Lees meer over 2150" [ref=e360] [cursor=pointer]:
+              - /url: /publicatie/5a13ee71-91bf-51da-89d7-c2a74d6d32e0
+              - generic [ref=e361]: Lees meer over 2150
+              - img [ref=e362]
+        - generic [ref=e366]:
+          - generic [ref=e368]:
+            - img [ref=e369]
+            - heading "21QUBZ" [level=3] [ref=e371]
+            - paragraph [ref=e372]:
+              - generic [ref=e373]: (Aangeboden door Tynaarlo)
+          - paragraph
+          - generic [ref=e374]:
+            - generic [ref=e376]:
+              - paragraph [ref=e377]: 02 mei 2024
+              - img [ref=e378]
+              - paragraph [ref=e380]: Applicatie
+            - link "Lees meer over 21QUBZ" [ref=e381] [cursor=pointer]:
+              - /url: /publicatie/67d50b6b-5e25-598c-b5f0-c2a7585e86cc
+              - generic [ref=e382]: Lees meer over 21QUBZ
+              - img [ref=e383]
+        - generic [ref=e387]:
+          - generic [ref=e389]:
+            - img [ref=e390]
+            - heading "21South" [level=3] [ref=e392]
+          - paragraph
+          - generic [ref=e393]:
+            - generic [ref=e395]:
+              - paragraph [ref=e396]: 02 mei 2024
+              - img [ref=e397]
+              - paragraph [ref=e399]: Organisatie
+            - link "Lees meer over 21South" [ref=e400] [cursor=pointer]:
+              - /url: /publicatie/53edb697-1fd6-5bde-9b37-f35f82045c76
+              - generic [ref=e401]: Lees meer over 21South
+              - img [ref=e402]
+        - generic [ref=e406]:
+          - generic [ref=e408]:
+            - img [ref=e409]
+            - heading "24/7 bewaking gladheidmeetstations" [level=3] [ref=e411]
+            - paragraph [ref=e412]:
+              - generic [ref=e413]: (Aangeboden door Midden-Groningen)
+          - paragraph
+          - generic [ref=e414]:
+            - generic [ref=e416]:
+              - paragraph [ref=e417]: 04 juli 2017
+              - img [ref=e418]
+              - paragraph [ref=e420]: Applicatie
+            - link "Lees meer over 24/7 bewaking gladheidmeetstations" [ref=e421] [cursor=pointer]:
+              - /url: /publicatie/8ac99930-d763-5147-8bef-8e914bf8b12b
+              - generic [ref=e422]: Lees meer over 24/7 bewaking gladheidmeetstations
+              - img [ref=e423]
+        - generic [ref=e427]:
+          - generic [ref=e429]:
+            - img [ref=e430]
+            - heading "Test Wizard App ↔ DigiD" [level=3] [ref=e432]
+          - paragraph [ref=e434]: ↔
+          - generic [ref=e435]:
+            - generic [ref=e437]:
+              - paragraph [ref=e438]: 23 februari 2026
+              - img [ref=e439]
+              - paragraph [ref=e441]: Koppeling
+              - img [ref=e442]
+            - link "Lees meer over Test Wizard App ↔ DigiD" [ref=e444] [cursor=pointer]:
+              - /url: /publicatie/5f138163-3f73-454d-805d-003d6d9c9b98
+              - generic [ref=e445]: Lees meer over Test Wizard App ↔ DigiD
+              - img [ref=e446]
+        - generic [ref=e450]:
+          - generic [ref=e452]:
+            - img [ref=e453]
+            - heading "2da" [level=3] [ref=e455]
+          - paragraph
+          - generic [ref=e456]:
+            - generic [ref=e458]:
+              - paragraph [ref=e459]: 27 augustus 2014
+              - img [ref=e460]
+              - paragraph [ref=e462]: Organisatie
+            - link "Lees meer over 2da" [ref=e463] [cursor=pointer]:
+              - /url: /publicatie/0aa22f86-7862-51be-9891-800e3c34bb6f
+              - generic [ref=e464]: Lees meer over 2da
+              - img [ref=e465]
+        - generic [ref=e469]:
+          - generic [ref=e471]:
+            - img [ref=e472]
+            - heading "2Jours" [level=3] [ref=e474]
+          - paragraph
+          - generic [ref=e475]:
+            - generic [ref=e477]:
+              - paragraph [ref=e478]: 21 augustus 2018
+              - img [ref=e479]
+              - paragraph [ref=e481]: Organisatie
+            - link "Lees meer over 2Jours" [ref=e482] [cursor=pointer]:
+              - /url: /publicatie/89a1926e-0bd2-5199-818e-42fa1c3c7fab
+              - generic [ref=e483]: Lees meer over 2Jours
+              - img [ref=e484]
+        - navigation "Paginering" [ref=e487]:
+          - list [ref=e488]:
+            - listitem
+            - listitem [ref=e489]:
+              - button "Pagina 1" [ref=e490]: "1"
+            - listitem [ref=e491]:
+              - button "Ga naar pagina 2" [ref=e492] [cursor=pointer]: "2"
+            - listitem [ref=e493]:
+              - button "Ga naar pagina 3" [ref=e494] [cursor=pointer]: "3"
+            - listitem [ref=e495]:
+              - button "Ga naar pagina 4" [ref=e496] [cursor=pointer]: "4"
+            - listitem [ref=e497]:
+              - button "Ga naar pagina 5" [ref=e498] [cursor=pointer]: "5"
+            - listitem [ref=e499]: …
+            - listitem [ref=e500]:
+              - button "Ga naar pagina 633" [ref=e501] [cursor=pointer]: "633"
+            - listitem [ref=e502]:
+              - button "Volgende pagina" [ref=e503] [cursor=pointer]:
+                - generic:
+                  - img
+  - button "Begrippenlijst" [ref=e505] [cursor=pointer]:
+    - img
+    - generic: Begrippenlijst
+  - contentinfo [ref=e506]:
+    - heading "Footer" [level=2] [ref=e507]
+    - generic [ref=e509]:
+      - navigation "Footer menu 1" [ref=e510]:
+        - heading "Footer Left" [level=3] [ref=e511]
+        - list [ref=e512]:
+          - listitem [ref=e513]:
+            - link "GEMMA Online Opent in een nieuw tabblad" [ref=e514] [cursor=pointer]:
+              - /url: https://www.gemmaonline.nl/
+              - img [ref=e515]
+              - text: GEMMA Online
+              - generic [ref=e517]: Opent in een nieuw tabblad
+          - listitem [ref=e518]:
+            - link "NORA Online Opent in een nieuw tabblad" [ref=e519] [cursor=pointer]:
+              - /url: https://www.noraonline.nl/
+              - img [ref=e520]
+              - text: NORA Online
+              - generic [ref=e522]: Opent in een nieuw tabblad
+      - navigation "Footer menu 2" [ref=e523]:
+        - heading "Footer Center" [level=3] [ref=e524]
+        - list [ref=e525]:
+          - listitem [ref=e526]:
+            - link "VNG Opent in een nieuw tabblad" [ref=e527] [cursor=pointer]:
+              - /url: https://vng.nl/
+              - img [ref=e528]
+              - text: VNG
+              - generic [ref=e530]: Opent in een nieuw tabblad
+      - navigation "Footer menu 3" [ref=e531]:
+        - heading "Footer Right" [level=3] [ref=e532]
+        - list [ref=e533]:
+          - listitem [ref=e534]:
+            - link "Commonground Opent in een nieuw tabblad" [ref=e535] [cursor=pointer]:
+              - /url: https://commonground.nl/
+              - img [ref=e536]
+              - text: Commonground
+              - generic [ref=e538]: Opent in een nieuw tabblad
+      - generic [ref=e541]:
+        - generic [ref=e542]: Open Tilburg
+        - generic [ref=e543]: Één plek voor alle publicaties van Gemeente Tilburg
+    - navigation "Sub footer menu 1" [ref=e546]:
+      - list [ref=e547]:
+        - listitem [ref=e548]:
+          - link "Privacy" [ref=e549] [cursor=pointer]:
+            - /url: /privacyverklaring
+          - text: "|"
+        - listitem [ref=e550]:
+          - link "Algemene voorwaarden" [ref=e551] [cursor=pointer]:
+            - /url: /algemene-voorwaarden
+          - text: "|"
+        - listitem [ref=e552]:
+          - link "Disclaimer" [ref=e553] [cursor=pointer]:
+            - /url: /disclaimer
+          - text: "|"
+        - listitem [ref=e554]:
+          - link "FAQ" [ref=e555] [cursor=pointer]:
+            - /url: /faq
