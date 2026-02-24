@@ -1,146 +1,246 @@
-# Test Results: Samenwerking (Linda Bakker) - Authenticated Tests
+# Test Results: Samenwerking (Authenticated)
 
-**Date:** 2026-02-23
-**Persona:** Linda Bakker - Coordinator at Test Samenwerking
-**Role:** Gebruik-beheerder (software-catalog-users)
-**Environment:** Frontend http://localhost:3000 / Backend http://localhost:8080
-**Browser:** Playwright MCP (browser-7, headless)
-
----
-
-## Login Summary
-
-- **URL:** http://localhost:3000/login
-- **Credentials used:** linda.bakker@test.nl / TestPassword1!
-- **Note:** The credential in the skill file (`WelcomeToTest2026`) failed with 401. The credential from the orchestrator message (`TestPassword1!`) succeeded.
-- **Result:** Login successful, redirected to /beheer
-- **Organization auto-selected:** Test Samenwerking
-- **Console errors on login:** Manifest syntax error (cosmetic, site.webmanifest), plus the failed first login attempt (401)
+**Persona:** Linda Bakker -- Coordinator at a municipal collaboration (samenwerkingsverband)
+**Role:** Gebruik-beheerder
+**Login:** linda.bakker@test.nl
+**Environment:** http://localhost:3000 (Frontend), http://localhost:8080 (Backend)
+**Date:** 2026-02-24 (Re-test #2)
+**Browser:** Playwright (browser-7, headless)
 
 ---
 
-## Issue #186: Koppelingen
+## Login Verification
 
-**Labels:** Aanbod, Bevinding, Restpunt, Koppeling
-**Test Step:** Step 11
-**Status: PARTIAL**
-
-### Acceptance Criteria Results
-
-| # | Criterion | Result | Evidence |
-|---|-----------|--------|----------|
-| 1 | Koppelingen display in a table format with readable titles (not blank or UUID-only) | **FAIL** | Older/imported koppelingen display only directional arrows as titles (e.g., left-arrow, right-arrow, bidirectional-arrow). No human-readable names. See screenshot `03-koppelingen-search-no-titles.png`. |
-| 2 | Koppelingen linked to "buitengemeentelijke voorzieningen" correctly display the referenced external service | **PASS** | On the detail page for koppeling `c8a8323e-650b-5577-9343-271d31568368`, the field "Buitengemeentelijke voorziening: BRK - Basisregistratie Kadaster" displays correctly. See screenshot `04-koppeling-detail-old.png`. |
-| 3 | Koppelingen do not reference non-existent applications (graceful handling) | **FAIL** | The older koppeling shows "Applicatie A: -" (dash) and the page header displays the literal text "null" before the arrow: "null - BRK - Basisregistratie Kadaster". The system does not gracefully handle missing application references. See screenshot `04-koppeling-detail-old.png`. |
-| 4 | Detail page shows all relevant fields: name, type, transport protocol, linked applications, external service | **PARTIAL** | Older koppelingen detail pages show: Richting, Transportprotocol, Status, Intermediair, Standaardversies, and Buitengemeentelijke voorziening. However, Standaardversies displays a raw UUID (`419ba65d-7202-4195-babd-e6a1d493bfd4`) instead of a resolved name. Newer koppelingen (e.g., "Test Wizard App - Open Zaakbrug") show Applicatie A, Applicatie B, Richting, and Status correctly. See screenshots `04-koppeling-detail-old.png` and `05-koppeling-detail-new.png`. |
-| 5 | Koppeling detail page at /publicatie/{uuid} renders correctly | **PARTIAL** | Pages render but with issues: (a) Newer koppeling `5929659e-978c-40ec-abe2-0f71a225f392` has h1 heading showing raw UUID instead of app name: "1a8e00e8-d42d-4b19-a700-f9a43a4fa6a0 - Open Zaakbrug" while the body correctly resolves to "Test Wizard App - Open Zaakbrug". (b) Older koppelingen show "null" in the h1 and arrow-only titles. See screenshot `05-koppeling-detail-new.png`. |
-
-### Additional Findings
-
-1. **Search schema filter does not work:** Navigating to `/zoeken?_schema=koppeling` returns 12,645 results (all types) instead of filtering to only koppelingen. The `_schema` parameter does not filter results.
-
-2. **Initial search render shows "Geen titel" and undefined URLs:** Before data enrichment completes, search result cards briefly display "Geen titel" with links to `/publicatie/undefined`. After a few seconds, data enriches and shows actual content. This is a UX issue (flash of incorrect content).
-
-3. **Duplicate "Test Samenwerking" entries:** In the "Deelnames bewerken" dialog, "Test Samenwerking" appears 7 times as separate entries in the Samenwerkingsverbanden list. This is a data quality issue.
-
-4. **Koppeling wizard loads with debug panel:** The "Koppeling toevoegen" wizard shows a debug panel ("Debug: Koppeling Data (Click to expand)") which should not be visible in production.
-
-### Console Errors (Non-Manifest)
-
-- `Failed to load resource: the server responded with a status of 404` for name resolution of UUID `419ba65d-7202-4195-babd-e6a1d493bfd4` (standaardversie reference)
-- Schema not found warnings for type "koppeling" during wizard loading (5 occurrences)
-
-### Performance
-
-- All API calls returned within acceptable time (<500ms)
-- No SLOW or PERFORMANCE_FAIL requests observed
-- Backend cache loading completed in ~1078ms on login
+- **Status:** PASS
+- **Details:** Successfully logged in as linda.bakker@test.nl with password WelcomeToTest2026. Dashboard loaded at `/beheer` showing "Default Organisation" with organization selector dropdown. Two organizations available: "Default Organisation" and "Test Samenwerking".
+- **Screenshot:** `01-dashboard-login.png`
+- **My Account page** confirms email: linda.bakker@test.nl, Organisation: "Default Organisation"
+- **Screenshot:** `04-my-account.png`
 
 ---
 
 ## Issue #57: Pakketten opvoeren voor samenwerkingsverband
 
+**Title:** Als gebruik-beheerder van een samenwerkingsverband wil ik softwarepakketten kunnen opvoeren voor de gemeenten waarvoor we werken
+**GitHub:** https://github.com/VNG-Realisatie/Softwarecatalogus/issues/57
 **Labels:** Gebruik, PvE eis
-**Test Step:** Step 20
-**Status: CANNOT_TEST**
+**Test Step:** Step 20 (Samenwerkingen en Multi-Organisatie Beheer)
+**Previous Status:** PARTIAL
 
-### Context
+### Acceptance Criteria Results
 
-Issue #57 describes the ability for a gebruik-beheerder of a samenwerkingsverband to register software packages on behalf of member municipalities. This is a core collaboration feature.
-
-### Test Observations
-
-1. **Organization selector:** The beheer dashboard shows a "Selecteer organisatie" dropdown with only two options: "Default Organisation" and "Test Samenwerking". There are no member municipalities available to switch to.
-
-2. **No member municipality management:** The "Mijn Organisatie" page for Test Samenwerking shows organization details, contact info, and a "Deelnames" option. The Deelnames dialog allows joining existing samenwerkingsverbanden (via checkbox list), but there is no mechanism to define which municipalities are MEMBERS of this samenwerking.
-
-3. **No multi-org package registration:** There is no visible UI flow to register software packages on behalf of member municipalities. The "Applicatie toevoegen", "Koppeling toevoegen", and "Dienst toevoegen" buttons all operate in the context of the currently selected organization (Test Samenwerking), not for member municipalities.
-
-4. **Organization profile incomplete:** Test Samenwerking has no short description, no long description, and no member municipality configuration visible in the profile.
-
-### Acceptance Criteria (Inferred from Issue Title)
+Issue #57 does not have detailed acceptance criteria in `issues.md`. The issue body states: "zodat deze gemeenten een volledig applicatieportfolio hebben, inclusief de uitbestede diensten." Based on the Step 20 test guide, the following was tested:
 
 | # | Criterion | Result | Notes |
 |---|-----------|--------|-------|
-| 1 | Samenwerking can view member municipalities | **CANNOT_TEST** | No member municipality section exists in organization profile |
-| 2 | Samenwerking can add software packages for member municipalities | **CANNOT_TEST** | Organization selector only shows own organizations, no member municipality switching |
-| 3 | Packages registered for members are attributed correctly | **CANNOT_TEST** | Prerequisite (member management) not available |
+| 1 | Organization selector shows samenwerking | **PASS** | "Test Samenwerking" appears in the dropdown alongside "Default Organisation" |
+| 2 | Can switch to samenwerking context | **FAIL** | JavaScript crash on org switch (TypeError: Cannot read properties of undefined reading 'includes') |
+| 3 | Dashboard shows management options for samenwerking | **FAIL** | After reload with Test Samenwerking selected: "Geen wizards beschikbaar voor deze organisatie" + 404 errors fetching org data |
+| 4 | Can add packages for member municipalities | **CANNOT_TEST** | Dashboard broken for samenwerking context, no wizard buttons shown |
+| 5 | Can manage packages across member municipalities | **CANNOT_TEST** | Dependent on above |
+| 6 | Bulk operations for multiple organizations | **CANNOT_TEST** | No bulk operation UI found |
+| 7 | Collective license management | **CANNOT_TEST** | No collective license management feature found |
+| 8 | Member municipality data is correctly scoped | **CANNOT_TEST** | Cannot test data scoping when samenwerking context is broken |
 
-### Reason for CANNOT_TEST
+### Critical Bug: Dashboard Crash on Organization Switch
 
-The Test Samenwerking organization does not have member municipalities configured, and the UI does not provide a mechanism to define or manage member municipalities. The core feature described in #57 (registering packages on behalf of member municipalities) cannot be tested because the prerequisite organizational relationships are not set up, and there appears to be no UI to create them.
+**Error:** `TypeError: Cannot read properties of undefined (reading 'includes')`
+**Location:** `src/views/ac-beheer/core/components/ac-dashboard.js:200`
 
----
+When switching from "Default Organisation" to "Test Samenwerking" (or vice versa) using the organization dropdown, the application throws an unhandled TypeError. The code at line 202 calls `userGroups.includes('aanbod-beheerder')` but `userGroups` is undefined after the org switch.
 
-## General Observations
+- **Impact:** Application crashes with a development error overlay. In production, this would result in a blank/broken page.
+- **Screenshot:** `02-org-switch-error.png`
+- **Reproducible:** Yes, occurs consistently on every org switch
 
-### Beheer Dashboard
+### "Test Samenwerking" Dashboard State
 
-- Dashboard loads correctly with organization selector
-- Welcome message explains the three main actions: Dienst, Gebruik, Koppeling registreren
-- Links to "Mijn Account" and "Mijn Organisatie" work correctly
-- No table/list view of existing items appears on the dashboard for Test Samenwerking (likely because no items are registered yet)
+After a full page reload (not using the dropdown) with "Test Samenwerking" remembered:
+- Dashboard heading shows "Mijn softwarecatalogus" with "Test Samenwerking" selected
+- Message: "Geen wizards beschikbaar voor deze organisatie" (No wizards available for this organization)
+- The "Applicatie toevoegen", "Koppeling toevoegen", and "Dienst toevoegen" buttons are NOT shown
+- Backend returns 404 errors:
+  - `Failed to load resource: 404` for voorzieningen_organisatie object
+  - `Error fetching voorzieningen_organisatie` (404)
+  - `Error fetching organization data: AxiosError` (404)
+- **Screenshot:** `03-test-samenwerking-dashboard.png`
 
-### Organization Profile (/beheer/my-organisation)
+### Missing Samenwerking-Specific Features
 
-- Displays organization name: "Test Samenwerking"
-- Shows 1 contact person: Linda Bakker (Beheerder, +31 6 45678901)
-- "Acties" menu provides: Edit contact info, Edit short description, Edit long description, Deelnames
-- Deelnames dialog shows Communities (empty) and Samenwerkingsverbanden (long list with checkboxes)
-- **Data quality issue:** "Test Samenwerking" appears 7 times in the Samenwerkingsverbanden list
+The following features described in Step 20 of the test guide are not yet implemented or not accessible:
 
-### Console Errors Summary
+1. **Leden Beheer** -- No member management page for defining which municipalities belong to the samenwerking
+2. **Adding products on behalf of members** -- No workflow to select a member municipality and register packages for them with approval
+3. **Bulk operations** -- No ability to add a product to multiple organizations simultaneously
+4. **Collective license management** -- No shared license management feature
+5. **Organization fusies** -- No merge/transfer feature
 
-Only recurring error across all pages is the Manifest syntax error at `site.webmanifest` -- this is a cosmetic/configuration issue not related to functionality. No functional JavaScript errors were observed during normal navigation.
+### Verdict: **FAIL**
 
-### Performance Summary
-
-- All API endpoints responded with 200 OK
-- No requests exceeded 500ms threshold
-- Backend cache loading completed in ~1078ms
-- No SLOW or PERFORMANCE_FAIL events
-
----
-
-## Screenshots
-
-| File | Description |
-|------|-------------|
-| `01-login-success.png` | Successful login, beheer dashboard with Test Samenwerking selected |
-| `02-koppeling-wizard.png` | Koppeling toevoegen wizard (Step 1) |
-| `03-koppelingen-search-no-titles.png` | Search results for koppelingen showing arrow-only titles and mixed result types |
-| `04-koppeling-detail-old.png` | Detail page for older/imported koppeling showing "null" reference and raw UUID |
-| `05-koppeling-detail-new.png` | Detail page for newer koppeling showing UUID in h1 heading |
-| `06-org-selector.png` | Organization selector dropdown showing 2 organizations |
-| `07-my-organisation.png` | "Mijn Organisatie" page for Test Samenwerking |
-| `08-org-actions-dropdown.png` | Organization actions dropdown menu |
-| `09-deelnames-dialog.png` | "Deelnames bewerken" dialog showing samenwerkingsverbanden list |
+The samenwerkingsverband functionality is fundamentally broken. Switching to the "Test Samenwerking" organization causes a JavaScript crash, and even after reload, the dashboard shows no management options and returns 404 errors for organization data. Linda Bakker cannot perform any actions on behalf of member municipalities.
 
 ---
 
-## Summary Table
+## Issue #186: Koppelingen
+
+**Title:** Koppelingen
+**GitHub:** https://github.com/VNG-Realisatie/Softwarecatalogus/issues/186
+**Labels:** Aanbod, Bevinding, Restpunt, Koppeling
+**Test Step:** Step 11 (Koppeling wizard)
+
+### Acceptance Criteria Results
+
+| # | Criterion | Result | Evidence |
+|---|-----------|--------|----------|
+| 1 | Koppelingen display in a table format with readable titles (not blank or UUID-only) | **PARTIAL** | Most koppelingen have readable names (e.g., "Drupal voor Gemeenten (DVG) <-> JOIN Klantcontact"). However, some have incomplete names: "Makelaarsuite <->" (missing second app), "COMPAS <->" (missing second app), "CiVision Gemeentelijke Servicebus <->" (missing second app), and one shows only "<->" (completely blank name). Per the testing note in issues.md, these are caused by bad client data (referencing deleted applications), not a code bug. |
+| 2 | Koppelingen linked to "buitengemeentelijke voorzieningen" correctly display the referenced external service | **CANNOT_TEST** | No buitengemeentelijke voorziening koppelingen were identifiable in the local test data. The public search for category "Koppelingen" returns 0 results. |
+| 3 | Koppelingen do not reference non-existent applications (graceful handling) | **PARTIAL** | Some koppelingen show names like "Makelaarsuite <->" or "COMPAS <->" where the second application is missing, but no errors are thrown (graceful). However, the display is confusing for end users. |
+| 4 | Detail page shows all relevant fields: name, type, transport protocol, linked applications, external service | **PARTIAL** | Fields shown: title (correct), richting (correct), transportprotocol (correct), status (correct). However, Applicatie A and Applicatie B show "-" on beheer detail page. Direction widget shows "null <-> null". Public detail page shows "[object Object]" for Applicatie B. |
+| 5 | Koppeling detail page at /publicatie/{uuid} renders correctly | **PARTIAL** | Page renders but with bugs: (a) Browser tab title shows UUID instead of name, (b) Applicatie B displays "[object Object]", (c) Direction widget shows "[object Object]" for B-side. |
+
+### Detailed Observations
+
+#### Beheer Koppelingen Overview (`/beheer/koppelingen`)
+
+- Table displays with columns: Naam, Status, Korte beschrijving, Applicatie A, Applicatie B, Acties
+- Status column initially shows "Loading..." then resolves to "In gebruik" / "in gebruik" (inconsistent capitalization)
+- "Korte beschrijving" column shows "-" for all entries
+- "Applicatie A" and "Applicatie B" columns show "-" for all entries (data not resolved in table view)
+- Pagination works (2 pages visible with 20 items per page)
+- "Toevoegen" button is available and functional
+- Actions dropdown per row offers: Bekijken, Bewerken, Verwijderen
+- **Screenshot:** `05-koppelingen-overview.png`
+
+#### Beheer Koppeling Detail (`/beheer/koppeling/{uuid}`)
+
+Tested with: Drupal voor Gemeenten (DVG) <-> JOIN Klantcontact
+
+- **Title:** "Drupal voor Gemeenten (DVG) <-> JOIN Klantcontact" -- correct readable name
+- **Direction widget:** Shows "null <-> null" -- **BUG** (should show application names)
+- **Applicatie A:** "-" (not resolved)
+- **Applicatie B:** "-" (not resolved)
+- **Richting:** "bi-directioneel (<->)" -- correct
+- **Transportprotocol:** "intern" -- correct
+- **Status:** "in gebruik" -- correct
+- **Applicaties tab:** Shows "Applicaties (1)" with only Drupal voor Gemeenten (DVG) -- missing the second application (JOIN Klantcontact)
+- **Screenshot:** `06-koppeling-detail-dvg.png`
+
+#### Public Koppeling Detail (`/publicatie/{uuid}`)
+
+Tested with UUID: 062878e7-8d8a-5b21-a135-6e992eb3223b
+
+- **Main heading:** "Drupal voor Gemeenten (DVG) <-> JOIN Klantcontact" -- correct
+- **Browser tab title:** "33980275-9a5d-5fa3-95b8-68fa8b065442 <->" -- **BUG** (shows UUID instead of readable name)
+- **Applicatie A:** "Drupal voor Gemeenten (DVG)" -- correct
+- **Applicatie B:** "[object Object]" -- **BUG** (JavaScript object serialization error)
+- **Direction widget:** "Drupal voor Gemeenten (DVG) <-> [object Object]" -- **BUG**
+- **Richting:** "bi-directioneel (<->)" -- correct
+- **Transportprotocol:** "intern" -- correct
+- **Status:** "in gebruik" -- correct
+- **Applicaties tab:** Shows "Applicaties (1)" with Drupal voor Gemeenten (DVG) card
+- **Screenshot:** `07-koppeling-publicatie-detail.png`
+
+#### Koppeling Wizard
+
+- Accessible from dashboard via "Koppeling toevoegen" button
+- URL: `/forms/gebruik/koppeling?type=aanbieden-koppeling`
+- Wizard has 3 steps: (1) Een koppeling zoeken, (2) Gebruiksinformatie, (3) Controleren
+- Step 1 loads correctly with application selector and existing koppeling check
+- Debug panel visible ("Debug: Koppeling Data (Click to expand)") -- should be hidden in production
+- **Screenshot:** `08-koppeling-wizard-step1.png`
+
+### Key Bugs Found
+
+1. **[object Object] for Applicatie B on public detail page** -- The public-facing koppeling detail page (`/publicatie/{uuid}`) renders `[object Object]` instead of the application B name. The application object is being coerced to string instead of being resolved to its display name.
+
+2. **"null <-> null" in direction widget on beheer detail page** -- The beheer koppeling detail page shows "null" for both application names in the direction visualization widget.
+
+3. **Applicatie A and B show "-" in beheer overview table and detail page** -- All koppelingen in the management table and beheer detail pages show "-" for both Applicatie A and Applicatie B columns.
+
+4. **Browser tab title shows UUID** -- The public detail page `<title>` contains a raw UUID ("33980275-9a5d-5fa3-95b8-68fa8b065442 <->") instead of a readable koppeling name.
+
+5. **Inconsistent status capitalization** -- Some entries show "In gebruik" (capitalized) and others "in gebruik" (lowercase).
+
+6. **Only 1 of 2 applications shown in Applicaties tab** -- Despite the koppeling connecting two applications, only one appears in the Applicaties tab on both beheer and public detail pages.
+
+### Verdict: **PARTIAL**
+
+The koppelingen feature has significant display issues. While koppelingen are shown in a table with mostly readable names and the wizard is accessible, the detail pages have multiple rendering bugs (null values, [object Object], missing application references). The core table display works but with incomplete data resolution.
+
+---
+
+## Console Errors Summary
+
+| Page | Error Count | Significant Errors |
+|------|-------------|-------------------|
+| `/login` | 1 | Manifest syntax error (ignorable) |
+| `/beheer` (Default Org) | 1 | Manifest syntax error (ignorable) |
+| `/beheer` (org switch) | 7+ | TypeError: Cannot read properties of undefined (reading 'includes') at AcDashboard + 404 errors for org data |
+| `/beheer` (Test Samenwerking reload) | 8+ | 404 errors for voorzieningen_organisatie |
+| `/beheer/koppelingen` | 1 | Manifest syntax error (ignorable) |
+| `/beheer/koppeling/{uuid}` | 1 | Manifest syntax error (ignorable) |
+| `/publicatie/{uuid}` (koppeling) | 2 | Manifest syntax error (ignorable) |
+| `/beheer/my-account` | 1 | Manifest syntax error (ignorable) |
+| `/beheer/my-organisation` | 1 | Manifest syntax error (ignorable) |
+| `/zoeken?categorie=Koppelingen` | 1 | Manifest syntax error (ignorable) |
+
+### Recurring Non-Ignorable Errors
+
+| Error | Trigger | Severity |
+|-------|---------|----------|
+| `TypeError: Cannot read properties of undefined (reading 'includes')` in AcDashboard | Organization switch via dropdown | **CRITICAL** |
+| `404` for voorzieningen_organisatie | "Test Samenwerking" org selected | **CRITICAL** (org data not found in backend) |
+
+---
+
+## Performance Summary
+
+No API calls were observed with response times exceeding 500ms during this test session. All network requests returned 200 OK except:
+- Organization data fetch for "Test Samenwerking" UUID returns 404 (organization not properly registered in the backend voorzieningen register)
+
+---
+
+## Overall Summary
 
 | Issue | Title | Status | Key Finding |
 |-------|-------|--------|-------------|
-| #186 | Koppelingen | **PARTIAL** | Older koppelingen have no readable titles (arrows only), show "null" for missing apps, display raw UUIDs for standaardversies. Newer koppelingen render correctly in body but have UUID in h1. Buitengemeentelijke voorziening displays correctly. |
-| #57 | Pakketten opvoeren voor samenwerkingsverband | **CANNOT_TEST** | No member municipality management or multi-org package registration feature visible in the UI. Organization selector only shows own organizations. |
+| #57 | Pakketten opvoeren voor samenwerkingsverband | **FAIL** | Organization switch crashes with TypeError; samenwerkingsverband dashboard broken (404 + no wizards). No samenwerking-specific features (member management, bulk operations, collective licenses) exist. |
+| #186 | Koppelingen | **PARTIAL** | Table display mostly works with readable names. Wizard is functional. But detail pages show "null", "[object Object]", and UUIDs instead of proper names. Applicatie A/B columns not resolved in table or detail views. |
+
+### Comparison with Previous Test Run
+
+| Issue | Previous Status | Current Status | Change |
+|-------|----------------|----------------|--------|
+| #57 | PARTIAL | **FAIL** | Regressed -- org switch crash still present, no new samenwerking features added |
+| #186 | PARTIAL | **PARTIAL** | No change -- same display bugs persist ([object Object], null values) |
+
+### Recommendations
+
+1. **Issue #57 (Critical):**
+   - Fix the `userGroups` undefined error in `ac-dashboard.js` (line ~200) by adding null-safety: `userGroups?.includes('aanbod-beheerder')` or defaulting to an empty array
+   - Ensure "Test Samenwerking" organization is registered in the backend voorzieningen register (currently returns 404)
+   - Implement samenwerking-specific features: member management, acting on behalf of members, collective license management
+
+2. **Issue #186 (High):**
+   - Fix `[object Object]` rendering for Applicatie B on public detail pages -- resolve the application object to its display name before rendering
+   - Fix "null <-> null" in the direction widget on beheer detail pages -- resolve application names from UUIDs
+   - Fix the browser tab `<title>` to show the koppeling name instead of a UUID
+   - Resolve Applicatie A and B columns in the beheer overview table and detail pages (currently always show "-")
+   - Normalize status capitalization ("In gebruik" vs "in gebruik")
+   - Show both linked applications in the Applicaties tab (currently only shows 1 of 2)
+
+---
+
+## Screenshots Index
+
+| File | Description |
+|------|-------------|
+| `01-dashboard-login.png` | Dashboard after login with Default Organisation selected |
+| `02-org-switch-error.png` | TypeError crash overlay when switching organizations |
+| `03-test-samenwerking-dashboard.png` | Dashboard with Test Samenwerking (no wizards, 404 errors) |
+| `04-my-account.png` | My Account page confirming linda.bakker@test.nl |
+| `05-koppelingen-overview.png` | Koppelingen management table (full page) |
+| `06-koppeling-detail-dvg.png` | Beheer detail page for DVG <-> JOIN Klantcontact koppeling |
+| `07-koppeling-publicatie-detail.png` | Public detail page showing [object Object] bug |
+| `08-koppeling-wizard-step1.png` | Koppeling wizard Step 1 |
+| `09-my-organisation-empty.png` | My Organisation page for Default Organisation |
