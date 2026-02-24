@@ -125,6 +125,24 @@ create_org() {
     local email="$4"
     local desc="$5"
 
+    # Check if org already exists by searching publications
+    existing=$(curl -s -u "${ADMIN_AUTH}" \
+        "${NC_URL}/index.php/apps/opencatalogi/api/publications?_search=$(echo "$name" | sed 's/ /+/g')&_limit=10" \
+        | python3 -c "
+import sys,json
+d=json.load(sys.stdin)
+for r in d.get('results',[]):
+    if r.get('naam','') == '${name}' and r.get('@self',{}).get('schema','') == '15':
+        print(r['@self']['id'])
+        break
+" 2>/dev/null)
+
+    if [ -n "$existing" ] && [ "$existing" != "" ]; then
+        echo "  Org already exists: ${name} (${existing})" >&2
+        echo "$existing"
+        return
+    fi
+
     uuid=$(curl -s -X POST "${BASE_URL}/objects/voorzieningen/organisatie" \
         -H 'Content-Type: application/json' \
         -u "${ADMIN_AUTH}" \
@@ -138,19 +156,11 @@ create_org() {
         }" | python3 -c "import sys,json; print(json.load(sys.stdin).get('id',''))" 2>/dev/null)
 
     if [ -n "$uuid" ] && [ "$uuid" != "" ]; then
-        echo "  Created org: ${name} (${uuid})"
+        echo "  Created org: ${name} (${uuid})" >&2
         echo "$uuid"
     else
-        echo "  WARN: Failed to create ${name} — may already exist"
-        # Try to find existing
-        uuid=$(curl -s "${BASE_URL}/objects/voorzieningen/organisatie?naam=${name}&_limit=1" \
-            -u "${ADMIN_AUTH}" | python3 -c "
-import sys,json
-d=json.load(sys.stdin)
-results = d.get('results',[])
-print(results[0].get('id','') if results else '')
-" 2>/dev/null)
-        echo "$uuid"
+        echo "  WARN: Failed to create ${name}" >&2
+        echo ""
     fi
 }
 
@@ -174,6 +184,24 @@ create_contact() {
     local org_uuid="$6"
     local tussenvoegsel="${7:-}"
 
+    # Check if contact already exists by searching publications for email
+    existing=$(curl -s -u "${ADMIN_AUTH}" \
+        "${NC_URL}/index.php/apps/opencatalogi/api/publications?_search=$(echo "$email" | sed 's/@/%40/g')&_limit=10" \
+        | python3 -c "
+import sys,json
+d=json.load(sys.stdin)
+for r in d.get('results',[]):
+    if r.get('e-mailadres','') == '${email}' and r.get('@self',{}).get('schema','') == '14':
+        print(r['@self']['id'])
+        break
+" 2>/dev/null)
+
+    if [ -n "$existing" ] && [ "$existing" != "" ]; then
+        echo "  Contact already exists: ${voornaam} ${achternaam} (${existing})" >&2
+        echo "$existing"
+        return
+    fi
+
     local tv_field=""
     if [ -n "$tussenvoegsel" ]; then
         tv_field="\"tussenvoegsel\": \"${tussenvoegsel}\","
@@ -193,7 +221,7 @@ create_contact() {
             \"rollen\": [\"Gebruik-beheerder\"]
         }" | python3 -c "import sys,json; print(json.load(sys.stdin).get('id',''))" 2>/dev/null)
 
-    echo "  Created contact: ${voornaam} ${achternaam} (${uuid})"
+    echo "  Created contact: ${voornaam} ${achternaam} (${uuid})" >&2
     echo "$uuid"
 }
 
@@ -273,6 +301,27 @@ create_object() {
     local schema="$2"
     local data="$3"
     local label="$4"
+    local search_name="$5"
+
+    # Check if object already exists by searching publications
+    if [ -n "$search_name" ]; then
+        existing=$(curl -s -u "${ADMIN_AUTH}" \
+            "${NC_URL}/index.php/apps/opencatalogi/api/publications?_search=$(echo "$search_name" | sed 's/ /+/g')&_limit=10" \
+            | python3 -c "
+import sys,json
+d=json.load(sys.stdin)
+for r in d.get('results',[]):
+    if r.get('naam','') == '${search_name}' or r.get('@self',{}).get('name','') == '${search_name}':
+        print(r['@self']['id'])
+        break
+" 2>/dev/null)
+
+        if [ -n "$existing" ] && [ "$existing" != "" ]; then
+            echo "  Already exists: ${label} (${existing})" >&2
+            echo "$existing"
+            return
+        fi
+    fi
 
     uuid=$(curl -s -X POST "${BASE_URL}/objects/${register}/${schema}" \
         -H 'Content-Type: application/json' \
@@ -280,10 +329,10 @@ create_object() {
         -d "${data}" | python3 -c "import sys,json; print(json.load(sys.stdin).get('id',''))" 2>/dev/null)
 
     if [ -n "$uuid" ] && [ "$uuid" != "" ]; then
-        echo "  Created ${label} (${uuid})"
+        echo "  Created ${label} (${uuid})" >&2
         echo "$uuid"
     else
-        echo "  WARN: Failed to create ${label} — may already exist"
+        echo "  WARN: Failed to create ${label}" >&2
         echo ""
     fi
 }
@@ -295,7 +344,7 @@ LEVER_APP_UUID=$(create_object "voorzieningen" "module" "{
     \"beschrijvingLang\": \"Deze applicatie is aangemaakt door het test setup script om de beheer-, wizard- en zoekfunctionaliteit te testen.\",
     \"geregistreerdDoor\": \"${LEVER_UUID}\",
     \"status\": \"Actief\"
-}" "applicatie for Test Leverancier BV")
+}" "applicatie for Test Leverancier BV" "Test Applicatie Leverancier")
 
 # Applicatie for Test Leverancier 2 (for cross-vendor testing)
 LEVER2_APP_UUID=$(create_object "voorzieningen" "module" "{
@@ -303,7 +352,7 @@ LEVER2_APP_UUID=$(create_object "voorzieningen" "module" "{
     \"beschrijvingKort\": \"Een test applicatie van Test Leverancier 2 voor cross-vendor tests\",
     \"geregistreerdDoor\": \"${LEVER2_UUID}\",
     \"status\": \"Actief\"
-}" "applicatie for Test Leverancier 2")
+}" "applicatie for Test Leverancier 2" "Test Applicatie Leverancier 2")
 
 # Dienst for Test Leverancier BV
 LEVER_DIENST_UUID=$(create_object "voorzieningen" "dienst" "{
@@ -312,7 +361,7 @@ LEVER_DIENST_UUID=$(create_object "voorzieningen" "dienst" "{
     \"dienstType\": \"Implementatieondersteuning\",
     \"geregistreerdDoor\": \"${LEVER_UUID}\",
     \"status\": \"Actief\"
-}" "dienst for Test Leverancier BV")
+}" "dienst for Test Leverancier BV" "Test Dienst Leverancier")
 
 # Applicatie for Test Gemeente (as gebruik registration)
 GEMEENTE_APP_UUID=$(create_object "voorzieningen" "module" "{
@@ -320,7 +369,7 @@ GEMEENTE_APP_UUID=$(create_object "voorzieningen" "module" "{
     \"beschrijvingKort\": \"Een test applicatie geregistreerd door Test Gemeente\",
     \"geregistreerdDoor\": \"${GEMEENTE_UUID}\",
     \"status\": \"Actief\"
-}" "applicatie for Test Gemeente")
+}" "applicatie for Test Gemeente" "Test Applicatie Gemeente")
 
 echo "  Test objects created."
 
