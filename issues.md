@@ -262,8 +262,11 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Hovering/clicking a term shows its definition in a tooltip or panel
 - [ ] A glossary search panel allows searching across all defined terms
 - [ ] Definitions include links to external sources where appropriate
+- [ ] **Admin: Add term with empty external link** — Creating a glossary term without an external link succeeds (no validation error)
+- [ ] **Admin: Add term with keywords** — Keywords field shows a taggable text input, not collaborative tag UUIDs
+- [ ] **Admin: Edit existing term** — Opening an existing term shows keywords as readable text tags, not UUIDs
 
-**Key Context from Comments:** The glossary was built for Dimpact with two parts: terms detected on current page, and search-in-terms. The lexicon terms were manually copied. The endpoint has been added.
+**Key Context from Comments:** The glossary was built for Dimpact with two parts: terms detected on current page, and search-in-terms. The lexicon terms were manually copied. The endpoint has been added. Fixed in opencatalogi@74e46927: NcSelectTags replaced with NcSelect for keywords, externalLink validation made optional.
 
 ---
 
@@ -345,6 +348,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Koppeling detail page at /publicatie/{uuid} renders correctly
 
 **Key Context from Comments:** All items in the body checklist are marked resolved ([x]) but the issue remains open, suggesting verification is needed.
+
+**Testing Note (data quality):** UUID-only titles, "null" references, and arrow-only names in older koppelingen are caused by **bad client data** (koppelingen referencing applications that were deleted or never existed). This is not a code bug. Testers should focus on newly created koppelingen to verify the display logic is correct, and ignore legacy koppelingen with broken references.
 
 ---
 
@@ -848,6 +853,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Username is displayed correctly
 
 **Key Context from Comments:** Agreed as a good change but planned for after "afschalen producten" is complete.
+
+**Testing Note:** This issue was not replicatable in manual testing. The "Beheer" link URL inconsistency reported by the test agent may be caused by MCP browser session state or navigation timing. Leave as-is until confirmed by a human tester.
 
 ---
 

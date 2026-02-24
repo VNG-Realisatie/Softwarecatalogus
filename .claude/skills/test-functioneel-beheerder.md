@@ -39,7 +39,7 @@ Peter has full system access. He activates organizations, manages users, maintai
 ### Previously tested (re-verify with auth):
 | Issue | Title | Previous Status |
 |-------|-------|-----------------|
-| #155 | Definities via interactieve optie (Begrippenlijst) | PASS |
+| #155 | Definities via interactieve optie (Begrippenlijst) | RE-TEST (new admin criteria added: empty external link, keywords as text) |
 | #267 | Naam is softwarecatalogus i.p.v. Softwarecatalogus | **MOVED → bezoeker** (public page check) |
 | #332 | Voorpagina inrichten | PARTIAL |
 | #397 | Pagina aanmaken via CMS | PASS |
@@ -74,7 +74,16 @@ Peter has full system access. He activates organizations, manages users, maintai
 
 ## Testing Hints for Specific Issues
 
-1. **#403 (delete dialog text)**: Navigate to any beheer table (e.g., `/beheer/applicaties`), find a test object ("Test Applicatie Leverancier"), click the delete action. Verify:
+1. **#155 (glossary management)**: Navigate to the Nextcloud backend at `http://localhost:8080/index.php/apps/opencatalogi/#/glossary` (Catalogi → Instellingen → Glossary). Test:
+   - Click **"Add Glossary"** to open the term modal
+   - Leave the **External Link** field empty and fill in term, summary, description — save should succeed without validation error
+   - In the **Keywords** field, type a keyword and press Enter — it should appear as a text tag (not a UUID)
+   - Add multiple keywords and verify they all display as readable text
+   - Save the term, then click to edit it — verify keywords load back as readable text tags
+   - If an existing term has keywords, click edit and verify they show as text, not UUIDs
+   - Take screenshots of: empty external link saving, keywords as text tags, editing existing term
+
+2. **#403 (delete dialog text)**: Navigate to any beheer table (e.g., `/beheer/applicaties`), find a test object ("Test Applicatie Leverancier"), click the delete action. Verify:
    - The dialog shows the correct object type ("applicatie", "dienst", or "koppeling")
    - The dialog shows the object name
    - The dialog checks if the object is in use by municipalities
