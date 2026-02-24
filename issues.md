@@ -40,6 +40,9 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] The compliance link opens correctly to the external URL (not treated as relative path — see #382)
 - [ ] The registered standards are visible on the application's public detail page
 - [ ] Standards persist correctly after saving
+- [ ] When reference components are selected or changed in the wizard, the standards dropdown dynamically refreshes to show only standards linked to the selected reference components
+- [ ] Standards are presented at the "standaardversie" (standard version) level, not just at the "standaard" level
+- [ ] The total standards list equals the union of all standards linked to all selected reference components
 
 **Key Context from Comments:** Related to #407 (standard links containing duplicate "id-" prefix), #382 (compliance links not working), and #378 (standards resetting after edit). The standards management has had multiple bugs affecting display and saving.
 
@@ -104,6 +107,10 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Invite functionality sends an invitation granting access
 - [ ] Deleting a contact person linked to an application shows a warning
 - [ ] Only contact persons from the user's own organization are shown
+- [ ] Roles available for selection are filtered by organization type (leverancier = only aanbod-beheerder; gemeente = multiple roles)
+- [ ] A notification field (multi-select) allows configuring which system notifications the user receives
+- [ ] A user can be linked to multiple organizations by being added as contact person in each
+- [ ] "Uitnodigen" functionality sends an actual invitation email granting the user Softwarecatalogus access
 
 **Key Context from Comments:** Known overlap with #365 (user creation not working). Multiple bugs reported: users not appearing after creation, editing not saving, duplicate entries, Conduction accounts appearing. The notification field should be multi-select.
 
@@ -127,6 +134,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Deleting a linked contact person shows a warning
 - [ ] Publishing works in a single action (no double confirmation)
 - [ ] List only shows persons from the current user's organization
+- [ ] Creating a second contact person for the same organization succeeds without errors
+- [ ] Pagination on the contact persons overview works correctly
 
 **Key Context from Comments:** Multiple bugs fixed: duplicate saving, form not reopening after save, null for empty first names. Latest comment references #365 as blocking duplicate.
 
@@ -191,6 +200,9 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] No timeout errors during merge (previously "timeout of 30000ms exceeded")
 - [ ] Merge result displays readable object card titles (not UUIDs)
 - [ ] Merge correctly handles the "group" field
+- [ ] Merge functionality works correctly with imported/migrated data (not just manually created data)
+- [ ] Documentation/handleiding for performing a merge is available
+- [ ] The "group" field is correctly set based on the target organization's actual group name (not a generated name like "groningen_1")
 
 **Key Context from Comments:** A test merging "Groningen" into "Almere" succeeded but the "group" field was incorrectly set. Timeouts were experienced. Documentation/instructions for merging not yet available.
 
@@ -213,6 +225,9 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Entering a search term on the homepage and clicking search navigates to search results with the term preserved
 - [ ] Organization names display as readable names (not UUIDs)
 - [ ] Filter counts match the actual number of results
+- [ ] Search result cards for applications show the top 2 most frequently registered reference components by gemeenten
+- [ ] For logged-in gebruik-beheerder/raadpleger, search result cards show the number of gemeenten that have registered usage of the application
+- [ ] Supplier name on search result cards is clickable and navigates to the supplier's detail page
 
 **Key Context from Comments:** Extensive testing feedback. Previously auto-triggering while typing, search terms disappearing, org names showing as UUIDs. Related: #346, #315, #74.
 
@@ -243,6 +258,9 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] The API supports a model-id query parameter for querying specific models
 - [ ] The /models endpoint returns a list of available models
 - [ ] ID fields (Archi id, Object ID, Open Register id) are documented
+- [ ] The GEMMA model can be downloaded via the "Gemma downloaden" button on the Mijn omgeving page
+- [ ] The downloaded XML file can be successfully imported into Archi without errors
+- [ ] The imported model in Archi matches the original GEMMA model (only label placement differences expected)
 
 **Key Context from Comments:** Multiple endpoints were previously broken. The API needs to support multiple ArchiMate models. ID fields are confusing — Archi IDs, Object IDs, and Open Register IDs.
 
@@ -265,6 +283,9 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] **Admin: Add term with empty external link** — Creating a glossary term without an external link succeeds (no validation error)
 - [ ] **Admin: Add term with keywords** — Keywords field shows a taggable text input, not collaborative tag UUIDs
 - [ ] **Admin: Edit existing term** — Opening an existing term shows keywords as readable text tags, not UUIDs
+- [ ] Glossary term detection works on all relevant page types (CMS pages, organization pages, application pages, dienst pages, koppeling pages)
+- [ ] Keywords are not case-sensitive for term detection (e.g., "API" matches "api")
+- [ ] The "description" field content is shown when a term is expanded/clicked (not just the "summary")
 
 **Key Context from Comments:** The glossary was built for Dimpact with two parts: terms detected on current page, and search-in-terms. The lexicon terms were manually copied. The endpoint has been added. Fixed in opencatalogi@74e46927: NcSelectTags replaced with NcSelect for keywords, externalLink validation made optional.
 
@@ -285,6 +306,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Backend API for a single view returns data within ~0.5 seconds
 - [ ] Large views display a loading indicator
 - [ ] Acceptable performance on Chrome, Edge, and Firefox without ad-blockers
+- [ ] Benchmark view is specifically "Poster basisbeveiligingsniveau van referentiecomponenten" (388 nodes)
+- [ ] Warning/loading indicator shown for large views that may take a moment to fully load
 
 **Key Context from Comments:** Performance varies by browser (Firefox ~2x slower) and ad-blockers (uBlock can double render time). Benchmark: "Zeist" with 261 packages in 11 seconds. Hardware: i5, 16GB DDR4/DDR5, 512GB SSD.
 
@@ -307,6 +330,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Consistent capitalization for form field labels
 - [ ] Nextcloud account data synchronized with linked contact person
 - [ ] No repeated "Nextcloud autorisatie - De tijd is verstreken" errors on first login
+- [ ] After clicking "Activeren" on an organization, the status column immediately changes from "Concept" to "Actief" (without needing to reload)
+- [ ] The registration form asks for "tussenvoegsel" (prefix), consistent with the "Mijn Account" form fields
 
 **Key Context from Comments:** Nextcloud account must sync with linked contact person. "Weergavenaam" should be removed, replaced with "Functie". Organization link to /my-organisation.
 
@@ -367,6 +392,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] A logged-in aanbod-beheerder can edit their own applications from the search page
 - [ ] Organization's published status is accurately reflected in backend and frontend
 - [ ] URL fields for standards do not require "https://" prefix
+- [ ] On another organization's public page, the blue "+" button either does not appear OR is clearly labeled to indicate it adds to the current user's own organization
 
 **Key Context from Comments:** Many issues expected to be resolved by RBAC replacing the "published" status approach. The organization "Baron" created during testing was not findable via search.
 
@@ -418,6 +444,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] When a contact person is converted to a Nextcloud account, data is correctly transferred
 - [ ] The "me" endpoint returns correct user data including organization
 - [ ] No delay beyond a few seconds between login and data appearing
+- [ ] The `/api/me` endpoint returns correct personal data (name, email, function) and organization for the logged-in user
 
 **Key Context from Comments:** Root cause: converting contact person to Nextcloud account doesn't correctly transfer data. Reproduced on both test and accept environments.
 
@@ -469,6 +496,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Filter labels on /zoeken display correct, updated text
 - [ ] Updated texts appear without stale cached content
 - [ ] Filter texts are consistent with terminology used in wizards and management pages
+- [ ] Filter currently labeled "Schema" or "Objecttype" is renamed to "Type" (or agreed alternative)
+- [ ] Documentation is available explaining how VNG can manage filter texts
 
 **Key Context from Comments:** A caching issue was noted. Documentation on how VNG can manage filter texts still needs to be written.
 
@@ -573,6 +602,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] "Relaties" section showing the provider is hidden (already in provider context)
 - [ ] Properties configured as "not displayed" are NOT shown
 - [ ] "dienstType" field properly descaled
+- [ ] The "Relaties" section on the dienst overview page is hidden (provider context is already clear)
 
 **Key Context from Comments:** Confirmed Feb 20: "de dubbelingen zijn verwijderd, dienstType is afgeschaald."
 
@@ -625,6 +655,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Imported connections without a name receive the auto-generated default
 - [ ] Imported connections with existing names retain them
 - [ ] Newly created connections show readable names (not UUIDs) in search results
+- [ ] Koppeling card highlights "Application A" explicitly in the card display
+- [ ] The full connection description (A -> B) is shown in the description field of the card
 
 **Note:** UUIDs in koppeling names are expected when one side references an application that no longer exists or was deleted. The name resolution uses application UUIDs as fallback when the referenced object cannot be found. This is not a bug — only koppelingen where both applications exist should show fully resolved names.
 
@@ -645,6 +677,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Suppliers can only create connections where Application A is their own
 - [ ] Municipalities can create connections for applications in their landscape
 - [ ] Application list does not show unrelated organizations' applications
+- [ ] Suppliers can ONLY set their own application as "Application A" in the connection wizard
 
 **Key Context from Comments:** Supplier flow works on B environment. Municipality/collaboration flow (users creating connections for their landscape) does not yet work.
 
@@ -664,6 +697,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Application detail page shows the correct supplier
 - [ ] Municipal application landscape data is not publicly visible to unauthenticated users
 - [ ] Supplier on search card matches supplier on detail page
+- [ ] RBAC-based filtering replaces the old "published" status approach for controlling visibility
+- [ ] Import data no longer contains `@self.published` column (using RBAC instead)
 
 **Key Context from Comments:** Root cause: municipalities were set as suppliers in import data. Fix involves RBAC and removing `@self.published` from import data. Test environment OK but "depubliceren" doesn't work.
 
@@ -688,6 +723,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Text section with title, text, link, and image is configurable
 - [ ] Footer is configurable
 - [ ] Functional administrators can edit all configurable sections
+- [ ] VNG functional administrators can independently edit all home page content without developer intervention
+- [ ] CMS documentation/instructions available at the Softwarecatalogus docs site
 
 **Key Context from Comments:** Delivery should allow VNG to customize content. Duplicates with #397.
 
@@ -968,6 +1005,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] "Type" column renamed to "Diensttype" or removed if technical
 - [ ] "eigen-organisatie" not shown to end users
 - [ ] Facets/filters use correct data model terminology
+- [ ] "Soort dienst" does NOT appear as a separate term or column — it is a duplication of "Diensttype" and should be removed or consolidated
 
 **Key Context from Comments:** Configuration error. Confirmed Feb 20: all "...Type" entries removed, faceting refactored.
 
@@ -1187,6 +1225,9 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Only columns with wizard-managed data are available
 - [ ] Same rule applies to Services and Connections tables
 - [ ] Default columns display meaningful data
+- [ ] Koppeling names in the table resolve to readable names immediately (not delayed UUID-to-name resolution)
+- [ ] Compliance column shows clear, understandable content (not just application name repeated or a dash)
+- [ ] SaaS application version is immediately visible after creation (not delayed)
 
 **Key Context from Comments:** General rule: tables should only show columns with wizard-managed data. Applies to Applications, Services, and Connections.
 
@@ -1204,6 +1245,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Compliance column replaced with "Standaardversies" showing readable names
 - [ ] Multiple standards displayed in readable format
 - [ ] Column heading accurately reflects content
+- [ ] Compliance column does NOT show the application name repeated — it should show standards/compliance data
+- [ ] For imported suppliers, Compliance column shows actual compliance data (not just a dash "-")
 
 **Key Context from Comments:** Fix: show "standaardVersies" instead. Adjusted on B environment.
 
@@ -1238,6 +1281,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Multiple services shown or count/link displayed
 - [ ] Clicking navigates to filtered services view
 - [ ] Bidirectional: service shows application AND application shows services
+- [ ] When >10 diensten are linked to one applicatie, a count/link to filtered diensten view is shown
 
 **Key Context from Comments:** Display option was missing, added to B environment. Duplicate of #377.
 
@@ -1256,6 +1300,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] If a standards column exists, labeled "Standaarden" (not "Standaarden GEMMA")
 - [ ] No duplication of standards information
 - [ ] Standaardversies shows readable names (not UUIDs)
+- [ ] "Standaarden GEMMA" column is renamed to "Standaarden" (the "GEMMA" suffix is removed)
 
 **Key Context from Comments:** Only show "Standaardversies" — separate standards columns are redundant.
 
@@ -1293,6 +1338,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Same consistency for Services and Connections tables
 - [ ] Labels match approved PowerPoint from 17-12-2025 (slide 42)
 - [ ] **Image comparison**: Fetch the reference screenshot from the issue (`https://github.com/user-attachments/assets/f02880fc-4295-4cf2-85b8-0809e75808a2`) and compare table column headers with wizard field labels in the live UI
+- [ ] Column header uses "Applicatieversies" (one word, no space) not "Applicatie Versies" (two words)
 
 **Key Context from Comments:** Labels only updated in wizards, not in OpenRegister schema. This is a schema/OpenRegister labels change, not just UI. Related to #359. See also slide 42 of the PowerPoint.
 
@@ -1327,6 +1373,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] After saving without changes, values remain unchanged (no reset to "Ondersteund")
 - [ ] Each standard retains its individual status with correct color coding
 - [ ] Alternatively, if all editing goes through wizards (#384), "Bewerk standaarden" is removed from Actions menu
+- [ ] Uploaded compliance evidence documents retain their original filename (not renamed to "Bewijs_<unique number>.<format>")
 
 **Key Context from Comments:** Labeled "wontfix" — will become moot once all editing routes through wizards (#384). Bug persists until then.
 
@@ -1345,6 +1392,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Wizard review page shows ALL standards (supported AND not supported)
 - [ ] All three views use the same table format
 - [ ] Non-supported standards visible on all views
+- [ ] Standards list sort order is consistent across all views (control page, detail page, wizard review page)
 
 **Key Context from Comments:** Screenshots confirm both control and detail pages now use same table. Related to #348.
 
@@ -1380,6 +1428,9 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] "niet ondersteund" displayed with red color indicator
 - [ ] Applies to: tables, detail pages, wizard steps, review pages
 - [ ] Consistent Dutch terminology (no English mixing)
+- [ ] "Compliant" does NOT appear anywhere — replaced with "Ondersteund" for consistency (all Dutch terminology)
+- [ ] "niet ondersteund" is ALWAYS displayed in red (not grey in some views and red in others)
+- [ ] "Ondersteund" is used consistently for supported standards (not "Compliant" in some views)
 
 **Key Context from Comments:** Good change, planned for after "producten afschalen."
 
@@ -1415,6 +1466,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] "Select all" checkbox works
 - [ ] Selected rows enable bulk actions (if applicable)
 - [ ] Selection state is visually clear
+- [ ] After selecting specific rows and clicking export, ONLY the selected rows are exported (not all rows)
 
 **Key Context from Comments:** May be a regression from performance changes. Will be addressed after "producten afschalen."
 
@@ -1435,6 +1487,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Wizard includes "Lange omschrijving" (long description) field
 - [ ] Same pattern for Services and Connections
 - [ ] Editing via wizard pre-fills all existing data
+- [ ] Field is labeled "Uitgebreide omschrijving" (matching PowerPoint) not "Lange omschrijving"
 
 **Key Context from Comments:** "Lange omschrijving" is a prerequisite. Not in design PowerPoints but necessary for wizard-only editing.
 
@@ -1526,6 +1579,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Activated imported user can log in successfully
 - [ ] Imported user can view and manage their organization's data
 - [ ] Same capabilities as a user from a newly registered organization
+- [ ] Imported users with invalid email addresses show a clear error or warning when activation is attempted without first correcting the email
+- [ ] After correcting the email address of an imported contact person, activation proceeds successfully
 
 **Key Context from Comments:** Duplicate of #392. Imported users received invalid emails — must be corrected before activation.
 
@@ -1544,6 +1599,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Converted user can log in with correct permissions
 - [ ] Behavior consistent between imported and newly created organizations
 - [ ] No backend errors in logs during conversion
+- [ ] After environment re-deployment, previously imported contact persons can be activated without blockade
+- [ ] Data import is completed before testing user conversion
 
 **Key Context from Comments:** Duplicate of #391. Data import must be completed before testing.
 
@@ -1562,6 +1619,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Excel export works without errors and produces valid .xlsx file
 - [ ] Exported Excel contains expected columns and rows
 - [ ] No 500 errors when accessing voorzieningenregister endpoints
+- [ ] Excel export works per register/schema combination (not the entire catalog in one export)
+- [ ] Export file correctly represents the data for the selected register/schema combination only
 
 **Key Context from Comments:** Excel export is a regression from "products scaling down." Data model partially cleaned. Scope: schema, API docs, exports.
 
@@ -1619,6 +1678,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] All softwarecatalogus functionality works on NC 32
 - [ ] Verify via admin interface or status.php endpoint
 - [ ] NOTE: Infrastructure issue — verify via admin panel
+- [ ] Nextcloud admin log does not contain critical errors related to softwarecatalogus apps
 
 **Key Context from Comments:** Both environments set to NC 32. NC 33 has breaking changes. VNG policy: run n-1, test quarterly.
 
@@ -1637,6 +1697,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Admin can edit existing CMS pages
 - [ ] After editing and saving, updated text is visible on public page
 - [ ] CMS editor properly renders content in edit view
+- [ ] CMS editing documentation/manual is accessible via the handleidingen page
 
 **Key Context from Comments:** Regression from performance changes. Duplicates #332. CMS is a non-functional requirement. Page texts still need to be provided by VNG (#182).
 
@@ -1655,6 +1716,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Version details shown in read-only mode (no edit button)
 - [ ] Own application's versions have edit functionality available
 - [ ] Published endpoint returns correct data across suppliers
+- [ ] Non-owner suppliers can navigate to the version detail page via the application's version list
+- [ ] If the published endpoint returns a 404 for a version, the frontend shows a proper error page
 
 **Key Context from Comments:** RBAC fix adjusts so versions viewable by other suppliers. Published endpoint updated.
 
@@ -1691,6 +1754,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Clicking a card opens detail view without error
 - [ ] Cards from other suppliers also render with metadata
 - [ ] Test on renewed environment (not old URL)
+- [ ] Connections missing both moduleB and buitengemeentelijke voorziening show a clear indication of incomplete data
+- [ ] Invalid standard version references in connections do not cause UUIDs to display in the card view
 
 **Key Context from Comments:** Import data lacked @name column. Fix: default name during import. Re-importing should fix data.
 
@@ -1727,6 +1792,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Deleting item IN USE: "De {type} \"<name>\" wordt gebruikt door onderstaande gemeenten en/of samenwerkingen en kan niet worden verwijderd." with list
 - [ ] Object name dynamically inserted
 - [ ] Object type dynamically inserted
+- [ ] When deleting an application that has diensten linked by OTHER leveranciers, the system shows a specific warning
+- [ ] A defined flow exists for the scenario where a leverancier attempts to delete an object used by another leverancier's diensten
 
 **Key Context from Comments:** Exact text templates provided by markbacker. Two variants: not in use (can delete) and in use (cannot delete, shows users).
 
@@ -1763,6 +1830,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Only Piwik analytics script present
 - [ ] Verify by viewing page source on public pages
 - [ ] Only ONE configurable position for tracking scripts
+- [ ] Verify removal by checking page source on production/accept environment — confirm no siteimprove script loads at runtime
 
 **Key Context from Comments:** Must ensure only one configurable position for tracking/measurement scripts.
 
@@ -1799,6 +1867,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Only expected/designed tabs are visible
 - [ ] If "Beschrijving" tab exists, it shows text NOT a number
 - [ ] Empty "uitgebreide omschrijving" doesn't cause phantom tab
+- [ ] No internal numeric values (field length, index, property count) are displayed as tab content or tab labels
 
 **Key Context from Comments:** Extended description field was empty, not filled with "13". Rendering bug displaying field length or numeric property instead of text.
 
@@ -1817,6 +1886,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] "Algemene voorwaarden" link points to same URL in both states
 - [ ] Footer styling consistent between states
 - [ ] NOTE: Team could not replicate — verify on latest environment
+- [ ] A single, definitive set of footer links is defined and applied to both logged-in and logged-out states
 
 **Key Context from Comments:** Couldn't replicate. May have been from two footer menu variants during testing.
 
@@ -1836,6 +1906,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Instruction text about publishing new items and finding existing items via left menu present
 - [ ] Closing paragraph about municipalities using the information present
 - [ ] Spelling consistent across entire dashboard
+- [ ] Welcome text uses "GEMeentelijke Model Architectuur (GEMMA)" with exact capitalization as provided
 
 **Key Context from Comments:** Exact supplier text provided by Makkmetp (Feb 18). Also resolves #255.
 
@@ -1868,6 +1939,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Diensten registreren "Basisinformatie" section header reads: "Informatie over uw dienst" with text: "Vul de naam, website en een beschrijving van uw dienst in. Voeg eventueel een logo toe. Gebruik een herkenbare naam, zoals:\n\"Functioneel beheer voor Zaakgericht Werken\" of \"Reseller van Applicatie X\"."
 - [ ] Samenvatting placeholder reads: "Beschrijf in een of twee zinnen wat uw dienst inhoudt."
 - [ ] Search tooltip text reads: "De zoekfunctie doorzoekt de naam en beschrijvingen van items. Dit wordt gedaan op basis van vergelijkbare woorden. Met de filters kunnen de zoekresultaten verder worden verfijnd."
+- [ ] Application wizard success page title reads: "Uw applicatie is succesvol geregistreerd!"
+- [ ] Application wizard success page body includes explanation of what happens next (visibility in catalogus, management via dashboard)
 
 **Key Context from Comments:** This is a mega-issue with 10 distinct text changes. Items 1 (Contactpersoon text) and 3 (Organisatie niet zichtbaar banner) are marked as DONE per checkmarks in the issue. Related issues: #255, #268 (dashboard text). The diensten wizard texts should be consistent with #316-#328 wizard text standards.
 
@@ -1951,6 +2024,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] A button with text "Ik kan de gewenste koppeling niet vinden" is present
 - [ ] This step is skipped when adding from a koppeling page
 - [ ] This step is pre-filled when a koppeling is found from an application detail page
+- [ ] Section text uses "buitengemeentelijke voorzieningen" instead of "externe systemen of diensten"
 
 **Key Context from Comments:** Source text from PowerPoint in #329. Part of the "Koppeling toevoegen" wizard flow (issues #319-#322).
 
@@ -1973,6 +2047,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] A "Status" field is present with default value "In gebruik"
 - [ ] A "Startdatum status" field is present
 - [ ] An "Interne notitie" field is present
+- [ ] "Startdatum status" field defaults to today's date but allows manual entry of past dates
 
 **Key Context from Comments:** Source text from PowerPoint in #329. Part of the "Koppeling toevoegen" wizard flow (issues #319-#322).
 
@@ -2055,6 +2130,7 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] A "Status" field is present with default value "in productie" and is required (verplicht)
 - [ ] A "Startdatum status" field is present
 - [ ] An "Interne notitie" field is present
+- [ ] "Startdatum status" field defaults to today's date (timestamp) but allows manual entry of past dates
 
 **Key Context from Comments:** Source text from PowerPoint in #329. Part of the "Applicatie toevoegen" wizard flow (issues #323-#327).
 
@@ -2216,6 +2292,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Applications dropdown loads in a single API call (not N+1 pattern)
 - [ ] No 404 error for product endpoint
 - [ ] Dropdown loads within reasonable time (<2 seconds)
+- [ ] Applications dropdown uses batch API call instead of individual calls per application
+- [ ] Total dropdown load time for 6+ applications is under 3 seconds
 
 **Key Context from Comments:** Performance issue with applications dropdown making excessive API calls when loading in the dienst wizard.
 
@@ -2232,6 +2310,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Delete dialog correctly warns when an application is used by a dienst
 - [ ] If deletion proceeds, the application is removed consistently from both overview table and detail pages
 - [ ] Dependencies are clearly shown before deletion
+- [ ] After deleting an application, it is consistently removed from BOTH the diensten management table AND detail pages (no orphan references)
+- [ ] A flow decision is implemented for: should an application be deletable when diensten from OTHER leveranciers reference it?
 
 **Key Context from Comments:** Related to #403 (deletion text changes). The delete confirmation should show which diensten reference the application.
 
@@ -2248,6 +2328,9 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Leveranciers filter shows human-readable supplier names, not UUIDs
 - [ ] All suppliers in the filter have proper names
 - [ ] No empty or UUID-only entries in the leveranciers dropdown
+- [ ] All modules in the import reference existing organizations (no orphan references to non-existent organization UUIDs)
+- [ ] Frontend does not make extra API calls to resolve missing organization names
+- [ ] If an organization UUID cannot be resolved, a human-readable fallback is shown (not the raw UUID)
 
 **Key Context from Comments:** Related to #333 (UUIDs in filters). Part of the broader UUID-in-filters problem affecting search experience.
 
@@ -2264,6 +2347,11 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] User activation process works correctly
 - [ ] Activated users can log in
 - [ ] Activation status is reflected in the UI
+- [ ] Activating a user does NOT produce a 500 error
+- [ ] After activating an organization, the contact person is correctly converted to a user without disappearing from the contacts list
+- [ ] Activated user receives correct roles (no duplicate role assignments)
+- [ ] After organization activation, the filter state is preserved (organizations list does not reload unfiltered)
+- [ ] User activation works for both newly created organizations AND imported/data-migrated organizations
 
 **Key Context from Comments:** Findings during testing of user activation flow.
 
@@ -2279,6 +2367,9 @@ The authoritative PowerPoint source document is attached to issue #329.
 **Acceptance Criteria:**
 - [ ] Dashboard loads correctly after login
 - [ ] All dashboard elements are visible and functional
+- [ ] Dashboard suggestions are shown correctly after first login (not inverted/empty)
+- [ ] Page load time after login is reasonable (within a few seconds)
+- [ ] Accepting/adopting a suggestion does not produce a 404 error
 
 **Key Context from Comments:** Findings during testing of dashboard and login flow.
 
@@ -2294,6 +2385,8 @@ The authoritative PowerPoint source document is attached to issue #329.
 **Acceptance Criteria:**
 - [ ] Architecture views load and display correctly
 - [ ] View content matches expected data
+- [ ] "Identificatie" column shows consistent values (either names or UUIDs, not a mix of both)
+- [ ] Views are accessible from the correct menu location
 
 **Key Context from Comments:** Findings during testing of architecture views (AMEFF).
 
@@ -2325,6 +2418,9 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Reference component filter shows human-readable names
 - [ ] Standards filter shows human-readable names
 - [ ] No UUIDs visible in any filter dropdown
+- [ ] Referentiecomponent UUIDs for Regelbeheercomponent, Wkpb-component, and Sonderingsregistercomponent are resolved (merged or removed)
+- [ ] Standaardversie UUIDs for "StUF Geo IMGeo (actueel)", "Samenwerken (actueel)", and "StUF LVBAG 2.06" are removed from compliancy data
+- [ ] Leverancier filter no longer contains UUIDs (only readable supplier names)
 
 **Key Context from Comments:** Data migration needs correction to resolve UUIDs to readable names in filters. Related to #398.
 
@@ -2504,6 +2600,95 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Content is filled in (not placeholder text)
 
 **Key Context from Comments:** Reported by Wilco. Legal pages are required for go-live. Related to #397 (CMS page editing) and #409 (footer links).
+
+---
+
+### #342: Zoeken: op kaartjes aantal referentiecomponenten duidelijk maken
+
+**Labels:** Gebruik, Zoeken
+**Test Step:** Step 14
+
+**Summary:** When an application card has more reference components than can be displayed, the overflow should be handled clearly.
+
+**Acceptance Criteria:**
+- [ ] When an application card has more referentiecomponenten than can be displayed, a total count is shown (e.g., "+5 meer")
+- [ ] A "Meer" link or count navigates to the application detail page where all referentiecomponenten are visible
+- [ ] All referentiecomponenten are visible on the detail page
+
+---
+
+### #411: Vraag: Required eisen uitgezet voor dataimport
+
+**Labels:** Vraag, Data Import
+**Test Step:** Step 19
+
+**Summary:** Required fields (beschrijvingKort, website for module; naam, moduleA, moduleB for koppeling; website for organisatie) were set to non-required to accommodate import data with null values. These constraints should be re-enabled after a clean re-import.
+
+**Acceptance Criteria:**
+- [ ] A new data import file fills in beschrijvingKort and website for all modules
+- [ ] A new data import file provides naam, moduleA, and moduleB for all koppelingen
+- [ ] A new data import file provides website for all organisaties
+- [ ] After re-import with complete data, the required constraints on these fields are re-enabled in the schema
+- [ ] Wizards properly enforce required field validation after constraints are restored
+
+---
+
+### #412: Vraag: Niet alle AMEF views hebben documentatie
+
+**Labels:** Vraag, Architectuur
+**Test Step:** Step 19
+
+**Summary:** 5 specific AMEF views lack descriptions and display "geen beschrijving beschikbaar voor deze view" in the frontend.
+
+**Acceptance Criteria:**
+- [ ] Referentiecomponentenlandschap view has a description
+- [ ] Test extra componenten view has a description
+- [ ] Basisbeveiligingsniveau views (both) have descriptions
+- [ ] Referentiecomponenten en ondersteuning BIO maatregelen view has a description
+- [ ] No view displays "geen beschrijving beschikbaar voor deze view" after descriptions are provided
+
+---
+
+### #413: Vraag: Views testen vs softwarecatalogus scope
+
+**Labels:** Vraag, Architectuur
+**Test Step:** Step 19
+
+**Summary:** Clarification on which AMEF views should be included in the softwarecatalogus. 22 views match the agreed filter. Test views should not appear in production.
+
+**Acceptance Criteria:**
+- [ ] Only the 22 views matching the agreed filter `publiceren=Softwarecatalogus+en+GEMMA+Online+en+redactie` are displayed
+- [ ] Views with duplicate titelViewSwc are clearly distinguishable in the UI
+- [ ] Test views not matching the production filter do not appear in the published softwarecatalogus
+
+---
+
+### #414: Vraag: Mogen deelnemers gebruiksobjecten lezen
+
+**Labels:** Vraag, RBAC
+**Test Step:** Step 12
+
+**Summary:** Whether participants (deelnemers) in usage objects can read those objects when they are not the owner.
+
+**Acceptance Criteria:**
+- [ ] Deelnemers (participants) in a gebruiksobject can read the object even when they are not the owner
+- [ ] Gemeenten and samenwerkingen can view each other's usage data where they are deelnemers
+
+---
+
+### #417: Vraag: Andere email adressen voor contactpersonen
+
+**Labels:** Vraag, Data Import
+**Test Step:** Step 3
+
+**Summary:** Imported contact person email addresses use Gmail aliases (e.g., test.vng.swc+Bre@gmail.com) which are OAuth-incompatible. Proper email addresses should be provided for the definitive import.
+
+**Acceptance Criteria:**
+- [ ] Imported contact persons have OAuth-compatible email addresses (not Gmail aliases with + notation)
+- [ ] When activating a contact person with an invalid/incompatible email, a clear error message is shown
+- [ ] Email can be changed before activation as a workaround
+
+**Key Context from Comments:** Priority is low since the definitive import will not have invalid emails. This is a data quality issue, not a code issue.
 
 ---
 
