@@ -10,6 +10,8 @@ Maria manages her municipality's software landscape in the Softwarecatalogus. Sh
 
 ## Login Credentials
 
+> **LOCAL TEST ONLY** — These credentials are for the local development environment only. They do NOT work on production or acceptance environments.
+
 - **Username**: `maria.vanderberg@test.nl`
 - **Password**: `WelcomeToTest2026`
 - **Groups**: gebruik-beheerder, software-catalog-users
@@ -60,7 +62,7 @@ Maria manages her municipality's software landscape in the Softwarecatalogus. Sh
 |-------|-------|-----------|
 | #15 | Data vanuit softwarecatalogus exporteren | Step 13 |
 | #278 | Filterteksten aanpassen | Step 14 |
-| #286 | Aanmelden organisatie: 500-error bij wachtwoord wijzigen | Step 4 |
+| #286 | Aanmelden organisatie: 500-error bij wachtwoord wijzigen | **MOVED → functioneel-beheerder** |
 | #315 | Hoge prioriteit: Zoekpagina toont deel van gemeentelijk applicatielandschap | Step 14 |
 | #316 | Dienst toevoegen: Stap 1 Dienst zoeken | Step 9 (gemeente dienst wizard) |
 | #317 | Dienst toevoegen: Stap 2 Gebruiksinformatie | Step 9 (gemeente dienst wizard) |
@@ -232,10 +234,53 @@ After completing all three wizards:
 
 ## Testing Hints for Specific Issues
 
-1. **#344 (Referentiecomponenten filter)**: Click the Referentiecomponenten filter dropdown on the search page and TYPE "Graven" — NcSelect supports type-to-filter search.
-2. **#286 (password change 500 error)**: Test via Contactpersonen list — click password change on a contact person, verify no 500 error.
-3. **#15 (export)**: In the applicaties table, click **"Acties"** dropdown → **"Exporteren"** → **"Als CSV"**. Verify download. Also test "Als Excel".
-4. **#355 (diensten export UUIDs)**: Same as #15 but for the diensten table — check that exported columns use readable names, not UUIDs.
+1. **#344 (Referentiecomponenten filter)**: Navigate to `http://localhost:3000/zoeken` and test the filter:
+   1. Find the **"Referentiecomponenten"** filter dropdown on the left side
+   2. Click it to open the dropdown
+   3. **TYPE "Graven"** in the search field inside the dropdown — NcSelect supports type-to-filter
+   4. Verify that "Gravenbeheercomponent" (or similar) appears as a filterable option
+   5. Select it and verify search results update to show only applications with that component
+   6. Take a screenshot of the filter dropdown with typed text and the filtered results
+2. **#286**: **MOVED to functioneel-beheerder** — this is an admin-level password change test via the Nextcloud backend, not a gemeente flow.
+3. **#15 (export)**: Test CSV and Excel export from any beheer page. Steps:
+   1. Navigate to `http://localhost:3000/beheer/applicaties` (or any beheer page like `/beheer/diensten`, `/beheer/koppelingen`)
+   2. Find the **"Acties"** dropdown button (top-right of the table, near the search/filter area)
+   3. Click **"Acties"** → **"Exporteren"** → **"Als CSV"**
+   4. Verify a CSV file downloads containing the table data
+   5. Repeat with **"Als Excel"** and verify an Excel file downloads
+   6. Check that exported data contains readable column names and values (not UUIDs)
+   7. Take screenshots of the Acties dropdown with export options visible
+4. **#355 (diensten export UUIDs)**: Same flow as #15 but specifically on the `/beheer/diensten` page:
+   1. Navigate to `http://localhost:3000/beheer/diensten`
+   2. Click **"Acties"** → **"Exporteren"** → **"Als CSV"**
+   3. Open the CSV and check that columns use **readable names** (e.g., "dienstType" shows "SaaS" not a UUID)
+   4. If any column shows UUIDs instead of human-readable values, mark as FAIL
+5. **#349 (UUID's in standaarden filter)**: Navigate to `http://localhost:3000/zoeken` and test the standards filter:
+   1. Find the **"Standaardversies"** filter dropdown on the left side
+   2. Click it to expand/open the dropdown
+   3. Scroll through the options and check if they show **human-readable names** or raw **UUIDs**
+   4. If any option shows a UUID (e.g., `a1b2c3d4-...`) instead of a readable standard name, mark as FAIL
+   5. Take a screenshot of the expanded filter dropdown showing the options
+6. **#353 (Functie niet aangepast na bewerken)**: Navigate to Mijn Account and test editing:
+   1. Navigate to `http://localhost:3000/mijn-account` (or find the "Mijn Account" link in the user menu / header)
+   2. Find the **"functie"** (job title) field on the account page
+   3. Note the current value
+   4. Change the value to something different (e.g., "ICT Test Coordinator")
+   5. Click **Save** (or the save button)
+   6. Refresh the page (F5) and check if the new value persists
+   7. Navigate away and come back — verify the change is still there
+   8. If the value reverts to the old value, mark as FAIL
+   9. Take screenshots before and after the edit
+7. **#328 (Nieuwe applicatie opvoeren sub-step)**: During the Applicatie wizard (Wizard 1):
+   1. In Step 1 ("Applicatie zoeken"), after the search field loads, look for the button **"Ik kan de gewenste applicatie niet vinden"**
+   2. Click that button — it should open sub-step 1.1
+   3. Verify the sub-step shows:
+      - Title: "Een nieuwe applicatie toevoegen"
+      - Subtitle: "Vul dit formulier in om een nieuwe applicatie toe te voegen aan uw applicatielandschap"
+      - Section header: "Publiceren applicatie"
+      - Fields: "Selecteren van leverancier", "Naam leverancier", "Website leverancier"
+   4. Take a screenshot of the sub-step form
+   5. Click **Back** or navigate back to the normal wizard flow — do NOT submit this form (it would create a duplicate)
 
 ## Instructions
 

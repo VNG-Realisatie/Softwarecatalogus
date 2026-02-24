@@ -10,6 +10,8 @@ Linda represents a collaboration that acts as BOTH a supplier (offering shared s
 
 ## Login Credentials
 
+> **LOCAL TEST ONLY** — These credentials are for the local development environment only. They do NOT work on production or acceptance environments.
+
 - **Username**: `linda.bakker@test.nl`
 - **Password**: `WelcomeToTest2026`
 - **Groups**: gebruik-beheerder, software-catalog-users

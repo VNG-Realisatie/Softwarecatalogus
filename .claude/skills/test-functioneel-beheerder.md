@@ -10,6 +10,8 @@ Peter has full system access. He activates organizations, manages users, maintai
 
 ## Login Credentials
 
+> **LOCAL TEST ONLY** — These credentials are for the local development environment only. They do NOT work on production or acceptance environments.
+
 - **Username**: `peter.vandijk@test.nl`
 - **Password**: `WelcomeToTest2026`
 - **Groups**: functioneel-beheerder, gebruik-beheerder, aanbod-beheerder, software-catalog-admins, software-catalog-users
@@ -20,7 +22,7 @@ Peter has full system access. He activates organizations, manages users, maintai
 - **Backend**: http://localhost:8080/
 - **Browser**: Use Playwright MCP browser tools (prefixed `mcp__browser-N__`, where N is assigned by the orchestrator)
 - **Login URL**: http://localhost:3000/login
-- **Backend Admin**: http://localhost:8080/ (Nextcloud admin: admin/admin)
+- **Backend Admin**: http://localhost:8080/ (Nextcloud admin: admin/admin — local test only)
 
 ## Test Scope
 
@@ -58,10 +60,15 @@ Peter has full system access. He activates organizations, manages users, maintai
 | #148 | (VNGR) GEMMA-architectuur opvraagbaar met API | Step 12 |
 | #225 | Testresultaten 29-10-2025 | General |
 | #278 | Filterteksten aanpassen | Step 14 |
+| #286 | 500-error bij wachtwoord wijzigen | Step 5 |
+| #392 | Geimporteerde gebruiker error bij omzetten naar user | Step 3 |
 | #393 | Backend: fouten in voorzieningenregister | Step 19 |
 | #396 | Verouderde NextCloud versie | Infra |
 | N/A | Themes management (exploratory) | Step 21 |
+| #15 | Exporteren van gegevens (CSV/Excel) | Step 24 |
+| #355 | Exporteren functies (Applicatie export) | Step 24 |
 | N/A | Schema export (OpenRegister registers) | Step 24 |
+| N/A | Import round-trip (export → modify → reimport) | Step 24 |
 | N/A | Facet editing (OpenRegister schemas) | Step 21 |
 
 ## Acceptance Criteria Reference
@@ -89,7 +96,31 @@ Peter has full system access. He activates organizations, manages users, maintai
    - The dialog checks if the object is in use by municipalities
    - Click **Cancel** to abort — do NOT actually delete.
 
-2. **#141 (merge organizations)**: Test via the **Nextcloud backend admin UI**:
+3. **#286 (500-error bij wachtwoord wijzigen)**: Test password change via Nextcloud backend user management:
+   1. Navigate to `http://localhost:8080/settings/users`
+   2. Find a test user (e.g., `maria.vanderberg@test.nl`)
+   3. Click the **three-dot menu** (⋮) on the user row → click **"Edit"** or open the user detail
+   4. Find the password field and enter a new password (e.g., `NewTestPassword2026`)
+   5. Save the change
+   6. Verify: No 500 error occurs, and a success message appears
+   7. **Revert**: Change the password back to `WelcomeToTest2026` so other tests still work
+   8. Also test via OCS API: `curl -u admin:admin -X PUT "http://localhost:8080/ocs/v2.php/cloud/users/maria.vanderberg%40test.nl" -d "key=password" -d "value=WelcomeToTest2026" -H "OCS-APIRequest: true"` — verify HTTP 200 response (not 500)
+   9. Take screenshots of the password change flow
+
+4. **#392 (geimporteerde gebruiker error bij omzetten)**: Test creating a contact person for an imported organization via the backend:
+   1. Navigate to `http://localhost:8080/index.php/apps/openregister` → **Search / Views**
+   2. Filter by register: **Voorzieningen**, schema: **Contactpersoon**
+   3. Click **"Add"** (or the + button) to create a new contact person
+   4. Fill in: voornaam: `Test`, achternaam: `Import`, email: `test.import@test.nl`
+   5. Link it to an existing **imported** organization (one that was imported from data, not created via wizard — e.g., any org that isn't "Test Leverancier BV" or "Test Gemeente")
+   6. Save the contact person
+   7. Verify: No error occurs during save — the contact person should be created AND automatically converted to a Nextcloud user
+   8. Check the Nextcloud users list (`http://localhost:8080/settings/users`) to see if `test.import@test.nl` was created
+   9. Check the backend logs for errors: `docker exec nextcloud tail -20 /var/www/html/data/nextcloud.log`
+   10. **Clean up**: Delete the test contact person and user after testing
+   11. Take screenshots of each step
+
+5. **#141 (merge organizations)**: Test via the **Nextcloud backend admin UI**:
    1. Navigate to `http://localhost:8080/index.php/apps/openregister`
    2. Click **"Search / Views"** in the left sidebar
    3. In the filter area, select register: **"voorzieningen"** and schema: **"organisatie"**
@@ -121,17 +152,65 @@ Peter has full system access. He activates organizations, manages users, maintai
 
 4. **#15 (export)**: In any beheer table, click **"Acties"** dropdown → **"Exporteren"** → **"Als CSV"** or **"Als Excel"**. Verify the download works and data is scoped to your org.
 
-5. **Schema export (OpenRegister registers page)**: Test exporting a schema from the backend:
+5. **Export & Import — Full Round-Trip Testing (OpenRegister)**:
+   Test ALL export formats and the round-trip workflow (export → modify → reimport → verify).
+
+   **5a. Schema-level object export (Excel)**:
    1. Navigate to `http://localhost:8080/index.php/apps/openregister/registers#`
-   2. Click on the **"voorzieningen"** register to open it
-   3. Find a schema in the register (e.g., "applicatie", "dienst", or "organisatie")
-   4. Click on the schema to open its detail view
-   5. Click the **action menu** (three-dot menu or "Acties" button)
-   6. Select **"Export"** (or similar export option)
-   7. Walk through the export flow — verify it offers JSON export
-   8. Verify the exported file contains the full schema definition (properties, required fields, etc.)
-   9. Take screenshots of each step of the export flow
-   10. Document: Does the export include all properties? Are `$ref` references preserved? Is the format valid JSON Schema?
+   2. Find the **"Voorzieningen"** register card and locate the **"Applicatie"** schema row
+   3. Click the **three-dot menu** (⋮) on the Applicatie row → click **"Export"**
+   4. In the export dialog, select **"Excel"** as the format
+   5. Click **"Export"** — verify a .xlsx file downloads
+   6. Open the file and verify it contains Applicatie object data with columns matching schema properties
+   7. Take a screenshot of the export dialog and note the file size
+   8. Document: Did the download succeed? Does the file contain expected columns (naam, beschrijving, etc.)? Are id values present?
+
+   **5b. Schema-level object export (CSV)**:
+   1. Repeat step 5a but select **"CSV"** as the format
+   2. Verify a .csv file downloads
+   3. Open the file and verify the data matches the Excel export
+   4. Document: Did CSV export work? Is the data comma-separated? Are special characters (Dutch diacritics) preserved?
+
+   **5c. Register-level API specification download (JSON config)**:
+   1. Click the **three-dot menu** (⋮) on the **register card heading** "Voorzieningen" (NOT on a schema row)
+   2. Click **"Download API Specification"**
+   3. Verify a JSON file downloads containing the register configuration
+   4. Open the file and check it contains register metadata, schema definitions, and property definitions
+   5. Document: Is the JSON valid? Does it include all schemas? Are property types and constraints preserved?
+
+   **5d. Register-level import dialog**:
+   1. Click the **three-dot menu** (⋮) on the **register card heading** "Voorzieningen"
+   2. Click **"Import"**
+   3. Verify the import dialog appears with:
+      - "Select File" button
+      - Supported file types listed: JSON, Excel (.xlsx, .xls), CSV
+      - Import requirements (id column, UUID format, metadata columns)
+      - Toggle options: Include objects, Enable validation, Enable events, Enable RBAC, Enable Multi-tenancy, Auto-publish
+   4. Take a screenshot of the import dialog
+   5. Click **"Cancel"** — do NOT import yet
+
+   **5e. Round-trip test: Export → Modify → Reimport → Verify**:
+   This is the critical test — verifying that data can be exported, modified externally, and reimported with changes applied.
+
+   1. **Export**: Export the **"Organisatie"** schema from the **"Voorzieningen"** register as **Excel**
+      - Use the three-dot menu on the Organisatie row → Export → Excel
+   2. **Download and inspect**: Note the current value of a field (e.g., the "naam" or "beschrijving" of one organisation)
+   3. **Modify the file**: You cannot edit files locally, but you CAN test the import with the unmodified export file to verify the round-trip pipeline works:
+      - Click the register-level three-dot menu → **"Import"**
+      - Select the exported Excel file
+      - Ensure **"Include objects in the import"** is ON and **"Enable validation"** is ON
+      - Click **"Import"**
+   4. **Verify**: After import completes:
+      - Check that no errors were reported
+      - Navigate to the Organisatie schema and verify objects still exist with correct data
+      - Check the audit trail (Dashboard → Audit Trail Actions) for import-related entries
+   5. Document the entire flow with screenshots at each step
+
+   **5f. Import with different formats**:
+   If time permits, also test:
+   - Import a CSV file (schema-level import via the schema three-dot menu → Import)
+   - Import a JSON configuration file (register-level)
+   - Verify error handling: try importing a file with invalid data (wrong column names) and verify validation catches it
 
 6. **Facet editing (OpenRegister schemas page)**: Test renaming a facet on a schema property:
    1. Navigate to `http://localhost:8080/index.php/apps/openregister/schemas#`

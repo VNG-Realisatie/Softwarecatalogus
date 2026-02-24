@@ -16,6 +16,9 @@ Run automated browser tests for the GEMMA Softwarecatalogus using 7 persona-base
 All sub-agents share this context:
 
 ### Environment
+
+> **LOCAL TEST ONLY** — All credentials in this file and the persona skill files are for the local development environment only. They do NOT work on production or acceptance environments.
+
 - **Frontend**: http://localhost:3000/
 - **Backend**: http://localhost:8080/
 - **Login URL**: http://localhost:3000/login
@@ -72,10 +75,33 @@ The authoritative RBAC rules are defined in the register JSON configuration:
 - **Applicatielandschappen page may be visible** to aanbod-beheerder, but should only show applications belonging to their own organization. When testing #105, verify the page shows ONLY own-org data, not that the page itself is blocked.
 - When unsure about RBAC, read the register JSON file directly to check the `authorization` block for the relevant schema.
 
+### Test Data Cleanup (MANDATORY)
+After all testing is complete, agents **MUST** clean up any objects they created during wizard walkthroughs and testing. This prevents data contamination that inflates counts and creates false-positive FAIL results in subsequent test runs.
+
+**Cleanup procedure:**
+1. Search for test objects created during the session using the publications API:
+   ```
+   GET {BACKEND}/index.php/apps/opencatalogi/api/publications?_search=Test+Wizard&_limit=50
+   GET {BACKEND}/index.php/apps/opencatalogi/api/publications?_search=Test+Koppeling&_limit=50
+   ```
+2. For each object found that was created by your persona (check `@self.owner`), delete it:
+   ```
+   DELETE {BACKEND}/index.php/apps/openregister/api/objects/{register}/{schema}/{id}
+   ```
+   Where `register` and `schema` come from the object's `@self` metadata.
+3. **Do NOT delete** objects created by the setup script (e.g., "Test Applicatie Leverancier", "Test Dienst Leverancier") — only delete wizard-created duplicates.
+4. Record the cleanup in your results file under a "## Test Data Cleanup" section.
+
+**Objects to clean up (by naming pattern):**
+- "Test Wizard *" — any wizard-created test objects
+- Objects with your persona's username as `@self.owner`
+- Duplicate entries visible in beheer tables that didn't exist before your test
+
 ### Rules
 - **READ ONLY on GitHub issues** — NEVER update, close, or comment on issues
 - Write test results ONLY to local files in `Softwarecatalogus/test-results/`
 - Take screenshots as evidence where applicable
+- **ALWAYS clean up test data** created during wizard walkthroughs (see Test Data Cleanup above)
 
 ---
 
@@ -237,10 +263,32 @@ Use this format:
 - Per-issue sections with acceptance criteria checkboxes marked [x] or [ ]
 - Evidence screenshots saved to the same directory
 
+### Test Data Cleanup (MANDATORY — do this AFTER all testing)
+After completing all tests, you MUST clean up any objects you created during wizard walkthroughs:
+
+1. Search for objects you created:
+   ```bash
+   curl -s -u admin:admin 'http://localhost:8080/index.php/apps/opencatalogi/api/publications?_search=Test+Wizard&_limit=50'
+   ```
+   Also search for any other names you used during wizard testing (e.g., your test koppeling names).
+
+2. For each object where `@self.owner` matches your username, delete it:
+   ```bash
+   curl -s -X DELETE -u admin:admin 'http://localhost:8080/index.php/apps/openregister/api/objects/{register}/{schema}/{id}'
+   ```
+   Use the `register`, `schema`, and `id` values from the object's `@self` metadata.
+
+3. **Do NOT delete** objects created by the setup script: "Test Applicatie Leverancier", "Test Dienst Leverancier", "Test Applicatie Gemeente", "Test Applicatie Leverancier 2".
+
+4. Add a "## Test Data Cleanup" section to your results file documenting what was deleted.
+
+**Why this matters:** Without cleanup, wizard re-runs create duplicate entries that cause false FAIL results for count-based issues (#300, #307).
+
 ### Rules
 - NEVER update, close, or comment on GitHub issues — READ ONLY
 - Write results ONLY to local files in test-results/
 - Take screenshots for evidence
+- ALWAYS clean up wizard-created test data after testing (see above)
 ```
 
 ### Step 3: Wait for Completion

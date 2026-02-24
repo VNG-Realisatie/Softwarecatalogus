@@ -10,6 +10,8 @@ Mark monitors security requirements, validates privacy implementations, and ensu
 
 ## Login Credentials
 
+> **LOCAL TEST ONLY** — These credentials are for the local development environment only. They do NOT work on production or acceptance environments.
+
 - **Username**: `mark.jansen@test.nl`
 - **Password**: `WelcomeToTest2026`
 - **Groups**: gebruik-beheerder, software-catalog-users
@@ -70,6 +72,19 @@ The authoritative RBAC rules are in `softwarecatalog/lib/Settings/softwarecatalo
 |-------|-------|-----------|
 | #85 | (VNGR) Publieke API toegang tot aanbodinformatie | Step 12 |
 | #315 | Hoge prioriteit: Zoekpagina toont deel gemeentelijk applicatielandschap | Step 14 |
+
+## Testing Hints for Specific Issues
+
+1. **#395 (Menu linkerkant verdwijnt)**: This issue is about the left sidebar disappearing after pressing F5/Ctrl+R. It may be caused by a **narrow browser viewport** — the sidebar collapses on small screens. Test as follows:
+   1. First, **resize the browser** to a wide viewport: use `browser_resize` with width **1920** and height **1080**
+   2. Navigate to `http://localhost:3000/beheer/applicaties` (or any beheer page)
+   3. Verify the left navigation menu is visible (with links like Applicaties, Diensten, Koppelingen, etc.)
+   4. Press **F5** (use `browser_press_key` with key "F5") to refresh the page
+   5. Check if the left menu is still visible after refresh
+   6. Repeat on other beheer pages: `/beheer/diensten`, `/beheer/koppelingen`
+   7. Also test by navigating directly to the URL (not via SPA navigation) — paste the URL and press Enter
+   8. Take screenshots before and after the refresh
+   9. If the menu disappears, try with different viewport widths (1280, 1024) to see if it's viewport-related
 
 ## Acceptance Criteria Reference
 

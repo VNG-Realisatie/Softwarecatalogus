@@ -10,6 +10,8 @@ Jan manages his company's products in the Softwarecatalogus. He registers applic
 
 ## Login Credentials
 
+> **LOCAL TEST ONLY** — These credentials are for the local development environment only. They do NOT work on production or acceptance environments.
+
 - **Username**: `jan.pietersen@test.nl`
 - **Password**: `WelcomeToTest2026`
 - **Groups**: aanbod-beheerder, software-catalog-users
@@ -106,7 +108,7 @@ This agent tests the following steps from the test flow (`testen.md`):
 | #374 | Applicaties: Standaarden, Standaarden GEMMA en Standaardversies? | Step 7 |
 | #378 | Applicatie: Standaarden na wijzigen veranderd | Step 7 |
 | #391 | Testen met een gebruiker van een bestaande organisatie | Step 3 |
-| #392 | Back-end: geimporteerde gebruiker geeft error bij omzetten naar user | Step 3 |
+| #392 | Back-end: geimporteerde gebruiker geeft error bij omzetten naar user | **MOVED → functioneel-beheerder** |
 | #400 | Koppeling - Opslaan van een koppeling geeft een foutmelding | Step 11 |
 | #401 | Koppeling - geïmporteerde koppelingen kaartjes zijn leeg | Step 11 |
 | #402 | Verschil tussen Edge en Chrome bij laden applicaties | Step 7 |
@@ -121,12 +123,38 @@ This agent tests the following steps from the test flow (`testen.md`):
 - **FAIL** = Key criteria not met or feature is broken
 - **CANNOT_TEST** = Feature not accessible or environment issue prevents testing
 
-## Detail Page Testing
+## Detail Page Testing — MANDATORY
 
-For each detail page type, navigate to the page and verify the following:
+**CRITICAL**: Many issues (20+) were CANNOT_TEST in the previous run because detail pages were never opened. You MUST open detail pages for applicaties, diensten, koppelingen, and organisaties.
+
+### How to open a detail page
+
+Detail pages are opened via the **publicatie URL pattern**:
+```
+http://localhost:3000/publicatie/{id}
+```
+
+**To find the ID of an object:**
+1. Go to the beheer table (e.g., `/beheer/applicaties`)
+2. Click on a row — the URL or page content will show the object ID (UUID)
+3. Alternatively, use the API to find IDs:
+   ```
+   curl -s -u admin:admin 'http://localhost:8080/index.php/apps/openregister/api/objects/3/25?_limit=5&_fields=naam,id'
+   ```
+   (register 3 = Voorzieningen, schema 25 = Applicatie, schema 26 = Dienst, schema 28 = Koppeling, schema 15 = Organisatie)
+
+**After completing the wizard** (which creates "Test Wizard App"), find its ID in the beheer table or API, then navigate to:
+```
+http://localhost:3000/publicatie/{test-wizard-app-id}
+```
+
+For existing applications (e.g., well-known apps with many standards), search the API:
+```
+curl -s -u admin:admin 'http://localhost:8080/index.php/apps/openregister/api/objects/3/25?_limit=5&_search=Begraven&_fields=naam,id'
+```
 
 ### Applicatie Detail Page
-- Navigate to an application detail page (e.g., from Beheer → Applicaties → click an application)
+- Navigate to `http://localhost:3000/publicatie/{applicatie-id}` for your wizard-created app AND at least one existing app
 - **Tabs**: Verify all tabs load (Beschrijving, Diensten, Koppelingen, Standaarden, Gebruik, Versies)
 - **Tab loading**: Check that tabs load consistently without delays (#351)
 - **Tab titles**: Verify tab titles match the design specification (#248)
@@ -136,16 +164,19 @@ For each detail page type, navigate to the page and verify the following:
 - **Contactpersoon**: Verify contact person shows full name including tussenvoegsel (#372)
 - **Gebruik tab**: When NOT logged in, municipality names should NOT be visible (#263)
 - **Versies**: Check version display, especially for SaaS applications (#375)
+- **Standaarden na wijzigen**: After editing standards, verify they haven't changed unexpectedly (#378)
+- **Compliancy link**: Click a compliancy link and verify it works (#382)
+- Take screenshots of EACH tab
 
 ### Koppeling Detail Page
-- Navigate to a connection detail page (from Beheer → Koppelingen → click a koppeling)
+- Navigate to `http://localhost:3000/publicatie/{koppeling-id}` for your wizard-created koppeling
 - **Card display**: Verify the card shows meaningful data, not empty (#401)
 - **Direction**: Check that the connection direction (richting) is displayed
 - **Linked applications**: Verify both source and target applications are shown
 - **Name**: Verify the connection has a proper name (#312)
 
 ### Dienst Detail Page
-- Navigate to a service detail page (from Beheer → Diensten → click a dienst)
+- Navigate to `http://localhost:3000/publicatie/{dienst-id}` for your wizard-created dienst
 - **Beschrijving tab**: Verify description tab exists and shows content (#408)
 - **Labels**: Check that "Diensttype" vs "Type" is used consistently (#357)
 - **Status**: Verify "Concept" status is not shown in unintended places (#358)
@@ -153,7 +184,7 @@ For each detail page type, navigate to the page and verify the following:
 - **Array display**: Check that fields don't show raw arrays (#347)
 
 ### Organisatie Detail Page
-- Navigate to an organization detail page (from Beheer → Organisaties → click an organisatie)
+- Navigate to `http://localhost:3000/publicatie/{organisatie-id}` for "Test Leverancier BV"
 - **Profile fields**: Verify all profile fields are shown correctly
 - **Contactpersonen**: Check that linked contact persons are displayed
 - **Type**: Verify the organization type (Leverancier/Gemeente/Samenwerking) is shown
@@ -289,27 +320,42 @@ For each detail page type, navigate to the page and verify the following:
 6. Note the explanation that the klant must approve before it becomes definitive
 7. Take screenshot: `wizard-gebruik-voorstellen-success.png`
 
-### After Wizards: Verify Created Objects
+### After Wizards: Verify Created Objects and Open Detail Pages
 
 After completing all four wizards:
 1. Navigate to `/beheer/applicaties` — verify "Test Wizard App" appears in the table
 2. Navigate to `/beheer/diensten` — verify "Test Wizard Dienst" appears
 3. Navigate to `/beheer/koppelingen` — verify "Test Wizard Koppeling" appears
 4. Take screenshots of each table showing the created objects
+5. **Find the IDs** of each created object:
+   - Use the API: `curl -s -u admin:admin 'http://localhost:8080/index.php/apps/openregister/api/objects/3/25?_search=Test+Wizard+App&_fields=naam,id&_limit=3'`
+   - Or click the row in the beheer table and note the ID from the URL/detail panel
+6. **Open the detail page** for each created object:
+   - Navigate to `http://localhost:3000/publicatie/{applicatie-id}` for the app
+   - Navigate to `http://localhost:3000/publicatie/{dienst-id}` for the dienst
+   - Navigate to `http://localhost:3000/publicatie/{koppeling-id}` for the koppeling
+7. On EACH detail page, test the tabs and content as described in the "Detail Page Testing" section above
+8. Take screenshots of each detail page and each tab
 
 ---
 
 ## Testing Hints for Specific Issues
 
 1. **#399 (cross-vendor)**: Go to the public search page `/zoeken?_page=1`. Find "Test Applicatie Leverancier 2" (from the other vendor), click it, go to the Versies tab, click on a version. Verify no error.
-2. **#375 (SaaS version)**: After creating the wizard app, go to `/zoeken?_page=1`, find "Test Wizard App", check the Versies tab for a default version.
+2. **#375 (SaaS version)**: After creating the wizard app, open its detail page at `http://localhost:3000/publicatie/{id}`, check the Versies tab for a default version.
 3. **#105 (RBAC)**: Navigate to `/beheer/applicatielandschappen` — it should ONLY show your own org's applications. The test is about **data scoping** (own org only), not page visibility.
-4. **#352 (Mijn Account)**: Navigate to the Mijn Account page to check contact person data.
-5. **#364/#365 (contactpersonen)**: Check the Contactpersonen page — Jan Pietersen should be listed.
+4. **#352 (Mijn Account)**: Navigate to `/mijn-account` (or find the "Mijn Account" link in the header/menu) to check contact person data.
+5. **#364/#365 (contactpersonen)**: Navigate to `/beheer/contactpersonen` — Jan Pietersen should be listed. Click edit on a contact person to test #365.
 6. **#402 (Edge vs Chrome)**: **SKIP** — untestable (single browser engine).
 7. **#403 (delete dialog)**: In the applicaties table, click delete on "Test Wizard App", verify the dialog text, then click **Cancel** (don't actually delete).
 8. **#15 (export)**: In the applicaties table, click the **"Acties"** dropdown button, then hover/click **"Exporteren"**, then click **"Als CSV"**. Verify a file downloads. Also test "Als Excel".
 9. **#141 (merge)**: Not for this persona — tested by functioneel-beheerder via Nextcloud backend.
+10. **#348 (Centric Begraven standaarden)**: Find "Centric Begraven" by searching the API:
+    ```
+    curl -s -u admin:admin 'http://localhost:8080/index.php/apps/openregister/api/objects/3/25?_search=Begraven&_fields=naam,id&_limit=5'
+    ```
+    Then navigate to `http://localhost:3000/publicatie/{id}` and check the Standaarden tab — verify the standard count matches between the tab header badge and the actual list.
+11. **Detail page issues (#248, #351, #371-#378, #380, #382, #385, #408)**: These ALL require opening detail pages. After the wizards, use the IDs from step "After Wizards" above and navigate to `http://localhost:3000/publicatie/{id}`. Test EACH tab on the detail page systematically. Do NOT skip this — it covers 20+ issues.
 
 ## Instructions
 

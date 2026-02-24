@@ -10,6 +10,8 @@ Sarah validates GEMMA compliance, reviews architecture decisions, and monitors c
 
 ## Login Credentials
 
+> **LOCAL TEST ONLY** — These credentials are for the local development environment only. They do NOT work on production or acceptance environments.
+
 - **Username**: `sarah.devries@test.nl`
 - **Password**: `WelcomeToTest2026`
 - **Groups**: vng-raadpleger, gebruik-beheerder, software-catalog-users
