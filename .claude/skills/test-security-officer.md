@@ -10,18 +10,18 @@ Mark monitors security requirements, validates privacy implementations, and ensu
 
 ## Login Credentials
 
-> **LOCAL TEST ONLY** — These credentials are for the local development environment only. They do NOT work on production or acceptance environments.
-
-- **Username**: `mark.jansen@test.nl`
-- **Password**: `WelcomeToTest2026`
+- **Username**: `{PERSONA_USERNAME}` (default: `mark.jansen@test.nl`)
+- **Password**: `{PERSONA_PASSWORD}` (default: `WelcomeToTest2026`)
 - **Groups**: gebruik-beheerder, software-catalog-users
+
+> These values are injected by the orchestrator. If not provided, use the defaults above (local dev only).
 
 ## Test Environment
 
-- **Frontend**: http://localhost:3000/
-- **Backend**: http://localhost:8080/
+- **Frontend**: `{FRONTEND}` (default: `{FRONTEND}`)
+- **Backend**: `{BACKEND}` (default: `{BACKEND}`)
 - **Browser**: Use Playwright MCP browser tools (prefixed `mcp__browser-N__`, where N is assigned by the orchestrator)
-- **Login URL**: http://localhost:3000/login
+- **Login URL**: `{FRONTEND}/login`
 
 ## Test Scope
 
@@ -61,7 +61,7 @@ The authoritative RBAC rules are in `softwarecatalog/lib/Settings/softwarecatalo
 |-------|-------|-----------------|
 | #394 | Contactpersonen van gemeenten publiekelijk zichtbaar | FAIL (note: only gemeente contacts should be hidden; leverancier contacts ARE expected to be public) |
 | #183 | Wachtwoord vergeten optie | PARTIAL |
-| #404 | Regelmatig witte schermen | CANNOT_TEST |
+| #404 | Regelmatig witte schermen | CANNOT_TEST → **re-test (see hint #2)** |
 | #395 | Menu linkerkant verdwijnt | CANNOT_TEST |
 | #409 | Footer anders: inlog of uitgelogd | PARTIAL |
 | #406 | SiteImprove verwijderen | PARTIAL |
@@ -77,7 +77,7 @@ The authoritative RBAC rules are in `softwarecatalog/lib/Settings/softwarecatalo
 
 1. **#395 (Menu linkerkant verdwijnt)**: This issue is about the left sidebar disappearing after pressing F5/Ctrl+R. It may be caused by a **narrow browser viewport** — the sidebar collapses on small screens. Test as follows:
    1. First, **resize the browser** to a wide viewport: use `browser_resize` with width **1920** and height **1080**
-   2. Navigate to `http://localhost:3000/beheer/applicaties` (or any beheer page)
+   2. Navigate to `{FRONTEND}/beheer/applicaties` (or any beheer page)
    3. Verify the left navigation menu is visible (with links like Applicaties, Diensten, Koppelingen, etc.)
    4. Press **F5** (use `browser_press_key` with key "F5") to refresh the page
    5. Check if the left menu is still visible after refresh
@@ -85,6 +85,20 @@ The authoritative RBAC rules are in `softwarecatalog/lib/Settings/softwarecatalo
    7. Also test by navigating directly to the URL (not via SPA navigation) — paste the URL and press Enter
    8. Take screenshots before and after the refresh
    9. If the menu disappears, try with different viewport widths (1280, 1024) to see if it's viewport-related
+
+2. **#404 (Regelmatig witte schermen)**: Previously CANNOT_TEST because white screens are intermittent. To reproduce, try these scenarios:
+   1. **Rapid navigation**: Navigate quickly between pages without waiting for full load:
+      - Click `/beheer/applicaties` → immediately click `/beheer/diensten` → immediately click `/beheer/koppelingen`
+      - After each rapid navigation sequence, check if the page renders or shows a blank white screen
+   2. **Direct URL access**: Navigate directly to deep URLs without going through the SPA:
+      - Paste `{FRONTEND}/beheer/applicaties` in the URL bar and press Enter
+      - Paste `{FRONTEND}/publicatie/{any-id}` and press Enter
+      - Check if the page loads or shows a white screen
+   3. **Browser refresh (F5)**: On various pages, press F5 to refresh:
+      - Refresh on `/beheer/applicaties`, `/beheer/diensten`, `/zoeken`
+      - Check if the page reloads correctly or shows a white screen
+   4. **Console errors**: After each white screen attempt, check `browser_console_messages` for JavaScript errors that might indicate the root cause
+   5. If you cannot reproduce the white screen after 5-10 attempts, mark as **PASS** with note: "White screen not reproducible in automated testing at [date]"
 
 ## Acceptance Criteria Reference
 
@@ -97,18 +111,22 @@ The authoritative RBAC rules are in `softwarecatalog/lib/Settings/softwarecatalo
 ## Instructions
 
 When running tests for this persona:
-1. Navigate to http://localhost:3000/login
-2. Log in with `mark.jansen@test.nl` / `WelcomeToTest2026`
+1. Navigate to `{FRONTEND}/login`
+2. Log in with `{PERSONA_USERNAME}` / `{PERSONA_PASSWORD}`
 3. ALSO test as unauthenticated user (incognito) to verify public access restrictions
 4. **For each issue**: Read the acceptance criteria in `issues.md`, then test each criterion
 5. Test each role transition — log out fully between switches
 6. Try accessing resources you should NOT have access to
 7. Check API responses (DevTools → Network) for data leakage
 8. Pay special attention to #394 — verify that **leverancier** contact persons ARE visible (expected), but **gemeente/samenwerking** contact persons are NOT visible publicly
-9. Test the local API: `http://localhost:8080/index.php/apps/opencatalogi/api/publications?_extend=contactpersonen` — check if the API correctly distinguishes between leverancier and gemeente contacts
-10. Document findings with severity: CRITICAL / HIGH / MEDIUM / LOW
-11. Write results to `test-results/security-officer/results-authenticated.md`
-12. For each issue, list which acceptance criteria passed and which failed
+9. **IMPORTANT for #394**: You are logged in as gebruik-beheerder, which has read access to all contact persons. To test PUBLIC visibility, you MUST test the API **without authentication** (use `curl` without `-u` flag, or open an incognito/private browser window). If you only test while logged in, you will get a false positive — seeing data does NOT mean it's publicly exposed.
+10. Test the local API **both authenticated and unauthenticated**:
+    - Authenticated: `{BACKEND}/index.php/apps/opencatalogi/api/publications?_extend=contactpersonen` (via browser)
+    - Unauthenticated: use `curl` without auth: `curl '{BACKEND}/index.php/apps/opencatalogi/api/publications?_schema=organisatie&_extend[]=contactpersonen'`
+    - Compare results — gemeente contacts should only appear in the authenticated response
+11. Document findings with severity: CRITICAL / HIGH / MEDIUM / LOW
+12. Write results to `test-results/security-officer/results-authenticated.md`
+13. For each issue, list which acceptance criteria passed and which failed
 
 ## Rules
 

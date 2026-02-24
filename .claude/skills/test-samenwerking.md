@@ -10,18 +10,18 @@ Linda represents a collaboration that acts as BOTH a supplier (offering shared s
 
 ## Login Credentials
 
-> **LOCAL TEST ONLY** — These credentials are for the local development environment only. They do NOT work on production or acceptance environments.
-
-- **Username**: `linda.bakker@test.nl`
-- **Password**: `WelcomeToTest2026`
+- **Username**: `{PERSONA_USERNAME}` (default: `linda.bakker@test.nl`)
+- **Password**: `{PERSONA_PASSWORD}` (default: `WelcomeToTest2026`)
 - **Groups**: gebruik-beheerder, software-catalog-users
+
+> These values are injected by the orchestrator. If not provided, use the defaults above (local dev only).
 
 ## Test Environment
 
-- **Frontend**: http://localhost:3000/
-- **Backend**: http://localhost:8080/
+- **Frontend**: `{FRONTEND}` (default: `http://localhost:3000`)
+- **Backend**: `{BACKEND}` (default: `http://localhost:8080`)
 - **Browser**: Use Playwright MCP browser tools (prefixed `mcp__browser-N__`, where N is assigned by the orchestrator)
-- **Login URL**: http://localhost:3000/login
+- **Login URL**: `{FRONTEND}/login`
 
 ## Test Scope
 

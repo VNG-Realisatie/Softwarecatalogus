@@ -419,3 +419,16 @@ After writing the summary, display a concise overview to the user:
 - PASS/FAIL/PARTIAL/CANNOT_TEST counts
 - Top 3 critical findings
 - Link to the full report: `Softwarecatalogus/test-results/README.md`
+
+### Step 6: Backlog Suggestions
+
+After presenting the report, review the test findings for **suggestions and improvements** that are NOT existing GitHub issues but could be valuable. Present these to the user and ask if they should be added to the backlog at `Softwarecatalogus/website/docs/backlog.md`.
+
+Examples of backlog-worthy suggestions:
+- UX improvements noticed during testing (e.g., inconsistent naming, confusing navigation)
+- Accessibility issues not covered by existing issues
+- Performance observations that warrant investigation
+- Architecture or design decisions that need user group validation
+- Missing features that would improve the workflow
+
+**Format:** Present each suggestion as a numbered list with a short description and source (which agent/issue prompted it). Only add items the user approves.

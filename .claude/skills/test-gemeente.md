@@ -10,18 +10,18 @@ Maria manages her municipality's software landscape in the Softwarecatalogus. Sh
 
 ## Login Credentials
 
-> **LOCAL TEST ONLY** — These credentials are for the local development environment only. They do NOT work on production or acceptance environments.
-
-- **Username**: `maria.vanderberg@test.nl`
-- **Password**: `WelcomeToTest2026`
+- **Username**: `{PERSONA_USERNAME}` (default: `maria.vanderberg@test.nl`)
+- **Password**: `{PERSONA_PASSWORD}` (default: `WelcomeToTest2026`)
 - **Groups**: gebruik-beheerder, software-catalog-users
+
+> These values are injected by the orchestrator. If not provided, use the defaults above (local dev only).
 
 ## Test Environment
 
-- **Frontend**: http://localhost:3000/
-- **Backend**: http://localhost:8080/
+- **Frontend**: `{FRONTEND}` (default: `{FRONTEND}`)
+- **Backend**: `{BACKEND}` (default: `{BACKEND}`)
 - **Browser**: Use Playwright MCP browser tools (prefixed `mcp__browser-N__`, where N is assigned by the orchestrator)
-- **Login URL**: http://localhost:3000/login
+- **Login URL**: `{FRONTEND}/login`
 
 ## Test Scope
 
@@ -53,8 +53,8 @@ Maria manages her municipality's software landscape in the Softwarecatalogus. Sh
 | #342 | Zoeken: op kaartjes referentiecomponenten duidelijk maken | FAIL |
 | #344 | Zoeken: Geen resultaten bij Gravenbeheercomponent | PASS |
 | #350 | De link achter de gebruikersnaam verwijzen naar Mijn account | CANNOT_TEST |
-| #353 | Mijn account – Je "functie" wordt niet aangepast na bewerken en opslaan | CANNOT_TEST |
-| #355 | Diensten: Export geeft allerlei UUID's | CANNOT_TEST |
+| #353 | Mijn account – Je "functie" wordt niet aangepast na bewerken en opslaan | CANNOT_TEST → **re-test (see hint #6)** |
+| #355 | Diensten: Export geeft allerlei UUID's | CANNOT_TEST → **re-test (bug fixed)** |
 | #395 | Menu linkerkant verdwijnt | PARTIAL |
 
 ### New issues (not previously tested):
@@ -234,7 +234,7 @@ After completing all three wizards:
 
 ## Testing Hints for Specific Issues
 
-1. **#344 (Referentiecomponenten filter)**: Navigate to `http://localhost:3000/zoeken` and test the filter:
+1. **#344 (Referentiecomponenten filter)**: Navigate to `{FRONTEND}/zoeken` and test the filter:
    1. Find the **"Referentiecomponenten"** filter dropdown on the left side
    2. Click it to open the dropdown
    3. **TYPE "Graven"** in the search field inside the dropdown — NcSelect supports type-to-filter
@@ -243,26 +243,27 @@ After completing all three wizards:
    6. Take a screenshot of the filter dropdown with typed text and the filtered results
 2. **#286**: **MOVED to functioneel-beheerder** — this is an admin-level password change test via the Nextcloud backend, not a gemeente flow.
 3. **#15 (export)**: Test CSV and Excel export from any beheer page. Steps:
-   1. Navigate to `http://localhost:3000/beheer/applicaties` (or any beheer page like `/beheer/diensten`, `/beheer/koppelingen`)
+   1. Navigate to `{FRONTEND}/beheer/applicaties` (or any beheer page like `/beheer/diensten`, `/beheer/koppelingen`)
    2. Find the **"Acties"** dropdown button (top-right of the table, near the search/filter area)
    3. Click **"Acties"** → **"Exporteren"** → **"Als CSV"**
    4. Verify a CSV file downloads containing the table data
    5. Repeat with **"Als Excel"** and verify an Excel file downloads
    6. Check that exported data contains readable column names and values (not UUIDs)
    7. Take screenshots of the Acties dropdown with export options visible
-4. **#355 (diensten export UUIDs)**: Same flow as #15 but specifically on the `/beheer/diensten` page:
-   1. Navigate to `http://localhost:3000/beheer/diensten`
+4. **#355 (diensten export UUIDs)**: This bug is now **FIXED** — exports return HTTP 200 with resolved names for UUID columns. Test the fix:
+   1. Navigate to `{FRONTEND}/beheer/diensten`
    2. Click **"Acties"** → **"Exporteren"** → **"Als CSV"**
    3. Open the CSV and check that columns use **readable names** (e.g., "dienstType" shows "SaaS" not a UUID)
    4. If any column shows UUIDs instead of human-readable values, mark as FAIL
-5. **#349 (UUID's in standaarden filter)**: Navigate to `http://localhost:3000/zoeken` and test the standards filter:
+   5. **Also verify via curl** (backend export): `curl -s -u {PERSONA_USERNAME_URLENCODED}:{PERSONA_PASSWORD} '{BACKEND}/index.php/apps/openregister/api/objects/3/26/export?format=csv' -o /tmp/dienst-export.csv && head -2 /tmp/dienst-export.csv` — verify the CSV contains readable column headers and resolved values
+5. **#349 (UUID's in standaarden filter)**: Navigate to `{FRONTEND}/zoeken` and test the standards filter:
    1. Find the **"Standaardversies"** filter dropdown on the left side
    2. Click it to expand/open the dropdown
    3. Scroll through the options and check if they show **human-readable names** or raw **UUIDs**
    4. If any option shows a UUID (e.g., `a1b2c3d4-...`) instead of a readable standard name, mark as FAIL
    5. Take a screenshot of the expanded filter dropdown showing the options
 6. **#353 (Functie niet aangepast na bewerken)**: Navigate to Mijn Account and test editing:
-   1. Navigate to `http://localhost:3000/mijn-account` (or find the "Mijn Account" link in the user menu / header)
+   1. Navigate to `{FRONTEND}/mijn-account` (or find the "Mijn Account" link in the user menu / header)
    2. Find the **"functie"** (job title) field on the account page
    3. Note the current value
    4. Change the value to something different (e.g., "ICT Test Coordinator")
@@ -271,22 +272,23 @@ After completing all three wizards:
    7. Navigate away and come back — verify the change is still there
    8. If the value reverts to the old value, mark as FAIL
    9. Take screenshots before and after the edit
-7. **#328 (Nieuwe applicatie opvoeren sub-step)**: During the Applicatie wizard (Wizard 1):
-   1. In Step 1 ("Applicatie zoeken"), after the search field loads, look for the button **"Ik kan de gewenste applicatie niet vinden"**
-   2. Click that button — it should open sub-step 1.1
-   3. Verify the sub-step shows:
-      - Title: "Een nieuwe applicatie toevoegen"
-      - Subtitle: "Vul dit formulier in om een nieuwe applicatie toe te voegen aan uw applicatielandschap"
-      - Section header: "Publiceren applicatie"
-      - Fields: "Selecteren van leverancier", "Naam leverancier", "Website leverancier"
-   4. Take a screenshot of the sub-step form
-   5. Click **Back** or navigate back to the normal wizard flow — do NOT submit this form (it would create a duplicate)
+7. **#328 (Nieuwe applicatie opvoeren sub-step)**: Previously CANNOT_TEST because the agent thought it was only in the supplier wizard. It IS available in the gemeente app wizard too. During the Applicatie wizard (Wizard 1):
+   1. Navigate to the gemeente applicatie wizard: `/forms/gebruik/applicatie?type=gemeente`
+   2. In Step 1 ("Applicatie zoeken/selecteren"), use `browser_snapshot` to capture the full page
+   3. Look for a button or link labeled **"Ik kan de gewenste applicatie niet vinden"** (or similar text — it may also say "Applicatie niet gevonden?" or "Nieuwe applicatie toevoegen")
+   4. If the button/link exists, click it — it should open sub-step 1.1
+   5. Verify the sub-step shows a form for entering a new application:
+      - Title text about adding/registering a new application
+      - Fields for application name, leverancier selection, website
+   6. Take a screenshot of the sub-step form
+   7. Click **Back** or navigate back to the normal wizard flow — do NOT submit this form (it would create a duplicate)
+   8. If the button/link does NOT exist in the gemeente wizard, mark as **FAIL** with note: "Sub-step 1.1 is not available in the gemeente applicatie wizard" (this would be a real issue, not a test limitation)
 
 ## Instructions
 
 When running tests for this persona:
-1. Navigate to http://localhost:3000/login
-2. Log in with `maria.vanderberg@test.nl` / `WelcomeToTest2026`
+1. Navigate to `{FRONTEND}/login`
+2. Log in with `{PERSONA_USERNAME}` / `{PERSONA_PASSWORD}`
 3. **FIRST**: Execute ALL THREE wizard walkthroughs above (applicatie, dienst, koppeling). This is mandatory.
 4. After wizards complete, verify created objects in beheer tables
 5. **THEN**: Test each issue from the Issues to Test table, using acceptance criteria from `issues.md`
