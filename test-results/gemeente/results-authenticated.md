@@ -1,422 +1,532 @@
 # Test Results: Gemeente (Authenticated) - Maria van der Berg
 
-**Date:** 2026-02-23
+**Date:** 2026-02-24 (Session 4 - Final with Sorting, Export, Organisatie Testing)
 **Persona:** Maria van der Berg - ICT-coordinator, Test Gemeente
-**Role:** gebruik-beheerder, software-catalog-users
-**Login:** maria.vanderberg@test.nl / TestPassword1!
-**Environment:** http://localhost:3000 (Frontend) / http://localhost:8080 (Backend)
-**Browser:** Playwright MCP (browser-3, headless Chromium)
+**Role:** gebruik-beheerder
+**Credentials:** maria.vanderberg@test.nl / WelcomeToTest2026
+**Environment:** Frontend: http://localhost:3000 | Backend: http://localhost:8080
+**Browser:** Chromium (Playwright MCP, browser-3)
 
 ---
 
-## Test Environment Notes
+## Session Summary
 
-- The local development environment has session instability: multiple browser agents share the same Nextcloud backend, causing session conflicts (observed auto-login as different user during test).
-- The frontend title reads "Development Catalogus" instead of "Softwarecatalogus" (related to #267).
-- Significant console errors on initial load (401 on schema endpoints before login) -- expected behavior for unauthenticated state.
-- Backend cache loading takes ~15 seconds after login (19 schemas across 2 registers).
+| Category | Count |
+|----------|-------|
+| Issues Tested | 28 |
+| PASS | 16 |
+| FAIL | 7 |
+| PARTIAL | 3 |
+| CANNOT_TEST | 2 |
+
+---
+
+## Persistent Errors
+
+### Organisation Object 404
+- **Error:** `Error fetching voorzieningen_organisatie object a44a5556-2001-4ffc-8a08-fe4705605b47: 404`
+- **Impact:** Occurs on every page load. The "Test Gemeente" organisation object UUID does not exist in the voorzieningen register, though the Nextcloud group mapping works. This causes "Loading..." in some table columns and errors in the console.
+- **Pages affected:** All beheer pages, dashboard, Mijn Account
+- **Note:** The name cache eventually resolves "Test Gemeente" correctly on some pages (e.g., diensten beheer Aanbieder column, koppelingen beheer columns) despite the org 404. However, on initial load, columns show "Loading..." until the warmup completes.
+
+### Left Side Menu Absent (Related to #395)
+- **Observation:** No left-side navigation menu is visible on any beheer page (dashboard, applicaties, diensten, koppelingen, mijn-account). Navigation is only available via the top "Menu" hamburger button and direct URL entry.
 
 ---
 
 ## Wizard Walkthroughs
 
 ### Wizard 1: Applicatie toevoegen (Gebruik registreren)
-
-**Status: PASS (with observations)**
-
-#### Step 1 - Applicatie selecteren
-- **PASS**: Form header title displays "Een applicatie toevoegen"
-- **PASS**: Subtitle displays "Vul dit formulier in om de applicatie toe te voegen aan uw applicatielandschap"
-- **PASS**: Section header "Toevoegen applicatie" present
-- **PASS**: Section text matches expected content about selecting the application
-- **PASS**: Blue info box with "Zoekpagina" title present with correct text
-- **PASS**: "Ik kan de gewenste applicatie niet vinden" button present
-- **PASS**: Dropdown shows 50 applications, searchable by typing (tested with "Centric")
-- **PASS**: Selecting an application enables the "Volgende" button
-- **OBSERVATION**: Schema loading takes variable time (sometimes shows "Schema laden..." for 5-15 seconds) -- potential performance concern
-
-**Evidence:** `wizard-gemeente-app-step1.png`
-
-#### Step 2 - Gebruiksinformatie
-- **PASS**: Section header "Gebruiksinformatie" displayed
-- **PASS**: Section text: "Selecteer de gebruikte hosting en versie. Ook kunt u een interne notitie toevoegen voor uw collega's."
-- **PASS**: Blue info box "Interne notitie" with text about organizational visibility
-- **PASS**: Hosting dropdown present (for Suwinet: "Geen hosting opties beschikbaar")
-- **PASS**: Interne notitie text field present with placeholder "Voeg een interne notitie toe"
-- **PASS**: Status field present with default "Verwerving"
-- **PASS**: Startdatum auto-filled with today's date (2026-02-23)
-- **PASS**: Applicatie versie field present
-- **OBSERVATION**: For Suwinet, hosting shows "Geen hosting opties beschikbaar" -- this is correct behavior as the app has no defined hosting options
-- **OBSERVATION**: Status default is "Verwerving" -- per #324, expected default is "in productie". This does NOT match acceptance criteria.
-
-**Evidence:** `wizard-gemeente-app-step2.png`
-
-#### Step 3 - Referentiecomponenten
-- **PASS**: Section header "Koppel de applicatie aan referentiecomponenten"
-- **PASS**: Description text about linking to reference components present
-- **PASS**: Link to GEMMA Online (https://www.gemmaonline.nl/wiki/Overzicht_alle_referentiecomponenten) present and correct
-- **PASS**: "Referentiecomponenten aangegeven door leverancier" dropdown present
-- **PASS**: "Referentiecomponenten toevoegen" dropdown present
-- **PASS**: Both are multi-select fields
-
-**Evidence:** `wizard-gemeente-app-step3.png`
-
-#### Step 4 - Controleren
-- **PASS**: Section header "Controleer uw gegevens"
-- **PASS**: Review text about checking the overview before submitting
-- **PASS**: Blue info box with visibility/privacy information
-- **PASS**: Overzicht shows: Status, Startdatum, Applicatie, Versie, Hosting, Interne aantekening, Referentiecomponenten
-- **PASS**: "Gebruik registreren" button present
-- **PASS**: Submitted successfully with message "Gebruik succesvol geregistreerd!"
-- **PASS**: Success page shows next steps and navigation buttons
-
-**Evidence:** `wizard-gemeente-app-review.png`, `wizard-gemeente-app-success.png`
+- **URL:** `/forms/gebruik/applicatie?type=gemeente`
+- **Result:** PASS
+- **Steps completed:** 4/4
+  - Step 1: Selected "Centric Burgerzaken" from applicatie dropdown
+  - Step 2: Selected "SaaS" hosting, filled notes, Status "In productie", date auto-filled
+  - Step 3: Selected "Zaakregistratiecomponent" as referentiecomponent
+  - Step 4 (Review): All data correct, submitted successfully
+- **Success message:** "Gebruik succesvol geregistreerd!"
+- **Note:** The "Toevoegen" button on /beheer/applicaties navigates to `/forms/applicatie?type=ontbrekend-applicatie` (supplier wizard), NOT the gemeente wizard. Had to navigate directly to `/forms/gebruik/applicatie?type=gemeente`.
 
 ### Wizard 2: Dienst toevoegen
-
-**Status: NOT EXECUTED**
-
-Due to session instability in the shared test environment (other browser agents causing session conflicts), the Dienst wizard could not be fully executed during this test run. The "Dienst toevoegen" button was visible and functional on the dashboard.
+- **URL:** `/forms/dienst`
+- **Result:** PASS
+- **Steps completed:** 3/3
+  - Step 1: Selected "Centric Burgerzaken" as applicatie
+  - Step 2: Filled name "Test Gemeente Dienst", website, korte omschrijving, selected "Functioneel beheer" diensttype
+  - Step 3 (Review): All data correct, submitted successfully
+- **Success message:** "Dienst succesvol aangemeld!"
 
 ### Wizard 3: Koppeling toevoegen
-
-**Status: NOT EXECUTED**
-
-Same reason as Wizard 2.
+- **URL:** `/forms/koppeling`
+- **Result:** PASS
+- **Steps completed:** 4/4
+  - Step 1: Selected "Centric Burgerzaken", saw existing koppelingen with human-readable names
+  - Step 2: Set direction "A -> B", selected "MijnOverheid.nl" as target, name "Test Gemeente Koppeling", status "In gebruik"
+  - Step 3: Filled korte beschrijving "Koppeling geregistreerd door Test Gemeente"
+  - Step 4 (Review): All data correct, submitted successfully
+- **Success message:** "Koppelingen succesvol opgeslagen!"
 
 ---
 
 ## Issue Test Results
 
-### Previously Tested Issues (Re-verification)
+### #15: Data exporteren
+- **Status:** FAIL
+- **Findings:**
+  - The export button IS present: Acties -> Exporteren -> Als CSV / Als Excel
+  - Clicking "Als CSV" on /beheer/diensten produces a **500 Internal Server Error**
+  - Clicking "Als Excel" on /beheer/diensten ALSO produces a **500 Internal Server Error**
+  - CSV error endpoint: `/api/objects/voorzieningen/dienst/export?type=csv&_multi=true`
+  - Excel error endpoint: `/api/objects/voorzieningen/dienst/export?type=excel&_multi=true`
+  - Error details: `AxiosError: Request failed with status code 500` at `ObjectStore.exportObjects()`
+  - **Both CSV and Excel exports are completely broken on the backend**
+- **Screenshots:** `export-csv-error-500.png`, `export-excel-error-500.png`
+- **Expected:** CSV/Excel file should download containing the dienst data
+- **Acceptance Criteria:**
+  - [x] Export button is available on management overview pages
+  - [x] Export submenu offers CSV and Excel options
+  - [ ] The exported data contains only the user's own organization data (cannot verify - export fails)
+  - [ ] Exported columns include readable names AND UUIDs (cannot verify - export fails)
+  - [ ] CSV format correctly separates into columns (cannot verify - export fails)
+  - [ ] Excel file opens correctly (cannot verify - export fails)
 
-#### #144: Overzicht organisaties met zoek- en filteropties
-**Status: PARTIAL**
+### #144: Overzicht organisaties
+- **Status:** PASS
+- **Findings:**
+  - The search page (/zoeken) shows 12,613 results including organisations, applicaties, diensten, and koppelingen
+  - Filter facets work correctly for filtering by type (Applicatie: 6,090, Dienst: 4, Koppeling: 3,415, Organisatie: 3,103)
+  - Organisation names display as readable names, not UUIDs
+  - "Geregistreerd door" filter correctly shows Gemeente (9,644), Leverancier (1,395), Samenwerking (1,526)
+  - Applicatie cards show "(Aangeboden door [organisation])" with readable names
+  - "Wis alle filters" button present (disabled when no filters active, enabled when filter applied)
 
-- [x] Search page (/zoeken) shows results (12,645 results)
-- [x] Results include Organisatie, Applicatie, and Koppeling types
-- [x] Sort options present: Meest relevant, Datum oud-nieuw, Datum nieuw-oud, Naam A-Z, Naam Z-A
-- [x] Default sort is "Naam - A naar Z"
-- [x] "Filter & sorteer" button present
-- [x] Search result cards display type labels (Koppeling, Applicatie, Organisatie)
-- [x] Dates displayed on cards
-- [ ] Filter facets not fully tested (session instability prevented opening filter panel)
-- [ ] "Clear all filters" button not verified
-- [x] Organization names display as readable names (e.g., "050media", "1Password.com")
-- [x] Application cards show supplier names (e.g., "Aangeboden door Bloemendaal-Heemstede")
+### #248: Tab titles on detail page
+- **Status:** PASS
+- **Findings:**
+  - Centric Burgerzaken detail page has tabs: Standaarden (45), Geschikt voor (5), Diensten (1), Gebruik (4), Organisaties (1), Koppelingen (1)
+  - Tab titles are descriptive and include counts
+  - All tabs load correctly when clicked
+  - Tab content is appropriate for each tab
+  - No "Beschrijving" tab - description is shown in the main body above the tabs
 
-**Key Finding:** Some supplier names on application cards appear to be municipalities rather than actual vendors (e.g., "Aangeboden door Rotterdam", "Aangeboden door Deurne"). This is directly related to #315.
+### #266: Na inloggen: Mijn account & persoonlijke gegevens leeg?
+- **Status:** FAIL
+- **Findings:**
+  - The /beheer/mijn-account page shows a generic data table with "Geen data gevonden"
+  - No personal information is displayed (name, email, function, organization)
+  - The page behaves as a table view looking for "mijn-account" schema objects, which returns a 404 error
+  - Console error: `Error fetching related schemas for mijn-account: 404`
+  - The page title shows "Mijn-account" (with hyphen) which is inconsistent
+- **Expected:** Personal information form showing name, email, function, organization
+- **Screenshot:** `mijn-account.png`
+
+### #278: Filterteksten aanpassen
+- **Status:** PASS
+- **Findings:**
+  - Filter labels on /zoeken display correct, clear text
+  - Filter categories: Type (4), Organisatietype (8), Samenwerkingstype (14), Geregistreerd door (3), Leverancier (2,583), Licentievorm (2), Referentiecomponenten (168), Standaardversies (34), Type koppeling (2)
+  - All filter labels use consistent Dutch terminology
+
+### #280: Zoeken: sorteren gaat niet goed
+- **Status:** PASS
+- **Findings:**
+  - Default sort "Naam - A naar Z" is correctly set and results appear alphabetically sorted
+  - Sort dropdown offers 5 options: Meest relevant, Datum - oud naar nieuw, Datum - nieuw naar oud, Naam - A naar Z, Naam - Z naar A
+  - **Sorting after text search WORKS correctly:**
+    - Searched for "Burgerzaken" (121 results), default sort A-Z: first results "Active Directory...", "Aeolus Back Zorg..."
+    - Changed to "Naam - Z naar A": first results changed to "ZorgNed...", "Zakenmagazijn", "ZakenBoxx" - correct Z-A order
+    - Changed to "Datum - nieuw naar oud": first result is "Centric Burgerzaken -> MijnOverheid.nl" (created 24 Feb 2026, our test data) - correct newest-first
+  - URL updates correctly with `_order` parameter when sort changes
+  - The "Type" filter IS available
+  - Sort order maintained between pages
+  - [x] Default sort works correctly
+  - [x] Sorting after text search reorders results correctly
+  - [x] Name A-Z, Z-A, Date ascending, Date descending all verified
+
+### #312: Koppeling heeft verplicht een naam
+- **Status:** PARTIAL
+- **Findings:**
+  - Newly created koppeling shows with readable name "Centric Burgerzaken -> MijnOverheid.nl" in search results and beheer table
+  - Koppeling wizard pre-fills the name with "[Application A] [arrow] [Application B]" format
+  - However, first 7 search results (sorted A-Z) show koppelingen with only arrow symbols as titles
+  - These arrow-only koppelingen are from imported data (data quality, not code bug)
+
+### #315: Zoekpagina toont gemeentelijk applicatielandschap
+- **Status:** PARTIAL
+- **Findings:**
+  - As gebruik-beheerder (Maria), 12,613 results are visible
+  - Applicaties show "(Aangeboden door [organisation])" - municipalities visible as "aanbieder"
+  - **Gebruik tab on detail page:** Shows 4 usage entries for Centric Burgerzaken, but does NOT show which municipalities registered them (privacy-respecting)
+  - This is expected behavior for gemeente-registered applicaties in the authenticated view
+- **Note:** Requires separate unauthenticated/bezoeker test session for public visibility check.
+
+### #340: Bevindingen zoeken
+- **Status:** PARTIAL
+- **Findings:**
+  - [x] Default sorting is "Naam - A naar Z" (confirmed correct per client decision)
+  - [x] A date is visible on cards using "Eerste registratie" date
+  - [x] A "Type" filter IS present with 4 options
+  - [x] Sorting after text search actually reorders results (verified in Session 4)
+  - [ ] "Meest relevant" does not have a visible tooltip or explanation
+  - [ ] "Soort dienst" rename not verified
+  - [ ] Search filters load time not precisely measured
+
+### #342: Referentiecomponenten op kaartjes
+- **Status:** PASS
+- **Findings:**
+  - On search result cards, applicaties show "Geschikt voor:" with referentiecomponent names
+  - Single component: "Geschikt voor: Gravenbeheercomponent"
+  - Multiple components: "Geschikt voor: Ideeencomponent, Klanttevredenheidcomponent"
+  - When 5+ components: "Geschikt voor 5 referentiecomponenten"
+  - On the detail page, the "Geschikt voor" tab lists all components with links to GEMMA wiki
+  - All component names are human-readable (no UUIDs)
+
+### #343: Type koppeling filter
+- **Status:** PASS
+- **Findings:**
+  - "Type koppeling" filter IS present in the search filter panel
+  - Has exactly two options: "extern" and "intern"
+  - In "Centric Burgerzaken" search: extern (77), intern (365)
+  - Filter visible to logged-in gemeente user
+
+### #344: Referentiecomponenten filter - type "Graven"
+- **Status:** PASS
+- **Findings:**
+  - Typing "Graven" in the Referentiecomponenten filter correctly narrows to "Gravenbeheercomponent (32)"
+  - Selecting the checkbox filters results to exactly 32 applicaties
+  - Results include relevant applications
+  - "Verwijder filter: Gravenbeheercomponent" chip appeared for easy filter removal
+
+### #346: Paginering werkt niet
+- **Status:** PASS
+- **Findings:**
+  - Page 1 and page 2 show completely different results
+  - URL updates correctly with `_page` parameter
+  - Pagination navigation shows correct page indicators
+  - Total pages: 631 (12,613 / 20 per page)
+
+### #348: Standaarden aantallen Centric Begraven
+- **Status:** PASS
+- **Findings:**
+  - "Centric Begraven" shows on its search card "Geschikt voor: Gravenbeheercomponent"
+  - "Centric Burgerzaken" detail page shows 45 standards across Verplicht (15), Aanbevolen (27), and Toegevoegd (3)
+  - Standards are well-organized with compliance level, status (ONDERSTEUND/NIET ONDERSTEUND), and linked referentiecomponenten
+  - All standard names are clickable links to GEMMA wiki
+  - No duplicate entries visible
+
+### #349: UUID's in standaarden filter
+- **Status:** PASS
+- **Findings:**
+  - Standaardversies filter shows 34 entries, ALL with human-readable names
+  - No UUIDs or "id-" prefixed entries visible
+  - Sorted alphabetically
+  - On detail pages, standards are shown with full readable names and GEMMA wiki links
+
+### #350: Username link naar Mijn account
+- **Status:** FAIL
+- **Findings:**
+  - Clicking "Menu" hamburger reveals: "Maria van der Berg" linking to `/beheer/my-account`
+  - The "Beheer" link in main navigation goes to `/beheer/mijn-account` (different URL!)
+  - Two different URLs exist for the account page: `/beheer/my-account` and `/beheer/mijn-account`
+  - This inconsistency is confusing for users
+
+### #351: Tab loading speed
+- **Status:** PASS
+- **Findings:**
+  - On the Centric Burgerzaken detail page, all tabs loaded without noticeable delay
+  - Tab switching between Standaarden, Geschikt voor, Diensten, Gebruik, Organisaties, and Koppelingen was instant
+  - No loading indicators were needed as content was ready immediately
+  - 0 errors on the applicatie detail page (only 1 warning)
+
+### #353: Functie niet aangepast
+- **Status:** FAIL
+- **Findings:**
+  - The /beheer/mijn-account page shows "Geen data gevonden" - no form to edit "functie"
+  - Cannot test editing functie because the page does not render a personal details form
+
+### #355: Diensten export UUIDs
+- **Status:** FAIL
+- **Findings:**
+  - The /beheer/diensten page shows 1 record ("Test Gemeente Dienst")
+  - After warmup, the "Aanbieder" column correctly shows "Test Gemeente" (resolved from UUID)
+  - "Diensttype" column shows "Functioneel beheer" (human-readable)
+  - However, both CSV and Excel export fail with 500 error, so UUID content in export cannot be verified
+  - **Export is completely broken** - this supersedes the UUID issue
+
+### #357: Diensttype vs Type inconsistency
+- **Status:** PASS
+- **Findings:**
+  - On /beheer/diensten, the column header is "Diensttype" (correct)
+  - On the dienst detail page, the service shows type "Functioneel beheer" without a "Type" label
+  - On search cards for diensten, the label shows "Dienst" with "Functioneel beheer" as sub-info
+  - No "eigen-organisatie" value visible anywhere
+  - "Diensttype" is used consistently
+
+### #373: Applicatie: Gekoppelde diensten
+- **Status:** PASS
+- **Findings:**
+  - On the Centric Burgerzaken detail page, a "Diensten (1)" tab is available
+  - Clicking it shows "Test Gemeente Dienst" with:
+    - "(Aangeboden door Test Gemeente)" - organisation name resolved
+    - Type label "Dienst"
+    - Diensttype: "Functioneel beheer"
+  - Bidirectional: clicking through to the dienst detail page shows "Applicaties (1)" tab with Centric Burgerzaken
+
+### #395: Menu linkerkant verdwijnt
+- **Status:** FAIL
+- **Findings:**
+  - No left-side navigation menu visible on ANY beheer page:
+    - /beheer (dashboard): No left menu
+    - /beheer/applicaties: No left menu
+    - /beheer/diensten: No left menu
+    - /beheer/koppelingen: No left menu
+    - /beheer/mijn-account: No left menu
+  - Navigation only available via: top "Menu" hamburger, breadcrumb, direct URL entry
+
+### #316-#328: Wizard Steps Documentation
+- **Status:** Documented (not individually scored)
+- **Observations:**
+  - All three wizards completed successfully
+  - Wizard navigation works correctly
+  - Review steps show all entered data accurately
+  - Success messages display correctly
+
+### #328: Nieuwe applicatie opvoeren sub-step 1.1
+- **Status:** CANNOT_TEST
+- **Reason:** The "Ik kan de gewenste applicatie niet vinden" sub-step is part of the supplier wizard, not the gemeente gebruik wizard.
 
 ---
 
-#### #266: Na inloggen: Mijn account & persoonlijke gegevens leeg?
-**Status: PASS**
+## Detail Page Test Results
 
-- [x] After logging in, "Mijn account" displays personal information
-- [x] E-mailadres: maria.vanderberg@test.nl (correct)
-- [x] Voornaam: Maria (correct)
-- [x] Tussenvoegsels: van der (correct)
-- [x] Achternaam: Berg (correct)
-- [x] Organisatie: Test Gemeente (clickable link to /beheer/my-organisation)
-- [x] Functie: ICT-manager (correct)
-- [x] "Bewerken" button present for editing
-- [x] No delay beyond a few seconds between login and data appearing
+### Applicatie Detail Page (Centric Burgerzaken)
+- **URL:** `/publicatie/00f20897-dfd8-540f-af0a-06253457bf24`
+- **Page title:** "Centric Burgerzaken"
+- **Content:**
+  - Title: "Centric Burgerzaken (Centric)" with "Applicatie" type badge
+  - Full description with korte and uitgebreide omschrijving
+  - Website link (clickable, opens external)
+  - Licentietype: "Closed source"
+  - Hosting type: "SaaS", "On-premises (self-managed)"
+- **Tabs verified:**
+  - Standaarden (45): Well-organized table with Verplicht/Aanbevolen/Toegevoegd sections, GEMMA wiki links, compliance status
+  - Geschikt voor (5): 5 referentiecomponenten with GEMMA wiki links (Baliecomponent, Burgerzakencomponent, CRIB-component, GBA-administratiecomponent, Verkiezingencomponent)
+  - Diensten (1): Shows "Test Gemeente Dienst" with org name resolved
+  - Gebruik (4): Shows 4 usage registrations, all "In productie", municipality names NOT shown (privacy-respecting)
+  - Organisaties (1): Shows "Centric" with link to organisation detail page
+  - Koppelingen (1): Shows "Centric Burgerzaken -> MijnOverheid.nl" with "in gebruik" status
+- **Console errors:** 0 errors (only 1 warning about schema normalization)
+- **No UUIDs visible anywhere on the page**
 
-**Evidence:** `my-account-page.png`
+### Koppeling Detail Page (Centric Burgerzaken -> MijnOverheid.nl)
+- **URL:** `/publicatie/09c7488a-9b6d-43d1-b221-e62494162bb2`
+- **Page title:** "Test Gemeente Koppeling"
+- **Content:**
+  - Title: "Centric Burgerzaken -> MijnOverheid.nl" with "Koppeling" type badge
+  - "Acties bewerken" button present
+  - Visual connection display: "Centric Burgerzaken -> MijnOverheid.nl"
+  - All fields filled with readable data:
+    - Applicatie A: Centric Burgerzaken
+    - Buitengemeentelijke voorziening: MijnOverheid.nl
+    - Richting: AnaarB (->)
+    - Status: in gebruik
+    - Startdatum In gebruik: 24 februari 2026
+    - Korte beschrijving: Koppeling geregistreerd door Test Gemeente
+  - Applicaties (1) tab: Shows Centric Burgerzaken with link back
+- **Console errors:** 0 errors
+- **No empty fields, no UUIDs**
 
-**Note:** Previously status was CANNOT_TEST. This issue is now PASS -- the account data is fully populated for the gemeente user.
+### Dienst Detail Page (Test Gemeente Dienst)
+- **URL:** `/publicatie/ada2eb73-4e64-4e70-b819-19fc049d3f31`
+- **Page title:** "Test Gemeente Dienst"
+- **Content:**
+  - Title: "Test Gemeente Dienst" with "Dienst" type badge
+  - "Acties bewerken" button present
+  - Description: "Dienst geregistreerd door Test Gemeente"
+  - Contact informatie: Website link
+  - Basisinformatie section
+  - Applicaties (1) tab: Shows Centric Burgerzaken with link
+- **Console errors:** Related schema 404 (dienst/related returns 404), but page renders correctly
+- **No "Concept" status shown** (relevant for #358)
+- **No array display for diensttype** (relevant for #347)
+- **Note:** "Diensttype" label not displayed separately on the detail page
 
----
-
-#### #280: Zoeken: sorteren gaat niet goed
-**Status: PARTIAL**
-
-- [x] Sort dropdown present with 5 options
-- [x] Default sorting is "Naam - A naar Z" (verified)
-- [ ] Could not verify if sorting actually reorders results correctly (session instability)
-- [ ] "Type" filter availability not verified (filter panel not opened)
-- [ ] Cross-page sorting not tested
-- [x] Sorting options include: Meest relevant, Datum oud-nieuw, Datum nieuw-oud, Naam A-Z, Naam Z-A
-
----
-
-#### #340: Bevindingen op tussenoplevering Zoeken
-**Status: PARTIAL**
-
-- [x] Default sorting is "Naam - A naar Z" (confirmed correct)
-- [x] Dates visible on cards (e.g., "01 januari 2025", "30 maart 2020")
-- [ ] Search filter load time not precisely measured (appeared within a few seconds)
-- [ ] "Type" filter presence not verified (filter panel not opened)
-- [ ] "Soort dienst" rename to "Diensttype" not verified
-- [ ] "Meest relevant" tooltip not verified
-- [x] Cards display a date using registration date
-
----
-
-#### #342: Zoeken: op kaartjes referentiecomponenten duidelijk maken
-**Status: CANNOT_TEST**
-
-- Could not verify if referentiecomponenten are clearly labeled on search cards. The search results loaded but the filter panel with referentiecomponenten was not accessible due to session instability.
-
----
-
-#### #344: Zoeken: Geen resultaten bij Gravenbeheercomponent
-**Status: CANNOT_TEST**
-
-- The search page loaded successfully but the referentiecomponenten filter could not be tested due to the filter panel not being accessible during this session. The "Filter & sorteer" button was visible.
-
----
-
-#### #350: De link achter de gebruikersnaam verwijzen naar Mijn account
-**Status: PARTIAL**
-
-- [x] "Beheer" link in top navigation points to /beheer/my-account (when on the account page)
-- [ ] No explicit "username" link visible in navigation -- the nav shows "Beheer" with an icon, not the user's name
-- [x] Dashboard has links to "Mijn Account" and "Mijn Organisatie" in the welcome text
-- [ ] Separate dashboard link not clearly distinguishable from account link
-
-**Note:** The "Beheer" link in the navigation changes its URL based on the current page (sometimes /beheer, sometimes /beheer/my-account). This behavior is inconsistent.
-
----
-
-#### #353: Mijn account - Je "functie" wordt niet aangepast na bewerken en opslaan
-**Status: CANNOT_TEST**
-
-- [x] "Functie" field displays "ICT-manager" on Mijn Account page
-- [ ] Edit and save flow not tested (would need to modify data and verify persistence)
-- [x] "Bewerken" button is present and accessible
+### Organisatie Detail Page (Centric)
+- **URL:** `/publicatie/8654869d-50d1-5945-967a-2406a00ac3ab`
+- **Page title:** "Centric"
+- **Content:**
+  - Title: "Centric" with "Organisatie" type badge
+  - Contact information displayed:
+    - Email: test.vng.swc+Wil@gmail.com (clickable mailto link)
+    - Telefoon: +31 23 4567890 (clickable tel link)
+    - Website: https://www.centric.eu/NL/Default/Branches/Lokale-overheid (clickable)
+  - Tab: "Applicaties (2)" showing Centric Burgerzaken and Centric Leefomgeving
+  - Breadcrumb: Home > Zoeken > Organisatie
+- **Privacy observation (#394):**
+  - This is a **leverancier** organisation page - leverancier contact details ARE expected to be public
+  - The page shows email, phone, website of the organisation itself
+  - No individual "contactpersoon" details are shown (no person's name, role, etc.)
+  - No gemeente contactpersoon data is visible on any page
+  - Organisation type is NOT displayed (just shows "Organisatie" - does not distinguish Leverancier/Gemeente/Samenwerking)
+- **Console errors:** 0 errors (2 warnings)
+- **No UUIDs visible**
+- **Screenshot:** `detail-organisatie-centric.png`
 
 ---
 
-#### #355: Diensten: Export geeft allerlei UUID's
-**Status: CANNOT_TEST**
+## Beheer Data Observations
 
-- Export functionality could not be tested as the diensten table was not accessed during this session due to time constraints and session instability.
+### /beheer/applicaties
+- Shows "Geen data gevonden" for Test Gemeente
+- Columns: Naam, Korte omschrijving, Website, Leverancier, Licentievorm, Logo, Acties
+- The wizard-created "gebruik" for Centric Burgerzaken does not appear here (stored in different schema)
 
----
+### /beheer/diensten
+- Shows 1 record: "Test Gemeente Dienst" (after warmup delay)
+- Columns: Naam, Aanbieder, Diensttype, Korte omschrijving, Acties
+- Aanbieder: Initially "Loading..." with tooltip "Original ID: a44a5556-...", resolves to "Test Gemeente" after warmup
+- Diensttype: "Functioneel beheer" (correct label, not "Type")
+- Export functionality: **BROKEN** - 500 error on both CSV and Excel export
 
-#### #395: Menu linkerkant verdwijnt
-**Status: PARTIAL**
+### /beheer/koppelingen
+- Shows 1 record: "Centric Burgerzaken -> MijnOverheid.nl"
+- Columns: Naam, Status, Korte beschrijving, Applicatie A, Applicatie B, Acties
+- Status: "in gebruik"
+- **Session 4 update:** Applicatie A shows "Centric Burgerzaken" and Applicatie B shows "MijnOverheid.nl" (correctly resolved after warmup - this was "Loading..." in Session 2)
 
-- [x] The /beheer dashboard loads with the organization selector and wizard buttons
-- [ ] No traditional left sidebar menu observed -- the layout uses a top navigation with "Menu" hamburger button
-- [ ] F5 refresh behavior not explicitly tested
-- [x] Breadcrumb navigation works (Home > Beheer)
-- [x] "Beheer" link in top nav works
-- [x] Direct URL navigation to /beheer works
-
-**Note:** The beheer section appears to use a responsive layout without a permanent left sidebar. On this viewport width, navigation is via the hamburger "Menu" button and breadcrumbs.
-
----
-
-### New Issues
-
-#### #15: Data vanuit softwarecatalogus exporteren
-**Status: CANNOT_TEST**
-
-- Export functionality not tested. Would need to navigate to management overview tables and use the Acties dropdown.
+### /beheer (Dashboard)
+- Shows "Mijn softwarecatalogus" with "Test Gemeente" selected
+- Shows "Geen wizards beschikbaar voor deze organisatie" message
+- Despite that message, wizards ARE accessible via direct URLs
 
 ---
 
-#### #278: Filterteksten aanpassen
-**Status: CANNOT_TEST**
+## Sorting Verification (Session 4)
 
-- Filter panel not accessible during this session. The "Filter & sorteer" button was visible on /zoeken.
+Comprehensive sorting test performed with text search "Burgerzaken" (121 results):
 
----
+| Sort Option | First Result | Correct? |
+|-------------|-------------|----------|
+| Naam - A naar Z | "Active Directory -> IBurgerzaken" | YES (A first) |
+| Naam - Z naar A | "ZorgNed <- Centric Burgerzaken" | YES (Z first) |
+| Datum - nieuw naar oud | "Centric Burgerzaken -> MijnOverheid.nl" (24 Feb 2026) | YES (newest first) |
 
-#### #286: Aanmelden organisatie: 500-error bij wachtwoord wijzigen
-**Status: CANNOT_TEST**
-
-- Password change flow not tested. The "Mijn Account" page has a "Bewerken" button but password change specifically was not attempted.
-
----
-
-#### #315: Hoge prioriteit: Zoekpagina toont deel van gemeentelijk applicatielandschap
-**Status: FAIL**
-
-- [ ] "Leverancier" filter not directly verified
-- [x] **FAIL**: Search result cards show municipalities as suppliers: "Aangeboden door Rotterdam", "Aangeboden door Bloemendaal-Heemstede", "Aangeboden door Deurne", "Aangeboden door Tynaarlo", "Aangeboden door Midden-Groningen"
-- [ ] These are municipalities, NOT actual software suppliers
-- [ ] This means municipal application landscape data IS publicly visible
-
-**Critical finding:** Applications on the search page show municipalities in the "Aangeboden door" field instead of actual software vendors. This is a HIGH PRIORITY privacy/data issue.
+All sort options update the URL parameter and trigger a new search query. Sorting works correctly after text search.
 
 ---
 
-#### #316: Dienst toevoegen: Stap 1 Dienst zoeken
-**Status: NOT TESTED**
+## Console Error Summary
 
-Not executed due to session instability.
-
----
-
-#### #317: Dienst toevoegen: Stap 2 Gebruiksinformatie
-**Status: NOT TESTED**
-
-Not executed.
+| Error Type | Count per page | Impact |
+|-----------|---------------|--------|
+| Organisation 404 (a44a5556...) | 2-4 | High - affects org name display |
+| Schema/related 404 | 1-2 | Medium - affects Acties menu |
+| Export 500 error (CSV) | 1 (on export attempt) | Critical - export completely broken |
+| Export 500 error (Excel) | 1 (on export attempt) | Critical - export completely broken |
+| Manifest syntax error | 1 | Low - cosmetic |
 
 ---
 
-#### #318: Dienst toevoegen: Stap 3 Controleren
-**Status: NOT TESTED**
+## Filter Panel Summary
 
-Not executed.
-
----
-
-#### #319-#322: Koppeling toevoegen wizards
-**Status: NOT TESTED**
-
-Not executed.
-
----
-
-#### #323: Applicatie toevoegen: Stap 1 Applicatie zoeken
-**Status: PASS**
-
-- [x] Form header title: "Een applicatie toevoegen" -- MATCH
-- [x] Subtitle: "Vul dit formulier in om de applicatie toe te voegen aan uw applicatielandschap" -- MATCH
-- [x] Section header: "Toevoegen applicatie" -- MATCH
-- [x] Section text: matches expected content about selecting the application
-- [x] Blue info box title: "Zoekpagina" -- MATCH
-- [x] Blue info box text: matches expected content about using the search page
-- [x] "Ik kan de gewenste applicatie niet vinden" button present -- MATCH
-- [x] Searchable dropdown with applications available
-
-**Evidence:** `wizard-gemeente-app-step1.png`
+| Filter | Options | Notes |
+|--------|---------|-------|
+| Type | 4 | Applicatie (6,090), Dienst (4), Koppeling (3,415), Organisatie (3,103) |
+| Organisatietype | 8 | Collapsed |
+| Samenwerkingstype | 14 | Collapsed |
+| Geregistreerd door | 3 | Gemeente (9,644), Leverancier (1,395), Samenwerking (1,526) |
+| Leverancier | 2,583 | Collapsed, searchable |
+| Licentievorm | 2 | Closed source (6,055), Open source (35) |
+| Referentiecomponenten | 168 | Searchable, all human-readable names |
+| Standaardversies | 34 | Searchable, all human-readable names, no UUIDs |
+| Type koppeling | 2 | extern (880), intern (2,535) |
 
 ---
 
-#### #324: Applicatie toevoegen: Stap 2 Gebruiksinformatie
-**Status: PARTIAL**
+## Screenshots
 
-- [x] Form header title: "Een applicatie toevoegen" -- MATCH
-- [x] Section header: "Gebruiksinformatie" -- MATCH
-- [x] Section text: matches expected content
-- [x] Blue info box title: "Interne notitie" -- MATCH
-- [x] Blue info box text: "De interne notitie is alleen zichtbaar voor de eigen organisatie. Gebruikers van buiten de organisatie zien deze niet." -- MATCH
-- [x] Hosting field present
-- [ ] **FAIL**: Status default is "Verwerving" but expected default is "in productie" per acceptance criteria
-- [x] Startdatum field present and auto-filled
-- [x] Interne notitie field present
-- [x] Applicatie versie field present
-
-**Evidence:** `wizard-gemeente-app-step2.png`
-
----
-
-#### #325: Applicatie toevoegen: Stap 3 Referentiecomponenten
-**Status: PASS**
-
-- [x] Section header: "Koppel de applicatie aan referentiecomponenten" (slightly different from expected "Referentiecomponenten" but conveys same meaning)
-- [x] Description text about kennisdeling present
-- [x] GEMMA Online link present (https://www.gemmaonline.nl/wiki/Overzicht_alle_referentiecomponenten)
-- [x] "Referentiecomponenten aangegeven door leverancier" selector present
-- [x] "Referentiecomponenten toevoegen" selector present
-
-**Evidence:** `wizard-gemeente-app-step3.png`
-
----
-
-#### #326: Applicatie toevoegen: Stap 4 Deelnemer
-**Status: PASS (expected behavior)**
-
-- [x] This step is correctly NOT shown for gemeente users (only for samenwerkingen)
-- The wizard goes from step 3 (Referentiecomponenten) directly to step 4 (Controleren), skipping the Deelnemer step
+| File | Description |
+|------|-------------|
+| `login-dashboard.png` | Dashboard after login |
+| `wizard-gemeente-app-step1.png` | Applicatie wizard step 1 |
+| `wizard-gemeente-app-step1-form.png` | Applicatie wizard step 1 form |
+| `wizard-gemeente-app-step2.png` | Applicatie wizard step 2 |
+| `wizard-gemeente-app-step3.png` | Applicatie wizard step 3 |
+| `wizard-gemeente-app-review.png` | Applicatie wizard review |
+| `wizard-gemeente-app-success.png` | Applicatie wizard success |
+| `wizard-gemeente-dienst-step1.png` | Dienst wizard step 1 |
+| `wizard-gemeente-dienst-step2.png` | Dienst wizard step 2 |
+| `wizard-gemeente-dienst-review.png` | Dienst wizard review |
+| `wizard-gemeente-dienst-success.png` | Dienst wizard success |
+| `wizard-gemeente-koppeling-step1.png` | Koppeling wizard step 1 |
+| `wizard-gemeente-koppeling-step2.png` | Koppeling wizard step 2 |
+| `wizard-gemeente-koppeling-step3.png` | Koppeling wizard step 3 |
+| `wizard-gemeente-koppeling-review.png` | Koppeling wizard review |
+| `wizard-gemeente-koppeling-success.png` | Koppeling wizard success |
+| `search-page-initial.png` | Search page initial state |
+| `search-page-loaded.png` | Search page loaded with results |
+| `search-filters-panel.png` | Search filter panel (full page) |
+| `mijn-account.png` | Mijn Account page (empty table) |
+| `detail-applicatie-centric-burgerzaken.png` | Centric Burgerzaken detail page with standards |
+| `export-csv-error-500.png` | Export CSV 500 error |
+| `export-excel-error-500.png` | Export Excel 500 error |
+| `beheer-koppelingen.png` | Koppelingen beheer page |
+| `detail-organisatie-centric.png` | Centric organisatie detail page |
 
 ---
 
-#### #327: Applicatie toevoegen: Stap 5 Controleren
-**Status: PASS**
+## Test Data Created
 
-- [x] Section header: "Controleer uw gegevens" -- MATCH (actual heading is "Controleren" with section text containing the full text)
-- [x] Review text present about checking the overview
-- [x] Blue info box text about visibility and internal notes matches expected content
-- [x] Overview shows all entered data correctly
-- [x] "Gebruik registreren" button works and submits successfully
+1. **Gebruik registration:** Centric Burgerzaken usage by Test Gemeente (SaaS, In productie, Zaakregistratiecomponent)
+   - **Object ID:** `919f01ef-6e9e-4271-a289-ff964cd3b68f`
+2. **Dienst:** "Test Gemeente Dienst" (Functioneel beheer type)
+   - **Object ID:** `ada2eb73-4e64-4e70-b819-19fc049d3f31`
+3. **Koppeling:** "Test Gemeente Koppeling" / "Centric Burgerzaken -> MijnOverheid.nl" (A->B, In gebruik)
+   - **Object ID:** `09c7488a-9b6d-43d1-b221-e62494162bb2`
 
-**Evidence:** `wizard-gemeente-app-review.png`
+**Cleanup Status:** Test data cleanup via API DELETE was attempted but requires explicit user permission (destructive operations blocked by sandbox). The following API calls are needed to clean up:
+```bash
+curl -X DELETE -u admin:admin "http://localhost:8080/index.php/apps/openregister/api/objects/voorzieningen/dienst/ada2eb73-4e64-4e70-b819-19fc049d3f31"
+curl -X DELETE -u admin:admin "http://localhost:8080/index.php/apps/openregister/api/objects/voorzieningen/koppeling/09c7488a-9b6d-43d1-b221-e62494162bb2"
+curl -X DELETE -u admin:admin "http://localhost:8080/index.php/apps/openregister/api/objects/voorzieningen/gebruik/919f01ef-6e9e-4271-a289-ff964cd3b68f"
+```
 
----
-
-#### #328: Applicatie toevoegen: Stap 1.1 Nieuwe applicatie opvoeren
-**Status: NOT TESTED**
-
-The "Ik kan de gewenste applicatie niet vinden" button was visible on step 1 but was not clicked to test the sub-step flow.
-
----
-
-#### #343: Zoeken: Filter 'Type koppeling' toevoegen
-**Status: CANNOT_TEST**
-
-Filter panel not accessible during this session.
+Additionally, earlier test sessions created gebruik objects that should also be cleaned up:
+- `51bc446e-ad42-4d79-9fcc-1747aa15463b` (Session 2 gebruik)
+- `b0941652-73d3-4949-aacc-7b311cd70342` (Session 2 gebruik)
 
 ---
 
-#### #346: Zoeken: paginering werkt niet
-**Status: PARTIAL**
+## Key Recommendations
 
-- [x] Pagination is present with page numbers (1-5, ..., 633)
-- [x] "Volgende pagina" button present
-- [ ] Clicking page 2 caused a session redirect -- could not verify different results appear
-- [x] Page indicator shows current page number (Pagina 1)
-- [x] Total count (12,645) divided by pages (633) = ~20 per page (correct)
+1. **Critical:** Fix the export endpoint 500 error (`/api/objects/voorzieningen/dienst/export`). Both CSV and Excel exports are completely broken on the backend. (#15, #355)
 
----
+2. **Critical:** Fix the Organisation object 404 for Test Gemeente (UUID a44a5556-2001-4ffc-8a08-fe4705605b47). Root cause of multiple display issues including "Loading..." columns on initial load.
 
-#### #349: Zoeken: UUID's onder standaarden filter
-**Status: CANNOT_TEST**
+3. **Critical:** Implement "Mijn Account" as a personal details form, not a generic data table. (#266, #353)
 
-Filter panel not accessible during this session.
+4. **High:** Add persistent left-side navigation menu to beheer area. (#395)
 
----
+5. **Medium:** Fix URL inconsistency: `/beheer/my-account` vs `/beheer/mijn-account`. (#350)
 
-## General Observations
+6. **Low:** The "Toevoegen" button on /beheer/applicaties should route to the gemeente wizard, not the supplier wizard.
 
-### Performance
-- Schema cache warmup takes ~15 seconds after login
-- Wizard application dropdown "Schema laden..." takes 5-15 seconds on first load
-- Search page initial load shows "Loading..." for card names, resolves within 2-3 seconds
-- No API calls observed with >1000ms response time during normal operation
+7. **Low:** Dashboard "Geen wizards beschikbaar" message is misleading since wizards are accessible via direct URLs.
 
-### Console Errors (Recurring)
-1. `Manifest: Line: 1, column: 1, Syntax error.` -- on every page load (site.webmanifest)
-2. `Failed to load resource: 401` on schema endpoints before login (expected)
-3. `Schema not found for type: gebruik` warnings in wizard (may indicate missing schema definition)
-
-### Session Stability Issues
-- Multiple browser agents sharing the same Nextcloud backend cause session conflicts
-- Login credentials from other agents can appear in the login form
-- Navigation between pages sometimes triggers unexpected redirects to /beheer or login
-- This significantly impacted the breadth of testing possible in a single session
-
-### UI/UX Observations
-1. The site title reads "Development Catalogus" not "Softwarecatalogus" (#267 related)
-2. Debug panel ("Debug: Gebruik Object") visible in wizard forms -- should be hidden in production
-3. Koppeling cards in search results show arrow symbols (arrows like "<-", "->", "<->") as their titles, which is not user-friendly
-4. The "Selecteer aantal items per pagina" dropdown is present on the dashboard but appears to serve no function (no table visible on dashboard landing)
-5. Footer shows "Open Tilburg" and "Gemeente Tilburg" text -- this appears to be placeholder/incorrect for the VNG Softwarecatalogus
+8. **Low:** Organisation type (Leverancier/Gemeente/Samenwerking) is not displayed on the organisatie detail page - just shows generic "Organisatie" badge.
 
 ---
 
-## Summary Statistics
+## Positive Findings
 
-| Status | Count |
-|--------|-------|
-| PASS | 6 |
-| PARTIAL | 5 |
-| FAIL | 1 |
-| CANNOT_TEST | 12 |
-| NOT TESTED | 7 |
-
-### Critical Findings
-1. **#315 FAIL**: Municipalities shown as "Aangeboden door" on application cards instead of actual suppliers -- HIGH PRIORITY privacy issue
-2. **#324 PARTIAL**: Status default in wizard is "Verwerving" instead of expected "in productie"
-3. **Session instability**: Shared test environment makes thorough testing unreliable
-
-### Recommendations
-1. Re-test with isolated browser session (no concurrent agents) for full coverage
-2. The Dienst and Koppeling wizards need dedicated test runs
-3. The filter panel needs testing for #278, #343, #344, #349
-4. Export functionality (#15, #355) needs testing from the beheer tables
+1. **Detail pages work well:** All four detail page types (Applicatie, Koppeling, Dienst, Organisatie) render correctly with rich, structured data
+2. **Referentiecomponenten clearly displayed:** Both on search cards ("Geschikt voor:") and detail page tabs
+3. **Standards display is excellent:** 45 standards on Centric Burgerzaken with proper categorization, GEMMA links, compliance status
+4. **Search is fast and responsive:** 12,613 results load quickly, filters update in real-time
+5. **Name resolution works after cache warmup:** Organisation names, application names all resolve to human-readable text
+6. **No UUIDs visible to end users:** All standards, components, organisations display with readable names
+7. **Tab loading is instant:** No staggered loading on detail pages
+8. **Privacy respected:** Gebruik tab shows usage count without revealing which municipalities
+9. **Sorting works correctly:** All 5 sort options (including after text search) produce correct results
+10. **Koppelingen beheer columns resolved:** Applicatie A and Applicatie B columns now show resolved names after warmup (was "Loading..." in Session 2)
+11. **Organisatie detail page is clean:** Shows contact info, linked applicaties, no UUIDs, no contactpersoon data leak
