@@ -14,10 +14,10 @@ The bezoeker has NO account and is NOT logged in. They can only see public pages
 
 ## Test Environment
 
-- **Frontend**: http://localhost:3000/
-- **Backend**: http://localhost:8080/
+- **Frontend**: `{FRONTEND}` (default: `{FRONTEND}`)
+- **Backend**: `{BACKEND}` (default: `{BACKEND}`)
 - **Browser**: Use Playwright MCP browser tools (prefixed `mcp__browser-N__`, where N is assigned by the orchestrator)
-- **Start URL**: http://localhost:3000/zoeken?_page=1
+- **Start URL**: `{FRONTEND}/zoeken?_page=1`
 
 ## Test Scope
 
@@ -69,7 +69,7 @@ As an unauthenticated visitor, you should only see data that has `"public"` read
 ## Testing Instructions
 
 ### Step 1: Navigate to Search Page
-1. Navigate to `http://localhost:3000/zoeken?_page=1`
+1. Navigate to `{FRONTEND}/zoeken?_page=1`
 2. Do NOT log in — remain anonymous
 3. Verify the page loads with search results
 
@@ -118,12 +118,12 @@ As an unauthenticated visitor, you should only see data that has `"public"` read
 1. Navigate to an application detail page of a **leverancier** application
 2. Check if contact person information is visible
 3. **Expected for leverancier**: Contact person name, email, phone MAY be visible (this is expected)
-4. Check the API directly: `curl http://localhost:8080/index.php/apps/openregister/api/objects/voorzieningen/module?_extend[]=contactpersonen&_limit=5`
+4. Check the API directly: `curl {BACKEND}/index.php/apps/openregister/api/objects/voorzieningen/module?_extend[]=contactpersonen&_limit=5`
 5. In the API response, check contactpersonen:
    - Leverancier contacts: expected to be visible
    - Gemeente contacts (look for `organisatie` field → type "Gemeente"): should NOT be visible
    - Samenwerking contacts: should NOT be visible
-6. Also check: `curl http://localhost:8080/index.php/apps/openregister/api/objects/voorzieningen/contactpersoon?_limit=5` (without auth — should return 0 results since contactpersoon is not public)
+6. Also check: `curl {BACKEND}/index.php/apps/openregister/api/objects/voorzieningen/contactpersoon?_limit=5` (without auth — should return 0 results since contactpersoon is not public)
 
 ### Step 9: Additional Checks
 1. Check that the search page paginates correctly

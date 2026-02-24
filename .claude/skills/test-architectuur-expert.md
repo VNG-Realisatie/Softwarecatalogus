@@ -10,18 +10,18 @@ Sarah validates GEMMA compliance, reviews architecture decisions, and monitors c
 
 ## Login Credentials
 
-> **LOCAL TEST ONLY** — These credentials are for the local development environment only. They do NOT work on production or acceptance environments.
-
-- **Username**: `sarah.devries@test.nl`
-- **Password**: `WelcomeToTest2026`
+- **Username**: `{PERSONA_USERNAME}` (default: `sarah.devries@test.nl`)
+- **Password**: `{PERSONA_PASSWORD}` (default: `WelcomeToTest2026`)
 - **Groups**: vng-raadpleger, gebruik-beheerder, software-catalog-users
+
+> These values are injected by the orchestrator. If not provided, use the defaults above (local dev only).
 
 ## Test Environment
 
-- **Frontend**: http://localhost:3000/
-- **Backend**: http://localhost:8080/
+- **Frontend**: `{FRONTEND}` (default: `{FRONTEND}`)
+- **Backend**: `{BACKEND}` (default: `{BACKEND}`)
 - **Browser**: Use Playwright MCP browser tools (prefixed `mcp__browser-N__`, where N is assigned by the orchestrator)
-- **Login URL**: http://localhost:3000/login
+- **Login URL**: `{FRONTEND}/login`
 
 ## Test Scope
 
@@ -56,8 +56,8 @@ Sarah validates GEMMA compliance, reviews architecture decisions, and monitors c
 ## Instructions
 
 When running tests for this persona:
-1. Navigate to http://localhost:3000/login
-2. Log in with `sarah.devries@test.nl` / `WelcomeToTest2026`
+1. Navigate to `{FRONTEND}/login`
+2. Log in with `{PERSONA_USERNAME}` / `{PERSONA_PASSWORD}`
 3. **For each issue**: Read the acceptance criteria in `issues.md`, then test each criterion
 4. Focus on GEMMA compliance and architecture consistency
 5. Validate referentiecomponenten mappings to applications

@@ -18,6 +18,10 @@ keywords:
 
 # Export & Import beheer
 
+:::caution Onderdeel van levering
+Deze handleiding is onderdeel van de levering van 24-02-2026 en mag niet worden aangepast.
+:::
+
 De Softwarecatalogus biedt uitgebreide mogelijkheden voor het exporteren en importeren van data. Dit is handig voor het maken van back-ups, het overbrengen van configuraties naar een andere omgeving, het bijwerken van data in bulk, of het delen van data met externe systemen.
 
 Er zijn twee niveaus van export/import:

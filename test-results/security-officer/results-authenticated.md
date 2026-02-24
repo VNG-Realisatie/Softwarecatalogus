@@ -1,320 +1,371 @@
 # Security Officer Test Results - Authenticated Session
 
-**Test Date:** 2026-02-24 (Retest #2)
-**Previous Test Dates:** 2026-02-23, 2026-02-24
-**Tester:** Mark Jansen (Security Officer persona)
-**Credentials:** mark.jansen@test.nl / WelcomeToTest2026
-**Organization:** Test Gemeente (gebruik-beheerder, software-catalog-users)
-**Browser:** Playwright Chromium (headless, browser-4), 1920x1080
-**Frontend:** http://localhost:3000
-**Backend:** http://localhost:8080
+**Persona**: Mark Jansen -- Information Security Officer
+**Date**: 2026-02-24 (Retest #3)
+**Previous Test Dates**: 2026-02-23, 2026-02-24, 2026-02-24
+**Environment**: Frontend http://localhost:3000 | Backend http://localhost:8080
+**Credentials**: mark.jansen@test.nl / WelcomeToTest2026
+**Browser**: Playwright (headless Chromium, browser-4, 1920x1080)
 
 ---
 
-## Executive Summary
+## Summary
 
-| Severity | Count |
-|----------|-------|
-| CRITICAL | 1 |
-| HIGH | 0 |
-| MEDIUM | 1 |
-| LOW | 2 |
-
-**Overall Security Assessment: CRITICAL issue persists.** The public API and frontend expose personal data (names, emails, phone numbers) of municipality contact persons without authentication. This confirms findings from previous test sessions.
-
-**Changes from previous test (2026-02-24 retest #1):**
-- **#395 (Menu linkerkant verdwijnt)**: Previously CANNOT_TEST. Now **PASS** -- left sidebar navigation IS present and persists through F5 refresh at 1920x1080 viewport. The previous session tested at a different URL (/beheer/applicatielandschappen) or smaller viewport where sidebar was not visible.
-- **#315**: Downgraded from FAIL to PARTIAL. Applications show correct leverancier attribution ("Aangeboden door [Leverancier]"). The "Geregistreerd door" filter correctly separates Gemeente/Leverancier/Samenwerking. Municipality organisation records appear in search (acceptable) but application landscape data does not.
-- **#406**: Now detects Piwik/Matomo reference (`hasPiwik: true`).
+| Issue | Title | Status | Severity |
+|-------|-------|--------|----------|
+| #394 | Contactpersonen van gemeenten publiekelijk zichtbaar | **FAIL** | CRITICAL |
+| #315 | Zoekpagina toont deel gemeentelijk applicatielandschap | **FAIL** | CRITICAL |
+| #85 | Publieke API toegang tot aanbodinformatie | **PARTIAL** | MEDIUM |
+| #183 | Wachtwoord vergeten optie | **PASS** | -- |
+| #404 | Regelmatig witte schermen | **PASS** | -- |
+| #395 | Menu linkerkant verdwijnt | **PASS** | -- |
+| #409 | Footer anders: inlog of uitgelogd | **PASS** | -- |
+| #406 | SiteImprove verwijderen | **PASS** | -- |
+| #105 | Aanbieders zien applicatielandschappen niet | **MOVED** | -- |
 
 ---
 
-## Issue Test Results
-
----
-
-### #394: Contactpersonen van gemeenten publiekelijk zichtbaar
+## Issue #394: Contactpersonen van gemeenten publiekelijk zichtbaar
 
 **Status: FAIL**
 **Severity: CRITICAL**
-**Test Step: 12**
 
-**Acceptance Criteria Results:**
-- [x] Contact persons of **leveranciers** ARE visible on public pages (expected/correct)
-  - Verified: Leverancier contacts with "Aanbod-beheerder" role returned via `_extend[]=contactpersonen` for organisations with `type=Leverancier`
-- [ ] Contact persons of **gemeenten** are NOT visible to unauthenticated users on frontend -- **FAIL**
-  - On the public detail page for gemeente "Aa en Hunze" (`/publicatie/f7db0bc8-...`), email `test.vng.swc+Emu@gmail.com` and phone `+31 23 4567890` are displayed without authentication
-- [ ] Contact persons of **samenwerkingen** are NOT visible to unauthenticated users -- **LIKELY FAIL** (same publication mechanism used)
-- [ ] Public API correctly distinguishes leverancier vs gemeente/samenwerking contacts -- **FAIL**
-  - API call `publications?_schema=organisatie&type=Gemeente&_extend[]=contactpersonen` returns full contact details for gemeente contacts without authentication
-  - 6 gemeente contacts found in a sample of 5 organisations, including PII
-- [ ] No personal contact information of gemeente users on public pages -- **FAIL**
-  - Detail page for Aa en Hunze shows Email and Telefoon publicly
-- [ ] API endpoint enforces RBAC -- **NOT FULLY TESTED** (requires aanbod-beheerder login)
+### Test Method
+Tested the backend API both authenticated (as Mark Jansen / gebruik-beheerder) and unauthenticated (curl without auth / fresh browser without session).
 
-**Evidence -- Public UI exposure:**
-The detail page at `/publicatie/f7db0bc8-ec7a-4aa9-902e-51a23f7bce51` (Aa en Hunze, a Gemeente) shows:
-- **Email:** test.vng.swc+Emu@gmail.com (clickable mailto link)
-- **Telefoon:** +31 23 4567890 (clickable tel link)
-- **Website:** https://www.aaenhunze.nl
+### Findings
 
-**Evidence -- API exposure (unauthenticated):**
-```
-GET /api/publications?_schema=organisatie&type=Gemeente&_extend[]=contactpersonen&_limit=5
+**Unauthenticated API test** (`curl` to `http://localhost:8080/index.php/apps/opencatalogi/api/publications?_schema=organisatie&_extend[]=contactpersonen&_limit=5`):
 
-Gemeente: Aa en Hunze
-  - Edw met een achternaam, email: test.vng.swc+Emu@gmail.com, roles: [Gebruik-beheerder]
-  - Joh met een achternaam, email: test.vng.swc+Jbr@gmail.com, roles: [Gebruik-beheerder]
+The API returned **full contact person details** for gemeente organizations to unauthenticated users, including:
+- First names (voornaam)
+- Last names (achternaam)
+- Email addresses (e-mailadres)
+- Phone numbers (telefoonnummer)
+- Roles (rollen: Gebruik-beheerder, Gebruik-raadpleger)
+- Organisation UUIDs
 
-Gemeente: Aalsmeer
-  - Con met een achternaam, email: test.vng.swc+Con@gmail.com, roles: [Gebruik-beheerder, Gebruik-raadpleger]
+**Example exposed data** (unauthenticated):
+- "Aa en Hunze" municipality: 2 contact persons with names, emails (test.vng.swc+Emu@gmail.com, test.vng.swc+Jbr@gmail.com), phone (+31 23 4567890), roles (Gebruik-beheerder)
+- "Almere" municipality: 3 contact persons with names, emails, roles (Gebruik-raadpleger, Gebruik-beheerder)
 
-Gemeente: Aalten
-  - E. met een achternaam, email: test.vng.swc+E@gmail.com, roles: [Gebruik-beheerder]
-  - M met een achternaam, email: test.vng.swc+M@gmail.com, roles: [Gebruik-beheerder, Gebruik-raadpleger]
-  - Ssc met een achternaam, email: test.vng.swc+S@gmail.com, roles: [Gebruik-beheerder]
-```
+### Acceptance Criteria Results
+- [ ] **FAIL** -- Contact persons of leveranciers ARE visible on public pages (expected behavior) -- **not tested in isolation because all contacts are exposed regardless of org type**
+- [ ] **FAIL** -- Contact persons of gemeenten are NOT visible to unauthenticated users -- **GEMEENTE CONTACTS ARE FULLY VISIBLE VIA `_extend=contactpersonen`**
+- [ ] **FAIL** -- Contact persons of samenwerkingen are NOT visible to unauthenticated users -- **LIKELY ALSO EXPOSED (same mechanism)**
+- [ ] **FAIL** -- Public API correctly distinguishes leverancier vs gemeente contacts -- **NO DISTINCTION: all contacts returned regardless of org type**
+- [ ] **FAIL** -- No personal contact information of gemeente users on public pages -- **NAMES, EMAILS, PHONE NUMBERS ALL EXPOSED**
+- [ ] **N/A** -- API endpoint enforces RBAC for different roles -- tested as gebruik-beheerder (sees all, expected)
 
-**Security Assessment:** CRITICAL privacy violation. Personal data of municipal employees is publicly accessible without authentication. This violates the RBAC model (contactpersoon is NOT public read in `softwarecatalogus_register.json`), GDPR Article 5 (data minimization), and the documented requirement.
+### Evidence
+- Screenshot: `homepage-authenticated.png` (authenticated homepage)
+- Raw API response confirmed contact details for "Aa en Hunze" and "Almere" municipalities returned without authentication
 
-**Screenshots:** `02-gemeente-contact-public.png`
+### Security Impact
+**CRITICAL**: Personal data (names, email addresses, phone numbers, roles) of all municipality contact persons is publicly accessible without authentication. This is a GDPR/AVG violation. The `_extend=contactpersonen` parameter bypasses RBAC controls on the contactpersoon schema.
 
 ---
 
-### #315: Hoge prioriteit: Zoekpagina toont deel van gemeentelijk applicatielandschap
+## Issue #315: Zoekpagina toont deel van gemeentelijk applicatielandschap
+
+**Status: FAIL**
+**Severity: CRITICAL**
+
+### Test Method
+Compared search results between authenticated (gebruik-beheerder) and unauthenticated sessions on the frontend search page.
+
+### Findings
+
+**Unauthenticated search page** (http://localhost:3000/zoeken):
+- Shows **12,617 results** -- identical to authenticated count
+- Expected for unauthenticated: approximately 1,853 results (per RBAC reference in issues.md)
+- "Koppeling" type shows 3,416 items -- **should NOT be publicly visible per RBAC rules**
+- "Geregistreerd door" filter shows:
+  - Gemeente (9,644) -- **should NOT be visible to public**
+  - Leverancier (1,395) -- correct (expected public)
+  - Samenwerking (1,526) -- **should NOT be visible to public**
+
+**Application cards showing municipalities as suppliers on the unauthenticated search page:**
+- "12view Gisprogramma rioolinspecties" -- Aangeboden door **Bloemendaal-Heemstede** (gemeente)
+- "14010 - VANAD - outsourcing" -- Aangeboden door **Rotterdam** (gemeente)
+- "1Password" -- Aangeboden door **Deurne** (gemeente)
+- "21QUBZ" -- Aangeboden door **Tynaarlo** (gemeente)
+- "24/7 bewaking gladheidmeetstations" -- Aangeboden door **Midden-Groningen** (gemeente)
+- "2TS Bouwtoezicht" -- Aangeboden door **Berkelland** (gemeente)
+- "360 Feedback" -- Aangeboden door **Almere** (gemeente)
+
+### Acceptance Criteria Results
+- [ ] **CANNOT VERIFY** -- "Leverancier" filter on /zoeken contains ONLY actual suppliers, NOT municipalities
+- [ ] **FAIL** -- Search result cards show the actual supplier as "aangeboden door", NOT a municipality -- **MUNICIPALITIES SHOWN AS SUPPLIERS PUBLICLY**
+- [ ] **FAIL** -- Filtering by municipality name is not possible -- **Gemeente filter option publicly visible with 9,644 entries**
+- [ ] **CANNOT VERIFY** -- Application detail page shows correct supplier
+- [ ] **FAIL** -- Municipal application landscape data is not publicly visible to unauthenticated users -- **ALL 12,617 ITEMS VISIBLE INCLUDING ALL GEMEENTE DATA**
+- [ ] **CANNOT VERIFY** -- Supplier on search card matches supplier on detail page
+- [ ] **FAIL** -- RBAC-based filtering replaces the old "published" status approach -- **RBAC NOT FILTERING: identical count authenticated vs unauthenticated**
+- [ ] **CANNOT VERIFY** -- Import data no longer contains @self.published
+
+### Evidence
+- Screenshot: `search-unauthenticated-critical.png` (unauthenticated search showing 12,617 results with Koppeling type and Gemeente filter)
+- Screenshot: `search-authenticated.png` (authenticated search showing identical 12,617 results)
+
+### Security Impact
+**CRITICAL**: The entire municipal application landscape, including all koppelingen (connections) and gemeente-registered applications, is publicly visible. RBAC filtering is NOT being applied on the publications endpoint for unauthenticated users. The unauthenticated and authenticated result counts are identical (12,617), proving that no RBAC scoping is happening on the frontend search.
+
+---
+
+## Issue #85: Publieke API toegang tot aanbodinformatie
 
 **Status: PARTIAL**
 **Severity: MEDIUM**
-**Test Step: 14**
 
-**Acceptance Criteria Results:**
-- [ ] "Leverancier" filter on /zoeken contains ONLY actual suppliers, NOT municipalities -- **PARTIAL**
-  - The "Geregistreerd door" filter shows: Gemeente (345), Leverancier (1394), Samenwerking (91)
-  - Municipalities ARE listed as a filter option, but this is the "Geregistreerd door" facet, not the "Leverancier" facet
-  - The "Leverancier" facet (280 items) appears to contain only actual suppliers
-  - When filtered by `geregistreerdDoor=Leverancier`, results correctly show only leverancier-registered items
-- [x] Search result cards show the actual supplier as "aangeboden door", NOT a municipality
-  - Applications correctly show "(Aangeboden door [Leverancier Name])" -- e.g., "Future Insight Group", "Nelen & Schuurmans", "Xxllnc", "Igor Pavlov", "Bentis B.V."
-  - No municipalities observed as "Aangeboden door" in this test session
-- [ ] Filtering by municipality name is not possible -- **FAIL**
-  - `geregistreerdDoor[]=Gemeente` filter returns 345 municipality organisation records
-  - However, these are only organisation records, not application landscape data
-- [x] Application detail page shows the correct supplier
-- [ ] Municipal application landscape data is not publicly visible to unauthenticated users -- **PARTIAL**
-  - Municipality organisation records ARE public (expected/acceptable)
-  - Private application landscape data (koppelingen, gebruik) does NOT appear in public search results
-  - However, gemeente contact persons ARE publicly visible (see #394)
-- [x] Supplier on search card matches supplier on detail page
+### Test Method
+Tested OAS documentation endpoints for registers 2, 3, and 4. Tested publications API for data availability.
 
-**Notes:** Compared to the previous test session, the search page now correctly attributes applications to leveranciers. The "Aangeboden door" labels show actual supplier names. The filter system correctly separates organisation types. The main remaining concern is the gemeente contact person visibility (covered by #394).
+### Findings
 
-**Screenshots:** `03-search-page-filters.png`
+**OAS Documentation endpoints** (all tested unauthenticated):
+- Register 2 (`/index.php/apps/openregister/api/registers/2/oas`): Returns valid OAS documentation (115K+ characters) -- **PASS**
+- Register 3 / Voorzieningen (`/index.php/apps/openregister/api/registers/3/oas`): Returns valid OAS documentation (211K+ characters) -- **PASS** (previously reported as returning 500 for non-org users)
+- Register 4 / VNG-GEMMA (`/index.php/apps/openregister/api/registers/4/oas`): Returns valid OAS documentation (123K+ characters) -- **PASS** (previously reported as returning 500)
 
----
+**Publications API**:
+- Returns data for organisaties, modules (applicaties), diensten
+- Supports standard query parameters (_limit, _page, _schemas, _extend)
+- Returns data about aanbiedende organisaties
+- Returns data about aangeboden softwarepakketten
 
-### #85: (VNGR) Publieke API toegang tot aanbodinformatie
+### Acceptance Criteria Results
+- [x] **PASS** -- The public API for the Softwarecatalogus register is accessible and returns data
+- [x] **PASS** -- Auto-generated OAS documentation is accessible per register at `/index.php/apps/openregister/api/registers/{id}/oas` (tested registers 2, 3, and 4)
+- [x] **PASS** -- The API returns data about aanbiedende organisaties (offering organizations)
+- [x] **PASS** -- The API returns data about aangeboden softwarepakketten (offered software packages)
+- [ ] **CANNOT VERIFY** -- The API returns data about ondersteunde standaarden (supported standards) -- not tested
+- [x] **PASS** -- The API supports standard query parameters for filtering and pagination
+- [ ] **CANNOT VERIFY** -- The OAS documentation link is accessible from the register action menu in the backend (requires admin/functioneel beheerder access)
 
-**Status: PARTIAL**
-**Severity: LOW**
-**Test Step: 12**
+### Notes
+The OAS bug mentioned in the acceptance criteria (registers with `organisation` field returning 500) appears to be resolved in this environment. All three registers return valid OAS documentation without authentication.
 
-**Acceptance Criteria Results:**
-- [x] The public API for the Softwarecatalogus register is accessible and returns data
-  - `GET /index.php/apps/opencatalogi/api/publications` returns 1,837 total results
-- [x] Auto-generated OAS documentation is accessible per register
-  - Register 2 (Publications): HTTP 200, valid OAS specification returned (large document)
-  - Registers 3 and 4: Not tested individually (known 500 issue documented)
-- [x] The API returns data about aanbiedende organisaties
-  - Organisations with type, naam, and details returned correctly
-- [x] The API returns data about aangeboden softwarepakketten
-  - Application publications returned with supplier info
-- [ ] The API returns data about ondersteunde standaarden -- **NOT VERIFIED**
-- [x] The API supports standard query parameters for filtering and pagination
-  - `_limit`, `_page`, `_schema`, `_schemas`, `_extend[]`, `type` parameters functional
-- [ ] The OAS documentation link is accessible from the register action menu in the backend -- **NOT VERIFIED**
+However, the API returns TOO MUCH data publicly (see #315 and #394) -- RBAC is not properly filtering the publications endpoint data.
 
 ---
 
-### #183: Wachtwoord vergeten optie
+## Issue #183: Wachtwoord vergeten optie
 
 **Status: PASS**
-**Test Step: 4**
 
-**Acceptance Criteria:**
-- [x] "Wachtwoord vergeten?" button is visible on the login page
-  - Button labeled "Wachtwoord vergeten?" present at the bottom of the login form
-- [x] The option is accessible without being logged in
+### Test Method
+Navigated to the login page, verified the "Wachtwoord vergeten?" button, clicked it, and verified the password reset form.
 
-**Notes:** End-to-end email delivery not tested (no mail server in local dev). UI button is present and functional.
+### Findings
+- Login page at http://localhost:3000/login shows a clearly visible "Wachtwoord vergeten?" button below the login form
+- Clicking it navigates to http://localhost:3000/reminder
+- The page displays:
+  - Title: "Wachtwoord vergeten"
+  - Instructions: "Voer uw e-mailadres in om een eenmalige inlogcode te ontvangen."
+  - Email input field with placeholder "uw.email@voorbeeld.nl"
+  - "Verstuur code" submit button
+  - "Terug naar inloggen" navigation button
 
-**Screenshots:** Previous session screenshots remain valid.
+### Acceptance Criteria Results
+(No formal acceptance criteria section in issues.md for this issue; testing basic functionality)
+- [x] **PASS** -- "Wachtwoord vergeten?" option is visible on login page
+- [x] **PASS** -- Clicking navigates to a dedicated password reset form
+- [x] **PASS** -- Form requests email address input
+- [x] **PASS** -- "Verstuur code" action button present
+- [x] **PASS** -- "Terug naar inloggen" back navigation present
 
----
-
-### #404: Regelmatig witte schermen
-
-**Status: PASS (appears resolved)**
-**Test Step: General**
-
-**Acceptance Criteria Results:**
-- [x] Navigate through all major pages -- No white screens
-  - Tested: `/`, `/zoeken`, `/beheer`, `/beheer/applicaties`, `/beheer/diensten`, `/beheer/koppelingen`, `/beheer/contactpersonen`, `/publicatie/[id]`
-- [x] Refreshing pages (F5) does not produce white screens
-  - Tested F5 on `/beheer/applicaties` -- page reloaded correctly
-- [x] JavaScript console shows no critical errors causing blank rendering
-  - Console errors limited to: manifest syntax errors, 404 for organisation data, 404 for schema related endpoints
-
-**Caveat:** Testing in Chromium (Playwright), not Edge as originally reported.
+### Evidence
+- Screenshot: `login-page-wachtwoord-vergeten.png` (login page with "Wachtwoord vergeten?" button visible)
+- Screenshot: `password-reset-page.png` (password reset form with email field and submit button)
 
 ---
 
-### #395: Menu linkerkant verdwijnt
+## Issue #404: Regelmatig witte schermen
 
 **Status: PASS**
-**Test Step: 4**
 
-**Acceptance Criteria Results:**
-- [x] Navigate to "Applicaties" overview while logged in -- left sidebar visible
-  - Sidebar contains: Dashboard, Mijn Account, Mijn Organisatie, Diensten, Contactpersonen, Applicaties, Gebruik, Koppelingen, View
-- [x] Press F5 or Ctrl+R to refresh -- left navigation menu remains visible after refresh
-  - Before F5: sidebar visible (screenshot `05-applicaties-before-f5.png`)
-  - After F5: sidebar still visible (screenshot `06-applicaties-after-f5.png`)
-- [x] Menu present when directly navigating to URL (not just SPA navigation)
-  - Direct navigation to `/beheer/applicaties`, `/beheer/diensten`, `/beheer/koppelingen` all show sidebar
-- [x] Menu persists across refreshes on other pages
-  - Verified on `/beheer/diensten` and `/beheer/koppelingen`
+### Test Method
+Per testing hints, attempted to reproduce white screens through multiple scenarios:
+1. Direct URL navigation to /beheer/applicaties, /beheer/diensten, /zoeken
+2. F5 refresh on beheer pages
+3. Page loads after logout and re-login
 
-**Change from previous test:** Previous session reported CANNOT_TEST because no left sidebar was found. This session at 1920x1080 viewport confirmed the sidebar IS present and persists through refresh. The previous test may have used a smaller viewport where the sidebar collapses, or tested the wrong URL.
+### Findings
+- Direct URL navigation to `/beheer/applicaties` loaded correctly with full content
+- Direct URL navigation to `/beheer/diensten` loaded correctly with left menu and table
+- F5 refresh on `/beheer/applicaties` preserved all content (left menu + table)
+- Direct URL navigation to `/zoeken` loaded search results correctly with 12,617 results
+- No blank white screens observed in any scenario after 5+ attempts
 
-**Screenshots:** `05-applicaties-before-f5.png`, `06-applicaties-after-f5.png`
+### Acceptance Criteria Results
+- [x] **PASS** -- Navigate through all major pages -- no white screens
+- [x] **PASS** -- Refreshing pages (F5) does not produce white screens
+- [ ] **N/A** -- After clearing cache in Edge (testing in Chromium via Playwright)
+- [x] **PASS** -- JavaScript console shows no critical errors causing blank rendering (errors present but pages render completely)
+- [x] **PASS** -- Team noted issue not seen for a week -- confirmed not reproducible in automated testing
+
+### Notes
+White screen was not reproduced in automated testing on 2026-02-24 after multiple attempts. Console errors exist (Manifest syntax errors, organization fetch 404s, name resolution 404s) but none prevent page rendering.
 
 ---
 
-### #409: Footer anders: inlog of uitgelogd
+## Issue #395: Menu linkerkant verdwijnt
 
 **Status: PASS**
-**Test Step: 21**
 
-**Acceptance Criteria Results:**
-- [x] Footer links are identical in logged-in and logged-out states
-- [x] "Privacyverklaring" link points to same URL in both states (`/privacyverklaring`)
-- [x] "Algemene voorwaarden" link points to same URL in both states (`/algemene-voorwaarden`)
-- [x] Footer styling consistent between states
+### Test Method
+Per testing hints:
+1. Resized browser to 1920x1080 (wide viewport)
+2. Navigated to `/beheer/applicaties`
+3. Verified left menu visible with all items
+4. Pressed F5 to refresh
+5. Verified left menu still present after refresh
+6. Navigated directly to `/beheer/diensten` via URL
+7. Verified left menu present on that page too
 
-**Footer Link Comparison (Logged Out vs Logged In):**
+### Findings
+- Left navigation menu renders with all expected items: Dashboard, Mijn Account, Mijn Organisatie, Diensten, Contactpersonen, Applicaties, Gebruik, Koppelingen, View
+- Menu persists after F5 refresh on /beheer/applicaties
+- Menu present when directly navigating to URLs (not just SPA navigation)
+- Menu works consistently across /beheer/applicaties and /beheer/diensten
 
-| Link | Logged Out | Logged In | Match |
-|------|-----------|-----------|-------|
-| GEMMA Online | https://www.gemmaonline.nl/ | https://www.gemmaonline.nl/ | YES |
-| NORA Online | https://www.noraonline.nl/ | https://www.noraonline.nl/ | YES |
-| VNG | https://vng.nl/ | https://vng.nl/ | YES |
-| Commonground | https://commonground.nl/ | https://commonground.nl/ | YES |
-| Privacy | /privacyverklaring | /privacyverklaring | YES |
-| Algemene voorwaarden | /algemene-voorwaarden | /algemene-voorwaarden | YES |
-| Disclaimer | /disclaimer | /disclaimer | YES |
-| FAQ | /faq | /faq | YES |
+### Acceptance Criteria Results
+- [x] **PASS** -- Navigate to "Applicaties" overview while logged in -- left menu visible
+- [x] **PASS** -- Press F5 or Ctrl+R to refresh -- left navigation menu remains visible
+- [x] **PASS** -- Menu present when directly navigating to URL (not just SPA navigation)
+- [x] **PASS** -- Menu persists across refreshes on other pages (Diensten tested)
+
+### Evidence
+- Screenshot: `beheer-applicaties-before-refresh.png` (left menu visible with all items before F5)
+- Screenshot: `beheer-applicaties-after-refresh.png` (left menu still visible after F5 refresh)
 
 ---
 
-### #406: SiteImprove verwijderen
+## Issue #409: Footer anders: inlog of uitgelogd
 
 **Status: PASS**
-**Test Step: 21**
 
-**Acceptance Criteria Results:**
-- [x] HTML source does NOT contain `siteimproveanalytics.com` script tag
-  - Verified: `hasSiteimprove: false`
-- [x] No references to "siteimprove" in page source
-- [x] Only Piwik analytics script present
-  - `hasPiwik: true` (Piwik/Matomo reference detected in page)
-  - No external tracking script tags found (`trackingScripts: []`)
-- [x] Verify by viewing page source on public pages
-- [ ] Only ONE configurable position for tracking scripts -- **NOT VERIFIED** (requires admin config)
+### Test Method
+Compared footer links and structure between authenticated and unauthenticated states using JavaScript DOM inspection.
+
+### Findings
+
+**Authenticated footer links** (logged in as Mark Jansen):
+| Link Text | URL |
+|-----------|-----|
+| GEMMA Online | https://www.gemmaonline.nl/ |
+| NORA Online | https://www.noraonline.nl/ |
+| VNG | https://vng.nl/ |
+| Commonground | https://commonground.nl/ |
+| Privacy | /privacyverklaring |
+| Algemene voorwaarden | /algemene-voorwaarden |
+| Disclaimer | /disclaimer |
+| FAQ | /faq |
+
+**Unauthenticated footer links**: **Identical** to authenticated -- same links, same URLs, same structure.
+
+### Acceptance Criteria Results
+- [x] **PASS** -- Footer links are identical in logged-in and logged-out states
+- [x] **PASS** -- "Privacyverklaring" link points to same URL in both states (`/privacyverklaring`)
+- [x] **PASS** -- "Algemene voorwaarden" link points to same URL in both states (`/algemene-voorwaarden`)
+- [x] **PASS** -- Footer styling consistent between states (same structure, same navigation sections)
+- [x] **PASS** -- Team could not replicate -- confirmed not reproducible
+- [x] **PASS** -- A single, definitive set of footer links is applied to both states
+
+### Evidence
+- Screenshot: `homepage-authenticated.png` (footer while logged in as Mark Jansen)
+- Screenshot: `homepage-unauthenticated.png` (footer while logged out -- same links visible)
 
 ---
 
-### #105: Aanbieders zien applicatielandschappen en koppelingen niet
+## Issue #406: SiteImprove verwijderen
 
-**Status: CANNOT_TEST**
-**Reason:** Requires aanbod-beheerder role. Mark Jansen is gebruik-beheerder. Assigned to leverancier test agent.
+**Status: PASS**
+
+### Test Method
+Checked page HTML source for SiteImprove and Piwik/Matomo references on both authenticated and unauthenticated pages using JavaScript `document.documentElement.outerHTML` inspection.
+
+### Findings
+- **Authenticated page source**: `siteimprove` = false, `piwik/matomo` = true
+- **Unauthenticated page source**: `siteimprove` = false, `piwik/matomo` = true
+- No `siteimproveanalytics.com` script tags found in HTML source
+- No script tags referencing SiteImprove in any form
+- Piwik/Matomo analytics references confirmed present
+
+### Acceptance Criteria Results
+- [x] **PASS** -- HTML source does NOT contain `siteimproveanalytics.com` script tag
+- [x] **PASS** -- No references to "siteimprove" in page source
+- [x] **PASS** -- Piwik analytics is present (confirmed Piwik/Matomo references in page source)
+- [x] **PASS** -- Verified by viewing page source on public pages (both authenticated and unauthenticated)
+- [ ] **CANNOT VERIFY** -- Only ONE configurable position for tracking scripts (requires admin/CMS check)
+- [ ] **N/A** -- Production/accept environment verification (testing on local dev)
+
+---
+
+## Issue #105: Aanbieders zien applicatielandschappen en koppelingen niet
+
+**Status: MOVED**
+
+This issue requires testing as **aanbod-beheerder** role to verify that suppliers cannot see other organizations' application landscapes and connections. Mark Jansen is a **gebruik-beheerder**, which has unrestricted read access to applicaties and koppelingen. This issue has been assigned to the leverancier testing agent who has the correct aanbod-beheerder role.
 
 ---
 
 ## RBAC Security Verification Summary
 
-| Check | Result | Details |
-|-------|--------|---------|
-| Unauthenticated: gemeente contacts NOT visible | **FAIL** | PII (name, email, phone) exposed via API and UI |
-| Unauthenticated: leverancier contacts ARE visible | PASS | Expected behavior via publications |
-| Unauthenticated: admin endpoints inaccessible | PASS | /beheer requires login |
-| Gebruik-beheerder: sees own org data | PASS | Beheer pages scoped to "Test Gemeente" |
-| Gebruik-beheerder: contactpersonen scoped to own org | PASS | Table shows "Geen data gevonden" (correct for test org) |
-| Session management: logout works | PASS | Clicking "Uitloggen" redirects to logged-out home |
+### Tests Performed
 
----
+| Test | Expected Result | Actual Result | Status |
+|------|----------------|---------------|--------|
+| Unauthenticated: contactpersonen via _extend | Hidden (gemeente/samenwerking) | **Fully visible with PII** | **FAIL** |
+| Unauthenticated: search result count | ~1,853 | **12,617** (identical to authenticated) | **FAIL** |
+| Unauthenticated: koppeling visibility | Hidden | **3,416 visible** | **FAIL** |
+| Unauthenticated: gemeente-registered apps | Hidden | **9,644 visible via "Geregistreerd door" filter** | **FAIL** |
+| Unauthenticated: leverancier apps | Visible | Visible (1,395) | PASS |
+| Unauthenticated: organisatie data | Visible | Visible (3,107) | PASS |
+| Unauthenticated: admin endpoints | Blocked | Not tested (out of scope) | N/A |
+| Gebruik-beheerder: sees all data | Yes | Yes (12,617) | PASS |
 
-## Console Errors Summary
+### Critical Security Findings
 
-| Page | Error Count | Notable Errors |
-|------|------------|----------------|
-| Home (logged out) | 2 | Manifest syntax error (non-critical) |
-| /zoeken | 2-9 | Manifest error + 404s for orphaned UUID name resolution |
-| /publicatie/[id] | 2 | Manifest error |
-| /login | 2 | Manifest error |
-| /beheer | 10 | Manifest + 404 for org `a44a5556-...` (not in voorzieningen register) |
-| /beheer/applicaties | 14 | Same org 404 + schema related 404 |
-| /beheer/diensten | 14 | Same pattern |
-| /beheer/koppelingen | 14 | Same pattern |
-| /beheer/contactpersonen | 14 | Same pattern |
+1. **RBAC not enforced on publications endpoint**: The frontend search page (http://localhost:3000/zoeken) returns identical results (12,617) for both authenticated and unauthenticated users. This proves that NO RBAC filtering is being applied for the publications catalog endpoint. The expected behavior is ~1,853 results for unauthenticated users.
 
-**Recurring error:** `404 Not Found` for organisation `a44a5556-2001-4ffc-8a08-fe4705605b47`. This is the Test Gemeente's Nextcloud organisation ID which does not exist in the voorzieningen register. This causes 8+ errors per beheer page load but does not block functionality.
+2. **Contact person PII exposure (GDPR/AVG violation)**: Full personal data (first names, last names, email addresses, phone numbers, roles) of all municipality contact persons is returned via the `_extend=contactpersonen` API parameter without any authentication. This is a data protection violation.
+
+3. **Koppeling (connection) data publicly visible**: All 3,416 koppelingen are visible to unauthenticated users. Per the RBAC rules in `softwarecatalogus_register.json`, the koppeling schema should NOT have public read access.
+
+4. **Municipality application landscape fully exposed**: All 9,644 gemeente-registered applications are publicly visible on the search page, showing which municipalities use which applications. This operational data should be restricted to authenticated users with appropriate roles.
 
 ---
 
 ## Performance Summary
 
-No API calls exceeded the 500ms SLOW threshold during this test session. All pages loaded within acceptable timeframes. The `_limit=10000` requests for beheer data warmup completed successfully.
+| Page | Load Behavior | Notes |
+|------|---------------|-------|
+| Homepage (authenticated) | Normal | Renders within 2-3s |
+| Homepage (unauthenticated) | Delayed initial render | Full content appears after ~2s (SPA hydration) |
+| /zoeken (authenticated) | Normal | 12,617 results + facets load in 3-5s |
+| /zoeken (unauthenticated) | Normal | Same as authenticated (12,617 results) |
+| /beheer/applicaties | Normal | Left menu + table renders within 3s |
+| /beheer/diensten | Normal | Similar load time as applicaties |
+| OAS endpoints (registers 2,3,4) | Large responses | Up to 211K chars, loads successfully |
+| /login | Normal | Form renders immediately |
+| /reminder (password reset) | Normal | Form renders immediately |
+
+No individual API calls flagged as SLOW (>500ms) or PERFORMANCE_FAIL (>1000ms) during testing. Facet name resolution on the search page takes 3-5 seconds due to resolving 2,700+ UUIDs.
 
 ---
 
-## Overall Security Assessment
+## Console Errors Summary
 
-### CRITICAL Issues
-1. **#394 - Contact person PII leak**: Municipality employee personal data (names, email addresses, phone numbers, roles) is publicly accessible without authentication via both the publications API (`_extend[]=contactpersonen`) and the frontend detail pages. This violates the application's RBAC model and GDPR requirements.
+### Recurring Errors (observed across all authenticated pages)
+1. **Manifest syntax error**: `Manifest: Line: 1, column: 1, Syntax error` at `/meta/site.webmanifest` -- Severity: LOW (cosmetic, PWA manifest issue)
+2. **Organization fetch 404**: `Error fetching voorzieningen_organisatie` with 404 status -- Severity: MEDIUM (functional, user's organization not found in voorzieningen register)
+3. **Name resolution 404**: 7 UUIDs consistently fail to resolve via `/api/names/{uuid}` -- Severity: LOW (cosmetic, gracefully handled with fallback caching)
+4. **Schema related 404**: `/api/schemas/{type}/related` returning 404 -- Severity: LOW (non-blocking, related actions fail gracefully)
 
-### MEDIUM Issues
-1. **#315 - Search filters expose gemeente records**: While the search page no longer shows municipalities as application suppliers, the "Geregistreerd door" filter still allows filtering to see 345 gemeente organisation records. These are public organisation records (acceptable), but combined with #394 this creates a browseable directory of municipality employees.
+### Development-Only Errors
+5. **Webpack HMR errors**: `loadable-components: failed to asynchronously load component` and `SyntaxError` in build -- Severity: LOW (development hot-reload artifacts, would not appear in production)
 
-### LOW Issues
-1. **Manifest syntax error**: `site.webmanifest` returns invalid content on every page load (2 errors per page).
-2. **Organisation not found**: Test Gemeente organisation `a44a5556-...` not in voorzieningen register, causing 8+ console errors per beheer page.
-
-### Resolved Issues (PASS)
-- **#395**: Left sidebar persists through F5 refresh at 1920x1080 -- FIXED
-- **#409**: Footer identical between logged-in and logged-out states -- FIXED/NOT REPRODUCIBLE
-- **#406**: SiteImprove removed, only Piwik present -- FIXED
-- **#404**: No white screens encountered -- FIXED/NOT REPRODUCIBLE
-- **#183**: "Wachtwoord vergeten?" option present on login page -- IMPLEMENTED
-
----
-
-## Screenshots Index
-
-| File | Description |
-|------|-------------|
-| 01-home-logged-out.png | Homepage as unauthenticated user (1920x1080) |
-| 02-gemeente-contact-public.png | Gemeente Aa en Hunze detail page showing email/phone publicly |
-| 03-search-page-filters.png | Search page with filters showing Gemeente/Leverancier/Samenwerking |
-| 04-dashboard-logged-in.png | Authenticated beheer dashboard as Mark Jansen |
-| 05-applicaties-before-f5.png | Applicaties page with left sidebar visible (before F5) |
-| 06-applicaties-after-f5.png | Applicaties page with left sidebar visible (after F5) |
-
----
-
-## Recommendations
-
-1. **CRITICAL (#394)**: Immediately restrict the `_extend=contactpersonen` mechanism to not expose gemeente/samenwerking contact persons publicly. The RBAC rules in `softwarecatalogus_register.json` already specify contactpersoon is NOT public read -- this needs to be enforced on the publications extension endpoint. Additionally, the organisation detail pages should not display email/phone from contact persons for non-leverancier organisations.
-
-2. **MEDIUM**: Fix the `site.webmanifest` file to eliminate the recurring manifest syntax errors.
-
-3. **LOW**: Investigate why Test Gemeente's Nextcloud organisation ID (`a44a5556-...`) does not map to a record in the voorzieningen register, causing repeated 404 errors.
+### Assessment
+All console errors are non-blocking. Pages render successfully despite these errors. The organization fetch 404 may indicate that Mark Jansen's organization ("Test Gemeente") is not properly mapped in the voorzieningen register, but this does not prevent navigation or functionality.

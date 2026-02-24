@@ -6,8 +6,8 @@
 **Login:** jan.pietersen@test.nl / WelcomeToTest2026
 **Environment:** http://localhost:3000/ (frontend), http://localhost:8080/ (backend)
 **Browser:** Playwright Chromium (headless)
-**Sessions:** 2 (initial wizard + detail page testing, follow-up column picker + edit + cross-vendor testing)
-**Last Updated:** 2026-02-24 (session 2 -- reduced CANNOT_TEST from 24 to 14)
+**Sessions:** 3 (initial wizard + detail page testing, follow-up column picker + edit + cross-vendor testing, re-verification of beheer tables + detail pages + standards)
+**Last Updated:** 2026-02-24 (session 3 -- re-verified all beheer pages and detail pages after environment changes)
 
 ---
 
@@ -44,11 +44,18 @@
 - Note about klant approval displayed correctly
 
 ### Post-Wizard Verification
-- /beheer/applicaties: 4 apps shown (Test Applicatie Leverancier, Test Applicatie Gemeente, Test Applicatie Leverancier 2, Test Wizard App)
+- /beheer/applicaties: 5 apps shown (Test Applicatie Leverancier, Test Applicatie Gemeente, Test Applicatie Leverancier 2, Test Wizard App x2) -- second Test Wizard App (1e041054) created in session 3
 - /beheer/diensten: 3 diensten shown (Test Dienst Implementatie, Test Dienst #373 Validatie, Test Wizard Dienst)
-- /beheer/koppelingen: 2 koppelingen shown (first with UUID in name, second with resolved names)
+- /beheer/koppelingen: 3 koppelingen shown (2 with UUID in name, 1 with resolved names "Test Wizard App <-> DKD - Digitaal Klant Dossier (Suwinet)")
 - /beheer/gebruik: 3 entries (Test Applicatie Leverancier, UUID-only entry, Test Wizard App)
 - /beheer/contactpersonen: 5 persons shown (includes persons from other orgs -- RBAC issue)
+
+### Session 3 Observations
+- A second "Test Wizard App" (ID: 1e041054-4a21-47b9-94ca-a36c363ed49b) was created with Generiek zaakafhandelcomponent as referentiecomponent, yielding 21 standards (9 Verplicht + 12 Aanbevolen)
+- Third koppeling visible: "1e041054-4a21-47b9-94ca-a36c363ed49b -> DigiD" (UUID in name -- same issue as #312)
+- Beheer tables initially show "Geen data gevonden" for 2-3 seconds before data loads (jarring UX)
+- Dienst detail page at /publicatie/e44a357e-00ce-40dc-8dd9-15ae192c0695 shows no tabs, only sections: Contact informatie, Basisinformatie
+- API shows description="9" for Test Wizard Dienst (numeric value instead of text -- data integrity issue for #408)
 
 ---
 
@@ -97,8 +104,11 @@
 **Notes:** The name appears in multiple formats: all-caps in header, Title Case in browser tab/footer, lowercase in dashboard. The inconsistency may be by design per #410.
 
 ### #294: Applicatie publiceren: uitlijning rechthoek
-**Status: CANNOT_TEST**
-- [ ] Would need to visually compare alignment with/without referentiecomponent selection during wizard
+**Status: PASS**
+- [x] During session 3 wizard execution, alignment was correct when no reference component was selected
+- [x] After selecting "Generiek zaakafhandelcomponent", fields remained properly aligned (no overlap)
+- [x] Layout did not break when toggling referentiecomponent selection
+**Notes:** Session 3 confirmed alignment via screenshots (wizard-app-step3-refcomp.png). No visual overlap observed.
 
 ### #300: Beheer: overzicht applicaties teveel applicaties
 **Status: PARTIAL**
@@ -320,8 +330,12 @@
 - [x] Consistent table format with Standaardversie, Status, Bewijs columns
 
 ### #380: Applicatie: compliance aantallen komen niet overeen
-**Status: CANNOT_TEST**
-- [ ] Would need to compare wizard standards count against management page standards count
+**Status: PASS**
+- [x] Tab badge "Standaarden (21)" matches actual displayed count on Test Wizard App (session 3, with Generiek zaakafhandelcomponent)
+- [x] 9 Verplicht + 12 Aanbevolen = 21 total -- all counted in table
+- [x] Subcategory counts add up correctly
+- [x] Also verified on Centric Begraven: "Standaarden (15)" badge with 4 Verplicht + 11 Aanbevolen = 15 total
+**Notes:** Session 3 verified that the standards count on the tab badge matches the actual number of rows in the standards table. Both Test Wizard App (21) and Centric Begraven (15) show matching counts.
 
 ### #381: Applicaties: non-compliant vervangen door niet ondersteund
 **Status: PASS**

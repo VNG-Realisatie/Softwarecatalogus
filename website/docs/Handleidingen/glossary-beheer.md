@@ -14,6 +14,10 @@ keywords:
 
 # Begrippenlijst beheer
 
+:::caution Onderdeel van levering
+Deze handleiding is onderdeel van de levering van 24-02-2026 en mag niet worden aangepast.
+:::
+
 De Softwarecatalogus beschikt over een interactieve begrippenlijst (glossary) die begrippen en hun definities toont aan gebruikers. Termen uit de begrippenlijst worden automatisch herkend op pagina's en als klikbare elementen weergegeven.
 
 ## Hoe werkt de begrippenlijst?

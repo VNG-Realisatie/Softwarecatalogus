@@ -19,20 +19,20 @@ All sub-agents share this context:
 
 > **LOCAL TEST ONLY** — All credentials in this file and the persona skill files are for the local development environment only. They do NOT work on production or acceptance environments.
 
-- **Frontend**: http://localhost:3000/
-- **Backend**: http://localhost:8080/
-- **Login URL**: http://localhost:3000/login
-- **Backend Admin**: http://localhost:8080/ (admin/admin)
+- **Frontend**: {FRONTEND}/
+- **Backend**: {BACKEND}/
+- **Login URL**: {FRONTEND}/login
+- **Backend Admin**: {BACKEND}/ (admin/admin)
 
 ### OAS Documentation URLs
 These auto-generated OpenAPI specs document the available API endpoints and schemas:
-- **Voorzieningen register (id=2)**: http://localhost:8080/index.php/apps/openregister/api/registers/2/oas
-- **GEMMA/AMEFF register (id=4)**: http://localhost:8080/index.php/apps/openregister/api/registers/4/oas
+- **Voorzieningen register (id=2)**: {BACKEND}/index.php/apps/openregister/api/registers/2/oas
+- **GEMMA/AMEFF register (id=4)**: {BACKEND}/index.php/apps/openregister/api/registers/4/oas
 
 Use these when testing issues related to API access, OAS documentation, or public API availability (e.g., #85, #148).
 
 ### Login Procedure
-1. Navigate to http://localhost:3000/login
+1. Navigate to {FRONTEND}/login
 2. **Before entering credentials**: Use `browser_evaluate` to run `localStorage.clear()` — this removes stale sessions from previous agents
 3. Enter the persona's username and password
 4. Verify the dashboard loads after login
@@ -46,8 +46,8 @@ Before testing each issue, read its detailed acceptance criteria in `Softwarecat
 
 ### CMS Page Management
 CMS pages (privacy, terms, FAQ, disclaimer) are managed in the **OpenCatalogi** Nextcloud backend app:
-- **Pages URL**: http://localhost:8080/index.php/apps/opencatalogi/pages#
-- **Themes URL**: http://localhost:8080/index.php/apps/opencatalogi/themes#
+- **Pages URL**: {BACKEND}/index.php/apps/opencatalogi/pages#
+- **Themes URL**: {BACKEND}/index.php/apps/opencatalogi/themes#
 - **IMPORTANT**: The URL pattern is `/apps/opencatalogi/pages#` (NOT `/#/pages`)
 - **Features**: Create, edit, delete, copy pages with title, slug, summary, description
 - **Public API**: `GET /index.php/apps/opencatalogi/api/pages/{slug}`
@@ -193,19 +193,19 @@ If your assigned browser errors or is unresponsive, try the next available brows
 
 ### OAS Documentation URLs
 When testing API-related issues (e.g., #85, #148), use these OAS documentation endpoints:
-- Voorzieningen register: http://localhost:8080/index.php/apps/openregister/api/registers/2/oas
-- GEMMA/AMEFF register: http://localhost:8080/index.php/apps/openregister/api/registers/4/oas
+- Voorzieningen register: {BACKEND}/index.php/apps/openregister/api/registers/2/oas
+- GEMMA/AMEFF register: {BACKEND}/index.php/apps/openregister/api/registers/4/oas
 
 ### Login Procedure
 **For authenticated personas (all except bezoeker):**
-1. Use `mcp__browser-{browser_num}__browser_navigate` to go to http://localhost:3000/login
+1. Use `mcp__browser-{browser_num}__browser_navigate` to go to {FRONTEND}/login
 2. IMPORTANT: Before entering credentials, use `mcp__browser-{browser_num}__browser_evaluate` to run: localStorage.clear()
    This removes stale sessions from previous tests.
 3. Enter your persona's credentials (from the skill file)
 4. Verify dashboard loads after login
 
 **For bezoeker (unauthenticated):**
-1. Use `mcp__browser-{browser_num}__browser_navigate` to go to http://localhost:3000/zoeken?_page=1
+1. Use `mcp__browser-{browser_num}__browser_navigate` to go to {FRONTEND}/zoeken?_page=1
 2. Use `mcp__browser-{browser_num}__browser_evaluate` to run: localStorage.clear()
 3. Do NOT log in — all testing is done as an anonymous visitor
 
@@ -229,7 +229,7 @@ When testing RBAC/visibility issues, read the register JSON for the exact rules.
 
 ### CMS Pages
 CMS pages (privacy, terms, FAQ, disclaimer) are managed in the OpenCatalogi Nextcloud backend:
-- URL: http://localhost:8080/index.php/apps/opencatalogi/#/pages
+- URL: {BACKEND}/index.php/apps/opencatalogi/#/pages
 - Use this when testing CMS-related issues (#397, #403, #332).
 
 ### Wizard Execution — MANDATORY
@@ -268,13 +268,13 @@ After completing all tests, you MUST clean up any objects you created during wiz
 
 1. Search for objects you created:
    ```bash
-   curl -s -u admin:admin 'http://localhost:8080/index.php/apps/opencatalogi/api/publications?_search=Test+Wizard&_limit=50'
+   curl -s -u {ADMIN_USER}:{ADMIN_PASS} '{BACKEND}/index.php/apps/opencatalogi/api/publications?_search=Test+Wizard&_limit=50'
    ```
    Also search for any other names you used during wizard testing (e.g., your test koppeling names).
 
 2. For each object where `@self.owner` matches your username, delete it:
    ```bash
-   curl -s -X DELETE -u admin:admin 'http://localhost:8080/index.php/apps/openregister/api/objects/{register}/{schema}/{id}'
+   curl -s -X DELETE -u {ADMIN_USER}:{ADMIN_PASS} '{BACKEND}/index.php/apps/openregister/api/objects/{register}/{schema}/{id}'
    ```
    Use the `register`, `schema`, and `id` values from the object's `@self` metadata.
 
@@ -322,7 +322,7 @@ For each file, extract:
 # GEMMA Softwarecatalogus — Test Results Summary
 
 **Date:** {today's date}
-**Environment:** Local development (Frontend: http://localhost:3000, Backend: http://localhost:8080)
+**Environment:** Local development (Frontend: {FRONTEND}, Backend: {BACKEND})
 **Method:** Automated browser testing with 7 persona-based agents using Playwright MCP
 
 ---

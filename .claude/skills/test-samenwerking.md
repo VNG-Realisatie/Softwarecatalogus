@@ -18,8 +18,8 @@ Linda represents a collaboration that acts as BOTH a supplier (offering shared s
 
 ## Test Environment
 
-- **Frontend**: `{FRONTEND}` (default: `http://localhost:3000`)
-- **Backend**: `{BACKEND}` (default: `http://localhost:8080`)
+- **Frontend**: `{FRONTEND}` (default: `{FRONTEND}`)
+- **Backend**: `{BACKEND}` (default: `{BACKEND}`)
 - **Browser**: Use Playwright MCP browser tools (prefixed `mcp__browser-N__`, where N is assigned by the orchestrator)
 - **Login URL**: `{FRONTEND}/login`
 
@@ -61,8 +61,8 @@ Linda represents a collaboration that acts as BOTH a supplier (offering shared s
 ## Instructions
 
 When running tests for this persona:
-1. Navigate to http://localhost:3000/login
-2. Log in with `linda.bakker@test.nl` / `WelcomeToTest2026`
+1. Navigate to `{FRONTEND}/login`
+2. Log in with `{PERSONA_USERNAME}` / `{PERSONA_PASSWORD}`
 3. **For each issue**: Read the acceptance criteria in `issues.md`, then test each criterion
 4. Focus on the dual-role nature: both supplier AND consumer
 5. Test multi-organization management thoroughly (Step 20)

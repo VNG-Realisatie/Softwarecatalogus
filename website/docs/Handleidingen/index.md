@@ -15,7 +15,15 @@ keywords:
 
 Praktische stap-voor-stap handleidingen voor het beheren van de GEMMA Softwarecatalogus. Deze handleidingen zijn bedoeld voor functioneel beheerders en andere gebruikers met beheertoegang.
 
-## Beschikbare handleidingen
+:::info Eén website, twee fases
+De Softwarecatalogus heeft één documentatiewebsite voor zowel projectdocumentatie als handleidingen. Dat betekent dat oude en nieuwe content door elkaar staan. Hieronder vindt u een onderscheid tussen handleidingen die onderdeel zijn van de levering en handleidingen die daarna zijn toegevoegd vanuit het aandachtsgebied CI/CD en gebruik.
+:::
+
+---
+
+## Handleidingen levering (vóór maandag 24-02-2026 09:00)
+
+De onderstaande handleidingen zijn onderdeel van de **levering van 24-02-2026** en mogen niet worden aangepast.
 
 | Handleiding | Doelgroep | Beschrijving |
 |-------------|-----------|--------------|
@@ -23,10 +31,21 @@ Praktische stap-voor-stap handleidingen voor het beheren van de GEMMA Softwareca
 | [Begrippenlijst beheer](./glossary-beheer.md) | Functioneel beheerder | Begrippen en definities in de begrippenlijst beheren |
 | [Organisaties samenvoegen](./organisaties-samenvoegen.md) | Functioneel beheerder | Organisaties samenvoegen bij herindeling of overname |
 | [Facetbeheer](./facet-beheer.md) | Functioneel beheerder | Zoekfacetten en filters configureren |
+| [Export beheer](./export-beheer.md) | Functioneel beheerder | Registers en schema's exporteren |
+
+---
+
+## Nieuwe handleidingen (na maandag 24-02-2026 09:00)
+
+De onderstaande handleidingen worden momenteel ontwikkeld vanuit het aandachtsgebied **CI/CD en gebruik**. Deze zijn nieuw en nog in bewerking.
+
+| Handleiding | Doelgroep | Beschrijving |
+|-------------|-----------|--------------|
+| [Beheer](./beheer/index.md) | Leverancier / Gemeente | Applicaties, diensten, koppelingen en gebruik beheren via wizards |
 | [Schema-instellingen](./schema-instellingen.md) | Functioneel beheerder | Schema-eigenschappen, kolomweergave en validatie configureren |
 | [API-documentatie](./api-documentatie.md) | Functioneel beheerder | API-documentatie raadplegen en gebruiken |
-| [Export beheer](./export-beheer.md) | Functioneel beheerder | Registers en schema's exporteren |
-| [Beheer](./beheer/index.md) | Leverancier / Gemeente | Applicaties, diensten, koppelingen en gebruik beheren via wizards |
+
+---
 
 ## Vereisten
 

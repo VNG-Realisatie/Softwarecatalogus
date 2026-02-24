@@ -14,6 +14,10 @@ keywords:
 
 # Facetbeheer (zoekfilters)
 
+:::caution Onderdeel van levering
+Deze handleiding is onderdeel van de levering van 24-02-2026 en mag niet worden aangepast.
+:::
+
 De zoekpagina van de Softwarecatalogus toont filters (facetten) waarmee gebruikers de zoekresultaten kunnen verfijnen. Deze facetten worden automatisch gegenereerd op basis van de schema-eigenschappen in OpenRegister, maar kunnen door een functioneel beheerder worden geconfigureerd.
 
 ## Beschikbare zoekfacetten

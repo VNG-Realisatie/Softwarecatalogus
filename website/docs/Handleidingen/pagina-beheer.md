@@ -14,6 +14,10 @@ keywords:
 
 # Paginabeheer (CMS)
 
+:::caution Onderdeel van levering
+Deze handleiding is onderdeel van de levering van 24-02-2026 en mag niet worden aangepast.
+:::
+
 De Softwarecatalogus bevat een ingebouwd CMS-systeem waarmee functioneel beheerders pagina's kunnen aanmaken en bewerken. Denk hierbij aan de privacyverklaring, algemene voorwaarden, FAQ en andere informatieve pagina's.
 
 ## Overzicht

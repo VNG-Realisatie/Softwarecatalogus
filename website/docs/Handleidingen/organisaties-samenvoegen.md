@@ -15,6 +15,10 @@ keywords:
 
 # Organisaties samenvoegen
 
+:::caution Onderdeel van levering
+Deze handleiding is onderdeel van de levering van 24-02-2026 en mag niet worden aangepast.
+:::
+
 Bij gemeentelijke herindelingen, fusies of overnames kan het nodig zijn om organisaties in de Softwarecatalogus samen te voegen. Dit zorgt ervoor dat het applicatielandschap, koppelingen en gebruiksgegevens correct worden overgedragen naar de nieuwe organisatie.
 
 ## Wanneer organisaties samenvoegen?

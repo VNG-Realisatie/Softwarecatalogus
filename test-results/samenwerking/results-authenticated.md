@@ -4,7 +4,7 @@
 **Role:** Gebruik-beheerder
 **Login:** linda.bakker@test.nl
 **Environment:** http://localhost:3000 (Frontend), http://localhost:8080 (Backend)
-**Date:** 2026-02-24 (Re-test #2)
+**Date:** 2026-02-24 (Re-test #3)
 **Browser:** Playwright (browser-7, headless)
 
 ---
@@ -12,10 +12,9 @@
 ## Login Verification
 
 - **Status:** PASS
-- **Details:** Successfully logged in as linda.bakker@test.nl with password WelcomeToTest2026. Dashboard loaded at `/beheer` showing "Default Organisation" with organization selector dropdown. Two organizations available: "Default Organisation" and "Test Samenwerking".
-- **Screenshot:** `01-dashboard-login.png`
-- **My Account page** confirms email: linda.bakker@test.nl, Organisation: "Default Organisation"
-- **Screenshot:** `04-my-account.png`
+- **Details:** Successfully logged in as linda.bakker@test.nl with password WelcomeToTest2026. Dashboard loaded at `/beheer` showing "Test Samenwerking" with organization selector dropdown. Two organizations available: "Default Organisation" and "Test Samenwerking".
+- **localStorage cleared** before login as required
+- **Screenshot:** `01-login-dashboard.png`
 
 ---
 
@@ -25,7 +24,7 @@
 **GitHub:** https://github.com/VNG-Realisatie/Softwarecatalogus/issues/57
 **Labels:** Gebruik, PvE eis
 **Test Step:** Step 20 (Samenwerkingen en Multi-Organisatie Beheer)
-**Previous Status:** PARTIAL
+**Previous Status:** PARTIAL (re-test #2: FAIL)
 
 ### Acceptance Criteria Results
 
@@ -34,50 +33,58 @@ Issue #57 does not have detailed acceptance criteria in `issues.md`. The issue b
 | # | Criterion | Result | Notes |
 |---|-----------|--------|-------|
 | 1 | Organization selector shows samenwerking | **PASS** | "Test Samenwerking" appears in the dropdown alongside "Default Organisation" |
-| 2 | Can switch to samenwerking context | **FAIL** | JavaScript crash on org switch (TypeError: Cannot read properties of undefined reading 'includes') |
-| 3 | Dashboard shows management options for samenwerking | **FAIL** | After reload with Test Samenwerking selected: "Geen wizards beschikbaar voor deze organisatie" + 404 errors fetching org data |
+| 2 | Can switch to samenwerking context | **FAIL** | JavaScript crash on org switch (TypeError: Cannot read properties of undefined reading 'includes') at ac-dashboard.js:186 |
+| 3 | Dashboard shows management options for samenwerking | **FAIL** | "Geen wizards beschikbaar voor deze organisatie" -- no wizard buttons (Applicatie, Koppeling, Dienst) are displayed for "Test Samenwerking" |
 | 4 | Can add packages for member municipalities | **CANNOT_TEST** | Dashboard broken for samenwerking context, no wizard buttons shown |
 | 5 | Can manage packages across member municipalities | **CANNOT_TEST** | Dependent on above |
 | 6 | Bulk operations for multiple organizations | **CANNOT_TEST** | No bulk operation UI found |
 | 7 | Collective license management | **CANNOT_TEST** | No collective license management feature found |
 | 8 | Member municipality data is correctly scoped | **CANNOT_TEST** | Cannot test data scoping when samenwerking context is broken |
+| 9 | Gebruik page accessible | **PASS** | /beheer/gebruik loads with proper table structure (Type, Applicatie, Applicatie versie, Referentiecomponenten, Hosting, Acties) and "Toevoegen" button |
+| 10 | Mijn Account page shows correct user data | **PASS** | Shows Linda Bakker, linda.bakker@test.nl, Coordinator, with "Bewerken" button |
+| 11 | Mijn Organisatie page accessible | **PARTIAL** | Loads with "Test Samenwerking" heading but shows "Geen korte beschrijving" and organization data returns 404 |
 
 ### Critical Bug: Dashboard Crash on Organization Switch
 
 **Error:** `TypeError: Cannot read properties of undefined (reading 'includes')`
-**Location:** `src/views/ac-beheer/core/components/ac-dashboard.js:200`
+**Location:** `src/views/ac-beheer/core/components/ac-dashboard.js:186` (line 202: `userGroups.includes('aanbod-beheerder')`)
 
-When switching from "Default Organisation" to "Test Samenwerking" (or vice versa) using the organization dropdown, the application throws an unhandled TypeError. The code at line 202 calls `userGroups.includes('aanbod-beheerder')` but `userGroups` is undefined after the org switch.
+When switching from "Test Samenwerking" to "Default Organisation" using the organization dropdown, the application throws an unhandled TypeError. The `userGroups` variable is undefined after the org switch.
 
 - **Impact:** Application crashes with a development error overlay. In production, this would result in a blank/broken page.
-- **Screenshot:** `02-org-switch-error.png`
+- **Screenshot:** `10-org-switch-crash.png`
 - **Reproducible:** Yes, occurs consistently on every org switch
 
-### "Test Samenwerking" Dashboard State
+### Organization State Comparison
 
-After a full page reload (not using the dropdown) with "Test Samenwerking" remembered:
-- Dashboard heading shows "Mijn softwarecatalogus" with "Test Samenwerking" selected
-- Message: "Geen wizards beschikbaar voor deze organisatie" (No wizards available for this organization)
-- The "Applicatie toevoegen", "Koppeling toevoegen", and "Dienst toevoegen" buttons are NOT shown
-- Backend returns 404 errors:
-  - `Failed to load resource: 404` for voorzieningen_organisatie object
-  - `Error fetching voorzieningen_organisatie` (404)
-  - `Error fetching organization data: AxiosError` (404)
-- **Screenshot:** `03-test-samenwerking-dashboard.png`
+| Feature | Test Samenwerking | Default Organisation |
+|---------|-------------------|----------------------|
+| Dashboard wizards | None ("Geen wizards beschikbaar") | 3 buttons: Applicatie, Koppeling, Dienst |
+| Organization data API | 404 Not Found | Works (no org-level 404) |
+| Gebruik page | Accessible (empty table) | Accessible (empty table) |
+| Koppelingen page | Accessible (empty table) | Accessible (empty table) |
 
 ### Missing Samenwerking-Specific Features
 
 The following features described in Step 20 of the test guide are not yet implemented or not accessible:
 
 1. **Leden Beheer** -- No member management page for defining which municipalities belong to the samenwerking
-2. **Adding products on behalf of members** -- No workflow to select a member municipality and register packages for them with approval
+2. **Adding products on behalf of members** -- No workflow to select a member municipality and register packages for them
 3. **Bulk operations** -- No ability to add a product to multiple organizations simultaneously
 4. **Collective license management** -- No shared license management feature
 5. **Organization fusies** -- No merge/transfer feature
 
 ### Verdict: **FAIL**
 
-The samenwerkingsverband functionality is fundamentally broken. Switching to the "Test Samenwerking" organization causes a JavaScript crash, and even after reload, the dashboard shows no management options and returns 404 errors for organization data. Linda Bakker cannot perform any actions on behalf of member municipalities.
+The samenwerkingsverband functionality is fundamentally broken. The "Test Samenwerking" organization has no wizards and its organization data returns 404 from the backend. Switching organizations causes a JavaScript crash. Linda Bakker cannot perform any actions on behalf of member municipalities.
+
+### Comparison with Previous Test Runs
+
+| Run | Status | Notes |
+|-----|--------|-------|
+| Re-test #1 | PARTIAL | - |
+| Re-test #2 | FAIL | Org switch crash, no wizards, 404 errors |
+| Re-test #3 (current) | **FAIL** | Same issues persist: org switch crash at line 186, no wizards for samenwerking, organization data 404 |
 
 ---
 
@@ -92,111 +99,165 @@ The samenwerkingsverband functionality is fundamentally broken. Switching to the
 
 | # | Criterion | Result | Evidence |
 |---|-----------|--------|----------|
-| 1 | Koppelingen display in a table format with readable titles (not blank or UUID-only) | **PARTIAL** | Most koppelingen have readable names (e.g., "Drupal voor Gemeenten (DVG) <-> JOIN Klantcontact"). However, some have incomplete names: "Makelaarsuite <->" (missing second app), "COMPAS <->" (missing second app), "CiVision Gemeentelijke Servicebus <->" (missing second app), and one shows only "<->" (completely blank name). Per the testing note in issues.md, these are caused by bad client data (referencing deleted applications), not a code bug. |
-| 2 | Koppelingen linked to "buitengemeentelijke voorzieningen" correctly display the referenced external service | **CANNOT_TEST** | No buitengemeentelijke voorziening koppelingen were identifiable in the local test data. The public search for category "Koppelingen" returns 0 results. |
-| 3 | Koppelingen do not reference non-existent applications (graceful handling) | **PARTIAL** | Some koppelingen show names like "Makelaarsuite <->" or "COMPAS <->" where the second application is missing, but no errors are thrown (graceful). However, the display is confusing for end users. |
-| 4 | Detail page shows all relevant fields: name, type, transport protocol, linked applications, external service | **PARTIAL** | Fields shown: title (correct), richting (correct), transportprotocol (correct), status (correct). However, Applicatie A and Applicatie B show "-" on beheer detail page. Direction widget shows "null <-> null". Public detail page shows "[object Object]" for Applicatie B. |
-| 5 | Koppeling detail page at /publicatie/{uuid} renders correctly | **PARTIAL** | Page renders but with bugs: (a) Browser tab title shows UUID instead of name, (b) Applicatie B displays "[object Object]", (c) Direction widget shows "[object Object]" for B-side. |
+| 1 | Koppelingen display in a table format with readable titles (not blank or UUID-only) | **PARTIAL** | Table structure is correct with columns: Naam, Status, Korte beschrijving, Applicatie A, Applicatie B, Acties. However, no koppelingen data exists for the "Test Samenwerking" organization. The table shows "Geen data gevonden". |
+| 2 | Koppelingen linked to "buitengemeentelijke voorzieningen" correctly display the referenced external service | **CANNOT_TEST** | No existing koppelingen data for this organization to verify |
+| 3 | Koppelingen do not reference non-existent applications (graceful handling) | **CANNOT_TEST** | No existing koppelingen data for this organization |
+| 4 | Detail page shows all relevant fields: name, type, transport protocol, linked applications, external service | **CANNOT_TEST** | No existing koppelingen to view detail pages |
+| 5 | Koppeling detail page at /publicatie/{uuid} renders correctly | **CANNOT_TEST** | No existing koppelingen to navigate to |
 
-### Detailed Observations
+### Koppeling Wizard Test (Step 11)
 
-#### Beheer Koppelingen Overview (`/beheer/koppelingen`)
+The wizard was tested thoroughly by navigating to `/forms/koppeling` via the "Toevoegen" button:
 
-- Table displays with columns: Naam, Status, Korte beschrijving, Applicatie A, Applicatie B, Acties
-- Status column initially shows "Loading..." then resolves to "In gebruik" / "in gebruik" (inconsistent capitalization)
-- "Korte beschrijving" column shows "-" for all entries
-- "Applicatie A" and "Applicatie B" columns show "-" for all entries (data not resolved in table view)
-- Pagination works (2 pages visible with 20 items per page)
-- "Toevoegen" button is available and functional
-- Actions dropdown per row offers: Bekijken, Bewerken, Verwijderen
-- **Screenshot:** `05-koppelingen-overview.png`
+| # | Test | Status | Notes |
+|---|------|--------|-------|
+| W1 | Wizard accessible from /beheer/koppelingen via "Toevoegen" button | **PASS** | Button present and functional, navigates to /forms/koppeling |
+| W2 | Step 1: "Controleren op bestaande koppeling" heading and instructions | **PASS** | Clear instructions with two methods to check for existing koppelingen |
+| W3 | Step 1: Application selector | **PASS** | Dropdown shows 20 applications; selecting one enables "Volgende" button |
+| W4 | Step 1: Existing koppelingen check | **PASS** | After selecting "Webcast", shows "Reeds bestaande koppelingen voor Webcast" with proper message when none exist: "Geen bestaande koppelingen gevonden voor Webcast. U kunt deze zelf toevoegen in de volgende stap." |
+| W5 | Step 1: "Ik kan de gewenste applicatie niet vinden" button | **PASS** | Alternative action button present |
+| W6 | Step 1: Info alert about search page | **PASS** | Shows "Zoekpagina" info box explaining alternative workflow |
+| W7 | Step 2: "Koppelingen met andere applicaties" form | **PASS** | Form renders with all required fields |
+| W8 | Step 2: Applicatie A pre-filled | **PASS** | Shows "Webcast" (from step 1 selection), not editable |
+| W9 | Step 2: Richting dropdown | **PASS** | Three options: "A -> B", "B -> A", "Bi-directioneel" |
+| W10 | Step 2: Applicatie B of BGV dropdown | **PASS** | 72 options available. "Webcast (al gekozen bij A)" is properly disabled. Includes both applications and buitengemeentelijke voorzieningen (DigiD, BRK, etc.) |
+| W11 | Step 2: Naam field (required) | **PASS** | Text input with placeholder "Naam van de koppeling" |
+| W12 | Step 2: Status and Startdatum fields | **PASS** | Status dropdown available; Startdatum disabled until status is selected (correct behavior) |
+| W13 | Step 2: "Nieuwe koppeling toevoegen" button | **PASS** | Present for adding additional connections in the same session |
+| W14 | Step 2: "Rij 1 verwijderen" button | **PASS** | Present but disabled when only 1 row exists (correct) |
+| W15 | Step 2: Legend indicators | **PASS** | Shows "Applicatie" (green dot) and "Buiten Gemeentelijke Voorziening" (blue dot) legend |
+| W16 | Step 3: "Aanvullende informatie over uw koppelingen" | **PASS** | Shows koppeling name as heading, with fields: Korte beschrijving (255 chars), Lange beschrijving (markdown editor with full toolbar), Standaardversies dropdown, Transportprotocol dropdown, Intermediair dropdown |
+| W17 | Step 3: Markdown editor | **PASS** | Full toolbar with: Bold, Italic, Strikethrough, HR, Title, Link, Quote, Code, Code Block, Comment, Image, Table, Unordered List, Ordered List, Checked List, Help |
+| W18 | Step 4: "Controleer uw gegevens" review page | **PASS** | Shows clear summary: "Test Koppeling Samenwerking" with "Webcast -> RVTools" direction |
+| W19 | Step 4: "Opslaan" button | **PASS** | Save button present (not clicked to avoid creating test data) |
+| W20 | Navigation (Vorige/Volgende) | **PASS** | Previous/Next buttons work correctly throughout all 4 wizard steps; step indicators show completed steps with checkmarks |
 
-#### Beheer Koppeling Detail (`/beheer/koppeling/{uuid}`)
+### Koppelingen Table Page
 
-Tested with: Drupal voor Gemeenten (DVG) <-> JOIN Klantcontact
+| # | Test | Status | Notes |
+|---|------|--------|-------|
+| T1 | Page loads at /beheer/koppelingen | **PASS** | Page renders with proper heading and table structure |
+| T2 | Table columns correct | **PASS** | Columns: Naam, Status, Korte beschrijving, Applicatie A, Applicatie B, Acties |
+| T3 | Search available | **PASS** | "Toon zoekbalk" button present |
+| T4 | Filters available | **PASS** | "Filters openen" button present |
+| T5 | Toevoegen button | **PASS** | Present and functional |
+| T6 | Acties dropdown | **PASS** | "Acties" button present |
+| T7 | Pagination | **PASS** | Shows "Pagina 1 van 1" with items-per-page selector (default 20) |
+| T8 | Select all checkbox | **PASS** | Present (disabled when no data) |
 
-- **Title:** "Drupal voor Gemeenten (DVG) <-> JOIN Klantcontact" -- correct readable name
-- **Direction widget:** Shows "null <-> null" -- **BUG** (should show application names)
-- **Applicatie A:** "-" (not resolved)
-- **Applicatie B:** "-" (not resolved)
-- **Richting:** "bi-directioneel (<->)" -- correct
-- **Transportprotocol:** "intern" -- correct
-- **Status:** "in gebruik" -- correct
-- **Applicaties tab:** Shows "Applicaties (1)" with only Drupal voor Gemeenten (DVG) -- missing the second application (JOIN Klantcontact)
-- **Screenshot:** `06-koppeling-detail-dvg.png`
+### Key Console Errors on Koppelingen Pages
 
-#### Public Koppeling Detail (`/publicatie/{uuid}`)
+- `koppeling/related` endpoint returns 404 -- the related schemas endpoint is missing
+- Organization data 404 errors (same as all authenticated pages)
+- Schema warnings: "Schema not found for type: koppeling" (non-critical, display still works)
 
-Tested with UUID: 062878e7-8d8a-5b21-a135-6e992eb3223b
+### Evidence
 
-- **Main heading:** "Drupal voor Gemeenten (DVG) <-> JOIN Klantcontact" -- correct
-- **Browser tab title:** "33980275-9a5d-5fa3-95b8-68fa8b065442 <->" -- **BUG** (shows UUID instead of readable name)
-- **Applicatie A:** "Drupal voor Gemeenten (DVG)" -- correct
-- **Applicatie B:** "[object Object]" -- **BUG** (JavaScript object serialization error)
-- **Direction widget:** "Drupal voor Gemeenten (DVG) <-> [object Object]" -- **BUG**
-- **Richting:** "bi-directioneel (<->)" -- correct
-- **Transportprotocol:** "intern" -- correct
-- **Status:** "in gebruik" -- correct
-- **Applicaties tab:** Shows "Applicaties (1)" with Drupal voor Gemeenten (DVG) card
-- **Screenshot:** `07-koppeling-publicatie-detail.png`
-
-#### Koppeling Wizard
-
-- Accessible from dashboard via "Koppeling toevoegen" button
-- URL: `/forms/gebruik/koppeling?type=aanbieden-koppeling`
-- Wizard has 3 steps: (1) Een koppeling zoeken, (2) Gebruiksinformatie, (3) Controleren
-- Step 1 loads correctly with application selector and existing koppeling check
-- Debug panel visible ("Debug: Koppeling Data (Click to expand)") -- should be hidden in production
-- **Screenshot:** `08-koppeling-wizard-step1.png`
-
-### Key Bugs Found
-
-1. **[object Object] for Applicatie B on public detail page** -- The public-facing koppeling detail page (`/publicatie/{uuid}`) renders `[object Object]` instead of the application B name. The application object is being coerced to string instead of being resolved to its display name.
-
-2. **"null <-> null" in direction widget on beheer detail page** -- The beheer koppeling detail page shows "null" for both application names in the direction visualization widget.
-
-3. **Applicatie A and B show "-" in beheer overview table and detail page** -- All koppelingen in the management table and beheer detail pages show "-" for both Applicatie A and Applicatie B columns.
-
-4. **Browser tab title shows UUID** -- The public detail page `<title>` contains a raw UUID ("33980275-9a5d-5fa3-95b8-68fa8b065442 <->") instead of a readable koppeling name.
-
-5. **Inconsistent status capitalization** -- Some entries show "In gebruik" (capitalized) and others "in gebruik" (lowercase).
-
-6. **Only 1 of 2 applications shown in Applicaties tab** -- Despite the koppeling connecting two applications, only one appears in the Applicaties tab on both beheer and public detail pages.
+| Screenshot | Description |
+|------------|-------------|
+| `03-koppelingen-page.png` | Koppelingen table page (empty, "Geen data gevonden") |
+| `04-koppeling-wizard-step1.png` | Wizard step 1: search for existing koppelingen |
+| `04b-koppeling-wizard-step1-full.png` | Wizard step 1: full page view |
+| `05-koppeling-wizard-app-selected.png` | Application "Webcast" selected, existing koppelingen check displayed |
+| `06-koppeling-wizard-step2.png` | Wizard step 2: connection definition form with all fields |
+| `07-koppeling-wizard-step3.png` | Wizard step 3: additional information (markdown editor, standard versions, etc.) |
+| `08-koppeling-wizard-step4-review.png` | Wizard step 4: review showing "Test Koppeling Samenwerking: Webcast -> RVTools" |
 
 ### Verdict: **PARTIAL**
 
-The koppelingen feature has significant display issues. While koppelingen are shown in a table with mostly readable names and the wizard is accessible, the detail pages have multiple rendering bugs (null values, [object Object], missing application references). The core table display works but with incomplete data resolution.
+**Rationale:**
+- The koppeling wizard (creation flow) works excellently across all 4 steps (20/20 tests pass) with proper field validation, clear instructions, comprehensive dropdown options, and a useful review step
+- The koppelingen table page structure is correct with all expected columns and functionality
+- However, the core acceptance criteria about existing koppelingen **display** (titles, linked services, detail pages) could NOT be tested because no koppelingen data exists for the "Test Samenwerking" organization
+- The `koppeling/related` API endpoint returns 404, which may affect related entity management
+
+### Comparison with Previous Test Runs
+
+| Run | Status | Key Change |
+|-----|--------|------------|
+| Re-test #2 | PARTIAL | Detail pages had [object Object], null values, UUID in tab title; koppelingen data existed for testing in Default Organisation context |
+| Re-test #3 (current) | **PARTIAL** | Wizard flow fully tested and works well (20/20). Display criteria untestable due to no data for samenwerking org. |
+
+### Note on Previous Bugs
+
+The following bugs from re-test #2 were NOT re-verified in this session because the samenwerking context has no koppelingen data. These bugs may still exist:
+1. `[object Object]` for Applicatie B on public detail page
+2. `null <-> null` in direction widget on beheer detail page
+3. Applicatie A and B show "-" in beheer overview table
+4. Browser tab title shows UUID instead of name on public detail page
+
+---
+
+## Additional Observations
+
+### Mijn Account Page (`/beheer/my-account`)
+- **Status:** PASS
+- Shows correct user details: E-mailadres: linda.bakker@test.nl, Voornaam: Linda, Achternaam: Bakker, Functie: Coordinator
+- "Bewerken" (Edit) button present
+- Organization link shows "Default Organisation" (reflects last selected org from dropdown, not the primary samenwerking)
+- **Screenshot:** `13-my-account.png`
+
+### Mijn Organisatie Page (`/beheer/my-organisation`)
+- **Status:** PARTIAL
+- Page loads and shows "Test Samenwerking" heading
+- Body shows only "Geen korte beschrijving" (No short description)
+- "Acties" button present but no organizational details displayed
+- Organization data API returns 404 for the organization UUID
+- Warning in console: "Organization not found (404), using fallback data"
+- **Screenshot:** `02-my-organisation.png`
+
+### Search Page (`/search`)
+- **Status:** FAIL
+- The search page is completely empty (blank main content area)
+- `/api/apps/opencatalogi/api/pages/search` returns 404
+- Cannot search for koppelingen, applications, or any other entities
+- **Screenshot:** `09-search-page.png`
+
+### Diensten Page (`/beheer/diensten`)
+- **Status:** FAIL
+- Returns 500 Internal Server Error
+- Error message: "Er is een fout opgetreden. Er kon geen verbinding worden gemaakt met de server."
+- Multiple 500 errors: organization data, schema/related endpoint, schema fetch, register fetch
+- **Screenshot:** `14-diensten-error.png`
 
 ---
 
 ## Console Errors Summary
 
-| Page | Error Count | Significant Errors |
-|------|-------------|-------------------|
-| `/login` | 1 | Manifest syntax error (ignorable) |
-| `/beheer` (Default Org) | 1 | Manifest syntax error (ignorable) |
-| `/beheer` (org switch) | 7+ | TypeError: Cannot read properties of undefined (reading 'includes') at AcDashboard + 404 errors for org data |
-| `/beheer` (Test Samenwerking reload) | 8+ | 404 errors for voorzieningen_organisatie |
-| `/beheer/koppelingen` | 1 | Manifest syntax error (ignorable) |
-| `/beheer/koppeling/{uuid}` | 1 | Manifest syntax error (ignorable) |
-| `/publicatie/{uuid}` (koppeling) | 2 | Manifest syntax error (ignorable) |
-| `/beheer/my-account` | 1 | Manifest syntax error (ignorable) |
-| `/beheer/my-organisation` | 1 | Manifest syntax error (ignorable) |
-| `/zoeken?categorie=Koppelingen` | 1 | Manifest syntax error (ignorable) |
+### Persistent Errors (every authenticated page)
+1. **Manifest syntax error** -- `site.webmanifest` returns invalid content (minor, ignorable)
+2. **Organization 404** -- `voorzieningen_organisatie/5ba08c6a-5fd8-48f0-ba14-99d9f974159e` returns 404 on every page. This is the "Test Samenwerking" organization UUID that does not exist in the voorzieningen register.
 
-### Recurring Non-Ignorable Errors
+### Page-Specific Errors
+3. **Organization switch crash** -- `TypeError: Cannot read properties of undefined (reading 'includes')` in `ac-dashboard.js:186` when switching organizations via dropdown
+4. **Koppeling related schemas 404** -- `/api/schemas/koppeling/related` returns 404 on koppelingen page
+5. **Diensten 500** -- Multiple 500 Internal Server Errors when loading the Diensten page
+6. **Search pages 404** -- `/api/apps/opencatalogi/api/pages/search` returns 404
+7. **Schema warnings** -- "Schema not found for type: koppeling" on wizard pages (non-critical)
 
-| Error | Trigger | Severity |
-|-------|---------|----------|
-| `TypeError: Cannot read properties of undefined (reading 'includes')` in AcDashboard | Organization switch via dropdown | **CRITICAL** |
-| `404` for voorzieningen_organisatie | "Test Samenwerking" org selected | **CRITICAL** (org data not found in backend) |
+### Ignored (as per instructions)
+- Favicon 404s
+- ResizeObserver loop errors
+- Service worker failures
+- Webpack dev server reconnection messages
 
 ---
 
 ## Performance Summary
 
-No API calls were observed with response times exceeding 500ms during this test session. All network requests returned 200 OK except:
-- Organization data fetch for "Test Samenwerking" UUID returns 404 (organization not properly registered in the backend voorzieningen register)
+| Page | Load Time | Status |
+|------|-----------|--------|
+| /login | Normal | OK |
+| /beheer | Normal | OK (despite 404 errors) |
+| /beheer/koppelingen | Normal | OK |
+| /forms/koppeling | Normal | OK |
+| /beheer/gebruik | Normal | OK |
+| /beheer/my-account | Normal | OK |
+| /beheer/my-organisation | Normal | OK (despite 404) |
+| /beheer/diensten | Slow/Error | 500 errors |
+| /search | Normal | Empty (404 on API) |
+
+No API calls were observed exceeding 1000ms (PERFORMANCE_FAIL threshold). Backend cache loading completed in ~1183ms for all schemas (reported in console). All other requests completed within acceptable timeframes.
 
 ---
 
@@ -204,30 +265,26 @@ No API calls were observed with response times exceeding 500ms during this test 
 
 | Issue | Title | Status | Key Finding |
 |-------|-------|--------|-------------|
-| #57 | Pakketten opvoeren voor samenwerkingsverband | **FAIL** | Organization switch crashes with TypeError; samenwerkingsverband dashboard broken (404 + no wizards). No samenwerking-specific features (member management, bulk operations, collective licenses) exist. |
-| #186 | Koppelingen | **PARTIAL** | Table display mostly works with readable names. Wizard is functional. But detail pages show "null", "[object Object]", and UUIDs instead of proper names. Applicatie A/B columns not resolved in table or detail views. |
-
-### Comparison with Previous Test Run
-
-| Issue | Previous Status | Current Status | Change |
-|-------|----------------|----------------|--------|
-| #57 | PARTIAL | **FAIL** | Regressed -- org switch crash still present, no new samenwerking features added |
-| #186 | PARTIAL | **PARTIAL** | No change -- same display bugs persist ([object Object], null values) |
+| #57 | Pakketten opvoeren voor samenwerkingsverband | **FAIL** | Organization switch crashes with TypeError; samenwerkingsverband dashboard broken (404 + no wizards). Core samenwerking-specific features (member management, bulk operations) do not exist. |
+| #186 | Koppelingen | **PARTIAL** | Koppeling wizard works excellently (20/20 tests pass). Table structure correct. But display criteria for existing koppelingen untestable due to no data. Previous bugs (null values, [object Object]) not re-verified. |
 
 ### Recommendations
 
 1. **Issue #57 (Critical):**
-   - Fix the `userGroups` undefined error in `ac-dashboard.js` (line ~200) by adding null-safety: `userGroups?.includes('aanbod-beheerder')` or defaulting to an empty array
-   - Ensure "Test Samenwerking" organization is registered in the backend voorzieningen register (currently returns 404)
+   - Fix the `userGroups` undefined error in `ac-dashboard.js` (line 186/200) by adding null-safety: `userGroups?.includes('aanbod-beheerder')` or defaulting to an empty array
+   - Ensure "Test Samenwerking" organization is registered in the backend voorzieningen register (UUID `5ba08c6a-5fd8-48f0-ba14-99d9f974159e` currently returns 404)
+   - Enable wizard buttons for samenwerking organizations (currently shows "Geen wizards beschikbaar")
    - Implement samenwerking-specific features: member management, acting on behalf of members, collective license management
 
-2. **Issue #186 (High):**
-   - Fix `[object Object]` rendering for Applicatie B on public detail pages -- resolve the application object to its display name before rendering
-   - Fix "null <-> null" in the direction widget on beheer detail pages -- resolve application names from UUIDs
-   - Fix the browser tab `<title>` to show the koppeling name instead of a UUID
-   - Resolve Applicatie A and B columns in the beheer overview table and detail pages (currently always show "-")
-   - Normalize status capitalization ("In gebruik" vs "in gebruik")
-   - Show both linked applications in the Applicaties tab (currently only shows 1 of 2)
+2. **Issue #186 (Medium):**
+   - Fix the `koppeling/related` API endpoint (currently returns 404)
+   - Verify and fix previous bugs from re-test #2: [object Object] rendering, null values in direction widget, UUID in browser tab title
+   - Ensure koppelingen data can be created and displayed for samenwerking organizations
+
+3. **General:**
+   - Fix the search page API (`/api/apps/opencatalogi/api/pages/search` returns 404)
+   - Fix the Diensten page 500 errors
+   - Register the "Test Samenwerking" organization properly in the voorzieningen register
 
 ---
 
@@ -235,12 +292,18 @@ No API calls were observed with response times exceeding 500ms during this test 
 
 | File | Description |
 |------|-------------|
-| `01-dashboard-login.png` | Dashboard after login with Default Organisation selected |
-| `02-org-switch-error.png` | TypeError crash overlay when switching organizations |
-| `03-test-samenwerking-dashboard.png` | Dashboard with Test Samenwerking (no wizards, 404 errors) |
-| `04-my-account.png` | My Account page confirming linda.bakker@test.nl |
-| `05-koppelingen-overview.png` | Koppelingen management table (full page) |
-| `06-koppeling-detail-dvg.png` | Beheer detail page for DVG <-> JOIN Klantcontact koppeling |
-| `07-koppeling-publicatie-detail.png` | Public detail page showing [object Object] bug |
-| `08-koppeling-wizard-step1.png` | Koppeling wizard Step 1 |
-| `09-my-organisation-empty.png` | My Organisation page for Default Organisation |
+| `01-login-dashboard.png` | Dashboard after login with Test Samenwerking selected (no wizards) |
+| `02-my-organisation.png` | Mijn Organisatie page showing "Geen korte beschrijving" |
+| `03-koppelingen-page.png` | Koppelingen table page (empty) |
+| `04-koppeling-wizard-step1.png` | Koppeling wizard Step 1: search |
+| `04b-koppeling-wizard-step1-full.png` | Koppeling wizard Step 1: full page |
+| `05-koppeling-wizard-app-selected.png` | Koppeling wizard: Webcast selected, existing check shown |
+| `06-koppeling-wizard-step2.png` | Koppeling wizard Step 2: connection definition form |
+| `07-koppeling-wizard-step3.png` | Koppeling wizard Step 3: additional information |
+| `08-koppeling-wizard-step4-review.png` | Koppeling wizard Step 4: review summary |
+| `09-search-page.png` | Search page (empty, API 404) |
+| `10-org-switch-crash.png` | TypeError crash when switching organizations |
+| `11-default-org-dashboard.png` | Dashboard with Default Organisation (wizards visible) |
+| `12-gebruik-page.png` | Gebruik page with empty table |
+| `13-my-account.png` | Mijn Account page showing Linda Bakker details |
+| `14-diensten-error.png` | Diensten page 500 Internal Server Error |
