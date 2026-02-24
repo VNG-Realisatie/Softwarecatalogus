@@ -20,6 +20,8 @@ Applicaties zijn software producten die door leveranciers worden aangeboden en d
 
 ## Tabeloverzicht
 
+> **Let op:** De kolomnamen in de tabel moeten overeenkomen met de veldnamen in de wizards ([#376](https://github.com/VNG-Realisatie/Softwarecatalogus/issues/376)). Dit betekent dat kolommen als compliancy, koppelingen en diensten onderdeel zijn van de applicatietabel, omdat dit velden zijn die in de applicatie-wizard worden ingevuld.
+
 ### Als leverancier
 
 Navigeer naar `/beheer/applicaties` om het overzicht van uw gepubliceerde applicaties te zien. De tabel toont alleen applicaties van uw eigen organisatie.
@@ -127,6 +129,17 @@ Na registratie verschijnt een succesbericht met een samenvatting van het geregis
 - De leverancier-wizard maakt automatisch een standaard **applicatieversie** aan voor SaaS-applicaties
 - Bij het registreren van gebruik als gemeente wordt de status standaard op **Verwerving** gezet
 - Applicaties zijn pas zichtbaar in de publieke catalogus nadat ze volledig zijn gepubliceerd
+
+### Naamgeving van compliancy in de tabel
+
+De kolom **compliancy** is een bijzonder geval. Een compliancy-object heeft in de dataset geen eigen naam. Dat levert twee mogelijke keuzes op voor de weergave in de tabel:
+
+1. **De naam van de applicatie** waarvoor de compliancy geldt
+2. **De naam van de standaardversie** waaraan men compliant is
+
+Optie 2 zou bij het los weergeven van compliancy (dus buiten de context van een applicatie) verwarrend zijn, omdat dan niet duidelijk is *wat* er compliant is. Daarom is er nu voor gekozen om **de applicatienaam** te tonen als naam van het compliancy-object.
+
+> **Aanbeveling:** Leg deze keuze bij een volgende gelegenheid terug bij een gebruikersgroep om te valideren of dit aansluit bij de verwachting van eindgebruikers.
 
 ## Gerelateerde documentatie
 
