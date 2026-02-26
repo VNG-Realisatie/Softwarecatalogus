@@ -1,0 +1,26 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "rule",
+    "@id": "https://vng.accept.commonground.nu/Rule-Archio_JSON_View_to_XML.json",
+    "id": 1,
+    "name": "Archio JSON View to XML",
+    "description": "",
+    "reference": "https://vng.accept.commonground.nu/Rule-Archio_JSON_View_to_XML.json",
+    "version": "0.0.1",
+    "action": "get",
+    "timing": "after",
+    "conditions": {
+        "==": [
+            { "var": ["requestHeaders.accept"] },
+            "application/xml"
+        ]
+    },
+    "type": "mapping",
+    "configuration": {
+        "mapping": 6
+    },
+    "order": 0
+}

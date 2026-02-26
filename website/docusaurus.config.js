@@ -47,6 +47,13 @@ const config = {
             // Redocusaurus will automatically bundle your spec into a single file during the build
             id: 'gemma',
             spec: 'static/oas/gemma.yaml',
+            route: '/gemma',
+          },
+          // Pass it a path to a local OpenAPI YAML file
+          {
+            // Redocusaurus will automatically bundle your spec into a single file during the build
+            id: 'swc',
+            spec: 'static/api/softwarecatalogus_register.json',
             route: '/api',
           },
         ],
@@ -59,8 +66,16 @@ const config = {
     ]
   ],
 
+  themes: ['@docusaurus/theme-mermaid'],
+  markdown: {
+    mermaid: true,
+  },
+
   themeConfig:
     {
+      mermaid: {
+        theme: {light: 'neutral', dark: 'forest'},
+      },
       navbar: {
         title: 'VNG Softwarecatalogus',
         logo: {

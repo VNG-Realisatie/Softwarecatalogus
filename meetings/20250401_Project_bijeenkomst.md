@@ -2,7 +2,8 @@
 
 # Agenda
 - Mededelingen
-- Wat is er gebeurd? (sprint demo 3 & 4)
+- - Matt is iets later
+- Stand van zaken (sprint demo 3 & 4)
 - Update van Open Registers
 - Bekijken audit trails
 - Update Open Connector
@@ -21,6 +22,6 @@
 | GitHub-Jira koppeling herstellen | Matthias | TODO |
 | Forken van de benodigde componenten | Ruben | DONE |
 | Security policies en branch protection rules instellen | - | TODO |
-| Bij IBD ophalen hoeveel bestanden zij verwachten per pakket| Peter | TODO |
+| Bij IBD ophalen hoeveel bestanden zij verwachten per pakket| Peter | Done | -> 4 en dans eens in de drie jaar
 | Rutger VN-R betrekken op api testen | Peter | TODO |
 

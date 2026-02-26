@@ -1,2 +1,9 @@
 
 .idea/
+
+website/node_modules/
+
+website/.docusaurus/
+website/.docusaurus/
+website/build/
+

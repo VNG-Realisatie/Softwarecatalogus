@@ -16,6 +16,13 @@ Een voorziening is een softwareproduct of dienst die functionaliteit biedt voor 
 ## API Specificatie
 <Tabs>
   <TabItem value="specificaties" label="Specificaties" default>
+  :::info 
+  
+    Toegevoegde waardes ten opzichte van voorzieningen catalogus
+
+    - Status: Deze is gabseerd op https://yml.publiccode.tools/schema.core.html#key-developmentstatus en behelst status van het object. Objecten die inter organsiatie worden aangemaakt kunnen alleen worden aangemaakt op de status concept. Objecten onder de status concept komen niet terug in de zoek resultaten van open catalogi. En kan bevatten -> concept, development, beta, stable, obsolete
+    = Contact: verwijzing (username) naar een gebruiker voor contact gegevens
+  :::
     <ApiSchema id="gemma" pointer="#/components/schemas/Voorziening" />
   </TabItem>
   <TabItem value="relaties" label="Relaties">

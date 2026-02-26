@@ -1,0 +1,29 @@
+{
+    "@context": {
+        "schema": "http:\/\/schema.org",
+        "register": "Not Implemented"
+    },
+    "@type": "endpoint",
+    "@id": "https://vng.accept.commonground.nu/Endpoint-GEMMA_model_download.json",
+    "name": "GEMMA model download",
+    "description": "Get the complete architecture model including all elements, relations, views, and property definitions. As downloadable xml file.",
+    "reference": "https://vng.accept.commonground.nu/Endpoint-GEMMA_model_download.json",
+    "version": "0.0.1",
+    "endpoint": "model.xml",
+    "endpointArray": [
+        "models",
+        "{{id}}",
+        "model.xml"
+    ],
+    "endpointRegex": "#^models(\/([-a-zA-Z0-9]{36}))?\/model\\.xml$#",
+    "method": "GET",
+    "targetType": "register\/schema",
+    "targetId": "2\/14",
+    "conditions": [],
+    "inputMapping": null,
+    "outputMapping": null,
+    "rules": [
+        "6",
+        "11"
+    ]
+}

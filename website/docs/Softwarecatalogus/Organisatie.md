@@ -14,6 +14,18 @@ import TabItem from '@theme/TabItem';
 Een organisatie is een bedrijf, overheidsinstelling of andere entiteit die betrokken is bij het ontwikkelen, aanbieden of gebruiken van software en diensten binnen de overheids-IT-omgeving. Dit kunnen zowel commerciële leveranciers als overheidsorganisaties zijn.
 
 ## API Specificatie
+<Tabs>
+  <TabItem value="specificaties" label="Specificaties" default>
+  :::info 
+    Toegevoegde waardes ten opzichte van voorzieningen catalogus
+
+
+    - Links: Een lijst van extra verwijzignen voor organisaties
+    - Deelnemingen: Een lijst van organisaties waaraan deze organisatie deelneemt
+    - Status: Of deze organisatie reeds is geacodeerd 
+  :::
+  </TabItem>
+</Tabs>
 
 De volledige API specificatie voor Organisatie is beschikbaar op de [VNG API Specificatie pagina](https://vng-realisatie.github.io/Softwarecatalogus/api#tag/Software-Catalogus/operation/getLeveranciersorganisaties).
 

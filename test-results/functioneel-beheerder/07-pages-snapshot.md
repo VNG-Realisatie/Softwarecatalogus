@@ -1,0 +1,391 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - generic [ref=e5]: Hulp voor toetsenbordnavigatie
+    - generic [ref=e6]:
+      - button "Doorgaan naar app-navigatie" [ref=e7] [cursor=pointer]:
+        - generic [ref=e9]: Doorgaan naar app-navigatie
+      - button "Naar hoofdinhoud gaan" [ref=e10] [cursor=pointer]:
+        - generic [ref=e12]: Naar hoofdinhoud gaan
+  - banner [ref=e13]:
+    - generic [ref=e14]:
+      - link "Ga naar Dashboard" [ref=e15] [cursor=pointer]:
+        - /url: /
+      - navigation "Applicatiemenu" [ref=e17]:
+        - list "Apps" [ref=e18]:
+          - listitem [ref=e19]:
+            - link "Dashboard" [ref=e20] [cursor=pointer]:
+              - /url: /apps/dashboard/
+              - img [ref=e21]
+              - generic [ref=e22]: Dashboard
+          - listitem [ref=e23]:
+            - link "MyDash" [ref=e24] [cursor=pointer]:
+              - /url: /apps/mydash/
+              - img [ref=e25]
+              - generic [ref=e26]: MyDash
+          - listitem [ref=e27]:
+            - link "Bestanden" [ref=e28] [cursor=pointer]:
+              - /url: /apps/files/
+              - img [ref=e29]
+              - generic [ref=e30]: Bestanden
+          - listitem [ref=e31]:
+            - link "Foto's" [ref=e32] [cursor=pointer]:
+              - /url: /apps/photos/
+              - img [ref=e33]
+              - generic [ref=e34]: Foto's
+          - listitem [ref=e35]:
+            - link "Activiteit" [ref=e36] [cursor=pointer]:
+              - /url: /apps/activity/
+              - img [ref=e37]
+              - generic [ref=e38]: Activiteit
+          - listitem [ref=e39]:
+            - link "Software Catalogs" [ref=e40] [cursor=pointer]:
+              - /url: /apps/softwarecatalog/
+              - img [ref=e41]
+              - generic [ref=e42]: Software Catalogs
+          - listitem [ref=e43]:
+            - link "Procest" [ref=e44] [cursor=pointer]:
+              - /url: /apps/procest/
+              - img [ref=e45]
+              - generic [ref=e46]: Procest
+          - listitem [ref=e47]:
+            - link "Pipelinq" [ref=e48] [cursor=pointer]:
+              - /url: /apps/pipelinq/
+              - img [ref=e49]
+              - generic [ref=e50]: Pipelinq
+          - listitem [ref=e51]:
+            - link "Register" [ref=e52] [cursor=pointer]:
+              - /url: /apps/openregister/
+              - img [ref=e53]
+              - generic [ref=e54]: Register
+        - button "Meer apps" [ref=e57] [cursor=pointer]:
+          - img [ref=e60]:
+            - img [ref=e61]
+    - generic [ref=e63]:
+      - button "Geünificeerd zoeken" [ref=e66] [cursor=pointer]:
+        - img [ref=e69]:
+          - img [ref=e70]
+      - generic "Meldingen" [ref=e73]:
+        - button "Meldingen" [ref=e74] [cursor=pointer]:
+          - img [ref=e78]
+      - button "Zoek contacten" [ref=e82] [cursor=pointer]:
+        - img [ref=e85]:
+          - img [ref=e86]
+      - navigation "Instellingenmenu" [ref=e88]:
+        - button "Instellingenmenu" [ref=e89] [cursor=pointer]:
+          - img [ref=e93]:
+            - img [ref=e94]
+        - generic [ref=e96]: Avatar van admin — Online
+  - generic [ref=e97]:
+    - generic [ref=e98]:
+      - navigation [ref=e99]:
+        - generic [ref=e100]:
+          - list [ref=e101]:
+            - button [ref=e103] [cursor=pointer]:
+              - generic [ref=e104]:
+                - img [ref=e106]:
+                  - img [ref=e107]
+                - generic [ref=e109]: Create Publication
+            - listitem [ref=e110]:
+              - link [ref=e112] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e114]:
+                  - img [ref=e115]
+                - generic [ref=e117]: Dashboard
+            - listitem [ref=e346]:
+              - link [ref=e348] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e350]:
+                  - img [ref=e351]
+                - generic [ref=e353]: Publications
+            - listitem [ref=e118]:
+              - link [ref=e120] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e122]:
+                  - img [ref=e123]
+                - generic [ref=e125]: Search
+            - listitem [ref=e126]:
+              - link [ref=e128] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e130]:
+                  - img [ref=e131]
+                - generic [ref=e133]: Documentation
+          - generic [ref=e134]:
+            - button [expanded] [ref=e136] [cursor=pointer]:
+              - generic [ref=e137]:
+                - img [ref=e139]:
+                  - img [ref=e140]
+                - generic [ref=e142]: Instellingen
+            - generic [ref=e354]:
+              - listitem [ref=e355]:
+                - link [ref=e357] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e359]:
+                    - img [ref=e360]
+                  - generic [ref=e362]: Organizations
+              - listitem [ref=e363]:
+                - link [ref=e365] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e367]:
+                    - img [ref=e368]
+                  - generic [ref=e370]: Catalogs
+              - listitem [ref=e371]:
+                - link [ref=e373] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e375]:
+                    - img [ref=e376]
+                  - generic [ref=e378]: Glossary
+              - listitem [ref=e379]:
+                - link [ref=e381] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e383]:
+                    - img [ref=e384]
+                  - generic [ref=e386]: Themes
+              - listitem [ref=e387]:
+                - link [ref=e389] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e391]:
+                    - img [ref=e392]
+                  - generic [ref=e394]: Pages
+              - listitem [ref=e395]:
+                - link [ref=e397] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e399]:
+                    - img [ref=e400]
+                  - generic [ref=e402]: Menus
+              - listitem [ref=e403]:
+                - link [ref=e405] [cursor=pointer]:
+                  - /url: "#"
+                  - img [ref=e407]:
+                    - img [ref=e408]
+                  - generic [ref=e410]: Directory
+      - button "Navigatie openen [n]" [ref=e144] [cursor=pointer]:
+        - img [ref=e147]:
+          - img [ref=e148]
+    - main [ref=e150]:
+      - main [ref=e830]:
+        - generic [ref=e831]:
+          - generic [ref=e832]:
+            - heading "Pages" [level=1] [ref=e833]
+            - paragraph [ref=e834]: Manage your content pages and their components
+          - generic [ref=e835]:
+            - generic [ref=e837]: Showing 7 of 7 pages
+            - generic [ref=e838]:
+              - generic [ref=e839]:
+                - generic [ref=e840]:
+                  - radio "Cards" [ref=e841] [cursor=pointer]
+                  - generic [ref=e844] [cursor=pointer]: Cards
+                - generic [ref=e845]:
+                  - radio "Table" [ref=e846] [cursor=pointer]
+                  - generic [ref=e849] [cursor=pointer]: Table
+              - generic [ref=e850]:
+                - button "Add Page" [ref=e851] [cursor=pointer]:
+                  - generic [ref=e852]:
+                    - img [ref=e854]:
+                      - img [ref=e855]
+                    - generic [ref=e857]: Add Page
+                - button "Refresh" [ref=e858] [cursor=pointer]:
+                  - generic [ref=e859]:
+                    - img [ref=e861]:
+                      - img [ref=e862]
+                    - generic [ref=e864]: Refresh
+                - button "Help" [ref=e865] [cursor=pointer]:
+                  - generic [ref=e866]:
+                    - img [ref=e868]:
+                      - img [ref=e869]
+                    - generic [ref=e871]: Help
+          - generic [ref=e873]:
+            - generic [ref=e874]:
+              - generic [ref=e875]:
+                - heading "About" [level=2] [ref=e876]:
+                  - img [ref=e877]:
+                    - img [ref=e878]
+                  - text: About
+                - button "Actions" [ref=e882] [cursor=pointer]:
+                  - generic [ref=e883]:
+                    - img [ref=e885]:
+                      - img [ref=e886]
+                    - generic [ref=e888]: Actions
+              - table [ref=e889]:
+                - rowgroup [ref=e890]:
+                  - row "Property Value Status" [ref=e891]:
+                    - columnheader "Property" [ref=e892]
+                    - columnheader "Value" [ref=e893]
+                    - columnheader "Status" [ref=e894]
+                - rowgroup [ref=e895]:
+                  - row "Slug about Available" [ref=e896]:
+                    - cell "Slug" [ref=e897]
+                    - cell "about" [ref=e898]
+                    - cell "Available" [ref=e899]
+                  - row "Content Items 1 Configured" [ref=e900]:
+                    - cell "Content Items" [ref=e901]
+                    - cell "1" [ref=e902]
+                    - cell "Configured" [ref=e903]
+            - generic [ref=e904]:
+              - generic [ref=e905]:
+                - heading "Website" [level=2] [ref=e906]:
+                  - img [ref=e907]:
+                    - img [ref=e908]
+                  - text: Website
+                - button "Actions" [ref=e912] [cursor=pointer]:
+                  - generic [ref=e913]:
+                    - img [ref=e915]:
+                      - img [ref=e916]
+                    - generic [ref=e918]: Actions
+              - table [ref=e919]:
+                - rowgroup [ref=e920]:
+                  - row "Property Value Status" [ref=e921]:
+                    - columnheader "Property" [ref=e922]
+                    - columnheader "Value" [ref=e923]
+                    - columnheader "Status" [ref=e924]
+                - rowgroup [ref=e925]:
+                  - row "Slug website Available" [ref=e926]:
+                    - cell "Slug" [ref=e927]
+                    - cell "website" [ref=e928]
+                    - cell "Available" [ref=e929]
+                  - row "Content Items 1 Configured" [ref=e930]:
+                    - cell "Content Items" [ref=e931]
+                    - cell "1" [ref=e932]
+                    - cell "Configured" [ref=e933]
+            - generic [ref=e934]:
+              - generic [ref=e935]:
+                - heading "Privacyverklaring" [level=2] [ref=e936]:
+                  - img [ref=e937]:
+                    - img [ref=e938]
+                  - text: Privacyverklaring
+                - button "Actions" [ref=e942] [cursor=pointer]:
+                  - generic [ref=e943]:
+                    - img [ref=e945]:
+                      - img [ref=e946]
+                    - generic [ref=e948]: Actions
+              - table [ref=e949]:
+                - rowgroup [ref=e950]:
+                  - row "Property Value Status" [ref=e951]:
+                    - columnheader "Property" [ref=e952]
+                    - columnheader "Value" [ref=e953]
+                    - columnheader "Status" [ref=e954]
+                - rowgroup [ref=e955]:
+                  - row "Slug privacyverklaring Available" [ref=e956]:
+                    - cell "Slug" [ref=e957]
+                    - cell "privacyverklaring" [ref=e958]
+                    - cell "Available" [ref=e959]
+                  - row "Content Items 1 Configured" [ref=e960]:
+                    - cell "Content Items" [ref=e961]
+                    - cell "1" [ref=e962]
+                    - cell "Configured" [ref=e963]
+            - generic [ref=e964]:
+              - generic [ref=e965]:
+                - heading "Disclaimer" [level=2] [ref=e966]:
+                  - img [ref=e967]:
+                    - img [ref=e968]
+                  - text: Disclaimer
+                - button "Actions" [ref=e972] [cursor=pointer]:
+                  - generic [ref=e973]:
+                    - img [ref=e975]:
+                      - img [ref=e976]
+                    - generic [ref=e978]: Actions
+              - table [ref=e979]:
+                - rowgroup [ref=e980]:
+                  - row "Property Value Status" [ref=e981]:
+                    - columnheader "Property" [ref=e982]
+                    - columnheader "Value" [ref=e983]
+                    - columnheader "Status" [ref=e984]
+                - rowgroup [ref=e985]:
+                  - row "Slug disclaimer Available" [ref=e986]:
+                    - cell "Slug" [ref=e987]
+                    - cell "disclaimer" [ref=e988]
+                    - cell "Available" [ref=e989]
+                  - row "Content Items 1 Configured" [ref=e990]:
+                    - cell "Content Items" [ref=e991]
+                    - cell "1" [ref=e992]
+                    - cell "Configured" [ref=e993]
+            - generic [ref=e994]:
+              - generic [ref=e995]:
+                - heading "Algemene Voorwaarden" [level=2] [ref=e996]:
+                  - img [ref=e997]:
+                    - img [ref=e998]
+                  - text: Algemene Voorwaarden
+                - button "Actions" [ref=e1002] [cursor=pointer]:
+                  - generic [ref=e1003]:
+                    - img [ref=e1005]:
+                      - img [ref=e1006]
+                    - generic [ref=e1008]: Actions
+              - table [ref=e1009]:
+                - rowgroup [ref=e1010]:
+                  - row "Property Value Status" [ref=e1011]:
+                    - columnheader "Property" [ref=e1012]
+                    - columnheader "Value" [ref=e1013]
+                    - columnheader "Status" [ref=e1014]
+                - rowgroup [ref=e1015]:
+                  - row "Slug algemene-voorwaarden Available" [ref=e1016]:
+                    - cell "Slug" [ref=e1017]
+                    - cell "algemene-voorwaarden" [ref=e1018]
+                    - cell "Available" [ref=e1019]
+                  - row "Content Items 1 Configured" [ref=e1020]:
+                    - cell "Content Items" [ref=e1021]
+                    - cell "1" [ref=e1022]
+                    - cell "Configured" [ref=e1023]
+            - generic [ref=e1024]:
+              - generic [ref=e1025]:
+                - heading "FAQ" [level=2] [ref=e1026]:
+                  - img [ref=e1027]:
+                    - img [ref=e1028]
+                  - text: FAQ
+                - button "Actions" [ref=e1032] [cursor=pointer]:
+                  - generic [ref=e1033]:
+                    - img [ref=e1035]:
+                      - img [ref=e1036]
+                    - generic [ref=e1038]: Actions
+              - table [ref=e1039]:
+                - rowgroup [ref=e1040]:
+                  - row "Property Value Status" [ref=e1041]:
+                    - columnheader "Property" [ref=e1042]
+                    - columnheader "Value" [ref=e1043]
+                    - columnheader "Status" [ref=e1044]
+                - rowgroup [ref=e1045]:
+                  - row "Slug faq Available" [ref=e1046]:
+                    - cell "Slug" [ref=e1047]
+                    - cell "faq" [ref=e1048]
+                    - cell "Available" [ref=e1049]
+                  - row "Content Items 1 Configured" [ref=e1050]:
+                    - cell "Content Items" [ref=e1051]
+                    - cell "1" [ref=e1052]
+                    - cell "Configured" [ref=e1053]
+            - generic [ref=e1054]:
+              - generic [ref=e1055]:
+                - heading "Home" [level=2] [ref=e1056]:
+                  - img [ref=e1057]:
+                    - img [ref=e1058]
+                  - text: Home
+                - button "Actions" [ref=e1062] [cursor=pointer]:
+                  - generic [ref=e1063]:
+                    - img [ref=e1065]:
+                      - img [ref=e1066]
+                    - generic [ref=e1068]: Actions
+              - table [ref=e1069]:
+                - rowgroup [ref=e1070]:
+                  - row "Property Value Status" [ref=e1071]:
+                    - columnheader "Property" [ref=e1072]
+                    - columnheader "Value" [ref=e1073]
+                    - columnheader "Status" [ref=e1074]
+                - rowgroup [ref=e1075]:
+                  - row "Slug home Available" [ref=e1076]:
+                    - cell "Slug" [ref=e1077]
+                    - cell "home" [ref=e1078]
+                    - cell "Available" [ref=e1079]
+                  - row "Content Items 7 Configured" [ref=e1080]:
+                    - cell "Content Items" [ref=e1081]
+                    - cell "7" [ref=e1082]
+                    - cell "Configured" [ref=e1083]
+          - generic [ref=e1084]:
+            - generic [ref=e1086]: Page 1 of 1
+            - generic [ref=e1087]:
+              - generic [ref=e1088] [cursor=pointer]: "Items per page:"
+              - generic [ref=e1090]:
+                - generic [ref=e1091]:
+                  - generic [ref=e1092]:
+                    - generic "20":
+                      - generic: "20"
+                  - combobox [ref=e1093] [cursor=pointer]
+                - button [ref=e1095] [cursor=pointer]:
+                  - img [ref=e1097]
+  - img
