@@ -11,6 +11,8 @@
 # Usage:
 #   bash Softwarecatalogus/test-setup.sh
 #   BACKEND_URL="https://example.com" ADMIN_USER="user" ADMIN_PASS="pass" bash Softwarecatalogus/test-setup.sh
+#   FORCE_BUILD=1 bash Softwarecatalogus/test-setup.sh          # Rebuild all frontend apps
+#   CLEANUP_DUPLICATES=1 bash Softwarecatalogus/test-setup.sh   # Remove duplicate test objects from previous runs
 
 set -euo pipefail
 
@@ -18,8 +20,81 @@ NC_URL="${BACKEND_URL:-http://localhost:8080}"
 BASE_URL="${NC_URL}/index.php/apps/openregister/api"
 ADMIN_AUTH="${ADMIN_USER:-admin}:${ADMIN_PASS:-admin}"
 PASSWORD="WelcomeToTest2026"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WORKSPACE_DIR="$(dirname "$SCRIPT_DIR")"
 
 echo "=== Softwarecatalogus Test Setup ==="
+echo ""
+
+# ─────────────────────────────────────────────
+# Step 0: Pre-flight checks
+# Stop conflicting containers, build frontend apps.
+# ─────────────────────────────────────────────
+echo "--- Step 0: Pre-flight checks ---"
+
+# 0a. Stop tilburg-woo-ui-hot if running (frees port 3000 for the SPA)
+if docker ps --format '{{.Names}}' 2>/dev/null | grep -q 'tilburg-woo-ui-hot'; then
+    echo "  Stopping tilburg-woo-ui-hot container (frees port 3000)..."
+    docker stop openregister-tilburg-woo-ui-hot 2>/dev/null || true
+    echo "  Stopped."
+else
+    echo "  tilburg-woo-ui-hot not running (port 3000 is free)."
+fi
+
+# 0b. Build frontend apps if sources are newer than builds
+build_if_needed() {
+    local app_dir="$1"
+    local app_name="$2"
+    local build_dir="${app_dir}/js"
+
+    if [ ! -d "$app_dir" ]; then
+        echo "  SKIP: ${app_name} directory not found"
+        return
+    fi
+
+    # Check if build output exists
+    if [ -d "$build_dir" ] && [ -n "$(ls -A "$build_dir" 2>/dev/null)" ]; then
+        echo "  ${app_name}: build exists (use FORCE_BUILD=1 to rebuild)"
+    else
+        echo "  ${app_name}: no build found, building..."
+        (cd "$app_dir" && npm run build 2>&1 | tail -1) || echo "  WARN: ${app_name} build failed"
+    fi
+}
+
+if [ "${FORCE_BUILD:-0}" = "1" ]; then
+    echo "  FORCE_BUILD=1 — rebuilding all frontend apps..."
+    for app in openregister opencatalogi; do
+        app_dir="${WORKSPACE_DIR}/${app}"
+        if [ -d "$app_dir/src" ]; then
+            echo "  Building ${app}..."
+            (cd "$app_dir" && npm run build 2>&1 | tail -1) || echo "  WARN: ${app} build failed"
+        fi
+    done
+    # tilburg-woo-ui uses a different build command
+    twui_dir="${WORKSPACE_DIR}/tilburg-woo-ui"
+    if [ -d "$twui_dir" ]; then
+        echo "  Building tilburg-woo-ui..."
+        docker exec openregister-tilburg-woo-ui sh -c "npm run build:web" 2>&1 | tail -1 || echo "  WARN: tilburg-woo-ui build failed"
+    fi
+else
+    build_if_needed "${WORKSPACE_DIR}/openregister" "openregister"
+    build_if_needed "${WORKSPACE_DIR}/opencatalogi" "opencatalogi"
+    # tilburg-woo-ui builds inside its container
+    if docker ps --format '{{.Names}}' 2>/dev/null | grep -q 'openregister-tilburg-woo-ui'; then
+        echo "  tilburg-woo-ui: container running (build managed by container)"
+    else
+        echo "  tilburg-woo-ui: container not running — start with docker compose up"
+    fi
+fi
+
+# 0c. Verify Nextcloud is reachable
+if ! curl -sf -o /dev/null "${NC_URL}/status.php" 2>/dev/null; then
+    echo "  ERROR: Nextcloud not reachable at ${NC_URL}"
+    echo "  Start the environment first: docker compose -f openregister/docker-compose.yml up -d"
+    exit 1
+fi
+echo "  Nextcloud is reachable at ${NC_URL}"
+
 echo ""
 
 # ─────────────────────────────────────────────
@@ -489,6 +564,117 @@ GEMEENTE_APP_UUID=$(create_object "voorzieningen" "module" "{
 echo "  Test objects created."
 
 # ─────────────────────────────────────────────
+# Step 7b: Verify samenwerking org is functional
+# Checks that Linda's org can access API endpoints without 404/500.
+# ─────────────────────────────────────────────
+echo ""
+echo "--- Step 7b: Verifying samenwerking org ---"
+
+SAMENWERKING_AUTH="linda.bakker@test.nl:${PASSWORD}"
+
+# Check: Linda can list applicaties (should not 404/500)
+SAMENWERKING_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+    -u "${SAMENWERKING_AUTH}" \
+    "${BASE_URL}/objects/voorzieningen/module?_limit=1" 2>/dev/null)
+
+if [ "$SAMENWERKING_STATUS" = "200" ]; then
+    echo "  PASS: Linda can list applicaties (HTTP ${SAMENWERKING_STATUS})"
+else
+    echo "  WARN: Linda's applicatie list returned HTTP ${SAMENWERKING_STATUS}"
+fi
+
+# Check: Linda can list diensten
+DIENST_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+    -u "${SAMENWERKING_AUTH}" \
+    "${BASE_URL}/objects/voorzieningen/dienst?_limit=1" 2>/dev/null)
+
+if [ "$DIENST_STATUS" = "200" ]; then
+    echo "  PASS: Linda can list diensten (HTTP ${DIENST_STATUS})"
+else
+    echo "  WARN: Linda's diensten list returned HTTP ${DIENST_STATUS}"
+fi
+
+# Check: Linda can access her org data
+ORG_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+    -u "${SAMENWERKING_AUTH}" \
+    "${BASE_URL}/organisations" 2>/dev/null)
+
+if [ "$ORG_STATUS" = "200" ]; then
+    echo "  PASS: Linda can list organisations (HTTP ${ORG_STATUS})"
+else
+    echo "  WARN: Linda's org list returned HTTP ${ORG_STATUS}"
+fi
+
+# Check: Linda can access the search/publications endpoint (frontend search)
+SEARCH_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+    -u "${SAMENWERKING_AUTH}" \
+    "${NC_URL}/index.php/apps/opencatalogi/api/publications?_limit=1" 2>/dev/null)
+
+if [ "$SEARCH_STATUS" = "200" ]; then
+    echo "  PASS: Linda can access publications search (HTTP ${SEARCH_STATUS})"
+else
+    echo "  WARN: Linda's publications search returned HTTP ${SEARCH_STATUS}"
+fi
+
+# ─────────────────────────────────────────────
+# Step 7c: Clean up duplicate test data
+# Removes objects created by test users in previous runs,
+# keeping only the most recently created ones.
+# ─────────────────────────────────────────────
+if [ "${CLEANUP_DUPLICATES:-0}" = "1" ]; then
+    echo ""
+    echo "--- Step 7c: Cleaning up duplicate test objects ---"
+
+    cleanup_duplicates() {
+        local auth="$1"
+        local register="$2"
+        local schema="$3"
+        local search_name="$4"
+        local label="$5"
+
+        # Get all matching objects
+        local results=$(curl -s -u "${auth}" \
+            "${BASE_URL}/objects/${register}/${schema}?_search=$(echo "$search_name" | sed 's/ /+/g')&_limit=50" 2>/dev/null)
+
+        local count=$(echo "$results" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+matches = [r for r in d.get('results', []) if r.get('naam', '') == '${search_name}']
+print(len(matches))
+" 2>/dev/null)
+
+        if [ "$count" -gt 1 ] 2>/dev/null; then
+            echo "  Found ${count} duplicates of '${label}' — removing extras..."
+            # Get all IDs except the first (newest)
+            local to_delete=$(echo "$results" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+matches = [r for r in d.get('results', []) if r.get('naam', '') == '${search_name}']
+# Skip the first (keep it), delete the rest
+for r in matches[1:]:
+    print(r.get('@self', {}).get('id', ''))
+" 2>/dev/null)
+
+            while IFS= read -r obj_id; do
+                if [ -n "$obj_id" ]; then
+                    curl -s -X DELETE "${BASE_URL}/objects/${register}/${schema}/${obj_id}" \
+                        -u "${ADMIN_AUTH}" > /dev/null 2>&1
+                    echo "    Deleted ${obj_id}"
+                fi
+            done <<< "$to_delete"
+        else
+            echo "  ${label}: no duplicates (${count} found)"
+        fi
+    }
+
+    cleanup_duplicates "${ADMIN_AUTH}" "voorzieningen" "module" "Test Applicatie Leverancier" "Lever app"
+    cleanup_duplicates "${ADMIN_AUTH}" "voorzieningen" "module" "Test Applicatie Leverancier 2" "Lever2 app"
+    cleanup_duplicates "${ADMIN_AUTH}" "voorzieningen" "module" "Test Applicatie Gemeente" "Gemeente app"
+    cleanup_duplicates "${ADMIN_AUTH}" "voorzieningen" "dienst" "Test Dienst Leverancier" "Lever dienst"
+    echo "  Cleanup done."
+fi
+
+# ─────────────────────────────────────────────
 # Step 8: Verify RBAC organisation scoping
 # Compares object counts between roles to verify scoping works.
 # aanbod-beheerder (Jan) should see FEWER objects than admin.
@@ -573,5 +759,9 @@ echo "  - Test Dienst Leverancier (${LEVER_DIENST_UUID:-failed})"
 echo "  - Test Applicatie Gemeente (${GEMEENTE_APP_UUID:-failed})"
 echo ""
 echo "Password for all accounts: ${PASSWORD}"
+echo ""
+echo "Options:"
+echo "  FORCE_BUILD=1 bash test-setup.sh       # Rebuild all frontend apps"
+echo "  CLEANUP_DUPLICATES=1 bash test-setup.sh # Remove duplicate test objects"
 echo ""
 echo "Ready to run: /test-softwarecatalog"

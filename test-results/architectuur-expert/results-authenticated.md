@@ -1,228 +1,236 @@
-# Test Results: Architectuur Expert (Authenticated)
+# Test Results: Architectuur Expert (Dr. Sarah de Vries) -- Re-test
 
-**Persona:** Dr. Sarah de Vries -- Senior Enterprise Architect at VNG
-**Date:** 2026-02-24
+**Test Date:** 2026-02-26 (re-test of 2026-02-25 results)
+**Persona:** Dr. Sarah de Vries (sarah.devries@test.nl)
+**Role:** VNG-raadpleger + Architecture Focus
+**Organisation:** Default Organisation
 **Environment:** Frontend http://localhost:3000 / Backend http://localhost:8080
-**Credentials:** sarah.devries@test.nl / WelcomeToTest2026
-**Browser:** Playwright Chromium (headless, browser-1)
-**Groups:** vng-raadpleger, gebruik-beheerder, software-catalog-users
+**Browser:** Chromium (Playwright headless, 1440x900)
 
 ---
 
-## Login and Session
+## Summary
 
-- **Login Status:** PASS -- Already logged in from prior session. Dashboard loaded showing "Dr. Sarah de Vries (Default Organisation)".
-- **Organisation Context:** Default Organisation (expected for VNG role)
-- **Dashboard Access:** PASS -- Beheer dashboard with sidebar navigation (Dashboard, Mijn Account, Mijn Organisatie, Diensten, Contactpersonen, Applicaties, Gebruik, Koppelingen, View)
-
-**Screenshot:** `01-dashboard-logged-in.png`
+| Issue | Title | Previous Status | Current Status | Change |
+|-------|-------|-----------------|----------------|--------|
+| #148 | (VNGR) GEMMA-architectuur opvraagbaar met API | PARTIAL | **PARTIAL** | OAS now works for all users; views render in /beheer/view/; still no "GEMMA downloaden" button; model-id filter still ignored |
+| #160 | Performance plotten views tbv ID-77 | PARTIAL | **PARTIAL** | Views now render in frontend (major improvement); poster view loads in ~14.7s (above 11s target); smaller views have rendering issues |
+| #135 | Non-functionele eisen Referentiearchitectuur | PARTIAL | **PARTIAL** | View rendering now works; cold-cache 504 timeouts persist; no loading indicators |
 
 ---
 
 ## Issue #148: (VNGR) De GEMMA-architectuur is opvraagbaar met een API
 
 **Status: PARTIAL**
+**Test Step:** Step 12
 
 ### Acceptance Criteria Results
 
-| # | Criterion | Result | Notes |
-|---|-----------|--------|-------|
-| 1 | OAS documentation accessible at `/api/registers/4/oas` | PASS | Returns HTTP 200 with valid OpenAPI 3.1.0 spec. Title: "AMEF API", version 0.0.6, EUPL-1.2 license. Tags: Element, Model, Organization, Property Definition, Relation, View. Paths include /amef/element, /amef/model, /amef/relation, /amef/view, /amef/property-definition, /amef/organization. **Note: The acceptance criteria mentioned a 500 error but this is now resolved.** |
-| 2 | /elements endpoint returns ArchiMate elements with correct counts | PASS | Returns HTTP 200 with total: 2741 elements. Data includes identifier, type, and properties. |
-| 3 | Elements include the ArchiMate-type field | PASS | Each element has a `type` field (e.g., "Capability", "ApplicationComponent"). |
-| 4 | Empty properties are omitted from element responses | FAIL | Null properties are NOT omitted. Each element returns 88 fields, with 80 being null. This bloats response size significantly. |
-| 5 | /relations endpoint returns relations correctly | PASS | Returns HTTP 200 with total: 5790 relations. Includes source, target, and type fields. No "bad gateway" errors. |
-| 6 | Relations include the ArchiMate-type field | PASS | Each relation has a `type` field (e.g., "Flow", "Association"). |
-| 7 | /views endpoint returns view definitions with correct count | PASS | Returns HTTP 200 with total: 249 views. Views include xml data with nodes and connections. |
-| 8 | API supports model-id query parameter | PASS | Querying `/element?model-id=id-b58b6b03-a59d-472b-bd87-88ba77ded4e6` returns HTTP 200. |
-| 9 | /models endpoint returns available models | PASS | Returns HTTP 200 with total: 1 model (identifier: id-b58b6b03-a59d-472b-bd87-88ba77ded4e6). Documentation: "De GEMeentelijk Model Architectuur (GEMMA)..." |
-| 10 | ID fields documented | PARTIAL | The OAS documentation exists and includes field descriptions, but the distinction between Archi IDs, Object IDs, and Open Register IDs is not explicitly documented in the API response. Elements have both `identifier` (Archi ID like "id-...") and `objectId`/`id` (Open Register UUID). |
-| 11 | GEMMA model downloadable via "Gemma downloaden" button | FAIL | The "GEMMA downloaden" button exists in the old UI codebase (tilburg-woo-ui) on the "Mijn Omgeving" page, but the new frontend at /beheer/mijn-omgeving shows an empty table with errors (schema "mijn-omgeving" not found -- HTTP 404). The download button is not accessible in the current UI. |
-| 12 | Downloaded XML importable into Archi | PASS (API only) | The ArchiMate export endpoint (`POST /api/archimate/export`) returns HTTP 200 with valid ArchiMate 3.0 XML. The XML includes proper namespace declarations, elements with xsi:type, properties, and documentation. Cannot verify Archi import in this environment. |
-| 13 | Imported model matches original GEMMA model | CANNOT_TEST | No Archi desktop application available in test environment. |
+| # | Criterion | Status | Evidence |
+|---|-----------|--------|----------|
+| 1 | OAS documentation accessible at `/api/registers/4/oas` | **PASS** | Returns valid OpenAPI 3.1.0 JSON (~85KB). Tags: Element, Model, Organization, Property Definition, Relation, View. Works for both admin AND sarah.devries@test.nl (previously noted as returning 500 due to organisation filter bug -- now confirmed fixed). |
+| 2 | `/elements` endpoint returns ArchiMate elements with correct counts | **PASS** | Returns 2,741 elements via `/api/objects/vng-gemma/element`. Response time <1s (warm cache). |
+| 3 | Elements include the ArchiMate-type field | **PASS** | Elements have a `type` field (e.g., "Capability"). This is the ArchiMate type. Confirmed on element `id-9309d3a988c244f39a8f72d9f4e91f50` with type "Capability". |
+| 4 | Empty properties omitted from element responses | **FAIL** | Null fields are NOT omitted. A typical element returns dozens of null fields: `gemmaType: null`, `gemmaThema: null`, `afkorting: null`, `alternateName: null`, `architectuurlaag: null`, etc. The `name` field at the top level is consistently `null` (actual name only in `xml.name._value` or `@self.name`). This causes significant payload bloat. |
+| 5 | `/relations` endpoint returns relations correctly (not "bad gateway") | **PASS (with caveat)** | Returns 5,790 relations with correct data. On first cold-cache request: returned HTTP 500 after 34.9s. On subsequent (warmed) request: HTTP 200 in 0.75s. Relations include `type` ("Flow"), `source`, `target`, `identifier`. |
+| 6 | Relations include the ArchiMate-type field | **PASS** | Confirmed: `type` field present (e.g., "Flow"). |
+| 7 | `/views` endpoint returns view definitions with correct count | **PASS** | Returns 249 total views. Frontend view listing at `/beheer/view` shows 20 published views with titles and descriptions. |
+| 8 | API supports a model-id query parameter | **FAIL** | Parameter is explicitly ignored. Query `?model-id=test` returns `"ignoredFilters":["model-id"]` with 0 results. The filter mechanism does not support this parameter. |
+| 9 | `/models` endpoint returns available models | **PASS (with caveat)** | Returns 1 model (`id-b58b6b03-a59d-472b-bd87-88ba77ded4e6`). However, `name` is null (same issue as elements). On first cold-cache request: returned HTTP 500 after 109s. Subsequent requests: 0.66s. |
+| 10 | ID fields documented | **PARTIAL** | OAS documentation exists and describes schemas. However, the confusing triple-ID situation persists: `identifier` = ArchiMate ID, `objectId` = OpenRegister UUID, `@self.id` = slug. No explicit documentation explaining their differences. |
+| 11 | "Gemma downloaden" button on Mijn omgeving page | **FAIL** | No "GEMMA downloaden" button found. The `/beheer/mijn-omgeving` page shows "Geen data gevonden" with a 504 error for its related endpoint. A "Download AMEF" button exists in the Acties menu on individual view detail pages, but this exports a single view -- not the complete GEMMA model. |
+| 12 | Downloaded XML imports into Archi without errors | **CANNOT_TEST** | No full GEMMA model download available. |
+| 13 | Imported model matches original | **CANNOT_TEST** | Depends on criterion 12. |
 
-### Additional Findings
+### API Endpoint Summary (Register 4 / vng-gemma)
 
-- **Property Definitions endpoint** works: 74 property definitions returned via `/objects/vng-gemma/property-definition`.
-- **Voorzieningen register OAS** also accessible at `/api/registers/2/oas` (Title: "Publication API", version 0.1.0).
-- The ArchiMate export XML starts with proper headers: `<model xmlns="http://www.opengroup.org/xsd/archimate/3.0/">`
-- The GEMMA model name in the export is "GEMMA" with documentation in Dutch.
+| Schema | Name | Slug | Count | Cold-Cache | Warm | Status |
+|--------|------|------|-------|------------|------|--------|
+| 20 | Element | element | 2,741 | <1s | <1s | Working |
+| 21 | View | view | 249 | Timeout | <1s | Intermittent |
+| 22 | Model | model | 1 | 109s/500 | 0.66s | Intermittent |
+| 23 | Property Definition | property-definition | 74 | Timeout | 0.48s | Intermittent |
+| 24 | Relation | relation | 5,790 | 34.9s/500 | 0.75s | Intermittent |
 
-### Summary for #148
+### Key Improvement Since Previous Test (2026-02-25)
+- OAS endpoint now works for non-admin users (sarah.devries@test.nl) -- the organisation filter bug is fixed.
+- View listing page at `/beheer/view` now renders properly with card-based UI, search, and descriptions.
 
-**9 of 13 criteria pass.** The main issues are:
-1. Empty/null properties are not omitted from API responses (criterion 4)
-2. The "GEMMA downloaden" button is not functional in the current UI (criterion 11)
-3. Archi import cannot be verified in this environment (criterion 13)
+### Persistent Issues
+- `name` field null across all endpoints (names only in `xml.name._value` or `@self.name`)
+- `model-id` filter is explicitly ignored by the API
+- Cold-cache timeouts on relation and model endpoints (HTTP 500)
+- No "GEMMA downloaden" button for full model export
 
 ---
 
 ## Issue #160: (VNGR) Performance plotten views tbv ID-77
 
-**Status: PASS**
+**Status: PARTIAL**
+**Test Step:** Step 22
+
+### Major Improvement Since Previous Test
+In the previous test (2026-02-25), view rendering was "completely non-functional" -- views showed as "Geen titel" in search with broken links to `/publicatie/undefined`. The authenticated `/beheer/view/` route now renders views correctly, representing a major improvement.
 
 ### Acceptance Criteria Results
 
-| # | Criterion | Result | Notes |
-|---|-----------|--------|-------|
-| 1 | Largest ArchiMate view (388 nodes) loads within 11 seconds | PASS | "Poster basisbeveiligingsniveau van referentiecomponenten" (388 nodes) rendered in **682.7ms total** (0.68s). Breakdown: Graph+Paper init 9.3ms, Base data prep 1.3ms, ViewRenderer.renderToGraph 243.6ms, paper.unfreeze (DOM flush) 377.9ms, Color+viewBox apply 51.5ms. This is approximately **16x faster** than the 11-second benchmark. |
-| 2 | Each loading phase completes in ~3 seconds average | PASS (exceeded) | All phases complete in under 400ms each. The longest phase (paper.unfreeze/DOM flush) took only 377.9ms. |
-| 3 | Smaller views load in under 7 seconds | PASS | "Bedrijfsfuncties openbare orde en veiligheid" (96 nodes) rendered in **162.8ms** on first load and **329.9ms** on subsequent load. |
-| 4 | Views become interactive after rendering | PASS | Views show filter checkboxes (Gebruik, Applicaties, Deelnames), an "Acties" button, and rendered SVG content with labeled nodes. Accessibility snapshot confirms all elements are present and interactive. |
-| 5 | Backend API for single view returns within ~0.5s | PARTIAL | Backend API for the largest view returned in **0.639s** (slightly over 0.5s target but acceptable). The 0.5s target is approximate ("~0.5 seconds"). |
-| 6 | Large views display loading indicator | CANNOT_TEST | Views load too fast (under 1 second) to observe a loading indicator. This is a good problem. |
-| 7 | Acceptable performance on Chrome/Edge/Firefox | PARTIAL | Only tested on Chromium (Playwright). Cannot test Edge/Firefox in this environment. |
-| 8 | Benchmark view is "Poster basisbeveiligingsniveau" (388 nodes) | PASS | Confirmed. The view at `/beheer/view/id-50685fee30484963a4050ea10e6d5e25` is titled "Poster basisbeveiligingsniveau van referentiecomponenten" with 388 nodes. |
-| 9 | Warning/loading indicator for large views | CANNOT_TEST | Views load too fast to observe loading state. |
+| # | Criterion | Status | Evidence |
+|---|-----------|--------|----------|
+| 1 | Largest view (388 nodes) loads within 11 seconds | **FAIL** | "Poster basisbeveiligingsniveau van referentiecomponenten" loaded in approximately 14.7 seconds (click to full DOM render), exceeding the 11s target by 3.7s. Measured from navigation start to full content appearance. |
+| 2 | Each loading phase ~3 seconds average | **CANNOT_VERIFY** | No distinct loading phases are visible. The view shows a generic "GEMMA weergaven beheer" placeholder while loading, then renders all content at once. No phase indicators. |
+| 3 | Smaller views load in under 7 seconds | **FAIL** | Smaller views (e.g., "Bedrijfsfuncties bestuur", "Bedrijfsfuncties openbare orde en veiligheid") did NOT render their diagram content on direct navigation. They showed only the generic "GEMMA weergaven beheer" heading without any view diagram. Only the poster view reliably rendered its full diagram. This is a rendering bug, not a performance issue. |
+| 4 | Views become interactive after rendering | **PASS** | Once rendered, the poster view provides interactive elements: filter checkboxes (Gebruik, Applicaties, Deelnames) with tooltip descriptions, an Acties button (Download SVG, Download AMEF), breadcrumb navigation, and the view diagram displays all GEMMA referentiecomponenten with BBN levels. |
+| 5 | Backend API for single view returns within ~0.5s | **PASS** | Backend API for the poster view (largest, ~1MB response) measured at 0.533 seconds. Meets the ~0.5s target. |
+| 6 | Large views display loading indicator | **FAIL** | No explicit loading indicator (spinner, progress bar, or "Loading..." message) was observed. The page shows a generic "GEMMA weergaven beheer / Beheer en bekijk GEMMA weergaven" placeholder which is not clearly a loading state -- it looks like the page itself, not a loading transition. |
+| 7 | Acceptable on Chrome/Edge/Firefox without ad-blockers | **CANNOT_TEST** | Only tested on Playwright Chromium headless. Not tested on Edge or Firefox. |
+| 8 | Benchmark view is "Poster basisbeveiligingsniveau" (388 nodes) | **PASS** | Present in system at `/beheer/view/id-50685fee30484963a4050ea10e6d5e25`. Renders with full BBN poster content including: Besturende bedrijfsfuncties, Primaire bedrijfsfuncties, Generieke applicatieservices, Klant- en keteninteractie, Infrastructurele applicatieservices, Privacy en informatiebeveiliging, and legend. |
+| 9 | Warning/loading indicator for large views | **FAIL** | No warning or loading indicator shown. The initial "GEMMA weergaven beheer" placeholder is not a loading indicator -- it is the generic page header for the view management section. |
 
 ### Performance Measurements
 
-| View | Nodes | Total Render Time | Backend API Time |
-|------|-------|-------------------|------------------|
-| Poster basisbeveiligingsniveau | 388 | 682.7ms | 638.9ms |
-| Bedrijfsfuncties openbare orde en veiligheid | 96 | 162.8ms -- 329.9ms | N/A |
+| Metric | Value | Target | Status |
+|--------|-------|--------|--------|
+| Poster view total load (client, first render) | ~14.7s | <11s | **FAIL** |
+| Backend API single view (poster, ~1MB) | 0.533s | ~0.5s | **PASS** |
+| View listing page load (with 20 view cards) | <3s | N/A | OK |
+| View listing API calls | All <1s | N/A | OK |
 
-### Summary for #160
+### View Rendering Bug
+Smaller views fail to render their diagram content when navigated to directly. Tested views that did NOT render:
+- `/beheer/view/id-b6b39994-05ca-4a34-be74-26e363243305` (Bedrijfsfuncties openbare orde en veiligheid)
+- `/beheer/view/id-f8e6b28c-c959-452f-9d24-c772f008c205` (Bedrijfsfuncties bestuur)
 
-**Performance is excellent.** The largest view (388 nodes) renders in under 1 second, which is over 16 times faster than the 11-second benchmark. Smaller views render in under 350ms. The performance logging (`[ViewPerf]` console entries) provides detailed phase-by-phase timing.
+Both showed only "GEMMA weergaven beheer / Beheer en bekijk GEMMA weergaven" with no diagram. The poster view (`id-50685fee30484963a4050ea10e6d5e25`) rendered correctly with full diagram content.
 
-**Screenshots:**
-- `04-poster-bbn-view.png` -- Poster BBN view page header
-- `05-poster-bbn-view-rendered.png` -- Rendered view with architectural diagram
-- `06-smaller-view-rendered.png` -- Smaller view rendered
+### Network Performance (View Pages)
+All API calls on the `/beheer/view` page returned HTTP 200 with no failures:
+- `/api/objects/vng-gemma/view?publiceren=...&_unset=xml&_limit=100` -- OK
+- `/api/objects/voorzieningen/gebruik?_limit=10000&...` (3 variants) -- OK
+- `/api/objects/voorzieningen/module?_limit=10000&_fields=id,naam` -- OK
+- All schema/register lookups -- OK
+
+No SLOW (>500ms) or PERFORMANCE_FAIL (>1000ms) API calls detected on the view pages.
 
 ---
 
 ## Issue #135: (VNGR) Valideren van non-functionele eisen voor component Referentiearchitectuur
 
 **Status: PARTIAL**
+**Test Step:** Step 22
 
-This issue covers validation of non-functional requirements (PvE) for the Referentiearchitectuur component. The checklist is extensive; below are results for each testable criterion in this environment.
+**Note:** This issue has no detailed acceptance criteria in `issues.md` (only appears in the "Other" issues summary table). Assessment based on the title: "Valideren van non-functionele eisen voor component Referentiearchitectuur".
 
-### Accessibility (Toegankelijkheid)
+### Non-Functional Assessment
 
-| # | Criterion | Result | Notes |
-|---|-----------|--------|-------|
-| 102 | Error feedback -- user informed about errors | PARTIAL | Error messages exist (e.g., "Fout bij gemma downloaden", "Geen data gevonden") but error handling is inconsistent. The Mijn Omgeving page fails silently with a generic empty table rather than a meaningful error. The ArchiMate view loads a generic "GEMMA weergaven beheer" page on initial load before the specific view resolves. |
-| 89 | Digitoegankelijk compliance | PARTIAL | "Direct naar de inhoud" (skip to content) link is present. Semantic HTML structure with proper landmarks (banner, main, navigation, contentinfo). Breadcrumb navigation present. However, full WCAG audit not performed. |
+| Category | Finding | Status |
+|----------|---------|--------|
+| **Performance** | Poster view loads in ~14.7s (above 11s target). Backend API is fast (<0.6s). Frontend SVG rendering is the bottleneck. | **PARTIAL** |
+| **Reliability** | GEMMA API endpoints (relations, models) timeout on cold cache (HTTP 500). Dashboard loads trigger multiple 504 errors for GEMMA-related schemas (4/21, 4/23, 4/24, 3/10). | **FAIL** |
+| **Availability** | All endpoints accessible when cache is warmed. OAS documentation available for both admin and regular users. View listing page loads cleanly. | **PASS** |
+| **Data Integrity** | 2,741 elements, 5,790 relations, 249 views, 1 model, 74 property-definitions present. Data appears complete and consistent. | **PASS** |
+| **Usability** | View listing has search, descriptions, and card-based navigation. Individual views have filters (Gebruik, Applicaties, Deelnames) and export options (SVG, AMEF). | **PASS** |
+| **Rendering Consistency** | Smaller views fail to render diagram content. Only the poster view renders reliably. This is a significant rendering bug. | **FAIL** |
+| **Error Handling** | 504 errors on dashboard are not gracefully handled -- no user-visible error messages. "Referentiearchitectuur" backend page shows "Geen data gevonden" without explanation. Failed API calls produce no user feedback. | **FAIL** |
+| **Export Capability** | "Download SVG" and "Download AMEF" available per view via Acties menu. No bulk GEMMA model download. | **PARTIAL** |
+| **Accessibility** | Skip link present ("Direct naar de inhoud"). ARIA landmarks correct. Heading hierarchy mostly correct. `lang="nl"` set. | **PASS** |
 
-### Reliability (Betrouwbaarheid)
+### Dashboard Load Issues (Authenticated)
+When the beheer dashboard loads, several GEMMA-related API calls fail with 504 Gateway Timeout:
+```
+504 - /api/apps/softwarecatalog/api/aanbod
+504 - /api/apps/openregister/api/objects/4/23 (property-definition schema)
+504 - /api/apps/openregister/api/objects/4/24 (relation schema)
+504 - /api/apps/openregister/api/objects/4/21 (view schema)
+504 - /api/apps/openregister/api/objects/3/10 (organisatie schema)
+```
+These fail silently with no user-visible error indication.
 
-| # | Criterion | Result | Notes |
-|---|-----------|--------|-------|
-| 87 | Support organisation (2 calendar days) | CANNOT_TEST | Organizational/contractual requirement, not testable via UI. |
+---
 
-### Transferability (Overdraagbaarheid)
+## Cross-Cutting Observations
 
-| # | Criterion | Result | Notes |
-|---|-----------|--------|-------|
-| 99 | Open source with active community | PASS | Built on Nextcloud (PHP, open source, large community), React frontend, PostgreSQL. EUPL-1.2 license declared in API. |
-| 101 | OTAP environment | PARTIAL | Acceptance environment available at https://softwarecatalogus.accept.opencatalogi.nl/. Local dev environment functional. Production not verified. |
-| 100 | Cloud-ready, CI/CD, container deployment | CANNOT_TEST | Infrastructure requirement, not verifiable via UI testing. Docker-compose exists for local dev. |
+### Login Experience
+- Login as sarah.devries@test.nl succeeded without issues
+- Dashboard loaded with welcome text explaining the softwarecatalogus purpose
+- User correctly identified as "Sarah de Vries (Default Organisation)"
+- Left navigation sidebar: Dashboard, Mijn Account, Mijn Organisatie, Diensten, Contactpersonen, Applicaties, Gebruik, Koppelingen, View
 
-### Usability (Bruikbaarheid)
+### Key Improvement vs Previous Test (2026-02-25)
+| Area | Previous (2026-02-25) | Current (2026-02-26) |
+|------|----------------------|---------------------|
+| View rendering | "Completely non-functional" -- empty pages | Poster view renders fully with filters/export |
+| View listing | Not accessible | `/beheer/view` shows 20 views with cards/search |
+| OAS for non-admin | Not tested/unknown | Confirmed working for sarah.devries@test.nl |
+| View interactivity | Not testable | Filters, Acties, Download SVG/AMEF all present |
 
-| # | Criterion | Result | Notes |
-|---|-----------|--------|-------|
-| 88 | User-friendly interface with validation | PARTIAL | The interface has consistent navigation, breadcrumbs, and clear structure. However: the Mijn Omgeving page shows "Geen data gevonden" without guidance; the referentiearchitectuur public page fails to load content (API 404). Input validation not extensively tested. |
-| 89 | Digitoegankelijk compliance | PARTIAL | See Accessibility section above. |
+### Architecture Component Navigation
+- "View" in left navigation leads to AMEF Views listing with search
+- 20 published views displayed with titles and descriptions
+- Breadcrumb: Home > Beheer > View > [View name]
+- No "Referentiearchitectuur" entry in left navigation -- only "View"
 
-### Information Model (Informatiemodel)
+### GEMMA Online Links
+- Footer links to GEMMA Online (https://www.gemmaonline.nl/) and NORA Online (https://www.noraonline.nl/) present on all pages
+- External links indicated with "Opent in een nieuw tabblad" accessibility text
 
-| # | Criterion | Result | Notes |
-|---|-----------|--------|-------|
-| 93 | Based on voorzieningencatalogus information model | PASS | The API exposes schemas matching the voorzieningencatalogus: organisatie, dienst, module, moduleversie, suite, gebruik, koppeling, contactpersoon. The OAS documentation confirms the model. |
-
-### Maintainability (Onderhoudbaarheid)
-
-| # | Criterion | Result | Notes |
-|---|-----------|--------|-------|
-| 95 | Open source with EUPL license, documented, VNG git | PASS | Code is on GitHub (VNG-Realisatie). EUPL-1.2 license declared in OAS. Source code is available. |
-| 96 | Modularity -- separate business logic | PASS | Architecture separates frontend (React), backend (Nextcloud PHP apps: openregister, opencatalogi, softwarecatalog), and data layer (PostgreSQL). |
-| 98 | Future-proof technology | PASS | Uses PHP (Nextcloud), React, PostgreSQL -- all widely used technologies with large developer communities in the Netherlands. |
-| 97 | Web statistics (Matomo) | CANNOT_TEST | No Matomo integration visible or testable in this environment. |
-
-### Information Security (Informatiebeveiliging)
-
-| # | Criterion | Result | Notes |
-|---|-----------|--------|-------|
-| 90 | Activity logging | CANNOT_TEST | Audit logging backend not accessible from frontend testing. Nextcloud has built-in audit logging capabilities. |
-| 91 | nl.internet.nl score 100% | CANNOT_TEST | Only testable on production domain softwarecatalogus.nl, not localhost. |
-| 92 | Access control with RBAC and 2FA | PASS (RBAC) / CANNOT_TEST (2FA) | RBAC confirmed: Sarah has groups vng-raadpleger, gebruik-beheerder, software-catalog-users. Role-based access controls menu items and data. 2FA not tested (local environment). |
-
-### Standards (Standaarden)
-
-| # | Criterion | Result | Notes |
-|---|-----------|--------|-------|
-| 86 | NL API strategy -- OpenAPI Specification and REST-API Design Rules | PASS | OAS 3.1.0 documentation auto-generated per register. REST endpoints follow standard patterns (/api/objects/{register}/{schema}, /api/registers/{id}/oas). |
-| 94 | Email standards (DKIM, DMARC) | CANNOT_TEST | Email infrastructure not testable in local environment. |
-
-### Performance
-
-| # | Criterion | Result | Notes |
-|---|-----------|--------|-------|
-| View rendering benchmark | PASS | See Issue #160 results. The view "Poster basisbeveiligingsniveau" (388 nodes) renders in 682.7ms, well under the 11-second target. |
-
-### Summary for #135
-
-**7 criteria PASS, 7 PARTIAL, 8 CANNOT_TEST.** Many non-functional requirements are infrastructure/organizational concerns not testable via UI automation. The testable aspects (accessibility basics, API standards, modularity, technology stack, RBAC, performance) largely pass. Main gaps are in error handling consistency and full accessibility audit.
+### Recurring Console Errors
+- `Manifest: Line: 1, column: 1, Syntax error.` at `/meta/site.webmanifest` -- on every page (minor, non-blocking)
 
 ---
 
 ## Console Errors Summary
 
-| Page | Errors | Details |
-|------|--------|---------|
-| /beheer (Dashboard) | 2 | Manifest syntax error (site.webmanifest) x2 -- benign |
-| /beheer/view (Views list) | 2 | Manifest syntax error x2 -- benign |
-| /beheer/view/id-50685fee... (Poster BBN) | 2 | Manifest syntax error x2 -- benign |
-| /beheer/view/id-b6b39994... (Bedrijfsfuncties) | 2 | Manifest syntax error x2 -- benign |
-| /referentiearchitectuur | 5 | Manifest error, Failed to load resource (pages/referentiearchitectuur 404), Page fetch error, navigator.vibrate blocked |
-| /beheer/mijn-omgeving | 6 | Manifest error x2, Failed to load schema mijn-omgeving/related (404), Error fetching related schemas, Schema error, Failed to prepare related actions |
-| /beheer/my-organisation | 2 | Manifest syntax error x2 -- benign |
-
-**Recurring benign errors:**
-- `Manifest: Line: 1, column: 1, Syntax error` at `/meta/site.webmanifest` -- present on every page, indicates malformed web app manifest.
-
-**Notable errors:**
-- `/referentiearchitectuur` page: API returns 404 for CMS page content, causing the page to render mostly empty
-- `/beheer/mijn-omgeving`: Schema "mijn-omgeving" not found (404), page renders with empty table
+| Page | Errors | Notes |
+|------|--------|-------|
+| Login (/login) | 2 | Manifest syntax errors (benign) |
+| Beheer dashboard (/beheer) | 7 | Manifest (2) + 504 timeouts (5): aanbod, schemas 4/23, 4/24, 4/21, 3/10 |
+| Referentiearchitectuur (/beheer/referentiearchitectuur) | 3 | Manifest (2) + 504 on related endpoint |
+| Mijn Omgeving (/beheer/mijn-omgeving) | 3 | Manifest (2) + 504 on related endpoint |
+| View listing (/beheer/view) | 2 | Manifest errors only (clean load) |
+| View detail (poster) | 2 | Manifest errors only (clean load) |
+| Search (/zoeken) | 2 | Manifest errors only |
 
 ---
 
-## Performance Summary
+## Evidence
 
-| API Endpoint | Response Time | Status |
-|-------------|--------------|--------|
-| GET /api/registers/4/oas (GEMMA OAS) | ~0.5s | OK |
-| GET /api/registers/2/oas (Voorzieningen OAS) | ~0.5s | OK |
-| GET /api/objects/vng-gemma/element?_limit=1 | <1s | OK |
-| GET /api/objects/vng-gemma/relation?_limit=3 | <1s | OK |
-| GET /api/objects/vng-gemma/view/id-50685fee... | 0.639s | OK |
-| POST /api/archimate/export | <2s | OK |
-| All page navigations | <5s | OK |
-
-No requests flagged as SLOW (>500ms) or PERFORMANCE_FAIL (>1000ms) during frontend browsing. Backend API calls for individual resources consistently return under 1 second.
-
----
-
-## Overall Summary
-
-| Issue | Title | Status | Key Finding |
-|-------|-------|--------|-------------|
-| #148 | GEMMA-architectuur opvraagbaar met API | **PARTIAL** | API endpoints work well (elements, relations, views, models, property definitions all return HTTP 200). OAS documentation is accessible. Main gaps: null properties not omitted, "GEMMA downloaden" button not functional in current UI. |
-| #160 | Performance plotten views | **PASS** | Excellent performance. Largest view (388 nodes) renders in 682.7ms, 16x faster than 11-second benchmark. Smaller views render in 163-330ms. |
-| #135 | Non-functionele eisen Referentiearchitectuur | **PARTIAL** | Testable non-functional requirements largely pass (API standards, open source, RBAC, performance, modularity). Many requirements are infrastructure/organizational and cannot be tested via UI automation. Error handling consistency needs improvement. |
-
----
-
-## Screenshots Index
-
+### Screenshots
 | File | Description |
 |------|-------------|
-| `01-dashboard-logged-in.png` | Beheer dashboard as Dr. Sarah de Vries |
-| `02-views-list.png` | AMEF Views list page |
-| `04-poster-bbn-view.png` | Poster basisbeveiligingsniveau view -- page header |
-| `05-poster-bbn-view-rendered.png` | Rendered view with architectural diagram |
-| `06-smaller-view-rendered.png` | Bedrijfsfuncties openbare orde en veiligheid -- rendered |
-| `07-mijn-omgeving-empty.png` | Mijn Omgeving page -- empty table with errors |
+| `poster-view-rendered.png` | Poster basisbeveiligingsniveau view fully rendered with filters and Acties button |
+| `view-listing-page.png` | AMEF Views listing page with search and view cards |
+
+### API Test Summary
+
+| Endpoint | Auth | HTTP | Time (warm) | Records |
+|----------|------|------|-------------|---------|
+| `/api/registers/4/oas` | admin | 200 | <1s | OAS 3.1.0 spec |
+| `/api/registers/4/oas` | sarah | 200 | <1s | OAS 3.1.0 spec |
+| `/api/objects/vng-gemma/element` | sarah | 200 | <1s | 2,741 total |
+| `/api/objects/vng-gemma/relation` | sarah | 200* | 0.75s | 5,790 total |
+| `/api/objects/vng-gemma/view` | sarah | 200 | <1s | 249 total |
+| `/api/objects/vng-gemma/model` | sarah | 200* | 0.66s | 1 total |
+| `/api/objects/vng-gemma/property-definition` | sarah | 200 | 0.48s | 74 total |
+| `/api/objects/vng-gemma/view/{id}` (poster) | sarah | 200 | 0.53s | ~1MB response |
+
+\* First cold-cache request returned HTTP 500 (timeout); subsequent requests succeed.
+
+---
+
+## Critical Findings (Priority Order)
+
+1. **Smaller views fail to render** (#160) -- Only the poster view renders its diagram. Other views (Bedrijfsfuncties bestuur, openbare orde en veiligheid) show only the generic page header with no diagram content. This blocks most view-related testing.
+
+2. **Cold-cache API timeouts** (#148, #135) -- Relations and models endpoints return HTTP 500 on first request. Dashboard loads trigger multiple 504 errors for GEMMA schemas. No graceful error handling.
+
+3. **Poster view exceeds performance target** (#160) -- 14.7s vs 11s target (33% over). Backend API is within target (0.53s); the bottleneck is frontend rendering of the large SVG/DOM.
+
+4. **Null `name` fields across all GEMMA API endpoints** (#148) -- Element, view, model, and property-definition objects all have `name: null`. Actual names are only in `xml.name._value` or `@self.name`.
+
+5. **No loading indicator for views** (#160) -- Users see a generic page header during the 14+ second load time with no indication that content is loading.
+
+6. **`model-id` filter ignored** (#148) -- API explicitly ignores this filter parameter, returning `"ignoredFilters":["model-id"]`.
+
+7. **No "GEMMA downloaden" button** (#148) -- Full model download not available from the UI. Only per-view AMEF export exists.
+
+8. **Empty properties not omitted from API** (#148) -- Dozens of null fields returned per object, causing significant payload bloat.

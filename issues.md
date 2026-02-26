@@ -89,6 +89,29 @@ The authoritative PowerPoint source document is attached to issue #329.
 
 ---
 
+### #57: Pakketten opvoeren voor samenwerkingsverband
+
+**Labels:** Gebruik, PvE eis
+**Test Step:** Step 20
+
+**Summary:** As a gebruik-beheerder of a samenwerkingsverband (collaboration), the user should be able to register software packages on behalf of member municipalities. The dashboard crashed with `TypeError: Cannot read properties of undefined (reading 'includes')` when accessing `user.userGroups` without optional chaining.
+
+**Acceptance Criteria:**
+- [x] Samenwerking user can log in and see the dashboard without crash
+- [x] Dashboard shows organization name ("Test Samenwerking")
+- [x] No `TypeError: Cannot read properties of undefined` in console
+- [x] Welcome section renders correctly for gebruik-beheerder role
+- [ ] Wizards are available for samenwerking organizations (requires org type configuration)
+- [ ] Samenwerking user can register packages on behalf of member municipalities (feature not yet implemented)
+
+**Fix (2026-02-26):**
+- Added optional chaining (`?.`) to all `user.userGroups` and `user.isAuthenticated` accesses across 6 files
+- Root cause: 8 locations accessed `user.userGroups` without null-checking the `user` object, causing crash during store hydration or org switching
+- Files fixed: `ac-dashboard.js`, `ac-navigation.js`, `ac-header.js`, `con-dynamic-sidenav.js`, `field-authorization.js`, `ac-beheer.js`
+- Dashboard crash is fixed; remaining items (wizards for samenwerking, member management) are feature gaps, not bugs
+
+---
+
 ### #65: Als aanbod- en gebruik-beheerder van een organisatie wil ik mijn collega's toegang kunnen geven tot de softwarecatalogus
 
 **Labels:** Aanbod, Gebruik, PvE eis, Bevinding
@@ -662,6 +685,13 @@ The authoritative PowerPoint source document is attached to issue #329.
 
 **Key Context from Comments:** Two test cases: creating connections and importing connections. Both must be verified.
 
+**VNG Manual Test (2026-02-25) — FAIL:** "In de wizard krijgt een koppeling nu geen default naam." VNG proposes: koppeling should always get a default name automatically and the name field should not be user-editable. Current UI looks "dubbelop" (redundant).
+
+**Additional Acceptance Criteria (from VNG feedback):**
+- [ ] In the wizard, a koppeling automatically receives a default name (format: "[App A] → [App B]")
+- [ ] The name field is NOT editable by the user — always auto-generated
+- [ ] The auto-generated name updates when Application A or B selection changes
+
 ---
 
 ### #314: Wizard Koppeling publiceren vind zelf aangemaakte applicaties niet
@@ -959,6 +989,14 @@ The authoritative PowerPoint source document is attached to issue #329.
 
 **Key Context from Comments:** Dropdown works and supports searching, but UX can be improved. Planned for after "afschalen producten."
 
+**VNG Manual Test (2026-02-25) — FAIL:** "Het zoeken met de dropdown naar applicaties gaat zowel in de Diensten als bij het zoeken naar applicatieB van koppelingen onvoorspelbaar en onduidelijk." Searching for "chap" returns nothing; searching for "chap1" shows chap1; then searching "chap" again shows chap1 but not chap2prem. Conclusion: you can only find what you're looking for if you know the exact name.
+
+**Additional Acceptance Criteria (from VNG feedback):**
+- [ ] Searching for a partial name (e.g., "chap") returns ALL applications containing that string (including "chap1", "chap2prem")
+- [ ] Search is consistent: repeating the same query returns the same results
+- [ ] Search works identically in Diensten wizard and Koppeling wizard (applicatieB field)
+- [ ] Partial/substring matches are supported (not just prefix matches)
+
 ---
 
 ### #355: Diensten: Export geeft allerlei UUID's
@@ -1160,6 +1198,18 @@ The authoritative PowerPoint source document is attached to issue #329.
 
 **Key Context from Comments:** Change request related to RBAC and security. Implementation details need refinement.
 
+**VNG Manual Test (2026-02-25) — FAIL:** "Bij een leverancier is het veld rollen niet meer zichtbaar. Bij een gemeente zie je wel een veld rollen en daar gaat het mis." Specific failures for gemeente role management:
+1. New user does not receive a role
+2. Editing a user allows selecting a role, but it is NOT saved and disappears
+3. The unknown role "organisatie-beheerder" appears as an option
+
+**Additional Acceptance Criteria (from VNG feedback):**
+- [ ] For leverancier: "Rollen" field is correctly hidden (verified working)
+- [ ] For gemeente: newly created users receive a default role
+- [ ] For gemeente: editing a user's role persists correctly after save
+- [ ] For gemeente: only valid roles appear in the dropdown (no "organisatie-beheerder" unless intended)
+- [ ] Role assignment is saved to the backend and visible on page reload
+
 ---
 
 ### #367: Contactpersonen: Tussenvoegsel wordt niet getoond
@@ -1175,6 +1225,14 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] After editing to add prefix, it's immediately visible
 
 **Key Context from Comments:** Same root cause as #352.
+
+**VNG Manual Test (2026-02-25) — CLARIFICATION:** VNG confirms tussenvoegsel IS shown in a separate column, but the "Naam" column shows voornaam + achternaam WITHOUT tussenvoegsel. Request: change "Naam" column to show ONLY voornaam (not voornaam + achternaam minus tussenvoegsel).
+
+**Additional Acceptance Criteria (from VNG feedback):**
+- [ ] "Naam" column in contactpersonen overview shows ONLY voornaam
+- [ ] "Tussenvoegsel" column shows tussenvoegsel separately
+- [ ] "Achternaam" column shows achternaam separately
+- [ ] OR: "Naam" column shows full name including tussenvoegsel (voornaam + tussenvoegsel + achternaam)
 
 ---
 
@@ -1396,6 +1454,14 @@ The authoritative PowerPoint source document is attached to issue #329.
 
 **Key Context from Comments:** Screenshots confirm both control and detail pages now use same table. Related to #348.
 
+**VNG Manual Test (2026-02-25) — CLARIFICATION:** Links to #284. Only standard versions with status "in gebruik" or "in ontwikkeling" should be shown in the compliance table. Standard versions with status "einde ondersteuning" or "teruggetrokken" should be shown as "added standards" (toegevoegde standaarden), separate from the compliance overview.
+
+**Additional Acceptance Criteria (from VNG feedback):**
+- [ ] Compliance table only shows standard versions with status "in gebruik" or "in ontwikkeling"
+- [ ] Standard versions with status "einde ondersteuning" or "teruggetrokken" are displayed separately as "toegevoegde standaarden"
+- [ ] The count/total in the compliance overview only counts active standards (in gebruik + in ontwikkeling)
+- [ ] Filtering by status is consistent across management page, detail page, and wizard review
+
 ---
 
 ### #380: Applicatie: compliance aantallen komen niet overeen
@@ -1583,6 +1649,16 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] After correcting the email address of an imported contact person, activation proceeds successfully
 
 **Key Context from Comments:** Duplicate of #392. Imported users received invalid emails — must be corrected before activation.
+
+**VNG Manual Test (2026-02-25) — PARTIAL:**
+- ❌ Editing imported users with invalid email addresses fails with 400 error via frontend. The invalid characters in the email prevent updating the user record.
+- ✅ Creating a NEW user via the backend works, and that new user can log in under an imported organization.
+
+**Additional Acceptance Criteria (from VNG feedback):**
+- [ ] Imported users with invalid email addresses CAN be edited (email field allows correction)
+- [ ] After correcting invalid email, saving does not produce 400 error
+- [ ] Backend validates email format but allows transition from invalid → valid
+- [ ] Creating new users for imported organizations works via both frontend and backend
 
 ---
 
@@ -1862,14 +1938,21 @@ The authoritative PowerPoint source document is attached to issue #329.
 **Summary:** After creating a service, an unexpected "Beschrijving" tab appears containing a number instead of text.
 
 **Acceptance Criteria:**
-- [ ] Create a new dienst and navigate to detail page
-- [ ] No unexpected "Beschrijving" tab appears
-- [ ] Only expected/designed tabs are visible
-- [ ] If "Beschrijving" tab exists, it shows text NOT a number
-- [ ] Empty "uitgebreide omschrijving" doesn't cause phantom tab
-- [ ] No internal numeric values (field length, index, property count) are displayed as tab content or tab labels
+- [x] Create a new dienst and navigate to detail page
+- [x] No unexpected "Beschrijving" tab appears
+- [x] Only expected/designed tabs are visible (Applicaties, Organisaties, etc. — no Beschrijving tab)
+- [x] Empty "uitgebreide omschrijving" doesn't cause phantom tab
+- [x] No internal numeric values (field length, index, property count) are displayed as tab content or tab labels
+- [x] beschrijvingKort is displayed inline on the detail page
+- [x] beschrijvingLang (if present) is displayed inline beneath beschrijvingKort, not in a tab
 
 **Key Context from Comments:** Extended description field was empty, not filled with "13". Rendering bug displaying field length or numeric property instead of text.
+
+**Fix (2026-02-26):**
+- Removed `createBeschrijvingTab` custom tab from dienst RelatedTabs — description is now inline, not in a tab
+- Fixed `beschrijving-tab.helper.js` to not fall back to `@self.description` (which contained numeric metadata like "11", "9")
+- `beschrijvingLang` is rendered inline beneath `beschrijvingKort` using MDEditor.Markdown
+- Files: `ac-publication-dienst.js`, `beschrijving-tab.helper.js`
 
 ---
 
@@ -2689,6 +2772,112 @@ The authoritative PowerPoint source document is attached to issue #329.
 - [ ] Email can be changed before activation as a workaround
 
 **Key Context from Comments:** Priority is low since the definitive import will not have invalid emails. This is a data quality issue, not a code issue.
+
+---
+
+### #431: Aanmeldproces: tussenvoegsel niet meer aanwezig
+
+**Labels:** IGS nieuw
+**Test Step:** Step 3
+
+**Summary:** The "tussenvoegsel" (middle name prefix) field is no longer present in the registration/signup process. It was available in an earlier phase (see issue 139) and needs to be restored.
+
+**Acceptance Criteria:**
+- [ ] The registration form includes a "Tussenvoegsel" field between Voornaam and Achternaam
+- [ ] The tussenvoegsel is saved correctly when registering a new account
+- [ ] The tussenvoegsel appears in the user's profile after registration
+- [ ] Existing users with a tussenvoegsel still display it correctly
+
+**Key Context from Comments:** Screenshots show the field is completely missing from the current signup form.
+
+---
+
+### #432: Koppeling: Naamgeving van koppeling niet consistent
+
+**Labels:** Organisatie en configuratie, IGS nieuw
+**Test Step:** Step 11
+
+**Summary:** Koppeling names are displayed inconsistently across different pages. The registered name, koppelingen overview, applicatie overview column, and delete dialog all show different names for the same koppeling. Related to import issues in 433.
+
+**Acceptance Criteria:**
+- [ ] Koppeling name in the koppelingen overview table matches the registered name
+- [ ] Koppeling name in the applicatie overview "Koppelingen" column is consistent (no "undefined")
+- [ ] Koppeling name in the delete confirmation dialog matches the registered name
+- [ ] Koppeling names do not show "undefined" or empty values for imported koppelingen
+- [ ] The koppeling detail/review form shows the correct applicatie A and applicatie B
+
+**Key Context from Comments:** Likely caused by import process filling wrong fields. The applicatie overview shows "undefined" for some imported koppelingen.
+
+---
+
+### #433: Import: koppelingen lijkt niet goed te gaan
+
+**Labels:** Organisatie en configuratie, IGS nieuw
+**Test Step:** Step 11
+
+**Summary:** Imported koppelingen have fields populated incorrectly. The second application (applicatie B) shows as "Select..." in the edit form but appears in the review form. The import appears to map fields to the wrong locations.
+
+**Acceptance Criteria:**
+- [ ] Imported koppelingen have both applicatie A and applicatie B correctly populated
+- [ ] The koppeling edit form shows the correct applicatie B (not "Select...")
+- [ ] The koppeling review form matches the edit form data
+- [ ] Imported koppeling names in the overview match the import source data
+- [ ] The applicatie overview "Koppelingen" column shows correct koppeling names (not values from wrong fields)
+
+**Key Context from Comments:** Related to 432. Examples show Key2Betalen koppelingen with incorrect field mapping.
+
+---
+
+### #434: Contactpersoon: eerste account van leveranciers niet beschikbaar als contactpersoon
+
+**Labels:** IGS nieuw
+**Test Step:** Step 7
+
+**Summary:** When a new leverancier registers, their first account does not create a corresponding contactpersoon object. They cannot add themselves as a contactpersoon to an application. A second added contactpersoon IS visible and selectable.
+
+**Acceptance Criteria:**
+- [ ] When a leverancier registers their first account, a contactpersoon object is automatically created
+- [ ] The first account holder appears in beheer > contactpersonen
+- [ ] The first account holder can be selected as contactpersoon when creating/editing an applicatie
+- [ ] A second added contactpersoon is also visible and selectable (already works)
+
+**Key Context from Comments:** This is a registration flow issue — the auto-creation of a contactpersoon for the initial account does not happen.
+
+---
+
+### #435: Import applicatie: niet alle geimporteerde applicaties zichtbaar
+
+**Labels:** IGS nieuw
+**Test Step:** Step 7
+
+**Summary:** Not all imported applicaties are visible after import. Centric has 39 packages in the old catalogus and in the CSV import file, but only 32 appear in the new catalogus (both authenticated and unauthenticated). Shift2 (26) and Horlings (11) are correct.
+
+**Acceptance Criteria:**
+- [ ] The number of applicaties per leverancier matches the import CSV count
+- [ ] Centric shows 39 applicaties (currently shows 32 — 7 are missing)
+- [ ] Shift2 shows 26 applicaties (already correct)
+- [ ] Horlings & Eerbeek shows 11 applicaties (already correct)
+- [ ] No applicaties are lost during import
+- [ ] Both authenticated and unauthenticated views show the same count
+
+**Key Context from Comments:** VNG manual test marked this as FAIL. The discrepancy is specifically for Centric — 7 applicaties are missing.
+
+---
+
+### #436: Error bij het ophalen van het applicatie overzicht
+
+**Labels:** IGS nieuw
+**Test Step:** Step 7
+
+**Summary:** An error occurs when fetching the applicatie overview. Screenshot shows an error message on the beheer applicatie overview page.
+
+**Acceptance Criteria:**
+- [ ] The beheer applicatie overview loads without errors
+- [ ] All applicaties are displayed in the table
+- [ ] No error banners or messages appear on the page
+- [ ] The page works for both aanbod-beheerder and gebruik-beheerder roles
+
+**Key Context from Comments:** Screenshot shows error on the overview page. May be related to the missing applicaties issue (435) or RBAC scoping.
 
 ---
 
